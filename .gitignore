@@ -1,0 +1,15 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.gf
+*.600gf
+*.*gf
+# compiled PDFs live only under out/
+/speed-ch8-ch9-teacher.pdf
+/speed-ch8-ch9-student.pdf
+__pycache__/
