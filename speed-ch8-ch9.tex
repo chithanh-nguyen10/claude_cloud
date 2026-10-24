@@ -1,0 +1,998 @@
+% =====================================================================
+%  ThinkAlgo — Speed course
+%  Supplement booklet: Chapters 8 & 9 (Grades 4-6, English)
+%
+%  ONE source, TWO editions (toggled by \ifsolution):
+%     Teacher edition  (default)            -> full step-by-step solutions
+%     Student edition  (\def\STUDENT{})     -> solutions hidden, blank space
+%
+%  Build:
+%     pdflatex -jobname speed-ch8-ch9-teacher speed-ch8-ch9.tex
+%     pdflatex -jobname speed-ch8-ch9-student "\def\STUDENT{}\input{speed-ch8-ch9.tex}"
+%  (see build.py for the full two-pass build of both PDFs)
+% =====================================================================
+\documentclass[12pt,a4paper]{article}
+
+% ---- edition switch --------------------------------------------------
+\newif\ifsolution
+\solutiontrue
+\ifdefined\STUDENT\solutionfalse\fi
+\ifsolution \def\EDITION{Teacher edition}\else \def\EDITION{Student edition}\fi
+
+% ---- fonts & encoding ------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default,scale=1.0]{sourcesanspro}
+\usepackage{sansmathfonts}      % sans digits/symbols in math too
+\usepackage{amsmath}
+\renewcommand{\familydefault}{\sfdefault}
+
+% ---- page geometry ---------------------------------------------------
+\usepackage[a4paper,top=2.3cm,bottom=2.1cm,left=2.1cm,right=2.1cm,headsep=14pt]{geometry}
+\usepackage[protrusion=true,expansion=false]{microtype}
+
+% ---- colours ---------------------------------------------------------
+\usepackage{xcolor}
+\definecolor{Navy}{HTML}{16458C}
+\definecolor{DarkNavy}{HTML}{0E2E5E}
+\definecolor{LightNavy}{HTML}{5F83C0}
+\definecolor{Amber}{HTML}{E0A126}
+\definecolor{AmberD}{HTML}{B5801A}
+\definecolor{Ink}{HTML}{2E3338}
+\colorlet{navy}{Navy}
+\colorlet{darknavy}{DarkNavy}
+\colorlet{lightnavy}{LightNavy}
+\colorlet{amber}{Amber}
+\colorlet{amberd}{AmberD}
+\color{Ink}
+
+% ---- graphics / boxes ------------------------------------------------
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,backgrounds}
+\usepackage[most]{tcolorbox}
+\usepackage{environ}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=1.4em}
+
+% ---- running head/foot ----------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\footnotesize\textsc{\color{Navy}ThinkAlgo}\;\textcolor{LightNavy}{\textbar}\;\textcolor{Ink}{Speed}}
+\fancyhead[R]{\footnotesize\textcolor{Ink}{\leftmark}}
+\fancyfoot[L]{\footnotesize\textcolor{LightNavy}{\EDITION}}
+\fancyfoot[R]{\footnotesize\textcolor{Navy}{\thepage}}
+% thin navy rule under the header, with a small amber tick on the left
+\fancyhead[C]{}
+\renewcommand{\headrule}{%
+  \color{Navy!30}\rule[-6pt]{\headwidth}{0.5pt}%
+  \llap{\color{Amber}\rule[-6pt]{18pt}{1.4pt}}}
+
+% =====================================================================
+%  DESIGN SYSTEM — editorial boxes (light, thin, small-caps labels)
+% =====================================================================
+
+% small-caps label with a small amber tick, used as a boxed title
+\newcommand{\ticklabel}[1]{%
+  \raisebox{0.2pt}{\color{Amber}\rule{2.4pt}{8pt}}\hspace{5pt}%
+  {\scshape\color{DarkNavy}#1}}
+
+% ---- Key idea box ----------------------------------------------------
+\newtcolorbox{keyidea}[1]{%
+  enhanced, breakable,
+  colback=Navy!3, colframe=Navy!35, boxrule=0.7pt, arc=2.5pt,
+  left=11pt,right=11pt,top=11pt,bottom=10pt,
+  before skip=10pt, after skip=12pt,
+  attach boxed title to top left={xshift=10pt, yshift=-\tcboxedtitleheight/2},
+  boxed title style={colback=white, colframe=white, boxrule=0pt, left=4pt,right=4pt,top=1pt,bottom=1pt},
+  title={\ticklabel{#1}}}
+
+% ---- Example box -----------------------------------------------------
+\newtcolorbox{examplebox}[1]{%
+  enhanced, breakable,
+  colback=white, colframe=Navy!35, boxrule=0.7pt, arc=2.5pt,
+  left=11pt,right=11pt,top=12pt,bottom=10pt,
+  before skip=12pt, after skip=12pt,
+  attach boxed title to top left={xshift=10pt, yshift=-\tcboxedtitleheight/2},
+  boxed title style={colback=white, colframe=white, boxrule=0pt, left=4pt,right=4pt,top=1pt,bottom=1pt},
+  title={\ticklabel{#1}}}
+
+% ---- Solution: thin amber vertical rule + small-caps label ----------
+\newtcolorbox{solframe}{%
+  enhanced, breakable, colback=white, colframe=white, boxrule=0pt,
+  borderline west={1.7pt}{0pt}{Amber},
+  left=12pt,right=2pt,top=3pt,bottom=3pt, before skip=6pt, after skip=8pt}
+
+\newcommand{\solheader}{{\scshape\color{DarkNavy}Solution}\par\vspace{3pt}}
+% a bold navy mini-label starting a step
+\newcommand{\step}[1]{\par\vspace{3.5pt}\noindent{\bfseries\color{Navy}#1}\hspace{0.4em}\ignorespaces}
+
+% ---- Answer strip ----------------------------------------------------
+\newtcolorbox{answerstrip}{%
+  enhanced, colback=LightNavy!14, colframe=white, boxrule=0pt, arc=0pt, sharp corners,
+  borderline west={1.8pt}{0pt}{DarkNavy},
+  left=9pt,right=8pt,top=4pt,bottom=4pt, before skip=7pt, after skip=3pt}
+\newcommand{\answer}[1]{\begin{answerstrip}{\bfseries\color{DarkNavy}Answer:}\; #1\end{answerstrip}}
+
+% ---- Teacher solution / student working space -----------------------
+\NewEnviron{solution}{%
+  \ifsolution
+     \begin{solframe}\solheader\BODY\end{solframe}
+  \else
+     \workspace
+  \fi}
+
+% faint ruled working space (student edition)
+\newcommand{\workspace}[1][4]{%
+  \par\vspace{4pt}%
+  {\color{LightNavy}\footnotesize\itshape Working space}\par\vspace{2pt}%
+  \foreach \l in {1,...,#1}{\noindent\color{Navy!22}\rule{\linewidth}{0.4pt}\par\vspace{9pt}}%
+  \vspace{2pt}}
+
+% =====================================================================
+%  PROBLEM badge + statement
+% =====================================================================
+\newcounter{prob}
+\newcommand{\badge}[1]{%
+  \tikz[baseline=-0.55ex]{\node[circle, fill=Navy, text=white,
+     font=\footnotesize\bfseries, inner sep=0pt, minimum size=16pt]{#1};}}
+\newcommand{\prob}[1]{%
+  \par\addvspace{11pt}\refstepcounter{prob}%
+  \noindent\makebox[0pt][l]{\badge{\theprob}}\hspace{23pt}%
+  \begin{minipage}[t]{\dimexpr\linewidth-23pt\relax}#1\end{minipage}\par\vspace{2pt}}
+
+% =====================================================================
+%  BAR-MODEL primitives (flat TikZ: navy structure, amber accents)
+% =====================================================================
+\def\UW{0.78}   % unit width  (cm)
+\def\UG{0.06}   % gap between units (cm, ~0.5-0.6mm)
+\def\UH{0.70}   % unit height (cm)
+
+% \bunit{index(1-based)}{fill}{center label}
+\newcommand{\bunit}[3]{%
+  \pgfmathsetmacro{\xl}{(#1-1)*(\UW+\UG)}%
+  \pgfmathsetmacro{\xr}{\xl+\UW}%
+  \draw[Navy!60, line width=0.5pt, fill=#2, rounded corners=1.1pt]
+      (\xl,0) rectangle (\xr,\UH);
+  \node[font=\tiny, color=DarkNavy] at ({(\xl+\xr)/2},{\UH/2}) {#3};}
+
+% amber double-headed dimension arrow spanning units a..b, at height y, with navy label
+% \bdim{a}{b}{y}{label}
+\newcommand{\bdim}[4]{%
+  \pgfmathsetmacro{\xa}{(#1-1)*(\UW+\UG)}%
+  \pgfmathsetmacro{\xb}{(#2-1)*(\UW+\UG)+\UW}%
+  \draw[Amber, line width=0.9pt, {Stealth[length=4.5pt]}-{Stealth[length=4.5pt]}]
+      (\xa,#3) -- (\xb,#3);
+  \node[font=\scriptsize, text=DarkNavy, fill=white, inner sep=1.5pt]
+      at ({(\xa+\xb)/2},#3) {#4};}
+
+% light-fill and known(darker) shorthands
+\colorlet{barlight}{Navy!7}
+\colorlet{barknown}{Navy!24}
+
+% centre a bar-model figure with a little breathing room
+\newenvironment{barfig}{\par\vspace{5pt}\begin{center}\begin{tikzpicture}}
+  {\end{tikzpicture}\end{center}\vspace{2pt}}
+
+% =====================================================================
+%  Section (chapter) heading
+% =====================================================================
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries\color{DarkNavy}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{2pt}{6pt}
+\newcommand{\chapterhead}[2]{%
+  \section*{#1}\markboth{#1}{#1}%
+  \vspace{-4pt}\noindent{\large\color{Navy}#2}\par
+  \vspace{2pt}\noindent{\color{Amber}\rule{60pt}{2pt}}%
+  {\color{Navy!30}\rule{\dimexpr\linewidth-60pt\relax}{0.6pt}}\par\vspace{10pt}\color{Ink}}
+
+% handy inline bits
+\newcommand{\kmh}{\,km/h}
+\newcommand{\x}{\,$\times$\,}
+\newcommand{\dv}{\,$\div$\,}
+
+\begin{document}
+\frenchspacing
+
+% =====================================================================
+%  TITLE PAGE
+% =====================================================================
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  \fill[Navy] (current page.north west) rectangle ([yshift=-3.2cm]current page.north east);
+  \fill[Amber] ([yshift=-3.2cm]current page.north west) rectangle ([yshift=-3.33cm]current page.north east);
+\end{tikzpicture}
+\vspace{0.3cm}
+\noindent{\color{white}}
+\vspace{1.4cm}
+
+\begin{flushleft}
+{\color{DarkNavy}\Huge\bfseries Speed}\\[2pt]
+{\color{Navy}\LARGE Chapters 8 \& 9 — Supplement}\\[14pt]
+{\color{Ink}\large A units-method companion for upper-primary problem solving}\\[6pt]
+{\color{LightNavy}\normalsize Grades 4--6 \;\textbar\; English \;\textbar\; ThinkAlgo editorial series}
+\end{flushleft}
+
+\vspace{1.0cm}
+\begin{tcolorbox}[enhanced, colback=Navy!3, colframe=Navy!35, boxrule=0.7pt, arc=3pt,
+   left=14pt,right=14pt,top=12pt,bottom=12pt]
+{\scshape\color{DarkNavy}What is inside}\par\vspace{5pt}
+\begin{itemize}[leftmargin=1.3em]
+  \item[\textcolor{Amber}{\textbullet}] \textbf{Chapter 8 — Fractions of a journey (the units method).} Draw a journey as equal units, find one unit, then scale up. Theory, 2 worked examples and 20 practice problems, each with a bar model.
+  \item[\textcolor{Amber}{\textbullet}] \textbf{Chapter 9 — Journeys with a change of speed.} There-and-back trips, partial legs, differences in average speed, and speed changes mid-journey. Theory, 2 worked examples and 20 practice problems.
+\end{itemize}
+\end{tcolorbox}
+
+\vfill
+\noindent{\color{Navy!30}\rule{\linewidth}{0.6pt}}\par\vspace{4pt}
+\noindent{\footnotesize\color{Ink}This booklet is produced in a single source with two editions.}\par
+\noindent{\footnotesize\color{Navy}\textbf{\EDITION.}
+\ifsolution Full step-by-step solutions are shown.\else Solutions are hidden; blank working space is provided.\fi}
+\clearpage
+
+% =====================================================================
+%  CHAPTER 8
+% =====================================================================
+\setcounter{prob}{0}
+\chapterhead{Chapter 8}{Fractions of a journey — the units method}
+
+\noindent Many journey problems become easy once you picture the whole trip as a row of
+\emph{equal units}. If you know how far (or how long) \emph{one} unit is, you can find
+the \emph{whole} just by scaling up. That single idea powers this entire chapter.
+
+\begin{keyidea}{Key idea — the units method}
+\textbf{Split the journey into equal units.}
+Choose units so the part you know is a whole number of them.
+\begin{enumerate}[leftmargin=1.5em]
+  \item \textbf{Draw} the journey as equal units (a bar model).
+  \item \textbf{Find 1 unit} from the part you are given
+        (for example, ``7 units $=$ 840 km, so 1 unit $=$ 120 km'').
+  \item \textbf{Scale up} to the whole: whole $=$ (number of units) $\times$ (1 unit).
+\end{enumerate}
+\vspace{4pt}
+Two useful specials:\;
+\textbf{(a)} if you travel \emph{half} the trip, the whole is $2\times$ that part;\;
+\textbf{(b)} \textbf{average speed} $=\dfrac{\text{total distance}}{\text{total time}}$
+(never just the average of the two speeds).
+\end{keyidea}
+
+% ---------- Worked example 1 -----------------------------------------
+\begin{examplebox}{Example 1 — a half journey}
+Emma cycles for \textbf{3 h 22 min} at \textbf{30 km/h} and arrives exactly \emph{halfway}
+along her route. How long is the whole route?
+
+\begin{barfig}
+  \bunit{1}{barknown}{half}
+  \bunit{2}{barlight}{half}
+  \bdim{1}{1}{\UH+0.33}{$30\times 3\tfrac{22}{60}$ h}
+  \bdim{1}{2}{-0.33}{whole $=2$ units}
+\end{barfig}
+
+\solheader
+\step{Write the time as hours.} $3\text{ h }22\text{ min}=3\tfrac{22}{60}=\dfrac{202}{60}$ h.
+\step{Find the half (one unit).} Distance $=$ speed $\times$ time
+$=30\times\dfrac{202}{60}=101$ km.
+\step{Scale up to the whole.} The whole route is $2$ units:
+$2\times101=202$ km.
+\answer{The whole route is \textbf{202 km}.}
+\end{examplebox}
+
+% ---------- Worked example 2 -----------------------------------------
+\begin{examplebox}{Example 2 — units and average speed}
+Oliver drives \textbf{$\tfrac{1}{8}$ of a journey in 1 h}. The remaining
+\textbf{840 km} takes him \textbf{4 h}. Find the length of the whole journey
+and his average speed for the trip.
+
+\begin{barfig}
+  \bunit{1}{barknown}{}
+  \foreach \i in {2,...,8}{\bunit{\i}{barlight}{}}
+  \bdim{1}{1}{\UH+0.33}{1 unit, 1 h}
+  \bdim{2}{8}{\UH+0.33}{840 km, 4 h}
+  \bdim{1}{8}{-0.33}{whole $=8$ units}
+\end{barfig}
+
+\solheader
+\step{Count the units.} The journey is $8$ units; $\tfrac18$ is $1$ unit, the
+rest is $7$ units.
+\step{Find 1 unit.} $7$ units $=840$ km, so $1$ unit $=840\div 7=120$ km.
+\step{Scale up to the whole.} Whole $=8\times120=960$ km.
+\step{Average speed.} Total time $=1+4=5$ h, so
+average $=960\div 5=192$ km/h.
+\answer{Whole journey $=\textbf{960 km}$; average speed $=\textbf{192 km/h}$.}
+\end{examplebox}
+
+\vspace{2pt}
+\noindent{\color{DarkNavy}\bfseries Practice.}
+\ifsolution Full solutions follow each problem.\else Use the bar model and the working space.\fi
+
+% =====================================================================
+%  CHAPTER 8 — PRACTICE (20)
+% =====================================================================
+
+% ----- P1 -----
+\prob{A cyclist rides for \textbf{4 h 44 min} at \textbf{15 km/h} and reaches the
+\emph{halfway} point of a trail. How long is the whole trail?}
+\begin{barfig}
+  \bunit{1}{barknown}{half}\bunit{2}{barlight}{half}
+  \bdim{1}{1}{\UH+0.33}{$15\times4\tfrac{44}{60}$ h}
+  \bdim{1}{2}{-0.33}{whole $=2$ units}
+\end{barfig}
+\begin{solution}
+\step{Time in hours.} $4\text{ h }44\text{ min}=\dfrac{284}{60}$ h.
+\step{Find the half.} $15\times\dfrac{284}{60}=71$ km.
+\step{Whole $=2$ units.} $2\times71=142$ km.
+\answer{\textbf{142 km}.}
+\end{solution}
+
+% ----- P2 -----
+\prob{A runner covers \textbf{1 h 38 min} at \textbf{30 km/h}, which is exactly
+half of a race. Find the full length of the race.}
+\begin{barfig}
+  \bunit{1}{barknown}{half}\bunit{2}{barlight}{half}
+  \bdim{1}{1}{\UH+0.33}{$30\times1\tfrac{38}{60}$ h}
+  \bdim{1}{2}{-0.33}{whole $=2$ units}
+\end{barfig}
+\begin{solution}
+\step{Time in hours.} $1\text{ h }38\text{ min}=\dfrac{98}{60}$ h.
+\step{Half.} $30\times\dfrac{98}{60}=49$ km.
+\step{Whole.} $2\times49=98$ km.
+\answer{\textbf{98 km}.}
+\end{solution}
+
+% ----- P3 -----
+\prob{A car travels for \textbf{3 h 46 min} at \textbf{30 km/h} to reach the
+midpoint of a highway. How long is the whole highway?}
+\begin{barfig}
+  \bunit{1}{barknown}{half}\bunit{2}{barlight}{half}
+  \bdim{1}{1}{\UH+0.33}{$30\times3\tfrac{46}{60}$ h}
+  \bdim{1}{2}{-0.33}{whole $=2$ units}
+\end{barfig}
+\begin{solution}
+\step{Time in hours.} $3\text{ h }46\text{ min}=\dfrac{226}{60}$ h.
+\step{Half.} $30\times\dfrac{226}{60}=113$ km.
+\step{Whole.} $2\times113=226$ km.
+\answer{\textbf{226 km}.}
+\end{solution}
+
+% ----- P4 -----
+\prob{Ben drives \textbf{2 h 20 min} at \textbf{36 km/h} and that is half of his
+whole journey. Find the whole distance.}
+\begin{barfig}
+  \bunit{1}{barknown}{half}\bunit{2}{barlight}{half}
+  \bdim{1}{1}{\UH+0.33}{$36\times2\tfrac{20}{60}$ h}
+  \bdim{1}{2}{-0.33}{whole $=2$ units}
+\end{barfig}
+\begin{solution}
+\step{Time in hours.} $2\text{ h }20\text{ min}=\dfrac{140}{60}$ h.
+\step{Half.} $36\times\dfrac{140}{60}=84$ km.
+\step{Whole.} $2\times84=168$ km.
+\answer{\textbf{168 km}.}
+\end{solution}
+
+% ----- P5 -----
+\prob{Sophia completes \textbf{$\tfrac{4}{7}$ of a journey in 4 h}. The remaining
+\textbf{870 km} takes just \textbf{1 h} on a fast road. Find the whole journey
+and her average speed.}
+\begin{barfig}
+  \foreach \i in {1,...,4}{\bunit{\i}{barknown}{}}
+  \foreach \i in {5,6,7}{\bunit{\i}{barlight}{}}
+  \bdim{1}{4}{\UH+0.33}{4 units, 4 h}
+  \bdim{5}{7}{\UH+0.33}{870 km, 1 h}
+  \bdim{1}{7}{-0.33}{whole $=7$ units}
+\end{barfig}
+\begin{solution}
+\step{Count units.} $7$ units in all; $\tfrac47$ is $4$ units, the rest is $3$ units.
+\step{Find 1 unit.} $3$ units $=870$, so $1$ unit $=870\div3=290$ km.
+\step{Whole.} $7\times290=2030$ km.
+\step{Average speed.} Total time $=4+1=5$ h, so $2030\div5=406$ km/h.
+\answer{Whole $=\textbf{2030 km}$; average speed $=\textbf{406 km/h}$.}
+\end{solution}
+
+% ----- P6 -----
+\prob{Lucas cycles \textbf{$\tfrac{3}{7}$ of a route in 3 h}, then the last
+\textbf{880 km} take \textbf{7 h}. Find the whole route and his average speed.}
+\begin{barfig}
+  \foreach \i in {1,2,3}{\bunit{\i}{barknown}{}}
+  \foreach \i in {4,...,7}{\bunit{\i}{barlight}{}}
+  \bdim{1}{3}{\UH+0.33}{3 units, 3 h}
+  \bdim{4}{7}{\UH+0.33}{880 km, 7 h}
+  \bdim{1}{7}{-0.33}{whole $=7$ units}
+\end{barfig}
+\begin{solution}
+\step{Count units.} $7$ units; $\tfrac37$ is $3$ units, the rest is $4$ units.
+\step{Find 1 unit.} $4$ units $=880$, so $1$ unit $=220$ km.
+\step{Whole.} $7\times220=1540$ km.
+\step{Average speed.} Total time $=3+7=10$ h, so $1540\div10=154$ km/h.
+\answer{Whole $=\textbf{1540 km}$; average speed $=\textbf{154 km/h}$.}
+\end{solution}
+
+% ----- P7 -----
+\prob{Ethan drives \textbf{$\tfrac{5}{8}$ of a trip in 3 h}. The remaining
+\textbf{810 km} take \textbf{9 h}. Find the whole trip and his average speed.}
+\begin{barfig}
+  \foreach \i in {1,...,5}{\bunit{\i}{barknown}{}}
+  \foreach \i in {6,7,8}{\bunit{\i}{barlight}{}}
+  \bdim{1}{5}{\UH+0.33}{5 units, 3 h}
+  \bdim{6}{8}{\UH+0.33}{810 km, 9 h}
+  \bdim{1}{8}{-0.33}{whole $=8$ units}
+\end{barfig}
+\begin{solution}
+\step{Count units.} $8$ units; $\tfrac58$ is $5$ units, the rest is $3$ units.
+\step{Find 1 unit.} $3$ units $=810$, so $1$ unit $=270$ km.
+\step{Whole.} $8\times270=2160$ km.
+\step{Average speed.} Total time $=3+9=12$ h, so $2160\div12=180$ km/h.
+\answer{Whole $=\textbf{2160 km}$; average speed $=\textbf{180 km/h}$.}
+\end{solution}
+
+% ----- P8 -----
+\prob{Emma covers \textbf{$\tfrac{3}{8}$ of a journey in 3 h}, then the last
+\textbf{1040 km} in \textbf{5 h}. Find the whole journey and her average speed.}
+\begin{barfig}
+  \foreach \i in {1,2,3}{\bunit{\i}{barknown}{}}
+  \foreach \i in {4,...,8}{\bunit{\i}{barlight}{}}
+  \bdim{1}{3}{\UH+0.33}{3 units, 3 h}
+  \bdim{4}{8}{\UH+0.33}{1040 km, 5 h}
+  \bdim{1}{8}{-0.33}{whole $=8$ units}
+\end{barfig}
+\begin{solution}
+\step{Count units.} $8$ units; $\tfrac38$ is $3$ units, the rest is $5$ units.
+\step{Find 1 unit.} $5$ units $=1040$, so $1$ unit $=208$ km.
+\step{Whole.} $8\times208=1664$ km.
+\step{Average speed.} Total time $=3+5=8$ h, so $1664\div8=208$ km/h.
+\answer{Whole $=\textbf{1664 km}$; average speed $=\textbf{208 km/h}$.}
+\end{solution}
+
+% ----- P9 -----
+\prob{Sophia walks \textbf{$\tfrac{3}{5}$ of a path in 40 min}, then the last
+\textbf{80 km} take \textbf{$1\tfrac13$ h}. Find the whole path and her average speed.}
+\begin{barfig}
+  \foreach \i in {1,2,3}{\bunit{\i}{barknown}{}}
+  \foreach \i in {4,5}{\bunit{\i}{barlight}{}}
+  \bdim{1}{3}{\UH+0.33}{3 units, 40 min}
+  \bdim{4}{5}{\UH+0.33}{80 km, $1\tfrac13$ h}
+  \bdim{1}{5}{-0.33}{whole $=5$ units}
+\end{barfig}
+\begin{solution}
+\step{Count units.} $5$ units; $\tfrac35$ is $3$ units, the rest is $2$ units.
+\step{Find 1 unit.} $2$ units $=80$, so $1$ unit $=40$ km.
+\step{Whole.} $5\times40=200$ km.
+\step{Average speed.} Total time $=\tfrac{40}{60}+1\tfrac13=\tfrac23+\tfrac43=2$ h,
+so $200\div2=100$ km/h.
+\answer{Whole $=\textbf{200 km}$; average speed $=\textbf{100 km/h}$.}
+\end{solution}
+
+% ----- P10 -----
+\prob{Ben drives from town A to town B. The \emph{last $\tfrac35$} of the whole
+trip is \textbf{72 km}, driven at \textbf{60 km/h}. He drives the first part at
+\textbf{80 km/h}. Find the length of the first part and the total time.}
+\begin{barfig}
+  \foreach \i in {1,2}{\bunit{\i}{barlight}{}}
+  \foreach \i in {3,4,5}{\bunit{\i}{barknown}{}}
+  \bdim{1}{2}{\UH+0.33}{first part, 80 km/h}
+  \bdim{3}{5}{\UH+0.33}{72 km, 60 km/h}
+  \bdim{1}{5}{-0.33}{whole $=5$ units}
+\end{barfig}
+\begin{solution}
+\step{Find 1 unit.} The last $\tfrac35$ is $3$ units $=72$ km, so $1$ unit $=24$ km.
+\step{Whole and first part.} Whole $=5\times24=120$ km; first part $=2$ units $=48$ km.
+\step{Total time.} $48\div80+72\div60=0.6+1.2=1.8$ h.
+\answer{First part $=\textbf{48 km}$; total time $=\textbf{1.8 h}$.}
+\end{solution}
+
+% ----- P11 -----
+\prob{A train covers \textbf{$\tfrac16$ of a line in 0.6 h} at \textbf{30 km/h}.
+How long is the whole line?}
+\begin{barfig}
+  \bunit{1}{barknown}{}
+  \foreach \i in {2,...,6}{\bunit{\i}{barlight}{}}
+  \bdim{1}{1}{\UH+0.33}{1 unit}
+  \bdim{1}{6}{-0.33}{whole $=6$ units}
+  \node[font=\scriptsize,color=DarkNavy] at ({(\UW)/2},{\UH+0.72}) {0.6 h, 30 km/h};
+\end{barfig}
+\begin{solution}
+\step{Find 1 unit.} $1$ unit $=30\times0.6=18$ km.
+\step{Whole.} $6\times18=108$ km.
+\answer{\textbf{108 km}.}
+\end{solution}
+
+% ----- P12 -----
+\prob{Emma walks for \textbf{30 min} at \textbf{40 m/min}, which is
+\textbf{$\tfrac35$} of her way to school. How far is school (in metres)?}
+\begin{barfig}
+  \foreach \i in {1,2,3}{\bunit{\i}{barknown}{}}
+  \foreach \i in {4,5}{\bunit{\i}{barlight}{}}
+  \bdim{1}{3}{\UH+0.33}{3 units, 30 min $\times$ 40 m/min}
+  \bdim{1}{5}{-0.33}{whole $=5$ units}
+\end{barfig}
+\begin{solution}
+\step{Distance walked.} $40\times30=1200$ m, and that is $3$ units.
+\step{Find 1 unit.} $1200\div3=400$ m.
+\step{Whole.} $5\times400=2000$ m.
+\answer{\textbf{2000 m} (2 km).}
+\end{solution}
+
+% ----- P13 -----
+\prob{Bus~A drives for \textbf{1.2 h at 70 km/h}, covering \textbf{$\tfrac14$} of a
+route. Bus~B then drives the rest in \textbf{3 h}. Find the whole route and the
+average speed for the trip.}
+\begin{barfig}
+  \bunit{1}{barknown}{}
+  \foreach \i in {2,3,4}{\bunit{\i}{barlight}{}}
+  \bdim{1}{1}{\UH+0.33}{1 unit, 1.2 h $\times$ 70}
+  \bdim{2}{4}{\UH+0.33}{rest, 3 h}
+  \bdim{1}{4}{-0.33}{whole $=4$ units}
+\end{barfig}
+\begin{solution}
+\step{Find 1 unit.} $1$ unit $=70\times1.2=84$ km.
+\step{Whole.} $4\times84=336$ km.
+\step{Average speed.} Total time $=1.2+3=4.2$ h, so $336\div4.2=80$ km/h.
+\answer{Whole $=\textbf{336 km}$; average speed $=\textbf{80 km/h}$.}
+\end{solution}
+
+% ----- P14 -----
+\prob{A scooter rides \textbf{1 h 12 min} at \textbf{25 km/h} to reach the halfway
+point of a lane. How long is the whole lane?}
+\begin{barfig}
+  \bunit{1}{barknown}{half}\bunit{2}{barlight}{half}
+  \bdim{1}{1}{\UH+0.33}{$25\times1\tfrac{12}{60}$ h}
+  \bdim{1}{2}{-0.33}{whole $=2$ units}
+\end{barfig}
+\begin{solution}
+\step{Time in hours.} $1\text{ h }12\text{ min}=\dfrac{72}{60}=1.2$ h.
+\step{Half.} $25\times1.2=30$ km.
+\step{Whole.} $2\times30=60$ km.
+\answer{\textbf{60 km}.}
+\end{solution}
+
+% ----- P15 -----
+\prob{A hiker walks \textbf{2 h 15 min} at \textbf{24 km/h}\, (on wheels!) to reach
+the midpoint of a trail. Find the whole length.}
+\begin{barfig}
+  \bunit{1}{barknown}{half}\bunit{2}{barlight}{half}
+  \bdim{1}{1}{\UH+0.33}{$24\times2\tfrac{15}{60}$ h}
+  \bdim{1}{2}{-0.33}{whole $=2$ units}
+\end{barfig}
+\begin{solution}
+\step{Time in hours.} $2\text{ h }15\text{ min}=2.25$ h.
+\step{Half.} $24\times2.25=54$ km.
+\step{Whole.} $2\times54=108$ km.
+\answer{\textbf{108 km}.}
+\end{solution}
+
+% ----- P16 -----
+\prob{A car covers \textbf{$\tfrac14$ of a journey in 0.5 h} at \textbf{48 km/h}.
+How long is the whole journey?}
+\begin{barfig}
+  \bunit{1}{barknown}{}
+  \foreach \i in {2,3,4}{\bunit{\i}{barlight}{}}
+  \bdim{1}{1}{\UH+0.33}{1 unit, 0.5 h $\times$ 48}
+  \bdim{1}{4}{-0.33}{whole $=4$ units}
+\end{barfig}
+\begin{solution}
+\step{Find 1 unit.} $1$ unit $=48\times0.5=24$ km.
+\step{Whole.} $4\times24=96$ km.
+\answer{\textbf{96 km}.}
+\end{solution}
+
+% ----- P17 -----
+\prob{Lucas drives \textbf{$\tfrac25$ of a journey in 2 h}, then the last
+\textbf{360 km} in \textbf{3 h}. Find the whole journey and his average speed.}
+\begin{barfig}
+  \foreach \i in {1,2}{\bunit{\i}{barknown}{}}
+  \foreach \i in {3,4,5}{\bunit{\i}{barlight}{}}
+  \bdim{1}{2}{\UH+0.33}{2 units, 2 h}
+  \bdim{3}{5}{\UH+0.33}{360 km, 3 h}
+  \bdim{1}{5}{-0.33}{whole $=5$ units}
+\end{barfig}
+\begin{solution}
+\step{Count units.} $5$ units; $\tfrac25$ is $2$ units, the rest is $3$ units.
+\step{Find 1 unit.} $3$ units $=360$, so $1$ unit $=120$ km.
+\step{Whole.} $5\times120=600$ km.
+\step{Average speed.} Total time $=2+3=5$ h, so $600\div5=120$ km/h.
+\answer{Whole $=\textbf{600 km}$; average speed $=\textbf{120 km/h}$.}
+\end{solution}
+
+% ----- P18 -----
+\prob{A coach covers \textbf{$\tfrac16$ of a tour in 1 h}, then the remaining
+\textbf{500 km} in \textbf{5 h}. Find the whole tour and the average speed.}
+\begin{barfig}
+  \bunit{1}{barknown}{}
+  \foreach \i in {2,...,6}{\bunit{\i}{barlight}{}}
+  \bdim{1}{1}{\UH+0.33}{1 unit, 1 h}
+  \bdim{2}{6}{\UH+0.33}{500 km, 5 h}
+  \bdim{1}{6}{-0.33}{whole $=6$ units}
+\end{barfig}
+\begin{solution}
+\step{Count units.} $6$ units; the rest is $5$ units.
+\step{Find 1 unit.} $5$ units $=500$, so $1$ unit $=100$ km.
+\step{Whole.} $6\times100=600$ km.
+\step{Average speed.} Total time $=1+5=6$ h, so $600\div6=100$ km/h.
+\answer{Whole $=\textbf{600 km}$; average speed $=\textbf{100 km/h}$.}
+\end{solution}
+
+% ----- P19 -----
+\prob{A train covers \textbf{$\tfrac38$ of a line in 1.5 h} at \textbf{16 km/h}.
+How long is the whole line?}
+\begin{barfig}
+  \foreach \i in {1,2,3}{\bunit{\i}{barknown}{}}
+  \foreach \i in {4,...,8}{\bunit{\i}{barlight}{}}
+  \bdim{1}{3}{\UH+0.33}{3 units, 1.5 h $\times$ 16}
+  \bdim{1}{8}{-0.33}{whole $=8$ units}
+\end{barfig}
+\begin{solution}
+\step{Distance covered.} $16\times1.5=24$ km $=3$ units.
+\step{Find 1 unit.} $24\div3=8$ km.
+\step{Whole.} $8\times8=64$ km.
+\answer{\textbf{64 km}.}
+\end{solution}
+
+% ----- P20 -----
+\prob{Oliver drives \textbf{$\tfrac14$ of a journey in 2 h}, then the remaining
+\textbf{720 km} in \textbf{4 h}. Find the whole journey and his average speed.}
+\begin{barfig}
+  \foreach \i in {1,2}{\bunit{\i}{barknown}{}}
+  \foreach \i in {3,...,8}{\bunit{\i}{barlight}{}}
+  \bdim{1}{2}{\UH+0.33}{2 units, 2 h}
+  \bdim{3}{8}{\UH+0.33}{720 km, 4 h}
+  \bdim{1}{8}{-0.33}{whole $=8$ units}
+\end{barfig}
+\begin{solution}
+\step{Count units.} Take the journey as $8$ units; $\tfrac14=2$ units, the rest is $6$ units.
+\step{Find 1 unit.} $6$ units $=720$, so $1$ unit $=120$ km.
+\step{Whole.} $8\times120=960$ km.
+\step{Average speed.} Total time $=2+4=6$ h, so $960\div6=160$ km/h.
+\answer{Whole $=\textbf{960 km}$; average speed $=\textbf{160 km/h}$.}
+\end{solution}
+
+\clearpage
+
+% =====================================================================
+%  CHAPTER 9 figure helpers
+% =====================================================================
+% there-and-back timeline: #1 = go label (amber, above), #2 = return label (navy, below)
+\newcommand{\tripfig}[2]{%
+  \par\vspace{6pt}\begin{center}\begin{tikzpicture}
+    \fill[Navy](0,0)circle(1.7pt);\fill[Navy](5.4,0)circle(1.7pt);
+    \draw[Navy!40,line width=0.6pt](0,0)--(5.4,0);
+    \node[below=2pt,font=\scriptsize,color=DarkNavy]at(0,0){A};
+    \node[below=2pt,font=\scriptsize,color=DarkNavy]at(5.4,0){B};
+    \draw[Amber,line width=0.9pt,-{Stealth[length=4.5pt]}](0.15,0.34)--(5.25,0.34);
+    \node[above,font=\scriptsize,color=DarkNavy]at(2.7,0.31){#1};
+    \draw[Navy,line width=0.9pt,-{Stealth[length=4.5pt]}](5.25,-0.40)--(0.15,-0.40);
+    \node[below,font=\scriptsize,color=DarkNavy]at(2.7,-0.42){#2};
+  \end{tikzpicture}\end{center}\vspace{3pt}}
+
+% two-segment bar: [#1 left fill] #2 split(cm, 0..6) #3 left label #4 right label #5 total label
+\newcommand{\twoseg}[5][barknown]{%
+  \par\vspace{6pt}\begin{center}\begin{tikzpicture}
+    \pgfmathsetmacro{\sr}{#2+0.07}
+    \draw[Navy!60,fill=#1,rounded corners=1.1pt,line width=0.5pt](0,0)rectangle(#2,0.62);
+    \draw[Navy!60,fill=barlight,rounded corners=1.1pt,line width=0.5pt](\sr,0)rectangle(6,0.62);
+    \node[font=\scriptsize,color=DarkNavy]at({#2/2},0.31){#3};
+    \node[font=\scriptsize,color=DarkNavy]at({(\sr+6)/2},0.31){#4};
+    \draw[Amber,line width=0.9pt,{Stealth[length=4.5pt]}-{Stealth[length=4.5pt]}](0,-0.32)--(6,-0.32);
+    \node[font=\scriptsize,text=DarkNavy,fill=white,inner sep=1.5pt]at(3,-0.32){#5};
+  \end{tikzpicture}\end{center}\vspace{3pt}}
+
+% =====================================================================
+%  CHAPTER 9
+% =====================================================================
+\setcounter{prob}{0}
+\chapterhead{Chapter 9}{Journeys with a change of speed}
+
+\noindent Real trips rarely keep one speed. A driver slows for traffic, speeds up on a
+clear road, or returns home more slowly than they set out. The trick is always the same:
+\emph{break the journey into legs}, handle each leg with the speed triangle, then
+combine. Keep distance, speed and time in matching units, and remember that a
+\emph{round trip} covers the same distance each way.
+
+\begin{keyidea}{Key idea — one leg at a time}
+Use the three forms of the speed relationship, whichever fits the leg you are on:
+\[
+\text{distance}=\text{speed}\times\text{time},\quad
+\text{time}=\frac{\text{distance}}{\text{speed}},\quad
+\text{speed}=\frac{\text{distance}}{\text{time}}.
+\]
+\begin{enumerate}[leftmargin=1.5em]
+  \item \textbf{Split} the trip into legs (out / back, slow / fast, first part / rest).
+  \item \textbf{Fill the gaps} leg by leg — a small table keeps distance, speed and time tidy.
+  \item \textbf{Combine.} For a there-and-back trip the two distances are equal.
+        For an average, use $\text{average}=\dfrac{\text{total distance}}{\text{total time}}$.
+\end{enumerate}
+\vspace{3pt}
+Write clock times with a \textbf{dot}: 13.00, not ``13 00''. A ``20\% slower'' speed means
+multiply by $0.8$; ``20\% faster'' means multiply by $1.2$.
+\end{keyidea}
+
+% ---------- Worked example 1 (Ch9) -----------------------------------
+\begin{examplebox}{Example 1 — there and back}
+Ben drives from home (A) to a lake (B), leaving at \textbf{10.25} and arriving at
+\textbf{12.10} at \textbf{96 km/h}. After a rest he starts back at \textbf{13.15},
+but traffic makes him \textbf{16 km/h} slower. At what time does he reach home?
+
+\tripfig{10.25 \textrightarrow\ 12.10 at 96 km/h}{start 13.15, \,$96-16=80$ km/h}
+
+\solheader
+\step{Length of the trip (the ``out'' leg).} From 10.25 to 12.10 is
+$1\text{ h }45\text{ min}=1.75$ h, so $AB=96\times1.75=168$ km.
+\step{Return speed.} $96-16=80$ km/h.
+\step{Return time.} $168\div80=2.1$ h $=2$ h $6$ min.
+\step{Arrival time.} $13.15+2\text{ h }6\text{ min}=15.21$.
+\answer{He reaches home at \textbf{15.21}.}
+\end{examplebox}
+
+% ---------- Worked example 2 (Ch9) -----------------------------------
+\begin{examplebox}{Example 2 — two legs, two speeds}
+Lucas drives the first \textbf{50 km at 75 km/h}, then another \textbf{196 km at
+84 km/h}. How long does the whole journey take?
+
+\twoseg{1.5}{50 km, 75 km/h}{196 km, 84 km/h}{total time $=$ ?}
+
+\solheader
+\step{First leg.} $50\div75=\tfrac{2}{3}$ h $=40$ min.
+\step{Second leg.} $196\div84=\tfrac{7}{3}$ h $=2$ h $20$ min.
+\step{Add the legs.} $40\text{ min}+2\text{ h }20\text{ min}=3$ h.
+\answer{The whole journey takes \textbf{3 h}.}
+\end{examplebox}
+
+\vspace{2pt}
+\noindent{\color{DarkNavy}\bfseries Practice.}
+\ifsolution Full solutions follow each problem.\else Sketch each trip, then use the working space.\fi
+
+% ----- Q1 (A1) -----
+\prob{Lucas leaves at \textbf{11.40} and arrives at \textbf{13.10} driving at
+\textbf{80 km/h}. He returns along the same road \textbf{5 km/h} slower. How long
+does the return journey take?}
+\tripfig{11.40 \textrightarrow\ 13.10 at 80 km/h}{$80-5=75$ km/h}
+\begin{solution}
+\step{Distance.} $11.40$ to $13.10$ is $1.5$ h, so $AB=80\times1.5=120$ km.
+\step{Return speed.} $80-5=75$ km/h.
+\step{Return time.} $120\div75=1.6$ h $=1$ h $36$ min.
+\answer{The return takes \textbf{1.6 h} (1 h 36 min).}
+\end{solution}
+
+% ----- Q2 (A2) -----
+\prob{Emma leaves at \textbf{12.14} and arrives at \textbf{15.44} at \textbf{60 km/h}.
+Her return is \textbf{10 km/h} slower. How long does the return take?}
+\tripfig{12.14 \textrightarrow\ 15.44 at 60 km/h}{$60-10=50$ km/h}
+\begin{solution}
+\step{Distance.} $12.14$ to $15.44$ is $3.5$ h, so $AB=60\times3.5=210$ km.
+\step{Return speed.} $60-10=50$ km/h.
+\step{Return time.} $210\div50=4.2$ h $=4$ h $12$ min.
+\answer{The return takes \textbf{4.2 h} (4 h 12 min).}
+\end{solution}
+
+% ----- Q3 (A3) -----
+\prob{Oliver leaves at \textbf{16.22} and arrives at \textbf{17.52} at \textbf{92 km/h}.
+He comes back \textbf{23 km/h} slower. How long is the return journey?}
+\tripfig{16.22 \textrightarrow\ 17.52 at 92 km/h}{$92-23=69$ km/h}
+\begin{solution}
+\step{Distance.} $16.22$ to $17.52$ is $1.5$ h, so $AB=92\times1.5=138$ km.
+\step{Return speed.} $92-23=69$ km/h.
+\step{Return time.} $138\div69=2$ h.
+\answer{The return takes \textbf{2 h}.}
+\end{solution}
+
+% ----- Q4 (A4) -----
+\prob{Sophia leaves at \textbf{11.40} and arrives at \textbf{12.25} at \textbf{64 km/h}.
+She returns \textbf{4 km/h} slower. How long does the return take?}
+\tripfig{11.40 \textrightarrow\ 12.25 at 64 km/h}{$64-4=60$ km/h}
+\begin{solution}
+\step{Distance.} $11.40$ to $12.25$ is $45$ min $=0.75$ h, so $AB=64\times0.75=48$ km.
+\step{Return speed.} $64-4=60$ km/h.
+\step{Return time.} $48\div60=0.8$ h $=48$ min.
+\answer{The return takes \textbf{0.8 h} (48 min).}
+\end{solution}
+
+% ----- Q5 (B1) -----
+\prob{Emma plans a \textbf{6 h} drive at an average of \textbf{90 km/h}. She drives the
+first \textbf{168 km at 80 km/h}. At what speed must she cover the rest to keep her
+planned average? (1 d.p.)}
+\twoseg{1.9}{168 km, 80 km/h}{remaining ?}{total: 6 h at avg 90 km/h}
+\begin{solution}
+\step{Total distance.} $90\times6=540$ km.
+\step{First leg's time.} $168\div80=2.1$ h.
+\step{What is left.} Distance $540-168=372$ km in time $6-2.1=3.9$ h.
+\step{Required speed.} $372\div3.9=95.38\ldots\approx95.4$ km/h.
+\answer{About \textbf{95.4 km/h}.}
+\end{solution}
+
+% ----- Q6 (B2) -----
+\prob{Ben drives for \textbf{4 h} at an average of \textbf{110 km/h}. The first
+\textbf{126 km} are at \textbf{84 km/h}. Find the speed needed for the rest. (1 d.p.)}
+\twoseg{1.7}{126 km, 84 km/h}{remaining ?}{total: 4 h at avg 110 km/h}
+\begin{solution}
+\step{Total distance.} $110\times4=440$ km.
+\step{First leg's time.} $126\div84=1.5$ h.
+\step{What is left.} $440-126=314$ km in $4-1.5=2.5$ h.
+\step{Required speed.} $314\div2.5=125.6$ km/h.
+\answer{\textbf{125.6 km/h}.}
+\end{solution}
+
+% ----- Q7 (B3) -----
+\prob{Ethan drives for \textbf{8 h} at an average of \textbf{100 km/h}. The first
+\textbf{124 km} are at \textbf{80 km/h}. Find the speed needed for the rest. (1 d.p.)}
+\twoseg{0.95}{124 km, 80}{remaining ?}{total: 8 h at avg 100 km/h}
+\begin{solution}
+\step{Total distance.} $100\times8=800$ km.
+\step{First leg's time.} $124\div80=1.55$ h.
+\step{What is left.} $800-124=676$ km in $8-1.55=6.45$ h.
+\step{Required speed.} $676\div6.45=104.80\ldots\approx104.8$ km/h.
+\answer{About \textbf{104.8 km/h}.}
+\end{solution}
+
+% ----- Q8 (B4) -----
+\prob{Sophia drives for \textbf{5 h} at an average of \textbf{90 km/h}. The first
+\textbf{168 km} are at \textbf{80 km/h}. Find the speed needed for the rest. (1 d.p.)}
+\twoseg{2.2}{168 km, 80 km/h}{remaining ?}{total: 5 h at avg 90 km/h}
+\begin{solution}
+\step{Total distance.} $90\times5=450$ km.
+\step{First leg's time.} $168\div80=2.1$ h.
+\step{What is left.} $450-168=282$ km in $5-2.1=2.9$ h.
+\step{Required speed.} $282\div2.9=97.24\ldots\approx97.2$ km/h.
+\answer{About \textbf{97.2 km/h}.}
+\end{solution}
+
+% ----- Q9 (C1) -----
+\prob{Oliver drives to a city in \textbf{6 h} at \textbf{56 km/h}, then returns along the
+same road in \textbf{4 h}. By how much do his two average speeds differ?}
+\tripfig{out: 56 km/h, 6 h}{back: 4 h, ? km/h}
+\begin{solution}
+\step{Distance.} $56\times6=336$ km (the same each way).
+\step{Return speed.} $336\div4=84$ km/h.
+\step{Difference.} $84-56=28$ km/h.
+\answer{They differ by \textbf{28 km/h}.}
+\end{solution}
+
+% ----- Q10 (C2) -----
+\prob{Ben drives out in \textbf{6 h} at \textbf{32 km/h} and comes back in \textbf{8 h}.
+By how much do his average speeds differ?}
+\tripfig{out: 32 km/h, 6 h}{back: 8 h, ? km/h}
+\begin{solution}
+\step{Distance.} $32\times6=192$ km.
+\step{Return speed.} $192\div8=24$ km/h.
+\step{Difference.} $32-24=8$ km/h.
+\answer{They differ by \textbf{8 km/h}.}
+\end{solution}
+
+% ----- Q11 (C3) -----
+\prob{Emma drives out in \textbf{5 h} at \textbf{48 km/h} and returns in \textbf{4 h}.
+Find the difference in her average speeds.}
+\tripfig{out: 48 km/h, 5 h}{back: 4 h, ? km/h}
+\begin{solution}
+\step{Distance.} $48\times5=240$ km.
+\step{Return speed.} $240\div4=60$ km/h.
+\step{Difference.} $60-48=12$ km/h.
+\answer{They differ by \textbf{12 km/h}.}
+\end{solution}
+
+% ----- Q12 (C4) -----
+\prob{Lucas drives out in \textbf{6 h} at \textbf{40 km/h} and returns in \textbf{5 h}.
+Find the difference in his average speeds.}
+\tripfig{out: 40 km/h, 6 h}{back: 5 h, ? km/h}
+\begin{solution}
+\step{Distance.} $40\times6=240$ km.
+\step{Return speed.} $240\div5=48$ km/h.
+\step{Difference.} $48-40=8$ km/h.
+\answer{They differ by \textbf{8 km/h}.}
+\end{solution}
+
+% ----- Q13 (D1) -----
+\prob{Sophia covers the \textbf{first 50\%} of a trip in \textbf{33 min at 20 km/h},
+then drives the rest at \textbf{80 km/h}. Find the total time. (1 d.p., in minutes)}
+\twoseg{3}{50\%: 33 min, 20 km/h}{50\%: 80 km/h}{total time $=$ ?}
+\begin{solution}
+\step{First half's distance.} $20\times\tfrac{33}{60}=11$ km. (So the whole trip is $22$ km.)
+\step{Second half's time.} Same $11$ km at $80$: $11\div80=0.1375$ h $=8.25$ min.
+\step{Total.} $33+8.25=41.25\approx41.3$ min.
+\answer{About \textbf{41.3 min}.}
+\end{solution}
+
+% ----- Q14 (D2) -----
+\prob{Ethan covers the \textbf{first 50\%} of a trip in \textbf{9 min at 40 km/h}, then
+the rest at \textbf{160 km/h}. Find the total time. (1 d.p., in minutes)}
+\twoseg{3}{50\%: 9 min, 40 km/h}{50\%: 160 km/h}{total time $=$ ?}
+\begin{solution}
+\step{First half's distance.} $40\times\tfrac{9}{60}=6$ km.
+\step{Second half's time.} $6\div160=0.0375$ h $=2.25$ min.
+\step{Total.} $9+2.25=11.25\approx11.3$ min.
+\answer{About \textbf{11.3 min}.}
+\end{solution}
+
+% ----- Q15 (D3) -----
+\prob{Emma covers the \textbf{first 50\%} of a trip in \textbf{10 min at 36 km/h}, then
+the rest at \textbf{288 km/h} (a fast train!). Find the total time. (1 d.p., in minutes)}
+\twoseg{3}{50\%: 10 min, 36 km/h}{50\%: 288 km/h}{total time $=$ ?}
+\begin{solution}
+\step{First half's distance.} $36\times\tfrac{10}{60}=6$ km.
+\step{Second half's time.} $6\div288=0.0208\ldots$ h $=1.25$ min.
+\step{Total.} $10+1.25=11.25\approx11.3$ min.
+\answer{About \textbf{11.3 min}.}
+\end{solution}
+
+% ----- Q16 (D4) -----
+\prob{Oliver covers the \textbf{first 50\%} of a trip in \textbf{51 min at 40 km/h},
+then the rest at \textbf{160 km/h}. Find the total time. (1 d.p., in minutes)}
+\twoseg{3}{50\%: 51 min, 40 km/h}{50\%: 160 km/h}{total time $=$ ?}
+\begin{solution}
+\step{First half's distance.} $40\times\tfrac{51}{60}=34$ km.
+\step{Second half's time.} $34\div160=0.2125$ h $=12.75$ min.
+\step{Total.} $51+12.75=63.75\approx63.8$ min.
+\answer{About \textbf{63.8 min}.}
+\end{solution}
+
+% ----- Q17 (E1) -----
+\prob{Ethan drives the first \textbf{$\tfrac{5}{9}$} of a journey at \textbf{80 km/h}.
+For the last \textbf{$\tfrac{4}{9}$} he slows by \textbf{20\%}, which takes him
+\textbf{2.5 h}. Find the total time for the journey.}
+\twoseg{3.33}{$\tfrac59$ at 80 km/h}{$\tfrac49$ at $80\times0.8$}{find total time}
+\begin{solution}
+\step{Speed for the last part.} $20\%$ slower $=80\times0.8=64$ km/h.
+\step{Length of the last part.} $64\times2.5=160$ km $=\tfrac49$ of the whole,
+so $\tfrac19=40$ km and the whole $=360$ km.
+\step{First part.} $\tfrac59=200$ km at $80$ km/h $=200\div80=2.5$ h.
+\step{Total time.} $2.5+2.5=5$ h.
+\answer{The journey takes \textbf{5 h}.}
+\end{solution}
+
+% ----- Q18 (E2) -----
+\prob{Emma drives the first \textbf{$\tfrac{5}{9}$} of a journey at \textbf{80 km/h}.
+For the last \textbf{$\tfrac{4}{9}$} she speeds up by \textbf{20\%}, which takes her
+\textbf{2.5 h}. Find the total time for the journey.}
+\twoseg{3.33}{$\tfrac59$ at 80 km/h}{$\tfrac49$ at $80\times1.2$}{find total time}
+\begin{solution}
+\step{Speed for the last part.} $20\%$ faster $=80\times1.2=96$ km/h.
+\step{Length of the last part.} $96\times2.5=240$ km $=\tfrac49$ of the whole,
+so $\tfrac19=60$ km and the whole $=540$ km.
+\step{First part.} $\tfrac59=300$ km at $80$ km/h $=300\div80=3.75$ h.
+\step{Total time.} $3.75+2.5=6.25$ h $=6$ h $15$ min.
+\answer{The journey takes \textbf{6.25 h} (6 h 15 min).}
+\end{solution}
+
+% ----- Q19 (F1) -----
+\prob{A coach drives for \textbf{6 h at 110 km/h} to a resort, then returns along the
+same road \textbf{20 km/h} slower. How long does the return journey take?}
+\tripfig{out: 110 km/h, 6 h}{back: $110-20=90$ km/h}
+\begin{solution}
+\step{Distance.} $110\times6=660$ km.
+\step{Return speed.} $110-20=90$ km/h.
+\step{Return time.} $660\div90=\tfrac{22}{3}$ h $=7$ h $20$ min.
+\answer{\textbf{$\tfrac{22}{3}$ h} $=$ \textbf{7 h 20 min}.}
+\end{solution}
+
+% ----- Q20 (F2) -----
+\prob{A van leaves a depot at \textbf{60 km/h}. A car sets off along the same road
+\textbf{1.5 h later} at \textbf{75 km/h}, and the two arrive at the destination at the
+same moment. For how long does the \emph{car} travel?}
+\begin{barfig}
+  \fill[Navy](0,0)circle(1.7pt);\fill[Navy](6,0)circle(1.7pt);
+  \draw[Navy!40,line width=0.6pt](0,0)--(6,0);
+  \node[below=2pt,font=\scriptsize,color=DarkNavy]at(0,0){depot};
+  \node[below=2pt,font=\scriptsize,color=DarkNavy]at(6,0){arrive together};
+  \draw[Navy,line width=0.9pt,-{Stealth[length=4.5pt]}](0.1,0.33)--(5.9,0.33);
+  \node[above,font=\scriptsize,color=DarkNavy]at(3,0.31){van: 60 km/h, starts first};
+  \draw[Amber,line width=0.9pt,-{Stealth[length=4.5pt]}](1.6,-0.38)--(5.9,-0.38);
+  \node[below,font=\scriptsize,color=DarkNavy]at(3.9,-0.40){car: 75 km/h, starts 1.5 h later};
+\end{barfig}
+\begin{solution}
+\step{Let the car travel $t$ hours.} Then the van travels $t+1.5$ hours.
+\step{Same distance.} $60(t+1.5)=75t$.
+\step{Solve.} $60t+90=75t\Rightarrow 90=15t\Rightarrow t=6$ h.
+(Check: both cover $75\times6=450$ km; the van takes $7.5$ h.)
+\answer{The car travels for \textbf{6 h}.}
+\end{solution}
+
+\clearpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+{\color{Navy!30}\rule{0.5\linewidth}{0.6pt}}\\[8pt]
+{\scshape\color{DarkNavy}End of supplement}\\[4pt]
+{\footnotesize\color{Ink}ThinkAlgo \,\textbullet\, Speed \,\textbullet\, Chapters 8 \& 9}\\[2pt]
+{\footnotesize\color{LightNavy}\EDITION}
+\end{center}
+\vspace*{\fill}
+
+\end{document}
