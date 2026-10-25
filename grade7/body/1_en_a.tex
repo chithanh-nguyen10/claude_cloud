@@ -8,10 +8,10 @@
   \node[inner sep=0pt] at (-0.33,-0.16){$#3$};\node[inner sep=0pt] at (0.33,-0.16){$#4$};\end{tikzpicture}}
 % \rvaaScale{left}{right}: a balanced scale; the objects stand exactly on the two pans
 \providecommand{\rvaaScale}[2]{\begin{tikzpicture}[baseline=0pt,font=\small]
-  \draw[Ink,line width=1.1pt] (-1.7,0)--(1.7,0);
+  \draw[Ink,line width=1.1pt] (-2.3,0)--(2.3,0);
   \fill[Slate] (0,-0.02)--(-0.22,-0.38)--(0.22,-0.38)--cycle;
   \draw[Slate,line width=1pt] (-0.4,-0.38)--(0.4,-0.38);
-  \node[anchor=south,inner sep=0pt] at (-1.05,0.04){#1};\node[anchor=south,inner sep=0pt] at (1.05,0.04){#2};\end{tikzpicture}}
+  \node[anchor=south,inner sep=0pt] at (-1.3,0.04){#1};\node[anchor=south,inner sep=0pt] at (1.3,0.04){#2};\end{tikzpicture}}
 % flat shapes (no 3D effects) for scale problems, standing on the baseline; \rvaaWt{3 kg}: a weight
 \providecommand{\rvaaSq}{\tikz[baseline=0pt]{\draw[tmBlue!80!black,line width=0.8pt,fill=tmBlue!25] (0,0) rectangle (0.3,0.3);}}
 \providecommand{\rvaaTri}{\tikz[baseline=0pt]{\draw[tmOrange!85!black,line width=0.8pt,fill=tmOrange!25] (0,0)--(0.34,0)--(0.17,0.3)--cycle;}}
@@ -183,7 +183,7 @@ The scales stay balanced if we:
 A familiar consequence is the \textbf{rule for moving terms}: when a term moves from one side to the other, its \emph{sign changes}.
 
 \begin{center}
-\rvaaScale{\rvaaSq\,\rvaaSq\ \ \rvaaWt{3 kg}}{\rvaaWt{11 kg}}
+\rvaaScale{\rvaaSq\,\rvaaSq\,\rvaaWt{3 kg}}{\rvaaWt{11 kg}}
 \end{center}
 \emph{Example:} two identical boxes plus a $3$ kg weight balance $11$ kg: $2x+3=11$.
 Remove the $3$ kg weight from both pans: $2x=11-3=8$. Halve both pans: $x=8\div 2=4$. Each box weighs $4$ kg.
@@ -611,6 +611,7 @@ In the diagram, the triangle has one side of length $14$ cm and two equal sides 
 $8$ cm and length $x$ cm. The perimeter of the triangle equals the perimeter of the rectangle. Find $x$.
 \begin{figC}
 % drawn to scale 0.2 : 1 -- base 14 -> 2.8; equal sides 12 -> 2.4 (height 1.95); rectangle 11 x 8 -> 2.2 x 1.6
+\begin{scope}[scale=0.85]
 \draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,4.05)--(2.8,4.05)--(1.4,2.1)--cycle;
 \node[above] at (1.4,4.05){$14$ cm};
 \node[anchor=west] at (2.3,3.15){$12$ cm};
@@ -619,6 +620,7 @@ $8$ cm and length $x$ cm. The perimeter of the triangle equals the perimeter of 
 \draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (0.3,0)rectangle(2.5,1.6);
 \node[right] at (2.5,0.8){$8$ cm};
 \node[below] at (1.4,0){$x$ cm};
+\end{scope}
 \end{figC}
 \choices{$8$}{$10$}{$11$}{$14$}{$15$}
 \end{probbox}
@@ -632,9 +634,8 @@ Perimeter of the triangle: $14+12+12=38$ (cm).
 \step{2}{Write an equation}
 The perimeter of the rectangle is $2(x+8)$. Setting the two perimeters equal: $2(x+8)=38$.
 \step{3}{Solve the equation}
-Divide both sides by $2$: $x+8=19$. Subtract $8$ from both sides: $x=19-8=11$.
+Divide both sides by $2$: $x+8=19$. Subtract $8$ from both sides: $x=19-8=11$, which is option \textbf{(C)}.
 \verify{An $11$ cm $\times$ $8$ cm rectangle has perimeter $11+8+11+8=38$ cm, the same as the triangle.}
-The value $x=11$ is option \textbf{(C)}.
 \begin{parentbox}You can illustrate this with a piece of string $38$ cm long: bend it into a $14$ -- $12$ -- $12$ triangle, then reshape it into a rectangle with an $8$ cm side. Your child will see that the ``perimeter'' is just the length of the string, which does not change when the shape changes.\end{parentbox}
 \ans{(C) $11$}
 }
@@ -806,7 +807,8 @@ So $x=-37$.
 \draw[->,thick,Navy] (-41,0)--(15,0);
 \foreach \i in {-37,-26,0,11}{\draw[Navy] (\i,0.12)--(\i,-0.12); \node[below,font=\footnotesize] at (\i,-0.12){$\i$};}
 \fill[AnsRed] (-37,0) circle (2.5pt); \fill[tmGreen] (-26,0) circle (2.5pt);
-\draw[->,tmOrange,line width=1pt] (-37,0.3) to[bend left=30] node[above,font=\footnotesize]{$+11$} (-26,0.3);
+\draw[->,tmOrange,line width=1pt] (-37,0.1) .. controls (-35.5,0.9) and (-27.5,0.9) .. (-26,0.1);
+\node[above,font=\footnotesize,text=tmOrange!80!black,inner sep=2pt] at (-31.5,0.7){$+11$};
 \end{tikzpicture}\end{center}
 On the number line: starting from $-37$ and moving $11$ steps to the right, we arrive at $-26$.
 \begin{warnbox}Forgetting to change the sign when moving a term across, and writing $x=-26+11=-15$, is wrong (option C). Check: $-15+11=-4\neq -26$.\end{warnbox}
@@ -910,8 +912,8 @@ If the area of the rectangle equals the area of the triangle, then the value of 
 \textbf{Understanding the problem.} Rectangle: length $x$, width $y$. Triangle: base $16$, height $x$. The two areas are equal. Find $y$
 (note: $x$ is not given, but we will see that $x$ ``disappears'').
 \begin{figC}
-\draw[tmBlue,line width=1pt,fill=tmBlue!10] (0,0) rectangle (2.4,1.4);
-\node[below] at (1.2,0){$x$}; \node[left] at (0,0.7){$y$};
+\draw[tmBlue,line width=1pt,fill=tmBlue!10] (0,0) rectangle (2.4,2.0); % y=8 -> 2.0 (same scale as base 16 -> 4)
+\node[below] at (1.2,0){$x$}; \node[left] at (0,1.0){$y$};
 \draw[tmOrange!85!black,line width=1pt,fill=tmOrange!12] (3.6,0)--(7.6,0)--(4.6,2.4)--cycle;
 \draw[dashed,Slate] (4.6,2.4)--(4.6,0); \draw[Slate] (4.6,0.18)--(4.78,0.18)--(4.78,0);
 \node[below] at (5.6,0){$16$}; \node[left,font=\small] at (4.6,1.1){$x$};

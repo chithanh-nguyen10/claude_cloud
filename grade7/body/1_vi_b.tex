@@ -185,14 +185,14 @@ Ba góc: $70^\circ,\ 55^\circ,\ 55^\circ$. Hai góc còn lại là $55^\circ$ v�
 \draw[tmBlue,line width=1.1pt,fill=tmBlue!8] (0,0)--(1.6,0)--(0.8,2.2)--cycle;
 \node[font=\scriptsize] at (0.33,0.2) {$70^\circ$};
 \node[font=\scriptsize] at (1.27,0.2) {$70^\circ$};
-\node[font=\scriptsize] at (0.8,1.65) {$40^\circ$};
+\node[font=\scriptsize] at (0.8,1.35) {$40^\circ$};
 \node[font=\footnotesize\bfseries,text=tmBlue] at (0.8,-0.35) {Tam giác thứ nhất};
 \end{scope}
 \begin{scope}[xshift=3.6cm]
 \draw[tmOrange,line width=1.1pt,fill=tmOrange!8] (0,0)--(2.4,0)--(1.2,1.71)--cycle;
 \node[font=\scriptsize] at (0.45,0.18) {$55^\circ$};
 \node[font=\scriptsize] at (1.95,0.18) {$55^\circ$};
-\node[font=\scriptsize] at (1.2,1.25) {$70^\circ$};
+\node[font=\scriptsize] at (1.2,1.12) {$70^\circ$};
 \node[font=\footnotesize\bfseries,text=tmOrange!85!black] at (1.2,-0.35) {Tam giác thứ hai};
 \end{scope}
 \end{figC}
@@ -274,19 +274,20 @@ Một tổng có dấu của $5$ số lẻ luôn là số \emph{lẻ}; của cá
 \end{tabular}
 \end{center}
 (Ở (D), độ dịch chuyển ngang $22$ là số chẵn nên bước đầu tiên phải là bước dọc.) Ví dụ đường đi tới $(21;21)$: các bước lần lượt là phải $1$, lên $2$, trái $3$, xuống $4$, phải $5$, lên $6$, phải $7$, lên $8$, trái $9$, xuống $10$:
-\begin{figC}\begin{scope}[scale=0.24]
+\begin{figC}\begin{scope}[scale=0.3]
 \draw[Line,line width=0.3pt] (-3,-3) grid (11,13);
 \draw[tmBlue,line width=1.2pt,->] (0,0)--(1,0)--(1,2)--(-2,2)--(-2,-2)--(3,-2)--(3,4)--(10,4)--(10,12)--(1,12)--(1,2);
-\fill[tmGreen] (0,0) circle (7pt); \fill[AnsRed] (1,2) circle (7pt);
-\node[font=\scriptsize,anchor=north east] at (0,0) {$(20;19)$};
-\node[font=\scriptsize,anchor=west,fill=white,inner sep=1pt] at (1.6,1.1) {$(21;21)$};
-\end{scope}\end{figC}
+\fill[tmGreen] (0,0) circle (3pt); \fill[AnsRed] (1,2) circle (3pt);
+\end{scope}
+\node[font=\scriptsize,anchor=north] at (1.2,-1.05) {\textcolor{tmGreen}{\large$\bullet$}\ điểm xuất phát $(20;19)$\qquad \textcolor{AnsRed}{\large$\bullet$}\ điểm cuối $(21;21)$};
+\end{figC}
 \begin{warnbox}Chỉ xét tính chẵn -- lẻ là chưa đủ: cả $10$ (chẵn) và $21$ (lẻ) đều ``hợp lệ'' về tính chẵn lẻ, nhưng $21$ vẫn không đạt được. Phải kiểm tra thật sự xem có cách chọn dấu hay không.\end{warnbox}
 Vậy chọn \textbf{(B)}.
 \ans{(B) $(30;40)$}
 }
 
 % ------------------------------------------------------------------ 23
+\needspace{9\baselineskip}
 \begin{probbox}{23}{\relax}
 Chị Gail làm nhân viên phục vụ ở một nhà hàng. Hôm thứ Bảy, chị dậy lúc $6$\,h\,$30$ sáng, bắt đầu làm việc lúc $x$ giờ sáng và kết thúc lúc $x$ giờ chiều (cùng ngày). Hôm thứ Bảy chị Gail làm việc trong bao lâu?
 \choicesII{$24-2x$ giờ}{$12-x$ giờ}{$2x$ giờ}{$0$ giờ}{$12$ giờ}
@@ -326,6 +327,7 @@ Một hình hộp chữ nhật kích thước $8\times 8\times n$ ($n$ là số 
 \draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,0) rectangle (2.4,1.6);
 \draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,1.6)--(0.9,2.3)--(3.3,2.3)--(2.4,1.6)--cycle;
 \draw[tmBlue,line width=1pt,fill=tmBlue!8] (2.4,0)--(3.3,0.7)--(3.3,2.3)--(2.4,1.6)--cycle;
+\draw[tmBlue,line width=0.7pt,dashed] (0,0)--(0.9,0.7)--(3.3,0.7) (0.9,0.7)--(0.9,2.3);
 \node[below,font=\footnotesize] at (1.2,0) {$8$};
 \node[right,font=\footnotesize] at (3.3,1.5) {$n$};
 \node[below right,font=\footnotesize] at (2.8,0.4) {$8$};
@@ -504,12 +506,12 @@ Mỗi lần Anna chạy $\frac{2}{3}$ vòng. Gọi $M_1$ là điểm gặp đầ
 (Ví dụ hàng (A): $\frac35+\frac35=\frac65$, bỏ $1$ vòng còn $\frac15$; thêm $\frac35$ được $\frac45$; thêm $\frac35$ được $\frac75$, bỏ $1$ vòng còn $\frac25$; thêm $\frac35$ được $1$ vòng -- trở về $M_1$.)
 \begin{figC}
 \draw[Ink,line width=1.1pt] (0,0) circle (1.1);
-\fill[Ink] (0,1.1) circle (2pt) node[above,font=\small\itshape] {$A$};
+\fill[Ink] (0,1.1) circle (2pt) node[above left=1pt,font=\small\itshape] {$A$};
 \fill[Ink] (0,-1.1) circle (2pt) node[below,font=\small\itshape] {$B$};
 \foreach \a in {90,210,330}{\fill[AnsRed] (\a:1.1) circle (3pt);}
 \node[font=\scriptsize,text=AnsRed,anchor=east] at (210:1.25) {gặp};
 \node[font=\scriptsize,text=AnsRed,anchor=west] at (330:1.25) {gặp};
-\node[font=\scriptsize,text=AnsRed,anchor=south west] at (90:1.18) {gặp};
+\node[font=\scriptsize,text=AnsRed,anchor=south west] at (0.1,1.16) {gặp};
 \end{figC}
 \verify{Đường chạy dài $600$~m, Anna chạy $200$ m/phút, Ben $100$ m/phút. Lúc đầu cách nhau $300$~m, gặp lần đầu sau $300:300=1$ phút, tại điểm cách $A$ $200$~m (theo chiều của Anna). Sau đó cứ $600:300=2$ phút gặp một lần, Anna chạy thêm $400$~m mỗi lần: vị trí $200\to 600$ (tức $A$) $\to 1000$ (tức $400$~m) $\to 1400$ (tức $200$~m) \dots\ Đúng ba điểm: $0$~m, $200$~m, $400$~m, chia đường tròn làm ba phần đều -- như hình trên.}
 Vậy chọn \textbf{(D)}.
@@ -569,6 +571,7 @@ Vậy chọn \textbf{(E)}.
 }
 
 % ------------------------------------------------------------------ 29
+\needspace{12\baselineskip}
 \begin{probbox}{29}{\relax}
 Kathy nuôi nhiều mèo hơn Alice và nhiều chó hơn Bruce. Alice nuôi nhiều chó hơn Kathy nhưng ít mèo hơn Bruce. Khẳng định nào dưới đây \textbf{chắc chắn} đúng?
 \choicesL{Bruce nuôi ít mèo nhất.}{Bruce nuôi nhiều mèo nhất.}{Kathy nuôi nhiều mèo nhất.}{Alice nuôi nhiều chó nhất.}{Kathy nuôi ít chó nhất.}

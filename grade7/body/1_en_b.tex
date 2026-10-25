@@ -185,14 +185,14 @@ The angles are $70^\circ,\ 55^\circ,\ 55^\circ$. The other two angles are $55^\c
 \draw[tmBlue,line width=1.1pt,fill=tmBlue!8] (0,0)--(1.6,0)--(0.8,2.2)--cycle;
 \node[font=\scriptsize] at (0.33,0.2) {$70^\circ$};
 \node[font=\scriptsize] at (1.27,0.2) {$70^\circ$};
-\node[font=\scriptsize] at (0.8,1.65) {$40^\circ$};
+\node[font=\scriptsize] at (0.8,1.35) {$40^\circ$};
 \node[font=\footnotesize\bfseries,text=tmBlue] at (0.8,-0.35) {First triangle};
 \end{scope}
 \begin{scope}[xshift=3.6cm]
 \draw[tmOrange,line width=1.1pt,fill=tmOrange!8] (0,0)--(2.4,0)--(1.2,1.71)--cycle;
 \node[font=\scriptsize] at (0.45,0.18) {$55^\circ$};
 \node[font=\scriptsize] at (1.95,0.18) {$55^\circ$};
-\node[font=\scriptsize] at (1.2,1.25) {$70^\circ$};
+\node[font=\scriptsize] at (1.2,1.12) {$70^\circ$};
 \node[font=\footnotesize\bfseries,text=tmOrange!85!black] at (1.2,-0.35) {Second triangle};
 \end{scope}
 \end{figC}
@@ -274,19 +274,20 @@ A signed sum of $5$ odd numbers is always \emph{odd}; a signed sum of even numbe
 \end{tabular}
 \end{center}
 (In (D) the horizontal displacement $22$ is even, so the first move must be vertical.) For example, a path to $(21,21)$: right $1$, up $2$, left $3$, down $4$, right $5$, up $6$, right $7$, up $8$, left $9$, down $10$:
-\begin{figC}\begin{scope}[scale=0.24]
+\begin{figC}\begin{scope}[scale=0.3]
 \draw[Line,line width=0.3pt] (-3,-3) grid (11,13);
 \draw[tmBlue,line width=1.2pt,->] (0,0)--(1,0)--(1,2)--(-2,2)--(-2,-2)--(3,-2)--(3,4)--(10,4)--(10,12)--(1,12)--(1,2);
-\fill[tmGreen] (0,0) circle (7pt); \fill[AnsRed] (1,2) circle (7pt);
-\node[font=\scriptsize,anchor=north east] at (0,0) {$(20,19)$};
-\node[font=\scriptsize,anchor=west,fill=white,inner sep=1pt] at (1.6,1.1) {$(21,21)$};
-\end{scope}\end{figC}
+\fill[tmGreen] (0,0) circle (3pt); \fill[AnsRed] (1,2) circle (3pt);
+\end{scope}
+\node[font=\scriptsize,anchor=north] at (1.2,-1.05) {\textcolor{tmGreen}{\large$\bullet$}\ starting point $(20,19)$\qquad \textcolor{AnsRed}{\large$\bullet$}\ final point $(21,21)$};
+\end{figC}
 \begin{warnbox}Looking only at even and odd is not enough: both $10$ (even) and $21$ (odd) are ``allowed'' as far as parity goes, yet $21$ still cannot be reached. You must really check whether a choice of signs exists.\end{warnbox}
 So the answer is \textbf{(B)}.
 \ans{(B) $(30,40)$}
 }
 
 % ------------------------------------------------------------------ 23
+\needspace{9\baselineskip}
 \begin{probbox}{23}{\relax}
 Gail works as a server in a restaurant. On Saturday she gets up at 6:30 a.m., starts work at $x$ a.m. and finishes at $x$ p.m. (the same day). How long does Gail work on Saturday?
 \choicesII{$24-2x$ hours}{$12-x$ hours}{$2x$ hours}{$0$ hours}{$12$ hours}
@@ -326,6 +327,7 @@ An $8\times 8\times n$ rectangular box ($n$ a positive integer) is built from $1
 \draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,0) rectangle (2.4,1.6);
 \draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,1.6)--(0.9,2.3)--(3.3,2.3)--(2.4,1.6)--cycle;
 \draw[tmBlue,line width=1pt,fill=tmBlue!8] (2.4,0)--(3.3,0.7)--(3.3,2.3)--(2.4,1.6)--cycle;
+\draw[tmBlue,line width=0.7pt,dashed] (0,0)--(0.9,0.7)--(3.3,0.7) (0.9,0.7)--(0.9,2.3);
 \node[below,font=\footnotesize] at (1.2,0) {$8$};
 \node[right,font=\footnotesize] at (3.3,1.5) {$n$};
 \node[below right,font=\footnotesize] at (2.8,0.4) {$8$};
@@ -501,12 +503,12 @@ Each time Anna runs $\frac{2}{3}$ of a lap. Let $M_1$ be the first meeting point
 (For example, row (A): $\frac35+\frac35=\frac65$, remove $1$ lap to get $\frac15$; add $\frac35$ to get $\frac45$; add $\frac35$ to get $\frac75$, remove $1$ lap to get $\frac25$; add $\frac35$ to get $1$ lap -- back at $M_1$.)
 \begin{figC}
 \draw[Ink,line width=1.1pt] (0,0) circle (1.1);
-\fill[Ink] (0,1.1) circle (2pt) node[above,font=\small\itshape] {$A$};
+\fill[Ink] (0,1.1) circle (2pt) node[above left=1pt,font=\small\itshape] {$A$};
 \fill[Ink] (0,-1.1) circle (2pt) node[below,font=\small\itshape] {$B$};
 \foreach \a in {90,210,330}{\fill[AnsRed] (\a:1.1) circle (3pt);}
 \node[font=\scriptsize,text=AnsRed,anchor=east] at (210:1.25) {meet};
 \node[font=\scriptsize,text=AnsRed,anchor=west] at (330:1.25) {meet};
-\node[font=\scriptsize,text=AnsRed,anchor=south west] at (90:1.18) {meet};
+\node[font=\scriptsize,text=AnsRed,anchor=south west] at (0.1,1.16) {meet};
 \end{figC}
 \verify{Let the track be $600$~m long, Anna run $200$~m per minute and Ben $100$~m per minute. They start $300$~m apart and first meet after $300\div 300=1$ minute, at the point $200$~m from $A$ (in Anna's direction). After that they meet every $600\div 300=2$ minutes, and Anna runs another $400$~m each time: positions $200\to 600$ (that is, $A$) $\to 1000$ (that is, $400$~m) $\to 1400$ (that is, $200$~m) \dots\ Exactly three points: $0$~m, $200$~m, $400$~m, dividing the circle into three equal parts -- as in the picture above.}
 So the answer is \textbf{(D)}.
@@ -566,6 +568,7 @@ So the answer is \textbf{(E)}.
 }
 
 % ------------------------------------------------------------------ 29
+\needspace{12\baselineskip}
 \begin{probbox}{29}{\relax}
 Kathy owns more cats than Alice and more dogs than Bruce. Alice owns more dogs than Kathy but fewer cats than Bruce. Which of the following statements \textbf{must} be true?
 \choicesL{Bruce owns the fewest cats.}{Bruce owns the most cats.}{Kathy owns the most cats.}{Alice owns the most dogs.}{Kathy owns the fewest dogs.}

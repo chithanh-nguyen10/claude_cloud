@@ -1016,7 +1016,7 @@ Anna wants to build the solid rectangular box shown from small cubes measuring $
 \begin{recallbox}Volume of a rectangular box: $V=a\cdot b\cdot c$ (length $\times$ width $\times$ height).\end{recallbox}
 \step{1}{Count the cubes in one layer}
 We build horizontal layers. The bottom layer has a $4\text{ cm}\times3\text{ cm}$ base ($4$ cm long, $3$ cm deep), so it has $3$ rows of $4$ cubes: $4\cdot3=12$ cubes.
-\begin{gmFig}[scale=0.55]
+\begin{gmFig}[scale=0.47]
   \foreach \z/\c in {0/tmBlue,1/tmGreen,2/tmOrange}{
     \fill[\c!25,draw=\c!80!black] (0,\z) rectangle (4,\z+1);
     \foreach \x in {1,2,3}{\draw[\c!80!black] (\x,\z)--(\x,\z+1);}
@@ -1037,8 +1037,7 @@ The height is $3$ cm, so there are $3$ layers stacked on top of each other.
 \step{3}{Multiply}
 Total number of cubes: $12\cdot3=36$ cubes. That is, $V=4\cdot3\cdot3=36\ (\text{cm}^3)$.
 \begin{warnbox}Option (A) $10$ is the \emph{sum} $4+3+3$, and (C) $33$ just puts digits together. The volume is the \emph{product} of the three dimensions, not their sum.\end{warnbox}
-\verify{Counting another way: each vertical ``slice'' parallel to the front face has $4\cdot3=12$ cubes, and there are $3$ slices front to back: $12\cdot3=36$.}
-So the answer is \textbf{(E)}.
+\verify{Counting another way: each vertical ``slice'' parallel to the front face has $4\cdot3=12$ cubes, and there are $3$ slices front to back: $12\cdot3=36$. So the answer is \textbf{(E)}.}
 \ans{(E) $36$}
 }
 

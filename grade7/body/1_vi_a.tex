@@ -8,10 +8,10 @@
   \node[inner sep=0pt] at (-0.33,-0.16){$#3$};\node[inner sep=0pt] at (0.33,-0.16){$#4$};\end{tikzpicture}}
 % \rvaaScale{left}{right}: một chiếc cân thăng bằng; các vật đứng đúng trên hai đĩa cân
 \providecommand{\rvaaScale}[2]{\begin{tikzpicture}[baseline=0pt,font=\small]
-  \draw[Ink,line width=1.1pt] (-1.7,0)--(1.7,0);
+  \draw[Ink,line width=1.1pt] (-2.3,0)--(2.3,0);
   \fill[Slate] (0,-0.02)--(-0.22,-0.38)--(0.22,-0.38)--cycle;
   \draw[Slate,line width=1pt] (-0.4,-0.38)--(0.4,-0.38);
-  \node[anchor=south,inner sep=0pt] at (-1.05,0.04){#1};\node[anchor=south,inner sep=0pt] at (1.05,0.04){#2};\end{tikzpicture}}
+  \node[anchor=south,inner sep=0pt] at (-1.3,0.04){#1};\node[anchor=south,inner sep=0pt] at (1.3,0.04){#2};\end{tikzpicture}}
 % các hình phẳng (không hiệu ứng 3D) cho bài toán cân, đứng trên dòng kẻ; \rvaaWt{3 kg}: quả cân
 \providecommand{\rvaaSq}{\tikz[baseline=0pt]{\draw[tmBlue!80!black,line width=0.8pt,fill=tmBlue!25] (0,0) rectangle (0.3,0.3);}}
 \providecommand{\rvaaTri}{\tikz[baseline=0pt]{\draw[tmOrange!85!black,line width=0.8pt,fill=tmOrange!25] (0,0)--(0.34,0)--(0.17,0.3)--cycle;}}
@@ -183,7 +183,7 @@ Cân vẫn thăng bằng nếu ta:
 Hệ quả quen thuộc là \textbf{quy tắc chuyển vế}: chuyển một số hạng từ vế này sang vế kia thì phải \emph{đổi dấu} số hạng đó.
 
 \begin{center}
-\rvaaScale{\rvaaSq\,\rvaaSq\ \ \rvaaWt{3 kg}}{\rvaaWt{11 kg}}
+\rvaaScale{\rvaaSq\,\rvaaSq\,\rvaaWt{3 kg}}{\rvaaWt{11 kg}}
 \end{center}
 \emph{Ví dụ:} hai hộp như nhau cùng quả cân $3$ kg cân bằng với $11$ kg: $2x+3=11$.
 Bỏ quả cân $3$ kg ở cả hai đĩa: $2x=11-3=8$. Chia đôi cả hai đĩa: $x=8:2=4$. Mỗi hộp nặng $4$ kg.
@@ -611,6 +611,7 @@ Trong hình vẽ, tam giác có một cạnh dài $14$ cm và hai cạnh bằng 
 $8$ cm và chiều dài $x$ cm. Biết chu vi tam giác bằng chu vi hình chữ nhật. Tìm $x$.
 \begin{figC}
 % vẽ đúng tỉ lệ 0,2 cm : 1 cm: đáy 14 -> 2,8; cạnh bên 12 -> 2,4 (chiều cao 1,95); hình chữ nhật 11 x 8 -> 2,2 x 1,6
+\begin{scope}[scale=0.85]
 \draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,4.05)--(2.8,4.05)--(1.4,2.1)--cycle;
 \node[above] at (1.4,4.05){$14$ cm};
 \node[anchor=west] at (2.3,3.15){$12$ cm};
@@ -619,6 +620,7 @@ $8$ cm và chiều dài $x$ cm. Biết chu vi tam giác bằng chu vi hình ch�
 \draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (0.3,0)rectangle(2.5,1.6);
 \node[right] at (2.5,0.8){$8$ cm};
 \node[below] at (1.4,0){$x$ cm};
+\end{scope}
 \end{figC}
 \choices{$8$}{$10$}{$11$}{$14$}{$15$}
 \end{probbox}
@@ -632,9 +634,8 @@ Chu vi tam giác: $14+12+12=38$ (cm).
 \step{2}{Lập phương trình}
 Chu vi hình chữ nhật là $2(x+8)$. Cho hai chu vi bằng nhau: $2(x+8)=38$.
 \step{3}{Giải phương trình}
-Chia cả hai vế cho $2$: $x+8=19$. Trừ $8$ ở cả hai vế: $x=19-8=11$.
+Chia cả hai vế cho $2$: $x+8=19$. Trừ $8$ ở cả hai vế: $x=19-8=11$, ứng với phương án \textbf{(C)}.
 \verify{Hình chữ nhật $11$ cm $\times$ $8$ cm có chu vi $11+8+11+8=38$ cm, đúng bằng chu vi tam giác.}
-Giá trị $x=11$ ứng với phương án \textbf{(C)}.
 \begin{parentbox}Có thể minh hoạ bằng một sợi dây dài $38$ cm: uốn thành tam giác $14$ -- $12$ -- $12$, rồi uốn lại thành hình chữ nhật có cạnh $8$ cm. Con sẽ thấy ``chu vi'' chính là độ dài sợi dây, không đổi khi đổi hình.\end{parentbox}
 \ans{(C) $11$}
 }
@@ -806,7 +807,8 @@ Vậy $x=-37$.
 \draw[->,thick,Navy] (-41,0)--(15,0);
 \foreach \i in {-37,-26,0,11}{\draw[Navy] (\i,0.12)--(\i,-0.12); \node[below,font=\footnotesize] at (\i,-0.12){$\i$};}
 \fill[AnsRed] (-37,0) circle (2.5pt); \fill[tmGreen] (-26,0) circle (2.5pt);
-\draw[->,tmOrange,line width=1pt] (-37,0.3) to[bend left=30] node[above,font=\footnotesize]{$+11$} (-26,0.3);
+\draw[->,tmOrange,line width=1pt] (-37,0.1) .. controls (-35.5,0.9) and (-27.5,0.9) .. (-26,0.1);
+\node[above,font=\footnotesize,text=tmOrange!80!black,inner sep=2pt] at (-31.5,0.7){$+11$};
 \end{tikzpicture}\end{center}
 Trên trục số: từ $-37$ đi sang phải $11$ bước thì đến $-26$.
 \begin{warnbox}Quên đổi dấu khi chuyển vế, viết $x=-26+11=-15$, là sai (phương án C). Thử lại: $-15+11=-4\neq -26$.\end{warnbox}
@@ -910,8 +912,8 @@ Nếu diện tích hình chữ nhật bằng diện tích tam giác thì giá tr
 \textbf{Phân tích đề.} Hình chữ nhật: dài $x$, rộng $y$. Tam giác: đáy $16$, cao $x$. Hai diện tích bằng nhau. Tìm $y$
 (lưu ý: đề không cho $x$, nhưng ta sẽ thấy $x$ tự ``biến mất'').
 \begin{figC}
-\draw[tmBlue,line width=1pt,fill=tmBlue!10] (0,0) rectangle (2.4,1.4);
-\node[below] at (1.2,0){$x$}; \node[left] at (0,0.7){$y$};
+\draw[tmBlue,line width=1pt,fill=tmBlue!10] (0,0) rectangle (2.4,2.0); % y=8 -> 2,0 (cùng tỉ lệ với đáy 16 -> 4)
+\node[below] at (1.2,0){$x$}; \node[left] at (0,1.0){$y$};
 \draw[tmOrange!85!black,line width=1pt,fill=tmOrange!12] (3.6,0)--(7.6,0)--(4.6,2.4)--cycle;
 \draw[dashed,Slate] (4.6,2.4)--(4.6,0); \draw[Slate] (4.6,0.18)--(4.78,0.18)--(4.78,0);
 \node[below] at (5.6,0){$16$}; \node[left,font=\small] at (4.6,1.1){$x$};
