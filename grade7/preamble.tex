@@ -118,31 +118,31 @@
 %              outline-green SOLUTION, all with drop shadow + rounded corners ============
 % ---------------- knowledge box: white, tmBlue border + left accent + drop shadow ----------------
 \newtcolorbox{knowbox}{enhanced,breakable,colback=white,colframe=tmBlue!70,boxrule=0.9pt,arc=5pt,
-  left=12pt,right=11pt,top=6pt,bottom=6pt,drop shadow,
+  left=12pt,right=11pt,top=6pt,bottom=6pt,
   borderline west={3.5pt}{0pt}{tmBlue}}
 
 % ---------------- EXAMPLE (Ví dụ): SOLID ORANGE tab, white text ----------------
 \newtcolorbox{exbox}[1]{enhanced,breakable,colback=white,colframe=tmOrange,boxrule=1pt,arc=5pt,
-  left=12pt,right=11pt,top=14pt,bottom=7pt,drop shadow,
+  left=12pt,right=11pt,top=14pt,bottom=7pt,
   attach boxed title to top left={xshift=10pt,yshift=-\tcboxedtitleheight/2},
-  boxed title style={colback=tmOrange,colframe=tmOrange,arc=4pt,boxrule=0pt,drop shadow},
+  boxed title style={colback=tmOrange,colframe=tmOrange,arc=4pt,boxrule=0pt},
   title={#1},fonttitle=\bfseries\color{white}}
 \newcommand{\guide}{\par\vspace{2pt}{\bfseries\color{tmBlue}\GuideWord}\par\nopagebreak}
 
 % ---------------- PROBLEM (Bài): SOLID BLUE tab, white text ----------------
 \newtcolorbox{probbox}[2]{enhanced,breakable,colback=white,colframe=tmBlue,boxrule=1pt,arc=5pt,
-  left=12pt,right=10pt,top=14pt,bottom=7pt,drop shadow,
+  left=12pt,right=10pt,top=14pt,bottom=7pt,
   attach boxed title to top left={xshift=10pt,yshift=-\tcboxedtitleheight/2},
-  boxed title style={colback=tmBlue,colframe=tmBlue,arc=4pt,boxrule=0pt,drop shadow},
+  boxed title style={colback=tmBlue,colframe=tmBlue,arc=4pt,boxrule=0pt},
   fonttitle=\bfseries\color{white},title={\ProbWord\ #1\ifx\relax#2\relax\else#2\fi}}
 
 % ---------------- SOLUTION (Lời giải): OUTLINE GREEN tab (white fill, green border + text) ----------------
 % Teacher: a green tcolorbox. Student: the body is dropped entirely (comment pkg — robust with tables/\\).
 \ifsol
   \newtcolorbox{solbox}{enhanced,breakable,colback=white,colframe=tmGreen,boxrule=1pt,arc=5pt,
-    left=12pt,right=10pt,top=14pt,bottom=7pt,drop shadow,
+    left=12pt,right=10pt,top=14pt,bottom=7pt,
     attach boxed title to top left={xshift=10pt,yshift=-\tcboxedtitleheight/2},
-    boxed title style={colback=white,colframe=tmGreen,boxrule=1pt,arc=4pt,drop shadow},
+    boxed title style={colback=white,colframe=tmGreen,boxrule=1pt,arc=4pt},
     fonttitle=\bfseries\color{tmGreen!88!black},title={\SolTitle},before upper={\color{NavyD}}}
 \else
   \excludecomment{solbox}
@@ -156,7 +156,7 @@
 \newcommand{\digitcards}[1]{\begin{center}\begin{tikzpicture}[scale=0.7,transform shape,font=\sffamily]
   \def\dx{0}\foreach \v/\c in {#1}{
     \node[draw=\c!60!black,line width=1.5pt,fill=\c!10,rounded corners=4pt,
-          minimum width=1cm,minimum height=1.4cm,drop shadow] at (\dx,0){\Huge\bfseries \v};
+          minimum width=1cm,minimum height=1.4cm] at (\dx,0){\Huge\bfseries \v};
     \pgfmathsetmacro\dx{\dx+1.5}\xdef\dx{\dx}}
 \end{tikzpicture}\end{center}}
 

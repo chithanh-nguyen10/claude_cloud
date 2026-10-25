@@ -124,3 +124,28 @@ Vậy chọn \textbf{(E)}.
 \ans{(E) $3$ giờ}
 }
 ```
+
+## Revision round 2 (customer feedback) — these rules override anything above
+
+1. **Grade 7 methods, not primary-school diagrams.** Do not solve with bar models /
+   "sơ đồ đoạn thẳng" / coloured boxes like `[Mai]+[Lan] = 72 kg` (`\blk`, `barfig`,
+   `sdS`, `\avgbar`, `\avgpm`, `\brcup` boxes, unit blocks). Use Grade 7 tools: set an
+   unknown (gọi ẩn / đặt $x$), write expressions, form and solve an equation or a
+   system by substitution/adding, use proportions, tables, number lines, coordinate
+   grids, tree diagrams, and genuine geometric figures. A figure stays only if it is a
+   real mathematical figure that helps (geometry, graph, table, tree, number line).
+2. **Flat drawings only — no 3D effects.** No `ball color`, `shading`, shadows,
+   gradients, opacity tricks, glossy/3D balls or spheres. Circles are flat (`fill=...!20`,
+   plain border). Solid figures (boxes, cubes, prisms) may be drawn as ordinary
+   textbook line drawings (oblique projection, dashed hidden edges, flat light fill).
+3. **Foreign names only** (in both the Vietnamese and the English edition, identical):
+   e.g. Anna, Ben, Chloe, David, Emma, Felix, Grace, Henry, Isla, Jack, Kate, Leo, Mia,
+   Noah, Olivia, Peter, Ruby, Sam, Tom, Lucy, Max, Zoe ... No Vietnamese names anywhere.
+   Money in dollars: EN `\$2.25`, VI `\$2{,}25` (or "2,25 đô la"). Where a problem
+   was rescaled to đồng, restore sensible dollar amounts (preferably the original CEMC
+   numbers) and re-check every option and every step of the solution.
+4. **Every figure must be exact.** Arrows must start and end exactly at the right
+   points (e.g. a jump "−5" on a number line goes from 2 to −3 exactly, the label sits
+   above the arc without touching the axis labels); labels never overlap lines,
+   ticks or other labels; angle marks sit at the right vertex; drawings match the
+   numbers in the text. Compute coordinates rather than eyeballing them.

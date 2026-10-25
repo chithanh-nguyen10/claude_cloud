@@ -34,7 +34,7 @@ CHAPTERS = {
     2: {"vi": "Hình học và Đo lường", "en": "Geometry and Measurement"},
     3: {"vi": "Đếm và Xác suất", "en": "Counting and Probability"},
     4: {"vi": "Số học và Tư duy số", "en": "Number Sense"},
-    5: {"vi": "Tư duy logic và Câu đố", "en": "Logic and Puzzles"},
+    5: {"vi": "Chủ đề khác: Tư duy logic và Câu đố", "en": "Others: Logic and Puzzles"},
 }
 BOOK = {
     "vi": {"slug": "ThinkAlgo_Toan7", "title": "Toán Tư duy Lớp 7",
@@ -94,10 +94,8 @@ def cover(lang, teacher, chapters):
   \fill[tmBlue] (current page.north west) rectangle ([yshift=-9.5cm]current page.north east);
   \fill[tmBlue!80!black] ([yshift=-9.5cm]current page.north west) rectangle ([yshift=-9.9cm]current page.north east);
   \fill[KidOrange] ([yshift=-9.9cm]current page.north west) rectangle ([yshift=-10.1cm]current page.north east);
-  \node[anchor=north west,text=white,font=\Large\bfseries] at ([xshift=2cm,yshift=-1.6cm]current page.north west)
-     {think\,algo};
   \node[anchor=north west,text=white,font=\fontsize{34}{40}\selectfont\bfseries,text width=16cm]
-     at ([xshift=2cm,yshift=-3.6cm]current page.north west) {%(title)s};
+     at ([xshift=2cm,yshift=-2.6cm]current page.north west) {%(title)s};
   \node[anchor=north west,text=white,font=\large,text width=16cm]
      at ([xshift=2cm,yshift=-6.2cm]current page.north west) {%(sub)s};
   \node[anchor=north west,fill=white,text=tmBlue,font=\bfseries,rounded corners=6pt,inner xsep=10pt,inner ysep=6pt]
