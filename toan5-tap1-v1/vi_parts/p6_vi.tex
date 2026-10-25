@@ -1,0 +1,899 @@
+\begingroup\setbox0=\vbox{\section*{Hình tam giác. Diện tích hình tam giác}}\endgroup
+\chapterhead{11}{Hình tam giác. Diện tích hình tam giác}
+
+\shead{Đáy, chiều cao và diện tích}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+\textbf{Hình tam giác} có $3$ cạnh, $3$ đỉnh và $3$ góc. Theo góc, có hình tam giác \emph{nhọn} (ba góc nhọn), hình tam giác \emph{tù} (một góc tù) và hình tam giác \emph{vuông} (một góc vuông).\par
+\smallskip
+Đoạn thẳng kẻ từ một đỉnh và \textbf{vuông góc} với cạnh đối diện là \textbf{đường cao}; cạnh đó là \textbf{cạnh đáy}. Mỗi hình tam giác có $3$ đường cao.\par
+\smallskip
+\textbf{Diện tích hình tam giác} bằng độ dài đáy nhân với chiều cao (cùng một đơn vị đo) rồi chia cho $2$:
+\[S=\frac{a\times h}{2}\qquad h=\frac{S\times2}{a}\qquad a=\frac{S\times2}{h}\]
+Trong hình tam giác vuông, hai cạnh góc vuông là đáy và chiều cao của nhau.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{2pt}
+\centering
+\begin{tikzpicture}[scale=0.9]
+\coordinate (B) at (0,0); \coordinate (C) at (4,0); \coordinate (A) at (1.3,2.6); \coordinate (H) at (1.3,0);
+\fill[tmBlue!12] (A)--(B)--(C)--cycle;
+\draw[geo] (A)--(B)--(C)--cycle;
+\draw[dashed,line width=0.7pt,tmOrange!80!black] (A)--(H);
+\ramark{H}{C}{A}
+\node[lbl,above] at (A){A}; \node[lbl,below left] at (B){B}; \node[lbl,below right] at (C){C}; \node[lbl,below] at (H){H};
+\node[dim,right] at (1.3,1.3){$h$};
+\draw[|<->|,Slate] (0,-0.55)--node[fill=white,dim]{$a$}(4,-0.55);
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Tính diện tích hình tam giác có:
+\begin{cols2}
+\pa{a} độ dài đáy $8$ cm, chiều cao $5$ cm; & \pa{b} độ dài đáy $2{,}5$ dm, chiều cao $12$ cm.
+\end{cols2}
+\guide
+\pa{a} $S=8\times5:2=20$ cm$^2$.\par
+\pa{b} Trước hết đổi về cùng đơn vị đo: $2{,}5$ dm $=25$ cm.\par $S=25\times12:2=150$ cm$^2$.
+\dapso{\pa{a} $20$ cm$^2$;\par \pa{b} $150$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+\begin{minipage}[t]{0.62\linewidth}
+Hình tam giác ABC vuông tại A có $AB=6$ cm, $AC=8$ cm và $BC=10$ cm. Tính diện tích hình tam giác đó và độ dài đường cao AH.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.36]
+\coordinate (A) at (0,0); \coordinate (B) at (0,6); \coordinate (C) at (8,0); \coordinate (H) at (2.88,3.84);
+\draw[geo] (A)--(B)--(C)--cycle; \ramark{A}{B}{C}
+\draw[dashed,line width=0.7pt,tmOrange!80!black] (A)--(H); \ramark{H}{C}{A}
+\node[lbl,below left] at (A){A}; \node[lbl,above] at (B){B}; \node[lbl,below right] at (C){C}; \node[lbl,above right] at (H){H};
+\end{tikzpicture}
+\end{minipage}
+\guide
+Lấy AC làm đáy thì AB là chiều cao: $S=6\times8:2=24$ cm$^2$.\par
+Lấy BC làm đáy thì AH là chiều cao: $AH=24\times2:10=4{,}8$ cm.
+\dapso{$24$ cm$^2$;\par $AH=4{,}8$ cm.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Một hình tam giác có diện tích $36$ cm$^2$ và độ dài đáy $9$ cm. Tính chiều cao của hình tam giác đó.
+\guide
+$h=S\times2:a=36\times2:9=8$ cm.
+\dapso{$8$ cm.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+\begin{minipage}[t]{0.6\linewidth}
+Hình chữ nhật ABCD có $AB=12$ cm và $BC=8$ cm; M là trung điểm của BC. Tính diện tích các hình tam giác ABM, MCD và AMD.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0,8); \coordinate (B) at (12,8); \coordinate (C) at (12,0); \coordinate (D) at (0,0); \coordinate (M) at (12,4);
+\fill[shade] (A)--(M)--(D)--cycle;
+\draw[geo] (A)--(B)--(C)--(D)--cycle; \draw[geo] (A)--(M)--(D);
+\node[lbl,above left] at (A){A}; \node[lbl,above right] at (B){B}; \node[lbl,below right] at (C){C}; \node[lbl,below left] at (D){D}; \node[lbl,right] at (M){M};
+\end{tikzpicture}
+\end{minipage}
+\guide
+$BM=MC=8:2=4$ cm.\par $S_{ABM}=12\times4:2=24$ cm$^2$;\par $S_{MCD}=12\times4:2=24$ cm$^2$.\par
+$S_{ABCD}=12\times8=96$ cm$^2$, nên $S_{AMD}=96-24-24=48$ cm$^2$.\par
+\emph{Nhận xét:} hình tam giác AMD có đáy AD và chiều cao bằng AB, nên diện tích của nó bằng một nửa diện tích hình chữ nhật.
+\dapso{$24$ cm$^2$; $24$ cm$^2$; $48$ cm$^2$.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Tính diện tích hình tam giác có độ dài đáy $a$ và chiều cao $h$:
+\begin{cols2}
+\pa{a} $a=15$ cm, $h=8$ cm; & \pa{b} $a=4{,}5$ m, $h=2$ m;\\
+\pa{c} $a=\dfrac34$ m, $h=\dfrac25$ m; & \pa{d} $a=1{,}2$ dm, $h=15$ cm.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $15\times8:2=60$ cm$^2$.\par \pa{b} $4{,}5\times2:2=4{,}5$ m$^2$.\par \pa{c} $\dfrac34\times\dfrac25:2=\dfrac3{20}$ m$^2$.\par \pa{d} $1{,}2$ dm $=12$ cm; $12\times15:2=90$ cm$^2$.
+\dapso{$60$ cm$^2$; $4{,}5$ m$^2$; $\dfrac3{20}$ m$^2$; $90$ cm$^2$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Tính diện tích hình tam giác vuông có hai cạnh góc vuông dài $3{,}5$ dm và $2$ dm.
+\end{probbox}
+\probsol{
+$S=3{,}5\times2:2=3{,}5$ dm$^2$.
+\dapso{$3{,}5$ dm$^2$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Một hình tam giác có diện tích $45$ cm$^2$ và chiều cao $6$ cm. Tính độ dài đáy của hình tam giác đó.
+\end{probbox}
+\probsol{
+$a=45\times2:6=15$ cm.
+\dapso{$15$ cm.}}
+\gap
+\begin{probbox}{4}{\relax}
+Một mảnh đất hình tam giác có độ dài đáy $40$ m, chiều cao bằng $\dfrac34$ độ dài đáy. Tính diện tích mảnh đất đó.
+\end{probbox}
+\probsol{
+Chiều cao: $40\times\dfrac34=30$ m.\par Diện tích: $40\times30:2=600$ m$^2$.
+\dapso{$600$ m$^2$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Một tấm bìa hình tam giác có độ dài đáy $2{,}4$ dm, chiều cao bằng $\dfrac23$ độ dài đáy. Tính diện tích tấm bìa đó.
+\end{probbox}
+\probsol{
+Chiều cao: $2{,}4\times\dfrac23=1{,}6$ dm.\par Diện tích: $2{,}4\times1{,}6:2=1{,}92$ dm$^2$.
+\dapso{$1{,}92$ dm$^2$.}}
+\gap
+\begin{probbox}{6}{\relax}
+Hình tam giác ABC vuông tại A có $AB=9$ cm, $AC=12$ cm và $BC=15$ cm. Tính độ dài đường cao AH.
+\end{probbox}
+\probsol{
+$S=9\times12:2=54$ cm$^2$.\par $AH=54\times2:15=7{,}2$ cm.
+\dapso{$7{,}2$ cm.}}
+\gap
+\begin{probbox}{7}{\relax}
+Một hình tam giác có diện tích bằng diện tích hình vuông cạnh $6$ cm. Độ dài đáy của hình tam giác là $9$ cm. Tính chiều cao của hình tam giác đó.
+\end{probbox}
+\probsol{
+Diện tích: $6\times6=36$ cm$^2$.\par Chiều cao: $36\times2:9=8$ cm.
+\dapso{$8$ cm.}}
+\gap
+\begin{probbox}{8}{\relax}
+Một hình tam giác có độ dài đáy $18$ cm. Nếu kéo dài đáy thêm $4$ cm (giữ nguyên chiều cao) thì diện tích tăng thêm $20$ cm$^2$. Tính diện tích hình tam giác ban đầu.
+\end{probbox}
+\probsol{
+Phần tăng thêm là hình tam giác có đáy $4$ cm và diện tích $20$ cm$^2$; chiều cao của nó là $20\times2:4=10$ cm.\par
+Diện tích ban đầu: $18\times10:2=90$ cm$^2$.
+\dapso{$90$ cm$^2$.}}
+\gap
+\begin{probbox}{9}{\relax}
+Hình vuông ABCD có cạnh $10$ cm; M là trung điểm của BC. Tính diện tích hình tam giác ABM và hình tứ giác AMCD.
+\end{probbox}
+\probsol{
+$S_{ABM}=10\times5:2=25$ cm$^2$.\par $S_{AMCD}=10\times10-25=75$ cm$^2$.
+\dapso{$25$ cm$^2$; $75$ cm$^2$.}}
+\gap
+\begin{probbox}{10}{\relax}
+Hình tam giác ABC có diện tích $60$ cm$^2$ và $BC=15$ cm. Điểm M nằm trên BC sao cho $BM=5$ cm. Tính diện tích hình tam giác ABM.
+\end{probbox}
+\probsol{
+Chiều cao hạ từ A xuống BC là $60\times2:15=8$ cm.\par Hình tam giác ABM có cùng chiều cao đó: $S_{ABM}=5\times8:2=20$ cm$^2$.
+\dapso{$20$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+\begin{minipage}[t]{0.62\linewidth}
+Trong hình bên có bao nhiêu hình tam giác? Hãy kể tên các hình tam giác đó.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.6]
+\coordinate (A) at (2,2.6); \coordinate (B) at (0,0); \coordinate (M) at (1.3,0); \coordinate (N) at (2.6,0); \coordinate (C) at (4,0);
+\draw[geo] (A)--(B)--(C)--cycle; \draw[geo] (A)--(M) (A)--(N);
+\node[lbl,above] at (A){A}; \node[lbl,below] at (B){B}; \node[lbl,below] at (M){M}; \node[lbl,below] at (N){N}; \node[lbl,below] at (C){C};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Mỗi hình tam giác có đỉnh A và đáy là đoạn thẳng nối hai trong bốn điểm B, M, N, C.\par Có $3+2+1=6$ đoạn thẳng như vậy.\par
+Các hình tam giác: ABM, AMN, ANC, ABN, AMC, ABC.
+\dapso{$6$ hình tam giác.}}
+\gap
+\begin{probbox}{12}{\relax}
+Tính diện tích hình tam giác có độ dài đáy $14$ cm và chiều cao $9$ cm.
+\end{probbox}
+\probsol{
+$S=14\times9:2=63$ cm$^2$.
+\dapso{$63$ cm$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Tính diện tích hình tam giác có độ dài đáy $2{,}5$ m và chiều cao $1{,}6$ m.
+\end{probbox}
+\probsol{
+$S=2{,}5\times1{,}6:2=2$ m$^2$.
+\dapso{$2$ m$^2$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Tính diện tích hình tam giác có độ dài đáy $\dfrac34$ m và chiều cao $\dfrac25$ m.
+\end{probbox}
+\probsol{
+$S=\dfrac34\times\dfrac25:2=\dfrac3{20}$ m$^2$.
+\dapso{$\dfrac3{20}$ m$^2$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Tính diện tích hình tam giác có độ dài đáy $3$ dm và chiều cao $25$ cm.
+\end{probbox}
+\probsol{
+$3$ dm $=30$ cm.\par $S=30\times25:2=375$ cm$^2$.
+\dapso{$375$ cm$^2$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Tính diện tích hình tam giác vuông có hai cạnh góc vuông dài $7$ cm và $10$ cm.
+\end{probbox}
+\probsol{
+Một cạnh góc vuông là đáy, cạnh góc vuông kia là chiều cao.\par $S=7\times10:2=35$ cm$^2$.
+\dapso{$35$ cm$^2$.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một hình tam giác có diện tích $54$ cm$^2$ và độ dài đáy $12$ cm. Tính chiều cao của hình tam giác đó.
+\end{probbox}
+\probsol{
+Chiều cao $=$ diện tích $\times2\,:$ độ dài đáy.\par $h=54\times2:12=9$ cm.
+\dapso{$9$ cm.}}
+\gap
+\begin{probbox}{18}{\relax}
+Một hình tam giác có diện tích $7{,}5$ dm$^2$ và chiều cao $2{,}5$ dm. Tính độ dài đáy của hình tam giác đó.
+\end{probbox}
+\probsol{
+Độ dài đáy $=$ diện tích $\times2\,:$ chiều cao.\par $a=7{,}5\times2:2{,}5=6$ dm.
+\dapso{$6$ dm.}}
+\gap
+\begin{probbox}{19}{\relax}
+Một thửa ruộng hình tam giác có độ dài đáy $50$ m và chiều cao $24$ m. Cứ mỗi mét vuông thu hoạch được $0{,}8$ kg rau. Hỏi trên cả thửa ruộng đó thu hoạch được bao nhiêu ki-lô-gam rau?
+\end{probbox}
+\probsol{
+Diện tích: $50\times24:2=600$ m$^2$.\par Số rau thu hoạch được: $0{,}8\times600=480$ kg.
+\dapso{$480$ kg.}}
+\gap
+\begin{probbox}{20}{\relax}
+Một hình tam giác có độ dài đáy $16$ cm, chiều cao bằng $\dfrac34$ độ dài đáy. Tính diện tích hình tam giác đó.
+\end{probbox}
+\probsol{
+Chiều cao: $16\times\dfrac34=12$ cm.\par Diện tích: $16\times12:2=96$ cm$^2$.
+\dapso{$96$ cm$^2$.}}
+\gap
+\begin{probbox}{21}{\relax}
+Tổng độ dài đáy và chiều cao của một hình tam giác là $30$ cm, độ dài đáy hơn chiều cao $6$ cm. Tính diện tích hình tam giác đó.
+\end{probbox}
+\probsol{
+Độ dài đáy: $(30+6):2=18$ cm.\par Chiều cao: $12$ cm.\par Diện tích: $18\times12:2=108$ cm$^2$.
+\dapso{$108$ cm$^2$.}}
+\gap
+\begin{probbox}{22}{\relax}
+Hình tam giác ABC vuông tại A có $AB=15$ cm, $AC=20$ cm, $BC=25$ cm. Tính diện tích hình tam giác đó và độ dài đường cao AH.
+\end{probbox}
+\probsol{
+Diện tích: $15\times20:2=150$ cm$^2$.\par Lấy BC làm đáy thì AH là chiều cao.\par $AH=150\times2:25=12$ cm.
+\dapso{$150$ cm$^2$; $AH=12$ cm.}}
+\gap
+\begin{probbox}{23}{\relax}
+Hình tam giác thứ nhất có độ dài đáy $12$ cm và chiều cao $8$ cm. Hình tam giác thứ hai có cùng diện tích và có độ dài đáy $16$ cm. Tính chiều cao của hình tam giác thứ hai.
+\end{probbox}
+\probsol{
+Diện tích: $12\times8:2=48$ cm$^2$.\par Chiều cao của hình tam giác thứ hai: $48\times2:16=6$ cm.
+\dapso{$6$ cm.}}
+\gap
+\begin{probbox}{24}{\relax}
+Mỗi lá cờ hình tam giác có độ dài đáy $30$ cm và chiều cao $20$ cm. Hỏi làm $20$ lá cờ như thế cần bao nhiêu đề-xi-mét vuông vải? (Không tính phần đường may.)
+\end{probbox}
+\probsol{
+Một lá cờ: $30\times20:2=300$ cm$^2$.\par $20$ lá cờ: $6\,000$ cm$^2$ $=60$ dm$^2$.
+\dapso{$60$ dm$^2$.}}
+\gap
+\begin{probbox}{25}{\relax}
+Một hình tam giác vuông có diện tích $24$ cm$^2$ và một cạnh góc vuông dài $6$ cm. Tính độ dài cạnh góc vuông còn lại.
+\end{probbox}
+\probsol{
+Cạnh góc vuông còn lại là chiều cao ứng với đáy $6$ cm.\par Độ dài: $24\times2:6=8$ cm.
+\dapso{$8$ cm.}}
+\gap
+\begin{probbox}{26}{\relax}
+Hình chữ nhật ABCD có chiều dài $12$ cm, chiều rộng $8$ cm. Đường chéo AC chia hình chữ nhật thành hai hình tam giác. Tính diện tích mỗi hình tam giác.
+\end{probbox}
+\probsol{
+Hình tam giác ABC vuông tại B có hai cạnh góc vuông dài $12$ cm và $8$ cm.\par $S_{ABC}=12\times8:2=48$ cm$^2$.\par Tương tự, $S_{ACD}=48$ cm$^2$ (bằng một nửa diện tích hình chữ nhật).
+\dapso{Mỗi hình $48$ cm$^2$.}}
+\gap
+\begin{probbox}{27}{\relax}
+Một hình tam giác có diện tích $150$ cm$^2$. Nếu tăng chiều cao thêm $3$ cm (giữ nguyên đáy) thì diện tích tăng thêm $30$ cm$^2$. Tính độ dài đáy và chiều cao của hình tam giác đó.
+\end{probbox}
+\probsol{
+Phần tăng thêm là hình tam giác có cùng đáy, chiều cao $3$ cm và diện tích $30$ cm$^2$.\par Độ dài đáy: $30\times2:3=20$ cm.\par Chiều cao: $150\times2:20=15$ cm.
+\dapso{Đáy $20$ cm, chiều cao $15$ cm.}}
+\gap
+\begin{probbox}{28}{\relax}
+Một hình tam giác có độ dài đáy $8$ cm và có diện tích bằng diện tích hình vuông cạnh $8$ cm. Tính chiều cao của hình tam giác đó.
+\end{probbox}
+\probsol{
+Hình vuông: $8\times8=64$ cm$^2$.\par Chiều cao: $64\times2:8=16$ cm.
+\dapso{$16$ cm.}}
+\gap
+\begin{probbox}{29}{\relax}
+Một cánh đồng hình tam giác có độ dài đáy $120$ m và chiều cao $80$ m. Tính diện tích cánh đồng đó theo đơn vị héc-ta.
+\end{probbox}
+\probsol{
+Diện tích: $120\times80:2=4\,800$ m$^2$.\par $1$ ha $=10\,000$ m$^2$, nên diện tích đó là $0{,}48$ ha.
+\dapso{$0{,}48$ ha.}}
+\gap
+\begin{probbox}{30}{\relax}
+Hình tam giác ABC có diện tích $48$ cm$^2$; M là trung điểm của BC. Tính diện tích hình tam giác ABM.
+\end{probbox}
+\probsol{
+ABM và ABC chung chiều cao hạ từ A.\par $BM=\dfrac12BC$, nên $S_{ABM}=\dfrac12S_{ABC}$.\par $S_{ABM}=48:2=24$ cm$^2$.
+\dapso{$24$ cm$^2$.}}
+\dividerbar{Thử thách -- Mở rộng}
+\begin{probbox}{31}{\stars{1}}
+Một hình tam giác có diện tích $120$ cm$^2$. Nếu giảm độ dài đáy đi $3$ cm (giữ nguyên chiều cao) thì diện tích giảm đi $18$ cm$^2$. Tính độ dài đáy.
+\end{probbox}
+\probsol{
+Chiều cao: $18\times2:3=12$ cm.\par Độ dài đáy: $120\times2:12=20$ cm.
+\dapso{$20$ cm.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Tổng độ dài hai cạnh góc vuông của một hình tam giác vuông là $14$ cm, cạnh này dài hơn cạnh kia $2$ cm. Tính diện tích hình tam giác đó.
+\end{probbox}
+\probsol{
+Hai cạnh góc vuông dài $(14+2):2=8$ cm và $6$ cm.\par Diện tích: $8\times6:2=24$ cm$^2$.
+\dapso{$24$ cm$^2$.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Hình chữ nhật ABCD có $AB=16$ cm và $AD=10$ cm. Điểm E nằm trên AB sao cho $AE=6$ cm. Tính diện tích các hình tam giác ADE, EBC và ECD.
+\end{probbox}
+\probsol{
+$S_{ADE}=6\times10:2=30$ cm$^2$;\par $EB=10$ cm, nên $S_{EBC}=10\times10:2=50$ cm$^2$.\par
+$S_{ECD}=16\times10:2=80$ cm$^2$ (bằng một nửa diện tích hình chữ nhật).\par \emph{Thử lại:} $30+50+80=160=16\times10$.
+\dapso{$30$ cm$^2$; $50$ cm$^2$; $80$ cm$^2$.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Hình tam giác ABC vuông tại A có $AB=6$ cm và $AC=8$ cm. M nằm trên AB sao cho $AM=2$ cm, N nằm trên AC sao cho $AN=4$ cm. Tính diện tích hình tứ giác BMNC.
+\end{probbox}
+\probsol{
+$S_{ABC}=6\times8:2=24$ cm$^2$;\par $S_{AMN}=2\times4:2=4$ cm$^2$.\par $S_{BMNC}=24-4=20$ cm$^2$.
+\dapso{$20$ cm$^2$.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+\begin{minipage}[t]{0.62\linewidth}
+Trong hình bên có bao nhiêu hình tam giác?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.6]
+\coordinate (A) at (2,3); \coordinate (B) at (0,0); \coordinate (C) at (4,0);
+\draw[geo] (A)--(B)--(C)--cycle;
+\foreach \x in {1,2,3}{\draw[geo] (A)--(\x,0);}
+\draw[geo] (1,1.5)--(3,1.5);
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Chưa tính đoạn ngang ở giữa: trên đáy có $5$ điểm, tạo thành $4+3+2+1=10$ hình tam giác có đỉnh A.\par
+Đoạn ngang ở giữa cũng có $5$ điểm, tạo thêm $10$ hình tam giác có đỉnh A.\par Tất cả có: $20$ hình tam giác.
+\dapso{$20$ hình tam giác.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Hình tam giác ABC có $BC=20$ cm. M nằm trên BC sao cho $BM=8$ cm, và hình tam giác ABM có diện tích $40$ cm$^2$. Tính diện tích hình tam giác ABC.
+\end{probbox}
+\probsol{
+Chiều cao chung hạ từ A: $40\times2:8=10$ cm.\par $S_{ABC}=20\times10:2=100$ cm$^2$.
+\dapso{$100$ cm$^2$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Hình chữ nhật ABCD có $AB=20$ cm, $AD=12$ cm. M là trung điểm của AB, N là trung điểm của BC. Tính diện tích hình tam giác DMN.
+\end{probbox}
+\probsol{
+Hình chữ nhật: $20\times12=240$ cm$^2$.\par $S_{AMD}=60$, $S_{MBN}=30$, $S_{NCD}=60$ cm$^2$.\par $S_{DMN}=240-60-30-60=90$ cm$^2$.
+\dapso{$90$ cm$^2$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Hình vuông ABCD có cạnh $12$ cm, E là một điểm bất kì trên AB. Tính diện tích hình tam giác ECD và tổng diện tích hai hình tam giác AED và EBC.
+\end{probbox}
+\probsol{
+Hình tam giác ECD có đáy $CD=12$ cm và chiều cao $12$ cm.\par $S_{ECD}=72$ cm$^2$.\par Tổng diện tích hai hình tam giác còn lại là $144-72=72$ cm$^2$, dù E ở vị trí nào.
+\dapso{Đều bằng $72$ cm$^2$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Một hình tam giác có diện tích $40$ cm$^2$. Nếu gấp độ dài đáy lên ba lần và giảm chiều cao đi một nửa thì diện tích mới là bao nhiêu?
+\end{probbox}
+\probsol{
+Gấp đáy lên ba lần thì diện tích gấp lên ba lần.\par Giảm chiều cao đi một nửa thì diện tích giảm đi một nửa.\par Diện tích mới: $40\times3:2=60$ cm$^2$.
+\dapso{$60$ cm$^2$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Tổng độ dài hai cạnh góc vuông của một hình tam giác vuông là $23$ cm, hiệu của chúng là $7$ cm. Tính diện tích hình tam giác đó.
+\end{probbox}
+\probsol{
+Cạnh góc vuông dài hơn: $(23+7):2=15$ cm.\par Cạnh ngắn hơn: $8$ cm.\par Diện tích: $15\times8:2=60$ cm$^2$.
+\dapso{$60$ cm$^2$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Hình tam giác ABC có diện tích $90$ cm$^2$. M nằm trên BC sao cho $MC$ gấp đôi $BM$. Tính diện tích các hình tam giác ABM và AMC.
+\end{probbox}
+\probsol{
+$BM=\dfrac13BC$ và $MC=\dfrac23BC$; hai hình tam giác chung chiều cao hạ từ A.\par $S_{ABM}=90:3=30$ cm$^2$.\par $S_{AMC}=60$ cm$^2$.
+\dapso{$S_{ABM}=30$ cm$^2$, $S_{AMC}=60$ cm$^2$.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Hình tam giác ABC vuông tại A có $AB=12$ cm, $AC=16$ cm. M là trung điểm của AC. So sánh diện tích hai hình tam giác ABM và BMC.
+\end{probbox}
+\probsol{
+$AM=MC=8$ cm; cả hai hình tam giác đều có chiều cao $AB=12$ cm.\par $S_{ABM}=48$ cm$^2$.\par $S_{BMC}=48$ cm$^2$.\par Vậy diện tích hai hình tam giác bằng nhau.
+\dapso{Bằng nhau, mỗi hình $48$ cm$^2$.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Hình tam giác ABC có $BC=24$ cm và chiều cao $AH=10$ cm. Kéo dài BC về phía C một đoạn $CD=6$ cm. Tính diện tích các hình tam giác ACD và ABD.
+\end{probbox}
+\probsol{
+Các hình tam giác ABC, ACD và ABD đều có chiều cao $AH=10$ cm.\par $S_{ACD}=6\times10:2=30$ cm$^2$.\par $S_{ABD}=30\times10:2=150$ cm$^2$.
+\dapso{$30$ cm$^2$ và $150$ cm$^2$.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Hai hình tam giác có chiều cao bằng nhau. Đáy của hình thứ nhất bằng $\dfrac23$ đáy của hình thứ hai, và diện tích hình thứ hai lớn hơn diện tích hình thứ nhất $24$ cm$^2$. Tính diện tích mỗi hình.
+\end{probbox}
+\probsol{
+Khi chiều cao bằng nhau, tỉ số diện tích bằng tỉ số độ dài đáy: $S_1=\dfrac23S_2$.\par Hiệu số phần bằng nhau là $3-2=1$ phần, ứng với $24$ cm$^2$.\par $S_1=48$ cm$^2$; $S_2=72$ cm$^2$.
+\dapso{$48$ cm$^2$ và $72$ cm$^2$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Một mảnh vườn hình chữ nhật có chiều dài $40$ m, chiều rộng $25$ m. Người ta trồng hoa trên một phần đất hình tam giác có đáy là một chiều dài của mảnh vườn và đỉnh nằm trên cạnh đối diện; phần còn lại trồng cỏ. Tính diện tích mỗi phần.
+\end{probbox}
+\probsol{
+Hình tam giác có đáy $40$ m và chiều cao $25$ m.\par Phần trồng hoa: $500$ m$^2$.\par Mảnh vườn: $1\,000$ m$^2$.\par Phần trồng cỏ: $500$ m$^2$.
+\dapso{Trồng hoa $500$ m$^2$, trồng cỏ $500$ m$^2$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Hình tam giác ABC có diện tích $72$ cm$^2$. D nằm trên AB sao cho $AD=\dfrac13AB$; E là trung điểm của AC. Tính diện tích hình tam giác ADE.
+\end{probbox}
+\probsol{
+Nối D với C.\par ADC và ABC chung chiều cao hạ từ C, và $AD=\dfrac13AB$.\par $S_{ADC}=72:3=24$ cm$^2$.\par ADE và ADC chung chiều cao hạ từ D, và $AE=\dfrac12AC$.\par $S_{ADE}=12$ cm$^2$.
+\dapso{$12$ cm$^2$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Hình vuông ABCD có cạnh $10$ cm. E là trung điểm của BC, F là trung điểm của CD. Tính diện tích hình tam giác AEF.
+\end{probbox}
+\probsol{
+$S_{ABE}=25$ cm$^2$; $S_{ADF}=25$ cm$^2$.\par $S_{ECF}=5\times5:2=12{,}5$ cm$^2$.\par $S_{AEF}=100-25-25-12{,}5=37{,}5$ cm$^2$.
+\dapso{$37{,}5$ cm$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+Một hình vuông có đường chéo dài $8$ cm. Tính diện tích hình vuông đó.
+\end{probbox}
+\probsol{
+Một đường chéo chia hình vuông thành hai hình tam giác bằng nhau có chung đáy $8$ cm.\par Hai đường chéo bằng nhau, vuông góc với nhau và cắt nhau tại trung điểm của mỗi đường, nên chiều cao của mỗi hình tam giác là $8:2=4$ cm.\par Mỗi hình tam giác: $8\times4:2=16$ cm$^2$.\par Hình vuông: $32$ cm$^2$.
+\dapso{$32$ cm$^2$.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Hình tam giác ABC có diện tích $80$ cm$^2$. M là trung điểm của BC, N là trung điểm của AM. Tính diện tích hình tam giác BNC.
+\end{probbox}
+\probsol{
+$S_{ABM}=S_{ACM}=40$ cm$^2$.\par BNM và BAM chung chiều cao hạ từ B và $NM=\dfrac12AM$, nên $S_{BNM}=20$ cm$^2$.\par Tương tự, $S_{CNM}=20$ cm$^2$.\par $S_{BNC}=40$ cm$^2$.
+\dapso{$40$ cm$^2$.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Hình tam giác ABC có diện tích $120$ cm$^2$. M nằm trên BC sao cho $BM=\dfrac14BC$; N nằm trên AM sao cho $AN=\dfrac23AM$. Tính diện tích các hình tam giác ABN và NBM.
+\end{probbox}
+\probsol{
+$S_{ABM}=120:4=30$ cm$^2$ (chung chiều cao hạ từ A).\par ABN và ABM chung chiều cao hạ từ B, với $AN=\dfrac23AM$.\par $S_{ABN}=20$ cm$^2$.\par $S_{NBM}=10$ cm$^2$.
+\dapso{$S_{ABN}=20$ cm$^2$, $S_{NBM}=10$ cm$^2$.}}
+\clearpage
+\titlehead
+\begingroup\setbox0=\vbox{\section*{(*) So sánh diện tích hình tam giác}}\endgroup
+\chapterhead{12}{(*) So sánh diện tích hình tam giác}
+
+\shead{Chung chiều cao, so sánh đáy}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Hai hình tam giác có \textbf{chung chiều cao} thì tỉ số diện tích bằng tỉ số \textbf{độ dài hai đáy}. Chẳng hạn, nếu M nằm trên BC thì
+\[\frac{S_{ABM}}{S_{AMC}}=\frac{BM}{MC}.\]
+\item Hai hình tam giác có \textbf{chung đáy} thì tỉ số diện tích bằng tỉ số \textbf{hai chiều cao}.
+\item Đoạn thẳng nối một đỉnh với \textbf{trung điểm} của cạnh đối diện chia hình tam giác thành hai hình tam giác có diện tích bằng nhau.
+\end{itemize}
+Để so sánh hai hình tam giác, ta thường đi qua một hình tam giác ``trung gian'' có chung chiều cao với từng hình.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[scale=0.85]
+\coordinate (B) at (0,0); \coordinate (C) at (4.2,0); \coordinate (A) at (1.4,2.6); \coordinate (M) at (2.8,0); \coordinate (H) at (1.4,0);
+\fill[tmBlue!18] (A)--(B)--(M)--cycle; \fill[tmOrange!18] (A)--(M)--(C)--cycle;
+\draw[geo] (A)--(B)--(C)--cycle; \draw[geo] (A)--(M);
+\draw[dashed,Slate] (A)--(H); \ramark{H}{C}{A}
+\node[lbl,above] at (A){A}; \node[lbl,below] at (B){B}; \node[lbl,below] at (C){C}; \node[lbl,below] at (M){M};
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Hình tam giác ABC có diện tích $45$ cm$^2$. Điểm M nằm trên BC sao cho $BM$ gấp đôi $MC$. Tính diện tích các hình tam giác ABM và AMC.
+\guide
+Hai hình tam giác ABM và AMC chung chiều cao hạ từ A, nên tỉ số diện tích của chúng là $BM:MC=2:1$.\par Nếu $S_{AMC}$ là $1$ phần thì $S_{ABM}$ là $2$ phần và $S_{ABC}$ là $3$ phần.\par
+$S_{AMC}=45:3=15$ cm$^2$;\par $S_{ABM}=15\times2=30$ cm$^2$.
+\dapso{$30$ cm$^2$ và $15$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+\begin{minipage}[t]{0.6\linewidth}
+Hình tam giác ABC có diện tích $60$ cm$^2$; M là trung điểm của BC và N là trung điểm của AM. Tính diện tích các hình tam giác ABN và BNC.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.7]
+\coordinate (B) at (0,0); \coordinate (C) at (4,0); \coordinate (A) at (1.2,2.6); \coordinate (M) at (2,0); \coordinate (N) at (1.6,1.3);
+\fill[shade] (B)--(N)--(C)--cycle;
+\draw[geo] (A)--(B)--(C)--cycle; \draw[geo] (A)--(M) (B)--(N)--(C);
+\node[lbl,above] at (A){A}; \node[lbl,below] at (B){B}; \node[lbl,below] at (C){C}; \node[lbl,below] at (M){M}; \node[lbl,right] at (N){N};
+\end{tikzpicture}
+\end{minipage}
+\guide
+M là trung điểm của BC, nên $S_{ABM}=S_{AMC}=60:2=30$ cm$^2$.\par
+N là trung điểm của AM, nên $S_{ABN}=S_{NBM}=30:2=15$ cm$^2$; tương tự, $S_{NMC}=15$ cm$^2$.\par
+$S_{BNC}=S_{NBM}+S_{NMC}=15+15=30$ cm$^2$.
+\dapso{$S_{ABN}=15$ cm$^2$;\par $S_{BNC}=30$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Hình tam giác ABC có diện tích $72$ cm$^2$. M nằm trên AB sao cho $AM=\dfrac13AB$, N nằm trên AC sao cho $AN=\dfrac12AC$. Tính diện tích hình tam giác AMN và hình tứ giác BMNC.
+\guide
+Nối M với C (hình tam giác ``trung gian'' AMC).\par
+AMC và ABC chung chiều cao hạ từ C, và $AM=\dfrac13AB$, nên $S_{AMC}=\dfrac13\times72=24$ cm$^2$.\par
+AMN và AMC chung chiều cao hạ từ M, và $AN=\dfrac12AC$, nên $S_{AMN}=\dfrac12\times24=12$ cm$^2$.\par
+$S_{BMNC}=72-12=60$ cm$^2$.
+\dapso{$12$ cm$^2$; $60$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Hình vuông ABCD có cạnh $12$ cm; M là trung điểm của AB, N là trung điểm của BC. Tính diện tích hình tam giác DMN.
+\guide
+Lấy diện tích hình vuông trừ đi diện tích ba hình tam giác vuông ở các góc:\par
+$S_{AMD}=6\times12:2=36$;\par $S_{MBN}=6\times6:2=18$;\par $S_{NCD}=6\times12:2=36$ cm$^2$.\par
+$S_{DMN}=12\times12-36-18-36=54$ cm$^2$.
+\dapso{$54$ cm$^2$.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Hình tam giác ABC có diện tích $40$ cm$^2$. M nằm trên BC sao cho $BM=3$ cm và $MC=5$ cm. Tính diện tích các hình tam giác ABM và AMC.
+\end{probbox}
+\probsol{
+Tỉ số diện tích là $3:5$, tổng cộng $8$ phần.\par $S_{ABM}=40:8\times3=15$ cm$^2$; $S_{AMC}=25$ cm$^2$.
+\dapso{$15$ cm$^2$ và $25$ cm$^2$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Trong hình tam giác ABC, M là trung điểm của BC và $S_{ABM}=18$ cm$^2$. Tính $S_{ABC}$.
+\end{probbox}
+\probsol{
+$S_{AMC}=S_{ABM}=18$ cm$^2$, nên $S_{ABC}=36$ cm$^2$.
+\dapso{$36$ cm$^2$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Hình tam giác ABC có diện tích $90$ cm$^2$. D nằm trên AC sao cho $AD=\dfrac23AC$. Tính diện tích các hình tam giác ABD và BDC.
+\end{probbox}
+\probsol{
+Hai hình tam giác chung chiều cao hạ từ B: $S_{ABD}=\dfrac23\times90=60$ cm$^2$ và $S_{BDC}=30$ cm$^2$.
+\dapso{$60$ cm$^2$ và $30$ cm$^2$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Hai điểm M và N chia cạnh BC của hình tam giác ABC thành ba phần bằng nhau $BM=MN=NC$. Biết $S_{AMN}=15$ cm$^2$, tính $S_{ABC}$.
+\end{probbox}
+\probsol{
+ABM, AMN và ANC chung chiều cao và có đáy bằng nhau, nên diện tích của chúng bằng nhau.\par $S_{ABC}=15\times3=45$ cm$^2$.
+\dapso{$45$ cm$^2$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Hình tam giác ABC có diện tích $20$ cm$^2$. Kéo dài BC về phía C đến D sao cho $CD=BC$. Tính diện tích các hình tam giác ACD và ABD.
+\end{probbox}
+\probsol{
+ACD và ABC chung chiều cao hạ từ A và có đáy bằng nhau: $S_{ACD}=20$ cm$^2$.\par $S_{ABD}=20+20=40$ cm$^2$.
+\dapso{$20$ cm$^2$; $40$ cm$^2$.}}
+\gap
+\begin{probbox}{6}{\relax}
+Hình tam giác ABC có diện tích $60$ cm$^2$; M là trung điểm của BC; N nằm trên AC sao cho $AN=\dfrac13AC$. Tính $S_{MNC}$.
+\end{probbox}
+\probsol{
+$S_{AMC}=60:2=30$ cm$^2$.\par MNC và AMC chung chiều cao hạ từ M và $NC=\dfrac23AC$, nên $S_{MNC}=\dfrac23\times30=20$ cm$^2$.
+\dapso{$20$ cm$^2$.}}
+\gap
+\begin{probbox}{7}{\relax}
+Hình tam giác ABC có diện tích $54$ cm$^2$. M nằm trên BC sao cho $BM=\dfrac13BC$; N là trung điểm của AM. Tính diện tích các hình tam giác BNM và ANC.
+\end{probbox}
+\probsol{
+$S_{ABM}=\dfrac13\times54=18$ và $S_{AMC}=36$ cm$^2$.\par N là trung điểm của AM, nên $S_{BNM}=18:2=9$ cm$^2$ và $S_{ANC}=36:2=18$ cm$^2$.
+\dapso{$9$ cm$^2$; $18$ cm$^2$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Hình tam giác ABC có diện tích $48$ cm$^2$. M nằm trên AB sao cho $AM=\dfrac23AB$; N nằm trên AC sao cho $AN=\dfrac34AC$. Tính diện tích hình tam giác AMN và hình tứ giác BMNC.
+\end{probbox}
+\probsol{
+$S_{AMC}=\dfrac23\times48=32$ cm$^2$;\par $S_{AMN}=\dfrac34\times32=24$ cm$^2$;\par $S_{BMNC}=48-24=24$ cm$^2$.
+\dapso{$24$ cm$^2$; $24$ cm$^2$.}}
+\gap
+\begin{probbox}{9}{\relax}
+Trong hình tam giác ABC, D nằm trên BC sao cho $BD=\dfrac14BC$, và $S_{ABD}=12$ cm$^2$. Tính $S_{ADC}$.
+\end{probbox}
+\probsol{
+$DC=3\times BD$ và hai hình tam giác chung chiều cao hạ từ A, nên $S_{ADC}=12\times3=36$ cm$^2$.
+\dapso{$36$ cm$^2$.}}
+\gap
+\begin{probbox}{10}{\relax}
+Hình tam giác ABC có diện tích $60$ cm$^2$. Điểm M trên BC chia BC sao cho $BM:MC=1:2$. Tính diện tích các hình tam giác ABM và AMC.
+\end{probbox}
+\probsol{
+ABM, AMC và ABC chung chiều cao hạ từ A.\par $BM=\dfrac{1}{3}BC$, nên $S_{ABM}=60\times\dfrac{1}{3}=20$ cm$^2$.\par $S_{AMC}=60-20=40$ cm$^2$.
+\dapso{$S_{ABM}=20$ cm$^2$, $S_{AMC}=40$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Hình tam giác ABC có diện tích $84$ cm$^2$. Điểm M trên BC chia BC sao cho $BM:MC=3:4$. Tính diện tích các hình tam giác ABM và AMC.
+\end{probbox}
+\probsol{
+ABM, AMC và ABC chung chiều cao hạ từ A.\par $BM=\dfrac{3}{7}BC$, nên $S_{ABM}=84\times\dfrac{3}{7}=36$ cm$^2$.\par $S_{AMC}=84-36=48$ cm$^2$.
+\dapso{$S_{ABM}=36$ cm$^2$, $S_{AMC}=48$ cm$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+Hình tam giác ABC có diện tích $100$ cm$^2$. Điểm M trên BC chia BC sao cho $BM:MC=2:3$. Tính diện tích các hình tam giác ABM và AMC.
+\end{probbox}
+\probsol{
+ABM, AMC và ABC chung chiều cao hạ từ A.\par $BM=\dfrac{2}{5}BC$, nên $S_{ABM}=100\times\dfrac{2}{5}=40$ cm$^2$.\par $S_{AMC}=100-40=60$ cm$^2$.
+\dapso{$S_{ABM}=40$ cm$^2$, $S_{AMC}=60$ cm$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Hình tam giác ABC có diện tích $72$ cm$^2$. Điểm M trên BC chia BC sao cho $BM:MC=5:1$. Tính diện tích các hình tam giác ABM và AMC.
+\end{probbox}
+\probsol{
+ABM, AMC và ABC chung chiều cao hạ từ A.\par $BM=\dfrac{5}{6}BC$, nên $S_{ABM}=72\times\dfrac{5}{6}=60$ cm$^2$.\par $S_{AMC}=72-60=12$ cm$^2$.
+\dapso{$S_{ABM}=60$ cm$^2$, $S_{AMC}=12$ cm$^2$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Hình tam giác ABC có diện tích $45$ cm$^2$. Điểm M trên BC chia BC sao cho $BM:MC=4:5$. Tính diện tích các hình tam giác ABM và AMC.
+\end{probbox}
+\probsol{
+ABM, AMC và ABC chung chiều cao hạ từ A.\par $BM=\dfrac{4}{9}BC$, nên $S_{ABM}=45\times\dfrac{4}{9}=20$ cm$^2$.\par $S_{AMC}=45-20=25$ cm$^2$.
+\dapso{$S_{ABM}=20$ cm$^2$, $S_{AMC}=25$ cm$^2$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Trong hình tam giác ABC, điểm M trên BC có $BM=\dfrac{1}{3}BC$. Hình tam giác ABM có diện tích $15$ cm$^2$. Tính diện tích các hình tam giác ABC và AMC.
+\end{probbox}
+\probsol{
+ABM và ABC chung chiều cao hạ từ A, nên $S_{ABM}=\dfrac{1}{3}S_{ABC}$.\par $S_{ABC}=15:\dfrac{1}{3}=45$ cm$^2$.\par $S_{AMC}=45-15=30$ cm$^2$.
+\dapso{$S_{ABC}=45$ cm$^2$, $S_{AMC}=30$ cm$^2$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Trong hình tam giác ABC, điểm M trên BC có $BM=\dfrac{2}{5}BC$. Hình tam giác ABM có diện tích $24$ cm$^2$. Tính diện tích các hình tam giác ABC và AMC.
+\end{probbox}
+\probsol{
+ABM và ABC chung chiều cao hạ từ A, nên $S_{ABM}=\dfrac{2}{5}S_{ABC}$.\par $S_{ABC}=24:\dfrac{2}{5}=60$ cm$^2$.\par $S_{AMC}=60-24=36$ cm$^2$.
+\dapso{$S_{ABC}=60$ cm$^2$, $S_{AMC}=36$ cm$^2$.}}
+\gap
+\begin{probbox}{17}{\relax}
+Trong hình tam giác ABC, điểm M trên BC có $BM=\dfrac{3}{4}BC$. Hình tam giác ABM có diện tích $21$ cm$^2$. Tính diện tích các hình tam giác ABC và AMC.
+\end{probbox}
+\probsol{
+ABM và ABC chung chiều cao hạ từ A, nên $S_{ABM}=\dfrac{3}{4}S_{ABC}$.\par $S_{ABC}=21:\dfrac{3}{4}=28$ cm$^2$.\par $S_{AMC}=28-21=7$ cm$^2$.
+\dapso{$S_{ABC}=28$ cm$^2$, $S_{AMC}=7$ cm$^2$.}}
+\gap
+\begin{probbox}{18}{\relax}
+Trong hình tam giác ABC, điểm M trên BC có $BM=\dfrac{1}{6}BC$. Hình tam giác ABM có diện tích $12$ cm$^2$. Tính diện tích các hình tam giác ABC và AMC.
+\end{probbox}
+\probsol{
+ABM và ABC chung chiều cao hạ từ A, nên $S_{ABM}=\dfrac{1}{6}S_{ABC}$.\par $S_{ABC}=12:\dfrac{1}{6}=72$ cm$^2$.\par $S_{AMC}=72-12=60$ cm$^2$.
+\dapso{$S_{ABC}=72$ cm$^2$, $S_{AMC}=60$ cm$^2$.}}
+\gap
+\begin{probbox}{19}{\relax}
+Hình tam giác ABC có diện tích $80$ cm$^2$ và $BC=16$ cm. Điểm M trên BC sao cho hình tam giác ABM có diện tích $30$ cm$^2$. Tính BM.
+\end{probbox}
+\probsol{
+ABM và ABC chung chiều cao hạ từ A, nên tỉ số diện tích bằng tỉ số độ dài hai đáy.\par $\dfrac{BM}{BC}=\dfrac{30}{80}=\dfrac{3}{8}$.\par $BM=16\times\dfrac{3}{8}=6$ cm.
+\dapso{$BM=6$ cm.}}
+\gap
+\begin{probbox}{20}{\relax}
+Hình tam giác ABC có diện tích $96$ cm$^2$ và $BC=12$ cm. Điểm M trên BC sao cho hình tam giác ABM có diện tích $36$ cm$^2$. Tính BM.
+\end{probbox}
+\probsol{
+ABM và ABC chung chiều cao hạ từ A, nên tỉ số diện tích bằng tỉ số độ dài hai đáy.\par $\dfrac{BM}{BC}=\dfrac{36}{96}=\dfrac{3}{8}$.\par $BM=12\times\dfrac{3}{8}=4{,}5$ cm.
+\dapso{$BM=4{,}5$ cm.}}
+\gap
+\begin{probbox}{21}{\relax}
+Hình tam giác ABC có diện tích $75$ cm$^2$ và $BC=10$ cm. Điểm M trên BC sao cho hình tam giác ABM có diện tích $45$ cm$^2$. Tính BM.
+\end{probbox}
+\probsol{
+ABM và ABC chung chiều cao hạ từ A, nên tỉ số diện tích bằng tỉ số độ dài hai đáy.\par $\dfrac{BM}{BC}=\dfrac{45}{75}=\dfrac{3}{5}$.\par $BM=10\times\dfrac{3}{5}=6$ cm.
+\dapso{$BM=6$ cm.}}
+\gap
+\begin{probbox}{22}{\relax}
+Hình tam giác ABC có diện tích $36$ cm$^2$. Kéo dài BC về phía C một đoạn $CD=\dfrac12BC$. Tính diện tích các hình tam giác ACD và ABD.
+\end{probbox}
+\probsol{
+ABC, ACD và ABD chung chiều cao hạ từ A.\par $S_{ACD}=36\times\dfrac{1}{2}=18$ cm$^2$.\par $S_{ABD}=36+18=54$ cm$^2$.
+\dapso{$S_{ACD}=18$ cm$^2$, $S_{ABD}=54$ cm$^2$.}}
+\gap
+\begin{probbox}{23}{\relax}
+Hình tam giác ABC có diện tích $50$ cm$^2$. Kéo dài BC về phía C một đoạn $CD=\dfrac25BC$. Tính diện tích các hình tam giác ACD và ABD.
+\end{probbox}
+\probsol{
+ABC, ACD và ABD chung chiều cao hạ từ A.\par $S_{ACD}=50\times\dfrac{2}{5}=20$ cm$^2$.\par $S_{ABD}=50+20=70$ cm$^2$.
+\dapso{$S_{ACD}=20$ cm$^2$, $S_{ABD}=70$ cm$^2$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Hình tam giác ABC có diện tích $28$ cm$^2$. Kéo dài BC về phía C một đoạn $CD=2\times BC$. Tính diện tích các hình tam giác ACD và ABD.
+\end{probbox}
+\probsol{
+ABC, ACD và ABD chung chiều cao hạ từ A.\par $S_{ACD}=28\times2=56$ cm$^2$.\par $S_{ABD}=28+56=84$ cm$^2$.
+\dapso{$S_{ACD}=56$ cm$^2$, $S_{ABD}=84$ cm$^2$.}}
+\gap
+\begin{probbox}{25}{\relax}
+Hình tam giác ABC có diện tích $60$ cm$^2$. Điểm M trên AB có $AM=\dfrac{1}{2}AB$; điểm N trên AC có $AN=\dfrac{1}{3}AC$. Tính diện tích hình tam giác AMN và hình tứ giác BMNC.
+\end{probbox}
+\probsol{
+Nối M với C.\par AMC và ABC chung chiều cao hạ từ C: $S_{AMC}=60\times\dfrac{1}{2}=30$ cm$^2$.\par AMN và AMC chung chiều cao hạ từ M: $S_{AMN}=30\times\dfrac{1}{3}=10$ cm$^2$.\par $S_{BMNC}=60-10=50$ cm$^2$.
+\dapso{$S_{AMN}=10$ cm$^2$, $S_{BMNC}=50$ cm$^2$.}}
+\gap
+\begin{probbox}{26}{\relax}
+Hình tam giác ABC có diện tích $90$ cm$^2$. Điểm M trên AB có $AM=\dfrac{2}{3}AB$; điểm N trên AC có $AN=\dfrac{1}{2}AC$. Tính diện tích hình tam giác AMN và hình tứ giác BMNC.
+\end{probbox}
+\probsol{
+Nối M với C.\par AMC và ABC chung chiều cao hạ từ C: $S_{AMC}=90\times\dfrac{2}{3}=60$ cm$^2$.\par AMN và AMC chung chiều cao hạ từ M: $S_{AMN}=60\times\dfrac{1}{2}=30$ cm$^2$.\par $S_{BMNC}=90-30=60$ cm$^2$.
+\dapso{$S_{AMN}=30$ cm$^2$, $S_{BMNC}=60$ cm$^2$.}}
+\gap
+\begin{probbox}{27}{\relax}
+Hình tam giác ABC có diện tích $84$ cm$^2$. Điểm M trên AB có $AM=\dfrac{3}{4}AB$; điểm N trên AC có $AN=\dfrac{2}{3}AC$. Tính diện tích hình tam giác AMN và hình tứ giác BMNC.
+\end{probbox}
+\probsol{
+Nối M với C.\par AMC và ABC chung chiều cao hạ từ C: $S_{AMC}=84\times\dfrac{3}{4}=63$ cm$^2$.\par AMN và AMC chung chiều cao hạ từ M: $S_{AMN}=63\times\dfrac{2}{3}=42$ cm$^2$.\par $S_{BMNC}=84-42=42$ cm$^2$.
+\dapso{$S_{AMN}=42$ cm$^2$, $S_{BMNC}=42$ cm$^2$.}}
+\gap
+\begin{probbox}{28}{\relax}
+Hai hình tam giác ABC và DBC có chung đáy BC. Chiều cao hạ từ A là $8$ cm, chiều cao hạ từ D là $6$ cm. Biết $S_{ABC}=40$ cm$^2$, tính $S_{DBC}$.
+\end{probbox}
+\probsol{
+Khi chung đáy, tỉ số diện tích bằng tỉ số hai chiều cao: $\dfrac{S_{DBC}}{S_{ABC}}=\dfrac{6}{8}$.\par $S_{DBC}=40\times6:8=30$ cm$^2$.
+\dapso{$30$ cm$^2$.}}
+\gap
+\begin{probbox}{29}{\relax}
+Hai hình tam giác ABC và DBC có chung đáy BC. Chiều cao hạ từ A là $9$ cm, chiều cao hạ từ D là $12$ cm. Biết $S_{ABC}=54$ cm$^2$, tính $S_{DBC}$.
+\end{probbox}
+\probsol{
+Khi chung đáy, tỉ số diện tích bằng tỉ số hai chiều cao: $\dfrac{S_{DBC}}{S_{ABC}}=\dfrac{12}{9}$.\par $S_{DBC}=54\times12:9=72$ cm$^2$.
+\dapso{$72$ cm$^2$.}}
+\gap
+\begin{probbox}{30}{\relax}
+Hai hình tam giác ABC và DBC có chung đáy BC. Chiều cao hạ từ A là $10$ cm, chiều cao hạ từ D là $4$ cm. Biết $S_{ABC}=35$ cm$^2$, tính $S_{DBC}$.
+\end{probbox}
+\probsol{
+Khi chung đáy, tỉ số diện tích bằng tỉ số hai chiều cao: $\dfrac{S_{DBC}}{S_{ABC}}=\dfrac{4}{10}$.\par $S_{DBC}=35\times4:10=14$ cm$^2$.
+\dapso{$14$ cm$^2$.}}
+\dividerbar{Thử thách -- Mở rộng}
+\begin{probbox}{31}{\stars{1}}
+Hình tam giác ABC có diện tích $64$ cm$^2$; M và N lần lượt là trung điểm của AB và AC. Tính diện tích hình tam giác AMN và hình tứ giác BMNC.
+\end{probbox}
+\probsol{
+$S_{AMC}=64:2=32$ cm$^2$; $S_{AMN}=32:2=16$ cm$^2$.\par $S_{BMNC}=64-16=48$ cm$^2$.
+\note{Diện tích hình tam giác AMN bằng $\dfrac14$ diện tích hình tam giác ABC.}
+\dapso{$16$ cm$^2$; $48$ cm$^2$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Hình tam giác ABC có diện tích $30$ cm$^2$. Kéo dài AB về phía B đến D sao cho $BD=AB$, kéo dài AC về phía C đến E sao cho $CE=AC$. Tính $S_{ADE}$.
+\end{probbox}
+\probsol{
+$AD=2\times AB$, nên $S_{ADC}=2\times30=60$ cm$^2$.\par $AE=2\times AC$, nên $S_{ADE}=2\times60=120$ cm$^2$.
+\dapso{$120$ cm$^2$.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Hình tam giác ABC có diện tích $120$ cm$^2$. D nằm trên BC sao cho $BD=2\times DC$; E là trung điểm của AD. Tính $S_{BEC}$.
+\end{probbox}
+\probsol{
+$S_{ABD}=80$ và $S_{ADC}=40$ cm$^2$.\par E là trung điểm của AD, nên $S_{BED}=40$ và $S_{EDC}=20$ cm$^2$.\par
+$S_{BEC}=40+20=60$ cm$^2$.
+\dapso{$60$ cm$^2$.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+\begin{minipage}[t]{0.6\linewidth}
+Cho hình tam giác ABC, M là trung điểm của BC và I là trung điểm của AM. Đường thẳng BI cắt AC tại N. Chứng tỏ rằng $AN=\dfrac13AC$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.7]
+\coordinate (B) at (0,0); \coordinate (C) at (4.2,0); \coordinate (A) at (1.2,2.7); \coordinate (M) at (2.1,0); \coordinate (I) at (1.65,1.35); \coordinate (N) at (2.2,1.8);
+\draw[geo] (A)--(B)--(C)--cycle; \draw[geo] (A)--(M) (B)--(N);
+\draw[dashed,Slate] (M)--(N);
+\node[lbl,above] at (A){A}; \node[lbl,below] at (B){B}; \node[lbl,below] at (C){C}; \node[lbl,below] at (M){M}; \node[lbl,left] at (I){I}; \node[lbl,above right] at (N){N};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Nối M với N.\par Vì $AI=IM$ nên $S_{ABI}=S_{MBI}$ và $S_{AIN}=S_{MIN}$.\par Cộng lại: $S_{ABN}=S_{MBN}$.\par
+Vì $BM=MC$ nên $S_{MBN}=S_{MNC}$.\par Do đó $S_{BNC}=2\times S_{ABN}$.\par
+ABN và CBN chung chiều cao hạ từ B, nên $NC=2\times AN$, tức là\par $AN=\dfrac13AC$.
+\dapso{Đã chứng tỏ được điều phải chứng minh.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Hình tam giác ABC có diện tích $90$ cm$^2$. M nằm trên BC sao cho $BM=\dfrac13BC$, N nằm trên CA sao cho $CN=\dfrac13CA$, và P nằm trên AB sao cho $AP=\dfrac13AB$. Tính $S_{MNP}$.
+\end{probbox}
+\probsol{
+Hình tam giác APN: $S_{APC}=\dfrac13\times90=30$; $AN=\dfrac23AC$, nên $S_{APN}=\dfrac23\times30=20$ cm$^2$.\par
+Tương tự, $S_{BMP}=20$ và $S_{CNM}=20$ cm$^2$.\par Vậy $S_{MNP}=90-3\times20=30$ cm$^2$.
+\dapso{$30$ cm$^2$.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Hình tam giác ABC có diện tích $60$ cm$^2$. Điểm M trên BC có $BM=\dfrac{1}{3}BC$; điểm N trên AM có $AN=\dfrac{1}{2}AM$. Tính diện tích các hình tam giác ABN, NBM và ANC.
+\end{probbox}
+\probsol{
+$S_{ABM}=60\times\dfrac{1}{3}=20$ cm$^2$; $S_{AMC}=40$ cm$^2$.\par ABN và ABM chung chiều cao hạ từ B: $S_{ABN}=20\times\dfrac{1}{2}=10$ cm$^2$.\par $S_{NBM}=20-10=10$ cm$^2$.\par ANC và AMC chung chiều cao hạ từ C: $S_{ANC}=40\times\dfrac{1}{2}=20$ cm$^2$.
+\dapso{$S_{ABN}=10$, $S_{NBM}=10$, $S_{ANC}=20$ (cm$^2$).}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Hình tam giác ABC có diện tích $96$ cm$^2$. Điểm M trên BC có $BM=\dfrac{1}{4}BC$; điểm N trên AM có $AN=\dfrac{2}{3}AM$. Tính diện tích các hình tam giác ABN, NBM và ANC.
+\end{probbox}
+\probsol{
+$S_{ABM}=96\times\dfrac{1}{4}=24$ cm$^2$; $S_{AMC}=72$ cm$^2$.\par ABN và ABM chung chiều cao hạ từ B: $S_{ABN}=24\times\dfrac{2}{3}=16$ cm$^2$.\par $S_{NBM}=24-16=8$ cm$^2$.\par ANC và AMC chung chiều cao hạ từ C: $S_{ANC}=72\times\dfrac{2}{3}=48$ cm$^2$.
+\dapso{$S_{ABN}=16$, $S_{NBM}=8$, $S_{ANC}=48$ (cm$^2$).}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Hình tam giác ABC có diện tích $150$ cm$^2$. Điểm M trên BC có $BM=\dfrac{2}{5}BC$; điểm N trên AM có $AN=\dfrac{3}{5}AM$. Tính diện tích các hình tam giác ABN, NBM và ANC.
+\end{probbox}
+\probsol{
+$S_{ABM}=150\times\dfrac{2}{5}=60$ cm$^2$; $S_{AMC}=90$ cm$^2$.\par ABN và ABM chung chiều cao hạ từ B: $S_{ABN}=60\times\dfrac{3}{5}=36$ cm$^2$.\par $S_{NBM}=60-36=24$ cm$^2$.\par ANC và AMC chung chiều cao hạ từ C: $S_{ANC}=90\times\dfrac{3}{5}=54$ cm$^2$.
+\dapso{$S_{ABN}=36$, $S_{NBM}=24$, $S_{ANC}=54$ (cm$^2$).}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Điểm M trên AB có $AM=\dfrac{1}{2}AB$ và điểm N trên AC có $AN=\dfrac{2}{5}AC$. Hình tam giác AMN có diện tích $10$ cm$^2$. Tính diện tích hình tam giác ABC.
+\end{probbox}
+\probsol{
+Nối M với C.\par AMN và AMC chung chiều cao hạ từ M: $S_{AMC}=10:\dfrac{2}{5}=25$ cm$^2$.\par AMC và ABC chung chiều cao hạ từ C: $S_{ABC}=25:\dfrac{1}{2}=50$ cm$^2$.
+\dapso{$50$ cm$^2$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Điểm M trên AB có $AM=\dfrac{3}{4}AB$ và điểm N trên AC có $AN=\dfrac{2}{3}AC$. Hình tam giác AMN có diện tích $18$ cm$^2$. Tính diện tích hình tam giác ABC.
+\end{probbox}
+\probsol{
+Nối M với C.\par AMN và AMC chung chiều cao hạ từ M: $S_{AMC}=18:\dfrac{2}{3}=27$ cm$^2$.\par AMC và ABC chung chiều cao hạ từ C: $S_{ABC}=27:\dfrac{3}{4}=36$ cm$^2$.
+\dapso{$36$ cm$^2$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Hình tam giác ABC có diện tích $12$ cm$^2$. Kéo dài AB về phía B một đoạn $BD=AB$ và kéo dài AC về phía C một đoạn $CE=2\times AC$. Tính diện tích hình tam giác ADE.
+\end{probbox}
+\probsol{
+$AD=2\times AB$, $AE=3\times AC$.\par Nối D với C.\par ADC và ABC chung chiều cao hạ từ C: $S_{ADC}=12\times2=24$ cm$^2$.\par ADE và ADC chung chiều cao hạ từ D: $S_{ADE}=24\times3=72$ cm$^2$.
+\dapso{$72$ cm$^2$.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Hình tam giác ABC có diện tích $15$ cm$^2$. Kéo dài AB về phía B một đoạn $BD=2\times AB$ và kéo dài AC về phía C một đoạn $CE=2\times AC$. Tính diện tích hình tam giác ADE.
+\end{probbox}
+\probsol{
+$AD=3\times AB$, $AE=3\times AC$.\par Nối D với C.\par ADC và ABC chung chiều cao hạ từ C: $S_{ADC}=15\times3=45$ cm$^2$.\par ADE và ADC chung chiều cao hạ từ D: $S_{ADE}=45\times3=135$ cm$^2$.
+\dapso{$135$ cm$^2$.}}
+\gap
+\begin{probbox}{43}{\stars{2}}
+Hình tam giác ABC có diện tích $80$ cm$^2$. Các điểm M, N, P lần lượt nằm trên AB, BC, CA sao cho $AM=\dfrac{1}{4}AB$, $BN=\dfrac{1}{4}BC$, $CP=\dfrac{1}{4}CA$. Tính diện tích hình tam giác MNP.
+\end{probbox}
+\probsol{
+Trong hình tam giác AMP: $AM=\dfrac{1}{4}AB$, $AP=\dfrac{3}{4}AC$.\par Làm như trên (nối M với C): $S_{AMP}=80\times\dfrac{1}{4}\times\dfrac{3}{4}=15$ cm$^2$.\par Tương tự, $S_{BNM}=S_{CPN}=15$ cm$^2$.\par $S_{MNP}=80-3\times15=35$ cm$^2$.
+\dapso{$35$ cm$^2$.}}
+\gap
+\begin{probbox}{44}{\stars{2}}
+Hình tam giác ABC có diện tích $72$ cm$^2$. Các điểm M, N, P lần lượt nằm trên AB, BC, CA sao cho $AM=\dfrac{1}{3}AB$, $BN=\dfrac{1}{3}BC$, $CP=\dfrac{1}{3}CA$. Tính diện tích hình tam giác MNP.
+\end{probbox}
+\probsol{
+Trong hình tam giác AMP: $AM=\dfrac{1}{3}AB$, $AP=\dfrac{2}{3}AC$.\par Làm như trên (nối M với C): $S_{AMP}=72\times\dfrac{1}{3}\times\dfrac{2}{3}=16$ cm$^2$.\par Tương tự, $S_{BNM}=S_{CPN}=16$ cm$^2$.\par $S_{MNP}=72-3\times16=24$ cm$^2$.
+\dapso{$24$ cm$^2$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Trong hình tam giác ABC, điểm M trên BC có $BM:MC=3:1$. Diện tích hình tam giác ABM lớn hơn diện tích hình tam giác AMC là $20$ cm$^2$. Tính diện tích hình tam giác ABC.
+\end{probbox}
+\probsol{
+ABM và AMC chung chiều cao hạ từ A, nên $S_{ABM}:S_{AMC}=3:1$.\par Hiệu $2$ phần ứng với $20$ cm$^2$; một phần là $10$ cm$^2$.\par $S_{ABC}=10\times4=40$ cm$^2$.
+\dapso{$40$ cm$^2$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Trong hình tam giác ABC, điểm M trên BC có $BM:MC=5:2$. Diện tích hình tam giác ABM lớn hơn diện tích hình tam giác AMC là $24$ cm$^2$. Tính diện tích hình tam giác ABC.
+\end{probbox}
+\probsol{
+ABM và AMC chung chiều cao hạ từ A, nên $S_{ABM}:S_{AMC}=5:2$.\par Hiệu $3$ phần ứng với $24$ cm$^2$; một phần là $8$ cm$^2$.\par $S_{ABC}=8\times7=56$ cm$^2$.
+\dapso{$56$ cm$^2$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Hình chữ nhật ABCD có $AB=24$ cm, $BC=16$ cm. Điểm M trên AB có $AM=8$ cm; điểm N trên BC có $BN=6$ cm. Tính diện tích hình tam giác DMN.
+\end{probbox}
+\probsol{
+$S_{ABCD}=24\times16=384$ cm$^2$.\par $S_{AMD}=64$, $S_{MBN}=48$, $S_{NCD}=120$ cm$^2$.\par $S_{DMN}=384-64-48-120=152$ cm$^2$.
+\dapso{$152$ cm$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Hình chữ nhật ABCD có $AB=30$ cm, $BC=20$ cm. Điểm M trên AB có $AM=12$ cm; điểm N trên BC có $BN=10$ cm. Tính diện tích hình tam giác DMN.
+\end{probbox}
+\probsol{
+$S_{ABCD}=30\times20=600$ cm$^2$.\par $S_{AMD}=120$, $S_{MBN}=90$, $S_{NCD}=150$ cm$^2$.\par $S_{DMN}=600-120-90-150=240$ cm$^2$.
+\dapso{$240$ cm$^2$.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+Hình chữ nhật ABCD có $AB=18$ cm, $BC=12$ cm. Điểm M trên AB có $AM=6$ cm; điểm N trên BC có $BN=4$ cm. Tính diện tích hình tam giác DMN.
+\end{probbox}
+\probsol{
+$S_{ABCD}=18\times12=216$ cm$^2$.\par $S_{AMD}=36$, $S_{MBN}=24$, $S_{NCD}=72$ cm$^2$.\par $S_{DMN}=216-36-24-72=84$ cm$^2$.
+\dapso{$84$ cm$^2$.}}
+\gap
+\begin{probbox}{50}{\stars{1}}
+Hình tam giác ABC có $BC=16$ cm. Kéo dài BC về phía C thêm $5$ cm thì được một hình tam giác có diện tích lớn hơn diện tích hình tam giác ABC là $25$ cm$^2$. Tính diện tích hình tam giác ABC.
+\end{probbox}
+\probsol{
+Phần tăng thêm là hình tam giác có đáy $5$ cm và có cùng chiều cao hạ từ A.\par Chiều cao: $25\times2:5=10$ cm.\par $S_{ABC}=16\times10:2=80$ cm$^2$.
+\dapso{$80$ cm$^2$.}}
+\clearpage
+\titlehead

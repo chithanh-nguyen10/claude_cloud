@@ -55,6 +55,8 @@
 \definecolor{tmPink}{RGB}{233,30,99}
 \AtBeginDocument{\color{Ink}}
 \raggedbottom  % natural flow, even spacing (no stretched gaps)
+% tall lines (stacked fractions) never touch the line above/below: keep at least 4pt apart, else add 6pt
+\setlength{\lineskiplimit}{4pt}\setlength{\lineskip}{6pt}
 \setlength{\parindent}{0pt}\setlength{\parskip}{0.18em}
 \renewcommand{\arraystretch}{1.35}
 \providecommand{\AnsWord}{Đáp số}

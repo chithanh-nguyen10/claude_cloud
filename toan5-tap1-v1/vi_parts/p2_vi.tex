@@ -1,0 +1,905 @@
+\begingroup\setbox0=\vbox{\section*{Số thập phân}}\endgroup
+\chapterhead{3}{Số thập phân}
+
+\shead{Phân số thập phân -- Số thập phân}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Phân số thập phân} là phân số có mẫu số là $10,\ 100,\ 1\,000,\ \dots$ \ Ví dụ: $\dfrac4{10},\ \dfrac{45}{100},\ \dfrac{358}{1\,000}$.
+\item Mọi phân số thập phân đều viết được dưới dạng \textbf{số thập phân}: $\ \dfrac4{10}=0{,}4;\quad\dfrac{45}{10}=4{,}5;\quad\dfrac{358}{1\,000}=0{,}358.$
+\item Nhiều phân số khác có thể chuyển thành phân số thập phân rồi viết thành số thập phân: $\ \dfrac12=\dfrac5{10}=0{,}5;\quad\dfrac{13}5=\dfrac{26}{10}=2{,}6.$
+\item Mỗi số thập phân gồm \textbf{phần nguyên} (bên trái dấu phẩy) và \textbf{phần thập phân} (bên phải dấu phẩy). Các hàng của phần thập phân là: hàng phần mười, hàng phần trăm, hàng phần nghìn,\,\dots
+\item Mỗi đơn vị của một hàng bằng $10$ đơn vị của hàng thấp hơn liền sau. Viết thêm (hoặc bỏ đi) các chữ số không ở tận cùng bên phải phần thập phân thì giá trị của số không thay đổi: $\ 2{,}5=2{,}50=2{,}500$.
+\end{itemize}\end{knowbox}
+\gap
+\shead{So sánh hai số thập phân}
+\begin{knowbox}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item So sánh \textbf{phần nguyên} trước: số nào có phần nguyên lớn hơn thì số đó lớn hơn.
+\item Nếu phần nguyên bằng nhau thì so sánh lần lượt các hàng của phần thập phân (phần mười, phần trăm, phần nghìn,\,\dots). Đến hàng đầu tiên có chữ số khác nhau, số nào có chữ số ở hàng đó lớn hơn thì số đó lớn hơn.
+\end{itemize}
+Ví dụ: $\ 7{,}305>7{,}29\ $ vì phần nguyên bằng nhau và ở hàng phần mười có $3>2$.
+\end{knowbox}
+\gap
+\shead{Dời dấu phẩy}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Dời dấu phẩy sang \textbf{phải} $1,\ 2,\ 3,\ \dots$ chữ số thì số đó \textbf{gấp lên} $10,\ 100,\ 1\,000,\ \dots$ \textbf{lần}: $\ 3{,}75\times10=37{,}5$.
+\item Dời dấu phẩy sang \textbf{trái} $1,\ 2,\ 3,\ \dots$ chữ số thì số đó \textbf{giảm đi} $10,\ 100,\ 1\,000,\ \dots$ \textbf{lần}: $\ 52{,}1:100=0{,}521$.
+\item Vì vậy khi dời dấu phẩy sang trái một chữ số, nếu số mới là $1$ phần thì số cũ là $10$ phần như thế: số đó đã \emph{giảm đi} $9$ phần.
+\end{itemize}\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Viết các số thập phân sau:
+\begin{cols3}
+\pa{a} $4$ chục, $7$ đơn vị, $5$ phần mười, $3$ phần nghìn; & \pa{b} $5$ đơn vị và $38$ phần trăm; & \pa{c} $0$ đơn vị và $7$ phần nghìn.
+\end{cols3}
+\guide
+Đặt mỗi chữ số vào đúng hàng của nó; hàng nào còn trống thì viết chữ số $0$:
+\[\text{\pa{a}}\ 47{,}503;\qquad\text{\pa{b}}\ 5{,}38;\qquad\text{\pa{c}}\ 0{,}007.\]
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Viết dưới dạng phân số tối giản: $\ 12{,}25\ $ và $\ 3{,}125$.
+\guide
+Viết thành phân số thập phân rồi rút gọn:
+\[12{,}25=\frac{1\,225}{100}=\frac{49}{4};\qquad 3{,}125=\frac{3\,125}{1\,000}=\frac{25}{8}.\]
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Tìm tất cả các số tự nhiên $x$ sao cho $\ 2{,}46<x<\dfrac{31}5$.
+\guide
+Đổi $\dfrac{31}5=\dfrac{62}{10}=6{,}2$.\par Ta cần $2{,}46<x<6{,}2$, nên $x\in\{3;\ 4;\ 5;\ 6\}$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Khi dời dấu phẩy của một số sang trái một chữ số thì số đó giảm đi $27{,}18$ đơn vị. Tìm số đó.
+\guide
+Dời dấu phẩy sang trái một chữ số thì số đó giảm đi $10$ lần.\par Ta có sơ đồ:
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Số cũ:}
+\foreach \i in {0,...,9}{\blk{\i*0.55}{\i*0.55+0.55}{0.62}{0.42}{tmBlue}{}}
+\rowlab{-0.15}{0}{Số mới:}
+\blk{0}{0.55}{0}{0.42}{tmGreen}{}
+\brcdn{0.55}{5.5}{-0.32}{$27{,}18$}
+\end{barfigC}
+Hiệu số phần bằng nhau: $10-1=9$.\par Một phần (số mới): $27{,}18:9=3{,}02$.\par
+Số cần tìm: $3{,}02\times10=30{,}2$.\par \emph{Thử lại:} $30{,}2-3{,}02=27{,}18$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Tính nhanh: $\ S=0{,}2+0{,}4+0{,}6+\dots+3{,}8+4$.
+\guide
+Đây là dãy số cách đều với khoảng cách $0{,}2$.\par Số các số hạng: $(4-0{,}2):0{,}2+1=20$.\par
+Tổng: $S=(0{,}2+4)\times20:2=42$.
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Viết dưới dạng số thập phân:
+\begin{cols2}
+\pa{a} $\dfrac7{10};\ \ \dfrac9{1\,000};\ \ \dfrac{63}{100};\ \ \dfrac{1\,234}{100};\ \ 4\dfrac3{10};\ \ 12\dfrac{45}{1\,000}$ & \pa{b} $\dfrac25;\ \ \dfrac74;\ \ 3\dfrac9{20};\ \ \dfrac{11}8$
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $0{,}7;\ \ 0{,}009;\ \ 0{,}63;\ \ 12{,}34;\ \ 4{,}3;\ \ 12{,}045$.\par
+\pa{b} Chuyển thành phân số thập phân: $\dfrac25=\dfrac4{10}=0{,}4$;\par $\dfrac74=\dfrac{175}{100}=1{,}75$;\par $3\dfrac9{20}=3\dfrac{45}{100}=3{,}45$;\par $\dfrac{11}8=\dfrac{1\,375}{1\,000}=1{,}375$.
+}
+\gap
+\begin{probbox}{2}{\relax}
+Viết dưới dạng phân số thập phân: $\ 0{,}27;\ \ 0{,}048;\ \ 3{,}6;\ \ 15{,}0091$.
+\end{probbox}
+\probsol{
+\[0{,}27=\frac{27}{100};\qquad0{,}048=\frac{48}{1\,000};\qquad3{,}6=\frac{36}{10};\qquad15{,}0091=\frac{150\,091}{10\,000}.\]
+}
+\gap
+\begin{probbox}{3}{\relax}
+Viết số thập phân gồm:
+\begin{cols2}
+\pa{a} $6$ đơn vị, $3$ phần mười, $4$ phần trăm, $1$ phần nghìn; & \pa{b} $42$ đơn vị, $5$ phần mười, $9$ phần nghìn;\\
+\pa{c} $3$ trăm, $7$ đơn vị, $8$ phần trăm; & \pa{d} $0$ đơn vị và $6$ phần trăm.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $6{,}341$. \qquad \pa{b} $42{,}509$. \qquad \pa{c} $307{,}08$. \qquad \pa{d} $0{,}06$.
+}
+\gap
+\begin{probbox}{4}{\relax}
+Sắp xếp theo thứ tự từ bé đến lớn: $\ 5{,}34;\ \ 5{,}043;\ \ 5{,}4;\ \ 5{,}304;\ \ 4{,}99$.
+\end{probbox}
+\probsol{
+$4{,}99$ có phần nguyên bé nhất.\par Bốn số còn lại có phần nguyên là $5$; so sánh hàng phần mười: $0<3=3<4$; với hai số có $3$ phần mười, so sánh hàng phần trăm: $0<4$.
+\dapso{$4{,}99<5{,}043<5{,}304<5{,}34<5{,}4$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Tìm chữ số thích hợp:
+\begin{cols3}
+\pa{a} $7{,}6\nd{x}2<7{,}612$ & \pa{b} $3{,}4\nd{y}5>3{,}475$ & \pa{c} $5{,}726<5{,}7\nd{a}7<5{,}755$
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} Cả hai số đều bắt đầu bằng $7{,}6$; so sánh hàng phần trăm: cần $x<1$ (nếu $x=1$ thì phải có $2<2$).\par Vậy $x=0$.\par
+\pa{b} Cần $y>7$ ($y=7$ thì hai số bằng nhau).\par Vậy $y\in\{8;9\}$.\par
+\pa{c} $5{,}7\nd{a}7>5{,}726$ khi $a\ge2$;\par $5{,}7\nd{a}7<5{,}755$ khi $a\le4$.\par Vậy $a\in\{2;3;4\}$.
+}
+\gap
+\begin{probbox}{6}{\relax}
+Tìm tất cả các số tự nhiên $n$ sao cho
+\begin{cols2}
+\pa{a} $0{,}7<n<3{,}2$; & \pa{b} $46{,}85<n<50{,}1$.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $n\in\{1;\ 2;\ 3\}$. \qquad \pa{b} $n\in\{47;\ 48;\ 49;\ 50\}$.
+}
+\gap
+\begin{probbox}{7}{\relax}
+Tìm hai số tự nhiên liên tiếp $m$ và $n$ sao cho
+\begin{cols2}
+\pa{a} $m<27{,}4<n$; & \pa{b} $m<99{,}9<n$.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $m=27$, $n=28$. \qquad \pa{b} $m=99$, $n=100$.
+}
+\gap
+\begin{probbox}{8}{\relax}
+Tìm tất cả các số thập phân $x$ có hai chữ số ở phần thập phân sao cho $\ 0{,}345<x<0{,}4$.
+\end{probbox}
+\probsol{
+Viết $0{,}4=0{,}40$.\par Các số có hai chữ số ở phần thập phân lớn hơn $0{,}345$ và bé hơn $0{,}40$ là:
+\[0{,}35;\ \ 0{,}36;\ \ 0{,}37;\ \ 0{,}38;\ \ 0{,}39.\]
+}
+\gap
+\begin{probbox}{9}{\relax}
+Với bốn chữ số $1,\ 3,\ 6,\ 8$, mỗi chữ số dùng một lần, hãy viết số thập phân bé nhất và số thập phân lớn nhất có hai chữ số ở phần thập phân.
+\end{probbox}
+\probsol{
+Phần nguyên có hai chữ số.\par Số bé nhất: các chữ số xếp theo thứ tự tăng dần, $13{,}68$.\par Số lớn nhất: xếp theo thứ tự giảm dần, $86{,}31$.
+\dapso{$13{,}68$ và $86{,}31$.}}
+\gap
+\begin{probbox}{10}{\relax}
+Tính bằng cách thuận tiện nhất:
+\begin{cols2}
+$A=0{,}01+0{,}02+0{,}03+\dots+0{,}09+0{,}10$ & $B=1{,}3+1{,}5+1{,}7+\dots+19{,}9+20{,}1$
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{A} Có $10$ số hạng: $A=(0{,}01+0{,}10)\times10:2=0{,}55$.\par
+\pa{B} Khoảng cách $0{,}2$; số các số hạng: $(20{,}1-1{,}3):0{,}2+1=95$.\par $B=(1{,}3+20{,}1)\times95:2=1\,016{,}5$.
+}
+\gap
+\begin{probbox}{11}{\relax}
+Tính nhẩm:
+\begin{cols3}
+$3{,}75\times10$ & $0{,}068\times100$ & $52{,}1:10$\\
+$7{,}4:100$ & $0{,}5\times1\,000$ & $216:1\,000$
+\end{cols3}
+\end{probbox}
+\probsol{
+\[37{,}5;\qquad6{,}8;\qquad5{,}21;\qquad0{,}074;\qquad500;\qquad0{,}216.\]
+}
+\gap
+\begin{probbox}{12}{\relax}
+Viết số thập phân thích hợp vào chỗ chấm:
+\begin{cols3}
+\pa{a} $3$ m $45$ cm $=\ \dots$ m & \pa{b} $2$ kg $50$ g $=\ \dots$ kg & \pa{c} $4$ km $25$ m $=\ \dots$ km\\
+\pa{d} $905$ g $=\ \dots$ kg & \pa{e} $38$ dm$^2=\ \dots$ m$^2$ & \pa{g} $7$ m$^2$ $5$ dm$^2=\ \dots$ m$^2$
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $3{,}45$ m. \quad \pa{b} $2{,}05$ kg. \quad \pa{c} $4{,}025$ km. \quad \pa{d} $0{,}905$ kg. \quad \pa{e} $0{,}38$ m$^2$. \quad \pa{g} $7{,}05$ m$^2$.
+\note{Lưu ý: $1$ m$^2=100$ dm$^2$, nên $5$ dm$^2=0{,}05$ m$^2$.}
+}
+\gap
+\begin{probbox}{13}{\relax}
+Sợi dây thứ nhất dài $3$ m $15$ cm. Sợi dây thứ hai dài hơn sợi dây thứ nhất $8$ dm. Sợi dây thứ ba ngắn hơn sợi dây thứ hai $65$ cm. Tính tổng độ dài của ba sợi dây theo đơn vị mét.
+\end{probbox}
+\probsol{
+Đổi: $3$ m $15$ cm $=3{,}15$ m; $8$ dm $=0{,}8$ m; $65$ cm $=0{,}65$ m.\par
+Sợi dây thứ hai: $3{,}15+0{,}8=3{,}95$ (m).\par Sợi dây thứ ba: $3{,}95-0{,}65=3{,}3$ (m).\par
+Tổng độ dài: $3{,}15+3{,}95+3{,}3=10{,}4$ (m).
+\dapso{$10{,}4$ m.}}
+\gap
+\begin{probbox}{14}{\relax}
+Dời dấu phẩy của một số sang trái một chữ số thì số đó giảm đi $16{,}74$ đơn vị. Tìm số đó.
+\end{probbox}
+\probsol{
+Nếu số mới là $1$ phần thì số cũ là $10$ phần; hiệu là $9$ phần, bằng $16{,}74$.\par
+Số mới: $16{,}74:9=1{,}86$.\par Số cần tìm: $1{,}86\times10=18{,}6$.
+\dapso{$18{,}6$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Dời dấu phẩy của một số sang phải một chữ số thì số đó tăng thêm $48{,}24$ đơn vị. Tìm số đó.
+\end{probbox}
+\probsol{
+Nếu số cũ là $1$ phần thì số mới là $10$ phần; hiệu là $9$ phần, bằng $48{,}24$.\par
+Số cần tìm: $48{,}24:9=5{,}36$.\par \emph{Thử lại:} $53{,}6-5{,}36=48{,}24$.
+\dapso{$5{,}36$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Viết số thập phân gồm: \ \pa{a} năm đơn vị, bốn phần mười, bảy phần trăm; \ \pa{b} không đơn vị, ba phần nghìn; \ \pa{c} mười hai đơn vị, sáu phần trăm.
+\end{probbox}
+\probsol{
+\pa{a} $5{,}47$.\par \pa{b} $0{,}003$.\par \pa{c} $12{,}06$ (chữ số hàng phần mười là $0$).
+\dapso{$5{,}47$; $0{,}003$; $12{,}06$.}}
+\gap
+\begin{probbox}{17}{\relax}
+Chữ số $7$ trong mỗi số sau có giá trị là bao nhiêu? \ \pa{a} $3{,}472$; \ \pa{b} $70{,}25$; \ \pa{c} $0{,}007$.
+\end{probbox}
+\probsol{
+\pa{a} Hàng phần trăm: $\dfrac7{100}$.\par \pa{b} Hàng chục: $70$.\par \pa{c} Hàng phần nghìn: $\dfrac7{1\,000}$.
+\dapso{$\dfrac7{100}$; $70$; $\dfrac7{1\,000}$.}}
+\gap
+\begin{probbox}{18}{\relax}
+Viết dưới dạng số thập phân: \ $\dfrac3{10}$; \ $\dfrac{47}{100}$; \ $\dfrac9{1\,000}$; \ $1\dfrac34$.
+\end{probbox}
+\probsol{
+$\dfrac3{10}=0{,}3$;\par $\dfrac{47}{100}=0{,}47$;\par $\dfrac9{1\,000}=0{,}009$.\par $1\dfrac34=1\dfrac{75}{100}=1{,}75$.
+\dapso{$0{,}3$; $0{,}47$; $0{,}009$; $1{,}75$.}}
+\gap
+\begin{probbox}{19}{\relax}
+Viết dưới dạng số thập phân (chuyển mẫu số thành $10$, $100$ hoặc $1\,000$): \ $\dfrac35$; \ $\dfrac7{20}$; \ $\dfrac9{25}$; \ $\dfrac38$.
+\end{probbox}
+\probsol{
+$\dfrac35=\dfrac6{10}=0{,}6$;\par $\dfrac7{20}=\dfrac{35}{100}=0{,}35$.\par $\dfrac9{25}=\dfrac{36}{100}=0{,}36$;\par $\dfrac38=\dfrac{375}{1\,000}=0{,}375$.
+\dapso{$0{,}6$; $0{,}35$; $0{,}36$; $0{,}375$.}}
+\gap
+\begin{probbox}{20}{\relax}
+Điền dấu $>,\ <,\ =$: \ \pa{a} $4{,}7\ \square\ 4{,}70$; \ \pa{b} $0{,}09\ \square\ 0{,}1$; \ \pa{c} $12{,}305\ \square\ 12{,}35$.
+\end{probbox}
+\probsol{
+\pa{a} Viết thêm chữ số không vào tận cùng bên phải phần thập phân thì giá trị không đổi: $=$.\par \pa{b} Hàng phần mười: $0<1$, nên $<$.\par \pa{c} Hàng phần trăm: $0<5$, nên $<$.
+\dapso{$=$; $<$; $<$.}}
+\gap
+\begin{probbox}{21}{\relax}
+Sắp xếp theo thứ tự từ lớn đến bé: $0{,}8,\ 0{,}08,\ 0{,}88,\ 0{,}808$.
+\end{probbox}
+\probsol{
+Viết với ba chữ số ở phần thập phân: $0{,}800,\ 0{,}080,\ 0{,}880,\ 0{,}808$.\par So sánh: $880>808>800>80$.
+\dapso{$0{,}88>0{,}808>0{,}8>0{,}08$.}}
+\gap
+\begin{probbox}{22}{\relax}
+Viết dưới dạng số thập phân: \ \pa{a} $5$ m $7$ cm $=\ldots$ m; \ \pa{b} $450$ g $=\ldots$ kg; \ \pa{c} $3$ tạ $5$ kg $=\ldots$ tạ ($1$ tạ $=100$ kg); \ \pa{d} $2$ km $30$ m $=\ldots$ km.
+\end{probbox}
+\probsol{
+\pa{a} $7$ cm $=\dfrac7{100}$ m: $5{,}07$ m.\par \pa{b} $450$ g $=\dfrac{450}{1\,000}$ kg: $0{,}45$ kg.\par \pa{c} $5$ kg $=\dfrac5{100}$ tạ: $3{,}05$ tạ.\par \pa{d} $30$ m $=\dfrac{30}{1\,000}$ km: $2{,}03$ km.
+\dapso{$5{,}07$; $0{,}45$; $3{,}05$; $2{,}03$.}}
+\gap
+\begin{probbox}{23}{\relax}
+Viết dưới dạng số thập phân: \ \pa{a} $3$ m$^2$ $25$ dm$^2=\ldots$ m$^2$; \ \pa{b} $7$ dm$^2$ $5$ cm$^2=\ldots$ dm$^2$; \ \pa{c} $4\,500$ m$^2=\ldots$ ha.
+\end{probbox}
+\probsol{
+Mỗi đơn vị đo diện tích gấp $100$ lần đơn vị bé hơn liền sau.\par \pa{a} $3{,}25$ m$^2$.\par \pa{b} $7{,}05$ dm$^2$.\par \pa{c} $1$ ha $=10\,000$ m$^2$, nên $4\,500$ m$^2=0{,}45$ ha.
+\dapso{$3{,}25$; $7{,}05$; $0{,}45$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Tính nhẩm: \ $3{,}75\times10$; \ $0{,}42\times100$; \ $56{,}3:10$; \ $7{,}8:100$.
+\end{probbox}
+\probsol{
+Nhân với $10$, $100$ thì dời dấu phẩy sang phải $1$, $2$ chữ số: $37{,}5$;\par $42$.\par Chia cho $10$, $100$ thì dời dấu phẩy sang trái $1$, $2$ chữ số: $5{,}63$;\par $0{,}078$.
+\dapso{$37{,}5$; $42$; $5{,}63$; $0{,}078$.}}
+\gap
+\begin{probbox}{25}{\relax}
+Tính: \ \pa{a} $12{,}5+3{,}75$; \ \pa{b} $20-7{,}36$; \ \pa{c} $4{,}5+2{,}35-1{,}8$.
+\end{probbox}
+\probsol{
+\pa{a} $12{,}50+3{,}75=16{,}25$.\par \pa{b} $20{,}00-7{,}36=12{,}64$.\par \pa{c} $6{,}85-1{,}8=5{,}05$.
+\dapso{$16{,}25$; $12{,}64$; $5{,}05$.}}
+\gap
+\begin{probbox}{26}{\relax}
+Tìm $x$: \ \pa{a} $x+2{,}75=6{,}1$; \ \pa{b} $x-4{,}6=3{,}85$.
+\end{probbox}
+\probsol{
+\pa{a} $x=6{,}1-2{,}75=3{,}35$.\par \pa{b} $x=3{,}85+4{,}6=8{,}45$.
+\dapso{$x=3{,}35$; $x=8{,}45$.}}
+\gap
+\begin{probbox}{27}{\relax}
+Tính bằng cách hợp lí: $3{,}25+4{,}8+6{,}75+5{,}2$.
+\end{probbox}
+\probsol{
+$=(3{,}25+6{,}75)+(4{,}8+5{,}2)$\par $=10+10=20$.
+\dapso{$20$.}}
+\gap
+\begin{probbox}{28}{\relax}
+Một cửa hàng bán đường trong ba ngày: ngày thứ nhất bán $12{,}5$ kg, ngày thứ hai bán nhiều hơn ngày thứ nhất $3{,}75$ kg, ngày thứ ba bán ít hơn ngày thứ hai $2{,}4$ kg. Hỏi cả ba ngày cửa hàng bán được bao nhiêu ki-lô-gam đường?
+\end{probbox}
+\probsol{
+Ngày thứ hai: $12{,}5+3{,}75=16{,}25$ kg.\par Ngày thứ ba: $16{,}25-2{,}4=13{,}85$ kg.\par Cả ba ngày: $12{,}5+16{,}25+13{,}85=42{,}6$ kg.
+\dapso{$42{,}6$ kg.}}
+\gap
+\begin{probbox}{29}{\relax}
+Tìm tất cả các số thập phân $x$ có một chữ số ở phần thập phân sao cho $3{,}4<x<3{,}9$.
+\end{probbox}
+\probsol{
+Phần nguyên là $3$ và chữ số hàng phần mười lớn hơn $4$ và bé hơn $9$.\par $x=3{,}5,\ 3{,}6,\ 3{,}7,\ 3{,}8$.
+\dapso{$3{,}5;\ 3{,}6;\ 3{,}7;\ 3{,}8$.}}
+\gap
+\begin{probbox}{30}{\relax}
+Viết số thập phân lớn nhất và số thập phân bé nhất có ba chữ số khác nhau, hai chữ số ở phần thập phân và phần nguyên khác không.
+\end{probbox}
+\probsol{
+Số lớn nhất: dùng các chữ số lớn nhất, xếp theo thứ tự giảm dần: $9{,}87$.\par Số bé nhất: phần nguyên là $1$, tiếp theo là $0$ và $2$: $1{,}02$.
+\dapso{$9{,}87$ và $1{,}02$.}}
+\dividerbar{Nâng cao -- Mở rộng}
+\begin{probbox}{31}{\stars{1}}
+Dời dấu phẩy của một số sang trái hai chữ số thì số đó giảm đi $40{,}887$ đơn vị. Tìm số đó.
+\end{probbox}
+\probsol{
+Dời dấu phẩy sang trái hai chữ số tức là chia cho $100$: số mới là $1$ phần, số cũ là $100$ phần, hiệu là $99$ phần.\par
+Số mới: $40{,}887:99=0{,}413$.\par Số cần tìm: $0{,}413\times100=41{,}3$.
+\dapso{$41{,}3$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Tổng của hai số thập phân là $151{,}5$. Dời dấu phẩy của số thứ nhất sang trái hai chữ số thì được số thứ hai. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Số thứ nhất gấp $100$ lần số thứ hai: số thứ hai là $1$ phần, số thứ nhất là $100$ phần, tổng là $101$ phần.\par
+Số thứ hai: $151{,}5:101=1{,}5$.\par Số thứ nhất: $1{,}5\times100=150$.
+\dapso{$150$ và $1{,}5$.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Dời dấu phẩy của một số thập phân sang phải một chữ số rồi cộng với số ban đầu thì được $75{,}9$. Tìm số đó.
+\end{probbox}
+\probsol{
+Nếu số ban đầu là $1$ phần thì số sau khi dời dấu phẩy là $10$ phần; tổng là $11$ phần.\par
+Số cần tìm: $75{,}9:11=6{,}9$.\par \emph{Thử lại:} $69+6{,}9=75{,}9$.
+\dapso{$6{,}9$.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Thay $a,\ b$ bằng chữ số thích hợp: $\ \nd{1a{,}b}+\nd{a{,}b}=20{,}8$.
+\end{probbox}
+\probsol{
+Nhận xét: $\nd{1a{,}b}=10+\nd{a{,}b}$.\par Do đó $10+\nd{a{,}b}+\nd{a{,}b}=20{,}8$, tức là\par $\nd{a{,}b}\times2=10{,}8$ và $\nd{a{,}b}=5{,}4$.\par
+Vậy $a=5$, $b=4$.\par \emph{Thử lại:} $15{,}4+5{,}4=20{,}8$.
+}
+\gap
+\begin{probbox}{35}{\stars{1}}
+Cho dãy số $0{,}5,\ 1,\ 1{,}5,\ 2,\ \dots,\ 49{,}5,\ 50$.
+\begin{cols2}
+\pa{a} Dãy có bao nhiêu số hạng? & \pa{b} Số hạng thứ $37$ là số nào?\\
+\pa{c} Tính tổng tất cả các số hạng. & \pa{d} Tính tổng $40$ số hạng đầu tiên.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $(50-0{,}5):0{,}5+1=100$ số hạng. \qquad \pa{b} $0{,}5+36\times0{,}5=18{,}5$.\par
+\pa{c} $(0{,}5+50)\times100:2=2\,525$. \qquad \pa{d} Số hạng thứ $40$ là $20$; tổng: $(0{,}5+20)\times40:2=410$.
+}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Với các chữ số $0,\ 4,\ 6,\ 8$, mỗi chữ số dùng một lần, có thể viết được bao nhiêu số thập phân mà phần nguyên và phần thập phân đều có hai chữ số?
+\end{probbox}
+\probsol{
+Số cần viết có dạng $\nd{ab{,}cd}$ với $a\ne0$: $a$ có $3$ cách chọn, $b$ có $3$, $c$ có $2$, $d$ có $1$: $3\times3\times2\times1=18$.
+\dapso{$18$ số.}}
+\gap
+\begin{probbox}{37}{\stars{2}}
+Tìm số thập phân bé nhất có các chữ số khác nhau và tổng các chữ số bằng $10$.
+\end{probbox}
+\probsol{
+Để số đó bé nhất thì phần nguyên phải là $0$, và các chữ số ở phần thập phân phải bé nhất có thể, xếp theo thứ tự tăng dần.\par
+Chữ số $0$ đã dùng ở phần nguyên, nên lần lượt lấy $1,\ 2,\ 3$; còn lại $10-1-2-3=4$ (chưa dùng).\par Số đó là $0{,}1234$.
+\dapso{$0{,}1234$.}}
+\gap
+\begin{probbox}{38}{\stars{2}}
+Một số thập phân có hai chữ số ở phần thập phân. Bỏ dấu phẩy của số đó thì được số mới lớn hơn số ban đầu $1\,221{,}66$ đơn vị. Tìm số thập phân đó.
+\end{probbox}
+\probsol{
+Bỏ dấu phẩy của một số có hai chữ số ở phần thập phân tức là nhân số đó với $100$: số cũ là $1$ phần, số mới là $100$ phần, hiệu là $99$ phần.\par
+Số cần tìm: $1\,221{,}66:99=12{,}34$.
+\dapso{$12{,}34$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Dời dấu phẩy của một số sang phải hai chữ số thì số đó tăng thêm $207{,}9$ đơn vị. Tìm số đó.
+\end{probbox}
+\probsol{
+Số mới gấp $100$ lần số cũ: số cũ là $1$ phần, số mới là $100$ phần, hiệu là $99$ phần.\par Số cần tìm là $207{,}9:99=2{,}1$.
+\dapso{$2{,}1$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Tổng của hai số thập phân là $22{,}11$. Dời dấu phẩy của số bé sang phải một chữ số thì được số lớn. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Số lớn gấp $10$ lần số bé; tổng cộng có $11$ phần.\par Số bé: $22{,}11:11=2{,}01$.\par Số lớn: $20{,}1$.
+\dapso{$2{,}01$ và $20{,}1$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Hiệu của hai số là $49{,}5$. Dời dấu phẩy của số lớn sang trái một chữ số thì được số bé. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Số lớn gấp $10$ lần số bé; hiệu là $9$ phần.\par Số bé: $49{,}5:9=5{,}5$.\par Số lớn: $55$.
+\dapso{$5{,}5$ và $55$.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Cho dãy số $0{,}1,\ 0{,}3,\ 0{,}5,\ \dots,\ 9{,}9$. Dãy có bao nhiêu số hạng? Tính tổng các số hạng đó.
+\end{probbox}
+\probsol{
+Khoảng cách: $0{,}2$.\par Số các số hạng: $(9{,}9-0{,}1):0{,}2+1=50$.\par Tổng: $(0{,}1+9{,}9)\times50:2=250$.
+\dapso{$50$ số hạng; $250$.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Có bao nhiêu số thập phân có hai chữ số ở phần thập phân lớn hơn $2$ và bé hơn $3$?
+\end{probbox}
+\probsol{
+Đó là các số $2{,}01,\ 2{,}02,\ \dots,\ 2{,}99$.\par Phần thập phân chạy từ $01$ đến $99$: có $99$ số.
+\dapso{$99$ số.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Tìm tất cả các số thập phân $x$ có một chữ số ở phần thập phân sao cho $5{,}15<x<5{,}52$.
+\end{probbox}
+\probsol{
+$5{,}15<5{,}2$ và $5{,}5<5{,}52$.\par $x=5{,}2,\ 5{,}3,\ 5{,}4,\ 5{,}5$.
+\dapso{$5{,}2;\ 5{,}3;\ 5{,}4;\ 5{,}5$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Tính nhanh: $1{,}2+2{,}3+3{,}4+4{,}5+5{,}6+6{,}7+7{,}8+8{,}9$.
+\end{probbox}
+\probsol{
+Dãy số này cách đều $1{,}1$ và có $8$ số hạng.\par Tổng: $(1{,}2+8{,}9)\times8:2=10{,}1\times4=40{,}4$.
+\dapso{$40{,}4$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Tìm các chữ số $a$ và $b$ sao cho $\nd{a{,}b}+\nd{b{,}a}=7{,}7$ và $a-b=3$.
+\end{probbox}
+\probsol{
+Tổng gồm $(a+b)$ đơn vị và $(a+b)$ phần mười, tức là\par $(a+b)\times1{,}1=7{,}7$.\par Vậy $a+b=7$, kết hợp với $a-b=3$ ta được $a=5$, $b=2$.\par Thử lại: $5{,}2+2{,}5=7{,}7$.
+\dapso{$a=5$, $b=2$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Dời dấu phẩy của một số thập phân sang phải một chữ số rồi trừ đi số ban đầu thì được $31{,}5$. Tìm số đó.
+\end{probbox}
+\probsol{
+Số mới gấp $10$ lần số cũ; hiệu bằng $9$ lần số cũ.\par Số cần tìm là $31{,}5:9=3{,}5$.
+\dapso{$3{,}5$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Tổng của ba số thập phân là $11{,}1$. Số thứ nhất lớn hơn số thứ hai $1{,}5$ đơn vị, số thứ hai lớn hơn số thứ ba $1{,}2$ đơn vị. Tìm ba số đó.
+\end{probbox}
+\probsol{
+Số thứ hai lớn hơn số thứ ba $1{,}2$; số thứ nhất lớn hơn số thứ ba $1{,}5+1{,}2=2{,}7$.\par Ba lần số thứ ba: $11{,}1-1{,}2-2{,}7=7{,}2$, nên số thứ ba là $2{,}4$.\par Số thứ hai: $3{,}6$; số thứ nhất: $5{,}1$.
+\dapso{$5{,}1$; $3{,}6$; $2{,}4$.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Với các chữ số $2,\ 5,\ 7$, mỗi chữ số dùng một lần, hãy viết tất cả các số thập phân có một chữ số ở phần thập phân rồi tính tổng của chúng.
+\end{probbox}
+\probsol{
+Có $6$ số: $25{,}7,\ 27{,}5,\ 52{,}7,\ 57{,}2,\ 72{,}5,\ 75{,}2$.\par Mỗi chữ số đứng ở mỗi hàng $2$ lần; tổng các chữ số là $14$.\par Tổng: $14\times2\times(10+1+0{,}1)=28\times11{,}1=310{,}8$.
+\dapso{$310{,}8$.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Viết liên tiếp nhóm chữ số $142857$ sau dấu phẩy ta được $0{,}142857142857\dots$ Chữ số thứ $100$ sau dấu phẩy là chữ số nào?
+\end{probbox}
+\probsol{
+Mỗi nhóm có $6$ chữ số; $100=6\times16+4$.\par Sau $16$ nhóm, chữ số thứ $100$ là chữ số thứ $4$ của một nhóm: $8$.
+\dapso{$8$.}}
+\clearpage
+\titlehead
+\begingroup\setbox0=\vbox{\section*{Ba bài toán cơ bản về phân số}}\endgroup
+\chapterhead{4}{Ba bài toán cơ bản về phân số}
+
+\shead{Ba bài toán cơ bản}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=4pt]
+\item \textbf{Bài toán 1 -- Tìm phân số của một số.} Muốn tìm $\dfrac mn$ của $A$, ta tính $\ A\times\dfrac mn\ $ (hoặc $A:n\times m$). \quad Ví dụ: $\dfrac25$ của $60$ là $60\times\dfrac25=24$.
+\item \textbf{Bài toán 2 -- Tìm một số khi biết giá trị phân số của nó.} Nếu $\dfrac ab$ của một số là $X$ thì số đó là $\ X:\dfrac ab\ $ (hoặc $X:a\times b$). \quad Ví dụ: nếu $\dfrac25$ của một số là $24$ thì số đó là $24:\dfrac25=60$.
+\item \textbf{Bài toán 3 -- Tìm tỉ số của hai số.} Tỉ số của $a$ và $b$ ($b\ne0$) là $\ a:b\ $ hay $\ \dfrac ab$, thường viết dưới dạng phân số tối giản. Hai đại lượng phải cùng \emph{một đơn vị đo}. \quad Ví dụ: tỉ số của $45$ và $20$ là $\dfrac{45}{20}=\dfrac94$.
+\end{itemize}\end{knowbox}
+\gap
+\shead{Phân số của phần còn lại}
+\begin{knowbox}
+Khi đề bài nói ``$\dfrac ab$ \emph{của phần còn lại}'', trước hết ta tìm phần còn lại (bằng bao nhiêu phần của cả tổng), rồi lấy phân số của phần đó. Chẳng hạn, đi được $\dfrac13$ quãng đường thì còn lại $\dfrac23$; đi tiếp $\dfrac35$ \emph{quãng đường còn lại} tức là đi được $\dfrac35\times\dfrac23=\dfrac25$ quãng đường.\par\smallskip
+\textbf{Sơ đồ đoạn thẳng} cho thấy rõ phần nào ứng với số đã biết.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Một mảnh vườn có diện tích $720$ m$^2$. Người ta dùng $\dfrac38$ diện tích để trồng rau, $\dfrac5{12}$ diện tích để trồng hoa, phần còn lại làm lối đi. Tính diện tích lối đi.
+\guide
+\textbf{Cách 1.} Diện tích trồng rau: $720\times\dfrac38=270$ (m$^2$).\par Diện tích trồng hoa: $720\times\dfrac5{12}=300$ (m$^2$).\par
+Diện tích lối đi: $720-(270+300)=150$ (m$^2$).\par
+\textbf{Cách 2.} Lối đi chiếm $1-\dfrac38-\dfrac5{12}=\dfrac{24-9-10}{24}=\dfrac5{24}$ diện tích mảnh vườn, tức là\par $720\times\dfrac5{24}=150$ (m$^2$).
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Trong câu lạc bộ cờ của trường, $\dfrac35$ số thành viên chơi cờ vua, $\dfrac14$ số thành viên chơi cờ tướng, $12$ thành viên còn lại chơi cờ ca-rô. Hỏi câu lạc bộ có bao nhiêu thành viên?
+\guide
+$12$ thành viên chơi cờ ca-rô chiếm $\ 1-\dfrac35-\dfrac14=\dfrac{20-12-5}{20}=\dfrac3{20}\ $ số thành viên.\par
+Số thành viên của câu lạc bộ: $\ 12:\dfrac3{20}=80$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Một người đi xe đạp trong ba ngày. Ngày thứ nhất đi được $\dfrac13$ quãng đường, ngày thứ hai đi được $\dfrac35$ quãng đường còn lại, ngày thứ ba đi nốt $24$ km. Hỏi quãng đường dài bao nhiêu ki-lô-mét?
+\guide
+\begin{barfigC}
+\rowlab{-0.15}{0}{Quãng đường:}
+\blk{0}{2.25}{0}{0.45}{tmBlue}{Ngày 1}
+\blk{2.25}{4.95}{0}{0.45}{tmGreen}{Ngày 2}
+\blk{4.95}{6.75}{0}{0.45}{tmOrange}{$24$ km}
+\brcup{2.25}{6.75}{0.42}{còn lại sau ngày 1}
+\end{barfigC}
+Sau ngày thứ nhất, còn lại $1-\dfrac13=\dfrac23$ quãng đường.\par
+Ngày thứ hai đi $\dfrac35$ phần đó, nên ngày thứ ba đi $1-\dfrac35=\dfrac25$ phần còn lại, tức là\par $\dfrac25\times\dfrac23=\dfrac4{15}$ quãng đường.\par
+Quãng đường dài $\ 24:\dfrac4{15}=90$ (km).
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Tổng của ba số là $170$. Số thứ nhất bằng $\dfrac12$ số thứ hai, số thứ hai bằng $\dfrac34$ số thứ ba. Tìm ba số đó.
+\guide
+Dùng ``phần'' chung: so với số thứ nhất, số thứ hai là $2$ phần; so với số thứ ba, số thứ hai là $3$ phần.\par Coi số thứ hai là $6$ phần:
+\[\text{số thứ nhất}=3\ \text{phần};\quad\text{số thứ hai}=6\ \text{phần};\quad\text{số thứ ba}=8\ \text{phần}.\]
+Tổng số phần: $3+6+8=17$ phần; một phần là $170:17=10$.\par
+Ba số là $30,\ 60,\ 80$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Một số cộng với $45$ thì bằng $\dfrac85$ số đó. Tìm số đó.
+\guide
+Số đó bằng $\dfrac55$ của chính nó; cộng thêm $45$ thì được $\dfrac85$.\par Vậy $45$ bằng $\dfrac85-\dfrac55=\dfrac35$ số đó.\par
+Số cần tìm là $\ 45:\dfrac35=75$.
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Một trang trại nuôi $240$ con gia cầm gồm gà, vịt và ngỗng. Số gà bằng $\dfrac38$ tổng số gia cầm, số vịt bằng $\dfrac13$ tổng số gia cầm. Hỏi có bao nhiêu con ngỗng?
+\end{probbox}
+\probsol{
+Số gà: $240\times\dfrac38=90$.\par Số vịt: $240\times\dfrac13=80$.\par Số ngỗng: $240-90-80=70$.
+\dapso{$70$ con ngỗng.}}
+\gap
+\begin{probbox}{2}{\relax}
+Một trường học có $1\,200$ học sinh. Số học sinh khối 5 bằng $\dfrac15$ số học sinh toàn trường, số học sinh nữ bằng $\dfrac7{12}$ số học sinh khối 5. Hỏi khối 5 có bao nhiêu học sinh nam, bao nhiêu học sinh nữ?
+\end{probbox}
+\probsol{
+Khối 5: $1\,200\times\dfrac15=240$ học sinh.\par Học sinh nữ: $240\times\dfrac7{12}=140$.\par Học sinh nam: $240-140=100$.
+\dapso{$100$ học sinh nam và $140$ học sinh nữ.}}
+\gap
+\begin{probbox}{3}{\relax}
+Một vận động viên chạy $30$ km trong ba giờ. Giờ thứ nhất chạy được $\dfrac25$ quãng đường, giờ thứ hai chạy được $\dfrac12$ quãng đường còn lại. Hỏi giờ thứ ba vận động viên đó chạy được bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Giờ thứ nhất: $30\times\dfrac25=12$ (km); còn lại: $30-12=18$ (km).\par
+Giờ thứ hai: $18\times\dfrac12=9$ (km).\par Giờ thứ ba: $18-9=9$ (km).
+\dapso{$9$ km.}}
+\gap
+\begin{probbox}{4}{\relax}
+Mẹ mua $12$ kg gạo. Lần thứ nhất mẹ dùng $\dfrac13$ số gạo và thêm $1$ kg. Lần thứ hai mẹ dùng $\dfrac12$ số gạo còn lại và thêm $\dfrac12$ kg. Hỏi còn lại bao nhiêu ki-lô-gam gạo?
+\end{probbox}
+\probsol{
+Lần thứ nhất: $12\times\dfrac13+1=5$ (kg); còn lại: $12-5=7$ (kg).\par
+Lần thứ hai: $7\times\dfrac12+\dfrac12=4$ (kg); còn lại: $7-4=3$ (kg).
+\dapso{$3$ kg.}}
+\gap
+\begin{probbox}{5}{\relax}
+$\dfrac23$ số học sinh lớp 5B là $22$ học sinh. Hỏi lớp 5B có bao nhiêu học sinh?
+\end{probbox}
+\probsol{
+Số học sinh lớp 5B: $22:\dfrac23=33$.
+\dapso{$33$ học sinh.}}
+\gap
+\begin{probbox}{6}{\relax}
+Sau khi lấy ra $18$ lít dầu từ một can dầu thì trong can còn lại $\dfrac58$ số dầu ban đầu. Hỏi lúc đầu can có bao nhiêu lít dầu?
+\end{probbox}
+\probsol{
+$18$ lít bằng $1-\dfrac58=\dfrac38$ số dầu ban đầu.\par Lúc đầu: $18:\dfrac38=48$ lít.
+\dapso{$48$ lít.}}
+\gap
+\begin{probbox}{7}{\relax}
+Một số trừ đi $28$ thì bằng $\dfrac35$ số đó. Tìm số đó.
+\end{probbox}
+\probsol{
+$28$ bằng $1-\dfrac35=\dfrac25$ số đó, nên số đó là $28:\dfrac25=70$.
+\dapso{$70$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Vụ này sản lượng lúa của một cánh đồng tăng thêm $\dfrac14$ so với vụ trước, đạt $15$ tấn. Hỏi vụ trước thu hoạch được bao nhiêu tấn lúa?
+\end{probbox}
+\probsol{
+Nếu vụ trước là $1$ (tức là $\dfrac44$) thì vụ này là $1+\dfrac14=\dfrac54$.\par
+Vụ trước: $15:\dfrac54=12$ tấn.
+\dapso{$12$ tấn.}}
+\gap
+\begin{probbox}{9}{\relax}
+Sau khi bán $\dfrac37$ số hộp bánh và thêm $4$ hộp nữa thì cửa hàng còn lại $28$ hộp. Hỏi lúc đầu cửa hàng có bao nhiêu hộp bánh?
+\end{probbox}
+\probsol{
+Nếu chỉ bán $\dfrac37$ thì còn lại $28+4=32$ hộp, bằng $1-\dfrac37=\dfrac47$ số hộp.\par
+Lúc đầu: $32:\dfrac47=56$ hộp.
+\dapso{$56$ hộp.}}
+\gap
+\begin{probbox}{10}{\relax}
+Một vận động viên đua xe đạp ngày thứ nhất đi được $\dfrac4{15}$ quãng đường, ngày thứ hai đi được $\dfrac25$ quãng đường, ngày thứ ba đi nốt $100$ km. Hỏi quãng đường dài bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+$100$ km bằng $1-\dfrac4{15}-\dfrac6{15}=\dfrac5{15}=\dfrac13$ quãng đường.\par Quãng đường: $100:\dfrac13=300$ km.
+\dapso{$300$ km.}}
+\gap
+\begin{probbox}{11}{\relax}
+Hai kho chứa số gạo bằng nhau. Lấy ra $\dfrac25$ số gạo ở kho thứ nhất và $\dfrac3{10}$ số gạo ở kho thứ hai thì số gạo còn lại ở kho thứ nhất ít hơn kho thứ hai $12$ tấn. Hỏi lúc đầu mỗi kho chứa bao nhiêu tấn gạo?
+\end{probbox}
+\probsol{
+Kho thứ nhất còn lại $\dfrac35=\dfrac6{10}$ và kho thứ hai còn lại $\dfrac7{10}$ số gạo ban đầu.\par
+$12$ tấn bằng $\dfrac7{10}-\dfrac6{10}=\dfrac1{10}$, nên mỗi kho chứa $12:\dfrac1{10}=120$ tấn.
+\dapso{Mỗi kho $120$ tấn.}}
+\gap
+\begin{probbox}{12}{\relax}
+Nam có một số viên bi. Số bi xanh bằng $\dfrac13$ tổng số bi, số bi vàng bằng $\dfrac34$ số bi xanh, còn lại $30$ viên bi đỏ. Hỏi Nam có bao nhiêu viên bi?
+\end{probbox}
+\probsol{
+Bi vàng: $\dfrac34\times\dfrac13=\dfrac14$ tổng số bi.\par Bi đỏ: $1-\dfrac13-\dfrac14=\dfrac5{12}$ tổng số bi.\par
+Tổng số bi: $30:\dfrac5{12}=72$.
+\dapso{$72$ viên bi.}}
+\gap
+\begin{probbox}{13}{\relax}
+Người mua thứ nhất mua $\dfrac16$ số khoai tây, người mua thứ hai mua $\dfrac35$ số khoai tây còn lại, người bán còn lại $18$ kg. Hỏi mỗi người mua bao nhiêu ki-lô-gam khoai tây?
+\end{probbox}
+\probsol{
+Sau người mua thứ nhất còn lại $\dfrac56$.\par Cuối cùng còn lại $\dfrac25$ của phần đó: $\dfrac25\times\dfrac56=\dfrac13$ số khoai tây, bằng $18$ kg.\par
+Lúc đầu: $18:\dfrac13=54$ kg.\par Người thứ nhất: $54:6=9$ kg; người thứ hai: $(54-9)\times\dfrac35=27$ kg.
+\dapso{$9$ kg và $27$ kg.}}
+\gap
+\begin{probbox}{14}{\relax}
+Tìm tỉ số của:
+\begin{cols3}
+\pa{a} $45$ và $20$; & \pa{b} $1{,}2$ và $3{,}6$; & \pa{c} $\dfrac23$ m và $75$ cm.
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $\dfrac{45}{20}=\dfrac94$. \qquad \pa{b} $\dfrac{1{,}2}{3{,}6}=\dfrac{12}{36}=\dfrac13$.\par
+\pa{c} Trước hết đổi về cùng đơn vị: $\dfrac23$ m $=\dfrac{200}3$ cm.\par Tỉ số: $\dfrac{200}3:75=\dfrac{200}{225}=\dfrac89$.
+}
+\gap
+\begin{probbox}{15}{\relax}
+Tìm $\dfrac34$ của $56$ kg.
+\end{probbox}
+\probsol{
+$56\times\dfrac34=42$ kg.
+\dapso{$42$ kg.}}
+\gap
+\begin{probbox}{16}{\relax}
+$\dfrac25$ giờ là bao nhiêu phút?
+\end{probbox}
+\probsol{
+$1$ giờ $=60$ phút.\par $60\times\dfrac25=24$ phút.
+\dapso{$24$ phút.}}
+\gap
+\begin{probbox}{17}{\relax}
+Lớp 5C có $40$ học sinh, trong đó $\dfrac38$ số học sinh đạt điểm giỏi. Hỏi có bao nhiêu học sinh đạt điểm giỏi?
+\end{probbox}
+\probsol{
+$40\times\dfrac38=15$ học sinh.
+\dapso{$15$ học sinh.}}
+\gap
+\begin{probbox}{18}{\relax}
+Một cuộn vải dài $24$ m. Cửa hàng đã bán $\dfrac58$ cuộn vải. Hỏi còn lại bao nhiêu mét vải?
+\end{probbox}
+\probsol{
+Đã bán: $24\times\dfrac58=15$ m.\par Còn lại: $24-15=9$ m.
+\dapso{$9$ m.}}
+\gap
+\begin{probbox}{19}{\relax}
+Quãng đường từ nhà bác Tu ra thị trấn dài $72$ km. Bác đã đi được $\dfrac49$ quãng đường. Hỏi còn phải đi bao nhiêu ki-lô-mét nữa?
+\end{probbox}
+\probsol{
+Còn lại: $1-\dfrac49=\dfrac59$ quãng đường.\par Quãng đường còn lại: $72\times\dfrac59=40$ km.
+\dapso{$40$ km.}}
+\gap
+\begin{probbox}{20}{\relax}
+$\dfrac37$ số tiền của Hung là $42\,000$ đồng. Hỏi Hung có bao nhiêu tiền?
+\end{probbox}
+\probsol{
+$42\,000:\dfrac37=42\,000\times\dfrac73=98\,000$ đồng.
+\dapso{$98\,000$ đồng.}}
+\gap
+\begin{probbox}{21}{\relax}
+Tìm một số, biết $\dfrac56$ của số đó là $35$.
+\end{probbox}
+\probsol{
+$35:\dfrac56=42$.
+\dapso{$42$.}}
+\gap
+\begin{probbox}{22}{\relax}
+An đã đọc $\dfrac25$ cuốn sách và còn $90$ trang chưa đọc. Hỏi cuốn sách có bao nhiêu trang?
+\end{probbox}
+\probsol{
+$90$ trang bằng $1-\dfrac25=\dfrac35$ cuốn sách.\par Số trang: $90:\dfrac35=150$.
+\dapso{$150$ trang.}}
+\gap
+\begin{probbox}{23}{\relax}
+Tìm tỉ số của: \ \pa{a} $15$ và $25$; \ \pa{b} $2$ giờ và $40$ phút; \ \pa{c} $1{,}2$ m và $30$ cm.
+\end{probbox}
+\probsol{
+\pa{a} $\dfrac{15}{25}=\dfrac35$.\par \pa{b} Đổi về cùng đơn vị: $2$ giờ $=120$ phút; $\dfrac{120}{40}=3$.\par \pa{c} $1{,}2$ m $=120$ cm; $\dfrac{120}{30}=4$.
+\dapso{$\dfrac35$; $3$; $4$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Lớp 5D có $32$ học sinh, trong đó có $14$ học sinh nữ. Tìm tỉ số của số học sinh nữ và số học sinh nam, tỉ số của số học sinh nữ và số học sinh cả lớp.
+\end{probbox}
+\probsol{
+Số học sinh nam: $32-14=18$.\par Nữ so với nam: $\dfrac{14}{18}=\dfrac79$.\par Nữ so với cả lớp: $\dfrac{14}{32}=\dfrac7{16}$.
+\dapso{$\dfrac79$; $\dfrac7{16}$.}}
+\gap
+\begin{probbox}{25}{\relax}
+Một cửa hàng có $360$ kg gạo. Ngày thứ nhất bán $\dfrac14$ số gạo; ngày thứ hai bán $\dfrac25$ số gạo còn lại. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam gạo?
+\end{probbox}
+\probsol{
+Ngày thứ nhất: $360\times\dfrac14=90$ kg; còn lại $270$ kg.\par Ngày thứ hai: $270\times\dfrac25=108$ kg.\par Còn lại: $270-108=162$ kg.
+\dapso{$162$ kg.}}
+\gap
+\begin{probbox}{26}{\relax}
+Mai có $450\,000$ đồng. Mai dùng $\dfrac29$ số tiền để mua sách và $\dfrac13$ số tiền để mua vở. Hỏi Mai còn lại bao nhiêu tiền?
+\end{probbox}
+\probsol{
+Mua sách: $450\,000\times\dfrac29=100\,000$ đồng.\par Mua vở: $450\,000\times\dfrac13=150\,000$ đồng.\par Còn lại: $450\,000-100\,000-150\,000=200\,000$ đồng.
+\dapso{$200\,000$ đồng.}}
+\gap
+\begin{probbox}{27}{\relax}
+Sau khi dùng $\dfrac38$ lượng nước trong bể thì trong bể còn lại $750$ lít. Hỏi lúc đầu bể có bao nhiêu lít nước?
+\end{probbox}
+\probsol{
+$750$ lít bằng $1-\dfrac38=\dfrac58$ lượng nước.\par Lúc đầu: $750:\dfrac58=1\,200$ lít.
+\dapso{$1\,200$ lít.}}
+\gap
+\begin{probbox}{28}{\relax}
+Một số cộng với $\dfrac14$ của chính nó thì được $60$. Tìm số đó.
+\end{probbox}
+\probsol{
+Số đó cộng với một phần tư của nó bằng $\dfrac54$ số đó.\par Số cần tìm: $60:\dfrac54=48$.
+\dapso{$48$.}}
+\gap
+\begin{probbox}{29}{\relax}
+Một số trừ đi $\dfrac27$ của chính nó thì được $35$. Tìm số đó.
+\end{probbox}
+\probsol{
+Phần còn lại bằng $1-\dfrac27=\dfrac57$ số đó.\par Số cần tìm: $35:\dfrac57=49$.
+\dapso{$49$.}}
+\gap
+\begin{probbox}{30}{\relax}
+An, Binh và Cuong có $84$ viên bi. An có $\dfrac13$ số bi, Binh có $\dfrac37$ số bi. Hỏi mỗi bạn có bao nhiêu viên bi?
+\end{probbox}
+\probsol{
+An: $84\times\dfrac13=28$.\par Binh: $84\times\dfrac37=36$.\par Cuong: $84-28-36=20$.
+\dapso{An $28$, Binh $36$, Cuong $20$ viên bi.}}
+\dividerbar{Nâng cao -- Mở rộng}
+\begin{probbox}{31}{\stars{1}}
+Hai lớp 5A và 5B có tổng cộng $68$ học sinh, biết $\dfrac34$ số học sinh lớp 5A bằng $\dfrac23$ số học sinh lớp 5B. Hỏi mỗi lớp có bao nhiêu học sinh?
+\end{probbox}
+\probsol{
+Quy đồng tử số: $\dfrac34=\dfrac68$, $\dfrac23=\dfrac69$.\par Vậy $\dfrac18$ số học sinh lớp 5A bằng $\dfrac19$ số học sinh lớp 5B.\par
+Lớp 5A là $8$ phần bằng nhau, lớp 5B là $9$ phần; $17$ phần là $68$ học sinh, nên một phần là $4$.\par
+Lớp 5A: $32$ học sinh; lớp 5B: $36$ học sinh. \ (\emph{Thử lại:} $\dfrac34\times32=24=\dfrac23\times36$.)
+}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Trong một nhóm nhạc, số bạn nam bằng $\dfrac23$ số bạn nữ. Sau khi có thêm $3$ bạn nam tham gia thì số bạn nam bằng $\dfrac56$ số bạn nữ. Hỏi lúc đầu nhóm có bao nhiêu bạn nam, bao nhiêu bạn nữ?
+\end{probbox}
+\probsol{
+Số bạn nữ không thay đổi, nên ta so sánh mọi thứ với số bạn nữ.\par $3$ bạn nam mới bằng $\dfrac56-\dfrac23=\dfrac16$ số bạn nữ.\par
+Số bạn nữ: $3:\dfrac16=18$.\par Số bạn nam lúc đầu: $18\times\dfrac23=12$.
+\dapso{$12$ bạn nam và $18$ bạn nữ.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Ông An và bà Ha đi chợ, tổng cộng mang theo $3\,000\,000$ đồng. Ông An tiêu hết $\dfrac59$ số tiền của mình, bà Ha tiêu hết $\dfrac34$ số tiền của mình; khi đó số tiền còn lại của hai người bằng nhau. Hỏi mỗi người mang theo bao nhiêu tiền?
+\end{probbox}
+\probsol{
+Ông An còn lại $\dfrac49$ và bà Ha còn lại $\dfrac14$ số tiền của mình, và hai số tiền này bằng nhau.\par Quy đồng tử số: $\dfrac49$ và $\dfrac14=\dfrac4{16}$.\par
+Vậy số tiền của ông An là $9$ phần bằng nhau, của bà Ha là $16$ phần; $25$ phần là $3\,000\,000$ đồng, nên một phần là $120\,000$ đồng.\par
+Ông An: $1\,080\,000$ đồng; bà Ha: $1\,920\,000$ đồng. (\emph{Thử lại:} mỗi người còn lại $480\,000$ đồng.)
+}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Ba đội trồng cây. Đội Một trồng $\dfrac13$ tổng số cây, đội Hai trồng $\dfrac25$ số cây còn lại, đội Ba trồng nhiều hơn đội Hai $30$ cây. Hỏi cả ba đội trồng được bao nhiêu cây?
+\end{probbox}
+\probsol{
+Sau đội Một, còn lại $\dfrac23$ số cây.\par Đội Hai trồng $\dfrac25\times\dfrac23=\dfrac4{15}$; đội Ba trồng $\dfrac23-\dfrac4{15}=\dfrac6{15}$ tổng số cây.\par
+$30$ cây bằng $\dfrac6{15}-\dfrac4{15}=\dfrac2{15}$ tổng số cây.\par Tổng số cây: $30:\dfrac2{15}=225$.
+\dapso{$225$ cây.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Một cửa hàng bán hết số cam trong $4$ ngày. Ngày thứ nhất bán bằng $\dfrac13$ số cam bán trong ba ngày sau cộng lại. Ngày thứ hai bán bằng $\dfrac23$ ngày thứ nhất. Ngày thứ ba bán bằng một nửa ngày thứ tư. Ngày thứ tư bán nhiều hơn ngày thứ nhất $15$ kg. Hỏi lúc đầu cửa hàng có bao nhiêu ki-lô-gam cam?
+\end{probbox}
+\probsol{
+Nếu ngày thứ nhất là $1$ phần thì ba ngày còn lại là $3$ phần, tất cả là $4$ phần: ngày thứ nhất bán $\dfrac14$ số cam.\par
+Ngày thứ hai: $\dfrac23\times\dfrac14=\dfrac16$.\par Ngày thứ ba và thứ tư: $1-\dfrac14-\dfrac16=\dfrac7{12}$, chia theo tỉ số $1:2$, nên ngày thứ tư bán $\dfrac7{12}\times\dfrac23=\dfrac7{18}$.\par
+$15$ kg bằng $\dfrac7{18}-\dfrac14=\dfrac{14-9}{36}=\dfrac5{36}$ số cam.\par Lúc đầu: $15:\dfrac5{36}=108$ kg.
+\note{Thử lại: bốn ngày bán lần lượt $27,\ 18,\ 21,\ 42$ kg.}
+\dapso{$108$ kg.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Mẹ chia kẹo: An được $\dfrac13$ số kẹo, Binh được $\dfrac14$ số kẹo, $15$ cái còn lại cho bé Hoa. Hỏi có tất cả bao nhiêu cái kẹo?
+\end{probbox}
+\probsol{
+An và Binh được $\dfrac13+\dfrac14=\dfrac7{12}$ số kẹo.\par Vậy $15$ cái bằng $1-\dfrac7{12}=\dfrac5{12}$ số kẹo.\par Số kẹo: $15:\dfrac5{12}=36$.
+\dapso{$36$ cái kẹo.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Một người bán cam lần thứ nhất bán $\dfrac25$ số cam, lần thứ hai bán $\dfrac13$ số cam còn lại, lần thứ ba bán nốt $24$ quả. Hỏi người đó có bao nhiêu quả cam?
+\end{probbox}
+\probsol{
+Sau lần bán thứ nhất còn lại $\dfrac35$.\par Lần bán thứ hai là $\dfrac13\times\dfrac35=\dfrac15$ tổng số cam.\par Vậy $24$ quả bằng $\dfrac35-\dfrac15=\dfrac25$ số cam: $24:\dfrac25=60$.
+\dapso{$60$ quả cam.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Hai lớp có $76$ học sinh. $\dfrac35$ số học sinh lớp A bằng $\dfrac23$ số học sinh lớp B. Hỏi mỗi lớp có bao nhiêu học sinh?
+\end{probbox}
+\probsol{
+Quy đồng tử số: $\dfrac35=\dfrac6{10}$, $\dfrac23=\dfrac69$.\par $\dfrac6{10}$ số học sinh lớp A bằng $\dfrac69$ số học sinh lớp B, nên lớp A là $10$ phần và lớp B là $9$ phần.\par Một phần: $76:19=4$; lớp A: $40$; lớp B: $36$.
+\dapso{$40$ và $36$ học sinh.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Một người đi bộ ngày thứ nhất đi được $\dfrac14$ quãng đường, ngày thứ hai đi được $\dfrac23$ quãng đường còn lại, ngày thứ ba đi nốt $15$ km. Hỏi quãng đường dài bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Sau ngày thứ nhất, còn lại $\dfrac34$.\par Ngày thứ ba bằng $\dfrac13\times\dfrac34=\dfrac14$ quãng đường.\par Quãng đường: $15:\dfrac14=60$ km.
+\dapso{$60$ km.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Tổng của ba số là $140$. Số thứ nhất bằng $\dfrac23$ số thứ hai, số thứ hai bằng $\dfrac45$ số thứ ba. Tìm ba số đó.
+\end{probbox}
+\probsol{
+Coi số thứ ba là $15$ phần; số thứ hai là $15\times\dfrac45=12$ phần và số thứ nhất là $12\times\dfrac23=8$ phần.\par Tổng cộng $35$ phần; một phần: $140:35=4$.\par Ba số là: $32,\ 48,\ 60$.
+\dapso{$32;\ 48;\ 60$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Một thùng đựng dầu. Sau khi lấy ra $\dfrac13$ số dầu thì thùng dầu cân nặng $32$ kg. Lấy ra tiếp $\dfrac14$ số dầu ban đầu thì thùng dầu cân nặng $23$ kg. Hỏi thùng không cân nặng bao nhiêu ki-lô-gam?
+\end{probbox}
+\probsol{
+$\dfrac14$ số dầu cân nặng $32-23=9$ kg, nên số dầu ban đầu là $36$ kg.\par Sau lần lấy thứ nhất còn lại $36\times\dfrac23=24$ kg dầu.\par Thùng không: $32-24=8$ kg.
+\dapso{$8$ kg.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Trong một lớp, $\dfrac34$ số học sinh thích môn Toán và $\dfrac23$ số học sinh thích môn Tiếng Việt; có $10$ học sinh thích cả hai môn, và bạn nào cũng thích ít nhất một môn. Hỏi lớp có bao nhiêu học sinh?
+\end{probbox}
+\probsol{
+Cộng hai nhóm lại thì $10$ học sinh được tính hai lần: $\dfrac34+\dfrac23=\dfrac{17}{12}$ số học sinh cả lớp.\par Phần dôi ra $\dfrac{17}{12}-1=\dfrac5{12}$ số học sinh cả lớp là $10$ học sinh.\par Cả lớp: $10:\dfrac5{12}=24$.
+\dapso{$24$ học sinh.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Một số được tăng thêm $\dfrac15$ của chính nó; sau đó số mới lại giảm đi $\dfrac16$ của chính nó. Hỏi kết quả so với số ban đầu thế nào?
+\end{probbox}
+\probsol{
+Sau khi tăng, số đó bằng $\dfrac65$ số ban đầu.\par Sau khi giảm, nó bằng $\dfrac56$ của số đó, tức là\par $\dfrac56\times\dfrac65=1$ lần số ban đầu.\par Kết quả bằng số ban đầu.
+\dapso{Kết quả bằng số ban đầu.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Hai kho chứa $380$ tấn thóc. Lấy ra $\dfrac25$ số thóc ở kho A và $\dfrac13$ số thóc ở kho B thì số thóc còn lại ở hai kho bằng nhau. Hỏi lúc đầu mỗi kho chứa bao nhiêu tấn thóc?
+\end{probbox}
+\probsol{
+Phần còn lại: $\dfrac35$ số thóc kho A bằng $\dfrac23$ số thóc kho B, tức là\par $\dfrac6{10}$ số thóc kho A bằng $\dfrac69$ số thóc kho B.\par Kho A là $10$ phần, kho B là $9$ phần; một phần: $380:19=20$.\par Kho A: $200$ tấn; kho B: $180$ tấn.
+\dapso{$200$ tấn và $180$ tấn.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Một cửa hàng bán $\dfrac13$ cuộn vải và thêm $2$ m, sau đó bán một nửa số vải còn lại và thêm $3$ m thì còn lại $7$ m. Hỏi cuộn vải dài bao nhiêu mét?
+\end{probbox}
+\probsol{
+Trước lần bán thứ hai: $(7+3)\times2=20$ m.\par $20+2=22$ m bằng $\dfrac23$ cuộn vải.\par Cuộn vải: $22:\dfrac23=33$ m.
+\dapso{$33$ m.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Hai người có số tiền bằng nhau. Người thứ nhất tiêu hết $\dfrac35$ số tiền của mình, người thứ hai tiêu hết $\dfrac23$; hai người còn lại tổng cộng $330\,000$ đồng. Hỏi lúc đầu mỗi người có bao nhiêu tiền?
+\end{probbox}
+\probsol{
+Hai người còn lại $\dfrac25$ và $\dfrac13$ số tiền của mình.\par Cộng lại là $\dfrac25+\dfrac13=\dfrac{11}{15}$ số tiền của một người, tức là\par $330\,000$ đồng.\par Mỗi người có $330\,000:\dfrac{11}{15}=450\,000$ đồng.
+\dapso{$450\,000$ đồng.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+An cho Binh $\dfrac14$ số bi của mình và thêm $3$ viên, sau đó cho Cuong một nửa số bi còn lại và thêm $1$ viên thì An còn $8$ viên. Hỏi lúc đầu An có bao nhiêu viên bi?
+\end{probbox}
+\probsol{
+Trước khi cho Cuong: $(8+1)\times2=18$.\par $18+3=21$ bằng $\dfrac34$ số bi ban đầu.\par Lúc đầu: $21:\dfrac34=28$.
+\dapso{$28$ viên bi.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+Lan phải tìm $\dfrac34$ của một số nhưng lại tìm $\dfrac43$ của số đó, nên được kết quả lớn hơn kết quả đúng $14$ đơn vị. Tìm số đó và kết quả đúng.
+\end{probbox}
+\probsol{
+Kết quả sai lớn hơn kết quả đúng $\dfrac43-\dfrac34=\dfrac7{12}$ số đó.\par Số đó: $14:\dfrac7{12}=24$.\par Kết quả đúng: $24\times\dfrac34=18$.
+\dapso{$24$; $18$.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Số sách ở ngăn trên bằng $\dfrac23$ số sách ở ngăn dưới. Chuyển $10$ quyển sách từ ngăn dưới lên ngăn trên thì số sách ở hai ngăn bằng nhau. Hỏi mỗi ngăn có bao nhiêu quyển sách?
+\end{probbox}
+\probsol{
+Tổng số sách không đổi.\par Ngăn trên lúc đầu bằng $\dfrac25$ tổng số sách, lúc sau bằng $\dfrac12$.\par Vậy $10$ quyển bằng $\dfrac12-\dfrac25=\dfrac1{10}$ tổng số sách, tức tổng là $100$.\par Ngăn trên: $40$; ngăn dưới: $60$.
+\dapso{$40$ và $60$ quyển sách.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Một người bán trứng buổi sáng bán $\dfrac25$ số trứng, buổi chiều bán $\dfrac34$ số trứng còn lại, cuối cùng còn lại $30$ quả. Hỏi lúc đầu có bao nhiêu quả trứng?
+\end{probbox}
+\probsol{
+Sau buổi sáng còn lại $\dfrac35$.\par Cuối cùng còn lại $\dfrac14\times\dfrac35=\dfrac3{20}$, tức là\par $30$ quả.\par Số trứng: $30:\dfrac3{20}=200$.
+\dapso{$200$ quả trứng.}}
+\clearpage
+\titlehead

@@ -1,0 +1,826 @@
+\begingroup\setbox0=\vbox{\section*{Luyện tập tính diện tích}}\endgroup
+\chapterhead{15}{Luyện tập tính diện tích}
+
+\shead{Chia nhỏ, ghép thêm, cắt bớt}
+\begin{knowbox}
+Để tính diện tích một hình ghép, ta đưa về các hình đã biết công thức tính diện tích:
+\begin{center}\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|c||l|c|}\hline
+Hình chữ nhật & $a\times b$ & Hình tam giác & $a\times h:2$\\\hline
+Hình vuông & $a\times a$ & Hình thang & $(a+b)\times h:2$\\\hline
+Hình tròn & $r\times r\times3{,}14$ & Nửa hình tròn & $r\times r\times3{,}14:2$\\\hline
+\end{tabular}\end{center}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Chia nhỏ:} chia hình thành các phần quen thuộc rồi \emph{cộng} diện tích các phần.
+\item \textbf{Ghép thêm rồi trừ đi:} bổ sung thành một hình lớn quen thuộc rồi \emph{trừ} đi phần đã ghép thêm.
+\item Luôn đổi các số đo về \textbf{cùng một đơn vị} trước; $1$ m$^2=100$ dm$^2=10\,000$ cm$^2$.
+\end{itemize}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+\begin{minipage}[t]{0.62\linewidth}
+Một mảnh đất có hình dạng như hình vẽ: một hình chữ nhật có chiều dài $20$ m, chiều rộng $12$ m, phía trên là một hình tam giác có đáy bằng chiều dài hình chữ nhật và chiều cao $8$ m. Tính diện tích mảnh đất.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.14]
+\fill[tmBlue!12] (0,0)--(20,0)--(20,12)--(10,20)--(0,12)--cycle;
+\draw[geo] (0,0)--(20,0)--(20,12)--(10,20)--(0,12)--cycle; \draw[geo] (0,12)--(20,12);
+\draw[dashed,Slate] (10,12)--(10,20);
+\node[dim] at (10,-2){$20$ m}; \node[dim,right] at (20,6){$12$ m}; \node[dim,right] at (10,15.5){$8$ m};
+\end{tikzpicture}
+\end{minipage}
+\guide
+\textbf{Chia} mảnh đất thành một hình chữ nhật và một hình tam giác:\par
+$S_\text{hình chữ nhật}=20\times12=240$ m$^2$;\par $S_\text{hình tam giác}=20\times8:2=80$ m$^2$.\par Mảnh đất: $240+80=320$ m$^2$.
+\dapso{$320$ m$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+\begin{minipage}[t]{0.62\linewidth}
+Từ một tấm gỗ hình chữ nhật có chiều dài $16$ cm, chiều rộng $10$ cm, người ta cắt đi một nửa hình tròn có đường kính bằng chiều rộng tấm gỗ (xem hình vẽ). Tính diện tích phần gỗ còn lại.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.16]
+\fill[tmBlue!12] (0,0)--(16,0)--(16,10)--(0,10)--cycle; \fill[white] (16,0) arc (-90:-270:5);
+\draw[geo] (16,0)--(0,0)--(0,10)--(16,10); \draw[geo] (16,10)--(16,0); \draw[geo] (16,0) arc (-90:-270:5);
+\node[dim] at (8,-1.8){$16$ cm}; \node[dim,left] at (0,5){$10$ cm};
+\end{tikzpicture}
+\end{minipage}
+\guide
+$S_\text{tấm gỗ}=16\times10=160$ cm$^2$.\par Nửa hình tròn có $r=5$ cm: $5\times5\times3{,}14:2=39{,}25$ cm$^2$.\par
+Phần gỗ còn lại: $160-39{,}25=120{,}75$ cm$^2$.
+\dapso{$120{,}75$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Trên bản đồ tỉ lệ $1:1\,000$, một khu vườn hình thang có hai đáy $5$ cm và $3$ cm, chiều cao $4$ cm. Tính diện tích thật của khu vườn.
+\guide
+Độ dài thật: $5$ cm $\to5\,000$ cm $=50$ m;\par $3$ cm $\to30$ m;\par $4$ cm $\to40$ m.\par
+Diện tích thật: $(50+30)\times40:2=1\,600$ m$^2$.\par
+\emph{Lưu ý:} đổi ra độ dài thật \emph{trước}, rồi mới tính diện tích.
+\dapso{$1\,600$ m$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Một nền nhà hình chữ nhật có chiều dài $8$ m, chiều rộng $6$ m. Người ta lát nền bằng loại gạch hình vuông cạnh $40$ cm, giá $25\,000$ đồng một viên. Cần bao nhiêu viên gạch và hết bao nhiêu tiền? (Không tính phần mạch vữa.)
+\guide
+Nền nhà: $8\times6=48$ m$^2$ $=480\,000$ cm$^2$.\par Một viên gạch: $40\times40=1\,600$ cm$^2$.\par
+Số viên gạch: $480\,000:1\,600=300$.\par Số tiền: $25\,000\times300=7\,500\,000$ đồng.
+\dapso{$300$ viên gạch; $7\,500\,000$ đồng.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+\begin{minipage}[t]{0.66\linewidth}
+Tính diện tích hình chữ L (số đo tính bằng xăng-ti-mét).
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.22]
+\fill[tmBlue!12] (0,0)--(10,0)--(10,5)--(6,5)--(6,8)--(0,8)--cycle;
+\draw[geo] (0,0)--(10,0)--(10,5)--(6,5)--(6,8)--(0,8)--cycle;
+\node[dim,below] at (5,0){$10$}; \node[dim,left] at (0,4){$8$}; \node[dim,above] at (8,5){$4$}; \node[dim,right] at (6,6.5){$3$};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\emph{Ghép thêm rồi trừ đi:} $10\times8-4\times3=80-12=68$ cm$^2$.
+\dapso{$68$ cm$^2$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Một mảnh đất hình chữ nhật có chiều dài $25$ m, chiều rộng bằng $\dfrac35$ chiều dài. Trên mảnh đất người ta xây một ngôi nhà có nền hình vuông cạnh $10$ m. Tính diện tích đất còn lại.
+\end{probbox}
+\probsol{
+Chiều rộng: $25\times\dfrac35=15$ m.\par Còn lại: $25\times15-10\times10=375-100=275$ m$^2$.
+\dapso{$275$ m$^2$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Một sân trường hình chữ nhật có chiều dài $50$ m, chiều rộng $30$ m. Ở giữa sân có một bồn hoa hình tròn bán kính $3$ m. Tính diện tích phần sân còn lại.
+\end{probbox}
+\probsol{
+$50\times30-3\times3\times3{,}14=1\,500-28{,}26=1\,471{,}74$ m$^2$.
+\dapso{$1\,471{,}74$ m$^2$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Một mảnh vườn hình thang có hai đáy $30$ m và $20$ m, chiều cao $16$ m. Người ta đào một phần tư diện tích để làm ao, phần còn lại để trồng cây. Tính diện tích trồng cây.
+\end{probbox}
+\probsol{
+$S=(30+20)\times16:2=400$ m$^2$.\par Diện tích trồng cây: $400\times\dfrac34=300$ m$^2$.
+\dapso{$300$ m$^2$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Trên bản đồ tỉ lệ $1:500$, một sân bóng hình chữ nhật có kích thước $6$ cm và $4$ cm. Tính diện tích thật của sân.
+\end{probbox}
+\probsol{
+Kích thước thật: $6\times500=3\,000$ cm $=30$ m;\par $4\times500=2\,000$ cm $=20$ m.\par Diện tích: $30\times20=600$ m$^2$.
+\dapso{$600$ m$^2$.}}
+\gap
+\begin{probbox}{6}{\relax}
+Một phòng học có chiều dài $6$ m, chiều rộng $4$ m được lát bằng gạch hình vuông cạnh $50$ cm. Cần bao nhiêu viên gạch?
+\end{probbox}
+\probsol{
+Phòng học: $24$ m$^2$ $=240\,000$ cm$^2$; một viên gạch: $2\,500$ cm$^2$.\par Số viên gạch: $240\,000:2\,500=96$.
+\dapso{$96$ viên gạch.}}
+\gap
+\begin{probbox}{7}{\relax}
+Người ta cắt bốn hình vuông bằng nhau cạnh $0{,}2$ m ở bốn góc của một tấm tôn hình chữ nhật có chiều dài $2$ m, chiều rộng $1{,}5$ m. Tính diện tích phần tôn còn lại.
+\end{probbox}
+\probsol{
+$2\times1{,}5-4\times0{,}2\times0{,}2=3-0{,}16=2{,}84$ m$^2$.
+\dapso{$2{,}84$ m$^2$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Một hình gồm một hình vuông cạnh $6$ cm và một nửa hình tròn vẽ ra phía ngoài trên một cạnh của hình vuông. Tính diện tích và chu vi của hình đó.
+\end{probbox}
+\probsol{
+Diện tích: $6\times6+3\times3\times3{,}14:2=36+14{,}13=50{,}13$ cm$^2$.\par
+Chu vi gồm ba cạnh hình vuông và nửa đường tròn: $6\times3+6\times3{,}14:2=18+9{,}42=27{,}42$ cm.
+\dapso{$50{,}13$ cm$^2$; $27{,}42$ cm.}}
+\gap
+\begin{probbox}{9}{\relax}
+Hai đường chéo của hình chữ nhật ABCD ($AB=12$ cm, $BC=8$ cm) cắt nhau tại O. Chứng tỏ rằng các hình tam giác OAB, OBC, OCD và ODA có diện tích bằng nhau, rồi tính diện tích mỗi hình.
+\end{probbox}
+\probsol{
+O là trung điểm của mỗi đường chéo.\par Trong hình tam giác ABC, BO nối B với trung điểm của AC nên $S_{OAB}=S_{OBC}$; tương tự $S_{OBC}=S_{OCD}$ và $S_{OCD}=S_{ODA}$.\par
+Mỗi hình tam giác: $12\times8:4=24$ cm$^2$.
+\dapso{$24$ cm$^2$.}}
+\gap
+\begin{probbox}{10}{\relax}
+Trên bản đồ tỉ lệ $1:1\,000$, một mảnh đất hình chữ nhật có kích thước $6$ cm và $4$ cm. Tính diện tích thật của mảnh đất.
+\end{probbox}
+\probsol{
+Chiều dài thật: $6\times1\,000=6\,000$ cm $=60$ m.\par Chiều rộng thật: $4\times1\,000=4\,000$ cm $=40$ m.\par Diện tích: $60\times40=2\,400$ m$^2$.
+\dapso{$2\,400$ m$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Trên bản đồ tỉ lệ $1:2\,000$, một mảnh đất hình chữ nhật có kích thước $5$ cm và $3$ cm. Tính diện tích thật của mảnh đất.
+\end{probbox}
+\probsol{
+Chiều dài thật: $5\times2\,000=10\,000$ cm $=100$ m.\par Chiều rộng thật: $3\times2\,000=6\,000$ cm $=60$ m.\par Diện tích: $100\times60=6\,000$ m$^2$.
+\dapso{$6\,000$ m$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+Trên bản đồ tỉ lệ $1:500$, một mảnh đất hình chữ nhật có kích thước $8$ cm và $5$ cm. Tính diện tích thật của mảnh đất.
+\end{probbox}
+\probsol{
+Chiều dài thật: $8\times500=4\,000$ cm $=40$ m.\par Chiều rộng thật: $5\times500=2\,500$ cm $=25$ m.\par Diện tích: $40\times25=1\,000$ m$^2$.
+\dapso{$1\,000$ m$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Nền một căn phòng có chiều dài $6$ m, chiều rộng $4$ m, được lát bằng gạch hình vuông cạnh $40$ cm, giá $20\,000$ đồng một viên. Tính số viên gạch và số tiền mua gạch (không tính mạch vữa).
+\end{probbox}
+\probsol{
+Nền phòng: $6\times4=24$ m$^2$.\par Một viên gạch: $40\times40=1600$ cm$^2$ $=0{,}16$ m$^2$.\par Số viên gạch: $24:0{,}16=150$.\par Số tiền: $20\,000\times150=3\,000\,000$ đồng.
+\dapso{$150$ viên gạch; $3\,000\,000$ đồng.}}
+\gap
+\begin{probbox}{14}{\relax}
+Nền một căn phòng có chiều dài $8$ m, chiều rộng $5$ m, được lát bằng gạch hình vuông cạnh $50$ cm, giá $35\,000$ đồng một viên. Tính số viên gạch và số tiền mua gạch (không tính mạch vữa).
+\end{probbox}
+\probsol{
+Nền phòng: $8\times5=40$ m$^2$.\par Một viên gạch: $50\times50=2500$ cm$^2$ $=0{,}25$ m$^2$.\par Số viên gạch: $40:0{,}25=160$.\par Số tiền: $35\,000\times160=5\,600\,000$ đồng.
+\dapso{$160$ viên gạch; $5\,600\,000$ đồng.}}
+\gap
+\begin{probbox}{15}{\relax}
+Nền một căn phòng có chiều dài $4{,}8$ m, chiều rộng $3{,}6$ m, được lát bằng gạch hình vuông cạnh $60$ cm, giá $45\,000$ đồng một viên. Tính số viên gạch và số tiền mua gạch (không tính mạch vữa).
+\end{probbox}
+\probsol{
+Nền phòng: $4{,}8\times3{,}6=17{,}28$ m$^2$.\par Một viên gạch: $60\times60=3600$ cm$^2$ $=0{,}36$ m$^2$.\par Số viên gạch: $17{,}28:0{,}36=48$.\par Số tiền: $45\,000\times48=2\,160\,000$ đồng.
+\dapso{$48$ viên gạch; $2\,160\,000$ đồng.}}
+\gap
+\begin{probbox}{16}{\relax}
+Một mảnh đất hình chữ nhật có chiều dài $30$ m, chiều rộng bằng $\dfrac{2}{3}$ chiều dài. Trên đó người ta xây một ngôi nhà $12$ m $\times$ $8$ m. Tính diện tích đất còn lại.
+\end{probbox}
+\probsol{
+Chiều rộng: $30\times\dfrac{2}{3}=20$ m.\par Mảnh đất: $600$ m$^2$.\par Ngôi nhà: $96$ m$^2$.\par Còn lại: $504$ m$^2$.
+\dapso{$504$ m$^2$.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một mảnh đất hình chữ nhật có chiều dài $40$ m, chiều rộng bằng $\dfrac{3}{4}$ chiều dài. Trên đó người ta xây một ngôi nhà $15$ m $\times$ $10$ m. Tính diện tích đất còn lại.
+\end{probbox}
+\probsol{
+Chiều rộng: $40\times\dfrac{3}{4}=30$ m.\par Mảnh đất: $1\,200$ m$^2$.\par Ngôi nhà: $150$ m$^2$.\par Còn lại: $1\,050$ m$^2$.
+\dapso{$1\,050$ m$^2$.}}
+\gap
+\begin{probbox}{18}{\relax}
+Một sân chơi hình chữ nhật có chiều dài $40$ m, chiều rộng $25$ m; ở giữa có một hố cát hình tròn bán kính $3$ m. Tính diện tích phần còn lại.
+\end{probbox}
+\probsol{
+Sân chơi: $1000$ m$^2$.\par Hố cát: $3\times3\times3{,}14=28{,}26$ m$^2$.\par Phần còn lại: $971{,}74$ m$^2$.
+\dapso{$971{,}74$ m$^2$.}}
+\gap
+\begin{probbox}{19}{\relax}
+Một sân chơi hình chữ nhật có chiều dài $30$ m, chiều rộng $20$ m; ở giữa có một hố cát hình tròn bán kính $5$ m. Tính diện tích phần còn lại.
+\end{probbox}
+\probsol{
+Sân chơi: $600$ m$^2$.\par Hố cát: $5\times5\times3{,}14=78{,}5$ m$^2$.\par Phần còn lại: $521{,}5$ m$^2$.
+\dapso{$521{,}5$ m$^2$.}}
+\gap
+\begin{probbox}{20}{\relax}
+Một hình gồm hình vuông cạnh $8$ cm và một nửa hình tròn vẽ ra phía ngoài trên một cạnh (đường kính $=$ cạnh đó). Tính diện tích của hình.
+\end{probbox}
+\probsol{
+Hình vuông: $64$ cm$^2$.\par Nửa hình tròn bán kính $4$ cm: $25{,}12$ cm$^2$.\par Tổng: $89{,}12$ cm$^2$.
+\dapso{$89{,}12$ cm$^2$.}}
+\gap
+\begin{probbox}{21}{\relax}
+Một hình gồm hình vuông cạnh $10$ cm và một nửa hình tròn vẽ ra phía ngoài trên một cạnh (đường kính $=$ cạnh đó). Tính diện tích của hình.
+\end{probbox}
+\probsol{
+Hình vuông: $100$ cm$^2$.\par Nửa hình tròn bán kính $5$ cm: $39{,}25$ cm$^2$.\par Tổng: $139{,}25$ cm$^2$.
+\dapso{$139{,}25$ cm$^2$.}}
+\gap
+\begin{probbox}{22}{\relax}
+Từ một tấm bìa $3$ dm $\times$ $2$ dm, người ta cắt ở mỗi góc một hình vuông cạnh $0{,}4$ dm. Tính diện tích phần bìa còn lại.
+\end{probbox}
+\probsol{
+Tấm bìa: $6$ dm$^2$.\par Bốn hình vuông: $0{,}64$ dm$^2$.\par Còn lại: $5{,}36$ dm$^2$.
+\dapso{$5{,}36$ dm$^2$.}}
+\gap
+\begin{probbox}{23}{\relax}
+Từ một tấm bìa $5$ dm $\times$ $4$ dm, người ta cắt ở mỗi góc một hình vuông cạnh $0{,}5$ dm. Tính diện tích phần bìa còn lại.
+\end{probbox}
+\probsol{
+Tấm bìa: $20$ dm$^2$.\par Bốn hình vuông: $1$ dm$^2$.\par Còn lại: $19$ dm$^2$.
+\dapso{$19$ dm$^2$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Một mảnh vườn hình thang có hai đáy $40$ m và $30$ m, chiều cao $20$ m. $\dfrac{1}{5}$ diện tích vườn là ao; phần còn lại trồng rau, cứ $3$ kg trên mỗi m$^2$. Tính số rau thu hoạch được.
+\end{probbox}
+\probsol{
+Mảnh vườn: $700$ m$^2$.\par Ao: $140$ m$^2$.\par Trồng rau: $560$ m$^2$.\par Thu hoạch: $560\times3=1\,680$ kg.
+\dapso{$1\,680$ kg.}}
+\gap
+\begin{probbox}{25}{\relax}
+Một mảnh vườn hình thang có hai đáy $60$ m và $40$ m, chiều cao $30$ m. $\dfrac{1}{3}$ diện tích vườn là ao; phần còn lại trồng rau, cứ $2$ kg trên mỗi m$^2$. Tính số rau thu hoạch được.
+\end{probbox}
+\probsol{
+Mảnh vườn: $1\,500$ m$^2$.\par Ao: $500$ m$^2$.\par Trồng rau: $1\,000$ m$^2$.\par Thu hoạch: $1\,000\times2=2\,000$ kg.
+\dapso{$2\,000$ kg.}}
+\gap
+\begin{probbox}{26}{\relax}
+Một mảnh đất hình chữ L là hình chữ nhật $20$ m $\times$ $15$ m bị cắt bớt một góc hình chữ nhật $8$ m $\times$ $6$ m. Tính diện tích mảnh đất.
+\end{probbox}
+\probsol{
+Hình chữ nhật lớn: $300$ m$^2$.\par Phần cắt bớt: $48$ m$^2$.\par Diện tích: $252$ m$^2$.
+\dapso{$252$ m$^2$.}}
+\gap
+\begin{probbox}{27}{\relax}
+Một mảnh đất hình chữ L là hình chữ nhật $30$ m $\times$ $24$ m bị cắt bớt một góc hình chữ nhật $12$ m $\times$ $10$ m. Tính diện tích mảnh đất.
+\end{probbox}
+\probsol{
+Hình chữ nhật lớn: $720$ m$^2$.\par Phần cắt bớt: $120$ m$^2$.\par Diện tích: $600$ m$^2$.
+\dapso{$600$ m$^2$.}}
+\gap
+\begin{probbox}{28}{\relax}
+Một mảnh vườn hình chữ nhật có chu vi $60$ m, chiều rộng bằng $\dfrac{2}{3}$ chiều dài. Tính diện tích mảnh vườn.
+\end{probbox}
+\probsol{
+Nửa chu vi: $30$ m.\par Tổng số phần: $5$; một phần: $6$ m.\par Chiều dài $18$ m, chiều rộng $12$ m.\par Diện tích: $216$ m$^2$.
+\dapso{$216$ m$^2$.}}
+\gap
+\begin{probbox}{29}{\relax}
+Một mảnh vườn hình chữ nhật có chu vi $84$ m, chiều rộng bằng $\dfrac{3}{4}$ chiều dài. Tính diện tích mảnh vườn.
+\end{probbox}
+\probsol{
+Nửa chu vi: $42$ m.\par Tổng số phần: $7$; một phần: $6$ m.\par Chiều dài $24$ m, chiều rộng $18$ m.\par Diện tích: $432$ m$^2$.
+\dapso{$432$ m$^2$.}}
+\gap
+\begin{probbox}{30}{\relax}
+Một mảnh vườn hình chữ nhật có chu vi $100$ m, chiều rộng bằng $\dfrac{1}{4}$ chiều dài. Tính diện tích mảnh vườn.
+\end{probbox}
+\probsol{
+Nửa chu vi: $50$ m.\par Tổng số phần: $5$; một phần: $10$ m.\par Chiều dài $40$ m, chiều rộng $10$ m.\par Diện tích: $400$ m$^2$.
+\dapso{$400$ m$^2$.}}
+\dividerbar{Thử thách -- Mở rộng}
+\begin{probbox}{31}{\stars{1}}
+Một mảnh vườn hình chữ nhật có chu vi $56$ m. Nếu tăng chiều rộng thêm $4$ m và giảm chiều dài đi $4$ m thì mảnh vườn trở thành hình vuông. Tính diện tích mảnh vườn.
+\end{probbox}
+\probsol{
+Chiều dài hơn chiều rộng $4+4=8$ m; nửa chu vi là $28$ m.\par Chiều dài: $(28+8):2=18$ m; chiều rộng: $10$ m.\par Diện tích: $180$ m$^2$.
+\dapso{$180$ m$^2$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Nếu tăng chiều dài của một mảnh vườn hình chữ nhật thêm $5$ m thì diện tích tăng thêm $60$ m$^2$; nếu giảm chiều rộng đi $3$ m thì diện tích giảm đi $75$ m$^2$. Tính diện tích mảnh vườn.
+\end{probbox}
+\probsol{
+Phần tăng thêm là hình chữ nhật có một cạnh $5$ m, cạnh kia bằng chiều rộng, nên chiều rộng là $60:5=12$ m.\par Phần giảm đi là hình chữ nhật có một cạnh $3$ m, cạnh kia bằng chiều dài, nên chiều dài là $75:3=25$ m.\par
+Diện tích: $25\times12=300$ m$^2$.
+\dapso{$300$ m$^2$.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+\begin{minipage}[t]{0.62\linewidth}
+Một vườn rau hình chữ nhật có chiều dài $40$ m, chiều rộng $25$ m, có hai lối đi rộng $2$ m vuông góc với nhau, chạy suốt chiều dài và chiều rộng của vườn (xem hình vẽ). Tính diện tích trồng rau.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.085]
+\fill[tmGreen!25] (0,0) rectangle (40,25);
+\fill[white] (0,11.5) rectangle (40,13.5); \fill[white] (24,0) rectangle (26,25);
+\draw[geo] (0,0) rectangle (40,25);
+\draw[Slate] (0,11.5)--(40,11.5) (0,13.5)--(40,13.5) (24,0)--(24,25) (26,0)--(26,25);
+\node[dim] at (20,-3){$40$ m}; \node[dim,left] at (0,6){$25$ m};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Ghép các phần trồng rau lại với nhau, ta được hình chữ nhật có chiều dài $40-2=38$ m và chiều rộng $25-2=23$ m.\par
+Diện tích trồng rau: $38\times23=874$ m$^2$.
+\dapso{$874$ m$^2$.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Từ một tấm bìa hình chữ nhật có chiều dài $20$ cm, chiều rộng $10$ cm, người ta cắt ra hai hình tròn lớn nhất có thể, không chồng lên nhau. Tính diện tích phần bìa còn thừa.
+\end{probbox}
+\probsol{
+Mỗi hình tròn có đường kính $10$ cm ($r=5$ cm), và hai hình tròn đặt cạnh nhau vừa đúng theo chiều dài $20$ cm.\par
+Phần còn thừa: $20\times10-2\times5\times5\times3{,}14=200-157=43$ cm$^2$.
+\dapso{$43$ cm$^2$.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Hình tam giác ABC vuông tại A có $AB=12$ cm, $AC=16$ cm và $BC=20$ cm. Vẽ ra phía ngoài các nửa hình tròn trên các cạnh AB, AC và BC. Chứng tỏ rằng nửa hình tròn trên BC có diện tích bằng tổng diện tích hai nửa hình tròn kia.
+\end{probbox}
+\probsol{
+Nửa hình tròn trên AB ($r=6$): $6\times6\times3{,}14:2=56{,}52$ cm$^2$.\par
+Nửa hình tròn trên AC ($r=8$): $8\times8\times3{,}14:2=100{,}48$ cm$^2$.\par
+Nửa hình tròn trên BC ($r=10$): $10\times10\times3{,}14:2=157$ cm$^2$ $=56{,}52+100{,}48$.
+\dapso{$157=56{,}52+100{,}48$ (cm$^2$).}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Một mảnh vườn hình chữ nhật có chu vi $64$ m. Nếu tăng chiều rộng thêm $5$ m và giảm chiều dài đi $5$ m thì mảnh vườn trở thành hình vuông. Tính diện tích mảnh vườn.
+\end{probbox}
+\probsol{
+Khi đó chiều dài bằng chiều rộng, nên chiều dài hơn chiều rộng $5+5=10$ m.\par Nửa chu vi: $32$ m.\par Chiều dài: $(32+10):2=21$ m; chiều rộng: $11$ m.\par Diện tích: $231$ m$^2$.
+\dapso{$231$ m$^2$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Một mảnh vườn hình chữ nhật có chu vi $80$ m. Nếu tăng chiều rộng thêm $3$ m và giảm chiều dài đi $3$ m thì mảnh vườn trở thành hình vuông. Tính diện tích mảnh vườn.
+\end{probbox}
+\probsol{
+Khi đó chiều dài bằng chiều rộng, nên chiều dài hơn chiều rộng $3+3=6$ m.\par Nửa chu vi: $40$ m.\par Chiều dài: $(40+6):2=23$ m; chiều rộng: $17$ m.\par Diện tích: $391$ m$^2$.
+\dapso{$391$ m$^2$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Một mảnh vườn hình chữ nhật, nếu tăng chiều dài thêm $6$ m thì diện tích tăng thêm $84$ m$^2$; nếu giảm chiều rộng đi $4$ m thì diện tích giảm đi $72$ m$^2$. Tính diện tích mảnh vườn.
+\end{probbox}
+\probsol{
+Phần tăng thêm có một cạnh $6$ m, cạnh kia bằng chiều rộng, nên chiều rộng $=84:6=14$ m.\par Phần giảm đi có một cạnh $4$ m, cạnh kia bằng chiều dài, nên chiều dài $=72:4=18$ m.\par Diện tích: $18\times14=252$ m$^2$.
+\dapso{$252$ m$^2$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Một mảnh vườn hình chữ nhật, nếu tăng chiều dài thêm $4$ m thì diện tích tăng thêm $40$ m$^2$; nếu giảm chiều rộng đi $2$ m thì diện tích giảm đi $48$ m$^2$. Tính diện tích mảnh vườn.
+\end{probbox}
+\probsol{
+Phần tăng thêm có một cạnh $4$ m, cạnh kia bằng chiều rộng, nên chiều rộng $=40:4=10$ m.\par Phần giảm đi có một cạnh $2$ m, cạnh kia bằng chiều dài, nên chiều dài $=48:2=24$ m.\par Diện tích: $24\times10=240$ m$^2$.
+\dapso{$240$ m$^2$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Một mảnh vườn hình chữ nhật có chiều dài $30$ m, chiều rộng $20$ m. Có hai lối đi rộng $2$ m cắt nhau, mỗi lối đi song song với một cạnh của vườn. Tính diện tích còn lại để trồng cây.
+\end{probbox}
+\probsol{
+Lối đi dài: $60$ m$^2$; lối đi ngắn: $40$ m$^2$.\par Phần giao nhau $2\times2=4$ m$^2$ bị tính hai lần.\par Lối đi: $60+40-4=96$ m$^2$.\par Còn lại: $600-96=504$ m$^2$.
+\dapso{$504$ m$^2$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Một mảnh vườn hình chữ nhật có chiều dài $45$ m, chiều rộng $32$ m. Có hai lối đi rộng $3$ m cắt nhau, mỗi lối đi song song với một cạnh của vườn. Tính diện tích còn lại để trồng cây.
+\end{probbox}
+\probsol{
+Lối đi dài: $135$ m$^2$; lối đi ngắn: $96$ m$^2$.\par Phần giao nhau $3\times3=9$ m$^2$ bị tính hai lần.\par Lối đi: $135+96-9=222$ m$^2$.\par Còn lại: $1440-222=1\,218$ m$^2$.
+\dapso{$1\,218$ m$^2$.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Một bể bơi hình chữ nhật có chiều dài $25$ m, chiều rộng $10$ m, có một dải lát gạch rộng $2$ m bao quanh. Tính diện tích dải lát gạch đó.
+\end{probbox}
+\probsol{
+Kích thước bên ngoài: $29$ m và $14$ m.\par Diện tích hình bên ngoài: $406$ m$^2$.\par Bể bơi: $250$ m$^2$.\par Dải lát gạch: $156$ m$^2$.
+\dapso{$156$ m$^2$.}}
+\gap
+\begin{probbox}{43}{\stars{2}}
+Hình chữ nhật ABCD có $AB=12$ cm, $BC=8$ cm. Vẽ nửa hình tròn đường kính AB nằm trong hình chữ nhật. Tính diện tích phần hình chữ nhật nằm ngoài nửa hình tròn.
+\end{probbox}
+\probsol{
+Bán kính $6$ cm $<8$ cm nên nửa hình tròn nằm trọn trong hình chữ nhật.\par Nửa hình tròn: $6\times6\times3{,}14:2=56{,}52$ cm$^2$.\par Hình chữ nhật: $96$ cm$^2$.\par Diện tích cần tìm: $96-56{,}52=39{,}48$ cm$^2$.
+\dapso{$39{,}48$ cm$^2$.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Hình vuông ABCD có cạnh $10$ cm. Nối trung điểm các cạnh của nó ta được hình vuông MNPQ. Tính diện tích hình vuông MNPQ.
+\end{probbox}
+\probsol{
+Mỗi góc là một hình tam giác vuông có hai cạnh góc vuông $5$ cm: $12{,}5$ cm$^2$.\par Bốn hình tam giác: $50$ cm$^2$.\par $S_{MNPQ}=100-50=50$ cm$^2$, bằng một nửa hình vuông ban đầu.
+\dapso{$50$ cm$^2$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Một hình chữ nhật được chia thành bốn hình chữ nhật nhỏ bởi hai đường thẳng, mỗi đường song song với một cạnh. Ba hình có diện tích $12$, $18$ và $20$ cm$^2$ (hình $12$ và hình $18$ nằm cạnh nhau ở trên, hình $20$ nằm dưới hình $12$). Tính diện tích hình thứ tư.
+\end{probbox}
+\probsol{
+Hai hình phía trên có cùng chiều cao nên tỉ số chiều rộng của chúng là $12:18=\dfrac23$.\par Hai hình phía dưới có cùng chiều cao và có chiều rộng như hai hình trên.\par Vậy hình thứ tư có diện tích $20:\dfrac23=30$ cm$^2$.
+\dapso{$30$ cm$^2$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Một bức tranh hình chữ nhật có chiều dài $40$ cm, chiều rộng $30$ cm, có khung rộng $5$ cm bao quanh. Tính diện tích khung tranh.
+\end{probbox}
+\probsol{
+Kích thước bên ngoài: $50$ cm và $40$ cm.\par Diện tích hình bên ngoài: $2\,000$ cm$^2$.\par Bức tranh: $1\,200$ cm$^2$.\par Khung: $800$ cm$^2$.
+\dapso{$800$ cm$^2$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Một hình \emph{bông hoa} gồm hình vuông cạnh $4$ cm và bốn nửa hình tròn vẽ ra phía ngoài trên các cạnh của hình vuông. Tính diện tích hình bông hoa.
+\end{probbox}
+\probsol{
+Hình vuông: $16$ cm$^2$.\par Mỗi nửa hình tròn (bán kính $2$ cm): $6{,}28$ cm$^2$.\par Bốn nửa hình tròn: $25{,}12$ cm$^2$.\par Bông hoa: $41{,}12$ cm$^2$.
+\dapso{$41{,}12$ cm$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Một mảnh đất có diện tích thật là $4\,800$ m$^2$. Hỏi diện tích mảnh đất đó là bao nhiêu cm$^2$ trên bản đồ tỉ lệ $1:2\,000$?
+\end{probbox}
+\probsol{
+Độ dài thu nhỏ $2\,000$ lần nên diện tích thu nhỏ $2\,000\times2\,000=4\,000\,000$ lần.\par $4\,800$ m$^2$ $=48\,000\,000$ cm$^2$.\par Trên bản đồ: $12$ cm$^2$.
+\dapso{$12$ cm$^2$.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+Một mảnh vườn hình chữ nhật có chu vi $120$ m, chiều dài gấp đôi chiều rộng. Người ta trồng rau trên $\dfrac34$ diện tích vườn, cứ $2$ kg trên mỗi m$^2$. Hỏi thu hoạch được bao nhiêu ki-lô-gam rau?
+\end{probbox}
+\probsol{
+Nửa chu vi $60$ m; chiều rộng $60:3=20$ m; chiều dài $40$ m.\par Diện tích: $800$ m$^2$.\par Trồng rau: $800\times\dfrac34=600$ m$^2$.\par Thu hoạch: $1\,200$ kg.
+\dapso{$1\,200$ kg.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Một thửa ruộng hình thang vuông có hai đáy $50$ m và $30$ m. Kéo dài đáy bé thêm $20$ m thì được một hình chữ nhật và diện tích tăng thêm $400$ m$^2$. Tính diện tích thửa ruộng ban đầu.
+\end{probbox}
+\probsol{
+Phần tăng thêm là hình tam giác vuông có hai cạnh góc vuông là $20$ m và chiều cao hình thang.\par Chiều cao: $400\times2:20=40$ m.\par Diện tích ban đầu: $(50+30)\times40:2=1\,600$ m$^2$.
+\dapso{$1\,600$ m$^2$.}}
+\clearpage
+\begingroup\setbox0=\vbox{\section*{Ôn tập tổng hợp -- Đề 1}}\endgroup\renewcommand{\CurTopic}{Ôn tập tổng hợp -- Đề 1}\setcounter{seccnt}{0}\phantomsection\pdfbookmark[0]{Ôn tập tổng hợp -- Đề 1}{rev1}\label{toc:rev1}\par\vspace{0.1cm}\noindent\begin{tikzpicture}[baseline=-0.5ex]\node[circle,fill=tmOrange,text=white,font=\large\bfseries,minimum size=0.95cm,inner sep=0pt](cn){\faPen};\node[anchor=west,font=\LARGE\bfseries,text=tmOrange] at ([xshift=12pt]cn.east){Ôn tập tổng hợp -- Đề 1};\end{tikzpicture}\par\vspace{4pt}\noindent\textcolor{tmOrange}{\rule{\linewidth}{2pt}}\par\vspace{0.5cm}
+
+\begin{knowbox}
+\textbf{Nội dung:} Chương 1 -- 8 (số tự nhiên, phân số, số thập phân, các bài toán điển hình, tỉ lệ, toán năng suất). \quad \textbf{Thời gian gợi ý:} $60$ phút.
+\end{knowbox}
+\gap
+\begin{probbox}{1}{\relax}
+Cho dãy số $4,\ 7,\ 10,\ \ldots,\ 301$. \ \pa{a} Dãy có bao nhiêu số hạng? \ \pa{b} Tính tổng các số hạng.
+\end{probbox}
+\probsol{
+\pa{a} $(301-4):3+1=100$ số hạng.\par \pa{b} $(4+301)\times100:2=15\,250$.
+\dapso{$100$; $15\,250$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Tính bằng cách thuận tiện: $25\times37\times4+63\times100$.
+\end{probbox}
+\probsol{
+$=37\times100+63\times100=(37+63)\times100=10\,000$.
+\dapso{$10\,000$.}}
+\gap
+\begin{probbox}{3}{\relax}
+So sánh $\dfrac79$ và $\dfrac9{11}$ mà không quy đồng mẫu số.
+\end{probbox}
+\probsol{
+$1-\dfrac79=\dfrac29$ và $1-\dfrac9{11}=\dfrac2{11}$.\par Vì $\dfrac29>\dfrac2{11}$ nên $\dfrac79<\dfrac9{11}$.
+\dapso{$\dfrac79<\dfrac9{11}$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Tính: $\dfrac12+\dfrac16+\dfrac1{12}+\dfrac1{20}+\dfrac1{30}$.
+\end{probbox}
+\probsol{
+$=\left(1-\dfrac12\right)+\left(\dfrac12-\dfrac13\right)+\cdots+\left(\dfrac15-\dfrac16\right)=1-\dfrac16=\dfrac56$.
+\dapso{$\dfrac56$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Tính: $2\dfrac34+1\dfrac56$.
+\end{probbox}
+\probsol{
+$=\dfrac{11}4+\dfrac{11}6=\dfrac{33}{12}+\dfrac{22}{12}=\dfrac{55}{12}=4\dfrac7{12}$.
+\dapso{$4\dfrac7{12}$.}}
+\gap
+\begin{probbox}{6}{\relax}
+Viết dưới dạng số thập phân: \ \pa{a} $3$ m $5$ cm $=\ldots$ m; \ \pa{b} $2$ kg $75$ g $=\ldots$ kg; \ \pa{c} $4$ tấn $300$ kg $=\ldots$ tấn.
+\end{probbox}
+\probsol{
+\pa{a} $3{,}05$ m;\par \pa{b} $2{,}075$ kg;\par \pa{c} $4{,}3$ tấn.
+\dapso{$3{,}05$; $2{,}075$; $4{,}3$.}}
+\gap
+\begin{probbox}{7}{\relax}
+Dời dấu phẩy của số A sang bên phải một chữ số thì được số B. Biết $A+B=69{,}3$, tìm A.
+\end{probbox}
+\probsol{
+$B=10\times A$, nên $11\times A=69{,}3$ và $A=69{,}3:11=6{,}3$.
+\dapso{$A=6{,}3$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Lớp 5A có $35$ học sinh, trong đó $\dfrac25$ số học sinh là nữ. Hỏi lớp đó có bao nhiêu học sinh nam?
+\end{probbox}
+\probsol{
+Số học sinh nữ: $35\times\dfrac25=14$.\par Số học sinh nam: $35-14=21$.
+\dapso{$21$ học sinh nam.}}
+\gap
+\begin{probbox}{9}{\relax}
+$\dfrac34$ số vở của Hà là $36$ quyển. Hỏi Hà có bao nhiêu quyển vở?
+\end{probbox}
+\probsol{
+$36:\dfrac34=48$.
+\dapso{$48$ quyển vở.}}
+\gap
+\begin{probbox}{10}{\relax}
+Tổng của hai số là $96$, số bé bằng $\dfrac35$ số lớn. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Tổng số phần bằng nhau: $8$ phần.\par Số bé: $96:8\times3=36$; số lớn: $60$.
+\dapso{$36$ và $60$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Mẹ hơn con $28$ tuổi, tuổi con bằng $\dfrac15$ tuổi mẹ. Tính tuổi của mỗi người.
+\end{probbox}
+\probsol{
+Hiệu số phần bằng nhau là $5-1=4$ phần.\par Tuổi con: $28:4=7$; tuổi mẹ: $35$.
+\dapso{Con $7$ tuổi, mẹ $35$ tuổi.}}
+\gap
+\begin{probbox}{12}{\relax}
+Một lớp học có số học sinh nữ bằng $\dfrac34$ số học sinh nam. Nếu có thêm $2$ học sinh nữ vào lớp thì số học sinh nữ bằng $\dfrac56$ số học sinh nam. Hỏi lúc đầu lớp có bao nhiêu học sinh nam, bao nhiêu học sinh nữ?
+\end{probbox}
+\probsol{
+Số học sinh nam không đổi.\par $2$ học sinh nữ ứng với $\dfrac56-\dfrac34=\dfrac1{12}$ số học sinh nam, nên có $24$ học sinh nam và $24\times\dfrac34=18$ học sinh nữ.
+\dapso{$24$ học sinh nam, $18$ học sinh nữ.}}
+\gap
+\begin{probbox}{13}{\relax}
+$8$ người đắp xong một đoạn đê trong $15$ ngày. Hỏi $12$ người đắp xong đoạn đê đó trong bao nhiêu ngày? (Năng suất mỗi người như nhau.)
+\end{probbox}
+\probsol{
+$8\times15=120$ ngày công;\par $120:12=10$ ngày.
+\dapso{$10$ ngày.}}
+\gap
+\begin{probbox}{14}{\relax}
+Vòi I chảy đầy bể trong $3$ giờ, vòi II chảy đầy bể trong $6$ giờ. Bể đang cạn, nếu mở cả hai vòi cùng lúc thì sau bao lâu bể đầy?
+\end{probbox}
+\probsol{
+Mỗi giờ cả hai vòi chảy được: $\dfrac13+\dfrac16=\dfrac12$ bể.\par Bể đầy sau $2$ giờ.
+\dapso{$2$ giờ.}}
+\gap
+\begin{probbox}{15}{\stars{1}}
+Tìm một số tự nhiên, biết rằng số đó tăng thêm $230$ đơn vị khi viết thêm chữ số $5$ vào bên phải.
+\end{probbox}
+\probsol{
+Số mới bằng $10$ lần số cũ cộng $5$, nên $9$ lần số cũ là $230-5=225$.\par Số cần tìm là $225:9=25$.
+\dapso{$25$.}}
+\gap
+\begin{probbox}{16}{\stars{1}}
+Tâm làm một mình xong một công việc trong $12$ ngày. Tâm và Hùng cùng làm trong $4$ ngày; sau đó Tâm nghỉ, Hùng phải làm thêm $6$ ngày nữa mới xong. Hỏi nếu làm một mình thì Hùng làm xong công việc trong bao lâu?
+\end{probbox}
+\probsol{
+Trong $4$ ngày Tâm làm được $\dfrac4{12}=\dfrac13$ công việc.\par Hùng làm $4+6=10$ ngày được $\dfrac23$ còn lại, tức là\par mỗi ngày làm được $\dfrac1{15}$ công việc.\par Làm một mình: $15$ ngày.
+\dapso{$15$ ngày.}}
+\clearpage
+\begingroup\setbox0=\vbox{\section*{Ôn tập tổng hợp -- Đề 2}}\endgroup\renewcommand{\CurTopic}{Ôn tập tổng hợp -- Đề 2}\setcounter{seccnt}{0}\phantomsection\pdfbookmark[0]{Ôn tập tổng hợp -- Đề 2}{rev2}\label{toc:rev2}\par\vspace{0.1cm}\noindent\begin{tikzpicture}[baseline=-0.5ex]\node[circle,fill=tmOrange,text=white,font=\large\bfseries,minimum size=0.95cm,inner sep=0pt](cn){\faPen};\node[anchor=west,font=\LARGE\bfseries,text=tmOrange] at ([xshift=12pt]cn.east){Ôn tập tổng hợp -- Đề 2};\end{tikzpicture}\par\vspace{4pt}\noindent\textcolor{tmOrange}{\rule{\linewidth}{2pt}}\par\vspace{0.5cm}
+
+\begin{knowbox}
+\textbf{Nội dung:} Chương 9 -- 15 (bài toán hai hiệu số, tính ngược, hình tam giác, hình thang, hình tròn, diện tích hình ghép). \quad \textbf{Thời gian gợi ý:} $60$ phút.
+\end{knowbox}
+\gap
+\begin{probbox}{1}{\relax}
+Chia bi: nếu mỗi bạn $3$ viên thì thừa $5$ viên; nếu mỗi bạn $5$ viên thì thiếu $7$ viên. Tìm số bạn và số bi.
+\end{probbox}
+\probsol{
+Số bạn: $(5+7):(5-3)=6$.\par Số bi: $3\times6+5=23$.
+\dapso{$6$ bạn, $23$ viên bi.}}
+\gap
+\begin{probbox}{2}{\relax}
+Vừa gà vừa chó: có $30$ con và $84$ chân. Hỏi có bao nhiêu con gà, bao nhiêu con chó?
+\end{probbox}
+\probsol{
+Nếu tất cả đều là gà thì có $60$ chân, thiếu $24$ chân.\par Số chó: $24:2=12$ con; số gà: $18$ con.
+\dapso{$18$ con gà, $12$ con chó.}}
+\gap
+\begin{probbox}{3}{\relax}
+Tìm một số, biết rằng lấy số đó trừ đi $7$, nhân với $3$ rồi cộng thêm $12$ thì được $60$.
+\end{probbox}
+\probsol{
+$60-12=48$;\par $48:3=16$;\par $16+7=23$.
+\dapso{$23$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Lan cho em một nửa số kẹo của mình và thêm $2$ cái nữa thì Lan còn lại $8$ cái. Hỏi lúc đầu Lan có bao nhiêu cái kẹo?
+\end{probbox}
+\probsol{
+$(8+2)\times2=20$.
+\dapso{$20$ cái kẹo.}}
+\gap
+\begin{probbox}{5}{\relax}
+Tính diện tích hình tam giác có đáy $2{,}4$ dm và chiều cao $1{,}5$ dm.
+\end{probbox}
+\probsol{
+$2{,}4\times1{,}5:2=1{,}8$ dm$^2$.
+\dapso{$1{,}8$ dm$^2$.}}
+\gap
+\begin{probbox}{6}{\relax}
+Một hình tam giác có diện tích $27$ cm$^2$ và đáy $9$ cm. Tính chiều cao của hình tam giác đó.
+\end{probbox}
+\probsol{
+$27\times2:9=6$ cm.
+\dapso{$6$ cm.}}
+\gap
+\begin{probbox}{7}{\relax}
+Hình tam giác ABC có diện tích $48$ cm$^2$; M nằm trên BC sao cho $BM=\dfrac14BC$. Tính diện tích hình tam giác ABM và AMC.
+\end{probbox}
+\probsol{
+$S_{ABM}=48:4=12$ cm$^2$;\par $S_{AMC}=48-12=36$ cm$^2$.
+\dapso{$12$ cm$^2$; $36$ cm$^2$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Tính diện tích hình thang có hai đáy $3{,}2$ m và $2{,}4$ m, chiều cao $1{,}5$ m.
+\end{probbox}
+\probsol{
+$(3{,}2+2{,}4)\times1{,}5:2=4{,}2$ m$^2$.
+\dapso{$4{,}2$ m$^2$.}}
+\gap
+\begin{probbox}{9}{\relax}
+Một hình thang có diện tích $98$ cm$^2$, chiều cao $7$ cm; đáy bé bằng $\dfrac34$ đáy lớn. Tính độ dài mỗi đáy.
+\end{probbox}
+\probsol{
+Tổng hai đáy: $98\times2:7=28$ cm.\par Đáy bé: $28:7\times3=12$ cm; đáy lớn: $16$ cm.
+\dapso{$12$ cm và $16$ cm.}}
+\gap
+\begin{probbox}{10}{\relax}
+Tính chu vi và diện tích hình tròn có bán kính $2{,}5$ cm.
+\end{probbox}
+\probsol{
+$C=2{,}5\times2\times3{,}14=15{,}7$ cm;\par $S=2{,}5\times2{,}5\times3{,}14=19{,}625$ cm$^2$.
+\dapso{$15{,}7$ cm; $19{,}625$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Một hình tròn có chu vi $31{,}4$ m. Tính diện tích hình tròn đó.
+\end{probbox}
+\probsol{
+$d=31{,}4:3{,}14=10$ m, $r=5$ m;\par $S=5\times5\times3{,}14=78{,}5$ m$^2$.
+\dapso{$78{,}5$ m$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+Một tấm bìa hình chữ nhật có chiều dài $12$ cm, chiều rộng $8$ cm, bị khoét một lỗ hình tròn bán kính $3$ cm. Tính diện tích phần bìa còn lại.
+\end{probbox}
+\probsol{
+$12\times8-3\times3\times3{,}14=96-28{,}26=67{,}74$ cm$^2$.
+\dapso{$67{,}74$ cm$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Trên bản đồ tỉ lệ $1:2\,000$, một mảnh đất hình vuông có cạnh $3$ cm. Tính diện tích thật của mảnh đất.
+\end{probbox}
+\probsol{
+Cạnh thật: $3\times2\,000=6\,000$ cm $=60$ m.\par Diện tích: $60\times60=3\,600$ m$^2$.
+\dapso{$3\,600$ m$^2$.}}
+\gap
+\begin{probbox}{14}{\stars{1}}
+Một hình chữ nhật có chu vi $48$ cm, chiều dài gấp $3$ lần chiều rộng. Tính diện tích hình chữ nhật đó.
+\end{probbox}
+\probsol{
+Nửa chu vi: $24$ cm.\par Chiều rộng: $24:4=6$ cm; chiều dài: $18$ cm.\par Diện tích: $108$ cm$^2$.
+\dapso{$108$ cm$^2$.}}
+\gap
+\begin{probbox}{15}{\stars{1}}
+Một hình tròn nằm trong một hình vuông và tiếp xúc với cả bốn cạnh. Diện tích hình vuông là $64$ cm$^2$. Tính diện tích hình tròn.
+\end{probbox}
+\probsol{
+Cạnh hình vuông là $8$ cm (vì $8\times8=64$), nên $d=8$ cm và $r=4$ cm.\par $S=4\times4\times3{,}14=50{,}24$ cm$^2$.
+\dapso{$50{,}24$ cm$^2$.}}
+\gap
+\begin{probbox}{16}{\stars{2}}
+Xếp chỗ ngồi cho học sinh: nếu mỗi ghế ngồi $4$ em thì $3$ em không có chỗ; nếu mỗi ghế ngồi $5$ em thì thừa $1$ ghế và ghế cuối cùng có người ngồi chỉ có $3$ em. Tìm số ghế và số học sinh.
+\end{probbox}
+\probsol{
+Cách xếp thứ hai còn thiếu $5+2=7$ em mới đủ.\par Tổng chênh lệch $3+7=10$; mỗi ghế chênh $1$.\par Số ghế: $10$; số học sinh: $4\times10+3=43$.
+\dapso{$10$ ghế, $43$ học sinh.}}
+\clearpage
+\begingroup\setbox0=\vbox{\section*{Kiểm tra cuối Quyển 1}}\endgroup\renewcommand{\CurTopic}{Kiểm tra cuối Quyển 1}\setcounter{seccnt}{0}\phantomsection\pdfbookmark[0]{Kiểm tra cuối Quyển 1}{test1}\label{toc:test1}\par\vspace{0.1cm}\noindent\begin{tikzpicture}[baseline=-0.5ex]\node[circle,fill=tmOrange,text=white,font=\large\bfseries,minimum size=0.95cm,inner sep=0pt](cn){\faClipboardCheck};\node[anchor=west,font=\LARGE\bfseries,text=tmOrange] at ([xshift=12pt]cn.east){Kiểm tra cuối Quyển 1};\end{tikzpicture}\par\vspace{4pt}\noindent\textcolor{tmOrange}{\rule{\linewidth}{2pt}}\par\vspace{0.5cm}
+
+\begin{knowbox}
+\textbf{Thời gian:} $60$ phút. \quad \textbf{Tổng điểm:} $10$ điểm. \quad \textbf{Số câu:} $19$.\\[2pt]\emph{Phần A -- mỗi câu $0{,}4$ điểm. \quad Phần B -- mỗi câu $0{,}5$ điểm. \quad Phần C -- mỗi câu $1$ điểm.}
+\end{knowbox}
+\gap
+\dividerbar{Phần A -- Trả lời nhanh (4 điểm)}
+\begin{probbox}{1}{\relax}
+Rút gọn phân số $\dfrac{36}{48}$ thành phân số tối giản.
+\end{probbox}
+\probsol{
+Chia cả tử số và mẫu số cho $12$: $\dfrac34$.
+\dapso{$\dfrac34$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Tính nhẩm: $3{,}75\times10=\ldots$ \quad và \quad $42{,}5:100=\ldots$
+\end{probbox}
+\probsol{
+Dời dấu phẩy: $37{,}5$ \ và \ $0{,}425$.
+\dapso{$37{,}5$; $0{,}425$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Viết hỗn số $4\dfrac78$ thành phân số.
+\end{probbox}
+\probsol{
+$\dfrac{4\times8+7}8=\dfrac{39}8$.
+\dapso{$\dfrac{39}8$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Số nào lớn nhất trong các số $4{,}503,\ 4{,}53,\ 4{,}5,\ 4{,}35$?
+\end{probbox}
+\probsol{
+So sánh hàng phần mười, rồi đến hàng phần trăm: $4{,}53$.
+\dapso{$4{,}53$.}}
+\gap
+\begin{probbox}{5}{\relax}
+$5$ m$^2$ $8$ dm$^2=\ldots$ m$^2$.
+\end{probbox}
+\probsol{
+$8$ dm$^2=0{,}08$ m$^2$, nên kết quả là $5{,}08$ m$^2$.
+\dapso{$5{,}08$ m$^2$.}}
+\gap
+\begin{probbox}{6}{\relax}
+$\dfrac23$ của $45$ là bao nhiêu?
+\end{probbox}
+\probsol{
+$45\times\dfrac23=30$.
+\dapso{$30$.}}
+\gap
+\begin{probbox}{7}{\relax}
+Tìm một số, biết $\dfrac25$ của số đó là $16$.
+\end{probbox}
+\probsol{
+$16:\dfrac25=40$.
+\dapso{$40$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Chu vi hình tròn có đường kính $4$ cm là bao nhiêu?
+\end{probbox}
+\probsol{
+$4\times3{,}14=12{,}56$ cm.
+\dapso{$12{,}56$ cm.}}
+\gap
+\begin{probbox}{9}{\relax}
+Diện tích hình tam giác có đáy $6$ cm và chiều cao $5$ cm là bao nhiêu?
+\end{probbox}
+\probsol{
+$6\times5:2=15$ cm$^2$.
+\dapso{$15$ cm$^2$.}}
+\gap
+\begin{probbox}{10}{\relax}
+Diện tích hình thang có hai đáy $7$ cm và $5$ cm, chiều cao $4$ cm là bao nhiêu?
+\end{probbox}
+\probsol{
+$(7+5)\times4:2=24$ cm$^2$.
+\dapso{$24$ cm$^2$.}}
+\dividerbar{Phần B -- Tính toán (3 điểm)}
+\begin{probbox}{11}{\relax}
+Tính: $\dfrac34\times\dfrac89:\dfrac23$.
+\end{probbox}
+\probsol{
+$=\dfrac23:\dfrac23=1$.
+\dapso{$1$.}}
+\gap
+\begin{probbox}{12}{\relax}
+Tìm $x$: \ $x-2\dfrac13=1\dfrac34$.
+\end{probbox}
+\probsol{
+$x=\dfrac73+\dfrac74=\dfrac{28}{12}+\dfrac{21}{12}=\dfrac{49}{12}=4\dfrac1{12}$.
+\dapso{$x=4\dfrac1{12}$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Tổng của hai số là $120$ và tỉ số của hai số là $\dfrac35$. Tìm hai số đó.
+\end{probbox}
+\probsol{
+$120:8=15$; hai số là $15\times3=45$ và $15\times5=75$.
+\dapso{$45$ và $75$.}}
+\gap
+\begin{probbox}{14}{\relax}
+$6$ người làm xong một công việc trong $10$ ngày. Hỏi $15$ người làm xong công việc đó trong bao nhiêu ngày? (Năng suất như nhau.)
+\end{probbox}
+\probsol{
+$6\times10=60$ ngày công;\par $60:15=4$ ngày.
+\dapso{$4$ ngày.}}
+\gap
+\begin{probbox}{15}{\relax}
+Vòi I chảy đầy bể trong $6$ giờ, vòi II chảy đầy bể trong $12$ giờ. Bể đang cạn, nếu cả hai vòi cùng chảy thì sau bao lâu bể đầy?
+\end{probbox}
+\probsol{
+Mỗi giờ cả hai vòi chảy được $\dfrac16+\dfrac1{12}=\dfrac14$ bể, nên sau $4$ giờ bể đầy.
+\dapso{$4$ giờ.}}
+\gap
+\begin{probbox}{16}{\relax}
+Tính diện tích hình tròn có bán kính $6$ cm.
+\end{probbox}
+\probsol{
+$6\times6\times3{,}14=113{,}04$ cm$^2$.
+\dapso{$113{,}04$ cm$^2$.}}
+\dividerbar{Phần C -- Giải toán (3 điểm)}
+\begin{probbox}{17}{\stars{1}}
+An và Bình có tất cả $54$ viên bi. Nếu An cho Bình $6$ viên thì số bi của Bình gấp đôi số bi của An. Hỏi hiện nay mỗi bạn có bao nhiêu viên bi?
+\end{probbox}
+\probsol{
+Tổng số bi không đổi.\par Sau khi cho, An có $54:3=18$ viên và Bình có $36$ viên.\par
+Lúc đầu: An có $18+6=24$ viên; Bình có $36-6=30$ viên.
+\dapso{An $24$ viên, Bình $30$ viên bi.}}
+\gap
+\begin{probbox}{18}{\stars{1}}
+Một cửa hàng bán một nửa tấm vải và thêm $3$ m, sau đó bán $\dfrac13$ số vải còn lại thì còn $20$ m. Hỏi tấm vải lúc đầu dài bao nhiêu mét?
+\end{probbox}
+\probsol{
+$20$ m là $\dfrac23$ số vải còn lại sau lần bán thứ nhất, nên sau lần bán thứ nhất còn $20:\dfrac23=30$ m.\par
+Tấm vải dài $(30+3)\times2=66$ m.
+\dapso{$66$ m.}}
+\gap
+\begin{probbox}{19}{\stars{2}}
+Hình chữ nhật ABCD có $AB=24$ cm và $AD=10$ cm; M là trung điểm của CD. \ \pa{a} Tính diện tích hình tam giác ABM. \ \pa{b} Tính diện tích hình thang ABMD.
+\end{probbox}
+\probsol{
+\pa{a} Hình tam giác ABM có đáy AB và chiều cao AD: $24\times10:2=120$ cm$^2$.\par
+\pa{b} $DM=12$ cm;\par $S_{ABMD}=(24+12)\times10:2=180$ cm$^2$.
+\dapso{\pa{a} $120$ cm$^2$;\par \pa{b} $180$ cm$^2$.}}

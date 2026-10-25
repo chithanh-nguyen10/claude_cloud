@@ -1,0 +1,861 @@
+\begingroup\setbox0=\vbox{\section*{Hình thang và diện tích hình thang}}\endgroup
+\chapterhead{13}{Hình thang và diện tích hình thang}
+
+\shead{Hai đáy song song}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+\textbf{Hình thang} là tứ giác có \emph{một cặp cạnh đối diện song song}: \textbf{đáy lớn} và \textbf{đáy bé}. Hai cạnh còn lại là \textbf{cạnh bên}. Hình thang có một cạnh bên vuông góc với hai đáy gọi là \textbf{hình thang vuông}.\par
+\smallskip
+\textbf{Chiều cao} là khoảng cách giữa hai đáy.
+\[S=\frac{(a+b)\times h}{2}\qquad h=\frac{S\times2}{a+b}\qquad a+b=\frac{S\times2}{h}\]
+\textbf{Hai đường chéo.} Trong hình thang ABCD (AB song song với CD), hai tam giác ACD và BCD có chung đáy CD và chiều cao bằng nhau, nên $S_{ACD}=S_{BCD}$; bớt đi phần chung ta được $S_{AOD}=S_{BOC}$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[scale=0.85]
+\coordinate (D) at (0,0); \coordinate (C) at (4.2,0); \coordinate (A) at (0.9,2.2); \coordinate (B) at (2.9,2.2); \coordinate (H) at (0.9,0);
+\coordinate (O) at (intersection of A--C and B--D);
+\fill[tmBlue!18] (A)--(O)--(D)--cycle; \fill[tmBlue!18] (B)--(O)--(C)--cycle;
+\draw[geo] (A)--(B)--(C)--(D)--cycle; \draw[geo] (A)--(C) (B)--(D);
+\draw[dashed,tmOrange!80!black,line width=0.7pt] (A)--(H); \ramark{H}{C}{A}
+\node[lbl,above] at (A){A}; \node[lbl,above] at (B){B}; \node[lbl,below right] at (C){C}; \node[lbl,below left] at (D){D}; \node[lbl,below=2pt] at (O){O};
+\node[dim,left] at (0.9,1.1){$h$}; \node[dim,above=7pt] at (1.9,2.2){$b$}; \node[dim,below=7pt] at (2.6,0){$a$};
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Tính diện tích hình thang có hai đáy là $12$ cm và $8$ cm, chiều cao $5$ cm.
+\guide
+$S=(12+8)\times5:2=50$ cm$^2$.
+\dapso{$50$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Một thửa ruộng hình thang có đáy lớn $120$ m; đáy bé bằng $\dfrac23$ đáy lớn, chiều cao bằng trung bình cộng của hai đáy. Cứ $100$ m$^2$ thu hoạch được $64$ kg thóc. Hỏi thửa ruộng đó thu hoạch được bao nhiêu ki-lô-gam thóc?
+\guide
+Đáy bé: $120\times\dfrac23=80$ m.\par Chiều cao: $(120+80):2=100$ m.\par
+Diện tích: $(120+80)\times100:2=10\,000$ m$^2$.\par Số thóc: $64\times(10\,000:100)=6\,400$ kg.
+\dapso{$6\,400$ kg.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Một hình thang có diện tích $60$ cm$^2$, chiều cao $6$ cm; đáy lớn hơn đáy bé $4$ cm. Tính độ dài mỗi đáy.
+\guide
+Tổng hai đáy: $60\times2:6=20$ cm.\par Đây là bài toán tổng -- hiệu: đáy lớn $(20+4):2=12$ cm, đáy bé $8$ cm.
+\dapso{$12$ cm và $8$ cm.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Hình thang ABCD có đáy bé $AB=6$ cm, đáy lớn $CD=9$ cm và chiều cao $4$ cm. Tính diện tích các tam giác ABD và BCD, và chứng tỏ rằng $S_{AOD}=S_{BOC}$ (O là giao điểm của hai đường chéo).
+\guide
+Cả hai tam giác đều có chiều cao bằng chiều cao hình thang: $S_{ABD}=6\times4:2=12$ cm$^2$ và $S_{BCD}=9\times4:2=18$ cm$^2$.\par
+$S_{ACD}=S_{BCD}=18$ cm$^2$ (chung đáy CD, cùng chiều cao).\par Bớt đi phần chung của chúng là tam giác OCD, ta được $S_{AOD}=S_{BOC}$.
+\dapso{$12$ cm$^2$; $18$ cm$^2$.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Tính diện tích hình thang có hai đáy $a$, $b$ và chiều cao $h$:
+\begin{cols2}
+\pa{a} $a=14$ cm, $b=6$ cm, $h=7$ cm; & \pa{b} $a=2{,}8$ m, $b=1{,}6$ m, $h=0{,}5$ m;\\
+\pa{c} $a=\dfrac34$ dm, $b=\dfrac12$ dm, $h=\dfrac23$ dm; & \pa{d} $a=1{,}5$ dm, $b=9$ cm, $h=8$ cm.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $(14+6)\times7:2=70$ cm$^2$.\par \pa{b} $(2{,}8+1{,}6)\times0{,}5:2=1{,}1$ m$^2$.\par \pa{c} $\left(\dfrac34+\dfrac12\right)\times\dfrac23:2=\dfrac5{12}$ dm$^2$.\par \pa{d} $1{,}5$ dm $=15$ cm; $(15+9)\times8:2=96$ cm$^2$.
+\dapso{$70$ cm$^2$; $1{,}1$ m$^2$; $\dfrac5{12}$ dm$^2$; $96$ cm$^2$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Một hình thang vuông có hai đáy là $10$ cm và $7$ cm, cạnh bên vuông góc với hai đáy dài $6$ cm. Tính diện tích hình thang đó.
+\end{probbox}
+\probsol{
+Cạnh bên vuông góc với hai đáy chính là chiều cao: $S=(10+7)\times6:2=51$ cm$^2$.
+\dapso{$51$ cm$^2$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Một hình thang có diện tích $72$ cm$^2$, hai đáy là $10$ cm và $14$ cm. Tính chiều cao của hình thang.
+\end{probbox}
+\probsol{
+$h=72\times2:(10+14)=6$ cm.
+\dapso{$6$ cm.}}
+\gap
+\begin{probbox}{4}{\relax}
+Một hình thang có diện tích $45$ m$^2$, chiều cao $5$ m và đáy bé $7$ m. Tính đáy lớn.
+\end{probbox}
+\probsol{
+Tổng hai đáy: $45\times2:5=18$ m.\par Đáy lớn: $18-7=11$ m.
+\dapso{$11$ m.}}
+\gap
+\begin{probbox}{5}{\relax}
+Một thửa ruộng hình thang có hai đáy là $60$ m và $40$ m, chiều cao $30$ m. Cứ $100$ m$^2$ thu hoạch được $70$ kg thóc. Hỏi thửa ruộng đó thu hoạch được bao nhiêu ki-lô-gam thóc?
+\end{probbox}
+\probsol{
+Diện tích: $(60+40)\times30:2=1\,500$ m$^2$.\par Số thóc: $70\times15=1\,050$ kg.
+\dapso{$1\,050$ kg.}}
+\gap
+\begin{probbox}{6}{\relax}
+Một hình thang có tổng hai đáy là $48$ cm; đáy bé bằng $\dfrac35$ đáy lớn, chiều cao bằng $\dfrac14$ đáy lớn. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+Đáy lớn: $48:(3+5)\times5=30$ cm; chiều cao: $30\times\dfrac14=7{,}5$ cm.\par $S=48\times7{,}5:2=180$ cm$^2$.
+\dapso{$180$ cm$^2$.}}
+\gap
+\begin{probbox}{7}{\relax}
+Một hình thang có hai đáy là $25$ cm và $15$ cm. Nếu kéo dài đáy lớn thêm $5$ cm thì diện tích tăng thêm $20$ cm$^2$. Tính diện tích hình thang ban đầu.
+\end{probbox}
+\probsol{
+Phần tăng thêm là một tam giác có đáy $5$ cm và chiều cao bằng chiều cao hình thang: $h=20\times2:5=8$ cm.\par $S=(25+15)\times8:2=160$ cm$^2$.
+\dapso{$160$ cm$^2$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Hình chữ nhật ABCD có $AB=20$ cm và $BC=12$ cm. Điểm M nằm trên AB sao cho $AM=8$ cm. Tính diện tích hình thang MBCD.
+\end{probbox}
+\probsol{
+Hình thang MBCD có hai đáy $MB=12$ cm và $CD=20$ cm, chiều cao $BC=12$ cm: $S=(12+20)\times12:2=192$ cm$^2$.\par
+\emph{Cách khác:} $20\times12-8\times12:2=240-48=192$ cm$^2$.
+\dapso{$192$ cm$^2$.}}
+\gap
+\begin{probbox}{9}{\relax}
+Hình thang ABCD có $AB=4$ cm, $CD=10$ cm và chiều cao $6$ cm. Tính diện tích các tam giác ABC và ACD.
+\end{probbox}
+\probsol{
+$S_{ABC}=4\times6:2=12$ cm$^2$;\par $S_{ACD}=10\times6:2=30$ cm$^2$.\par \emph{Thử lại:} $12+30=42=(4+10)\times6:2$.
+\dapso{$12$ cm$^2$; $30$ cm$^2$.}}
+\gap
+\begin{probbox}{10}{\relax}
+Tính diện tích hình thang có hai đáy là $15$ cm và $9$ cm, chiều cao $6$ cm.
+\end{probbox}
+\probsol{
+$S=(15+9)\times6:2=72$ cm$^2$.
+\dapso{$72$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Tính diện tích hình thang có hai đáy là $6{,}5$ cm và $3{,}5$ cm, chiều cao $4{,}2$ cm.
+\end{probbox}
+\probsol{
+$S=(6{,}5+3{,}5)\times4{,}2:2=21$ cm$^2$.
+\dapso{$21$ cm$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+Tính diện tích hình thang có hai đáy là $\dfrac34$ m và $\dfrac12$ m, chiều cao $\dfrac23$ m.
+\end{probbox}
+\probsol{
+$S=\left(\dfrac34+\dfrac12\right)\times\dfrac23:2=\dfrac54\times\dfrac23:2=\dfrac5{12}$ m$^2$.
+\dapso{$\dfrac5{12}$ m$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Tính diện tích hình thang có hai đáy là $14$ dm và $10$ dm, chiều cao $7{,}5$ dm.
+\end{probbox}
+\probsol{
+$S=(14+10)\times7{,}5:2=90$ dm$^2$.
+\dapso{$90$ dm$^2$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Tính diện tích hình thang có hai đáy là $1{,}2$ m và $80$ cm, chiều cao $5$ dm.
+\end{probbox}
+\probsol{
+Đổi ra đề-xi-mét: $1{,}2$ m $=12$ dm; $80$ cm $=8$ dm.\par $S=(12+8)\times5:2=50$ dm$^2$.
+\dapso{$50$ dm$^2$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Một hình thang có diện tích $84$ cm$^2$, hai đáy là $16$ cm và $12$ cm. Tính chiều cao của hình thang.
+\end{probbox}
+\probsol{
+Chiều cao $=$ diện tích $\times2\,:$ tổng hai đáy.\par $h=84\times2:(16+12)=6$ cm.
+\dapso{$6$ cm.}}
+\gap
+\begin{probbox}{16}{\relax}
+Một hình thang có diện tích $45$ cm$^2$, hai đáy là $8{,}5$ cm và $6{,}5$ cm. Tính chiều cao của hình thang.
+\end{probbox}
+\probsol{
+Chiều cao $=$ diện tích $\times2\,:$ tổng hai đáy.\par $h=45\times2:(8{,}5+6{,}5)=6$ cm.
+\dapso{$6$ cm.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một hình thang có diện tích $150$ cm$^2$, hai đáy là $23$ cm và $17$ cm. Tính chiều cao của hình thang.
+\end{probbox}
+\probsol{
+Chiều cao $=$ diện tích $\times2\,:$ tổng hai đáy.\par $h=150\times2:(23+17)=7{,}5$ cm.
+\dapso{$7{,}5$ cm.}}
+\gap
+\begin{probbox}{18}{\relax}
+Một hình thang có diện tích $96$ cm$^2$, chiều cao $8$ cm và đáy bé $10$ cm. Tính đáy lớn.
+\end{probbox}
+\probsol{
+Tổng hai đáy: $96\times2:8=24$ cm.\par Đáy lớn: $24-10=14$ cm.
+\dapso{$14$ cm.}}
+\gap
+\begin{probbox}{19}{\relax}
+Một hình thang có diện tích $63$ cm$^2$, chiều cao $7$ cm và đáy bé $7{,}5$ cm. Tính đáy lớn.
+\end{probbox}
+\probsol{
+Tổng hai đáy: $63\times2:7=18$ cm.\par Đáy lớn: $18-7{,}5=10{,}5$ cm.
+\dapso{$10{,}5$ cm.}}
+\gap
+\begin{probbox}{20}{\relax}
+Một hình thang có diện tích $110$ cm$^2$, chiều cao $10$ cm và đáy bé $9$ cm. Tính đáy lớn.
+\end{probbox}
+\probsol{
+Tổng hai đáy: $110\times2:10=22$ cm.\par Đáy lớn: $22-9=13$ cm.
+\dapso{$13$ cm.}}
+\gap
+\begin{probbox}{21}{\relax}
+Một thửa ruộng hình thang có hai đáy là $80$ m và $50$ m, chiều cao $40$ m. Cứ $100$ m$^2$ thu hoạch được $65$ kg thóc. Hỏi cả thửa ruộng thu hoạch được bao nhiêu ki-lô-gam thóc?
+\end{probbox}
+\probsol{
+Diện tích: $(80+50)\times40:2=2\,600$ m$^2$.\par Số thóc: $2\,600:100\times65=1\,690$ kg.
+\dapso{$1\,690$ kg.}}
+\gap
+\begin{probbox}{22}{\relax}
+Một thửa ruộng hình thang có hai đáy là $150$ m và $90$ m, chiều cao $60$ m. Cứ $100$ m$^2$ thu hoạch được $60$ kg thóc. Hỏi cả thửa ruộng thu hoạch được bao nhiêu ki-lô-gam thóc?
+\end{probbox}
+\probsol{
+Diện tích: $(150+90)\times60:2=7\,200$ m$^2$.\par Số thóc: $7\,200:100\times60=4\,320$ kg.
+\dapso{$4\,320$ kg.}}
+\gap
+\begin{probbox}{23}{\relax}
+Một hình thang có tổng hai đáy là $36$ cm, hiệu hai đáy là $8$ cm; chiều cao $10$ cm. Tính mỗi đáy và diện tích hình thang.
+\end{probbox}
+\probsol{
+Đáy lớn: $(36+8):2=22$ cm; đáy bé: $14$ cm.\par Diện tích: $36\times10:2=180$ cm$^2$.
+\dapso{Hai đáy $22$ cm và $14$ cm; $180$ cm$^2$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Một hình thang có tổng hai đáy là $50$ cm, hiệu hai đáy là $14$ cm; chiều cao $12$ cm. Tính mỗi đáy và diện tích hình thang.
+\end{probbox}
+\probsol{
+Đáy lớn: $(50+14):2=32$ cm; đáy bé: $18$ cm.\par Diện tích: $50\times12:2=300$ cm$^2$.
+\dapso{Hai đáy $32$ cm và $18$ cm; $300$ cm$^2$.}}
+\gap
+\begin{probbox}{25}{\relax}
+Một mảnh đất hình thang có đáy lớn $60$ m; đáy bé bằng $\dfrac{2}{3}$ đáy lớn và chiều cao bằng $\dfrac{1}{2}$ đáy lớn. Tính diện tích mảnh đất.
+\end{probbox}
+\probsol{
+Đáy bé: $60\times\dfrac{2}{3}=40$ m.\par Chiều cao: $60\times\dfrac{1}{2}=30$ m.\par Diện tích: $(60+40)\times30:2=1\,500$ m$^2$.
+\dapso{$1\,500$ m$^2$.}}
+\gap
+\begin{probbox}{26}{\relax}
+Một mảnh đất hình thang có đáy lớn $48$ m; đáy bé bằng $\dfrac{3}{4}$ đáy lớn và chiều cao bằng $\dfrac{5}{8}$ đáy lớn. Tính diện tích mảnh đất.
+\end{probbox}
+\probsol{
+Đáy bé: $48\times\dfrac{3}{4}=36$ m.\par Chiều cao: $48\times\dfrac{5}{8}=30$ m.\par Diện tích: $(48+36)\times30:2=1\,260$ m$^2$.
+\dapso{$1\,260$ m$^2$.}}
+\gap
+\begin{probbox}{27}{\relax}
+Hình thang ABCD có góc A và góc D vuông, $AB=9$ cm, $CD=15$ cm và $AD=8$ cm. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+AD vuông góc với cả hai đáy nên AD là chiều cao.\par $S=(9+15)\times8:2=96$ cm$^2$.
+\dapso{$96$ cm$^2$.}}
+\gap
+\begin{probbox}{28}{\relax}
+Hình thang ABCD có góc A và góc D vuông, $AB=4{,}5$ cm, $CD=7{,}5$ cm và $AD=6$ cm. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+AD vuông góc với cả hai đáy nên AD là chiều cao.\par $S=(4{,}5+7{,}5)\times6:2=36$ cm$^2$.
+\dapso{$36$ cm$^2$.}}
+\gap
+\begin{probbox}{29}{\relax}
+Hình chữ nhật ABCD có $AB=25$ cm và $BC=14$ cm. Điểm M trên AB có $AM=9$ cm. Tính diện tích hình thang MBCD và tam giác AMD.
+\end{probbox}
+\probsol{
+Hình thang MBCD có hai đáy $MB=16$ cm và $CD=25$ cm, chiều cao $BC=14$ cm.\par $S_{MBCD}=(16+25)\times14:2=287$ cm$^2$.\par $S_{AMD}=9\times14:2=63$ cm$^2$.
+\dapso{$S_{MBCD}=287$ cm$^2$, $S_{AMD}=63$ cm$^2$.}}
+\gap
+\begin{probbox}{30}{\relax}
+Hình chữ nhật ABCD có $AB=30$ cm và $BC=16$ cm. Điểm M trên AB có $AM=12$ cm. Tính diện tích hình thang MBCD và tam giác AMD.
+\end{probbox}
+\probsol{
+Hình thang MBCD có hai đáy $MB=18$ cm và $CD=30$ cm, chiều cao $BC=16$ cm.\par $S_{MBCD}=(18+30)\times16:2=384$ cm$^2$.\par $S_{AMD}=12\times16:2=96$ cm$^2$.
+\dapso{$S_{MBCD}=384$ cm$^2$, $S_{AMD}=96$ cm$^2$.}}
+\dividerbar{Thử thách -- Mở rộng}
+\begin{probbox}{31}{\stars{1}}
+Một hình thang có hai đáy là $12$ cm và $18$ cm. Nếu kéo dài đáy bé thêm $6$ cm thì được một hình chữ nhật và diện tích tăng thêm $27$ cm$^2$. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+Phần tăng thêm là một tam giác có một cạnh $6$ cm và chiều cao bằng chiều cao hình thang: $h=27\times2:6=9$ cm.\par $S=(12+18)\times9:2=135$ cm$^2$.
+\dapso{$135$ cm$^2$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Một thửa ruộng hình thang có tổng hai đáy là $140$ m, đáy lớn hơn đáy bé $20$ m. Nếu kéo dài mỗi đáy thêm $10$ m thì diện tích tăng thêm $500$ m$^2$. Tính diện tích ban đầu và độ dài mỗi đáy.
+\end{probbox}
+\probsol{
+Hai đáy tăng tổng cộng $20$ m, nên $h=500\times2:20=50$ m.\par $S=140\times50:2=3\,500$ m$^2$.\par
+Đáy lớn: $(140+20):2=80$ m; đáy bé: $60$ m.
+\dapso{$3\,500$ m$^2$; $80$ m và $60$ m.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Trong hình thang ABCD, đáy bé AB bằng $\dfrac13$ đáy lớn CD, và $S_{ABD}=15$ cm$^2$. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+Hai tam giác ABD và BCD đều có chiều cao bằng chiều cao hình thang, mà $CD=3\times AB$, nên $S_{BCD}=15\times3=45$ cm$^2$.\par $S_{ABCD}=15+45=60$ cm$^2$.
+\dapso{$60$ cm$^2$.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Hình thang vuông ABCD có góc A và góc D vuông, $AB=6$ cm, $CD=12$ cm và $AD=8$ cm. M là trung điểm của AD. Tính $S_{MBC}$.
+\end{probbox}
+\probsol{
+$S_{ABCD}=(6+12)\times8:2=72$;\par $S_{ABM}=6\times4:2=12$;\par $S_{MDC}=12\times4:2=24$ cm$^2$.\par
+$S_{MBC}=72-12-24=36$ cm$^2$, đúng bằng một nửa diện tích hình thang.
+\dapso{$36$ cm$^2$.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Trong hình thang ABCD (AB song song với CD), hai đường chéo cắt nhau tại O. $S_{AOB}=4$ cm$^2$ và $S_{BOC}=8$ cm$^2$. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+Hai tam giác AOB và BOC có chung chiều cao hạ từ B, nên $OC=2\times OA$.\par
+Theo tính chất của hình thang, $S_{AOD}=S_{BOC}=8$ cm$^2$.\par Hai tam giác COD và AOD có chung chiều cao hạ từ D và $OC=2\times OA$, nên $S_{COD}=16$ cm$^2$.\par
+$S_{ABCD}=4+8+8+16=36$ cm$^2$.
+\dapso{$36$ cm$^2$.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Một hình thang có hai đáy là $30$ cm và $18$ cm. Nếu kéo dài đáy lớn thêm $6$ cm (chiều cao không đổi) thì diện tích tăng thêm $27$ cm$^2$. Tính diện tích hình thang ban đầu.
+\end{probbox}
+\probsol{
+Phần tăng thêm là một tam giác có đáy $6$ cm và chiều cao bằng chiều cao hình thang.\par Chiều cao: $27\times2:6=9$ cm.\par Diện tích: $(30+18)\times9:2=216$ cm$^2$.
+\dapso{$216$ cm$^2$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Một hình thang có hai đáy là $22$ cm và $14$ cm. Nếu kéo dài đáy lớn thêm $4$ cm (chiều cao không đổi) thì diện tích tăng thêm $18$ cm$^2$. Tính diện tích hình thang ban đầu.
+\end{probbox}
+\probsol{
+Phần tăng thêm là một tam giác có đáy $4$ cm và chiều cao bằng chiều cao hình thang.\par Chiều cao: $18\times2:4=9$ cm.\par Diện tích: $(22+14)\times9:2=162$ cm$^2$.
+\dapso{$162$ cm$^2$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Một mảnh vườn hình thang có tổng hai đáy là $90$ m, hiệu hai đáy là $30$ m. Nếu tăng mỗi đáy thêm $5$ m (chiều cao không đổi) thì diện tích tăng thêm $200$ m$^2$. Tính diện tích ban đầu.
+\end{probbox}
+\probsol{
+Phần tăng thêm là một hình thang có hai đáy $5$ m và $5$ m, cùng chiều cao.\par Chiều cao: $200\times2:(5+5)=40$ m.\par Diện tích ban đầu: $90\times40:2=1\,800$ m$^2$.
+\dapso{$1\,800$ m$^2$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Một mảnh vườn hình thang có tổng hai đáy là $120$ m, hiệu hai đáy là $40$ m. Nếu tăng mỗi đáy thêm $8$ m (chiều cao không đổi) thì diện tích tăng thêm $320$ m$^2$. Tính diện tích ban đầu.
+\end{probbox}
+\probsol{
+Phần tăng thêm là một hình thang có hai đáy $8$ m và $8$ m, cùng chiều cao.\par Chiều cao: $320\times2:(8+8)=40$ m.\par Diện tích ban đầu: $120\times40:2=2\,400$ m$^2$.
+\dapso{$2\,400$ m$^2$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Trong hình thang ABCD, đáy bé AB bằng $\dfrac{1}{2}$ đáy lớn CD. Tam giác ABD có diện tích $12$ cm$^2$. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+Hai tam giác ABD và BCD có cùng chiều cao (bằng chiều cao hình thang).\par Do đó $S_{ABD}=\dfrac{1}{2}S_{BCD}$.\par $S_{BCD}=12:\dfrac{1}{2}=24$ cm$^2$.\par $S_{ABCD}=36$ cm$^2$.
+\dapso{$36$ cm$^2$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Trong hình thang ABCD, đáy bé AB bằng $\dfrac{2}{3}$ đáy lớn CD. Tam giác ABD có diện tích $18$ cm$^2$. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+Hai tam giác ABD và BCD có cùng chiều cao (bằng chiều cao hình thang).\par Do đó $S_{ABD}=\dfrac{2}{3}S_{BCD}$.\par $S_{BCD}=18:\dfrac{2}{3}=27$ cm$^2$.\par $S_{ABCD}=45$ cm$^2$.
+\dapso{$45$ cm$^2$.}}
+\gap
+\begin{probbox}{42}{\stars{2}}
+Hình thang ABCD (AB song song với CD) có hai đường chéo cắt nhau tại O. $S_{AOB}=4$ cm$^2$ và $S_{BOC}=6$ cm$^2$. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+$S_{ABD}=S_{ABC}$ (chung đáy AB, cùng chiều cao); bớt đi tam giác AOB ta được $S_{AOD}=S_{BOC}=6$ cm$^2$.\par Hai tam giác AOB và BOC có chung chiều cao hạ từ B, nên $\dfrac{OA}{OC}=\dfrac{4}{6}$.\par Hai tam giác AOD và COD có chung chiều cao hạ từ D, nên $S_{COD}=6\times\dfrac{6}{4}=9$ cm$^2$.\par $S_{ABCD}=4+6+6+9=25$ cm$^2$.
+\dapso{$25$ cm$^2$.}}
+\gap
+\begin{probbox}{43}{\stars{2}}
+Hình thang ABCD (AB song song với CD) có hai đường chéo cắt nhau tại O. $S_{AOB}=9$ cm$^2$ và $S_{BOC}=12$ cm$^2$. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+$S_{ABD}=S_{ABC}$ (chung đáy AB, cùng chiều cao); bớt đi tam giác AOB ta được $S_{AOD}=S_{BOC}=12$ cm$^2$.\par Hai tam giác AOB và BOC có chung chiều cao hạ từ B, nên $\dfrac{OA}{OC}=\dfrac{9}{12}$.\par Hai tam giác AOD và COD có chung chiều cao hạ từ D, nên $S_{COD}=12\times\dfrac{12}{9}=16$ cm$^2$.\par $S_{ABCD}=9+12+12+16=49$ cm$^2$.
+\dapso{$49$ cm$^2$.}}
+\gap
+\begin{probbox}{44}{\stars{2}}
+Hình thang ABCD (AB song song với CD) có hai đường chéo cắt nhau tại O. $S_{AOB}=2$ cm$^2$ và $S_{BOC}=6$ cm$^2$. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+$S_{ABD}=S_{ABC}$ (chung đáy AB, cùng chiều cao); bớt đi tam giác AOB ta được $S_{AOD}=S_{BOC}=6$ cm$^2$.\par Hai tam giác AOB và BOC có chung chiều cao hạ từ B, nên $\dfrac{OA}{OC}=\dfrac{2}{6}$.\par Hai tam giác AOD và COD có chung chiều cao hạ từ D, nên $S_{COD}=6\times\dfrac{6}{2}=18$ cm$^2$.\par $S_{ABCD}=2+6+6+18=32$ cm$^2$.
+\dapso{$32$ cm$^2$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Hình thang ABCD có góc A và góc D vuông, $AB=8$ cm, $CD=14$ cm, $AD=10$ cm. M là trung điểm của AD. Tính diện tích tam giác MBC.
+\end{probbox}
+\probsol{
+$S_{ABCD}=(8+14)\times10:2=110$ cm$^2$.\par $AM=MD=5$ cm.\par $S_{MAB}=20$, $S_{MDC}=35$ cm$^2$.\par $S_{MBC}=110-20-35=55$ cm$^2$.
+\dapso{$55$ cm$^2$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Hình thang ABCD có góc A và góc D vuông, $AB=5$ cm, $CD=11$ cm, $AD=12$ cm. M là trung điểm của AD. Tính diện tích tam giác MBC.
+\end{probbox}
+\probsol{
+$S_{ABCD}=(5+11)\times12:2=96$ cm$^2$.\par $AM=MD=6$ cm.\par $S_{MAB}=15$, $S_{MDC}=33$ cm$^2$.\par $S_{MBC}=96-15-33=48$ cm$^2$.
+\dapso{$48$ cm$^2$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Một hình thang vuông có hai đáy là $10$ cm và $16$ cm. Nếu kéo dài đáy bé thêm $6$ cm thì được một hình chữ nhật có diện tích lớn hơn diện tích hình thang $24$ cm$^2$. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+Phần thêm vào là một tam giác vuông có hai cạnh góc vuông là $6$ cm và chiều cao.\par Chiều cao: $24\times2:6=4$ cm.\par Diện tích: $(10+16)\times4:2=52$ cm$^2$.
+\dapso{$52$ cm$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Một hình thang vuông có hai đáy là $14$ cm và $20$ cm. Nếu kéo dài đáy bé thêm $6$ cm thì được một hình chữ nhật có diện tích lớn hơn diện tích hình thang $27$ cm$^2$. Tính diện tích hình thang.
+\end{probbox}
+\probsol{
+Phần thêm vào là một tam giác vuông có hai cạnh góc vuông là $6$ cm và chiều cao.\par Chiều cao: $27\times2:6=4{,}5$ cm.\par Diện tích: $(14+20)\times4{,}5:2=76{,}5$ cm$^2$.
+\dapso{$76{,}5$ cm$^2$.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+Một hình thang có hai đáy là $20$ cm và $16$ cm, có diện tích bằng diện tích hình vuông cạnh $12$ cm. Tính chiều cao của hình thang.
+\end{probbox}
+\probsol{
+Hình vuông: $12\times12=144$ cm$^2$.\par Chiều cao: $144\times2:(20+16)=8$ cm.
+\dapso{$8$ cm.}}
+\gap
+\begin{probbox}{50}{\stars{1}}
+Đường chéo AC chia hình thang ABCD (AB song song với CD) thành hai tam giác có $S_{ABC}=24$ cm$^2$ và $S_{ACD}=40$ cm$^2$. Chiều cao hình thang là $8$ cm. Tính độ dài hai đáy.
+\end{probbox}
+\probsol{
+Cả hai tam giác đều có chiều cao bằng chiều cao hình thang, là $8$ cm.\par $AB=24\times2:8=6$ cm.\par $CD=40\times2:8=10$ cm.
+\dapso{$AB=6$ cm, $CD=10$ cm.}}
+\clearpage
+\titlehead
+\begingroup\setbox0=\vbox{\section*{Hình tròn: Chu vi và diện tích}}\endgroup
+\chapterhead{14}{Hình tròn: Chu vi và diện tích}
+
+\shead{Tâm, bán kính, đường kính}
+\begin{knowbox}
+\begin{minipage}[t]{0.64\linewidth}
+Mọi điểm trên \textbf{đường tròn} đều cách đều \textbf{tâm} O. Đoạn thẳng nối tâm với một điểm trên đường tròn là \textbf{bán kính} $r$; đoạn thẳng đi qua tâm và nối hai điểm của đường tròn là \textbf{đường kính} $d$, và $d=r\times2$.\par
+\smallskip
+Ta dùng số $3{,}14$ (gọi là số ``pi'') để tính:
+\[C=d\times3{,}14=r\times2\times3{,}14\qquad\qquad S=r\times r\times3{,}14\]
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item Biết chu vi: $d=C:3{,}14$.
+\item Biết diện tích: tìm $r\times r=S:3{,}14$, rồi tìm số $r$.
+\item Nếu bán kính gấp lên $k$ lần thì chu vi gấp lên $k$ lần và diện tích gấp lên $k\times k$ lần.
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}\vspace{6pt}\centering
+\begin{tikzpicture}[scale=0.85]
+\fill[tmBlue!12] (0,0) circle (1.5); \draw[geo] (0,0) circle (1.5);
+\draw[line width=0.8pt,tmOrange!80!black] (-1.5,0)--(1.5,0);
+\draw[line width=0.8pt,tmGreen!70!black] (0,0)--(60:1.5);
+\fill (0,0) circle (1.5pt); \node[lbl,below] at (0,0){O};
+\node[dim,above left] at (40:0.7){$r$}; \node[dim,below] at (-0.8,0){$d$};
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Tính chu vi và diện tích hình tròn có bán kính $5$ cm.
+\guide
+$C=5\times2\times3{,}14=31{,}4$ cm.\par $S=5\times5\times3{,}14=78{,}5$ cm$^2$.
+\dapso{$31{,}4$ cm; $78{,}5$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Một hình tròn có chu vi $18{,}84$ dm. Tính diện tích hình tròn đó.
+\guide
+Đường kính: $18{,}84:3{,}14=6$ dm; bán kính: $3$ dm.\par $S=3\times3\times3{,}14=28{,}26$ dm$^2$.
+\dapso{$28{,}26$ dm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+\begin{minipage}[t]{0.66\linewidth}
+Một hình vuông có cạnh $10$ cm. Một hình tròn nằm trong hình vuông và tiếp xúc với cả bốn cạnh. Tính diện tích phần tô màu (phần hình vuông nằm ngoài hình tròn).
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.22]
+\fill[shade] (0,0) rectangle (10,10); \fill[white] (5,5) circle (5);
+\draw[geo] (0,0) rectangle (10,10); \draw[geo] (5,5) circle (5);
+\draw[|<->|,Slate] (0,-1.2)--node[fill=white,dim]{$10$ cm}(10,-1.2);
+\end{tikzpicture}
+\end{minipage}
+\guide
+Đường kính hình tròn bằng cạnh hình vuông: $d=10$ cm, $r=5$ cm.\par
+$S_\text{hình vuông}=10\times10=100$ cm$^2$;\par $S_\text{hình tròn}=5\times5\times3{,}14=78{,}5$ cm$^2$.\par
+Phần tô màu: $100-78{,}5=21{,}5$ cm$^2$.
+\dapso{$21{,}5$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Bánh xe của một chiếc xe kéo có đường kính $0{,}6$ m. Hỏi xe đi được bao nhiêu mét khi bánh xe lăn được $100$ vòng?
+\guide
+Mỗi vòng lăn, xe đi được quãng đường bằng chu vi bánh xe: $0{,}6\times3{,}14=1{,}884$ m.\par
+$100$ vòng: $1{,}884\times100=188{,}4$ m.
+\dapso{$188{,}4$ m.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Tính chu vi và diện tích hình tròn có:
+\begin{cols3}
+\pa{a} $r=3$ cm; & \pa{b} $r=0{,}5$ dm; & \pa{c} $d=8$ m.
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $C=18{,}84$ cm; $S=28{,}26$ cm$^2$.\par \pa{b} $C=3{,}14$ dm; $S=0{,}785$ dm$^2$.\par \pa{c} $C=25{,}12$ m; $r=4$ m, $S=50{,}24$ m$^2$.
+\dapso{Xem ở trên.}}
+\gap
+\begin{probbox}{2}{\relax}
+Một hình tròn có chu vi $12{,}56$ cm. Tính bán kính và diện tích hình tròn đó.
+\end{probbox}
+\probsol{
+$d=12{,}56:3{,}14=4$ cm; $r=2$ cm.\par $S=2\times2\times3{,}14=12{,}56$ cm$^2$.
+\dapso{$r=2$ cm; $S=12{,}56$ cm$^2$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Bánh xe đạp có đường kính $65$ cm. Hỏi xe đạp đi được bao nhiêu ki-lô-mét khi bánh xe lăn $1\,000$ vòng?
+\end{probbox}
+\probsol{
+Mỗi vòng: $65\times3{,}14=204{,}1$ cm.\par $1\,000$ vòng: $204\,100$ cm $=2{,}041$ km.
+\dapso{$2{,}041$ km.}}
+\gap
+\begin{probbox}{4}{\relax}
+Bánh xe ô tô đi được $1\,099$ m khi lăn $500$ vòng. Tính đường kính bánh xe.
+\end{probbox}
+\probsol{
+Chu vi: $1\,099:500=2{,}198$ m.\par Đường kính: $2{,}198:3{,}14=0{,}7$ m.
+\dapso{$0{,}7$ m.}}
+\gap
+\begin{probbox}{5}{\relax}
+Kim phút của một chiếc đồng hồ dài $10$ cm. Hỏi đầu kim phút đi được quãng đường bao nhiêu trong $1$ giờ? Trong $15$ phút?
+\end{probbox}
+\probsol{
+Trong $1$ giờ, đầu kim đi hết một vòng: $10\times2\times3{,}14=62{,}8$ cm.\par Trong $15$ phút, đi một phần tư vòng: $62{,}8:4=15{,}7$ cm.
+\dapso{$62{,}8$ cm; $15{,}7$ cm.}}
+\gap
+\begin{probbox}{6}{\relax}
+Tính diện tích và chu vi của nửa hình tròn có đường kính $8$ cm.
+\end{probbox}
+\probsol{
+$S=4\times4\times3{,}14:2=25{,}12$ cm$^2$.\par Chu vi bằng nửa chu vi hình tròn cộng với đường kính: $8\times3{,}14:2+8=20{,}56$ cm.
+\dapso{$25{,}12$ cm$^2$; $20{,}56$ cm.}}
+\gap
+\begin{probbox}{7}{\relax}
+Một bồn hoa hình tròn có bán kính $10$ m. Người ta làm một lối đi rộng $1$ m bao quanh bồn hoa. Tính diện tích lối đi.
+\end{probbox}
+\probsol{
+Hình tròn bên ngoài có bán kính $11$ m.\par Lối đi: $11\times11\times3{,}14-10\times10\times3{,}14=(121-100)\times3{,}14=65{,}94$ m$^2$.
+\dapso{$65{,}94$ m$^2$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Một hình vuông nằm trong hình tròn bán kính $5$ cm, bốn đỉnh của hình vuông nằm trên đường tròn. Tính diện tích phần hình tròn nằm ngoài hình vuông.
+\end{probbox}
+\probsol{
+Hai đường chéo của hình vuông là đường kính, dài $10$ cm, và chia hình vuông thành $4$ tam giác vuông có cạnh góc vuông $5$ cm: $S_\text{hình vuông}=4\times5\times5:2=50$ cm$^2$.\par
+$S_\text{hình tròn}=78{,}5$ cm$^2$.\par Phần cần tìm: $78{,}5-50=28{,}5$ cm$^2$.
+\dapso{$28{,}5$ cm$^2$.}}
+\gap
+\begin{probbox}{9}{\relax}
+Nếu bán kính hình tròn gấp lên $3$ lần thì chu vi và diện tích của nó gấp lên bao nhiêu lần? Thử lại với $r=1$ cm.
+\end{probbox}
+\probsol{
+Chu vi gấp lên $3$ lần và diện tích gấp lên $3\times3=9$ lần.\par Ví dụ: $r=1$: $C=6{,}28$, $S=3{,}14$; $r=3$: $C=18{,}84=6{,}28\times3$, $S=28{,}26=3{,}14\times9$.
+\dapso{$3$ lần; $9$ lần.}}
+\gap
+\begin{probbox}{10}{\relax}
+Tính chu vi và diện tích hình tròn có bán kính $3$ cm.
+\end{probbox}
+\probsol{
+$C=3\times2\times3{,}14=18{,}84$ cm.\par $S=3\times3\times3{,}14=28{,}26$ cm$^2$.
+\dapso{$C=18{,}84$ cm; $S=28{,}26$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Tính chu vi và diện tích hình tròn có bán kính $2{,}5$ cm.
+\end{probbox}
+\probsol{
+$C=2{,}5\times2\times3{,}14=15{,}7$ cm.\par $S=2{,}5\times2{,}5\times3{,}14=19{,}625$ cm$^2$.
+\dapso{$C=15{,}7$ cm; $S=19{,}625$ cm$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+Tính chu vi và diện tích hình tròn có bán kính $0{,}8$ m.
+\end{probbox}
+\probsol{
+$C=0{,}8\times2\times3{,}14=5{,}024$ m.\par $S=0{,}8\times0{,}8\times3{,}14=2{,}0096$ m$^2$.
+\dapso{$C=5{,}024$ m; $S=2{,}0096$ m$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Tính chu vi và diện tích hình tròn có bán kính $12$ dm.
+\end{probbox}
+\probsol{
+$C=12\times2\times3{,}14=75{,}36$ dm.\par $S=12\times12\times3{,}14=452{,}16$ dm$^2$.
+\dapso{$C=75{,}36$ dm; $S=452{,}16$ dm$^2$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Tính chu vi và diện tích hình tròn có đường kính $10$ cm.
+\end{probbox}
+\probsol{
+$C=10\times3{,}14=31{,}4$ cm.\par Bán kính: $10:2=5$ cm.\par $S=5\times5\times3{,}14=78{,}5$ cm$^2$.
+\dapso{$C=31{,}4$ cm; $S=78{,}5$ cm$^2$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Tính chu vi và diện tích hình tròn có đường kính $4{,}2$ cm.
+\end{probbox}
+\probsol{
+$C=4{,}2\times3{,}14=13{,}188$ cm.\par Bán kính: $4{,}2:2=2{,}1$ cm.\par $S=2{,}1\times2{,}1\times3{,}14=13{,}8474$ cm$^2$.
+\dapso{$C=13{,}188$ cm; $S=13{,}8474$ cm$^2$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Tính chu vi và diện tích hình tròn có đường kính $2{,}4$ m.
+\end{probbox}
+\probsol{
+$C=2{,}4\times3{,}14=7{,}536$ m.\par Bán kính: $2{,}4:2=1{,}2$ m.\par $S=1{,}2\times1{,}2\times3{,}14=4{,}5216$ m$^2$.
+\dapso{$C=7{,}536$ m; $S=4{,}5216$ m$^2$.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một hình tròn có chu vi $43{,}96$ cm. Tính bán kính và diện tích hình tròn đó.
+\end{probbox}
+\probsol{
+Đường kính: $43{,}96:3{,}14=14$ cm.\par Bán kính: $14:2=7$ cm.\par $S=7\times7\times3{,}14=153{,}86$ cm$^2$.
+\dapso{$r=7$ cm; $S=153{,}86$ cm$^2$.}}
+\gap
+\begin{probbox}{18}{\relax}
+Một hình tròn có chu vi $21{,}98$ cm. Tính bán kính và diện tích hình tròn đó.
+\end{probbox}
+\probsol{
+Đường kính: $21{,}98:3{,}14=7$ cm.\par Bán kính: $7:2=3{,}5$ cm.\par $S=3{,}5\times3{,}5\times3{,}14=38{,}465$ cm$^2$.
+\dapso{$r=3{,}5$ cm; $S=38{,}465$ cm$^2$.}}
+\gap
+\begin{probbox}{19}{\relax}
+Một hình tròn có chu vi $6{,}28$ m. Tính bán kính và diện tích hình tròn đó.
+\end{probbox}
+\probsol{
+Đường kính: $6{,}28:3{,}14=2$ m.\par Bán kính: $2:2=1$ m.\par $S=1\times1\times3{,}14=3{,}14$ m$^2$.
+\dapso{$r=1$ m; $S=3{,}14$ m$^2$.}}
+\gap
+\begin{probbox}{20}{\relax}
+Một hình tròn có diện tích $113{,}04$ cm$^2$. Tính bán kính và chu vi hình tròn đó.
+\end{probbox}
+\probsol{
+$r\times r=113{,}04:3{,}14=36$.\par Vì $6\times6=36$ nên $r=6$ cm.\par $C=6\times2\times3{,}14=37{,}68$ cm.
+\dapso{$r=6$ cm; $C=37{,}68$ cm.}}
+\gap
+\begin{probbox}{21}{\relax}
+Một hình tròn có diện tích $12{,}56$ m$^2$. Tính bán kính và chu vi hình tròn đó.
+\end{probbox}
+\probsol{
+$r\times r=12{,}56:3{,}14=4$.\par Vì $2\times2=4$ nên $r=2$ m.\par $C=2\times2\times3{,}14=12{,}56$ m.
+\dapso{$r=2$ m; $C=12{,}56$ m.}}
+\gap
+\begin{probbox}{22}{\relax}
+Một bánh xe có đường kính $0{,}5$ m. Hỏi bánh xe lăn $200$ vòng thì đi được bao nhiêu mét?
+\end{probbox}
+\probsol{
+Một vòng: $0{,}5\times3{,}14=1{,}57$ m.\par $200$ vòng: $1{,}57\times200=314$ m.
+\dapso{$314$ m.}}
+\gap
+\begin{probbox}{23}{\relax}
+Một bánh xe có đường kính $0{,}7$ m. Hỏi bánh xe lăn $1\,000$ vòng thì đi được bao nhiêu mét?
+\end{probbox}
+\probsol{
+Một vòng: $0{,}7\times3{,}14=2{,}198$ m.\par $1\,000$ vòng: $2{,}198\times1\,000=2\,198$ m.
+\dapso{$2\,198$ m.}}
+\gap
+\begin{probbox}{24}{\relax}
+Bánh xe đạp đi được $816{,}4$ m khi lăn $400$ vòng. Tính đường kính bánh xe.
+\end{probbox}
+\probsol{
+Một vòng: $816{,}4:400=2{,}041$ m.\par Đường kính: $2{,}041:3{,}14=0{,}65$ m.
+\dapso{$0{,}65$ m.}}
+\gap
+\begin{probbox}{25}{\relax}
+Tính diện tích và chu vi của nửa hình tròn có đường kính $10$ cm.
+\end{probbox}
+\probsol{
+Diện tích: $5\times5\times3{,}14:2=39{,}25$ cm$^2$.\par Nửa đường tròn: $10\times3{,}14:2=15{,}7$ cm.\par Chu vi (tính cả đường kính): $15{,}7+10=25{,}7$ cm.
+\dapso{$S=39{,}25$ cm$^2$; chu vi $25{,}7$ cm.}}
+\gap
+\begin{probbox}{26}{\relax}
+Tính diện tích và chu vi của nửa hình tròn có đường kính $6$ cm.
+\end{probbox}
+\probsol{
+Diện tích: $3\times3\times3{,}14:2=14{,}13$ cm$^2$.\par Nửa đường tròn: $6\times3{,}14:2=9{,}42$ cm.\par Chu vi (tính cả đường kính): $9{,}42+6=15{,}42$ cm.
+\dapso{$S=14{,}13$ cm$^2$; chu vi $15{,}42$ cm.}}
+\gap
+\begin{probbox}{27}{\relax}
+Cánh quạt trần dài $0{,}6$ m tính từ tâm. Tính diện tích hình tròn mà đầu cánh quạt quét được.
+\end{probbox}
+\probsol{
+Bán kính $r=0{,}6$ m.\par $S=0{,}6\times0{,}6\times3{,}14=1{,}1304$ m$^2$.
+\dapso{$1{,}1304$ m$^2$.}}
+\gap
+\begin{probbox}{28}{\relax}
+Một cái ao hình tròn có đường kính $20$ m. Tiền làm hàng rào là $50\,000$ đồng mỗi mét. Hỏi làm hàng rào quanh ao hết bao nhiêu tiền?
+\end{probbox}
+\probsol{
+Chu vi: $20\times3{,}14=62{,}8$ m.\par Số tiền: $50\,000\times62{,}8=3\,140\,000$ đồng.
+\dapso{$3\,140\,000$ đồng.}}
+\gap
+\begin{probbox}{29}{\relax}
+Tính diện tích một phần tư hình tròn có bán kính $4$ cm.
+\end{probbox}
+\probsol{
+Cả hình tròn: $4\times4\times3{,}14=50{,}24$ cm$^2$.\par Một phần tư: $50{,}24:4=12{,}56$ cm$^2$.
+\dapso{$12{,}56$ cm$^2$.}}
+\gap
+\begin{probbox}{30}{\relax}
+Tính diện tích một phần tư hình tròn có bán kính $10$ cm.
+\end{probbox}
+\probsol{
+Cả hình tròn: $10\times10\times3{,}14=314$ cm$^2$.\par Một phần tư: $314:4=78{,}5$ cm$^2$.
+\dapso{$78{,}5$ cm$^2$.}}
+\dividerbar{Thử thách -- Mở rộng}
+\begin{probbox}{31}{\stars{1}}
+Một hình tròn có diện tích $50{,}24$ cm$^2$. Tính chu vi hình tròn đó.
+\end{probbox}
+\probsol{
+$r\times r=50{,}24:3{,}14=16$, nên $r=4$ cm.\par $C=4\times2\times3{,}14=25{,}12$ cm.
+\dapso{$25{,}12$ cm.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Nếu bán kính hình tròn tăng thêm $2$ cm thì chu vi tăng thêm bao nhiêu? Kết quả có phụ thuộc vào bán kính ban đầu không?
+\end{probbox}
+\probsol{
+Phần tăng thêm là $(r+2)\times2\times3{,}14-r\times2\times3{,}14=2\times2\times3{,}14=12{,}56$ cm, dù bán kính ban đầu là bao nhiêu.
+\dapso{$12{,}56$ cm; không phụ thuộc.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Một nửa hình tròn lớn có đường kính $AB=12$ cm. M là trung điểm của AB; vẽ hai nửa hình tròn nhỏ có đường kính AM và MB. So sánh độ dài nửa đường tròn lớn với tổng độ dài hai nửa đường tròn nhỏ.
+\end{probbox}
+\probsol{
+Nửa đường tròn lớn: $12\times3{,}14:2=18{,}84$ cm.\par Mỗi nửa đường tròn nhỏ: $6\times3{,}14:2=9{,}42$ cm; cả hai: $18{,}84$ cm.\par Hai độ dài bằng nhau.
+\dapso{Bằng nhau ($18{,}84$ cm).}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Hai hình tròn có cùng tâm O, bán kính $3$ cm và $5$ cm. Tính diện tích phần nằm giữa hai đường tròn (hình vành khăn).
+\end{probbox}
+\probsol{
+$S=5\times5\times3{,}14-3\times3\times3{,}14=(25-9)\times3{,}14=50{,}24$ cm$^2$.
+\dapso{$50{,}24$ cm$^2$.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+\begin{minipage}[t]{0.66\linewidth}
+Hình vuông ABCD có cạnh $8$ cm. Vẽ bốn phần tư hình tròn bán kính $4$ cm có tâm là bốn đỉnh của hình vuông. Tính diện tích phần tô màu.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.24]
+\fill[shade] (0,0) rectangle (8,8);
+\foreach \x/\y/\a in {0/0/0,8/0/90,8/8/180,0/8/270}{\fill[white] (\x,\y) -- ++(\a:4) arc (\a:\a+90:4) -- cycle; \draw[geo] (\x,\y) ++(\a:4) arc (\a:\a+90:4);}
+\draw[geo] (0,0) rectangle (8,8);
+\node[lbl,below left] at (0,0){D}; \node[lbl,below right] at (8,0){C}; \node[lbl,above right] at (8,8){B}; \node[lbl,above left] at (0,8){A};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Bốn phần tư hình tròn bán kính $4$ cm ghép lại thành một hình tròn: $4\times4\times3{,}14=50{,}24$ cm$^2$.\par
+Phần tô màu: $8\times8-50{,}24=13{,}76$ cm$^2$.
+\dapso{$13{,}76$ cm$^2$.}}
+\gap
+\begin{probbox}{36}{\stars{2}}
+\begin{minipage}[t]{0.66\linewidth}
+Hình vuông ABCD có cạnh $10$ cm. Vẽ hai phần tư hình tròn bán kính $10$ cm có tâm B và D; phần chung của chúng là ``chiếc lá'' được tô màu. Tính diện tích chiếc lá.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.24]
+\fill[shade] (10,0) arc (0:90:10) arc (180:270:10);
+\draw[geo] (0,0) rectangle (10,10);
+\draw[geo] (10,0) arc (0:90:10); \draw[geo] (0,10) arc (180:270:10);
+\draw[dashed,Slate] (0,10)--(10,0);
+\node[lbl,below left] at (0,0){D}; \node[lbl,below right] at (10,0){C}; \node[lbl,above right] at (10,10){B}; \node[lbl,above left] at (0,10){A};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Đường chéo AC chia chiếc lá thành hai nửa bằng nhau.\par Mỗi nửa bằng một phần tư hình tròn trừ đi một tam giác vuông:\par
+$10\times10\times3{,}14:4-10\times10:2=78{,}5-50=28{,}5$ cm$^2$.\par
+Chiếc lá: $28{,}5\times2=57$ cm$^2$.
+\dapso{$57$ cm$^2$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Hai hình tròn cùng tâm có bán kính $4$ m và $6$ m. Tính diện tích hình vành khăn nằm giữa hai đường tròn.
+\end{probbox}
+\probsol{
+Hình tròn lớn: $6\times6\times3{,}14=113{,}04$ m$^2$.\par Hình tròn nhỏ: $4\times4\times3{,}14=50{,}24$ m$^2$.\par Diện tích cần tìm: $113{,}04-50{,}24=62{,}8$ m$^2$.
+\dapso{$62{,}8$ m$^2$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Một bồn hoa hình tròn có bán kính $8$ m, xung quanh có lối đi rộng $2$ m. Tính diện tích lối đi.
+\end{probbox}
+\probsol{
+Hình tròn lớn: $10\times10\times3{,}14=314$ m$^2$.\par Hình tròn nhỏ: $8\times8\times3{,}14=200{,}96$ m$^2$.\par Diện tích cần tìm: $314-200{,}96=113{,}04$ m$^2$.
+\dapso{$113{,}04$ m$^2$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Một hình vuông có bốn đỉnh nằm trên đường tròn bán kính $6$ cm. Tính diện tích phần hình tròn nằm ngoài hình vuông.
+\end{probbox}
+\probsol{
+Hai đường chéo của hình vuông là đường kính, dài $12$ cm và vuông góc với nhau.\par Hình vuông gồm $4$ tam giác vuông có cạnh góc vuông $6$ cm: $6\times6:2\times4=72$ cm$^2$.\par Hình tròn: $6\times6\times3{,}14=113{,}04$ cm$^2$.\par Phần cần tìm: $113{,}04-72=41{,}04$ cm$^2$.
+\dapso{$41{,}04$ cm$^2$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Một bánh xe nhỏ bán kính $0{,}3$ m lăn $150$ vòng. Một bánh xe lớn đi hết cùng quãng đường đó trong $90$ vòng. Tính bán kính bánh xe lớn.
+\end{probbox}
+\probsol{
+Quãng đường: $0{,}3\times2\times3{,}14\times150=282{,}6$ m.\par Một vòng bánh lớn: $282{,}6:90=3{,}14$ m.\par Bán kính: $3{,}14:3{,}14:2=0{,}5$ m.
+\dapso{$0{,}5$ m.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Một hình tròn có chu vi bằng chu vi hình vuông cạnh $15{,}7$ cm. Hình nào có diện tích lớn hơn và lớn hơn bao nhiêu?
+\end{probbox}
+\probsol{
+Chu vi hình vuông: $62{,}8$ cm.\par Bán kính hình tròn: $62{,}8:3{,}14:2=10$ cm; diện tích $314$ cm$^2$.\par Diện tích hình vuông: $15{,}7\times15{,}7=246{,}49$ cm$^2$.\par Hình tròn lớn hơn $67{,}51$ cm$^2$.
+\dapso{Hình tròn, lớn hơn $67{,}51$ cm$^2$.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Một hình tròn có diện tích $12{,}56$ cm$^2$. Nếu bán kính gấp đôi thì diện tích mới là bao nhiêu?
+\end{probbox}
+\probsol{
+Gấp đôi $r$ thì $r\times r$ gấp lên $2\times2=4$ lần.\par Diện tích mới: $12{,}56\times4=50{,}24$ cm$^2$.
+\dapso{$50{,}24$ cm$^2$.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Bán kính một hình tròn tăng thêm $1{,}5$ cm. Hỏi chu vi tăng thêm bao nhiêu?
+\end{probbox}
+\probsol{
+$C=r\times2\times3{,}14$, nên $C$ tăng thêm $1{,}5\times2\times3{,}14=9{,}42$ cm.\par Kết quả này không phụ thuộc vào bán kính ban đầu.
+\dapso{$9{,}42$ cm.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Một chiếc xe đạp cổ có bánh trước đường kính $0{,}5$ m và bánh sau đường kính $1$ m. Khi bánh sau lăn $100$ vòng thì bánh trước lăn bao nhiêu vòng?
+\end{probbox}
+\probsol{
+Quãng đường: $1\times3{,}14\times100=314$ m.\par Một vòng bánh trước: $0{,}5\times3{,}14=1{,}57$ m.\par Số vòng bánh trước: $314:1{,}57=200$.
+\dapso{$200$ vòng.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Một đường chạy gồm hai đoạn thẳng dài $100$ m và hai đầu là nửa hình tròn đường kính $60$ m. Tính độ dài một vòng chạy và diện tích phần bên trong.
+\end{probbox}
+\probsol{
+Hai nửa hình tròn ghép thành một hình tròn: $60\times3{,}14=188{,}4$ m.\par Một vòng chạy: $100\times2+188{,}4=388{,}4$ m.\par Hình chữ nhật: $6\,000$ m$^2$; hình tròn: $30\times30\times3{,}14=2\,826$ m$^2$.\par Diện tích bên trong: $8\,826$ m$^2$.
+\dapso{$388{,}4$ m; $8\,826$ m$^2$.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+Từ một tấm bìa hình tròn bán kính $10$ cm, người ta cắt đi một phần tư hình tròn (giới hạn bởi hai bán kính vuông góc). Tính diện tích và chu vi phần còn lại.
+\end{probbox}
+\probsol{
+Hình tròn: $314$ cm$^2$; ba phần tư: $235{,}5$ cm$^2$.\par Chu vi hình tròn $62{,}8$ cm; phần cung còn lại: $47{,}1$ cm.\par Chu vi: cung cộng hai bán kính, $47{,}1+20=67{,}1$ cm.
+\dapso{$235{,}5$ cm$^2$; $67{,}1$ cm.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+Một con dê được buộc vào một góc bên ngoài của chuồng hình vuông cạnh $6$ m bằng sợi dây dài $4$ m. Dê không vào được trong chuồng. Tính diện tích phần cỏ mà dê có thể ăn được.
+\end{probbox}
+\probsol{
+Sợi dây ngắn hơn cạnh chuồng nên dê chỉ đi vòng quanh góc đó.\par Chuồng che mất $\dfrac14$ hình tròn, còn lại $\dfrac34$ hình tròn bán kính $4$ m.\par Diện tích: $4\times4\times3{,}14\times\dfrac34=37{,}68$ m$^2$.
+\dapso{$37{,}68$ m$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Chu vi của hai hình tròn hơn kém nhau $12{,}56$ cm, bán kính hình lớn gấp $3$ lần bán kính hình bé. Tính diện tích hình tròn lớn.
+\end{probbox}
+\probsol{
+Hiệu hai bán kính: $12{,}56:2:3{,}14=2$ cm.\par $3-1=2$ phần ứng với $2$ cm, nên hai bán kính là $1$ cm và $3$ cm.\par Diện tích hình tròn lớn: $3\times3\times3{,}14=28{,}26$ cm$^2$.
+\dapso{$28{,}26$ cm$^2$.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+Kim phút dài $12$ cm. Hỏi trong $20$ phút kim phút quét được diện tích bao nhiêu?
+\end{probbox}
+\probsol{
+$20$ phút là $\dfrac13$ vòng.\par Hình tròn: $12\times12\times3{,}14=452{,}16$ cm$^2$.\par Diện tích quét được: $452{,}16:3=150{,}72$ cm$^2$.
+\dapso{$150{,}72$ cm$^2$.}}
+\gap
+\begin{probbox}{50}{\stars{1}}
+Bánh xe máy cày có đường kính $0{,}7$ m, mỗi phút lăn được $120$ vòng. Hỏi trong $10$ phút máy cày đi được bao nhiêu mét?
+\end{probbox}
+\probsol{
+Một vòng: $0{,}7\times3{,}14=2{,}198$ m.\par Số vòng trong $10$ phút: $1\,200$.\par Quãng đường: $2{,}198\times1\,200=2\,637{,}6$ m.
+\dapso{$2\,637{,}6$ m.}}
+\clearpage
+\titlehead

@@ -1,0 +1,876 @@
+\begingroup\setbox0=\vbox{\section*{Bài toán tổng -- tỉ và hiệu -- tỉ}}\endgroup
+\chapterhead{5}{Bài toán tổng -- tỉ và hiệu -- tỉ}
+
+\shead{Tỉ số của hai số}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Tỉ số của $a$ và $b$ là $\ a:b\ $ hay $\ \dfrac ab\ $ ($b\ne0$; $a$ và $b$ cùng đơn vị đo), thường viết dưới dạng phân số tối giản.
+\item Tỉ số có thể cho dưới dạng số thập phân hoặc dạng ``gấp mấy lần'': $\ 0{,}75=\dfrac34;\quad 1{,}5=\dfrac32;\quad$ ``$a$ gấp $3$ lần $b$'' nghĩa là $\dfrac ab=\dfrac31$.
+\item ``$\dfrac13$ số thứ nhất bằng $\dfrac16$ số thứ hai'' nghĩa là số thứ nhất gồm $3$ phần bằng nhau và số thứ hai gồm $6$ phần như thế: tỉ số là $\dfrac36=\dfrac12$.
+\end{itemize}\end{knowbox}
+\gap
+\shead{Hai dạng toán, giải bằng sơ đồ đoạn thẳng}
+\begin{knowbox}
+\textbf{Tổng -- tỉ:} tìm hai số khi biết tổng $T$ và tỉ số $\dfrac ab$ của hai số đó.\par
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Số thứ nhất:}
+\foreach \i in {0,1,2}{\blk{\i*0.7}{\i*0.7+0.7}{0.62}{0.42}{tmBlue}{}}
+\rowlab{-0.15}{0}{Số thứ hai:}
+\foreach \i in {0,1,2,3,4}{\blk{\i*0.7}{\i*0.7+0.7}{0}{0.42}{tmGreen}{}}
+\node[font=\footnotesize,anchor=west] at (2.2,0.62){$a$ phần};
+\node[font=\footnotesize,anchor=west] at (3.6,0){$b$ phần};
+\vbrace{4.7}{0.85}{-0.22}{tổng $T$}
+\end{barfigC}
+Bước 1: tổng số phần bằng nhau $a+b$. \ Bước 2: giá trị một phần $=T:(a+b)$. \ Bước 3: số thứ nhất $=$ giá trị một phần $\times a$; số thứ hai $=T-$ số thứ nhất.\par\medskip
+\textbf{Hiệu -- tỉ:} tìm hai số khi biết hiệu $H$ và tỉ số $\dfrac ab$ ($a>b$). Làm tương tự, nhưng $H$ ứng với \emph{hiệu số phần} $a-b$; giá trị một phần là $H:(a-b)$.\par\smallskip
+\textbf{Lưu ý:} vẽ các phần bằng nhau có độ dài bằng nhau, và đọc kĩ đề để xem \emph{tổng hay hiệu không đổi} khi các số thay đổi (chẳng hạn, hiệu số tuổi của hai người không bao giờ thay đổi).
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Một sân vận động hình chữ nhật có chu vi $400$ m, chiều rộng bằng $\dfrac35$ chiều dài. Tính diện tích sân vận động đó.
+\guide
+Nửa chu vi (chiều dài $+$ chiều rộng): $400:2=200$ (m).
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Chiều rộng:}
+\foreach \i in {0,1,2}{\blk{\i*0.75}{\i*0.75+0.75}{0.62}{0.42}{tmBlue}{}}
+\rowlab{-0.15}{0}{Chiều dài:}
+\foreach \i in {0,...,4}{\blk{\i*0.75}{\i*0.75+0.75}{0}{0.42}{tmGreen}{}}
+\vbrace{3.95}{0.85}{-0.22}{$200$ m}
+\end{barfigC}
+Tổng số phần: $3+5=8$; giá trị một phần: $200:8=25$ (m).\par
+Chiều rộng: $25\times3=75$ (m); chiều dài: $200-75=125$ (m).\par Diện tích: $125\times75=9\,375$ (m$^2$).
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Mẹ hơn con $28$ tuổi. Sau $4$ năm nữa, tuổi mẹ gấp $3$ lần tuổi con. Tính tuổi mỗi người hiện nay.
+\guide
+Hiệu số tuổi không bao giờ thay đổi; sau $4$ năm mẹ vẫn hơn con $28$ tuổi.\par Tuổi sau $4$ năm nữa:
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Con:}
+\blk{0}{1.1}{0.62}{0.42}{tmBlue}{}
+\rowlab{-0.15}{0}{Mẹ:}
+\foreach \i in {0,1,2}{\blk{\i*1.1}{\i*1.1+1.1}{0}{0.42}{tmGreen}{}}
+\brcdn{1.1}{3.3}{-0.32}{$28$ tuổi}
+\end{barfigC}
+Hiệu số phần: $3-1=2$.\par Tuổi con sau $4$ năm nữa: $28:2=14$.\par
+Tuổi con hiện nay: $14-4=10$; tuổi mẹ hiện nay: $10+28=38$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Trung bình cộng của hai số tự nhiên là $135$, và $\dfrac13$ số thứ nhất bằng $\dfrac16$ số thứ hai. Tìm hai số đó.
+\guide
+Tổng: $135\times2=270$.\par Vì $\dfrac13$ số thứ nhất bằng $\dfrac16$ số thứ hai nên số thứ nhất gồm $3$ phần và số thứ hai gồm $6$ phần như thế.\par
+Tổng số phần: $3+6=9$; giá trị một phần: $270:9=30$.\par Số thứ nhất: $30\times3=90$; số thứ hai: $270-90=180$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Tổng của hai số là $84$. Số thứ hai bằng $0{,}75$ số thứ nhất. Tìm hai số đó.
+\guide
+Đổi $0{,}75=\dfrac34$: số thứ hai gồm $3$ phần, số thứ nhất gồm $4$ phần; tổng cộng $7$ phần; giá trị một phần: $84:7=12$.\par
+Số thứ nhất: $12\times4=48$; số thứ hai: $84-48=36$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Tìm hai số có hiệu là $24$ và tỉ số (số bé so với số lớn) là $0{,}7$.
+\guide
+$0{,}7=\dfrac7{10}$: số bé $7$ phần, số lớn $10$ phần; hiệu $3$ phần $=24$, nên giá trị một phần là $8$.\par
+Số bé: $8\times7=56$; số lớn: $56+24=80$.
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Trung bình cộng của hai số là $168$, tỉ số của hai số là $\dfrac59$. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Tổng: $168\times2=336$.\par Tổng số phần: $5+9=14$; giá trị một phần: $336:14=24$.\par Hai số: $24\times5=120$ và $336-120=216$.
+\dapso{$120$ và $216$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Tìm hai số có tổng là $252$, biết số lớn gấp $8$ lần số bé.
+\end{probbox}
+\probsol{
+Số bé $1$ phần, số lớn $8$ phần; tổng cộng $9$ phần.\par Số bé: $252:9=28$; số lớn: $28\times8=224$.
+\dapso{$28$ và $224$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Trong một phép chia hết, số bị chia cộng số chia bằng $342$ và thương là $8$. Tìm số bị chia và số chia.
+\end{probbox}
+\probsol{
+Thương là $8$ nên số bị chia gấp $8$ lần số chia: số chia $1$ phần, số bị chia $8$ phần, tổng cộng $9$ phần.\par
+Số chia: $342:9=38$; số bị chia: $38\times8=304$.
+\dapso{số bị chia $304$, số chia $38$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Tổng của hai số là $286$. Viết thêm chữ số $0$ vào bên phải số thứ nhất thì được số thứ hai. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Viết thêm $0$ vào bên phải thì số đó gấp lên $10$ lần: số thứ nhất $1$ phần, số thứ hai $10$ phần, tổng cộng $11$ phần.\par
+Số thứ nhất: $286:11=26$; số thứ hai: $260$.
+\dapso{$26$ và $260$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Kho A chứa nhiều hơn kho B $180$ tấn gạo. Nếu kho B nhận thêm $30$ tấn thì số gạo kho A bằng $\dfrac65$ số gạo kho B. Lúc đầu mỗi kho chứa bao nhiêu tấn gạo?
+\end{probbox}
+\probsol{
+Sau khi kho B nhận thêm gạo, kho A nhiều hơn $180-30=150$ tấn, ứng với $6-5=1$ phần.\par
+Kho B lúc đó: $150\times5=750$ tấn; lúc đầu: $750-30=720$ tấn; kho A: $720+180=900$ tấn.
+\dapso{Kho A $900$ tấn, kho B $720$ tấn.}}
+\gap
+\begin{probbox}{6}{\relax}
+Tổng số tuổi của mẹ và con là $46$ tuổi. Sau $4$ năm nữa, tuổi con bằng $\dfrac27$ tuổi mẹ. Tính tuổi mỗi người hiện nay.
+\end{probbox}
+\probsol{
+Sau $4$ năm nữa mỗi người thêm $4$ tuổi; tổng số tuổi là $46+4\times2=54$.\par
+Tổng số phần: $2+7=9$; giá trị một phần: $54:9=6$.\par Khi đó con $12$ tuổi, mẹ $42$ tuổi.\par
+Hiện nay: con $12-4=8$ tuổi, mẹ $42-4=38$ tuổi.
+\dapso{con $8$ tuổi, mẹ $38$ tuổi.}}
+\gap
+\begin{probbox}{7}{\relax}
+Phải cùng cộng vào cả tử số và mẫu số của phân số $\dfrac{13}{29}$ với số tự nhiên nào để được phân số bằng $\dfrac35$?
+\end{probbox}
+\probsol{
+Cộng cùng một số vào cả tử số và mẫu số thì \emph{hiệu} giữa mẫu số và tử số không đổi: $29-13=16$.\par
+Phân số mới có tử số $3$ phần, mẫu số $5$ phần; hiệu $2$ phần là $16$, nên giá trị một phần là $8$: phân số mới là $\dfrac{24}{40}$.\par
+Số cần cộng: $24-13=11$.
+\dapso{$11$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Bớt ở tử số của phân số $\dfrac{11}{25}$ một số tự nhiên và thêm số đó vào mẫu số thì được phân số bằng $\dfrac15$. Tìm số đó.
+\end{probbox}
+\probsol{
+Chuyển cùng một lượng từ tử số sang mẫu số thì \emph{tổng} không đổi: $11+25=36$.\par
+Phân số mới: tử số $1$ phần, mẫu số $5$ phần; $6$ phần $=36$, nên giá trị một phần là $6$: phân số mới là $\dfrac6{30}$.\par
+Số cần tìm: $11-6=5$.
+\dapso{$5$.}}
+\gap
+\begin{probbox}{9}{\relax}
+Hai bao gạo có tất cả $160$ kg. Nếu chuyển $6$ kg từ bao thứ nhất sang bao thứ hai thì số gạo bao thứ nhất bằng $\dfrac35$ số gạo bao thứ hai. Lúc đầu mỗi bao có bao nhiêu ki-lô-gam gạo?
+\end{probbox}
+\probsol{
+Chuyển gạo thì tổng không đổi ($160$ kg).\par Sau khi chuyển: $3+5=8$ phần; giá trị một phần: $160:8=20$ kg.\par
+Bao thứ nhất sau khi chuyển có $60$ kg, nên lúc đầu có $60+6=66$ kg; bao thứ hai lúc đầu: $160-66=94$ kg.
+\dapso{$66$ kg và $94$ kg.}}
+\gap
+\begin{probbox}{10}{\relax}
+Một hình chữ nhật có chu vi $180$ cm. Nếu tăng chiều dài thêm $6$ cm và giảm chiều rộng đi $6$ cm thì được hình chữ nhật có chiều dài gấp đôi chiều rộng. Tính diện tích hình chữ nhật ban đầu.
+\end{probbox}
+\probsol{
+Nửa chu vi: $90$ cm, và sau khi thay đổi vẫn là $90$ cm.\par
+Hình chữ nhật mới: chiều rộng $1$ phần, chiều dài $2$ phần; giá trị một phần là $90:3=30$ cm: chiều rộng $30$ cm, chiều dài $60$ cm.\par
+Ban đầu: chiều rộng $30+6=36$ cm, chiều dài $60-6=54$ cm; diện tích $54\times36=1\,944$ cm$^2$.
+\dapso{$1\,944$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Khối lớp 5 của một trường có $315$ học sinh, biết $\dfrac14$ số học sinh nữ bằng $\dfrac15$ số học sinh nam. Hỏi có bao nhiêu học sinh nữ, bao nhiêu học sinh nam?
+\end{probbox}
+\probsol{
+Số học sinh nữ gồm $4$ phần bằng nhau, số học sinh nam gồm $5$ phần; tổng cộng $9$ phần; giá trị một phần: $315:9=35$.\par
+Học sinh nữ: $35\times4=140$; học sinh nam: $35\times5=175$.
+\dapso{$140$ học sinh nữ, $175$ học sinh nam.}}
+\gap
+\begin{probbox}{12}{\relax}
+Tìm hai số có hiệu là số lớn nhất có hai chữ số và tỉ số của hai số là $\dfrac47$.
+\end{probbox}
+\probsol{
+Hiệu là $99$.\par Hiệu số phần: $7-4=3$; giá trị một phần: $99:3=33$.\par Hai số: $33\times4=132$ và $33\times7=231$.
+\dapso{$132$ và $231$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Bố hơn con $32$ tuổi. Năm nay tuổi bố gấp $5$ lần tuổi con. Hỏi con bao nhiêu tuổi?
+\end{probbox}
+\probsol{
+Hiệu số phần: $5-1=4$; tuổi con: $32:4=8$.
+\dapso{$8$ tuổi.}}
+\gap
+\begin{probbox}{14}{\relax}
+Tìm hai số có hiệu là $516$, biết lấy số lớn chia cho số bé được thương là $7$ và số dư là $12$.
+\end{probbox}
+\probsol{
+Số lớn bằng $7$ lần số bé cộng thêm $12$.\par Bớt đi $12$ thì số lớn gấp đúng $7$ lần số bé, và hiệu trở thành $516-12=504$.\par
+Hiệu số phần $7-1=6$; số bé: $504:6=84$; số lớn: $84+516=600$.
+\dapso{$84$ và $600$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Tìm một số, biết nếu xoá chữ số $0$ ở tận cùng bên phải của số đó thì số đó giảm đi $1\,845$ đơn vị.
+\end{probbox}
+\probsol{
+Xoá chữ số $0$ ở tận cùng thì số đó giảm đi $10$ lần: số mới $1$ phần, số cũ $10$ phần; hiệu $9$ phần là $1\,845$.\par
+Số mới: $1\,845:9=205$; số cần tìm là $2\,050$.
+\dapso{$2\,050$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Hiệu của hai số bằng $\dfrac14$ số bé. Tổng của chúng là $162$. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Nếu số bé là $4$ phần thì hiệu là $1$ phần và số lớn là $5$ phần.\par Tổng $9$ phần; giá trị một phần: $162:9=18$.\par
+Số bé: $72$; số lớn: $90$.
+\dapso{$72$ và $90$.}}
+\gap
+\begin{probbox}{17}{\relax}
+Tìm hai số có tổng là $12{,}4$, biết số thứ nhất bằng $\dfrac23$ số thứ hai.
+\end{probbox}
+\probsol{
+Tổng số phần: $2+3=5$; giá trị một phần: $12{,}4:5=2{,}48$.\par Số thứ nhất: $2{,}48\times2=4{,}96$; số thứ hai: $12{,}4-4{,}96=7{,}44$.
+\dapso{$4{,}96$ và $7{,}44$.}}
+\gap
+\begin{probbox}{18}{\relax}
+Khối lớp 5 có $288$ học sinh. Tỉ số của số học sinh nữ và số học sinh nam là $0{,}6$. Hỏi có bao nhiêu học sinh nữ, bao nhiêu học sinh nam?
+\end{probbox}
+\probsol{
+$0{,}6=\dfrac35$.\par Tổng số phần: $3+5=8$; giá trị một phần: $288:8=36$.\par Học sinh nữ: $36\times3=108$; học sinh nam: $36\times5=180$.
+\dapso{$108$ học sinh nữ, $180$ học sinh nam.}}
+\gap
+\begin{probbox}{19}{\relax}
+Một mảnh đất hình chữ nhật có chu vi $168$ m; chiều dài gấp $1{,}8$ lần chiều rộng. Tính diện tích mảnh đất đó.
+\end{probbox}
+\probsol{
+$1{,}8=\dfrac95$: chiều rộng $5$ phần, chiều dài $9$ phần.\par Nửa chu vi, $84$ m, gồm $14$ phần; giá trị một phần: $6$ m.\par
+Chiều rộng $30$ m, chiều dài $54$ m; diện tích $54\times30=1\,620$ m$^2$.
+\dapso{$1\,620$ m$^2$.}}
+\gap
+\begin{probbox}{20}{\relax}
+Hai số có tổng là $150$ và tỉ số là $\dfrac23$. Tìm hai số đó.
+\end{probbox}
+\probsol{
+$2+3=5$ phần.\par Giá trị một phần: $150:5=30$.\par Hai số: $30\times2=60$ và $30\times3=90$.
+\dapso{$60$ và $90$.}}
+\gap
+\begin{probbox}{21}{\relax}
+Hai số có hiệu là $45$ và tỉ số là $\dfrac38$. Tìm hai số đó.
+\end{probbox}
+\probsol{
+$8-3=5$ phần.\par Giá trị một phần: $45:5=9$.\par Số bé: $27$; số lớn: $72$.
+\dapso{$27$ và $72$.}}
+\gap
+\begin{probbox}{22}{\relax}
+Hai bể chứa $120$ lít nước; lượng nước bể thứ nhất bằng $\dfrac35$ lượng nước bể thứ hai. Mỗi bể chứa bao nhiêu lít nước?
+\end{probbox}
+\probsol{
+$8$ phần; giá trị một phần: $120:8=15$ lít.\par Bể thứ nhất: $45$ l; bể thứ hai: $75$ l.
+\dapso{$45$ l và $75$ l.}}
+\gap
+\begin{probbox}{23}{\relax}
+Một mảnh vườn hình chữ nhật có chu vi $96$ m, chiều rộng bằng $\dfrac13$ chiều dài. Tính diện tích mảnh vườn.
+\end{probbox}
+\probsol{
+Nửa chu vi: $48$ m.\par Chiều rộng $1$ phần, chiều dài $3$ phần: chiều rộng $48:4=12$ m, chiều dài $36$ m.\par Diện tích: $36\times12=432$ m$^2$.
+\dapso{$432$ m$^2$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Năm nay tuổi con bằng $\dfrac27$ tuổi mẹ, và mẹ hơn con $25$ tuổi. Tính tuổi của mỗi người.
+\end{probbox}
+\probsol{
+$7-2=5$ phần; giá trị một phần: $25:5=5$ tuổi.\par Con: $10$ tuổi; mẹ: $35$ tuổi.
+\dapso{Con $10$ tuổi, mẹ $35$ tuổi.}}
+\gap
+\begin{probbox}{25}{\relax}
+Số lớn gấp $5$ lần số bé, và hiệu của hai số là $72$. Tìm hai số đó.
+\end{probbox}
+\probsol{
+$5-1=4$ phần; số bé: $72:4=18$.\par Số lớn: $18\times5=90$.
+\dapso{$18$ và $90$.}}
+\gap
+\begin{probbox}{26}{\relax}
+Hai số có tổng là $7{,}2$; số thứ nhất gấp $3$ lần số thứ hai. Tìm hai số đó.
+\end{probbox}
+\probsol{
+$4$ phần; số thứ hai: $7{,}2:4=1{,}8$.\par Số thứ nhất: $1{,}8\times3=5{,}4$.
+\dapso{$5{,}4$ và $1{,}8$.}}
+\gap
+\begin{probbox}{27}{\relax}
+Lớp 5E có $35$ học sinh, tỉ số của số học sinh nam và số học sinh nữ là $\dfrac34$. Hỏi lớp có bao nhiêu học sinh nam, bao nhiêu học sinh nữ?
+\end{probbox}
+\probsol{
+$7$ phần; giá trị một phần: $35:7=5$.\par Học sinh nam: $15$; học sinh nữ: $20$.
+\dapso{$15$ học sinh nam, $20$ học sinh nữ.}}
+\gap
+\begin{probbox}{28}{\relax}
+Hai số có trung bình cộng là $60$; số bé bằng $\dfrac14$ số lớn. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Tổng: $60\times2=120$.\par $5$ phần; số bé: $120:5=24$; số lớn: $96$.
+\dapso{$24$ và $96$.}}
+\gap
+\begin{probbox}{29}{\relax}
+Hai số có hiệu là $30$; số lớn gấp $2{,}5$ lần số bé. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Số bé là $1$ phần thì số lớn là $2{,}5$ phần; hiệu là $1{,}5$ phần.\par Số bé: $30:1{,}5=20$; số lớn: $50$.
+\dapso{$20$ và $50$.}}
+\gap
+\begin{probbox}{30}{\relax}
+Một mảnh vườn hình chữ nhật có chiều dài hơn chiều rộng $15$ m, và chiều rộng bằng $\dfrac25$ chiều dài. Tính diện tích mảnh vườn.
+\end{probbox}
+\probsol{
+$3$ phần; giá trị một phần: $15:3=5$ m.\par Chiều rộng: $10$ m; chiều dài: $25$ m.\par Diện tích: $250$ m$^2$.
+\dapso{$250$ m$^2$.}}
+\dividerbar{Thử thách -- Nâng cao}
+\begin{probbox}{31}{\stars{1}}
+Hai can chứa $160{,}5$ lít dầu. Sau khi rót $9{,}5$ lít từ can thứ nhất sang can thứ hai thì số dầu can thứ hai gấp $1{,}5$ lần số dầu can thứ nhất. Lúc đầu mỗi can chứa bao nhiêu lít dầu?
+\end{probbox}
+\probsol{
+Tổng không đổi.\par Sau khi rót: can thứ nhất $2$ phần, can thứ hai $3$ phần ($1{,}5=\dfrac32$); giá trị một phần: $160{,}5:5=32{,}1$ lít.\par
+Can thứ nhất sau khi rót: $64{,}2$ l; lúc đầu $64{,}2+9{,}5=73{,}7$ l.\par Can thứ hai lúc đầu: $160{,}5-73{,}7=86{,}8$ l.
+\dapso{$73{,}7$ l và $86{,}8$ l.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Bao thứ nhất có nhiều hơn bao thứ hai $20{,}4$ kg gạo. Nếu thêm vào mỗi bao $1{,}8$ kg thì số gạo bao thứ nhất gấp $3$ lần bao thứ hai. Lúc đầu mỗi bao có bao nhiêu ki-lô-gam gạo?
+\end{probbox}
+\probsol{
+Thêm vào mỗi bao cùng một lượng thì hiệu không đổi ($20{,}4$ kg).\par Sau khi thêm, hiệu là $3-1=2$ phần; khi đó bao thứ hai có $20{,}4:2=10{,}2$ kg.\par
+Bao thứ hai lúc đầu: $10{,}2-1{,}8=8{,}4$ kg; bao thứ nhất lúc đầu: $8{,}4+20{,}4=28{,}8$ kg.
+\dapso{$28{,}8$ kg và $8{,}4$ kg.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Tuổi con bằng $\dfrac14$ tuổi bố. Sau $10$ năm nữa, tuổi con bằng $0{,}4$ tuổi bố. Tính tuổi mỗi người hiện nay.
+\end{probbox}
+\probsol{
+Hiệu số tuổi không đổi.\par Hiện nay: con $1$ phần, bố $4$ phần, hiệu $3$ phần.\par Sau $10$ năm ($0{,}4=\dfrac25$): con $2$ phần, bố $5$ phần, hiệu cũng là $3$ phần.\par
+Hai hiệu bằng nhau nên các phần có giá trị như nhau: tuổi con tăng từ $1$ phần lên $2$ phần, nên $1$ phần $=10$ tuổi.\par
+Hiện nay: con $10$ tuổi, bố $40$ tuổi. (\emph{Thử lại:} $20:50=0{,}4$.)
+}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Trong đợt trồng cây mùa xuân, số cây khối lớp 4 trồng được bằng $\dfrac35$ số cây khối lớp 5. Nếu mỗi khối trồng thêm $20$ cây thì số cây khối lớp 4 bằng $\dfrac23$ số cây khối lớp 5. Mỗi khối đã trồng được bao nhiêu cây?
+\end{probbox}
+\probsol{
+Hiệu không đổi.\par Lúc đầu: khối 4 có $3$ phần, khối 5 có $5$ phần, hiệu $2$ phần.\par Sau đó: $\dfrac23=\dfrac46$, nên là $4$ phần và $6$ phần, hiệu vẫn là $2$ phần có cùng giá trị.\par
+Khối 4 tăng từ $3$ phần lên $4$ phần, nên $1$ phần $=20$ cây: khối 4 trồng được $60$ cây và khối 5 trồng được $100$ cây.
+\dapso{Khối 4: $60$ cây; khối 5: $100$ cây.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Tỉ số của số sách ngăn trên và số sách ngăn dưới là $0{,}5$. Chuyển $9$ quyển từ ngăn dưới lên ngăn trên thì tỉ số là $0{,}8$. Lúc đầu mỗi ngăn có bao nhiêu quyển sách?
+\end{probbox}
+\probsol{
+Tổng không đổi.\par Lúc đầu ngăn trên có $\dfrac1{1+2}=\dfrac13$ tổng số sách; sau khi chuyển ($0{,}8=\dfrac45$) ngăn trên có $\dfrac4{4+5}=\dfrac49$ tổng số sách.\par
+$9$ quyển sách ứng với $\dfrac49-\dfrac13=\dfrac19$ tổng số sách, nên tổng số sách là $9:\dfrac19=81$.\par
+Ngăn trên lúc đầu: $81:3=27$; ngăn dưới: $54$.
+\dapso{ngăn trên $27$ quyển, ngăn dưới $54$ quyển.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Ba số có tổng là $210$. Số thứ nhất bằng $\dfrac12$ số thứ hai, số thứ ba gấp đôi số thứ hai. Tìm ba số đó.
+\end{probbox}
+\probsol{
+Số thứ nhất $1$ phần, số thứ hai $2$ phần, số thứ ba $4$ phần; tổng cộng $7$ phần.\par Giá trị một phần: $210:7=30$.\par Ba số: $30,\ 60,\ 120$.
+\dapso{$30;\ 60;\ 120$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Hai số có tổng là $357$. Xoá chữ số hàng đơn vị là $5$ của số lớn thì được số bé. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Số lớn bằng $10$ lần số bé cộng thêm $5$.\par Vậy $11$ lần số bé cộng $5$ bằng $357$; $11$ lần số bé là $352$.\par Số bé: $32$; số lớn: $325$.
+\dapso{$32$ và $325$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Hai số có hiệu là $33{,}3$. Dời dấu phẩy của số bé sang phải một chữ số thì được số lớn. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Số lớn gấp $10$ lần số bé; hiệu $9$ phần.\par Số bé: $33{,}3:9=3{,}7$; số lớn: $37$.
+\dapso{$3{,}7$ và $37$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Bố hơn con $30$ tuổi. Sau $5$ năm nữa, tuổi bố gấp $3$ lần tuổi con. Tính tuổi mỗi người hiện nay.
+\end{probbox}
+\probsol{
+Hiệu số tuổi luôn là $30$.\par Sau $5$ năm nữa: $3-1=2$ phần là $30$ tuổi.\par Khi đó con $15$ tuổi, nên hiện nay con $10$ tuổi.\par Bố $40$ tuổi.
+\dapso{Con $10$ tuổi, bố $40$ tuổi.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Tổng số tuổi của ông và cháu là $78$. Số tháng tuổi của cháu bằng số năm tuổi của ông. Tính tuổi của mỗi người.
+\end{probbox}
+\probsol{
+Một năm có $12$ tháng, nên tuổi ông gấp $12$ lần tuổi cháu.\par $13$ phần; tuổi cháu: $78:13=6$.\par Tuổi ông: $72$.
+\dapso{Cháu $6$ tuổi, ông $72$ tuổi.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Số bi của An gấp $3$ lần số bi của Bình. Nếu An cho Bình $12$ viên thì số bi của hai bạn bằng nhau. Mỗi bạn có bao nhiêu viên bi?
+\end{probbox}
+\probsol{
+Cho $12$ viên thì hai bạn bằng nhau, nên An phải nhiều hơn $24$ viên.\par $2$ phần là $24$; Bình: $12$; An: $36$.
+\dapso{An $36$ viên, Bình $12$ viên bi.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Số thóc kho A gấp $3$ lần số thóc kho B. Chuyển $20$ tấn từ kho A sang kho B thì số thóc kho A gấp đôi kho B. Mỗi kho chứa bao nhiêu tấn thóc?
+\end{probbox}
+\probsol{
+Tổng không đổi.\par Kho A bằng $\dfrac34$ tổng lúc đầu và $\dfrac23$ tổng lúc sau.\par Vậy $20$ tấn là $\dfrac34-\dfrac23=\dfrac1{12}$ tổng, tức là tổng bằng $240$ tấn.\par Kho A: $180$ tấn; kho B: $60$ tấn.
+\dapso{$180$ tấn và $60$ tấn.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Hai số có tổng là $216$. Lấy số lớn chia cho số bé được thương là $4$ và số dư là $6$. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Số lớn bằng $4$ lần số bé cộng $6$, nên tổng bằng $5$ lần số bé cộng $6$.\par Số bé: $(216-6):5=42$.\par Số lớn: $216-42=174$.
+\dapso{$42$ và $174$.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Hai số có hiệu là $87$. Lấy số lớn chia cho số bé được thương là $3$ và số dư là $5$. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Số lớn bằng $3$ lần số bé cộng $5$, nên hiệu bằng $2$ lần số bé cộng $5$.\par Số bé: $(87-5):2=41$.\par Số lớn: $41+87=128$.
+\dapso{$41$ và $128$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Một phân số có tổng của tử số và mẫu số là $120$. Chuyển $10$ đơn vị từ mẫu số lên tử số thì được phân số bằng $1$. Tìm phân số đó.
+\end{probbox}
+\probsol{
+Tổng vẫn là $120$; sau khi chuyển, tử số và mẫu số bằng nhau, mỗi số là $60$.\par Lúc đầu: tử số $60-10=50$, mẫu số $60+10=70$.
+\dapso{$\dfrac{50}{70}$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Tăng chiều rộng của một hình chữ nhật thêm $5$ m thì được một hình vuông và diện tích tăng thêm $60$ m$^2$. Tính diện tích hình chữ nhật.
+\end{probbox}
+\probsol{
+Phần diện tích tăng thêm là một dải rộng $5$ m và dài bằng chiều dài hình chữ nhật: chiều dài $60:5=12$ m.\par Chiều rộng: $12-5=7$ m.\par Diện tích: $12\times7=84$ m$^2$.
+\dapso{$84$ m$^2$.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+Mẹ $36$ tuổi, con $8$ tuổi. Hỏi sau bao nhiêu năm nữa thì tuổi mẹ gấp $3$ lần tuổi con?
+\end{probbox}
+\probsol{
+Hiệu số tuổi luôn là $28$.\par Khi tuổi mẹ gấp $3$ lần tuổi con, hiệu là $2$ phần.\par Khi đó tuổi con là $28:2=14$.\par Số năm: $14-8=6$.
+\dapso{$6$ năm.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+Trong một phép chia hết, tổng của số bị chia, số chia và thương là $195$, thương là $6$. Tìm số bị chia và số chia.
+\end{probbox}
+\probsol{
+Số bị chia cộng số chia: $195-6=189$.\par Số bị chia gấp $6$ lần số chia: $7$ phần.\par Số chia: $189:7=27$; số bị chia: $162$.
+\dapso{$162$ và $27$.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Số gạo nếp của một cửa hàng bằng $\dfrac25$ số gạo tẻ. Sau khi bán $30$ kg gạo tẻ thì số gạo nếp bằng $\dfrac12$ số gạo tẻ còn lại. Lúc đầu mỗi loại có bao nhiêu ki-lô-gam?
+\end{probbox}
+\probsol{
+Số gạo nếp không đổi; coi là $2$ phần.\par Gạo tẻ: $5$ phần lúc đầu, $4$ phần lúc sau.\par Vậy $30$ kg là $1$ phần: gạo nếp $60$ kg, gạo tẻ $150$ kg.
+\dapso{Gạo nếp $60$ kg, gạo tẻ $150$ kg.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Hai số tự nhiên có tổng là $1\,001$. Số lớn có chữ số tận cùng là $0$, xoá chữ số $0$ đó thì được số bé. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Số lớn gấp $10$ lần số bé; tổng cộng $11$ phần.\par Số bé: $1\,001:11=91$; số lớn: $910$.
+\dapso{$91$ và $910$.}}
+\clearpage
+\titlehead
+\begingroup\setbox0=\vbox{\section*{(*) Bài toán có hai tỉ số}}\endgroup
+\chapterhead{6}{(*) Bài toán có hai tỉ số}
+
+\shead{Tìm đại lượng không đổi}
+\begin{knowbox}
+Trong nhiều bài toán, hai số thay đổi và tỉ số của chúng cũng thay đổi (đề bài cho \emph{hai tỉ số}: trước và sau). Điểm mấu chốt là tìm một đại lượng \textbf{không đổi} và dùng nó làm ``đơn vị'' để so sánh:
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Tổng không đổi} khi chuyển một lượng từ số này sang số kia. Viết mỗi số dưới dạng \emph{phân số của tổng}.
+\item \textbf{Hiệu không đổi} khi cùng thêm vào (hoặc cùng bớt đi) ở cả hai số một lượng như nhau; hiệu số tuổi là một ví dụ. Viết mỗi số dưới dạng \emph{phân số của hiệu}.
+\item \textbf{Một số không đổi} khi chỉ có số kia thay đổi. So sánh mọi thứ với số không đổi đó.
+\end{itemize}
+Khi đó lượng thay đổi đã biết ứng với \emph{hiệu của hai phân số}, từ đó tìm được đại lượng không đổi.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Tìm hai số có tỉ số là $\dfrac37$, biết nếu thêm $6$ vào số thứ nhất và bớt $6$ ở số thứ hai thì được hai số có tỉ số là $\dfrac23$.
+\guide
+Thêm vào số này bao nhiêu thì bớt ở số kia bấy nhiêu, nên \textbf{tổng không đổi}.\par
+Lúc đầu số thứ nhất bằng $\dfrac3{3+7}=\dfrac3{10}$ tổng; lúc sau bằng $\dfrac2{2+3}=\dfrac25=\dfrac4{10}$ tổng.\par
+Số thứ nhất tăng thêm $6$, ứng với $\dfrac4{10}-\dfrac3{10}=\dfrac1{10}$ tổng.\par Tổng: $6:\dfrac1{10}=60$.\par
+Số thứ nhất: $60\times\dfrac3{10}=18$; số thứ hai: $60-18=42$. \ (\emph{Thử lại:} $24:36=\dfrac23$.)
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Số thứ nhất bằng $\dfrac38$ số thứ hai. Nếu cùng bớt ở mỗi số $5$ đơn vị thì số thứ hai gấp $3$ lần số thứ nhất. Tìm hai số đó.
+\guide
+Cùng bớt ở hai số một lượng như nhau, nên \textbf{hiệu không đổi}.\par
+Lúc đầu: số thứ nhất $3$ phần, số thứ hai $8$ phần, hiệu $5$ phần; số thứ nhất bằng $\dfrac35$ hiệu.\par
+Lúc sau: số thứ nhất $1$ phần, số thứ hai $3$ phần, hiệu $2$ phần; số thứ nhất bằng $\dfrac12$ hiệu.\par
+$5$ đơn vị ứng với $\dfrac35-\dfrac12=\dfrac1{10}$ hiệu.\par Hiệu: $5:\dfrac1{10}=50$.\par Số thứ nhất: $50\times\dfrac35=30$; số thứ hai: $80$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Trên một xe buýt, số nam gấp $3$ lần số nữ. Đến bến thứ nhất có $3$ người nam lên xe và $3$ người nữ xuống xe; lúc này số nam gấp $5$ lần số nữ. Lúc đầu trên xe có bao nhiêu người nam, bao nhiêu người nữ?
+\guide
+$3$ người lên và $3$ người xuống, nên \textbf{tổng số người không đổi}.\par
+Số nữ lúc đầu bằng $\dfrac1{1+3}=\dfrac14$ tổng số người, lúc sau bằng $\dfrac1{1+5}=\dfrac16$.\par $3$ người nữ xuống xe ứng với $\dfrac14-\dfrac16=\dfrac1{12}$ tổng số người.\par
+Tổng số người: $3:\dfrac1{12}=36$.\par Lúc đầu: $9$ người nữ và $27$ người nam.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Nếu Nam cho Giang $3$ cái kẹo thì số kẹo của Nam gấp $2$ lần số kẹo của Giang. Nếu Giang cho Nam $3$ cái kẹo thì số kẹo của Nam gấp $5$ lần số kẹo của Giang. Mỗi bạn có bao nhiêu cái kẹo?
+\guide
+Cho kẹo thì \textbf{tổng số kẹo $T$ không đổi}.\par
+-- Trường hợp 1: sau khi cho, Nam có $\dfrac2{2+1}=\dfrac23\,T$; vậy Nam có $\dfrac23\,T+3$.\par
+-- Trường hợp 2: sau khi nhận, Nam có $\dfrac5{5+1}=\dfrac56\,T$; vậy Nam có $\dfrac56\,T-3$.\par
+So sánh: $\dfrac56\,T-\dfrac23\,T=3+3$, tức là\par $\dfrac16\,T=6$ và $T=36$.\par
+Nam có $\dfrac23\times36+3=27$; Giang có $36-27=9$.
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Tìm hai số có tỉ số là $\dfrac23$, biết nếu thêm $4$ vào số thứ nhất và bớt $4$ ở số thứ hai thì được tỉ số là $\dfrac32$.
+\end{probbox}
+\probsol{
+Tổng không đổi.\par Số thứ nhất: bằng $\dfrac25$ tổng lúc đầu, $\dfrac35$ tổng lúc sau.\par Vậy $4$ là $\dfrac15$ tổng, và tổng là $20$.\par
+Hai số: $8$ và $12$.
+\dapso{$8$ và $12$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Một phân số bằng $\dfrac25$. Thêm $9$ vào tử số và bớt $9$ ở mẫu số thì được phân số bằng $\dfrac52$. Tìm phân số ban đầu.
+\end{probbox}
+\probsol{
+Tổng của tử số và mẫu số không đổi.\par Tử số bằng $\dfrac27$ tổng lúc đầu, $\dfrac57$ tổng lúc sau; vậy $9$ là $\dfrac37$ tổng, tổng là $21$.\par
+Phân số ban đầu: $\dfrac6{15}$.
+\dapso{$\dfrac6{15}$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Tỉ số của số sách ở giá I và giá II là $\dfrac57$. Chuyển $10$ quyển từ giá I sang giá II thì số sách giá II gấp $3$ lần giá I. Lúc đầu mỗi giá có bao nhiêu quyển sách?
+\end{probbox}
+\probsol{
+Tổng không đổi.\par Giá I bằng $\dfrac5{12}$ tổng lúc đầu và $\dfrac14=\dfrac3{12}$ tổng lúc sau.\par $10$ quyển sách là $\dfrac2{12}=\dfrac16$ tổng, tổng là $60$.\par
+Giá I: $25$; giá II: $35$.
+\dapso{$25$ quyển và $35$ quyển.}}
+\gap
+\begin{probbox}{4}{\relax}
+Lớp 5A có số học sinh nam gấp đôi số học sinh nữ. Nếu có $3$ học sinh nữ chuyển đến và $3$ học sinh nam chuyển đi thì số học sinh nữ bằng $\dfrac5{12}$ số học sinh cả lớp. Lớp 5A có bao nhiêu học sinh?
+\end{probbox}
+\probsol{
+Số học sinh cả lớp không đổi.\par Số học sinh nữ bằng $\dfrac13=\dfrac4{12}$ cả lớp lúc đầu và $\dfrac5{12}$ lúc sau, nên $3$ học sinh là $\dfrac1{12}$ cả lớp.\par
+Số học sinh cả lớp: $3\times12=36$.
+\dapso{$36$ học sinh.}}
+\gap
+\begin{probbox}{5}{\relax}
+Số thứ nhất bằng $\dfrac27$ số thứ hai. Thêm vào mỗi số $12$ đơn vị thì số thứ nhất bằng $\dfrac12$ số thứ hai. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Hiệu không đổi.\par Số thứ nhất bằng $\dfrac2{7-2}=\dfrac25$ hiệu lúc đầu và bằng $\dfrac1{2-1}=1$ lần hiệu lúc sau.\par
+Vậy $12$ là $1-\dfrac25=\dfrac35$ hiệu, hiệu là $20$.\par Hai số: $8$ và $28$.
+\dapso{$8$ và $28$.}}
+\gap
+\begin{probbox}{6}{\relax}
+Năm nay tuổi con bằng $\dfrac13$ hiệu số tuổi của bố và con. Sáu năm trước, tuổi con bằng $\dfrac15$ hiệu số tuổi đó. Hỏi bố hơn con bao nhiêu tuổi?
+\end{probbox}
+\probsol{
+Hiệu số tuổi không đổi.\par $6$ năm ứng với $\dfrac13-\dfrac15=\dfrac2{15}$ hiệu số tuổi.\par
+Hiệu số tuổi: $6:\dfrac2{15}=45$ tuổi. (Con $15$ tuổi và bố $60$ tuổi.)
+\dapso{$45$ tuổi.}}
+\gap
+\begin{probbox}{7}{\relax}
+Tỉ số khối lượng ngô ở hai bao là $\dfrac38$. Thêm vào mỗi bao $4$ kg thì tỉ số là $\dfrac25$. Lúc đầu mỗi bao có bao nhiêu ki-lô-gam ngô?
+\end{probbox}
+\probsol{
+Hiệu không đổi.\par Bao bé bằng $\dfrac35$ hiệu lúc đầu và $\dfrac23$ hiệu lúc sau; $4$ kg là $\dfrac23-\dfrac35=\dfrac1{15}$ hiệu, hiệu là $60$ kg.\par
+Bao bé: $60\times\dfrac35=36$ kg; bao lớn: $36+60=96$ kg.
+\dapso{$36$ kg và $96$ kg.}}
+\gap
+\begin{probbox}{8}{\relax}
+Hiện nay tuổi mẹ gấp $5$ lần tuổi con. Sau sáu năm nữa, tuổi mẹ gấp $3$ lần tuổi con. Tính tuổi mỗi người hiện nay.
+\end{probbox}
+\probsol{
+Hiệu số tuổi không đổi.\par Tuổi con bằng $\dfrac14$ hiệu hiện nay và $\dfrac12$ hiệu sau sáu năm nữa; $6$ năm là $\dfrac14$ hiệu, hiệu là $24$ tuổi.\par
+Con: $24:4=6$ tuổi; mẹ: $30$ tuổi.
+\dapso{con $6$ tuổi, mẹ $30$ tuổi.}}
+\gap
+\begin{probbox}{9}{\relax}
+Một phân số bằng $\dfrac34$. Cùng bớt ở tử số và mẫu số $6$ đơn vị thì được phân số bằng $\dfrac57$. Tìm phân số ban đầu.
+\end{probbox}
+\probsol{
+Hiệu của mẫu số và tử số không đổi.\par Tử số gấp $3$ lần hiệu lúc đầu và bằng $\dfrac52$ hiệu lúc sau; $6$ là $3-\dfrac52=\dfrac12$ hiệu, nên hiệu là $12$.\par
+Tử số $36$, mẫu số $48$: phân số $\dfrac{36}{48}$.
+\dapso{$\dfrac{36}{48}$.}}
+\gap
+\begin{probbox}{10}{\relax}
+Ở lớp 5A, số học sinh nam bằng $\dfrac34$ số học sinh nữ. Nếu có $3$ học sinh nam và $3$ học sinh nữ chuyển đi thì số học sinh nam bằng $\dfrac5{12}$ số học sinh cả lớp. Lúc đầu lớp có bao nhiêu học sinh?
+\end{probbox}
+\probsol{
+Cả hai đều bớt $3$, nên (số nữ $-$ số nam) không đổi.\par Lúc đầu nam $3$ phần, nữ $4$ phần: số nam gấp $3$ lần hiệu.\par
+Lúc sau nam $5$ phần, nữ $7$ phần: số nam bằng $\dfrac52$ hiệu.\par $3$ học sinh là $\dfrac12$ hiệu, nên hiệu là $6$.\par
+Lúc đầu: $18$ học sinh nam, $24$ học sinh nữ, $42$ học sinh.
+\dapso{$42$ học sinh.}}
+\gap
+\begin{probbox}{11}{\relax}
+Có hai kho gạo. Nếu thêm $3$ tấn vào kho A và bớt $3$ tấn ở kho B thì tỉ số gạo là $\dfrac37$. Nếu bớt $5$ tấn ở kho A và thêm $5$ tấn vào kho B thì tỉ số là $\dfrac14$. Mỗi kho chứa bao nhiêu tấn gạo?
+\end{probbox}
+\probsol{
+Trong cả hai trường hợp tổng $T$ không đổi.\par Khi đó kho A có $\dfrac3{10}\,T$ (trường hợp 1) hoặc $\dfrac15\,T=\dfrac2{10}\,T$ (trường hợp 2).\par
+Hai trường hợp chênh nhau $3+5=8$ tấn, ứng với $\dfrac1{10}\,T$; vậy $T=80$ tấn.\par
+Kho A: $80\times\dfrac3{10}-3=21$ tấn; kho B: $80-21=59$ tấn.
+\dapso{Kho A $21$ tấn, kho B $59$ tấn.}}
+\gap
+\begin{probbox}{12}{\relax}
+Một phân số bằng $\dfrac58$. Cùng thêm vào tử số và mẫu số $6$ đơn vị thì được phân số bằng $\dfrac23$. Tìm phân số ban đầu.
+\end{probbox}
+\probsol{
+Hiệu không đổi.\par Tử số bằng $\dfrac53$ hiệu lúc đầu và gấp $2$ lần hiệu lúc sau; $6$ là $\dfrac13$ hiệu, nên hiệu là $18$.\par
+Phân số ban đầu: $\dfrac{30}{48}$.
+\dapso{$\dfrac{30}{48}$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Hai số có tỉ số là $\dfrac12$. Bớt ở số thứ hai $5$ đơn vị và thêm vào số thứ nhất thì được tỉ số là $\dfrac45$. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Tổng không đổi.\par Số thứ nhất bằng $\dfrac13=\dfrac39$ tổng lúc đầu và $\dfrac49$ tổng lúc sau.\par Vậy $5$ là $\dfrac19$ tổng, tổng là $45$.\par Hai số: $15$ và $30$.
+\dapso{$15$ và $30$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Số dầu ở thùng I bằng $\dfrac35$ số dầu ở thùng II. Rót $6$ lít từ thùng II sang thùng I thì số dầu hai thùng bằng nhau. Mỗi thùng chứa bao nhiêu lít dầu?
+\end{probbox}
+\probsol{
+Tổng không đổi.\par Thùng I bằng $\dfrac38$ tổng lúc đầu và $\dfrac12=\dfrac48$ tổng lúc sau.\par Vậy $6$ l là $\dfrac18$ tổng, tổng là $48$ l.\par Thùng I: $18$ l; thùng II: $30$ l.
+\dapso{$18$ l và $30$ l.}}
+\gap
+\begin{probbox}{15}{\relax}
+Một phân số bằng $\dfrac37$. Chuyển $4$ đơn vị từ mẫu số lên tử số thì được phân số bằng $1$. Tìm phân số đó.
+\end{probbox}
+\probsol{
+Tổng của tử số và mẫu số không đổi.\par Tử số bằng $\dfrac3{10}$ tổng lúc đầu và $\dfrac12=\dfrac5{10}$ tổng lúc sau.\par Vậy $4$ là $\dfrac2{10}$ tổng, tổng là $20$.\par Phân số: $\dfrac6{14}$.
+\dapso{$\dfrac6{14}$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Tỉ số thóc ở kho I và kho II là $\dfrac79$. Chuyển $10$ tấn từ kho I sang kho II thì tỉ số là $\dfrac35$. Mỗi kho chứa bao nhiêu tấn thóc?
+\end{probbox}
+\probsol{
+Tổng không đổi.\par Kho I bằng $\dfrac7{16}$ tổng lúc đầu và $\dfrac38=\dfrac6{16}$ tổng lúc sau.\par Vậy $10$ tấn là $\dfrac1{16}$ tổng, tổng là $160$ tấn.\par Kho I: $70$ tấn; kho II: $90$ tấn.
+\dapso{$70$ tấn và $90$ tấn.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một phân số bằng $\dfrac45$. Bớt ở tử số $6$ đơn vị và thêm $6$ đơn vị vào mẫu số thì được $\dfrac12$. Tìm phân số đó.
+\end{probbox}
+\probsol{
+Tổng không đổi.\par Tử số bằng $\dfrac49$ tổng lúc đầu và $\dfrac13=\dfrac39$ tổng lúc sau.\par Vậy $6$ là $\dfrac19$ tổng, tổng là $54$.\par Phân số: $\dfrac{24}{30}$.
+\dapso{$\dfrac{24}{30}$.}}
+\gap
+\begin{probbox}{18}{\relax}
+Số thứ nhất bằng $\dfrac25$ số thứ hai. Thêm vào mỗi số $9$ đơn vị thì số thứ nhất bằng $\dfrac12$ số thứ hai. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Hiệu không đổi.\par Số thứ nhất bằng $\dfrac23$ hiệu lúc đầu và bằng $1$ lần hiệu lúc sau.\par Vậy $9$ là $\dfrac13$ hiệu, hiệu là $27$.\par Hai số: $18$ và $45$.
+\dapso{$18$ và $45$.}}
+\gap
+\begin{probbox}{19}{\relax}
+Hai số có tỉ số là $\dfrac34$. Cùng bớt ở mỗi số $10$ đơn vị thì được tỉ số là $\dfrac12$. Tìm hai số đó.
+\end{probbox}
+\probsol{
+Hiệu không đổi.\par Số thứ nhất gấp $3$ lần hiệu lúc đầu và bằng $1$ lần hiệu lúc sau.\par Vậy $10$ gấp $2$ lần hiệu, hiệu là $5$.\par Hai số: $15$ và $20$.
+\dapso{$15$ và $20$.}}
+\gap
+\begin{probbox}{20}{\relax}
+Hiện nay tuổi con bằng $\dfrac14$ tuổi mẹ, sau $8$ năm nữa tuổi con bằng $\dfrac25$ tuổi mẹ. Tính tuổi mỗi người hiện nay.
+\end{probbox}
+\probsol{
+Hiệu số tuổi không đổi.\par Tuổi con bằng $\dfrac13$ hiệu hiện nay và $\dfrac23$ hiệu sau $8$ năm nữa.\par Vậy $8$ năm là $\dfrac13$ hiệu, hiệu là $24$.\par Con: $8$ tuổi; mẹ: $32$ tuổi.
+\dapso{Con $8$ tuổi, mẹ $32$ tuổi.}}
+\gap
+\begin{probbox}{21}{\relax}
+Bốn năm trước tuổi anh gấp $3$ lần tuổi em; hiện nay tuổi anh gấp $2$ lần tuổi em. Tính tuổi mỗi người hiện nay.
+\end{probbox}
+\probsol{
+Hiệu số tuổi không đổi.\par Tuổi em bằng $\dfrac12$ hiệu bốn năm trước và bằng $1$ lần hiệu hiện nay.\par Vậy $4$ năm là $\dfrac12$ hiệu, hiệu là $8$.\par Em: $8$ tuổi; anh: $16$ tuổi.
+\dapso{Em $8$ tuổi, anh $16$ tuổi.}}
+\gap
+\begin{probbox}{22}{\relax}
+Một phân số bằng $\dfrac23$. Cùng thêm $5$ vào tử số và mẫu số thì được $\dfrac34$. Tìm phân số đó.
+\end{probbox}
+\probsol{
+Hiệu không đổi.\par Tử số gấp $2$ lần hiệu lúc đầu và gấp $3$ lần hiệu lúc sau.\par Vậy $5$ bằng hiệu.\par Phân số: $\dfrac{10}{15}$.
+\dapso{$\dfrac{10}{15}$.}}
+\gap
+\begin{probbox}{23}{\relax}
+Một phân số bằng $\dfrac57$. Cùng bớt $3$ ở tử số và mẫu số thì được $\dfrac23$. Tìm phân số đó.
+\end{probbox}
+\probsol{
+Hiệu không đổi.\par Tử số bằng $\dfrac52$ hiệu lúc đầu và gấp $2$ lần hiệu lúc sau.\par Vậy $3$ là $\dfrac12$ hiệu, hiệu là $6$.\par Phân số: $\dfrac{15}{21}$.
+\dapso{$\dfrac{15}{21}$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Số gà của ông Ba bằng $\dfrac35$ số vịt. Sau khi mua thêm $12$ con gà thì số gà bằng $\dfrac9{10}$ số vịt. Lúc đầu ông Ba có bao nhiêu con gà, bao nhiêu con vịt?
+\end{probbox}
+\probsol{
+Số vịt không đổi.\par $12$ con gà ứng với $\dfrac9{10}-\dfrac35=\dfrac3{10}$ số vịt.\par Số vịt: $12:\dfrac3{10}=40$.\par Số gà: $40\times\dfrac35=24$.
+\dapso{$24$ con gà, $40$ con vịt.}}
+\gap
+\begin{probbox}{25}{\relax}
+Số sách ngăn trên bằng $\dfrac47$ số sách ngăn dưới. Thêm $15$ quyển vào ngăn trên thì số sách hai ngăn bằng nhau. Lúc đầu mỗi ngăn có bao nhiêu quyển?
+\end{probbox}
+\probsol{
+Số sách ngăn dưới không đổi.\par $15$ quyển ứng với $1-\dfrac47=\dfrac37$ số sách ngăn dưới.\par Ngăn dưới: $15:\dfrac37=35$; ngăn trên: $20$.
+\dapso{Ngăn trên $20$ quyển, ngăn dưới $35$ quyển.}}
+\gap
+\begin{probbox}{26}{\relax}
+Một phân số bằng $\dfrac34$. Giữ nguyên tử số và thêm $6$ vào mẫu số thì được $\dfrac35$. Tìm phân số đó.
+\end{probbox}
+\probsol{
+Tử số không đổi; trong cả hai phân số tử số đều là $3$ phần.\par Mẫu số tăng từ $4$ phần lên $5$ phần, nên $1$ phần là $6$.\par Phân số: $\dfrac{18}{24}$.
+\dapso{$\dfrac{18}{24}$.}}
+\gap
+\begin{probbox}{27}{\relax}
+Trên một xe khách, số nữ bằng $\dfrac23$ số nam. Đến một bến, có $4$ người nam xuống xe và $4$ người nữ lên xe, khi đó số nam và số nữ bằng nhau. Lúc đầu trên xe có bao nhiêu người nam, bao nhiêu người nữ?
+\end{probbox}
+\probsol{
+Tổng không đổi.\par Số nữ bằng $\dfrac25$ tổng lúc đầu và $\dfrac12$ tổng lúc sau.\par Vậy $4$ người là $\dfrac12-\dfrac25=\dfrac1{10}$ tổng, tổng là $40$.\par Nữ: $16$ người; nam: $24$ người.
+\dapso{$24$ người nam, $16$ người nữ.}}
+\gap
+\begin{probbox}{28}{\relax}
+Số bi của An bằng $\dfrac57$ số bi của Bình. Nếu Bình cho An $4$ viên thì số bi hai bạn bằng nhau. Mỗi bạn có bao nhiêu viên bi?
+\end{probbox}
+\probsol{
+Tổng không đổi.\par An có $\dfrac5{12}$ tổng lúc đầu và $\dfrac6{12}$ tổng lúc sau.\par Vậy $4$ là $\dfrac1{12}$ tổng, tổng là $48$.\par An: $20$; Bình: $28$.
+\dapso{An $20$ viên, Bình $28$ viên bi.}}
+\gap
+\begin{probbox}{29}{\relax}
+Hiện nay tuổi bố gấp $4$ lần tuổi con, sau $20$ năm nữa tuổi bố gấp $2$ lần tuổi con. Tính tuổi mỗi người hiện nay.
+\end{probbox}
+\probsol{
+Hiệu số tuổi không đổi.\par Tuổi con bằng $\dfrac13$ hiệu hiện nay và bằng $1$ lần hiệu sau $20$ năm nữa.\par Vậy $20$ năm là $\dfrac23$ hiệu, hiệu là $30$.\par Con: $10$ tuổi; bố: $40$ tuổi.
+\dapso{Con $10$ tuổi, bố $40$ tuổi.}}
+\gap
+\begin{probbox}{30}{\relax}
+Một cửa hàng có số đường bằng $\dfrac38$ số gạo. Sau khi bán $40$ kg gạo thì số đường bằng $\dfrac12$ số gạo còn lại. Lúc đầu mỗi loại có bao nhiêu ki-lô-gam?
+\end{probbox}
+\probsol{
+Số đường không đổi; coi là $3$ phần.\par Gạo: $8$ phần lúc đầu, $6$ phần lúc sau.\par Vậy $40$ kg là $2$ phần; giá trị một phần: $20$ kg.\par Đường: $60$ kg; gạo: $160$ kg.
+\dapso{Đường $60$ kg, gạo $160$ kg.}}
+\dividerbar{Thử thách -- Nâng cao}
+\begin{probbox}{31}{\stars{1}}
+Ba năm trước tuổi bố gấp $7$ lần tuổi con. Sau năm năm nữa tuổi bố gấp $3$ lần tuổi con. Tính tuổi mỗi người hiện nay.
+\end{probbox}
+\probsol{
+Hiệu số tuổi không đổi.\par Tuổi con bằng $\dfrac16$ hiệu ba năm trước, và sẽ bằng $\dfrac12$ hiệu sau năm năm nữa.\par
+Từ ba năm trước đến năm năm sau là $8$ năm, ứng với $\dfrac12-\dfrac16=\dfrac13$ hiệu; hiệu là $24$ tuổi.\par
+Ba năm trước con $4$ tuổi; hiện nay con $7$ tuổi và bố $31$ tuổi.
+\dapso{con $7$ tuổi, bố $31$ tuổi.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Nếu An cho Bình $5$ viên bi thì số bi hai bạn bằng nhau. Nếu Bình cho An $5$ viên bi thì số bi của An gấp $3$ lần số bi của Bình. Mỗi bạn có bao nhiêu viên bi?
+\end{probbox}
+\probsol{
+Cho $5$ viên thì hai bạn bằng nhau, nên An nhiều hơn Bình $10$ viên.\par
+Nếu Bình cho An $5$ viên thì An nhiều hơn $10+5+5=20$ viên; hiệu là $3-1=2$ phần, nên khi đó Bình có $20:2=10$ viên.\par
+Bình có $10+5=15$ viên; An có $15+10=25$ viên.
+\dapso{An $25$ viên, Bình $15$ viên.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Số sách ngăn trên bằng $\dfrac25$ số sách ngăn dưới. Chuyển $6$ quyển từ ngăn dưới lên ngăn trên thì số sách ngăn trên bằng $\dfrac12$ số sách ngăn dưới. Cả hai ngăn có tất cả bao nhiêu quyển sách?
+\end{probbox}
+\probsol{
+Tổng không đổi.\par Ngăn trên bằng $\dfrac27$ tổng lúc đầu và $\dfrac13$ tổng lúc sau; $6$ quyển ứng với $\dfrac13-\dfrac27=\dfrac1{21}$ tổng.\par
+Tổng số sách: $6\times21=126$ quyển.
+\dapso{$126$ quyển sách.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Thêm $3$ vào tử số của một phân số thì được phân số bằng $1$. Nếu thêm $3$ vào mẫu số của phân số đó thì được phân số bằng $\dfrac12$. Tìm phân số đó.
+\end{probbox}
+\probsol{
+Thêm $3$ vào tử số thì được $1$, nên mẫu số lớn hơn tử số $3$ đơn vị.\par
+Thêm $3$ vào mẫu số thì mẫu số lớn hơn tử số $3+3=6$ đơn vị, và gấp đôi tử số; vậy tử số là $6$ và mẫu số là $9$.
+\dapso{$\dfrac69$.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Một cửa hàng có số gạo tẻ gấp $4$ lần số gạo nếp. Sau khi bán $30$ kg gạo tẻ và $5$ kg gạo nếp thì số gạo tẻ còn lại gấp $3$ lần số gạo nếp còn lại. Lúc đầu mỗi loại có bao nhiêu ki-lô-gam?
+\end{probbox}
+\probsol{
+Sau khi bán, gạo tẻ còn lại $=3\times$(gạo nếp $-5$) $=3\times$ gạo nếp $-15$.\par
+Mặt khác, gạo tẻ còn lại $=4\times$ gạo nếp $-30$.\par So sánh hai cách tính: gạo nếp $=30-15=15$ kg.\par
+Gạo nếp: $15$ kg; gạo tẻ: $60$ kg. (\emph{Thử lại:} $30=3\times10$.)
+\dapso{$60$ kg gạo tẻ, $15$ kg gạo nếp.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Nếu An cho Bình $6$ viên bi thì số bi của Bình gấp đôi số bi của An. Nếu Bình cho An $6$ viên thì số bi hai bạn bằng nhau. Mỗi bạn có bao nhiêu viên bi?
+\end{probbox}
+\probsol{
+Tổng $T$ không đổi.\par Trường hợp thứ nhất: sau khi cho, An có $\dfrac13T$, vậy An có $\dfrac13T+6$.\par Trường hợp thứ hai: sau khi nhận, An có $\dfrac12T$, vậy An có $\dfrac12T-6$.\par So sánh: $\dfrac12T-\dfrac13T=12$, tức là\par $\dfrac16T=12$ và $T=72$.\par An: $30$; Bình: $42$.
+\dapso{An $30$ viên, Bình $42$ viên bi.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Hiện nay tuổi mẹ gấp $4$ lần tuổi con; năm năm trước tuổi mẹ gấp $7$ lần tuổi con. Tính tuổi mỗi người hiện nay.
+\end{probbox}
+\probsol{
+Hiệu số tuổi không đổi.\par Tuổi con bằng $\dfrac13$ hiệu hiện nay và bằng $\dfrac16$ hiệu năm năm trước.\par Vậy $5$ năm là $\dfrac13-\dfrac16=\dfrac16$ hiệu, hiệu là $30$.\par Con: $10$ tuổi; mẹ: $40$ tuổi.
+\dapso{Con $10$ tuổi, mẹ $40$ tuổi.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Ở lớp 5G, số học sinh nam bằng $\dfrac56$ số học sinh nữ. Nếu có $3$ học sinh nam chuyển đi thì số học sinh nam bằng $\dfrac34$ số học sinh nữ. Lúc đầu lớp có bao nhiêu học sinh nam, bao nhiêu học sinh nữ?
+\end{probbox}
+\probsol{
+Số học sinh nữ không đổi.\par $3$ học sinh nam ứng với $\dfrac56-\dfrac34=\dfrac1{12}$ số học sinh nữ.\par Học sinh nữ: $36$; học sinh nam: $36\times\dfrac56=30$.
+\dapso{$30$ học sinh nam, $36$ học sinh nữ.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Một phân số bằng $\dfrac38$ và có mẫu số lớn hơn tử số $10$ đơn vị. Cùng thêm vào tử số và mẫu số một số tự nhiên thì được $\dfrac12$. Tìm phân số đó và số đã thêm vào.
+\end{probbox}
+\probsol{
+Hiệu $10$ ứng với $8-3=5$ phần; giá trị một phần là $2$.\par Phân số là $\dfrac6{16}$.\par Hiệu vẫn là $10$; phân số mới bằng $\dfrac12$, nên tử số mới bằng hiệu, tức là $10$.\par Số đã thêm vào: $10-6=4$.
+\dapso{$\dfrac6{16}$; $4$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Ở lớp 5H, số học sinh giỏi bằng $\dfrac14$ số học sinh còn lại. Đến cuối năm có thêm $3$ học sinh đạt loại giỏi, khi đó số học sinh giỏi bằng $\dfrac25$ số học sinh còn lại. Lớp có bao nhiêu học sinh?
+\end{probbox}
+\probsol{
+Số học sinh cả lớp không đổi.\par Số học sinh giỏi bằng $\dfrac15$ cả lớp lúc đầu và $\dfrac27$ cả lớp lúc sau.\par Vậy $3$ học sinh là $\dfrac27-\dfrac15=\dfrac3{35}$ số học sinh cả lớp.\par Cả lớp: $3:\dfrac3{35}=35$.
+\dapso{$35$ học sinh.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Hiện nay tuổi em bằng $\dfrac23$ tuổi anh, năm năm trước tuổi em bằng $\dfrac12$ tuổi anh. Tính tuổi mỗi người hiện nay.
+\end{probbox}
+\probsol{
+Hiệu số tuổi không đổi.\par Tuổi em gấp $2$ lần hiệu hiện nay và bằng $1$ lần hiệu năm năm trước.\par Vậy hiệu số tuổi là $5$ năm.\par Em: $10$ tuổi; anh: $15$ tuổi.
+\dapso{Em $10$ tuổi, anh $15$ tuổi.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Tỉ số lượng nước ở hai bể là $\dfrac23$. Sau khi dùng hết ở mỗi bể $40$ lít thì tỉ số là $\dfrac12$. Lúc đầu mỗi bể chứa bao nhiêu lít nước?
+\end{probbox}
+\probsol{
+Hiệu không đổi.\par Bể thứ nhất gấp $2$ lần hiệu lúc đầu và bằng $1$ lần hiệu lúc sau.\par Vậy hiệu là $40$ l.\par Bể thứ nhất: $80$ l; bể thứ hai: $120$ l.
+\dapso{$80$ l và $120$ l.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Tỉ số học sinh của lớp 5A và lớp 5B là $\dfrac78$. Chuyển $3$ học sinh từ lớp 5B sang lớp 5A thì lớp 5A nhiều hơn lớp 5B $3$ học sinh. Mỗi lớp có bao nhiêu học sinh?
+\end{probbox}
+\probsol{
+Lúc đầu lớp 5B nhiều hơn lớp 5A $1$ phần.\par Chuyển $3$ học sinh thì hiệu thay đổi $6$.\par Từ ``5B nhiều hơn $1$ phần'' thành ``5A nhiều hơn $3$'': $1$ phần $+3=6$, nên $1$ phần $=3$.\par Lớp 5A: $21$; lớp 5B: $24$.
+\dapso{Lớp 5A $21$, lớp 5B $24$ học sinh.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Số bi của An bằng $\dfrac35$ số bi của Bình. An mua thêm $8$ viên và Bình cho bớt đi $8$ viên; khi đó số bi hai bạn bằng nhau. Lúc đầu mỗi bạn có bao nhiêu viên bi?
+\end{probbox}
+\probsol{
+An thêm $8$ viên và Bình bớt $8$ viên, nên tổng không đổi.\par An có $\dfrac38$ tổng lúc đầu và $\dfrac48$ tổng lúc sau; $8$ là $\dfrac18$ tổng.\par Tổng: $64$; An: $24$; Bình: $40$.
+\dapso{An $24$ viên, Bình $40$ viên bi.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Số thóc kho A gấp $3$ lần số thóc kho B. Nếu kho B nhập thêm $30$ tấn thì số thóc kho A bằng $\dfrac32$ số thóc kho B. Lúc đầu mỗi kho chứa bao nhiêu tấn thóc?
+\end{probbox}
+\probsol{
+Kho A không đổi.\par Kho B bằng $\dfrac13$ kho A lúc đầu và $\dfrac23$ kho A lúc sau.\par Vậy $30$ tấn là $\dfrac13$ kho A, kho A có $90$ tấn.\par Kho B: $30$ tấn.
+\dapso{Kho A $90$ tấn, kho B $30$ tấn.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+Hiện nay tuổi bố gấp $3$ lần tuổi con, mười năm trước tuổi bố gấp $5$ lần tuổi con. Hỏi khi con ra đời thì bố bao nhiêu tuổi?
+\end{probbox}
+\probsol{
+Hiệu số tuổi không đổi.\par Tuổi con bằng $\dfrac12$ hiệu hiện nay và bằng $\dfrac14$ hiệu mười năm trước.\par Vậy $10$ năm là $\dfrac14$ hiệu, hiệu là $40$.\par Khi con ra đời, tuổi bố đúng bằng hiệu số tuổi: $40$.
+\dapso{$40$ tuổi.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+Thêm $2$ vào tử số của một phân số thì được $\dfrac12$; bớt $2$ ở tử số thì được $\dfrac14$ (giữ nguyên mẫu số). Tìm phân số đó.
+\end{probbox}
+\probsol{
+Mẫu số không đổi.\par Hai tử số mới chênh nhau $4$, ứng với $\dfrac12-\dfrac14=\dfrac14$ mẫu số.\par Mẫu số: $16$.\par Tử số: $16\times\dfrac12-2=6$.\par Phân số: $\dfrac6{16}$.
+\dapso{$\dfrac6{16}$.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+Nếu An cho Bình $4$ cái kẹo thì số kẹo của An gấp $3$ lần của Bình. Nếu Bình cho An $4$ cái thì số kẹo của An gấp $7$ lần của Bình. Mỗi bạn có bao nhiêu cái kẹo?
+\end{probbox}
+\probsol{
+Tổng $T$ không đổi.\par Trường hợp thứ nhất: An còn $\dfrac34T$, vậy An có $\dfrac34T+4$.\par Trường hợp thứ hai: sau khi nhận An có $\dfrac78T$, vậy An có $\dfrac78T-4$.\par So sánh: $\dfrac18T=8$, nên $T=64$.\par An: $52$; Bình: $12$.
+\dapso{An $52$ cái, Bình $12$ cái kẹo.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Tìm một phân số, biết nếu cùng thêm $1$ vào tử số và mẫu số thì được $\dfrac12$, còn nếu cùng bớt $1$ ở tử số và mẫu số thì được $\dfrac13$.
+\end{probbox}
+\probsol{
+Hiệu $d$ giữa mẫu số và tử số không đổi.\par Với $\dfrac12$, tử số mới là $d$; với $\dfrac13$, tử số mới là $\dfrac d2$.\par Hai tử số mới chênh nhau $2$, ứng với $\dfrac d2$; vậy $d=4$.\par Tử số: $4-1=3$; mẫu số: $7$.\par Phân số là $\dfrac37$.
+\dapso{$\dfrac37$.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Năm nay tuổi An bằng $\dfrac13$ tuổi bố. Sau ba năm nữa, tổng số tuổi của hai bố con là $54$. Tính tuổi mỗi người hiện nay.
+\end{probbox}
+\probsol{
+Tổng số tuổi hiện nay: $54-3\times2=48$.\par An $1$ phần, bố $3$ phần; giá trị một phần: $48:4=12$.\par An: $12$ tuổi; bố: $36$ tuổi.
+\dapso{An $12$ tuổi, bố $36$ tuổi.}}
+\clearpage
+\titlehead
