@@ -1,0 +1,152 @@
+% =====================================================================
+% Chủ đề 5 — Tư duy logic và Câu đố — phần d: bài 41–50 (nâng cao)
+% =====================================================================
+% ---- helper macros for parts c/d of topic 5 (prefix \lgxcd, guarded) ----
+% shape codes: 1 = circle, 2 = square, 3 = triangle, 4 = star
+\providecommand{\lgxcdShape}[3]{\ifcase#1\or
+  \draw[Ink,fill=Slate!35,line width=0.6pt] (#2,#3) circle (0.19);\or
+  \draw[Ink,fill=tmBlue!35,line width=0.6pt] ($(#2,#3)+(-0.18,-0.18)$) rectangle ($(#2,#3)+(0.18,0.18)$);\or
+  \draw[Ink,fill=tmOrange!45,line width=0.6pt] ($(#2,#3)+(-0.2,0.17)$)--($(#2,#3)+(0.2,0.17)$)--($(#2,#3)+(0,-0.19)$)--cycle;\or
+  \draw[Ink,fill=tmGreen!45,line width=0.6pt,shift={(#2,#3)}] (90:0.24) \foreach \lgxcdk in {1,...,9}{ -- ({90+36*\lgxcdk}:{ifthenelse(mod(\lgxcdk,2)==1,0.1,0.24)})} -- cycle;\fi}
+% inline shape in text
+\providecommand{\lgxcdI}[1]{\tikz[baseline=-0.7ex]{\lgxcdShape{#1}{0}{0}}}
+% a row of n shapes centred at the origin: \lgxcdRow{n}{codes}
+\providecommand{\lgxcdRow}[2]{\foreach \lgxcdt [count=\lgxcdi] in {#2}{%
+  \pgfmathsetmacro\lgxcdxx{(\lgxcdi-(#1+1)/2)*0.48}\lgxcdShape{\lgxcdt}{\lgxcdxx}{0.21}}}
+% equal-arm balance at height #1: \lgxcdBal{y}{n left}{codes left}{n right}{codes right}
+\providecommand{\lgxcdBal}[5]{\begin{scope}[yshift=#1cm]
+  \draw[Ink,line width=1pt] (-2.7,0)--(-0.3,0) (0.3,0)--(2.7,0);
+  \draw[Ink,line width=0.9pt] (-1.5,0)--(-1.5,-0.55)--(1.5,-0.55)--(1.5,0);
+  \draw[Ink,line width=0.9pt] (-0.18,-0.85)--(0,-0.58)--(0.18,-0.85);
+  \begin{scope}[xshift=-1.5cm]\lgxcdRow{#2}{#3}\end{scope}
+  \begin{scope}[xshift=1.5cm]\lgxcdRow{#4}{#5}\end{scope}\end{scope}}
+% square grid n x n with box lines every #2 rows / #3 columns; #4 = given r/c/v, #5 = filled r/c/v (rows from top)
+\providecommand{\lgxcdSud}[5]{\begin{scope}[x=0.62cm,y=0.62cm]
+  \foreach \lgxcdi in {0,...,#1}{\draw[Slate!60,line width=0.5pt] (0,\lgxcdi)--(#1,\lgxcdi) (\lgxcdi,0)--(\lgxcdi,#1);}
+  \foreach \lgxcdi in {0,#2,...,#1}{\draw[Ink,line width=1.4pt] (0,\lgxcdi)--(#1,\lgxcdi);}
+  \foreach \lgxcdi in {0,#3,...,#1}{\draw[Ink,line width=1.4pt] (\lgxcdi,0)--(\lgxcdi,#1);}
+  \foreach \lgxcdr/\lgxcdc/\lgxcdv in {#4}{\node[font=\sffamily\bfseries,text=Ink] at (\lgxcdc+0.5,#1-\lgxcdr-0.5){\lgxcdv};}
+  \foreach \lgxcdr/\lgxcdc/\lgxcdv in {#5}{\node[font=\sffamily,text=tmBlue] at (\lgxcdc+0.5,#1-\lgxcdr-0.5){\lgxcdv};}
+  \end{scope}}
+
+% ---------------------------------------------------------------- Bài 41
+\begin{probbox}{41}{\stars{2}}
+\textbf{Hình vuông kì diệu với các số từ $1$ đến $9$.} Điền các số $1, 2, \dots, 9$ (mỗi số đúng một lần) vào bảng $3\times 3$ sao
+cho tổng ba số trên mỗi hàng, mỗi cột và mỗi đường chéo đều bằng nhau.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Tính tổng kì diệu $M$ và chứng minh số ở ô chính giữa bắt buộc là $5$.
+  \item Chứng minh rằng số $9$ không thể nằm ở một góc của bảng.
+  \item Có tất cả bao nhiêu hình vuông kì diệu như vậy? Hãy giải thích.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta không thử mò $9! = 362\,880$ cách xếp, mà dùng lập luận để ``ép'' từng ô: trước hết là ô giữa, rồi vị trí
+của số $9$, cuối cùng là các ô còn lại.
+\step{1}{Câu a): tổng kì diệu}
+Ba hàng chứa mỗi số từ $1$ đến $9$ đúng một lần, nên $3M = 1 + 2 + \dots + 9 = 45$, suy ra $M = 15$.
+\step{2}{Câu a): ô giữa}
+\begin{recallbox}Bài 37: trong mọi hình vuông kì diệu $3\times 3$, số ở ô giữa bằng $M : 3$ (cộng bốn đường đi qua ô giữa:
+$4M = 3M + 3c$).\end{recallbox}
+Vậy ô giữa là $c = 15 : 3 = 5$.
+\step{3}{Câu b): số $9$ không ở góc}
+\begin{proofbox}Giả sử $9$ nằm ở một góc, chẳng hạn góc trên trái. Có ba đường đi qua góc này: hàng trên, cột trái và một đường
+chéo.
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Đường chéo: $9 + 5 + x = 15$, nên góc đối diện là $x = 1$.
+  \item Hàng trên: hai số còn lại có tổng $15 - 9 = 6$. Cột trái: hai số còn lại cũng có tổng $6$.
+\end{itemize}
+Các số còn được dùng là $2, 3, 4, 6, 7, 8$ (vì $1, 5, 9$ đã có chỗ). Trong đó chỉ có \emph{một} cặp có tổng $6$ là $2 + 4$
+($1 + 5$ không dùng được, $3 + 3$ phải dùng một số hai lần). Nhưng hàng trên và cột trái cần \emph{hai} cặp khác nhau có tổng $6$.
+Mâu thuẫn! Vậy $9$ không nằm ở góc.\end{proofbox}
+Do đó $9$ nằm ở giữa một cạnh (một trong $4$ ô: trên, dưới, trái, phải của ô $5$).
+\step{4}{Câu c): điền nốt khi $9$ ở giữa cạnh trên}
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Cột giữa: $9 + 5 + y = 15$, nên ô giữa cạnh dưới là $y = 1$.
+  \item Hàng trên: hai góc trên có tổng $15 - 9 = 6$, chọn trong $2, 3, 4, 6, 7, 8$: bắt buộc là $2$ và $4$. Có $2$ cách đặt
+  ($2$ bên trái hoặc $4$ bên trái).
+  \item Với góc trên trái là $2$, góc trên phải là $4$: đường chéo cho góc dưới phải $15 - 2 - 5 = 8$; đường chéo kia cho góc dưới
+  trái $15 - 4 - 5 = 6$; hàng giữa: trái $15 - 2 - 6 = 7$, phải $15 - 4 - 8 = 3$.
+\end{itemize}
+\begin{figC}
+\lgxcdSud{3}{3}{3}{0/1/9,1/1/5}{0/0/2,0/2/4,1/0/7,1/2/3,2/0/6,2/1/1,2/2/8}
+\begin{scope}[xshift=3.2cm]\lgxcdSud{3}{3}{3}{0/1/9,1/1/5}{0/0/4,0/2/2,1/0/3,1/2/7,2/0/8,2/1/1,2/2/6}\end{scope}
+\end{figC}
+Kiểm tra: hàng dưới $6 + 1 + 8 = 15$, các cột $2 + 7 + 6 = 15$, $4 + 3 + 8 = 15$ -- đúng. Như vậy khi $9$ ở giữa cạnh trên, có đúng
+$2$ hình vuông (hai hình trên, đối xứng nhau qua cột giữa).
+\step{5}{Câu c): đếm tất cả}
+Số $9$ có $4$ vị trí (giữa bốn cạnh); với mỗi vị trí có đúng $2$ cách (lập luận giống hệt, chỉ là xoay bảng). Tổng cộng
+$4\times 2 = 8$ hình vuông kì diệu. Tất cả đều thu được từ một hình bằng cách xoay và lật.
+\begin{tipbox}Quan sát hình: các số chẵn $2, 4, 6, 8$ nằm ở bốn góc, các số lẻ $1, 3, 7, 9$ ở giữa các cạnh, và hai số đối xứng qua
+tâm luôn có tổng $10$. Đây là hình vuông Lạc Thư nổi tiếng của Trung Hoa cổ đại.\end{tipbox}
+\begin{warnbox}Không được kết luận ``có $8$ hình'' chỉ bằng cách ``thấy có $8$ phép xoay/lật''. Phải chứng minh hai điều: mọi hình
+vuông đều có dạng trên (câu b và bước 4), và mỗi trường hợp thực sự cho một hình vuông đúng (bước kiểm tra).\end{warnbox}
+\verify{Dùng máy tính thử hết $362\,880$ cách xếp cũng tìm được đúng $8$ hình vuông kì diệu, và ô giữa của cả $8$ hình đều là $5$.}
+\ans{a) $M = 15$, ô giữa là $5$;\quad b) xem chứng minh;\quad c) $8$ hình vuông}
+}
+
+% ---------------------------------------------------------------- Bài 42
+\begin{probbox}{42}{\stars{1}}
+\textbf{Sudoku $4\times 4$.} Mỗi hàng, mỗi cột và mỗi ô vuông $2\times 2$ (viền đậm) phải chứa đủ các chữ số $1, 2, 3, 4$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Hoàn thành bảng (I) dưới đây (chỉ có $4$ chữ số cho trước!). Giải thích từng bước.
+  \item Bảng (II) có hàng đầu là $1, 2, 3, 4$ và cột đầu là $1, 3, 2, 4$. Có bao nhiêu cách hoàn thành bảng (II)?
+\end{enumerate}
+\begin{figC}
+\lgxcdSud{4}{2}{2}{0/1/2,1/2/1,2/3/3,3/0/4}{}
+\node[font=\small\bfseries] at (1.24,-0.4){(I)};
+\begin{scope}[xshift=4.2cm]\lgxcdSud{4}{2}{2}{0/0/1,0/1/2,0/2/3,0/3/4,1/0/3,2/0/2,3/0/4}{}\end{scope}
+\node[font=\small\bfseries] at (5.44,-0.4){(II)};
+\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Gọi ô ở hàng $i$, cột $j$ là ô $(i, j)$ (hàng đếm từ trên, cột đếm từ trái). Mỗi ô ``nhìn thấy'' hàng, cột và
+khối $2\times 2$ của nó. Nếu ba nhóm đó đã chứa đủ ba chữ số khác nhau thì ô đó chỉ còn \emph{một} khả năng.
+\begin{recallbox}\textbf{Ô duy nhất:} một ô trống chỉ có thể điền chữ số chưa xuất hiện trong hàng, cột và khối của nó. Nếu chỉ còn
+một chữ số như vậy, ta điền ngay.\end{recallbox}
+\par\smallskip\textbf{Câu a).}
+\step{1}{Hàng 1}
+Ô $(1,4)$: hàng 1 có $2$; cột 4 có $3$; khối trên phải có $1$. Còn lại: $\mathbf{4}$.\\
+Ô $(1,3)$: hàng 1 có $2, 4$; cột 3 có $1$. Còn lại: $\mathbf{3}$. \ Ô $(1,1)$: hàng 1 còn thiếu $\mathbf{1}$.
+\step{2}{Hàng 2}
+Ô $(2,1)$: cột 1 có $1, 4$; hàng 2 có $1$; khối trên trái có $1, 2$. Các số đã thấy: $1, 2, 4$. Còn lại: $\mathbf{3}$.\\
+Ô $(2,2)$: khối trên trái đã có $1, 2, 3$ $\Rightarrow$ $\mathbf{4}$. \ Ô $(2,4)$: hàng 2 đã có $3, 4, 1$ $\Rightarrow$ $\mathbf{2}$.
+\step{3}{Hàng 3}
+Ô $(3,1)$: cột 1 đã có $1, 3, 4$ $\Rightarrow$ $\mathbf{2}$. \ Ô $(3,2)$: hàng 3 có $2, 3$; cột 2 có $2, 4$ $\Rightarrow$
+$\mathbf{1}$. \ Ô $(3,3)$: hàng 3 còn thiếu $\mathbf{4}$.
+\step{4}{Hàng 4}
+Ô $(4,2)$: cột 2 đã có $2, 4, 1$ $\Rightarrow$ $\mathbf{3}$. \ Ô $(4,3)$: cột 3 đã có $3, 1, 4$ $\Rightarrow$ $\mathbf{2}$. \
+Ô $(4,4)$: $\mathbf{1}$.
+\begin{figC}
+\lgxcdSud{4}{2}{2}{0/1/2,1/2/1,2/3/3,3/0/4}{0/0/1,0/2/3,0/3/4,1/0/3,1/1/4,1/3/2,2/0/2,2/1/1,2/2/4,3/1/3,3/2/2,3/3/1}
+\end{figC}
+\par\smallskip\textbf{Câu b).}
+\step{5}{Khối trên trái và khối dưới trái}
+Ô $(2,1) = 3$ nên ô $(2,2)$ phải là $4$ (khối trên trái cần đủ $1, 2, 3, 4$). Hai ô $(2,3), (2,4)$ là $1, 2$ theo thứ tự nào đó:
+$2$ khả năng.\\
+Cột 2 đã có $2, 4$, nên hai ô $(3,2), (4,2)$ là $1, 3$ theo thứ tự nào đó: $2$ khả năng.
+\step{6}{Xét $2\times 2 = 4$ trường hợp, khối dưới phải tự xác định}
+\begin{center}\small
+\begin{tabular}{|c|c|l|c|}
+\hline
+\rowcolor{tmBlue!10} Hàng 2 & Cột 2 (dưới) & Điều kiện cho khối dưới phải & Số cách\\ \hline
+$3, 4, 1, 2$ & $1, 3$ & hàng 3 cần $\{3,4\}$, hàng 4 cần $\{1,2\}$, cột 3 cần $\{2,4\}$, cột 4 cần $\{1,3\}$ & $1$\\ \hline
+$3, 4, 1, 2$ & $3, 1$ & hàng 3 cần $\{1,4\}$, hàng 4 cần $\{2,3\}$, cột 3 cần $\{2,4\}$, cột 4 cần $\{1,3\}$ & $1$\\ \hline
+$3, 4, 2, 1$ & $1, 3$ & hàng 3 cần $\{3,4\}$, hàng 4 cần $\{1,2\}$, cột 3 cần $\{1,4\}$, cột 4 cần $\{2,3\}$ & $1$\\ \hline
+$3, 4, 2, 1$ & $3, 1$ & hàng 3 cần $\{1,4\}$, hàng 4 cần $\{2,3\}$, cột 3 cần $\{1,4\}$, cột 4 cần $\{2,3\}$ & $0$\\ \hline
+\end{tabular}
+\end{center}
+Ví dụ dòng cuối: ô $(4,3)$ phải thuộc $\{2,3\}$ (theo hàng 4) và thuộc $\{1,4\}$ (theo cột 3) -- không có số nào. Ở ba dòng đầu, mỗi
+ô của khối dưới phải chỉ có đúng một số thoả cả hàng lẫn cột, ví dụ dòng đầu: $(3,3) = 4$, $(3,4) = 3$, $(4,3) = 2$, $(4,4) = 1$.
+\step{7}{Kết luận}
+Có $1 + 1 + 1 + 0 = 3$ cách hoàn thành bảng (II).
+\begin{figC}
+\begin{scope}[xshift=0cm]\lgxcdSud{4}{2}{2}{0/0/1,0/1/2,0/2/3,0/3/4,1/0/3,2/0/2,3/0/4}{1/1/4,1/2/1,1/3/2,2/1/1,2/2/4,2/3/3,3/1/3,3/2/2,3/3/1}\end{scope}
+\begin{scope}[xshift=4.1cm]\lgxcdSud{4}{2}{2}{0/0/1,0/1/2,0/2/3,0/3/4,1/0/3,2/0/2,3/0/4}{1/1/4,1/2/1,1/3/2,2/1/3,2/2/4,2/3/1,3/1/1,3/2/2,3/3/3}\end{scope}
+\begin{scope}[xshift=8.2cm]\lgxcdSud{4}{2}{2}{0/0/1,0/1/2,0/2/3,0/3/4,1/0/3,2/0/2,3/0/4}{1/1/4,1/2/2,1/3/1,2/1/1,2/2/4,2/3/3,3/1/3,3/2/1,3/3/2}\end{scope}
+\end{figC}
+\begin{warnbox}Đừng vội nhân $2\times 2 = 4$! Một số lựa chọn ở bước trước có thể dẫn tới bế tắc ở bước sau. Luôn phải kiểm tra từng
+trường hợp đến cùng.\end{warnbox}
+\verify{Máy tính liệt kê đủ $288$ bảng Sudoku $4\times 4$; trong đó đúng $3$ bảng có hàng đầu $1, 2, 3, 4$ và cột đầu $1, 3, 2, 4$,
+và đúng $1$ bảng chứa $4$ chữ số cho trước của bảng (I).}
+\ans{a) Hàng 1: $1\,2\,3\,4$; hàng 2: $3\,4\,1\,2$; hàng 3: $2\,1\,4\,3$; hàng 4: $4\,3\,2\,1$;\quad b) $3$ cách}
+}

@@ -1,0 +1,528 @@
+% =====================================================================
+% Chủ đề 5 — Tư duy logic và Câu đố — phần c: bài 31–40 (mở rộng)
+% =====================================================================
+% ---- helper macros for parts c/d of topic 5 (prefix \lgxcd, guarded) ----
+% shape codes: 1 = circle, 2 = square, 3 = triangle, 4 = star
+\providecommand{\lgxcdShape}[3]{\ifcase#1\or
+  \draw[Ink,fill=Slate!35,line width=0.6pt] (#2,#3) circle (0.19);\or
+  \draw[Ink,fill=tmBlue!35,line width=0.6pt] ($(#2,#3)+(-0.18,-0.18)$) rectangle ($(#2,#3)+(0.18,0.18)$);\or
+  \draw[Ink,fill=tmOrange!45,line width=0.6pt] ($(#2,#3)+(-0.2,0.17)$)--($(#2,#3)+(0.2,0.17)$)--($(#2,#3)+(0,-0.19)$)--cycle;\or
+  \draw[Ink,fill=tmGreen!45,line width=0.6pt,shift={(#2,#3)}] (90:0.24) \foreach \lgxcdk in {1,...,9}{ -- ({90+36*\lgxcdk}:{ifthenelse(mod(\lgxcdk,2)==1,0.1,0.24)})} -- cycle;\fi}
+% inline shape in text
+\providecommand{\lgxcdI}[1]{\tikz[baseline=-0.7ex]{\lgxcdShape{#1}{0}{0}}}
+% a row of n shapes centred at the origin: \lgxcdRow{n}{codes}
+\providecommand{\lgxcdRow}[2]{\foreach \lgxcdt [count=\lgxcdi] in {#2}{%
+  \pgfmathsetmacro\lgxcdxx{(\lgxcdi-(#1+1)/2)*0.48}\lgxcdShape{\lgxcdt}{\lgxcdxx}{0.21}}}
+% equal-arm balance at height #1: \lgxcdBal{y}{n left}{codes left}{n right}{codes right}
+\providecommand{\lgxcdBal}[5]{\begin{scope}[yshift=#1cm]
+  \draw[Ink,line width=1pt] (-2.7,0)--(-0.3,0) (0.3,0)--(2.7,0);
+  \draw[Ink,line width=0.9pt] (-1.5,0)--(-1.5,-0.55)--(1.5,-0.55)--(1.5,0);
+  \draw[Ink,line width=0.9pt] (-0.18,-0.85)--(0,-0.58)--(0.18,-0.85);
+  \begin{scope}[xshift=-1.5cm]\lgxcdRow{#2}{#3}\end{scope}
+  \begin{scope}[xshift=1.5cm]\lgxcdRow{#4}{#5}\end{scope}\end{scope}}
+% square grid n x n with box lines every #2 rows / #3 columns; #4 = given r/c/v, #5 = filled r/c/v (rows from top)
+\providecommand{\lgxcdSud}[5]{\begin{scope}[x=0.62cm,y=0.62cm]
+  \foreach \lgxcdi in {0,...,#1}{\draw[Slate!60,line width=0.5pt] (0,\lgxcdi)--(#1,\lgxcdi) (\lgxcdi,0)--(\lgxcdi,#1);}
+  \foreach \lgxcdi in {0,#2,...,#1}{\draw[Ink,line width=1.4pt] (0,\lgxcdi)--(#1,\lgxcdi);}
+  \foreach \lgxcdi in {0,#3,...,#1}{\draw[Ink,line width=1.4pt] (\lgxcdi,0)--(\lgxcdi,#1);}
+  \foreach \lgxcdr/\lgxcdc/\lgxcdv in {#4}{\node[font=\sffamily\bfseries,text=Ink] at (\lgxcdc+0.5,#1-\lgxcdr-0.5){\lgxcdv};}
+  \foreach \lgxcdr/\lgxcdc/\lgxcdv in {#5}{\node[font=\sffamily,text=tmBlue] at (\lgxcdc+0.5,#1-\lgxcdr-0.5){\lgxcdv};}
+  \end{scope}}
+
+\clearpage
+\dividerbar{Mở rộng -- Nâng cao}
+
+% ---------------------------------------------------------------- Bài 31
+\begin{probbox}{31}{\relax}
+Trên một hòn đảo, mỗi người dân hoặc là \emph{người trung thực} (luôn nói thật), hoặc là \emph{kẻ nói dối} (luôn nói dối).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Em gặp hai người dân Khánh và Lâm. Khánh nói: ``Cả hai chúng tôi đều là kẻ nói dối.'' Hỏi mỗi người thuộc loại nào?
+  \item Em gặp ba người dân An, Bình và Chi.\\
+  An nói: ``Bình là kẻ nói dối.''\\
+  Bình nói: ``Chi là kẻ nói dối.''\\
+  Chi nói: ``An và Bình đều là kẻ nói dối.''\\
+  Hỏi mỗi người thuộc loại nào?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi người chỉ có hai khả năng. Cách làm chắc chắn nhất là \emph{giả sử} một khả năng, rồi xem các câu nói có
+phù hợp với giả sử đó không. Nếu dẫn tới mâu thuẫn thì loại khả năng đó.
+\begin{recallbox}Người trung thực nói câu nào thì câu đó \textbf{đúng}. Kẻ nói dối nói câu nào thì câu đó \textbf{sai}.
+Như vậy, mỗi câu nói cho ta một ``phương trình'': \emph{câu nói đúng} $\Longleftrightarrow$ \emph{người nói là người trung thực}.\end{recallbox}
+\par\smallskip\textbf{Câu a).}
+\step{1}{Giả sử Khánh là người trung thực}
+Khi đó câu của Khánh đúng, tức là Khánh là kẻ nói dối -- trái với giả sử. Vậy Khánh \textbf{không thể} là người trung thực.
+\step{2}{Khánh là kẻ nói dối}
+Câu ``Cả hai chúng tôi đều là kẻ nói dối'' là câu sai. Câu này sai khi \emph{ít nhất một} người không phải kẻ nói dối. Khánh đã
+là kẻ nói dối, nên người còn lại -- Lâm -- phải là người trung thực.
+\begin{warnbox}Phủ định của ``cả hai đều nói dối'' \textbf{không phải} là ``cả hai đều nói thật'', mà là ``có ít nhất một người
+nói thật''.\end{warnbox}
+\par\smallskip\textbf{Câu b).}
+\step{3}{Giả sử An là người trung thực}
+Câu của An đúng $\Rightarrow$ Bình là kẻ nói dối $\Rightarrow$ câu của Bình sai $\Rightarrow$ Chi là người trung thực
+$\Rightarrow$ câu của Chi đúng $\Rightarrow$ An là kẻ nói dối. Trái với giả sử! Loại.
+\step{4}{Vậy An là kẻ nói dối}
+Câu của An sai $\Rightarrow$ Bình \emph{không} nói dối, tức Bình là người trung thực $\Rightarrow$ câu của Bình đúng
+$\Rightarrow$ Chi là kẻ nói dối.
+\step{5}{Kiểm tra câu của Chi}
+Chi là kẻ nói dối nên câu ``An và Bình đều là kẻ nói dối'' phải sai. Thật vậy, câu đó sai vì Bình là người trung thực.
+Không có mâu thuẫn nào.
+\begin{center}
+\begin{tabular}{|c|c|l|c|}
+\hline
+\rowcolor{tmBlue!10} Người & Loại & Câu nói & Câu nói đúng/sai\\ \hline
+An & nói dối & Bình là kẻ nói dối & sai \\ \hline
+Bình & trung thực & Chi là kẻ nói dối & đúng\\ \hline
+Chi & nói dối & An và Bình đều nói dối & sai\\ \hline
+\end{tabular}
+\end{center}
+\verify{Trong bảng, mỗi người trung thực nói câu đúng, mỗi kẻ nói dối nói câu sai. Ta cũng đã thấy khả năng ``An trung thực''
+bị loại, nên đây là lời giải duy nhất.}
+\ans{a) Khánh nói dối, Lâm trung thực;\quad b) An và Chi nói dối, Bình trung thực}
+}
+
+% ---------------------------------------------------------------- Bài 32
+\begin{probbox}{32}{\relax}
+Bạn Mai nói dối vào các ngày thứ Hai, thứ Ba, thứ Tư và nói thật vào những ngày còn lại trong tuần. Bạn Hùng nói dối vào các ngày
+thứ Năm, thứ Sáu, thứ Bảy và nói thật vào những ngày còn lại. Một hôm, cả hai bạn đều nói: ``Hôm qua là ngày tôi nói dối.''
+Hỏi hôm đó là thứ mấy?
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Câu nói ``Hôm qua là ngày tôi nói dối'' có thể đúng hoặc sai, tuỳ theo ngày. Với từng bạn, ta tìm những ngày
+bạn đó \emph{có thể} nói câu này, rồi lấy ngày chung của hai bạn.
+\begin{recallbox}Vào ngày nói thật, câu nói phải đúng; vào ngày nói dối, câu nói phải sai.\end{recallbox}
+\step{1}{Lập bảng cho Mai (nói dối T2, T3, T4)}
+\begin{center}\small
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Hôm nay & T2 & T3 & T4 & T5 & T6 & T7 & CN\\ \hline
+Hôm nay Mai & dối & dối & dối & thật & thật & thật & thật\\ \hline
+Hôm qua Mai & thật (CN) & dối & dối & dối & thật & thật & thật\\ \hline
+Câu nói đúng? & sai & đúng & đúng & đúng & sai & sai & sai\\ \hline
+Mai nói được? & \textbf{có} & không & không & \textbf{có} & không & không & không\\ \hline
+\end{tabular}
+\end{center}
+Mai nói được câu này khi: hôm nay nói dối và câu sai (thứ Hai), hoặc hôm nay nói thật và câu đúng (thứ Năm).
+\step{2}{Lập bảng cho Hùng (nói dối T5, T6, T7)}
+\begin{center}\small
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Hôm nay & T2 & T3 & T4 & T5 & T6 & T7 & CN\\ \hline
+Hôm nay Hùng & thật & thật & thật & dối & dối & dối & thật\\ \hline
+Hôm qua Hùng & thật & thật & thật & thật & dối & dối & dối\\ \hline
+Câu nói đúng? & sai & sai & sai & sai & đúng & đúng & đúng\\ \hline
+Hùng nói được? & không & không & không & \textbf{có} & không & không & \textbf{có}\\ \hline
+\end{tabular}
+\end{center}
+Hùng nói được câu này vào thứ Năm hoặc Chủ nhật.
+\step{3}{Ngày chung}
+Mai: $\{$thứ Hai, thứ Năm$\}$; Hùng: $\{$thứ Năm, Chủ nhật$\}$. Ngày chung duy nhất là \textbf{thứ Năm}.
+\begin{tipbox}Quy luật nhanh: người này chỉ nói được câu ``Hôm qua tôi nói dối'' vào ngày \emph{chuyển chế độ}
+(hôm qua và hôm nay khác chế độ): ngày đầu tiên nói dối, hoặc ngày đầu tiên nói thật trở lại.\end{tipbox}
+\verify{Thứ Năm: Mai nói thật, hôm qua (thứ Tư) Mai nói dối -- câu đúng, hợp lí. Hùng nói dối, hôm qua (thứ Tư) Hùng nói thật --
+câu sai, hợp lí với việc Hùng đang nói dối.}
+\ans{Thứ Năm}
+}
+
+% ---------------------------------------------------------------- Bài 33
+\begin{probbox}{33}{\relax}
+Sáu bạn Lan, Minh, Nam, Oanh, Phúc và Quân chạy thi. Không có hai bạn nào về đích cùng lúc. Biết rằng:
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=2pt]
+  \item Minh về đích sau Lan nhưng trước Nam;
+  \item Oanh về đích sau Nam;
+  \item Phúc về đích \emph{ngay sau} Lan;
+  \item Quân không về nhất cũng không về bét, và Quân về trước Minh.
+\end{itemize}
+Hãy xếp thứ tự về đích của sáu bạn. Ai về thứ ba?
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta có các điều kiện ``trước -- sau''. Cách hay là ghép chúng thành một \emph{chuỗi} rồi chèn dần những
+bạn còn lại vào. Viết $X \to Y$ nghĩa là ``$X$ về trước $Y$''.
+\step{1}{Ghép điều kiện 1 và 2}
+Lan $\to$ Minh $\to$ Nam và Nam $\to$ Oanh, nên: \ Lan $\to$ Minh $\to$ Nam $\to$ Oanh.
+\step{2}{Chèn Phúc}
+Phúc về \emph{ngay sau} Lan, tức là không ai chen giữa Lan và Phúc: \ Lan, Phúc $\to$ Minh $\to$ Nam $\to$ Oanh.
+\step{3}{Chèn Quân}
+Quân về trước Minh, nên Quân đứng ở một trong các chỗ: trước Lan, hoặc giữa Phúc và Minh (không được chen giữa Lan và Phúc).
+Nhưng Quân không về nhất, nên Quân không đứng trước Lan. Vậy:
+\[ \text{Lan} \to \text{Phúc} \to \text{Quân} \to \text{Minh} \to \text{Nam} \to \text{Oanh}. \]
+\begin{figC}
+\foreach \n/\x in {Lan/0,Phúc/1,Quân/2,Minh/3,Nam/4,Oanh/5}{
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,minimum width=1.5cm,minimum height=0.7cm] at (\x*1.9,0){\n};}
+\foreach \x [count=\k] in {0,...,5}{\node[font=\scriptsize,text=Slate] at (\x*1.9,-0.6){hạng \k};}
+\foreach \x in {0,...,4}{\draw[->,tmBlue,thick] (\x*1.9+0.78,0)--(\x*1.9+1.12,0);}
+\end{figC}
+\step{4}{Kiểm tra lại từng điều kiện}
+Minh (hạng 4) sau Lan (hạng 1), trước Nam (hạng 5): đúng. Oanh (hạng 6) sau Nam: đúng. Phúc (hạng 2) ngay sau Lan: đúng.
+Quân hạng 3 -- không nhất, không bét, trước Minh: đúng.
+\begin{warnbox}Nếu quên chữ ``ngay sau'' thì Quân có thể chen giữa Lan và Phúc, và bài toán sẽ có hai đáp án. Hãy đọc kĩ từng chữ
+của điều kiện!\end{warnbox}
+\verify{Đã thử mọi vị trí có thể của Quân; chỉ có một thứ tự thoả mãn cả bốn điều kiện.}
+\ans{Lan, Phúc, Quân, Minh, Nam, Oanh; Quân về thứ ba}
+}
+
+% ---------------------------------------------------------------- Bài 34
+\begin{probbox}{34}{\relax}
+Năm bạn Hà, Khoa, Linh, My và Tùng ngồi trên một hàng ghế gồm $5$ ghế đánh số $1, 2, 3, 4, 5$ từ trái sang phải. Biết rằng:
+Hà và Khoa ngồi cạnh nhau; Linh và My \emph{không} ngồi cạnh nhau; Tùng ngồi ở một đầu hàng ghế (ghế $1$ hoặc ghế $5$).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Có tất cả bao nhiêu cách ngồi thoả mãn các điều kiện trên?
+  \item Trong các khẳng định sau, khẳng định nào \emph{chắc chắn đúng}?\\
+  (1) Linh ngồi ở một đầu hàng ghế. \quad (2) Hà không ngồi ở đầu hàng ghế. \quad (3) Khoa ngồi ở ghế số $3$.
+  \item Nếu biết thêm Linh ngồi ghế số $1$ và Hà ngồi bên trái Khoa, hãy xác định chỗ ngồi của từng bạn.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Bắt đầu từ điều kiện ``chặt'' nhất (Tùng chỉ có $2$ chỗ), rồi xét $4$ ghế còn lại.
+\step{1}{Xét trường hợp Tùng ngồi ghế 5}
+Bốn bạn còn lại ngồi ghế $1, 2, 3, 4$. Cặp Hà -- Khoa chiếm hai ghế liền nhau: ghế $(1,2)$, $(2,3)$ hoặc $(3,4)$.
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Hà -- Khoa ở ghế $(1,2)$: Linh, My phải ngồi ghế $3, 4$ -- cạnh nhau, \textbf{loại}.
+  \item Hà -- Khoa ở ghế $(3,4)$: Linh, My ngồi ghế $1, 2$ -- cạnh nhau, \textbf{loại}.
+  \item Hà -- Khoa ở ghế $(2,3)$: Linh, My ngồi ghế $1$ và $4$ -- không cạnh nhau, \textbf{được}.
+\end{itemize}
+Trong trường hợp được: Hà, Khoa đổi chỗ cho nhau được ($2$ cách), Linh, My đổi chỗ cho nhau được ($2$ cách):
+$2\times 2 = 4$ cách.
+\step{2}{Trường hợp Tùng ngồi ghế 1}
+Hoàn toàn tương tự (lật ngược hàng ghế): Hà -- Khoa ở ghế $(3,4)$, Linh và My ở ghế $2$ và $5$: cũng $4$ cách.
+\step{3}{Tổng số cách}
+$4 + 4 = 8$ cách.
+\begin{recallbox}\textbf{Quy tắc nhân:} nếu một việc gồm các bước liên tiếp, bước 1 có $m$ cách, bước 2 có $n$ cách, thì cả việc có
+$m\times n$ cách. \textbf{Quy tắc cộng:} các trường hợp tách rời nhau thì cộng số cách.\end{recallbox}
+\step{4}{Câu b): kiểm tra từng khẳng định}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Ghế 1 & Ghế 2 & Ghế 3 & Ghế 4 & Ghế 5\\ \hline
+Linh/My & Hà/Khoa & Hà/Khoa & My/Linh & Tùng\\ \hline
+Tùng & Linh/My & Hà/Khoa & Hà/Khoa & My/Linh\\ \hline
+\end{tabular}
+\end{center}
+(1) Sai: khi Tùng ngồi ghế 1, Linh có thể ngồi ghế 2. \ (2) \textbf{Đúng}: trong cả hai dòng, Hà và Khoa luôn ở các ghế giữa
+($2, 3$ hoặc $3, 4$). \ (3) Sai: Khoa có thể ngồi ghế $2$ hoặc ghế $4$.
+\step{5}{Câu c)}
+Linh ngồi ghế $1$ nên Tùng không ở ghế $1$, vậy Tùng ở ghế $5$ (dòng thứ nhất của bảng). Khi đó My ở ghế $4$, Hà -- Khoa ở ghế $2, 3$;
+Hà bên trái Khoa nên Hà ghế $2$, Khoa ghế $3$.
+\verify{Linh(1), Hà(2), Khoa(3), My(4), Tùng(5): Hà -- Khoa cạnh nhau; Linh ghế 1 và My ghế 4 không cạnh nhau; Tùng ở đầu hàng.
+Đúng.}
+\ans{a) $8$ cách;\quad b) khẳng định (2);\quad c) Linh -- Hà -- Khoa -- My -- Tùng (ghế 1 đến 5)}
+}
+
+% ---------------------------------------------------------------- Bài 35
+\begin{probbox}{35}{\relax}
+Đánh số các chữ cái $A, B, C, \dots, Z$ (bảng chữ cái tiếng Anh, $26$ chữ) lần lượt là $0, 1, 2, \dots, 25$. \emph{Mật mã Caesar
+với khoá $k$} thay mỗi chữ cái mang số $x$ bằng chữ cái mang số là \emph{số dư} của $x + k$ khi chia cho $26$
+(dấu cách giữ nguyên).
+\begin{figC}
+\foreach \L [count=\i from 0] in {A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}{
+  \node[font=\sffamily\small\bfseries,text=Ink] at ({90-\i*360/26}:2.15){\L};
+  \node[font=\sffamily\tiny,text=tmBlue] at ({90-\i*360/26}:1.65){\i};}
+\draw[Line,line width=0.8pt] (0,0) circle (1.9);
+\draw[->,tmOrange,line width=1pt] (110:1.2) arc (110:30:1.2);
+\node[font=\scriptsize,text=tmOrange!80!black,align=center] at (0,0){đi theo\\chiều kim\\đồng hồ};
+\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Mã hoá dòng chữ \textsf{TOAN HOC} với khoá $k = 5$.
+  \item Giải mã dòng chữ \textsf{OVJ CBP}, biết khoá là $k = 7$.
+  \item Một tin nhắn có từ \textsf{BAN} được mã hoá thành \textsf{QPC}. Tìm khoá $k$ (với $0 \le k \le 25$), rồi giải mã từ
+  \textsf{HPJ} của cùng tin nhắn.
+  \item Mã hoá một tin với khoá $10$, rồi mã hoá kết quả thêm một lần nữa với khoá $20$. Hai lần mã hoá đó giống với
+  \emph{một} lần mã hoá với khoá nào?
+  \item Bạn Tú mã hoá một từ với khoá $4$, rồi lại mã hoá kết quả với khoá $4$, cứ thế nhiều lần. Sau ít nhất bao nhiêu lần
+  thì Tú lại thu được đúng từ ban đầu?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Khi cộng khoá mà vượt quá $25$, ta ``quay vòng'' về đầu bảng chữ cái -- đó chính là lấy \emph{số dư khi
+chia cho $26$}. Giải mã là làm ngược lại: \emph{trừ} khoá (nếu ra số âm thì cộng thêm $26$).
+\begin{recallbox}Số dư của $a$ khi chia cho $26$ là số $r$ với $0 \le r \le 25$ sao cho $a - r$ chia hết cho $26$.
+Ví dụ: $30$ chia $26$ dư $4$; \ $-6$ ``chia $26$ dư'' $20$ vì $-6 + 26 = 20$.\end{recallbox}
+\step{1}{Câu a): mã hoá \textsf{TOAN HOC} với $k = 5$}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Chữ gốc & T & O & A & N & H & O & C\\ \hline
+Số $x$ & $19$ & $14$ & $0$ & $13$ & $7$ & $14$ & $2$\\ \hline
+$x + 5$ & $24$ & $19$ & $5$ & $18$ & $12$ & $19$ & $7$\\ \hline
+Chữ mã & Y & T & F & S & M & T & H\\ \hline
+\end{tabular}
+\end{center}
+Kết quả: \textsf{YTFS MTH}. (Ở đây không có số nào vượt $25$ nên chưa cần quay vòng.)
+\step{2}{Câu b): giải mã \textsf{OVJ CBP} với $k = 7$ (trừ $7$)}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Chữ mã & O & V & J & C & B & P\\ \hline
+Số & $14$ & $21$ & $9$ & $2$ & $1$ & $15$\\ \hline
+Số $- 7$ & $7$ & $14$ & $2$ & $-5 \to 21$ & $-6 \to 20$ & $8$\\ \hline
+Chữ gốc & H & O & C & V & U & I\\ \hline
+\end{tabular}
+\end{center}
+Tin gốc: \textsf{HOC VUI} (Học vui). Chú ý: $2 - 7 = -5$, cộng $26$ được $21$ (chữ V).
+\step{3}{Câu c): tìm khoá từ cặp \textsf{BAN} $\to$ \textsf{QPC}}
+B ($1$) thành Q ($16$), nên $k = 16 - 1 = 15$. Kiểm tra: A ($0$) $\to 0 + 15 = 15$ (P) đúng; N ($13$) $\to 13 + 15 = 28$,
+chia $26$ dư $2$ (C) đúng. Vậy $k = 15$.\\
+Giải mã \textsf{HPJ} (trừ $15$): H $= 7$, $7 - 15 = -8 \to 18$ (S); \ P $= 15 \to 0$ (A); \ J $= 9$, $9 - 15 = -6 \to 20$ (U).
+Từ gốc là \textsf{SAU}.
+\step{4}{Câu d): hai lần mã hoá liên tiếp}
+Mỗi chữ được cộng $10$ rồi cộng $20$, tức là cộng $30$. Vì $30$ chia $26$ dư $4$, nên ``cộng $30$ rồi lấy dư'' giống hệt
+``cộng $4$ rồi lấy dư''. Hai lần mã hoá giống \textbf{một lần mã hoá với khoá $4$}.
+\step{5}{Câu e): mã hoá lặp lại với khoá $4$}
+Sau $n$ lần, mỗi chữ đã bị dịch đi $4n$ vị trí. Muốn quay về đúng chữ ban đầu thì phải đi trọn một số vòng, tức $4n$ chia hết
+cho $26$. Thử $n = 1, 2, 3, \dots$: \ $4n = 4, 8, 12, \dots$ Số $4n$ nhỏ nhất (khác $0$) chia hết cho $26$ là
+$\text{BCNN}(4, 26) = 52$, ứng với $n = 52 : 4 = 13$.
+\begin{recallbox}$4n$ chia hết cho $26 = 2\times 13$ $\Leftrightarrow$ $2n$ chia hết cho $13$ $\Leftrightarrow$ $n$ chia hết cho $13$
+(vì $13$ là số nguyên tố không chia hết $2$).\end{recallbox}
+\begin{tipbox}Với khoá $13$ thì chỉ cần mã hoá $2$ lần là về chỗ cũ ($2\times 13 = 26$). Mã hoá với khoá $13$ hai lần cũng chính là
+giải mã!\end{tipbox}
+\verify{Câu a): giải mã \textsf{YTFS MTH} bằng cách trừ $5$ được lại \textsf{TOAN HOC}. Câu c): \textsf{SAU} mã hoá với khoá
+$15$: S $18 + 15 = 33 \to 7$ (H), A $\to 15$ (P), U $20 + 15 = 35 \to 9$ (J). Đúng \textsf{HPJ}.}
+\ans{a) \textsf{YTFS MTH};\ b) \textsf{HOC VUI};\ c) $k = 15$, \textsf{SAU};\ d) khoá $4$;\ e) $13$ lần}
+}
+
+% ---------------------------------------------------------------- Bài 36
+\begin{probbox}{36}{\stars{1}}
+Vẫn đánh số $A = 0, B = 1, \dots, Z = 25$. Một \emph{mật mã nhân} thay chữ cái mang số $x$ bằng chữ cái mang số là
+số dư của $3x + 2$ khi chia cho $26$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Mã hoá từ \textsf{MEO}.
+  \item Giải mã từ \textsf{ECS}.
+  \item Bạn Nhật đề nghị dùng $2x + 2$ thay cho $3x + 2$. Hãy chỉ ra hai chữ cái khác nhau có cùng một chữ mã. Vì sao như vậy thì
+  không giải mã được?
+  \item Giải thích vì sao với $3x + 2$, hai chữ cái khác nhau luôn có hai chữ mã khác nhau.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mật mã này không chỉ ``dịch'' mà còn ``nhân'' rồi lấy số dư. Mã hoá thì dễ (tính thẳng); giải mã thì cần
+tìm $x$ khi biết số dư của $3x + 2$ -- ta dùng cách ``thêm $26$ cho tới khi chia hết cho $3$''.
+\step{1}{Câu a): mã hoá \textsf{MEO}}
+M $= 12$: $3\cdot 12 + 2 = 38$, chia $26$ dư $12$ $\to$ M.\\
+E $= 4$: $3\cdot 4 + 2 = 14$ $\to$ O.\\
+O $= 14$: $3\cdot 14 + 2 = 44$, chia $26$ dư $18$ $\to$ S.\\
+Kết quả: \textsf{MOS}. (Thú vị: chữ M được mã hoá thành chính nó.)
+\step{2}{Câu b): giải mã \textsf{ECS}}
+Với chữ mã mang số $y$, ta cần $x$ ($0 \le x \le 25$) sao cho $3x + 2$ chia $26$ dư $y$, tức là $3x = y - 2$, hoặc
+$y - 2 + 26$, hoặc $y - 2 + 52$ (thử lần lượt, lấy số chia hết cho $3$).
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Chữ mã & $y$ & Thử $y - 2,\ y + 24,\ y + 50$ & $3x$ & Chữ gốc\\ \hline
+E & $4$ & $2$ (không), $28$ (không), $54$ (chia hết) & $54 \Rightarrow x = 18$ & S\\ \hline
+C & $2$ & $0$ (chia hết) & $0 \Rightarrow x = 0$ & A\\ \hline
+S & $18$ & $16$ (không), $42$ (chia hết) & $42 \Rightarrow x = 14$ & O\\ \hline
+\end{tabular}
+\end{center}
+Từ gốc là \textsf{SAO}.
+\step{3}{Câu c): vì sao $2x + 2$ không dùng được}
+A $= 0$: $2\cdot 0 + 2 = 2$ $\to$ C. \quad N $= 13$: $2\cdot 13 + 2 = 28$, chia $26$ dư $2$ $\to$ C.\\
+Hai chữ A và N cùng thành chữ C. Khi nhận được chữ C, người giải mã không biết chữ gốc là A hay N, nên không giải mã chắc chắn
+được. (Thực ra mọi số $2x + 2$ đều chẵn, nên chỉ có $13$ chữ mã cho $26$ chữ gốc -- chắc chắn có các cặp trùng nhau.)
+\step{4}{Câu d): vì sao $3x + 2$ không bị trùng}
+\begin{proofbox}Giả sử hai chữ $x$ và $z$ (với $0 \le z < x \le 25$) có cùng chữ mã. Khi đó $3x + 2$ và $3z + 2$ có cùng số dư khi
+chia cho $26$, nên hiệu của chúng $3(x - z)$ chia hết cho $26$. Nhưng $3$ và $26$ không có ước chung nào lớn hơn $1$, nên
+$x - z$ phải chia hết cho $26$. Mà $0 < x - z \le 25$ -- không thể chia hết cho $26$. Mâu thuẫn. Vậy hai chữ khác nhau luôn có chữ
+mã khác nhau.\end{proofbox}
+\begin{warnbox}Với $2x + 2$, lập luận trên hỏng ở chỗ: $2(x - z)$ chia hết cho $26$ chỉ cần $x - z$ chia hết cho $13$, ví dụ
+$x - z = 13$ (A và N).\end{warnbox}
+\verify{Mã hoá lại \textsf{SAO}: S $3\cdot 18 + 2 = 56 \to 56 - 52 = 4$ (E); A $\to 2$ (C); O $\to 44 - 26 = 18$ (S). Được
+\textsf{ECS}, đúng.}
+\ans{a) \textsf{MOS};\ b) \textsf{SAO};\ c) A và N đều thành C;\ d) xem chứng minh}
+}
+
+% ---------------------------------------------------------------- Bài 37
+\begin{probbox}{37}{\relax}
+Trong một \emph{hình vuông kì diệu} $3\times 3$, tổng các số trên mỗi hàng, mỗi cột và mỗi đường chéo đều bằng nhau (gọi là
+\emph{tổng kì diệu} $M$).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Gọi $c$ là số ở ô chính giữa. Chứng minh rằng $M = 3c$.
+  \item Điền nốt các ô trống của hình vuông kì diệu dưới đây.
+\end{enumerate}
+\begin{figC}
+\lgxcdSud{3}{3}{3}{0/0/9,0/1/19,2/2/13}{}
+\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ở câu b) chỉ biết ba số, không có số ở giữa và cũng không biết $M$. Câu a) chính là ``chìa khoá'': nó liên
+hệ số ở giữa với $M$.
+\step{1}{Câu a): cộng bốn đường đi qua ô giữa}
+Đặt tên các ô:
+\begin{figC}
+\lgxcdSud{3}{3}{3}{0/0/$a$,0/1/$b$,0/2/$d$,1/0/$e$,1/1/$c$,1/2/$f$,2/0/$g$,2/1/$h$,2/2/$i$}{}
+\end{figC}
+Có bốn đường đi qua ô giữa: hàng giữa $e + c + f$, cột giữa $b + c + h$, hai đường chéo $a + c + i$ và $d + c + g$. Cộng bốn
+tổng này:
+\[ (e + c + f) + (b + c + h) + (a + c + i) + (d + c + g) = 4M. \]
+Vế trái chứa mỗi ô ngoài đúng \emph{một} lần, còn ô giữa $c$ xuất hiện \emph{bốn} lần. Vậy vế trái bằng
+(tổng cả $9$ ô) $+\, 3c$.
+\begin{proofbox}Tổng cả $9$ ô bằng tổng của ba hàng, tức $3M$. Do đó $3M + 3c = 4M$, suy ra $3c = M$.\end{proofbox}
+\step{2}{Câu b): tìm số ở giữa}
+Đường chéo chính đi qua $9$, ô giữa $c$ và $13$: \ $9 + c + 13 = M = 3c$. Suy ra $22 = 2c$, $c = 11$ và $M = 33$.
+\step{3}{Điền lần lượt các ô (mỗi lần chọn một đường chỉ còn thiếu một ô)}
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Hàng trên: $33 - 9 - 19 = 5$ (góc trên phải).
+  \item Đường chéo phụ: $33 - 5 - 11 = 17$ (góc dưới trái).
+  \item Cột trái: $33 - 9 - 17 = 7$; \quad hàng giữa: $33 - 7 - 11 = 15$.
+  \item Hàng dưới: $33 - 17 - 13 = 3$.
+\end{itemize}
+\begin{figC}
+\lgxcdSud{3}{3}{3}{0/0/9,0/1/19,2/2/13}{0/2/5,1/0/7,1/1/11,1/2/15,2/0/17,2/1/3}
+\end{figC}
+\verify{Cột giữa $19 + 11 + 3 = 33$; cột phải $5 + 15 + 13 = 33$; hàng giữa $7 + 11 + 15 = 33$; hai đường chéo $9 + 11 + 13$ và
+$5 + 11 + 17$ đều bằng $33$.}
+\begin{tipbox}Kết quả $M = 3c$ đúng với \emph{mọi} hình vuông kì diệu $3\times 3$, kể cả khi có số âm hay phân số.\end{tipbox}
+\ans{a) xem chứng minh;\quad b) hàng trên $9, 19, 5$; hàng giữa $7, 11, 15$; hàng dưới $17, 3, 13$}
+}
+
+% ---------------------------------------------------------------- Bài 38
+\begin{probbox}{38}{\relax}
+Ba chiếc cân hai đĩa dưới đây đều thăng bằng. Các vật cùng hình dạng thì nặng bằng nhau.
+\begin{figC}
+\lgxcdBal{0}{2}{2,3}{5}{1,1,1,1,1}
+\lgxcdBal{-1.5}{2}{3,3}{4}{1,1,1,1}
+\lgxcdBal{-3}{2}{4,1}{2}{2,2}
+\node[font=\small\bfseries,text=Slate] at (-3.3,0){(1)};
+\node[font=\small\bfseries,text=Slate] at (-3.3,-1.5){(2)};
+\node[font=\small\bfseries,text=Slate] at (-3.3,-3){(3)};
+\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Mỗi vật \lgxcdI{3}, \lgxcdI{2}, \lgxcdI{4} nặng bằng bao nhiêu vật \lgxcdI{1}?
+  \item Cần bao nhiêu vật \lgxcdI{3} để cân bằng với \lgxcdI{4}\,\lgxcdI{4}\,\lgxcdI{2}\,\lgxcdI{2}?
+  \item Biết mỗi vật \lgxcdI{1} nặng $12$ g. Ba vật \lgxcdI{4}\,\lgxcdI{3}\,\lgxcdI{2} nặng tất cả bao nhiêu gam?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Chọn \lgxcdI{1} làm ``đơn vị đo''. Ta tìm cân nào chỉ có \emph{một loại} vật lạ, giải nó trước, rồi thay
+vào các cân còn lại.
+\begin{recallbox}Cân thăng bằng giống như một đẳng thức. Ta có thể bỏ (hoặc thêm) những vật giống nhau ở cả hai đĩa, hoặc chia
+cả hai đĩa thành các phần bằng nhau, cân vẫn thăng bằng.\end{recallbox}
+\step{1}{Cân (2): tìm \lgxcdI{3}}
+Hai \lgxcdI{3} cân bằng bốn \lgxcdI{1}. Chia đôi mỗi đĩa: một \lgxcdI{3} cân bằng hai \lgxcdI{1}. \quad
+\lgxcdI{3} $= 2$ \lgxcdI{1}.
+\step{2}{Cân (1): tìm \lgxcdI{2}}
+\lgxcdI{2}\,\lgxcdI{3} cân bằng năm \lgxcdI{1}. Thay \lgxcdI{3} bằng hai \lgxcdI{1}: \lgxcdI{2} cùng hai \lgxcdI{1} cân bằng năm
+\lgxcdI{1}. Bỏ hai \lgxcdI{1} ở mỗi đĩa: \lgxcdI{2} $= 3$ \lgxcdI{1}.
+\step{3}{Cân (3): tìm \lgxcdI{4}}
+\lgxcdI{4}\,\lgxcdI{1} cân bằng hai \lgxcdI{2}, tức là $2\times 3 = 6$ \lgxcdI{1}. Bỏ một \lgxcdI{1} ở mỗi đĩa:
+\lgxcdI{4} $= 5$ \lgxcdI{1}.
+\step{4}{Câu b)}
+\lgxcdI{4}\,\lgxcdI{4}\,\lgxcdI{2}\,\lgxcdI{2} nặng bằng $5 + 5 + 3 + 3 = 16$ \lgxcdI{1}. Mỗi \lgxcdI{3} bằng $2$ \lgxcdI{1},
+nên cần $16 : 2 = 8$ vật \lgxcdI{3}.
+\step{5}{Câu c)}
+\lgxcdI{4}\,\lgxcdI{3}\,\lgxcdI{2} nặng bằng $5 + 2 + 3 = 10$ \lgxcdI{1}, tức là $10\times 12 = 120$ (g).
+\begin{tipbox}Nếu gọi khối lượng các vật là $t$ (tam giác), $v$ (vuông), $s$ (sao), $o$ (tròn) thì ba cân chính là ba đẳng thức:
+$v + t = 5o$; \ $2t = 4o$; \ $s + o = 2v$. Giải lần lượt được $t = 2o$, $v = 3o$, $s = 5o$.\end{tipbox}
+\verify{Cân (1): $3 + 2 = 5$. Cân (2): $2 + 2 = 4$. Cân (3): $5 + 1 = 6 = 3 + 3$. Cả ba cân đều thăng bằng.}
+\ans{a) \lgxcdI{3} $= 2$, \lgxcdI{2} $= 3$, \lgxcdI{4} $= 5$ vật \lgxcdI{1};\quad b) $8$ vật \lgxcdI{3};\quad c) $120$ g}
+}
+
+% ---------------------------------------------------------------- Bài 39
+\begin{probbox}{39}{\relax}
+Hình ``bánh xe'' dưới đây có $7$ ô tròn: một ô ở tâm và $6$ ô trên vành, tạo thành $3$ ``nan hoa'' thẳng, mỗi nan gồm $3$ ô
+(hai ô đối diện trên vành và ô ở tâm). Cần điền các số $1, 2, 3, 4, 5, 6, 7$, mỗi số vào một ô, sao cho tổng ba số trên mỗi nan
+hoa đều bằng cùng một số $S$.
+\begin{figC}
+\foreach \a in {90,150,210}{\draw[Ink,line width=0.9pt] (\a:1.5)--(\a+180:1.5);}
+\draw[Line,line width=0.8pt] (0,0) circle (1.5);
+\foreach \a in {30,90,...,330}{\draw[Ink,fill=white,line width=0.9pt] (\a:1.5) circle (0.3);}
+\draw[Ink,fill=tmBlue!12,line width=0.9pt] (0,0) circle (0.3);
+\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Gọi số ở tâm là $c$. Chứng minh rằng $3S = 28 + 2c$.
+  \item Suy ra số ở tâm chỉ có thể là $1$, $4$ hoặc $7$. Với mỗi trường hợp, tìm $S$ và chỉ ra một cách điền.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Đây là kĩ thuật ``đếm hai lần'': cộng tất cả các nan hoa lại, rồi xem mỗi ô được tính mấy lần.
+\step{1}{Câu a): cộng ba nan hoa}
+Ba nan hoa có tổng $S + S + S = 3S$. Trong phép cộng này, mỗi ô trên vành được tính \emph{một} lần (mỗi ô vành chỉ nằm trên một
+nan), còn ô tâm được tính \emph{ba} lần. Vậy
+\[ 3S = (1 + 2 + \dots + 7) + 2c = 28 + 2c. \]
+\begin{recallbox}$1 + 2 + 3 + 4 + 5 + 6 + 7 = 28$. Ô tâm đã có mặt một lần trong tổng $28$, nên chỉ cần cộng thêm $2c$ (hai lần
+còn lại).\end{recallbox}
+\step{2}{Câu b): $c$ nhận giá trị nào?}
+$3S$ chia hết cho $3$, nên $28 + 2c$ phải chia hết cho $3$. Thử $c = 1, 2, \dots, 7$:
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} $c$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$\\ \hline
+$28 + 2c$ & $\mathbf{30}$ & $32$ & $34$ & $\mathbf{36}$ & $38$ & $40$ & $\mathbf{42}$\\ \hline
+Chia hết cho $3$? & có & không & không & có & không & không & có\\ \hline
+\end{tabular}
+\end{center}
+Vậy $c \in \{1; 4; 7\}$, tương ứng $S = 10$; $12$; $14$.
+\step{3}{Điền cụ thể}
+Mỗi nan hoa: hai ô đối diện phải có tổng $S - c$, nên ta chia $6$ số còn lại thành $3$ cặp có tổng bằng nhau.
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item $c = 1$, $S = 10$: các cặp có tổng $9$: $(2, 7), (3, 6), (4, 5)$.
+  \item $c = 4$, $S = 12$: các cặp có tổng $8$: $(1, 7), (2, 6), (3, 5)$.
+  \item $c = 7$, $S = 14$: các cặp có tổng $7$: $(1, 6), (2, 5), (3, 4)$.
+\end{itemize}
+\begin{figC}
+\foreach \cx/\cc/\p in {0/1/{2,3,4,7,6,5},4/4/{1,2,3,7,6,5},8/7/{1,2,3,6,5,4}}{
+ \begin{scope}[xshift=\cx cm,scale=0.7]
+  \foreach \a in {90,150,210}{\draw[Ink,line width=0.8pt] (\a:1.5)--(\a+180:1.5);}
+  \foreach \v [count=\k from 0] in \p{\draw[Ink,fill=white,line width=0.8pt] (90+\k*60:1.5) circle (0.33);
+     \node[font=\sffamily\small\bfseries,text=tmBlue] at (90+\k*60:1.5){\v};}
+  \draw[Ink,fill=tmBlue!12,line width=0.8pt] (0,0) circle (0.33); \node[font=\sffamily\small\bfseries] at (0,0){\cc};
+ \end{scope}}
+\node[font=\small] at (0,-1.55){$S = 10$}; \node[font=\small] at (4,-1.55){$S = 12$}; \node[font=\small] at (8,-1.55){$S = 14$};
+\end{figC}
+\begin{warnbox}Đừng nghĩ ``số ở giữa phải là số ở giữa dãy (số $4$)''. Cả $1$ và $7$ cũng đặt ở tâm được!\end{warnbox}
+\verify{$S = 10$: $1 + 2 + 7 = 1 + 3 + 6 = 1 + 4 + 5 = 10$. \ $S = 12$: $4 + 1 + 7 = 4 + 2 + 6 = 4 + 3 + 5 = 12$. \
+$S = 14$: $7 + 1 + 6 = 7 + 2 + 5 = 7 + 3 + 4 = 14$.}
+\ans{a) xem chứng minh;\quad b) $c = 1, S = 10$;\ \ $c = 4, S = 12$;\ \ $c = 7, S = 14$ (cách điền như hình)}
+}
+
+% ---------------------------------------------------------------- Bài 40
+\begin{probbox}{40}{\stars{1}}
+Điền các số $1, 2, 3, 4, 5, 6$, mỗi số vào một ô tròn trên các cạnh của tam giác (ba ô ở ba đỉnh, ba ô ở giữa ba cạnh), sao cho
+tổng ba số trên mỗi cạnh đều bằng cùng một số $S$.
+\begin{figC}
+\draw[Ink,line width=0.9pt] (0,2.2)--(-2.2,-1.3)--(2.2,-1.3)--cycle;
+\foreach \p in {(0,2.2),(-2.2,-1.3),(2.2,-1.3),(-1.1,0.45),(1.1,0.45),(0,-1.3)}{\draw[Ink,fill=white,line width=0.9pt] \p circle (0.3);}
+\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Gọi $V$ là tổng ba số ở ba đỉnh. Chứng minh rằng $3S = 21 + V$. Từ đó tìm mọi giá trị có thể của $S$.
+  \item Với mỗi giá trị của $S$, hãy chỉ ra một cách điền.
+  \item Khi $S = 10$, ba số ở ba đỉnh là những số nào? Giải thích vì sao không còn khả năng nào khác.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Giống Bài 39, ta ``đếm hai lần'': mỗi ô ở đỉnh nằm trên \emph{hai} cạnh, mỗi ô giữa cạnh nằm trên
+\emph{một} cạnh.
+\step{1}{Câu a): cộng ba cạnh}
+Tổng ba cạnh là $3S$. Trong đó mỗi số ở giữa cạnh được tính một lần, mỗi số ở đỉnh được tính hai lần. Vậy
+\[ 3S = (1 + 2 + 3 + 4 + 5 + 6) + V = 21 + V. \]
+\step{2}{Giới hạn của $V$}
+$V$ là tổng của ba số khác nhau trong $1, \dots, 6$: nhỏ nhất $1 + 2 + 3 = 6$, lớn nhất $4 + 5 + 6 = 15$. Ngoài ra
+$21 + V$ chia hết cho $3$, mà $21$ chia hết cho $3$, nên $V$ chia hết cho $3$:
+\[ V \in \{6;\ 9;\ 12;\ 15\} \quad\Rightarrow\quad S = \frac{21 + V}{3} \in \{9;\ 10;\ 11;\ 12\}. \]
+\begin{recallbox}Nếu $a$ chia hết cho $3$ và $a + b$ chia hết cho $3$ thì $b$ cũng chia hết cho $3$.\end{recallbox}
+\step{3}{Câu b): một cách điền cho mỗi $S$}
+Ta chọn ba số ở đỉnh có tổng $V$, rồi lấy $S$ trừ đi tổng hai số ở hai đầu cạnh để được số ở giữa cạnh đó.
+\begin{figC}
+\foreach \cx/\S/\t/\l/\r/\ml/\mr/\mb in {0/9/1/2/3/6/5/4, 3.6/10/1/3/5/6/4/2, 7.2/11/2/4/6/5/3/1, 10.8/12/4/5/6/3/2/1}{
+ \begin{scope}[xshift=\cx cm,scale=0.62]
+  \draw[Ink,line width=0.8pt] (0,2.2)--(-2.2,-1.3)--(2.2,-1.3)--cycle;
+  \foreach \p/\v/\col in {(0,2.2)/\t/Ink,(-2.2,-1.3)/\l/Ink,(2.2,-1.3)/\r/Ink,(-1.1,0.45)/\ml/tmBlue,(1.1,0.45)/\mr/tmBlue,(0,-1.3)/\mb/tmBlue}{
+    \draw[Ink,fill=white,line width=0.8pt] \p circle (0.36); \node[font=\sffamily\small\bfseries,text=\col] at \p {\v};}
+  \node[font=\small] at (0,-2.2){$S = \S$};
+ \end{scope}}
+\end{figC}
+Ví dụ với $S = 9$: đỉnh $1, 2, 3$; cạnh $1$--$2$ cần $9 - 3 = 6$; cạnh $1$--$3$ cần $9 - 4 = 5$; cạnh $2$--$3$ cần $9 - 5 = 4$.
+\step{4}{Câu c): $S = 10$ thì $V = 3\cdot 10 - 21 = 9$}
+Các bộ ba số khác nhau có tổng $9$: $\{1, 2, 6\}$, $\{1, 3, 5\}$, $\{2, 3, 4\}$. Thử từng bộ:
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Đỉnh $\{1, 2, 6\}$: cạnh nối $1$ và $2$ cần ô giữa là $10 - 3 = 7$ -- không có số $7$. \textbf{Loại.}
+  \item Đỉnh $\{2, 3, 4\}$: cạnh nối $3$ và $4$ cần $10 - 7 = 3$ -- nhưng $3$ đã ở đỉnh. \textbf{Loại.}
+  \item Đỉnh $\{1, 3, 5\}$: các ô giữa là $10 - 4 = 6$, $10 - 6 = 4$, $10 - 8 = 2$ -- đúng là ba số còn lại $2, 4, 6$.
+  \textbf{Được.}
+\end{itemize}
+Vậy khi $S = 10$, ba số ở đỉnh bắt buộc là $1, 3, 5$.
+\begin{warnbox}Điều kiện ``$V$ chia hết cho $3$'' chỉ là điều kiện \emph{cần}: nó cho biết $S$ \emph{có thể} bằng bao nhiêu, nhưng
+vẫn phải chỉ ra cách điền cụ thể (câu b) và kiểm tra từng bộ (câu c).\end{warnbox}
+\begin{parentbox}Cho con cắt $6$ mẩu giấy ghi số $1$ đến $6$ và xếp thử trên hình vẽ. Sau vài lần thử, hỏi con: ``Số ở đỉnh được
+cộng mấy lần?'' -- đó là ý chính của lời giải.\end{parentbox}
+\verify{$S = 10$: $1 + 6 + 3 = 3 + 4 + 5 = 5 + 2 + 1 = 10$. $S = 12$: $4 + 3 + 5 = 5 + 1 + 6 = 6 + 2 + 4 = 12$.}
+\ans{a) $S \in \{9; 10; 11; 12\}$;\quad b) như hình;\quad c) đỉnh là $1, 3, 5$}
+}
