@@ -1,0 +1,742 @@
+% ===== Topic 2, part b: problems 16-30 (EN) =====
+% helper: 2x2 grid with one letter; #1,#2 = centre of the cell, #3 = letter, #4 = node transform
+\providecommand{\tbGrid}[4]{\begin{tikzpicture}[baseline=0.2cm,x=0.5cm,y=0.5cm]
+  \draw[Ink,line width=0.7pt] (0,0) grid[step=1] (2,2);
+  \node[font=\sffamily\bfseries,text=tmBlue!80!black,inner sep=0pt,#4] at (#1,#2) {#3};\end{tikzpicture}}
+
+% ---------------------------------------------------------------- 16
+\begin{probbox}{16}{\relax}
+A rectangular garden has a length that is $6$ m more than \emph{twice} its width.
+The perimeter of the garden is $120$ m. How many metres wide is the garden?
+\choices{$8$ m}{$18$ m}{$27$ m}{$38$ m}{$22$ m}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We know two things: (1) length $=$ twice the width, plus $6$ m;
+(2) perimeter $=120$ m. We must find the width.
+
+\step{1}{Call the width $r$ (m) and express the length in terms of $r$}
+``Twice the width'' is $2r$; ``$6$ m more than twice the width'' means the length is $2r+6$ (m).
+We draw a bar model:
+\begin{barfigC}
+\rowlab{-0.15}{0}{Length}
+\blk{0}{2}{0}{0.6}{tmBlue}{$r$}\blk{2}{4}{0}{0.6}{tmBlue}{$r$}\blk{4}{5.1}{0}{0.6}{tmOrange}{$6$}
+\rowlab{-0.15}{-0.9}{Width}
+\blk{0}{2}{-0.9}{0.6}{tmBlue}{$r$}
+\vbrace{5.3}{0.3}{-1.2}{half perimeter $=60$ m}
+\end{barfigC}
+
+\begin{recallbox}Perimeter of a rectangle $=(\text{length}+\text{width})\times 2$. Therefore
+$\text{length}+\text{width}=$ perimeter $\div 2$ (called the \emph{half perimeter}).\end{recallbox}
+
+\step{2}{Compute the half perimeter}
+$120\div 2=60$ (m). So length $+$ width $=60$ m.
+
+\step{3}{Write and solve the equation}
+From the bar model: length $+$ width consists of $3$ bars $r$ and one bar of $6$ m:
+\[ (2r+6)+r=60 \;\Rightarrow\; 3r+6=60 \;\Rightarrow\; 3r=60-6=54 \;\Rightarrow\; r=54\div 3=18. \]
+The width is $18$ m and the length is $2\cdot 18+6=42$ (m).
+
+\begin{warnbox}Many students forget to halve the perimeter and write $3r+6=120$, which gives $r=38$ -- exactly
+the ``trap'' option (D). Remember: the perimeter contains \emph{two} lengths and \emph{two} widths.\end{warnbox}
+
+\verify{Length $42$ m, width $18$ m: $42=2\cdot 18+6$ (correct) and the perimeter is
+$(42+18)\cdot 2=60\cdot 2=120$ m (correct).}
+A width of $18$ m is option \textbf{(B)}.
+\ans{(B) $18$ m}
+}
+
+% ---------------------------------------------------------------- 17
+\begin{probbox}{17}{\relax}
+The letter P is written in a $2\times 2$ grid of squares as shown: \tbGrid{1.5}{1.5}{P}{}\,.
+A sequence of rotations about the centre of the grid and reflections in the two lines through the centre
+of the grid (the horizontal line and the vertical line) is carried out, and the result is:
+\tbGrid{0.5}{0.5}{P}{cm={0,-1,-1,0,(0,0)}}\,.
+
+If \emph{exactly the same sequence of transformations} is applied to the grid \tbGrid{0.5}{1.5}{A}{}, which
+picture do we get?
+\par\smallskip\noindent
+\begin{tabularx}{\linewidth}{@{}XXXXX@{}}
+(A) \tbGrid{0.5}{1.5}{A}{} & (B) \tbGrid{0.5}{1.5}{A}{rotate=90} & (C) \tbGrid{1.5}{0.5}{A}{rotate=-90} &
+(D) \tbGrid{1.5}{0.5}{A}{} & (E) \tbGrid{1.5}{0.5}{A}{rotate=180}
+\end{tabularx}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We do not know which individual steps the sequence contains, but we know
+its \emph{final effect} on the letter P. Idea: imagine the grid is a square \emph{card} made of clear plastic
+with the letter drawn on it. Every rotation or reflection just turns or flips the card and puts it back in the
+same place. The whole sequence is therefore also just \emph{one way of putting the card back}. We read off that
+way from the picture of P, and then apply it to A.
+
+\step{1}{See where the letter P went}
+The letter P in the \emph{top-right} cell has moved to the \emph{bottom-left} cell. At the same time, the
+straight stroke of P (its ``stem''), which was vertical, is now horizontal at the top; the round ``bowl'', which
+was to the right of the stem, is now underneath it.
+
+\step{2}{Find out how the card was put back}
+There are two ways of putting the card back that move the top-right cell to the bottom-left cell:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item a $180^\circ$ rotation: then P would be upside down (its stem still \emph{vertical}, looking like a ``d'');
+\item a reflection in the diagonal joining the top-left corner to the bottom-right corner (the dashed line in the
+picture below): then the vertical stem of P becomes \emph{horizontal}.
+\end{itemize}
+In the given picture the stem is horizontal, so the sequence acts like the
+\textbf{reflection in the top-left -- bottom-right diagonal}.
+\begin{figC}\begin{scope}[x=0.8cm,y=0.8cm]
+\draw[Ink,line width=0.8pt] (0,0) grid[step=1] (2,2);
+\draw[tmOrange,dashed,line width=1pt] (-0.3,2.3)--(2.3,-0.3);
+\node[font=\sffamily\bfseries\large,text=tmBlue] at (1.5,1.5){P};
+\node[font=\sffamily\bfseries\large,text=tmGreen!80!black,cm={0,-1,-1,0,(0,0)}] at (0.5,0.5){P};
+\draw[->,tmPurple,thick] (1.55,1.15) to[bend left=35] (0.85,0.45);
+\node[font=\footnotesize,text=tmOrange!80!black,anchor=west] at (2.3,-0.3){mirror line};
+\begin{scope}[xshift=4.2cm]
+\draw[Ink,line width=0.8pt] (0,0) grid[step=1] (2,2);
+\draw[tmOrange,dashed,line width=1pt] (-0.3,2.3)--(2.3,-0.3);
+\node[font=\sffamily\bfseries\large,text=tmBlue] at (0.5,1.5){A};
+\node[font=\footnotesize,text=Slate] at (1,-0.45){A lies on the line};
+\end{scope}
+\end{scope}\end{figC}
+\begin{recallbox}A sequence of rotations about the centre and reflections in the horizontal and vertical lines can
+have the same effect as a reflection in a diagonal. For example: \emph{a $90^\circ$ clockwise rotation followed
+by a reflection in the vertical line}. Check with P: the $90^\circ$ rotation takes P from the top-right cell down
+to the bottom-right cell, the reflection in the vertical line takes it to the bottom-left cell, and the stem of P
+is horizontal -- exactly as in the given picture.\end{recallbox}
+
+\step{3}{Apply it to the letter A}
+The top-left cell lies \emph{right on} the mirror line (the diagonal passes through it), so the letter A
+\emph{stays in the top-left cell}. This diagonal reflection turns the direction ``up'' into the direction
+``left''. The tip of A, which pointed up, now points left. The letter A is symmetric left-to-right, so we need
+not worry about it being ``mirrored''.
+
+\begin{warnbox}Do not look only at the position of the cell! P moved from the top-right to the bottom-left
+cell, but that does \emph{not} mean A also ``moves diagonally down''. First find the transformation of
+\emph{the whole card}, then apply it.\end{warnbox}
+
+\verify{Use the concrete sequence ``$90^\circ$ clockwise rotation, then reflection in the vertical line'': the
+rotation moves A from the top-left to the top-right cell with its tip pointing right; the reflection in the
+vertical line brings A back to the top-left cell with its tip pointing left. This is picture (B).}
+\ans{(B) A in the top-left cell, tip pointing left}
+}
+
+% ---------------------------------------------------------------- 18
+\begin{probbox}{18}{\relax}
+In a square with side $8$ cm, the two diagonals are drawn. What is the area of the shaded region?
+\begin{figC}\begin{scope}[x=0.38cm,y=0.38cm]
+\fill[tmBlue!35] (0,0)--(8,0)--(4,4)--cycle;
+\draw[Ink,line width=1pt] (0,0) rectangle (8,8);
+\draw[Ink,line width=0.9pt] (0,0)--(8,8) (0,8)--(8,0);
+\node[left] at (0,4){$8$ cm};
+\end{scope}\end{figC}
+\choices{$4$ cm$^2$}{$8$ cm$^2$}{$16$ cm$^2$}{$56$ cm$^2$}{$64$ cm$^2$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The two diagonals divide the square into $4$ triangles. The shaded region is
+one of these four triangles. We need its area.
+
+\step{1}{Compute the area of the square}
+\begin{recallbox}The area of a square with side $a$ is $a\times a$.\end{recallbox}
+$A_{\text{square}}=8\times 8=64$ (cm$^2$).
+
+\step{2}{Show that the four triangles have equal areas}
+\begin{proofbox}The two diagonals of a square are equal and bisect each other at a point $O$, so $O$ is the same
+distance from all four vertices. Rotating the square $90^\circ$ about $O$ moves each triangle exactly onto the
+next one. So the four triangles are identical, and each is $\tfrac14$ of the square.\end{proofbox}
+
+\step{3}{Compute the shaded area}
+$A=64\div 4=16$ (cm$^2$).
+
+\verify{Direct calculation: the shaded triangle has the bottom side as its base, $8$ cm, and its height is the
+distance from the centre $O$ to that side, which is half the side, $4$ cm. Area $=\dfrac{8\times 4}{2}=16$
+cm$^2$. It matches.}
+Option \textbf{(C)}.
+\ans{(C) $16$ cm$^2$}
+}
+
+% ---------------------------------------------------------------- 19
+\begin{probbox}{19}{\relax}
+The grid below is made of identical small squares. What percentage of the area of the whole grid is shaded?
+\begin{figC}\begin{scope}[x=0.36cm,y=0.36cm]
+\foreach \r in {0,...,7}{\foreach \c in {0,...,7}{\fill[tmBlue!40] (\c,\r) rectangle (\c+1,\r+1);}}
+\foreach \c/\r in {2/7,5/7,2/6,5/6,0/5,1/5,6/5,7/5,0/2,1/2,6/2,7/2,2/1,5/1,2/0,5/0}{\fill[white] (\c,\r) rectangle (\c+1,\r+1);}
+\draw[Ink,line width=0.7pt] (0,0) grid[step=1] (8,8);
+\end{scope}\end{figC}
+\choices{$84\%$}{$80\%$}{$90\%$}{$75\%$}{$66\%$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} To find a percentage we need to know how many squares there are in total and
+how many are shaded. Counting the \emph{white} squares is quicker because there are fewer of them.
+
+\step{1}{Count all the squares}
+The grid has $8$ rows of $8$ squares: $8\times 8=64$ squares.
+
+\step{2}{Count the white squares}
+The white squares form $8$ ``pairs'' of two adjacent squares, placed symmetrically on the four sides:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item top two rows: columns $3$ and $6$ have a white square in both rows: $4$ squares;
+\item bottom two rows: likewise, $4$ squares;
+\item row $3$ (from the top): $2$ white squares at the left edge and $2$ at the right edge: $4$ squares;
+\item row $6$: likewise, $4$ squares.
+\end{itemize}
+Total number of white squares: $4+4+4+4=16$.
+
+\step{3}{Count the shaded squares and convert to a percentage}
+Number of shaded squares: $64-16=48$.
+\begin{recallbox}The percentage that $a$ is of $b$ equals $\dfrac{a}{b}\times 100\%$.\end{recallbox}
+\[\frac{48}{64}=\frac{3}{4}=\frac{75}{100}=75\%.\]
+
+\begin{tipbox}You do not even need to count everything: the white squares make up $\dfrac{16}{64}=\dfrac14=25\%$,
+so the shaded squares make up $100\%-25\%=75\%$.\end{tipbox}
+
+\verify{$75\%$ of $64$ is $64\times\dfrac34=48$ squares, and $48+16=64$. Correct.}
+Option \textbf{(D)}.
+\ans{(D) $75\%$}
+}
+
+% ---------------------------------------------------------------- 20
+\begin{probbox}{20}{\relax}
+$JKLM$ is a square and $PQRS$ is a rectangle; they overlap as shown in the diagram. Given that $JK$ is parallel
+to $PQ$, $JK=8$ and $PS=2$, find the total area of the shaded regions.
+\begin{figC}\begin{scope}[x=0.3cm,y=0.3cm]
+\fill[tmBlue!35] (5,-3) rectangle (13,5);
+\draw[Ink,line width=0.9pt] (5,-3) rectangle (13,5);
+\fill[white] (0,0) rectangle (18,2);
+\draw[Ink,line width=0.9pt] (0,0) rectangle (18,2);
+\node[above left] at (0,2){$P$};\node[above right] at (18,2){$Q$};
+\node[below right] at (18,0){$R$};\node[below left] at (0,0){$S$};
+\node[above] at (5,5){$J$};\node[above] at (13,5){$K$};
+\node[below] at (13,-3){$L$};\node[below] at (5,-3){$M$};
+\end{scope}\end{figC}
+\choices{$32$}{$16$}{$56$}{$48$}{$62$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The shaded part is the part of the square that is \emph{not} covered by the
+rectangular strip. So: shaded area $=$ area of the square $-$ area of the overlap of the two figures.
+
+\step{1}{Area of the square $JKLM$}
+\begin{recallbox}Area of a square $=$ side $\times$ side; area of a rectangle $=$ length $\times$ width.\end{recallbox}
+$A_{JKLM}=8\times 8=64$.
+
+\step{2}{Identify the overlap}
+Since $JK\parallel PQ$, the sides of the strip $PQRS$ are parallel to the side $JK$ of the square, i.e.\ the strip
+runs ``horizontally'' across the square. The strip is longer than the square, so it crosses the whole width of
+the square. The overlap is a rectangle with:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item length equal to the side of the square: $8$;
+\item width equal to the width of the strip: $PS=2$.
+\end{itemize}
+Area of the overlap: $8\times 2=16$.
+
+\step{3}{Compute the shaded area}
+$64-16=48$.
+
+\begin{warnbox}We do not need to know how high or low the strip is, or how big each shaded piece is: their total
+is always $64-16=48$. Many students only compute $8\times 2=16$ (option B) -- that is the \emph{covered} part, not
+the shaded part.\end{warnbox}
+
+\verify{Suppose the strip is $3$ below the top side $JK$; the top piece has area $8\times 3=24$, the bottom piece
+has height $8-3-2=3$, area $24$. Total $48$. Correct.}
+Option \textbf{(D)}.
+\ans{(D) $48$}
+}
+
+% ---------------------------------------------------------------- 21
+\begin{probbox}{21}{\relax}
+A triangle can be built with side lengths $4$, $5$, $8$, but \emph{no} triangle can be built with side lengths
+$4$, $5$, $10$. Using only the lengths $2$, $3$, $5$, $7$, $11$ (each length may be used more than once), how
+many different triangles with \emph{exactly two equal sides} can be built?
+\choices{$8$}{$5$}{$20$}{$10$}{$14$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} A triangle with exactly two equal sides is isosceles but not equilateral: two
+legs of length $a$ and a base of length $b$ with $b\neq a$. We must count the pairs $(a,b)$ taken from
+$\{2,3,5,7,11\}$ such that the three segments $a,a,b$ really form a triangle.
+
+\begin{recallbox}\textbf{Triangle inequality.} Three segments are the sides of a triangle exactly when the sum of
+any two of them is greater than the third. In practice it is enough to check that
+\emph{the two shorter segments add up to more than the longest one}. Example: $4+5=9>8$, so it works;
+$4+5=9<10$, so it does not.\end{recallbox}
+
+\step{1}{Simplify the condition for an isosceles triangle $a,a,b$}
+The sums to check are $a+a>b$ and $a+b>a$. The second is always true (since $b>0$). So we only need
+\[ 2a>b \quad\text{(twice the leg is greater than the base).}\]
+
+\step{2}{Make a table by the leg $a$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Leg $a$ & $2a$ & Base $b\ne a$ with $b<2a$ & Number of triangles\\ \hline
+$2$ & $4$ & $3$ & $1$\\
+$3$ & $6$ & $2,\ 5$ & $2$\\
+$5$ & $10$ & $2,\ 3,\ 7$ & $3$\\
+$7$ & $14$ & $2,\ 3,\ 5,\ 11$ & $4$\\
+$11$ & $22$ & $2,\ 3,\ 5,\ 7$ & $4$\\ \hline
+\end{tabular}
+\end{center}
+For instance, with $a=3$: the base $b=7$ does not work because $3+3=6<7$; $b=11$ does not work either.
+With $a=5$: $b=11$ does not work because $5+5=10<11$.
+
+\step{3}{Add up}
+$1+2+3+4+4=14$ triangles.
+
+\begin{warnbox}Triangles such as $2,2,5$ or $3,3,7$ ``look'' possible, but in fact the two legs are too short to
+meet. Also, the triangle $5,5,5$ has \emph{three} equal sides, so it is not counted.\end{warnbox}
+
+\verify{Count the other way: there are $5\times 4=20$ pairs $(a,b)$ with $b\neq a$. The rejected pairs (because
+$b\ge 2a$) are $(2,5),(2,7),(2,11),(3,7),(3,11),(5,11)$: $6$ pairs. $20-6=14$. It matches.}
+Option \textbf{(E)}.
+\ans{(E) $14$}
+}
+
+% ---------------------------------------------------------------- 22
+\begin{probbox}{22}{\relax}
+Parallelogram $PQRS$ has area $40$. Points $T$ and $V$ are the midpoints of sides $PS$ and $RS$ respectively.
+Find the area of quadrilateral $PRVT$.
+\begin{figC}\begin{scope}[x=0.55cm,y=0.55cm]
+\fill[tmBlue!25] (0,0)--(8,4)--(7,2)--(3,0)--cycle;
+\draw[Ink,line width=1pt] (0,0)--(2,4)--(8,4)--(6,0)--cycle;
+\draw[Ink,dashed,line width=0.8pt] (0,0)--(8,4) (3,0)--(7,2);
+\foreach \x in {1.5,4.5}{\draw[Ink] (\x,-0.15)--(\x,0.15);}
+\foreach \x/\y in {6.5/1,7.5/3}{\draw[Ink] (\x-0.15,\y+0.07)--(\x+0.15,\y-0.07);\draw[Ink] (\x-0.15,\y+0.17)--(\x+0.15,\y+0.03);}
+\node[below left] at (0,0){$P$};\node[above left] at (2,4){$Q$};
+\node[above right] at (8,4){$R$};\node[below right] at (6,0){$S$};
+\node[below] at (3,0){$T$};\node[right] at (7,2){$V$};
+\end{scope}\end{figC}
+\choices{$10$}{$12$}{$15$}{$16$}{$18$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Quadrilateral $PRVT$ is what remains when the small triangle $TVS$ at
+corner $S$ is removed from triangle $PRS$. So we compute $A_{PRS}$ and $A_{TVS}$.
+
+\step{1}{Area of triangle $PRS$}
+\begin{recallbox}A diagonal divides a parallelogram into two identical triangles, so each triangle has half the
+area of the parallelogram.\end{recallbox}
+$A_{PRS}=40\div 2=20$.
+
+\step{2}{Area of triangle $TRS$ (join $T$ to $R$)}
+\begin{recallbox}Two triangles with \emph{the same height} have areas in the same ratio as their bases. (Because
+the area of a triangle $=\tfrac12\times$ base $\times$ height.)\end{recallbox}
+Triangles $TRS$ and $PRS$ share the vertex $R$, and their bases $TS$ and $PS$ lie on the same line, so they have
+the same height from $R$. Since $T$ is the midpoint of $PS$, $TS=\tfrac12 PS$. Therefore
+$A_{TRS}=\tfrac12\cdot 20=10$.
+
+\step{3}{Area of triangle $TVS$}
+Triangles $TVS$ and $TRS$ share the vertex $T$, and their bases $VS$ and $RS$ lie on the line $RS$.
+Since $V$ is the midpoint of $RS$, $VS=\tfrac12 RS$, so $A_{TVS}=\tfrac12\cdot 10=5$.
+
+\step{4}{Area of quadrilateral $PRVT$}
+$A_{PRVT}=A_{PRS}-A_{TVS}=20-5=15$.
+
+\begin{tipbox}A ``half -- half'' triangle at a corner has area $\tfrac12\times\tfrac12=\tfrac14$ of the big
+triangle. This is a very useful fact!\end{tipbox}
+
+\verify{Place the figure on a grid: $P(0,0)$, $S(6,0)$, $R(8,4)$, $Q(2,4)$ (area $6\times4=24$, not $40$, but the
+ratios are the same). Then $T(3,0)$, $V(7,2)$; $A_{PRS}=12$, $A_{TVS}=\tfrac12\cdot 3\cdot 2=3$, so
+$A_{PRVT}=9=\tfrac{3}{8}\cdot 24$. For the given figure: $\tfrac38\cdot 40=15$. It matches.}
+Option \textbf{(C)}.
+\ans{(C) $15$}
+}
+
+% ---------------------------------------------------------------- 23
+\begin{probbox}{23}{\stars{1}}
+On a $10\times 10$ grid of squares (each square has side $1$), triangle $FGH$ is drawn as shown. Point $P$ can be
+any of the $41$ points where gridlines cross \emph{inside} (not on the sides of) triangle $FGH$. For each position
+of $P$ we get exactly three triangles: $FPG$, $GPH$, $HPF$. Of all these $123$ triangles, how many have an area
+\emph{exactly half} the area of triangle $FGH$?
+\begin{figC}\begin{scope}[x=0.36cm,y=0.36cm]
+\draw[Line,line width=0.5pt] (0,0) grid[step=1] (10,10);
+\draw[Ink,line width=1.3pt] (0,0)--(10,0)--(5,10)--cycle;
+\node[above] at (5,10){$F$};\node[below left] at (0,0){$G$};\node[below right] at (10,0){$H$};
+\end{scope}\end{figC}
+\choices{$5$}{$7$}{$3$}{$11$}{$9$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Use coordinates: $G(0,0)$, $H(10,0)$, $F(5,10)$. Triangle $FGH$ has base
+$GH=10$ and height $10$, so
+\[ A_{FGH}=\frac{10\times 10}{2}=50,\qquad \text{and half of it is } 25. \]
+We count, for each type of triangle $GPH$, $FPG$, $HPF$ in turn, the positions of $P$ that give area $25$.
+
+\begin{recallbox}Two triangles with \emph{the same base} have areas in the same ratio as their heights.
+Points that are the same distance from a line (on the same side) lie on a line parallel to it.\end{recallbox}
+
+\step{1}{Triangle $GPH$}
+Triangle $GPH$ has the same base $GH$ as triangle $FGH$. For half the area, the height from $P$ must be half of
+the height $10$, i.e.\ $5$. So $P$ lies on the 5th horizontal gridline (counting from $GH$).
+On this line, side $FG$ passes through the point with $x$-coordinate $2.5$ and side $FH$ through the point with
+$x$-coordinate $7.5$ (the midpoints of those sides). The grid points \emph{inside} have $x=3,4,5,6,7$:
+\[ (3,5),\ (4,5),\ (5,5),\ (6,5),\ (7,5)\quad\Rightarrow\quad 5 \text{ triangles.} \]
+
+\step{2}{Triangle $FPG$}
+This time the common base is $FG$. Let $M(5,0)$ be the midpoint of $GH$ and $N(7.5,5)$ the midpoint of $FH$.
+\begin{proofbox}Triangles $FMG$ and $FHG$ have the same height from $F$, and the base $GM=\tfrac12 GH$, so
+$A_{FMG}=\tfrac12 A_{FHG}=25$. So point $M$ is exactly half as far from $FG$ as $H$ is. The same holds for $N$
+(the midpoint of $FH$). Hence $A_{FPG}=25$ exactly when $P$ is the same distance from $FG$ as $M$, i.e.\ when $P$
+lies on the line $MN$ (parallel to $FG$).\end{proofbox}
+Going from $G$ to $F$ we move $5$ right and $10$ up, i.e.\ ``$1$ right, $2$ up''. Line $MN$ is parallel to $FG$,
+so from $M(5,0)$ we also go ``$1$ right, $2$ up'': we meet $(6,2)$, $(7,4)$, and then $N(7.5,5)$ (not a grid
+point). The two points $(6,2)$, $(7,4)$ are inside the triangle $\Rightarrow$ $2$ triangles.
+
+\step{3}{Triangle $HPF$}
+The figure is symmetric about the vertical line $x=5$, so the result is the same as in step 2: $P=(4,2)$ or
+$(3,4)$ $\Rightarrow$ $2$ triangles.
+
+\step{4}{Add up}
+$5+2+2=9$ triangles.
+
+\verify{Check $P(6,2)$ with the ``enclosing rectangle'' method: the rectangle from $x=0$ to $6$ and $y=0$ to $10$
+has area $60$. Remove the three right triangles outside triangle $FPG$: $\tfrac{5\cdot 10}{2}=25$,
+$\tfrac{1\cdot 8}{2}=4$, $\tfrac{6\cdot 2}{2}=6$. What remains is $60-35=25$, exactly half of $50$.}
+\begin{warnbox}Do not forget the two types $FPG$ and $HPF$! If you only consider triangles with the horizontal base
+$GH$, you will wrongly choose option (A) $5$.\end{warnbox}
+Option \textbf{(E)}.
+\ans{(E) $9$}
+}
+
+% ---------------------------------------------------------------- 24
+\begin{probbox}{24}{\stars{1}}
+Points $T,U,V,W,X,Y$ lie on the sides of square $PQRS$ as shown, with
+\[PT=TU=UQ=QV=VW=WR=XS=SY.\]
+What fraction of the area of square $PQRS$ is shaded?
+\begin{figC}\begin{scope}[x=1.25cm,y=1.25cm]
+\fill[tmBlue!35] (1,3)--(2,3)--(1.5,2.5)--(2.5,1.5)--(3,2)--(3,1)--(1,1)--cycle;
+\draw[Ink,line width=1pt] (0,0) rectangle (3,3);
+\draw[Ink,line width=0.9pt] (1,3)--(1,0) (0,1)--(2,3) (1,3)--(3,1) (1,0)--(3,2) (0,1)--(3,1);
+\foreach \x in {0.5,1.5,2.5}{\draw[Ink] (\x-0.03,2.92)--(\x-0.03,3.08) (\x+0.03,2.92)--(\x+0.03,3.08);}
+\foreach \y in {0.5,1.5,2.5}{\draw[Ink] (2.92,\y-0.03)--(3.08,\y-0.03) (2.92,\y+0.03)--(3.08,\y+0.03);}
+\draw[Ink] (0.47,-0.08)--(0.47,0.08) (0.53,-0.08)--(0.53,0.08);
+\draw[Ink] (-0.08,0.47)--(0.08,0.47) (-0.08,0.53)--(0.08,0.53);
+\node[above left] at (0,3){$P$};\node[above right] at (3,3){$Q$};\node[below right] at (3,0){$R$};
+\node[below left] at (0,0){$S$};\node[above] at (1,3){$T$};\node[above] at (2,3){$U$};
+\node[right] at (3,2){$V$};\node[right] at (3,1){$W$};\node[below] at (1,0){$X$};\node[left] at (0,1){$Y$};
+\end{scope}\end{figC}
+\par\smallskip\noindent
+\begin{tabularx}{\linewidth}{@{}XXXXX@{}}(A)\ $\dfrac{5}{18}$&(B)\ $\dfrac13$&(C)\ $\dfrac29$&(D)\ $\dfrac14$&(E)\ $\dfrac16$\end{tabularx}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each side of the square is divided into $3$ equal parts. Let each part have
+length $1$ unit; then the square has side $3$ and area $3\times 3=9$. A nice idea: draw extra lines dividing the
+square into a $3\times 3$ grid of unit squares (dotted lines); then every line in the figure becomes very ``tidy''.
+\begin{figC}\begin{scope}[x=1.25cm,y=1.25cm]
+\fill[tmBlue!12] (1,3)--(3,3)--(3,1)--(1,1)--cycle;
+\fill[tmBlue!40] (1,3)--(3,1)--(1,1)--cycle;
+\fill[tmOrange!50] (1,3)--(2,3)--(1.5,2.5)--cycle;
+\fill[tmGreen!50] (3,2)--(3,1)--(2.5,1.5)--cycle;
+\draw[Slate,densely dotted] (0,0) grid[step=1] (3,3);
+\draw[Ink,line width=1pt] (0,0) rectangle (3,3);
+\draw[Ink,line width=0.9pt] (1,3)--(1,0) (0,1)--(2,3) (1,3)--(3,1) (1,0)--(3,2) (0,1)--(3,1);
+\draw[tmOrange!80!black,dashed] (1,2)--(2,3) (1,3)--(2,2);
+\draw[tmGreen!70!black,dashed] (2,2)--(3,1) (2,1)--(3,2);
+\node[above left] at (0,3){$P$};\node[above right] at (3,3){$Q$};\node[below right] at (3,0){$R$};
+\node[below left] at (0,0){$S$};\node[above] at (1,3){$T$};\node[above] at (2,3){$U$};
+\node[right] at (3,2){$V$};\node[right] at (3,1){$W$};\node[below] at (1,0){$X$};\node[left] at (0,1){$Y$};
+\node[below left] at (1,1){$Z$};\node[font=\footnotesize] at (1.6,1.45){$2$};
+\end{scope}\end{figC}
+
+\step{1}{Recognise the three pieces of the shaded region}
+Let $Z$ be the point where $TX$ meets $YW$. The shaded region consists of three non-overlapping pieces: the big
+triangle $TZW$ (dark blue), the small triangle next to side $TU$ (orange) and the small triangle next to side
+$VW$ (green).
+
+\step{2}{Triangle $TZW$}
+$TQWZ$ is a $2\times 2$ square (made of $4$ unit squares) and $TW$ is its diagonal.
+\begin{recallbox}A diagonal divides a square (rectangle) into two triangles of equal area.\end{recallbox}
+So $A_{TZW}=\tfrac12\cdot 4=2$.
+
+\step{3}{The two small triangles}
+Look at the unit square whose top side is $TU$. Line $YU$ goes ``$1$ right, $1$ up'' through grid corners, so it
+contains one diagonal of this unit square; line $TW$ goes ``$1$ right, $1$ down'' from $T$, so it contains the
+other diagonal. The two diagonals of a square divide it into $4$ equal triangles, and the orange triangle is one
+of them: area $\tfrac14\cdot 1=\tfrac14$. In exactly the same way, the green triangle lies in the unit square whose
+right side is $VW$, cut by the two diagonals $XV$ and $TW$: its area is also $\tfrac14$.
+
+\step{4}{Compute the fraction}
+Shaded area: $2+\tfrac14+\tfrac14=\tfrac52$. The required fraction:
+\[ \frac{5}{2}\div 9=\frac{5}{2}\cdot\frac{1}{9}=\frac{5}{18}. \]
+
+\begin{warnbox}Do not ``estimate by eye''! The shaded part looks close to $\tfrac13$, but the exact calculation
+gives $\tfrac{5}{18}$ (a little less than $\tfrac{6}{18}=\tfrac13$).\end{warnbox}
+\verify{Put $S(0,0)$ and side $3$; computing the area of the shaded polygon by adding the triangles gives the same
+result $\tfrac52$, and $\tfrac{5}{2}=\tfrac{5}{18}\cdot 9$. Correct.}
+Option \textbf{(A)}.
+\ans{(A) $\dfrac{5}{18}$}
+}
+
+% ---------------------------------------------------------------- 25
+\begin{probbox}{25}{\relax}
+Rectangles measuring $4\times 2$ are arranged by the following rule: from the second rectangle on, the top-left
+vertex of each rectangle is placed exactly at the midpoint of the bottom side of the rectangle just above it (as
+shown). When $10$ rectangles in total are arranged in this way, what is the perimeter of the whole figure?
+\begin{figC}\begin{scope}[x=0.42cm,y=0.42cm]
+\foreach \i in {0,1,2,3}{\draw[Ink,line width=0.9pt] (2*\i,-2*\i) rectangle (2*\i+4,-2*\i+2);}
+\foreach \i in {0,1,2}{\draw[Ink] (2*\i+1,-2*\i-0.25)--(2*\i+1,-2*\i+0.25) (2*\i+3,-2*\i-0.25)--(2*\i+3,-2*\i+0.25);}
+\node[above] at (2,2){$4$};\node[left] at (0,1){$2$};
+\foreach \k in {0,1,2}{\fill[Ink] (9+0.6*\k,-6.8-0.6*\k) circle (2.5pt);}
+\end{scope}\end{figC}
+\choices{$48$}{$64$}{$90$}{$84$}{$100$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each new rectangle is shifted $2$ to the right (half the length) and $2$ down
+(exactly the width). The whole figure looks like a ``staircase''. We compute the perimeter in two ways.
+
+\step{1}{Method 1: count each kind of side}
+\emph{Vertical sides.} Each rectangle has a left side and a right side of length $2$, and both lie on the
+boundary (not covered by another rectangle). Total: $10\times(2+2)=40$.
+
+\emph{Horizontal sides on top.} The first rectangle shows its whole top side: $4$. For each later rectangle, the
+left half of its top side is against the bottom side of the previous one, so only the right half shows: $2$.
+Total: $4+9\times 2=22$.
+
+\emph{Horizontal sides at the bottom.} Each of the first $9$ rectangles shows only the left half of its bottom
+side: $2$; the last one shows its whole bottom side: $4$. Total: $9\times 2+4=22$.
+
+Perimeter: $40+22+22=84$.
+
+\step{2}{Method 2: ``straighten'' the staircase}
+\begin{proofbox}Walking along the top-right boundary from the top-left corner of the first rectangle to the
+bottom-right corner of the last one, we only ever go right or down. The horizontal pieces add up to exactly the
+width of the whole figure, and the vertical pieces add up to exactly its height. The bottom-left boundary is the
+same. Hence the perimeter of the staircase \emph{equals the perimeter of the smallest rectangle enclosing
+it}.\end{proofbox}
+Width: $4+9\times 2=22$; height: $10\times 2=20$. Perimeter: $(22+20)\times 2=84$.
+
+\begin{warnbox}Do not take $10\times$ the perimeter of one rectangle ($10\times 12=120$): the pieces where two
+rectangles touch are \emph{inside}, not on the boundary.\end{warnbox}
+\verify{Try $2$ rectangles: method 1 gives $8+(4+2)+(2+4)=20$; the enclosing rectangle is $6\times 4$, perimeter
+$20$. With $n$ rectangles the perimeter is $2\big((4+2(n-1))+2n\big)=8n+4$; $n=10$ gives $84$. It matches.}
+Option \textbf{(D)}.
+\ans{(D) $84$}
+}
+
+% ---------------------------------------------------------------- 26
+\begin{probbox}{26}{\relax}
+A quadrilateral has vertices $A(7,6)$, $B(-5,1)$, $C(-2,-3)$ and $D(10,2)$ in the coordinate plane.
+The area of the quadrilateral (in square units) is
+\choices{$60$}{$63$}{$67$}{$70$}{$72$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The quadrilateral has ``slanted'' sides, and there is no ready-made formula.
+A standard technique: \emph{enclose the quadrilateral in a rectangle with sides parallel to the axes}, then
+subtract the right triangles in the four corners.
+\begin{figC}\begin{scope}[x=0.4cm,y=0.4cm]
+\fill[tmOrange!15] (-5,-3) rectangle (10,6);
+\fill[tmBlue!30] (7,6)--(-5,1)--(-2,-3)--(10,2)--cycle;
+\draw[Line] (-5,-3) grid[step=1] (10,6);
+\draw[->,Slate] (-6,0)--(11,0) node[right]{$x$};\draw[->,Slate] (0,-4)--(0,7) node[above]{$y$};
+\draw[tmOrange!80!black,line width=0.9pt] (-5,-3) rectangle (10,6);
+\draw[tmBlue!80!black,line width=1.2pt] (7,6)--(-5,1)--(-2,-3)--(10,2)--cycle;
+\node[above] at (7,6){$A$};\node[left] at (-5,1){$B$};\node[below] at (-2,-3){$C$};\node[right] at (10,2){$D$};
+\node[font=\footnotesize] at (-2.5,4.6){$30$};\node[font=\footnotesize] at (-4.2,-2){$6$};
+\node[font=\footnotesize] at (6.5,-1.6){$30$};\node[font=\footnotesize] at (9.1,4.9){$6$};
+\end{scope}\end{figC}
+
+\step{1}{The enclosing rectangle}
+The smallest $x$-coordinate is $-5$, the largest is $10$; the smallest $y$-coordinate is $-3$, the largest is $6$.
+\begin{recallbox}The distance between two points on a number line is the larger number minus the smaller: from
+$-5$ to $10$ it is $10-(-5)=15$.\end{recallbox}
+The rectangle has length $10-(-5)=15$, width $6-(-3)=9$, and area $15\times 9=135$.
+
+\step{2}{The four corner right triangles}
+\begin{recallbox}Area of a right triangle $=\tfrac12\times$ the product of the two legs.\end{recallbox}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item Top-left corner (between $B$ and $A$): legs $7-(-5)=12$ and $6-1=5$: area $\tfrac{12\cdot5}{2}=30$.
+\item Bottom-left corner (between $B$ and $C$): legs $-2-(-5)=3$ and $1-(-3)=4$: area $\tfrac{3\cdot4}{2}=6$.
+\item Bottom-right corner (between $C$ and $D$): legs $10-(-2)=12$ and $2-(-3)=5$: area $30$.
+\item Top-right corner (between $D$ and $A$): legs $10-7=3$ and $6-2=4$: area $6$.
+\end{itemize}
+Total: $30+6+30+6=72$.
+
+\step{3}{Area of the quadrilateral}
+$135-72=63$.
+
+\begin{warnbox}With negative coordinates it is easy to get a length wrong, e.g.\ writing $7-5=2$ instead of
+$7-(-5)=12$. Count squares on the picture to check.\end{warnbox}
+\verify{In fact $ABCD$ is a parallelogram ($A\to B$ and $D\to C$ are both ``$12$ left, $5$ down''). Triangle
+$ABD$ has half the area of the quadrilateral; enclose it in a $15\times 5$ rectangle (from $y=1$ to $6$):
+$75-30-\tfrac{15\cdot 1}{2}-6=31.5$. Doubling: $63$. It matches.}
+Option \textbf{(B)}.
+\ans{(B) $63$}
+}
+
+% ---------------------------------------------------------------- 27
+\begin{probbox}{27}{\relax}
+The figure below is made of $8$ identical small parallelograms joined together. Including these $8$ small
+parallelograms, how many parallelograms are there in the figure altogether?
+\begin{figC}\begin{scope}[x=0.6cm,y=0.6cm]
+\foreach \k in {0,...,4}{\draw[Ink,line width=0.9pt] (2.2*\k,0)--(2.2*\k+2,2);}
+\foreach \j in {0,1,2}{\draw[Ink,line width=0.9pt] (\j,\j)--(\j+8.8,\j);}
+\end{scope}\end{figC}
+\choices{$29$}{$30$}{$26$}{$27$}{$28$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Every parallelogram in the figure has two sides on two \emph{horizontal}
+lines and two sides on two \emph{slanted} lines of the figure. We count systematically so as not to miss or
+repeat any.
+
+\step{1}{Count by height and width (in small cells)}
+\emph{Parallelograms $1$ row high} (there are $2$ rows to choose from). A row has $4$ cells side by side:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $1$ cell wide: $4$; $2$ cells wide: $3$; $3$ cells wide: $2$; $4$ cells wide: $1$;
+\item each row gives $4+3+2+1=10$, and the two rows give $20$.
+\end{itemize}
+\emph{Parallelograms $2$ rows high}: likewise $4+3+2+1=10$.
+
+Total: $20+10=30$.
+
+\step{2}{A faster count: choose the lines}
+\begin{proofbox}A parallelogram is completely determined by choosing $2$ of the $3$ horizontal lines (top and
+bottom sides) and $2$ of the $5$ slanted lines (left and right sides). Conversely, each such choice gives exactly
+one parallelogram.\end{proofbox}
+\begin{recallbox}The number of ways to choose $2$ lines out of $k$ lines is $\dfrac{k\times(k-1)}{2}$ (each pair
+is counted twice if we pick a ``first line'' and a ``second line'').\end{recallbox}
+Choose $2$ of the $3$ horizontal lines: $\tfrac{3\cdot 2}{2}=3$ ways. Choose $2$ of the $5$ slanted lines:
+$\tfrac{5\cdot4}{2}=10$ ways. Number of parallelograms: $3\times 10=30$.
+
+\begin{warnbox}Students often forget the parallelograms $2$ rows high, or the biggest one (the whole
+figure).\end{warnbox}
+\verify{The two counting methods give the same result, $30$.}
+Option \textbf{(B)}.
+\ans{(B) $30$}
+}
+
+% ---------------------------------------------------------------- 28
+\begin{probbox}{28}{\relax}
+A right triangular prism has volume $120$ cm$^3$. Its base is a right triangle whose two legs are $3$ cm and
+$4$ cm (as shown). What is the height of the prism, in centimetres?
+\begin{figC}\begin{scope}[x=0.75cm,y=0.75cm]
+\coordinate (A) at (0,2.8);\coordinate (B) at (1.9,3.8);\coordinate (C) at (4.3,2.2);
+\coordinate (A1) at (0,0);\coordinate (B1) at (1.9,1.0);\coordinate (C1) at (4.3,-0.6);
+\fill[tmBlue!15] (A)--(B)--(C)--cycle;
+\draw[Ink,line width=1pt] (A)--(B)--(C)--cycle (A)--(A1)--(C1)--(C);
+\draw[Ink,dashed,line width=0.8pt] (B)--(B1) (A1)--(B1)--(C1);
+\draw[Ink] ($(B)!0.3cm!(A)$)--($(B)!0.3cm!(A)+(B)!0.3cm!(C)-(B)$)--($(B)!0.3cm!(C)$);
+\draw[Ink] ($(B1)!0.3cm!(A1)$)--($(B1)!0.3cm!(A1)+(B1)!0.3cm!(C1)-(B1)$)--($(B1)!0.3cm!(C1)$);
+\node[above left] at ($(A)!0.5!(B)$){$3$ cm};\node[above right] at ($(B)!0.5!(C)$){$4$ cm};
+\end{scope}\end{figC}
+\choices{$12$}{$20$}{$10$}{$16$}{$8$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We know the volume and the base (a right triangle). We must find the height of
+the prism, i.e.\ the length of a lateral edge (joining the top base to the bottom base).
+
+\begin{recallbox}Volume of a right prism $=$ area of the base $\times$ height:
+$V=A_{\text{base}}\cdot h$. Therefore $h=V\div A_{\text{base}}$.\end{recallbox}
+
+\step{1}{Area of the base}
+The base is a right triangle; taking one leg as the base, the other leg is the height:
+\[ A_{\text{base}}=\frac{3\times 4}{2}=6 \text{ (cm}^2). \]
+
+\step{2}{Height of the prism}
+$h=120\div 6=20$ (cm).
+
+\begin{warnbox}Do not confuse ``the height of the prism'' (the distance between the two bases) with a height of
+the base triangle. And do not forget to divide by $2$ for the area of the triangle: using $3\times 4=12$ gives $10$
+-- the ``trap'' option (C).\end{warnbox}
+\verify{$6\times 20=120$ cm$^3$. Correct.}
+Option \textbf{(B)}.
+\ans{(B) $20$ cm}
+}
+
+% ---------------------------------------------------------------- 29
+\begin{probbox}{29}{\stars{1}}
+Small cubes with edge $1$ are used to build a rectangular box of size $8\times 8\times n$ ($n$ a positive
+integer). Let $A$ be the surface area of the box and let $B$ be the total surface area of all the small cubes
+(computed for each cube separately and then added up). Find the sum of all values of $n$ for which $\dfrac{B}{A}$
+is an integer.
+\choices{$86$}{$90$}{$70$}{$78$}{$96$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We write $A$ and $B$ in terms of $n$, form the ratio $\dfrac BA$, and find the
+values of $n$ that make it an integer.
+
+\step{1}{Compute $A$}
+\begin{recallbox}A rectangular box of size $a\times b\times c$ has $6$ faces forming three pairs of equal faces,
+so its surface area is $2(ab+bc+ca)$.\end{recallbox}
+$A=2(8\cdot 8+8\cdot n+8\cdot n)=2(64+16n)=128+32n$.
+
+\step{2}{Compute $B$}
+Number of small cubes: $8\cdot 8\cdot n=64n$. Each cube has $6$ faces of area $1$, so
+$B=64n\cdot 6=384n$.
+
+\step{3}{Simplify the ratio}
+\[ \frac{B}{A}=\frac{384n}{128+32n}=\frac{32\cdot 12n}{32\cdot(4+n)}=\frac{12n}{n+4}. \]
+We ``split off the whole part'': since $12n=12(n+4)-48$,
+\[ \frac{12n}{n+4}=\frac{12(n+4)-48}{n+4}=12-\frac{48}{n+4}. \]
+
+\step{4}{When is the ratio an integer?}
+$12-\dfrac{48}{n+4}$ is an integer exactly when $\dfrac{48}{n+4}$ is an integer, i.e.\ when $n+4$ is a
+\emph{divisor} of $48$.
+\begin{recallbox}The positive divisors of $48$: $1,2,3,4,6,8,12,16,24,48$.\end{recallbox}
+Since $n\ge 1$, we have $n+4\ge 5$, so we take only the divisors $6,8,12,16,24,48$, which give
+\[ n=2,\ 4,\ 8,\ 12,\ 20,\ 44. \]
+
+\step{5}{Add them up}
+$2+4+8+12+20+44=90$.
+
+\begin{center}\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+$n$ & $2$ & $4$ & $8$ & $12$ & $20$ & $44$\\\hline
+$B/A=\dfrac{12n}{n+4}$ & $\tfrac{24}{6}=4$ & $\tfrac{48}{8}=6$ & $\tfrac{96}{12}=8$ & $\tfrac{144}{16}=9$ & $\tfrac{240}{24}=10$ & $\tfrac{528}{48}=11$\\\hline
+\end{tabular}\end{center}
+\begin{warnbox}Do not forget that $n+4$ can be $48$ (i.e.\ $n=44$), a rather large value. And remember to reject the
+divisors $1,2,3,4$, because then $n\le 0$.\end{warnbox}
+\verify{The table shows that all $6$ values give an integer ratio. Try another value, $n=1$: $\tfrac{12}{5}$ is not
+an integer. Correct.}
+Option \textbf{(B)}.
+\ans{(B) $90$}
+}
+
+% ---------------------------------------------------------------- 30
+\begin{probbox}{30}{\relax}
+Rectangle $PQRS$ is made up of six identical squares. Points $U,V,W,X,Y,Z$ are midpoints of sides of the squares,
+as shown. Which of the following triangles has the greatest area?
+\begin{figC}\begin{scope}[x=0.6cm,y=0.6cm]
+\draw[Ink,line width=1pt] (0,0) rectangle (6,4);
+\draw[Ink,line width=0.9pt] (2,0)--(2,4) (4,0)--(4,4) (0,2)--(6,2);
+\foreach \p in {(1,4),(3,4),(4,3),(5,2),(4,1),(6,1)}{\fill[Ink] \p circle (2.2pt);}
+\node[above] at (1,4){$V$};\node[above] at (3,4){$W$};\node[right] at (4,3){$X$};
+\node[below] at (5,2){$Y$};\node[left] at (4,1){$U$};\node[right] at (6,1){$Z$};
+\node[above left] at (0,4){$Q$};\node[above right] at (6,4){$R$};
+\node[below left] at (0,0){$P$};\node[below right] at (6,0){$S$};
+\end{scope}\end{figC}
+\choices{$PVU$}{$PXZ$}{$PVX$}{$PYS$}{$PQW$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We need to compute (or compare) the areas of $5$ triangles. To avoid
+fractions, let each small square have side $2$; then all the midpoints have whole-number coordinates. Put
+$P(0,0)$, $S(6,0)$, $R(6,4)$, $Q(0,4)$; then $V(1,4)$, $W(3,4)$, $X(4,3)$, $Y(5,2)$, $U(4,1)$, $Z(6,1)$.
+
+\begin{recallbox}Area of a triangle $=\tfrac12\times$ base $\times$ height. For a ``slanted'' triangle, enclose it
+in a rectangle with sides along the grid and subtract the corner right triangles (as in Problem 26).\end{recallbox}
+
+\step{1}{Two triangles with a side on a side of the rectangle}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $PYS$: base $PS=6$, height = distance from $Y$ to $PS$, which is $2$: $A=\tfrac{6\cdot 2}{2}=6$.
+\item $PQW$: base $PQ=4$, height = distance from $W$ to $PQ$, which is $3$: $A=\tfrac{4\cdot 3}{2}=6$.
+\end{itemize}
+
+\step{2}{Three ``slanted'' triangles}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $PVU$: enclosing rectangle $4\times 4=16$; subtract $\tfrac{1\cdot 4}{2}=2$, $\tfrac{3\cdot 3}{2}=4.5$,
+$\tfrac{4\cdot 1}{2}=2$. What remains is $16-8.5=7.5$.
+\item $PXZ$: enclosing rectangle $6\times 3=18$; subtract $\tfrac{4\cdot3}{2}=6$, $\tfrac{2\cdot2}{2}=2$,
+$\tfrac{6\cdot1}{2}=3$. What remains is $18-11=7$.
+\item $PVX$: enclosing rectangle $4\times 4=16$; subtract $\tfrac{1\cdot4}{2}=2$, $\tfrac{3\cdot1}{2}=1.5$,
+$\tfrac{4\cdot3}{2}=6$. What remains is $16-9.5=6.5$.
+\end{itemize}
+\begin{figC}\begin{scope}[x=0.6cm,y=0.6cm]
+\fill[tmOrange!15] (0,0) rectangle (4,4);
+\fill[tmBlue!35] (0,0)--(1,4)--(4,1)--cycle;
+\draw[Line] (0,0) grid[step=1] (6,4);
+\draw[Ink,line width=1pt] (0,0) rectangle (6,4);
+\draw[tmBlue!80!black,line width=1.1pt] (0,0)--(1,4)--(4,1)--cycle;
+\node[font=\footnotesize] at (0.35,3.4){$2$};\node[font=\footnotesize] at (3,3){$4.5$};\node[font=\footnotesize] at (3,0.35){$2$};
+\node[below left] at (0,0){$P$};\node[above] at (1,4){$V$};\node[right] at (4,1){$U$};
+\end{scope}\end{figC}
+
+\step{3}{Compare}
+$7.5>7>6.5>6=6$. The largest triangle is $PVU$.
+
+\begin{warnbox}Do not guess by eye: triangle $PXZ$ looks ``big'' because it stretches all the way to side $RS$, but
+its area is only $7$, less than that of $PVU$.\end{warnbox}
+\verify{If the side of each square is $1$, all areas are divided by $4$ ($1.875$; $1.75$; $1.625$; $1.5$; $1.5$),
+and the order does not change.}
+Option \textbf{(A)}.
+\ans{(A) triangle $PVU$}
+}

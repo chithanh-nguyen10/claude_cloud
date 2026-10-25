@@ -1,0 +1,318 @@
+% ===================== Topic 1 -- Algebra and Equations -- part c (EN): Problems 31--40 =====================
+\providecommand{\aeaBox}[4]{\begin{tikzpicture}[baseline=-0.7ex,font=\small]
+  \draw[Navy,line width=0.8pt,fill=tmBlue!6] (-0.66,-0.32) rectangle (0.66,0.32);
+  \draw[Navy,line width=0.8pt] (0,-0.32)--(0,0.32) (-0.66,0)--(0.66,0);
+  \node[inner sep=0pt] at (-0.33,0.16){$#1$};\node[inner sep=0pt] at (0.33,0.16){$#2$};
+  \node[inner sep=0pt] at (-0.33,-0.16){$#3$};\node[inner sep=0pt] at (0.33,-0.16){$#4$};\end{tikzpicture}}
+
+\clearpage
+\dividerbar{Extension and challenge}
+
+% ---------------------------------------------------------------- Problem 31
+\begin{probbox}{31}{\relax}
+The road from Mr Ba's home to the city is $180$ km long. He rides a motorbike at a constant speed, and after $3$ hours he has covered
+$\dfrac{2}{3}$ of the distance.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Find the speed of the motorbike.
+\item If he keeps the same speed, how much longer will it take him to reach the city?
+\item If he wants to arrive $30$ minutes earlier than planned in part b), at what speed must he ride for the rest of the way?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} \emph{Given:} the whole distance $180$ km; in $3$ hours he covered $\dfrac{2}{3}$ of it.
+\emph{Find:} the speed; the remaining time; the new speed needed to save $30$ minutes.
+\begin{recallbox}$s=v\cdot t$;\quad $v=\dfrac{s}{t}$;\quad $t=\dfrac{s}{v}$. \ \ $\dfrac{m}{n}$ of $A$ equals $A\div n\cdot m$.\end{recallbox}
+\step{1}{Distance covered and distance left}
+Covered: $\dfrac{2}{3}$ of $180$ km is $180\div 3\cdot 2=60\cdot 2=120$ (km). Left: $180-120=60$ (km).
+\begin{barfigC}
+\blk{0}{2}{0}{0.55}{tmBlue}{60 km}
+\blk{2}{4}{0}{0.55}{tmBlue}{60 km}
+\blk{4}{6}{0}{0.55}{tmOrange}{60 km}
+\brcup{0}{4}{0.55}{covered (3 hours)}
+\brcdn{4}{6}{-0.55}{left}
+\end{barfigC}
+\step{2}{Part a: the speed}
+$v=120\div 3=40$ (km/h).
+\step{3}{Part b: the time left}
+$t=60\div 40=1.5$ (hours) $=1$ hour $30$ minutes.
+\begin{tipbox}Look at the diagram: in $3$ hours he covered $2$ equal parts, so each part takes $1.5$ hours. Exactly $1$ part is left, so it takes $1.5$ hours. You get the answer even without the speed!\end{tipbox}
+\step{4}{Part c: the new speed}
+New time: $1$ hour $30$ minutes $-\,30$ minutes $=1$ hour. To cover $60$ km in $1$ hour, the speed must be $60\div 1=60$ (km/h).
+\begin{warnbox}Do not just add to the speed, as in ``$30$ minutes earlier means $30$ km/h faster''. Recalculate: speed $=$ distance $\div$ new time.\end{warnbox}
+\verify{$40\cdot 3=120$ km; $40\cdot 1.5=60$ km; $60\cdot 1=60$ km. Total $120+60=180$ km.}
+\ans{a) $40$ km/h;\ \ b) $1$ hour $30$ minutes;\ \ c) $60$ km/h.}
+}
+
+% ---------------------------------------------------------------- Problem 32
+\begin{probbox}{32}{\relax}
+An isosceles triangle has a base of $10$ cm and two equal sides of $2x$ cm each. A rectangle has length $(x+7)$ cm and width $5$ cm.
+The perimeter of the triangle equals the perimeter of the rectangle.
+\begin{figC}
+\draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,0)--(2.4,0)--(1.2,2.6)--cycle;
+\node[below] at (1.2,0){$10$ cm};
+\node[left] at (0.5,1.35){$2x$};\node[right] at (1.9,1.35){$2x$};
+\draw[tmBlue,line width=0.9pt] (0.48,1.4)--(0.72,1.2); \draw[tmBlue,line width=0.9pt] (1.68,1.2)--(1.92,1.4);
+\draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (3.6,0) rectangle (7.2,1.3);
+\node[below] at (5.4,0){$x+7$}; \node[right] at (7.2,0.65){$5$ cm};
+\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Write an expression in $x$ for the perimeter of each shape.
+\item Find $x$, then find the side lengths of the triangle and the area of the rectangle.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The triangle has sides $2x$, $2x$, $10$ (cm). The rectangle measures $x+7$ by $5$ (cm). The two perimeters are equal.
+\begin{recallbox}Perimeter of a triangle $=$ sum of the three sides. Perimeter of a rectangle $=2\times(\text{length}+\text{width})$. Area of a rectangle $=$ length $\times$ width.\end{recallbox}
+\step{1}{Part a: expressions for the perimeters}
+Triangle: $2x+2x+10=4x+10$ (cm).\quad Rectangle: $2\cdot\big((x+7)+5\big)=2(x+12)=2x+24$ (cm).
+\begin{warnbox}When multiplying the bracket by $2$, multiply both terms: $2(x+12)=2x+24$, not $2x+12$.\end{warnbox}
+\step{2}{Part b: write an equation}
+$4x+10=2x+24$.
+\step{3}{Solve the equation}
+Subtract $2x$ from both sides: $2x+10=24$. Subtract $10$ from both sides: $2x=14$. Divide by $2$: $x=7$.
+\step{4}{Work out what is asked}
+Equal sides of the triangle: $2x=14$ cm, so the triangle has sides $14$ cm, $14$ cm, $10$ cm.\\
+Rectangle: length $x+7=14$ cm, width $5$ cm, area $14\cdot 5=70$ (cm$^2$).
+\verify{Perimeter of the triangle $14+14+10=38$ cm; perimeter of the rectangle $2(14+5)=38$ cm. Equal.}
+\ans{a) $4x+10$ and $2x+24$;\ \ b) $x=7$; triangle $14$ cm, $14$ cm, $10$ cm; area of the rectangle $70$ cm$^2$.}
+}
+
+% ---------------------------------------------------------------- Problem 33
+\begin{probbox}{33}{\stars{1}}
+We use the rule of Problem 14 again:\quad \aeaBox{a}{b}{c}{d} $=a\cdot d+b\cdot c$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=2pt,topsep=2pt]
+\item Evaluate \aeaBox{-3}{4}{5}{2}.
+\item Find $x$ if \aeaBox{x}{2}{3}{4} $=$ \aeaBox{1}{x}{5}{2}.
+\item Find all integers $x$ such that \aeaBox{x}{x}{x}{x} $=50$.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The rule: multiply the two numbers on each diagonal, then add the two products. Part a is an evaluation (with a negative number); parts b and c are equations.
+\step{1}{Part a}
+\aeaBox{-3}{4}{5}{2} $=(-3)\cdot 2+4\cdot 5=-6+20=14$.
+\begin{recallbox}The product of a negative number and a positive number is negative: $(-3)\cdot 2=-6$. Adding numbers with different signs: $-6+20=20-6=14$.\end{recallbox}
+\step{2}{Part b: write both sides using the rule}
+Left side: $x\cdot 4+2\cdot 3=4x+6$.\quad Right side: $1\cdot 2+x\cdot 5=2+5x$.\quad Equation: $4x+6=5x+2$.
+\step{3}{Solve part b}
+Subtract $4x$ from both sides: $6=x+2$. Subtract $2$ from both sides: $x=4$.
+\verify{Left side $4\cdot 4+6=22$; right side $2+5\cdot 4=22$. Equal.}
+\step{4}{Part c}
+\aeaBox{x}{x}{x}{x} $=x\cdot x+x\cdot x=2x^2$. The equation is $2x^2=50$, that is, $x^2=25$.
+Which numbers squared give $25$? There is $5\cdot 5=25$, but also $(-5)\cdot(-5)=25$. So $x=5$ or $x=-5$.
+\begin{warnbox}Many students find only $x=5$ and forget $x=-5$. The product of two negative numbers is positive, so $(-5)^2=25$. The question asks for ``all integers'', which hints that there may be more than one answer.\end{warnbox}
+\verify{$x=-5$: $(-5)(-5)+(-5)(-5)=25+25=50$. Correct.}
+\ans{a) $14$;\ \ b) $x=4$;\ \ c) $x=5$ or $x=-5$.}
+}
+
+% ---------------------------------------------------------------- Problem 34
+\begin{probbox}{34}{\stars{1}}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=0pt]
+\item The sum of five consecutive odd numbers is $155$. Find the five numbers.
+\item Nam says: ``I have found four consecutive odd numbers whose sum is $150$.'' Is Nam right or wrong? Why?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Consecutive odd numbers differ by $2$ (for example $29$ and $31$). Part a asks us to find numbers; part b asks for an \emph{explanation}, not just a guess.
+\step{1}{Part a: let the middle number be the unknown}
+Call the middle number $n$. The five numbers are $n-4,\ n-2,\ n,\ n+2,\ n+4$.
+\step{2}{Write and solve the equation}
+$(n-4)+(n-2)+n+(n+2)+(n+4)=155$. The $-4$ and $+4$, and the $-2$ and $+2$, cancel: $5n=155$, so $n=31$.\\
+The five numbers are $27,\ 29,\ 31,\ 33,\ 35$.
+\verify{$27+29+31+33+35=155$. Correct, and they are consecutive odd numbers.}
+\step{3}{Part b: try to write an equation}
+Let the smallest odd number be $m$. The four numbers are $m,\ m+2,\ m+4,\ m+6$. Sum: $4m+12=150$, so $4m=138$, $m=138\div 4=34.5$.
+The number $34.5$ is not an integer, let alone an odd number. So there are \emph{no} four consecutive odd numbers with sum $150$.
+\begin{proofbox}Another explanation using even and odd: the sum of two odd numbers is even, so the sum of four odd numbers is even -- this is not yet a contradiction. But we can go further: $4m+12=4(m+3)$ is always \emph{divisible by $4$}, while $150$ is not divisible by $4$ ($150=4\cdot 37+2$). So the sum of four consecutive odd numbers can never be $150$.\end{proofbox}
+\begin{warnbox}Trying a few sets of numbers (such as $35+37+39+41=152$) and then concluding is not rigorous enough. We need a reason that works in \emph{every} case.\end{warnbox}
+\ans{a) $27,\ 29,\ 31,\ 33,\ 35$;\ \ b) Nam is wrong, because the sum of four consecutive odd numbers is always divisible by $4$, but $150$ is not.}
+}
+
+% ---------------------------------------------------------------- Problem 35
+\begin{probbox}{35}{\stars{1}}
+Every $2$ scoops of fish food are enough to feed $12$ fish for one day.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item How many fish can $5$ scoops of food feed for one day?
+\item Hà's fish tank has $18$ fish. A box of food contains $60$ scoops. For how many days will the box feed the whole tank?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The number of fish fed for one day is directly proportional to the number of scoops. We use the \emph{unit method}: find how many fish $1$ scoop feeds for one day.
+\begin{recallbox}Unit method: find the value for $1$ part, then multiply (or divide) according to the number of parts needed.\end{recallbox}
+\step{1}{How many fish does one scoop feed for one day?}
+$12\div 2=6$ (fish).
+\step{2}{Part a}
+$5$ scoops: $5\cdot 6=30$ (fish).
+\step{3}{Part b: how many scoops does the tank need each day?}
+Each scoop feeds $6$ fish for one day, and the tank has $18$ fish, so each day it needs $18\div 6=3$ (scoops).
+\begin{figC}
+\foreach \i in {0,1,2}{\draw[tmBlue!80!black,fill=tmBlue!12,rounded corners=2pt] (2.3*\i,0) rectangle (2.3*\i+2,0.6); \node[font=\footnotesize] at (2.3*\i+1,0.3){1 scoop: 6 fish};}
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},Navy] (0,-0.1)--(6.6,-0.1) node[midway,below=6pt,font=\footnotesize]{$18$ fish, $3$ scoops a day};
+\end{figC}
+\step{4}{Number of days}
+The box holds $60$ scoops and $3$ scoops are used each day: $60\div 3=20$ (days).
+\begin{warnbox}A common mistake is to calculate $60\div 18$ or $60\cdot 6\div 18$ without understanding what it means. Always ask yourself: ``How many scoops are used each day?'' and only then divide.\end{warnbox}
+\verify{$20$ days $\times$ $3$ scoops $=60$ scoops, exactly one box; and $3$ scoops $\times 6=18$ fish each day.}
+\begin{parentbox}The unit ``fish-day'' can help: each scoop provides $6$ ``fish-days''; the whole box provides $60\cdot 6=360$ fish-days; dividing by $18$ fish gives $20$ days.\end{parentbox}
+\ans{a) $30$ fish;\ \ b) $20$ days.}
+}
+
+% ---------------------------------------------------------------- Problem 36
+\begin{probbox}{36}{\relax}
+Each bus ride costs Lan $7\,000$ dong. The bus company also sells a monthly pass for $200\,000$ dong with unlimited rides.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Write an expression for the amount Lan pays if she makes $n$ rides in a month without a monthly pass.
+\item What is the smallest number of rides in a month for which the monthly pass is cheaper than paying per ride?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Paying per ride: the cost depends on the number of rides $n$. Monthly pass: always $200\,000$ dong. We want the smallest number of rides for which paying per ride is \emph{more expensive} than the pass.
+\step{1}{Part a}
+Each ride costs $7\,000$ dong, so $n$ rides cost $7\,000\cdot n=7\,000n$ (dong).
+\step{2}{Part b: compare the two options}
+The pass is cheaper when $7\,000n>200\,000$. Let us divide: $200\,000\div 7\,000=200\div 7\approx 28.57$.
+\step{3}{Make a table of values near $28.57$}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Rides $n$ & Per ride $7\,000n$ (dong) & Compared with the $200\,000$ dong pass\\ \hline
+$28$ & $196\,000$ & paying per ride is cheaper\\ \hline
+$29$ & $203\,000$ & \textbf{the pass is cheaper}\\ \hline
+\end{tabular}
+\end{center}
+So she needs at least $29$ rides.
+\begin{warnbox}The number of rides is a whole number, so do not answer ``$28.57$ rides''. Do not ``round'' to $28$ either: with $28$ rides, paying per ride is still cheaper. We need the smallest whole number \emph{greater than} $28.57$, which is $29$.\end{warnbox}
+\begin{parentbox}This is a great ``real life'' problem to talk about with your child: phone plans, monthly swimming passes... can all be compared in this way.\end{parentbox}
+\ans{a) $7\,000n$ dong;\ \ b) at least $29$ rides.}
+}
+
+% ---------------------------------------------------------------- Problem 37
+\begin{probbox}{37}{\relax}
+Look at the table below (the values increase steadily as $n$ increases):
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} $n$ & $1$ & $2$ & $3$ & $4$ & $5$\\ \hline
+Value & $2$ & $7$ & $12$ & $17$ & $22$\\ \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Write an expression in $n$ for the row of values.
+\item Find the value for $n=40$.
+\item For which $n$ is the value $302$?
+\item Is any value in the table (continued forever) equal to $2026$?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each time $n$ increases by $1$, the value increases by $5$. It is an arithmetic sequence with first term $2$ and common difference $5$.
+\begin{recallbox}If the value always increases by $d$ when $n$ increases by $1$, the expression has the form $dn+b$; the $n$-th term of an arithmetic sequence is $a+(n-1)d$.\end{recallbox}
+\step{1}{Part a}
+The expression has the form $5n+b$. Substitute $n=1$: $5+b=2$, so $b=-3$. Expression: $5n-3$.
+(Or: $2+5(n-1)=2+5n-5=5n-3$.)
+\verify{$n=4$: $5\cdot 4-3=17$; \ $n=5$: $5\cdot 5-3=22$. It matches the table.}
+\step{2}{Part b}
+$5\cdot 40-3=200-3=197$.
+\step{3}{Part c: solve an equation}
+$5n-3=302\ \Rightarrow\ 5n=305\ \Rightarrow\ n=61$.
+\step{4}{Part d}
+$5n-3=2026\ \Rightarrow\ 5n=2029$. But $2029$ ends in $9$, so it is not divisible by $5$, and there is no whole number $n$ that works.
+\begin{proofbox}Every value $5n-3$ ends in $2$ or $7$ (because $5n$ ends in $0$ or $5$). The number $2026$ ends in $6$, so it cannot be in the table.\end{proofbox}
+\ans{a) $5n-3$;\ \ b) $197$;\ \ c) $n=61$;\ \ d) no.}
+}
+
+% ---------------------------------------------------------------- Problem 38
+\begin{probbox}{38}{\stars{1}}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=0pt]
+\item The product $60\times 24\times 365$ is the number of which time unit in a non-leap year (with $365$ days)? Work out the product.
+\item How many days, hours, minutes and seconds are there in one million seconds?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Part a: read the product as a chain of unit conversions. Part b: convert back from the small unit (seconds) to larger units, using division with remainder.
+\begin{recallbox}$1$ minute $=60$ seconds; $1$ hour $=60$ minutes $=3\,600$ seconds; $1$ day $=24$ hours $=24\cdot 3\,600=86\,400$ seconds.\end{recallbox}
+\step{1}{Part a}
+$365$ is the number of days in the year; $24\times 365$ is the number of hours in the year; $60\times 24\times 365$ is the number of \textbf{minutes} in a non-leap year.
+Calculation: $24\times 365=8\,760$; \ $60\times 8\,760=525\,600$ (minutes).
+\step{2}{Part b: convert to days}
+$1\,000\,000\div 86\,400$ gives quotient $11$, remainder $1\,000\,000-11\cdot 86\,400=1\,000\,000-950\,400=49\,600$ (seconds).
+\step{3}{Convert the remainder to hours}
+$49\,600\div 3\,600$ gives quotient $13$, remainder $49\,600-13\cdot 3\,600=49\,600-46\,800=2\,800$ (seconds).
+\step{4}{Convert the remainder to minutes and seconds}
+$2\,800\div 60$ gives quotient $46$, remainder $2\,800-46\cdot 60=2\,800-2\,760=40$ (seconds).
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+\rowcolor{tmBlue!10} Division & Quotient & Remainder (seconds)\\ \hline
+$1\,000\,000\div 86\,400$ & $11$ days & $49\,600$\\ \hline
+$49\,600\div 3\,600$ & $13$ hours & $2\,800$\\ \hline
+$2\,800\div 60$ & $46$ minutes & $40$\\ \hline
+\end{tabular}
+\end{center}
+\verify{$11\cdot 86\,400+13\cdot 3\,600+46\cdot 60+40=950\,400+46\,800+2\,760+40=1\,000\,000$.}
+\begin{warnbox}Do not write the result as a decimal such as ``$11.57$ days'' and then read it as ``$11$ days $57$ hours'': the decimal part of a day is not a number of hours. Use division with remainder as above.\end{warnbox}
+\ans{a) The number of minutes in a non-leap year, $525\,600$;\ \ b) $11$ days $13$ hours $46$ minutes $40$ seconds.}
+}
+
+% ---------------------------------------------------------------- Problem 39
+\begin{probbox}{39}{\stars{1}}
+Four positive integers $a$, $b$, $c$, $d$ satisfy
+\[\frac{3}{a-5}=\frac{3}{b+1}=\frac{3}{c-2}=\frac{3}{d+4}\qquad\text{and}\qquad a+b+c+d=50.\]
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Arrange $a$, $b$, $c$, $d$ in increasing order.
+\item Find the value of each number.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Four fractions with the same numerator $3$ are equal. Use the ``set it equal to $k$'' technique as in Problem 12, then use the condition on the sum to find $k$.
+\step{1}{The denominators are equal}
+\begin{recallbox}If $\dfrac{m}{p}=\dfrac{m}{q}$ with $m\neq 0$, then $p=q$.\end{recallbox}
+$a-5=b+1=c-2=d+4$. Call the common value $k$ ($k\neq 0$ because a denominator cannot be $0$).
+\step{2}{Write each number in terms of $k$}
+$a=k+5$,\quad $b=k-1$,\quad $c=k+2$,\quad $d=k-4$.
+\step{3}{Part a: compare}
+$k-4<k-1<k+2<k+5$, so $d<b<c<a$.
+\step{4}{Part b: use the sum to find $k$}
+$a+b+c+d=(k+5)+(k-1)+(k+2)+(k-4)=4k+2$. From $4k+2=50$ we get $4k=48$, $k=12$.\\
+So $a=17$, \ $b=11$, \ $c=14$, \ $d=8$.
+\verify{$a-5=12$, $b+1=12$, $c-2=12$, $d+4=12$: all four fractions equal $\dfrac{3}{12}$. The sum is $17+11+14+8=50$. And $8<11<14<17$.}
+\begin{warnbox}When adding $(+5)+(-1)+(+2)+(-4)$, keep the signs: the result is $+2$, not $12$.\end{warnbox}
+\ans{a) $d<b<c<a$;\ \ b) $a=17$, $b=11$, $c=14$, $d=8$.}
+}
+
+% ---------------------------------------------------------------- Problem 40
+\begin{probbox}{40}{\stars{2}}
+There are four bags of rice with different weights. They are weighed two at a time in all possible ways, giving six results:
+\[7 \text{ kg},\quad 8 \text{ kg},\quad 9 \text{ kg},\quad 10 \text{ kg},\quad 11 \text{ kg},\quad 12 \text{ kg}.\]
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Find the total weight of the four bags.
+\item Each bag weighs a whole number of kilograms. Find the weight of each bag.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Let the weights of the four bags from lightest to heaviest be $a<b<c<d$ (kg). Four bags can be paired in $6$ ways:
+$a+b,\ a+c,\ a+d,\ b+c,\ b+d,\ c+d$. This problem extends Problem 15 (the three pumpkins).
+\step{1}{Part a: add all six results}
+Each bag appears in exactly $3$ pairs (paired with each of the $3$ other bags). Therefore
+$3(a+b+c+d)=7+8+9+10+11+12=57$, \ so $a+b+c+d=57\div 3=19$ (kg).
+\begin{recallbox}With three objects, each object appears in $2$ pairs, so the total $=$ (sum of the pairs)$\div 2$. With four objects, each appears in $3$ pairs, so the total $=$ (sum of the pairs)$\div 3$.\end{recallbox}
+\step{2}{Which pairs certainly match which results?}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item The lightest pair is the two lightest bags: $a+b=7$.
+\item The second lightest pair is $a+c=8$: every other pair (except $a+b$) is heavier than $a+c$, because $a+d>a+c$, \ $b+c>a+c$, \ $b+d>a+c$, \ $c+d>a+c$.
+\item Similarly, the heaviest pair is $c+d=12$, and the second heaviest is $b+d=11$.
+\item The two middle results ($9$ and $10$) are $a+d$ and $b+c$, but we do \emph{not yet know} which is $9$ and which is $10$.
+\end{itemize}
+\begin{proofbox}Subtract $a+b=7$ from $a+c=8$: $c-b=1$, that is, $c=b+1$. Then $b+c=b+(b+1)=2b+1$ is an \emph{odd number} (because $b$ is a whole number). Of the two numbers $9$ and $10$, only $9$ is odd. So $b+c=9$ and $a+d=10$.\end{proofbox}
+\step{3}{Find each bag}
+$2b+1=9\Rightarrow b=4$;\quad $c=b+1=5$;\quad $a=7-b=3$;\quad $d=12-c=7$.
+\begin{barfigC}
+\blk{0}{1.5}{0}{0.5}{tmGreen}{a=3}
+\blk{1.5}{3.5}{0}{0.5}{tmOrange}{b=4}
+\blk{3.5}{6}{0}{0.5}{tmPurple}{c=5}
+\blk{6}{9.5}{0}{0.5}{tmBlue}{d=7}
+\brcup{0}{9.5}{0.5}{total 19 kg}
+\end{barfigC}
+\verify{$3+4=7$, $3+5=8$, $3+7=10$, $4+5=9$, $4+7=11$, $5+7=12$: exactly the six results $7,8,9,10,11,12$. Total $3+4+5+7=19$.}
+\begin{warnbox}Do not simply assume that the third result ($9$ kg) is $a+d$ or $b+c$. You need a reason! Without the ``whole number'' condition, the case $b+c=10$ giving $a=2.5$, $b=4.5$, $c=5.5$, $d=6.5$ would also work.\end{warnbox}
+\begin{parentbox}You can experiment with four slips of paper showing $3,4,5,7$: let your child pair them in all possible ways and add, and they will see for themselves that each number is used three times.\end{parentbox}
+\ans{a) $19$ kg;\ \ b) $3$ kg, $4$ kg, $5$ kg, $7$ kg.}
+}

@@ -1,0 +1,532 @@
+% ===== Topic 1, part d (EN): problems 41-50 (challenge problems extending problems 16-30) =====
+% helper shapes (same definitions as in part b; \providecommand so they are defined only once)
+\providecommand{\aeShp}[3]{%
+  \if#1T\draw[tmBlue!80!black,line width=0.8pt,fill=tmBlue!18] (#2,#3)--(#2+0.34,#3)--(#2+0.17,#3+0.3)--cycle;\fi
+  \if#1C\draw[tmOrange!85!black,line width=0.8pt,fill=tmOrange!22] (#2+0.15,#3+0.15) circle (0.15);\fi
+  \if#1S\draw[tmGreen!80!black,line width=0.8pt,fill=tmGreen!18] (#2,#3) rectangle (#2+0.3,#3+0.3);\fi
+  \if#1D\draw[tmPurple!85!black,line width=0.8pt,fill=tmPurple!18] (#2+0.13,#3)--(#2+0.26,#3+0.16)--(#2+0.13,#3+0.32)--(#2,#3+0.16)--cycle;\fi
+  \if#1Q\node[font=\Large\bfseries,text=Ink,inner sep=0pt,anchor=south] at (#2+0.15,#3) {?};\fi}
+\providecommand{\aeTri}{\tikz[baseline=0pt]{\aeShp{T}{0}{0}}}
+\providecommand{\aeCir}{\tikz[baseline=0pt]{\aeShp{C}{0}{0}}}
+\providecommand{\aeSq}{\tikz[baseline=0pt]{\aeShp{S}{0}{0}}}
+\providecommand{\aeDia}{\tikz[baseline=0pt]{\aeShp{D}{0}{0}}}
+\providecommand{\aeRow}[3]{%
+  \foreach \aeS [count=\aeI] in {#1}{\xdef\aeN{\aeI}}%
+  \foreach \aeS [count=\aeI] in {#1}{\aeShp{\aeS}{#2-0.19*\aeN+0.38*\aeI-0.36}{#3+0.03}}}
+\providecommand{\aeScale}[4]{\begin{scope}[shift={(#1,#2)}]
+  \draw[Ink,line width=1pt] (-1.9,0.55)--(-0.5,0.55) (-1.2,0.55)--(-1.2,0.25)--(1.2,0.25)--(1.2,0.55) (0.5,0.55)--(1.9,0.55);
+  \draw[Ink,line width=0.9pt,fill=Ink!12] (-0.2,-0.12)--(0,0.25)--(0.2,-0.12)--cycle;
+  \aeRow{#3}{-1.2}{0.55}\aeRow{#4}{1.2}{0.55}
+\end{scope}}
+
+% ------------------------------------------------------------------ 41
+\begin{probbox}{41}{\stars{1}}
+The three scales below are balanced; identical shapes have equal masses.
+\begin{figC}
+\aeScale{0}{0}{T,T}{C,C,C}
+\aeScale{4.4}{0}{C,S}{T}
+\aeScale{8.8}{0}{D}{T,S}
+\node[font=\footnotesize\bfseries,text=Slate] at (0,-0.45) {Scale 1};
+\node[font=\footnotesize\bfseries,text=Slate] at (4.4,-0.45) {Scale 2};
+\node[font=\footnotesize\bfseries,text=Slate] at (8.8,-0.45) {Scale 3};
+\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item How many \aeSq\ shapes balance one \aeCir?
+\item How many \aeSq\ shapes balance one \aeDia?
+\item One \aeDia\ and one \aeCir\ are placed on the left pan. If only \aeTri\ shapes may be used on the right pan, how many \aeTri\ are needed?
+\item The four objects \aeTri, \aeCir, \aeSq, \aeDia\ (one of each kind) have a total mass of $50$ g. Find the mass of each object.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} This extends Problem 17. We write the three scales as three equations and then express every shape in one common unit, \aeSq:
+\[ \text{(1) } 2\,\aeTri=3\,\aeCir,\qquad \text{(2) } \aeCir+\aeSq=\aeTri,\qquad \text{(3) } \aeDia=\aeTri+\aeSq. \]
+\begin{recallbox}For a balanced scale (an equation) we may: double (triple, \dots) the objects on \emph{both} pans; remove identical objects from \emph{both} pans; replace a group of objects by another group of the same mass. The scale stays balanced.\end{recallbox}
+
+\step{1}{Part a -- Double scale 2}
+Double everything on scale 2: $2\,\aeCir+2\,\aeSq=2\,\aeTri$.\par
+By scale 1, $2\,\aeTri=3\,\aeCir$, so $2\,\aeCir+2\,\aeSq=3\,\aeCir$.\par
+Remove $2\,\aeCir$ from both pans: $2\,\aeSq=\aeCir$.\par
+So \textbf{$2$ shapes \aeSq} balance one \aeCir.
+\begin{tipbox}Why think of ``doubling''? Because scale 1 talks about \emph{two} \aeTri. Doubling scale 2 also gives \emph{two} \aeTri, which we can then replace using scale 1.\end{tipbox}
+
+\step{2}{Convert \aeTri\ into \aeSq}
+From scale 2: $\aeTri=\aeCir+\aeSq=2\,\aeSq+\aeSq=3\,\aeSq$.\par
+(Check with scale 1: $2\,\aeTri=6\,\aeSq$ and $3\,\aeCir=6\,\aeSq$ \checkmark.)
+
+\step{3}{Part b}
+From scale 3: $\aeDia=\aeTri+\aeSq=3\,\aeSq+\aeSq=4\,\aeSq$. We need \textbf{$4$ shapes \aeSq}.
+
+\step{4}{Part c}
+Left pan: $\aeDia+\aeCir=4\,\aeSq+2\,\aeSq=6\,\aeSq$. Each \aeTri\ weighs $3\,\aeSq$, so we need $6\div 3=$ \textbf{$2$ shapes \aeTri}.
+
+\step{5}{Part d}
+The four objects in units of \aeSq: $\aeTri+\aeCir+\aeSq+\aeDia=3+2+1+4=10$ (\aeSq). So $10$ squares weigh $50$ g, and each \aeSq\ weighs $50\div 10=5$ g. Hence:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}Object & \aeSq & \aeCir & \aeTri & \aeDia\\ \hline
+In units of \aeSq & $1$ & $2$ & $3$ & $4$\\ \hline
+Mass & $5$ g & $10$ g & $15$ g & $20$ g\\ \hline
+\end{tabular}
+\end{center}
+\verify{Scale 1: $2\cdot 15=30=3\cdot 10$ \checkmark. Scale 2: $10+5=15$ \checkmark. Scale 3: $20=15+5$ \checkmark. Total: $15+10+5+20=50$ \checkmark.}
+\begin{parentbox}You can use real objects (sweets, buttons, coins) to let your child ``play with scales'': each time you remove or replace objects on both sides, ask ``is the scale still balanced?''. This is the foundation of solving equations in later grades.\end{parentbox}
+\ans{a) $2$ shapes \aeSq;\ b) $4$ shapes \aeSq;\ c) $2$ shapes \aeTri;\ d) \aeSq\ $5$ g, \aeCir\ $10$ g, \aeTri\ $15$ g, \aeDia\ $20$ g.}
+}
+
+% ------------------------------------------------------------------ 42
+\begin{probbox}{42}{\stars{1}}
+In this problem we only consider triangles in which every angle measures (in degrees) a \emph{whole number}. Two isosceles triangles are said to be of the \emph{same type} if they have the same three angle measures.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Prove that there is no triangle whose three angles all have odd measures.
+\item How many types of isosceles triangle have all three angles with even measures?
+\item How many types of isosceles triangle have exactly two angles with odd measures? Is there an isosceles triangle with exactly one angle of odd measure?
+\item How many types of isosceles triangle are there altogether?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} This extends Problem 20: instead of looking only at triangles with a $70^\circ$ angle, we look at \emph{all} isosceles triangles with whole-number angles and sort them by whether their angles are even or odd.
+\begin{recallbox}The three angles of a triangle add up to $180^\circ$. An isosceles triangle has two equal base angles. Even and odd: odd $+$ odd $=$ even; even $+$ odd $=$ odd; the sum of three odd numbers is odd; $2\times$(any number) is even.\end{recallbox}
+
+\step{1}{Part a}
+Suppose all three angles are odd. The sum of the first two odd numbers is even; adding one more odd number gives an \emph{odd} number. But the sum of the three angles is $180$ -- an even number. Contradiction. So no triangle has three odd angles.
+
+\step{2}{Describe every isosceles triangle by one number $x$}
+Let each base angle measure $x$ (degrees). Then the apex angle is $180-2x$. For a triangle, the apex angle must be positive, $180-2x\ge 1$, that is, $x\le 89$. So $x$ can be $1,2,3,\dots,89$, and each value of $x$ gives exactly one type of isosceles triangle.
+\begin{proofbox}Two different values of $x$ give two different sets of angles (the base angles differ), and every isosceles triangle has the form $(x,x,180-2x)$. The equilateral triangle $(60,60,60)$ corresponds to $x=60$ -- it is counted only once. Note: we can always take the two equal angles as the base angles; for the equilateral triangle any angle will do.\end{proofbox}
+
+\step{3}{The apex angle is always even}
+$180-2x=2\cdot(90-x)$ is an even number for every $x$. So the parity pattern of the triangle depends only on $x$:
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item $x$ even: two even base angles, even apex angle $\Rightarrow$ all three angles even.
+\item $x$ odd: two odd base angles, even apex angle $\Rightarrow$ exactly two angles odd.
+\end{itemize}
+
+\step{4}{Part b}
+Count the even numbers from $1$ to $89$: $2,4,\dots,88$, that is $88\div 2=44$ numbers. So there are \textbf{$44$ types}.
+
+\step{5}{Part c}
+Count the odd numbers from $1$ to $89$: $1,3,\dots,89$, that is $(89+1)\div 2=45$ numbers. So \textbf{$45$ types} have exactly two odd angles.\par
+An isosceles triangle with exactly one odd angle does \textbf{not exist}: by Step 3, the number of odd angles can only be $0$ or $2$.
+
+\step{6}{Part d}
+Total number of types: $44+45=89$ (exactly the number of values of $x$).
+\begin{center}\small
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$x$ (base angle) & The three angles & Odd angles\\ \hline
+$1$ & $1^\circ,\,1^\circ,\,178^\circ$ & $2$\\ \hline
+$2$ & $2^\circ,\,2^\circ,\,176^\circ$ & $0$\\ \hline
+$55$ & $55^\circ,\,55^\circ,\,70^\circ$ & $2$\\ \hline
+$70$ & $70^\circ,\,70^\circ,\,40^\circ$ & $0$\\ \hline
+$89$ & $89^\circ,\,89^\circ,\,2^\circ$ & $2$\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Do not forget the ``very flat'' triangles such as $(1^\circ,1^\circ,178^\circ)$ -- they are still genuine triangles. And do not allow $x=90$: then the apex angle would be $0^\circ$, which is no longer a triangle.\end{warnbox}
+\verify{Listing $x=1,\dots,89$ with a computer gives exactly $44$ all-even triples and $45$ triples with two odd angles. The rows $x=55$ and $x=70$ are exactly the two triangles of Problem 20.}
+\ans{a) It does not exist;\ b) $44$;\ c) $45$ types, and no isosceles triangle has exactly one odd angle;\ d) $89$.}
+}
+
+% ------------------------------------------------------------------ 43
+\begin{probbox}{43}{\stars{2}}
+A dot starts at the origin $O(0,0)$ and moves by the rule of Problem 22: the first move is $1$ unit horizontally or vertically; each later move is $1$ unit longer than the previous one and perpendicular to the move just before it (either direction allowed).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Explain why after exactly $10$ moves the dot cannot be back at $O$.
+\item Find the smallest $n$ ($n\ge 1$) such that after exactly $n$ moves the dot can be back at $O$. Show one way to do it.
+\item Can the dot be back at $O$ after exactly $8$ moves?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} As in Problem 22, the moves alternate horizontal -- vertical. One direction gets the moves of \emph{odd} length $1,3,5,\dots$; the other gets the moves of \emph{even} length $2,4,6,\dots$ The dot returns to $O$ exactly when the signed sum of \emph{each} group is $0$.
+\begin{recallbox}Being back at $O$ means the total horizontal displacement is $0$ \emph{and} the total vertical displacement is $0$. Changing the sign of a term $a$ in a sum changes the sum by $2a$ -- an even number -- so it \textbf{does not change whether the sum is even or odd}.\end{recallbox}
+
+\step{1}{Part a}
+After $10$ moves, the odd group consists of the lengths $1,3,5,7,9$ (whether the first move is horizontal or vertical). The signed sum $\pm1\pm3\pm5\pm7\pm9$ has the same parity as $1+3+5+7+9=25$, so it is always \emph{odd} and can never be $0$. So in that direction the dot is not back where it started, hence the dot is not at $O$.
+
+\step{2}{Part b -- Rule out $n\le 6$}
+Look at the odd group (in one direction) for each $n$:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$n$ & Odd lengths & Why the signed sum cannot be $0$\\ \hline
+$1,\ 2$ & $\{1\}$ & $\pm 1\neq 0$\\ \hline
+$3,\ 4$ & $\{1,3\}$ & $\pm1\pm3$ can only be $4, 2, -2, -4$\\ \hline
+$5,\ 6$ & $\{1,3,5\}$ & the signed sum has the parity of $1+3+5=9$ (odd)\\ \hline
+\end{tabular}
+\end{center}
+So for $n\le 6$ the dot cannot return to $O$, and $n\ge 7$.
+
+\step{3}{Part b -- $n=7$ works}
+Odd group: $\{1,3,5,7\}$, choose $+1-3-5+7=0$. Even group: $\{2,4,6\}$, choose $+2+4-6=0$.\par
+Let the first move be horizontal. The moves: right $1$, up $2$, left $3$, up $4$, left $5$, down $6$, right $7$. The positions are
+\[ (0,0)\to(1,0)\to(1,2)\to(-2,2)\to(-2,6)\to(-7,6)\to(-7,0)\to(0,0). \]
+\begin{figC}\begin{scope}[scale=0.36]
+\draw[Line,line width=0.3pt] (-8,-1) grid (2,7);
+\draw[->,Navy,line width=0.5pt] (-8,0)--(2.4,0); \draw[->,Navy,line width=0.5pt] (0,-1)--(0,7.4);
+\draw[tmBlue,line width=1.3pt,->] (0,0)--(1,0)--(1,2)--(-2,2)--(-2,6)--(-7,6)--(-7,0)--(-0.12,0);
+\fill[AnsRed] (0,0) circle (5pt);
+\node[font=\scriptsize,anchor=north west] at (0,0) {$O$};
+\foreach \p/\l/\a in {(0.5,0)/1/below,(1,1)/2/right,(-0.5,2)/3/below,(-2,4)/4/right,(-4.5,6)/5/above,(-7,3)/6/left,(-3.5,0)/7/below}{\node[\a,font=\scriptsize\bfseries,text=tmBlue!80!black] at \p {\l};}
+\end{scope}\end{figC}
+So the smallest $n$ is $7$.
+
+\step{4}{Part c -- $n=8$}
+Odd group: $\{1,3,5,7\}$, again $+1-3-5+7=0$. Even group: $\{2,4,6,8\}$, choose $+2-4-6+8=0$. So \textbf{yes}: right $1$, up $2$, left $3$, down $4$, left $5$, down $6$, right $7$, up $8$; the positions are $(1,0)$, $(1,2)$, $(-2,2)$, $(-2,-2)$, $(-7,-2)$, $(-7,-8)$, $(0,-8)$, $(0,0)$.
+\begin{proofbox}A signed sum $\pm a_1\pm a_2\pm\dots$ equals $0$ exactly when the numbers $a_1,a_2,\dots$ can be split into two groups with equal sums (the group with sign $+$ and the group with sign $-$). For example $\{1,3,5,7\}$: $1+7=3+5=8$. That is why the total of all the numbers must be \emph{even}.\end{proofbox}
+\begin{warnbox}Do not forget that \emph{both} groups must sum to $0$. For $n=5$: the even group $\{2,4\}$ cannot give $0$, and neither can the odd group $\{1,3,5\}$ -- one failing group is already enough to rule $n$ out.\end{warnbox}
+\verify{Checking every choice of directions with a computer for $n=1,2,\dots,15$: the dot can return to $O$ for $n=7$, $n=8$ and $n=15$; it cannot for any $n\le 6$.}
+\ans{a) The signed sum of $1,3,5,7,9$ is always odd, so it is not $0$;\ b) $n=7$ (for example: right 1, up 2, left 3, up 4, left 5, down 6, right 7);\ c) Yes.}
+}
+
+% ------------------------------------------------------------------ 44
+\begin{probbox}{44}{\stars{2}}
+A $4\times 6\times n$ rectangular box ($n$ a positive integer) is built from $1\times1\times1$ unit cubes. Let $A$ be the surface area of the box and $B$ the combined surface area of all the unit cubes.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Write $A$, $B$ and the ratio $\dfrac{B}{A}$ as expressions in $n$.
+\item Prove that $\dfrac{B}{A}<7.2$ for every $n$.
+\item Find all values of $n$ for which $\dfrac{B}{A}$ is an integer.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} This extends Problem 24, but this time the trick of ``splitting off the whole part'' is not as neat. We use a different method: bound the ratio from above, then test each possible integer value.
+\begin{recallbox}An $a\times b\times c$ box: surface area $2(ab+bc+ca)$, made of $a\cdot b\cdot c$ unit cubes; each unit cube has surface area $6$.\end{recallbox}
+
+\step{1}{Part a}
+$A=2(4\cdot 6+4\cdot n+6\cdot n)=2(24+10n)=48+20n$.\par
+Number of unit cubes: $4\cdot 6\cdot n=24n$; therefore $B=6\cdot 24n=144n$.\par
+\[ \frac{B}{A}=\frac{144n}{48+20n}=\frac{4\cdot 36n}{4\cdot(12+5n)}=\frac{36n}{5n+12}. \]
+
+\step{2}{Part b}
+Since $5n+12>5n$, we are dividing $36n$ by a number \emph{larger} than $5n$, so the result is \emph{smaller}:
+\[ \frac{36n}{5n+12}<\frac{36n}{5n}=\frac{36}{5}=7.2. \]
+\begin{recallbox}For positive numbers: with the same numerator, the fraction with the larger denominator is smaller.\end{recallbox}
+
+\step{3}{Part c -- Call the integer value $k$}
+If $\frac{B}{A}=k$ is an integer, then $k$ is positive and $k<7.2$, so $k\in\{1,2,3,4,5,6,7\}$. We have
+\[ \frac{36n}{5n+12}=k \iff 36n=k(5n+12)=5kn+12k \iff 36n-5kn=12k \iff n(36-5k)=12k. \]
+So $n=\dfrac{12k}{36-5k}$, and we only need to test $7$ values of $k$.
+
+\step{4}{Test each value of $k$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$k$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$\\ \hline
+$12k$ & $12$ & $24$ & $36$ & $48$ & $60$ & $72$ & $84$\\ \hline
+$36-5k$ & $31$ & $26$ & $21$ & $16$ & $11$ & $6$ & $1$\\ \hline
+$n=\frac{12k}{36-5k}$ & $\frac{12}{31}$ $\times$ & $\frac{24}{26}$ $\times$ & $\frac{36}{21}$ $\times$ & $\mathbf{3}$ & $\frac{60}{11}$ $\times$ & $\mathbf{12}$ & $\mathbf{84}$\\ \hline
+\end{tabular}
+\end{center}
+(The mark $\times$ means: not an integer.)
+So $n\in\{3,\,12,\,84\}$.
+\begin{proofbox}Why have we missed nothing? Every $n$ making $\frac{B}{A}$ an integer gives an integer $k$ from $1$ to $7$ (part b), and for each $k$ there is exactly one $n$ with $n(36-5k)=12k$. We have tested all $7$ possibilities.\end{proofbox}
+\verify{
+$n=3$: $A=48+60=108$, $B=432$, $\frac{B}{A}=4$ \checkmark.\quad
+$n=12$: $A=48+240=288$, $B=1728$, $\frac{B}{A}=6$ \checkmark.\quad
+$n=84$: $A=48+1680=1728$, $B=12\,096$, $\frac{B}{A}=7$ \checkmark.}
+\begin{tipbox}When a fraction containing $n$ cannot be ``split'' neatly, find a number it always stays below. If only a few integer values remain possible, test them all!\end{tipbox}
+\ans{a) $A=48+20n$, $B=144n$, $\dfrac{B}{A}=\dfrac{36n}{5n+12}$;\ b) see the solution;\ c) $n=3$, $n=12$, $n=84$.}
+}
+
+% ------------------------------------------------------------------ 45
+\begin{probbox}{45}{\stars{2}}
+Two bus routes cross at the stop $X$. Bus A runs back and forth along the route $P\text{--}X\text{--}S$; each arm ($PX$ or $XS$) takes exactly $4$ minutes. Bus B runs along the route $Q\text{--}X\text{--}T$; each arm takes exactly $6$ minutes. At 1:00 p.m., bus A leaves $P$ and bus B leaves $Q$; the buses turn around instantly at the ends of their routes and run continuously.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Prove that buses A and B are never at $X$ at the same time.
+\item A bus C is added on the route $R\text{--}X\text{--}U$; each arm takes $10$ minutes, and it leaves $R$ at 1:00 p.m. Between 1:00 p.m. and 7:00 p.m., at which times are two buses at $X$ together?
+\item Suppose each arm of bus C's route takes $m$ minutes ($m$ any positive integer). Prove that bus C cannot both meet bus A at $X$ (at some moment) and meet bus B at $X$ (at some moment).
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} This extends Problem 25. Measure time $t$ in minutes after 1:00 p.m. As in Problem 25, a bus whose arm takes $a$ minutes first reaches $X$ at minute $a$, and then returns to $X$ every $2a$ minutes (out to the end and back):
+\[ t=a,\ 3a,\ 5a,\ 7a,\dots \quad\text{that is } t=a\times(\text{odd number}). \]
+So bus A is at $X$ when $t=4\times(\text{odd})$; bus B when $t=6\times(\text{odd})$; bus C when $t=m\times(\text{odd})$.
+\begin{recallbox}The product of two odd numbers is odd. A number divisible by $4$ gives an even number when divided by $2$.\end{recallbox}
+
+\step{1}{Part a}
+Times when bus A is at $X$: $t=4\times(\text{odd})$ -- always \textbf{divisible by $4$}.\par
+Times when bus B is at $X$: $t=6\times(\text{odd})=2\times(3\times\text{odd})=2\times(\text{odd})$ -- dividing by $2$ gives an odd number, so it is \textbf{not divisible by $4$}.\par
+A number cannot be both divisible and not divisible by $4$, so A and B are never at $X$ together.
+
+\step{2}{Part b -- bus C with $m=10$}
+Bus C is at $X$ when $t=10\times(\text{odd})=2\times(5\times\text{odd})$ -- not divisible by $4$, so C \textbf{never} meets A at $X$ (same reasoning as part a).\par
+C meets B when $t=6\times(\text{odd})=10\times(\text{odd})$. Then $\frac{t}{2}=3\times(\text{odd})=5\times(\text{odd})$ is an odd number divisible by $3$ and $5$, i.e.\ an odd multiple of $15$. So $t=30\times(\text{odd})$. Conversely, $t=30\times(\text{odd})=6\times(5\times\text{odd})=10\times(3\times\text{odd})$ is indeed a time when both buses are at $X$.\par
+From 1:00 p.m. to 7:00 p.m. means $0\le t\le 360$: $t=30,\ 90,\ 150,\ 210,\ 270,\ 330$.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$t$ (min) & $30$ & $90$ & $150$ & $210$ & $270$ & $330$\\ \hline
+Time & 1:30 p.m. & 2:30 p.m. & 3:30 p.m. & 4:30 p.m. & 5:30 p.m. & 6:30 p.m.\\ \hline
+\end{tabular}
+\end{center}
+At all $6$ of these times the two buses at $X$ are B and C.
+
+\step{3}{Part c -- ``the number of halvings''}
+For each positive integer $t$, keep dividing $t$ by $2$ until the result is odd. Let $h(t)$ be the number of divisions. For example: $12\to 6\to 3$, so $h(12)=2$; $6\to3$, so $h(6)=1$; $5$ is already odd, so $h(5)=0$.
+\begin{proofbox}\textbf{Multiplying by an odd number does not change $h$.} Write $m=2\cdot2\cdots2\times r$ (with $h(m)$ factors $2$ and $r$ odd). Then $m\times(\text{odd})=2\cdot2\cdots2\times(r\times\text{odd})$, where $r\times\text{odd}$ is still odd. So $m\times(\text{odd})$ can also be halved exactly $h(m)$ times.\end{proofbox}
+Applying this:
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item Every time bus A is at $X$: $h\big(4\times\text{odd}\big)=h(4)=2$.
+\item Every time bus B is at $X$: $h\big(6\times\text{odd}\big)=h(6)=1$.
+\item Every time bus C is at $X$: $h\big(m\times\text{odd}\big)=h(m)$.
+\end{itemize}
+If C meets A then $h(m)=2$; if C meets B then $h(m)=1$. A number $m$ cannot have both $h(m)=2$ and $h(m)=1$. So C cannot meet both A and B.
+\begin{warnbox}Part c does not say that C \emph{never} meets anyone: with $m=4$, C meets A (at $t=4$); with $m=2$, C meets B (at $t=6$). What we proved is that C cannot meet \emph{both}.\end{warnbox}
+\verify{Checking with a computer for $m=1,2,\dots,12$: no value of $m$ lets C meet both A and B; $m=4$ and $m=12$ meet A; $m=2,6,10$ meet B.}
+\ans{a) Times when A is at $X$ are divisible by $4$, times when B is at $X$ are not;\ b) 1:30, 2:30, 3:30, 4:30, 5:30 and 6:30 p.m. (always buses B and C);\ c) see the solution.}
+}
+
+% ------------------------------------------------------------------ 46
+\begin{probbox}{46}{\stars{1}}
+Sơn counts forward $7, 10, 13,\dots$ (adding $3$ each time) and stops before going past $2026$. Dũng counts backward $2026, 2021, 2016,\dots$ (subtracting $5$ each time) and stops before going below $7$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item How many numbers appear in both lists?
+\item Find the sum of all the numbers in part a.
+\item Mai writes the list of positive multiples of $4$: $4, 8, 12,\dots$ How many numbers appear in all three lists (Sơn's, Dũng's and Mai's)? What is the largest of them?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} This extends Problem 26. In Problem 26 we saw: a number is in Sơn's list $\iff$ it leaves remainder $1$ on division by $3$ (and is $\ge 7$); a number is in Dũng's list $\iff$ it leaves remainder $1$ on division by $5$ (and is $\le 2026$). Now we find \emph{all} the common numbers.
+
+\step{1}{Part a -- The test for a common number}
+$N$ is common $\iff$ $N$ leaves remainder $1$ on division by $3$ and by $5$ $\iff$ $N-1$ is divisible by $3$ and by $5$ $\iff$ $N-1$ is divisible by $15$. So $N=15j+1$.
+\begin{recallbox}A number divisible by $3$ and by $5$ (two coprime numbers) is divisible by $3\cdot 5=15$.\end{recallbox}
+
+\step{2}{Part a -- Count}
+We need $7\le 15j+1\le 2026$. Smallest: $j=1$ gives $16$ ($j=0$ gives $1<7$, rejected). Largest: $15j+1\le 2026 \Rightarrow 15j\le 2025 \Rightarrow j\le 135$; $j=135$ gives $2026$.\par
+So the common numbers are $16, 31, 46,\dots, 2026$, for $j=1,2,\dots,135$: \textbf{$135$ numbers}.
+
+\step{3}{Part b -- The sum (Gauss's pairing method)}
+\begin{recallbox}Sum of an equally spaced list $=$ (first $+$ last) $\times$ (number of terms) $\div 2$. Reason: write the list forwards and backwards and add in pairs; every pair equals first $+$ last.\end{recallbox}
+\[ 16+31+\dots+2026=\frac{(16+2026)\cdot 135}{2}=\frac{2042\cdot 135}{2}=1021\cdot 135=137\,835. \]
+
+\step{4}{Part c -- Add the condition ``divisible by $4$''}
+Look at the common numbers $16, 31, 46, 61, 76, 91, 106, 121, 136,\dots$ Which are divisible by $4$?
+\[ 16\ \checkmark,\ 31,\ 46,\ 61,\ 76\ \checkmark,\ 91,\ 106,\ 121,\ 136\ \checkmark,\dots \]
+In every $4$ consecutive terms exactly $1$ is divisible by $4$, and these numbers are $4\cdot 15=60$ apart: $16, 76, 136, \dots$
+\begin{proofbox}Each step along the list adds $15$; adding $15$ increases the remainder on division by $4$ by $3$ (because $15=12+3$). The remainders of $16,31,46,61$ on division by $4$ are $0,3,2,1$, and then they repeat. So exactly one term in every $4$ is divisible by $4$, and two consecutive such terms are $4\times15=60$ apart.\end{proofbox}
+The numbers common to all three lists: $16+60i$ with $16+60i\le 2026$, i.e.\ $60i\le 2010$, $i\le 33.5$, so $i=0,1,\dots,33$: \textbf{$34$ numbers}. The largest is $16+60\cdot 33=16+1980=1996$.
+\verify{$1996=4\cdot 499$ \checkmark; $1996-7=1989=3\cdot 663$ \checkmark; $2026-1996=30=5\cdot 6$ \checkmark. The next one, $1996+60=2056>2026$, is rejected.}
+\ans{a) $135$ numbers;\ b) $137\,835$;\ c) $34$ numbers, the largest is $1996$.}
+}
+
+% ------------------------------------------------------------------ 47
+\begin{probbox}{47}{\stars{2}}
+An and Bình both start at point $A$ on a circular track; each runs at a constant speed.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item They run in opposite directions, with the ratio of speeds An : Bình equal to $5:3$. At how many different points of the track do they meet?
+\item If they run in the \emph{same direction} (still with ratio $5:3$), at how many different points does An overtake Bình?
+\item Find all speed ratios $p:q$ (with $p>q$, where $p$ and $q$ are coprime positive integers) such that, running in opposite directions, they meet at exactly $10$ different points.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} This extends Problem 27. We reuse two ideas: (1) running in opposite directions, between two consecutive meetings the two together cover $1$ lap; (2) distance is proportional to speed.
+
+\step{1}{Part a -- Divide the lap into 8 segments}
+The ratio is $5:3$, so we divide the lap into $5+3=8$ equal segments and number the division points $0,1,2,\dots,7$ in An's running direction (point $0$ is $A$). Between two meetings the two together run $8$ segments, of which An runs $5$ and Bình $3$.\par
+The $k$-th meeting is at the point $5k$ segments from $A$; every $8$ segments is a full lap, so we remove multiples of $8$:
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}Meeting $k$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$\\ \hline
+$5k$ & $5$ & $10$ & $15$ & $20$ & $25$ & $30$ & $35$ & $40$ & $45$\\ \hline
+Point (remove multiples of $8$) & $5$ & $2$ & $7$ & $4$ & $1$ & $6$ & $3$ & $0$ & $5$\\ \hline
+\end{tabular}
+\end{center}
+The first eight meetings fall on all $8$ different points $0,1,\dots,7$; the $9$th meeting is back at point $5$ and everything repeats. So there are \textbf{$8$ meeting points}.
+\begin{figC}
+\draw[Ink,line width=1.1pt] (0,0) circle (1.3);
+\foreach \i/\k in {0/8,1/5,2/2,3/7,4/4,5/1,6/6,7/3}{
+  \fill[AnsRed] ({90+45*\i}:1.3) circle (2.6pt);
+  \node[font=\scriptsize] at ({90+45*\i}:1.75) {point \i};
+  \node[font=\scriptsize\bfseries,text=tmBlue] at ({90+45*\i}:0.98) {\k};}
+\node[font=\scriptsize,text=tmBlue,align=center] at (0,0) {meeting\\no.};
+\end{figC}
+(Blue numbers inside: which meeting falls on that point; the points are numbered in An's running direction.)
+
+\step{2}{Part b -- Same direction}
+Running in the same direction, An overtakes Bình each time An has run exactly $1$ lap \emph{more} than Bình. In the same time An runs $5$ parts while Bình runs $3$, so An gains $2$ parts. Thus ``$1$ lap more'' corresponds to $2$ parts $=1$ lap, so each part is $\frac12$ lap, and An has run $5\cdot\frac12=2\frac12$ laps.\par
+First overtaking: An has run $2\frac12$ laps, at the point opposite $A$. Second: $5$ laps, exactly at $A$. Then it repeats. So there are \textbf{$2$ points} (point $A$ and the point opposite $A$).
+
+\step{3}{Part c -- The general rule}
+Do the same as in part a with ratio $p:q$: divide the lap into $p+q$ segments; the $k$-th meeting is at the point $k\cdot p$ segments from $A$ (removing multiples of $p+q$).
+\begin{proofbox}\textbf{If $p$ and $q$ are coprime, there are exactly $p+q$ meeting points.}\par
+\emph{Meeting number $p+q$ is back at $A$:} because $(p+q)\cdot p$ is a multiple of $p+q$.\par
+\emph{Meetings $1,2,\dots,p+q$ are at different points:} suppose meetings $i$ and $j$ ($i<j\le p+q$) are at the same point. Then $j\cdot p-i\cdot p=(j-i)\cdot p$ is a multiple of $p+q$. Any common divisor of $p$ and $p+q$ also divides $(p+q)-p=q$; since $p,q$ are coprime, $p$ and $p+q$ have no common prime factor. Hence every prime factor of $p+q$ must be in $j-i$, so $j-i$ is divisible by $p+q$. But $0<j-i<p+q$ -- impossible.\par
+So there are exactly $p+q$ meeting points, equally spaced around the circle.\end{proofbox}
+We need $p+q=10$ with $p>q\ge 1$ coprime:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$p:q$ & $9:1$ & $8:2$ & $7:3$ & $6:4$\\ \hline
+Coprime? & yes & no ($=4:1$) & yes & no ($=3:2$)\\ \hline
+Meeting points & $10$ & $5$ & $10$ & $5$\\ \hline
+\end{tabular}
+\end{center}
+($5:5$ is excluded because $p>q$.) So there are two ratios: \textbf{$9:1$ and $7:3$}.
+\begin{warnbox}The ratio $8:2$ has $8+2=10$ but is really $4:1$, which gives only $4+1=5$ meeting points. Always reduce the ratio before applying the ``$p+q$ points'' rule.\end{warnbox}
+\verify{Check Problem 27 with the rule: the ratio $2:1$ gives $2+1=3$ points \checkmark. A computer simulation of all reduced ratios $p:q$ with $p\le 19$: only $9:1$ and $7:3$ give $10$ points.}
+\ans{a) $8$ points;\ b) $2$ points;\ c) $9:1$ and $7:3$.}
+}
+
+% ------------------------------------------------------------------ 48
+\begin{probbox}{48}{\stars{2}}
+We call an \emph{increasing} list of positive integers a \emph{Fibo list} if, from the third number on, each number is the sum of the two numbers just before it (for example $11, 20, 31, 51, 82$ as in Problem 28).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Find all Fibo lists of $6$ numbers whose last number is $100$.
+\item How many Fibo lists of $5$ numbers have last number $200$?
+\item Prove that there is no Fibo list of $6$ numbers whose last number is $30$.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} As in Problem 28, the whole list is determined by its first two numbers $a$ and $b$; the list is increasing exactly when $a<b$.
+
+\step{1}{Express the numbers in terms of $a$ and $b$}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}1st & 2nd & 3rd & 4th & 5th & 6th\\ \hline
+$a$ & $b$ & $a+b$ & $a+2b$ & $2a+3b$ & $(a+2b)+(2a+3b)=3a+5b$\\ \hline
+\end{tabular}
+\end{center}
+\begin{tipbox}The coefficients $1,1,2,3,5,8,\dots$ appearing in the table are the famous Fibonacci numbers!\end{tipbox}
+
+\step{2}{Part a -- The equation $3a+5b=100$}
+Conditions: $a\ge 1$, $a<b$, $3a+5b=100$.
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item From $a\ge 1$: $5b=100-3a\le 97$, so $b\le 19$.
+\item From $a<b$: $100=3a+5b<3b+5b=8b$, so $b>12.5$, that is $b\ge 13$.
+\item $3a=100-5b$ must be divisible by $3$.
+\end{itemize}
+Test $b$ from $13$ to $19$:
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$b$ & $13$ & $14$ & $15$ & $16$ & $17$ & $18$ & $19$\\ \hline
+$100-5b$ & $35$ & $30$ & $25$ & $20$ & $15$ & $10$ & $5$\\ \hline
+$a=(100-5b)\div 3$ & $\times$ & $\mathbf{10}$ & $\times$ & $\times$ & $\mathbf{5}$ & $\times$ & $\times$\\ \hline
+\end{tabular}
+\end{center}
+There are two lists: $\mathbf{10, 14, 24, 38, 62, 100}$ and $\mathbf{5, 17, 22, 39, 61, 100}$.
+
+\step{3}{Part b -- The equation $2a+3b=200$}
+Since $2a$ and $200$ are even, $3b$ is even, so $b$ is even: $b=2t$. Then $2a=200-6t$, that is $a=100-3t$.
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item $a\ge 1$: $100-3t\ge 1 \Rightarrow t\le 33$.
+\item $a<b$: $100-3t<2t \Rightarrow 100<5t \Rightarrow t>20 \Rightarrow t\ge 21$.
+\end{itemize}
+So $t=21,22,\dots,33$: there are $33-21+1=13$ lists. (For example $t=21$: $37, 42, 79, 121, 200$; $t=33$: $1, 66, 67, 133, 200$.)
+\begin{warnbox}For $t=20$ we get $a=b=40$: the list $40,40,80,120,200$ is \emph{not increasing} at the first step, so it is rejected. The number of integers from $21$ to $33$ is $33-21+1=13$, not $12$.\end{warnbox}
+
+\step{4}{Part c -- No list ends in $30$}
+We need $3a+5b=30$ with $1\le a<b$.
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item $3a=30-5b\ge 3$, so $5b\le 27$, that is $b\le 5$.
+\item $5b=30-3a$ is divisible by $3$, so $b$ is divisible by $3$; with $b\le 5$ only $b=3$ is possible.
+\item $b=3$ gives $3a=15$, $a=5$. But $a=5>3=b$ -- the list $5,3,8,11,19,30$ is not increasing.
+\end{itemize}
+So no Fibo list of $6$ numbers ends in $30$.
+\begin{proofbox}A shorter argument: since $a<b$, the sixth number satisfies $3a+5b<3b+5b=8b$. To get $3a+5b=30$ we would need $b>30\div 8$, that is $b\ge 4$; together with $b\le 5$ and $b$ divisible by $3$, no value is left.\end{proofbox}
+\verify{Testing every pair $1\le a<b$ with a computer: exactly $2$ lists in part a, $13$ lists in part b and $0$ lists in part c.}
+\ans{a) $10,14,24,38,62,100$ and $5,17,22,39,61,100$;\ b) $13$ lists;\ c) see the solution.}
+}
+
+% ------------------------------------------------------------------ 49
+\begin{probbox}{49}{\stars{1}}
+Four friends An, Bình, Chi and Dũng each have at least one marble. We know that:
+\begin{itemize}[leftmargin=1.6em,itemsep=0pt]
+\item[(1)] An and Bình together have as many marbles as Chi and Dũng together.
+\item[(2)] An and Dũng together have more marbles than Bình and Chi together.
+\item[(3)] Bình has more marbles than An and Chi together.
+\end{itemize}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Put the four friends in order from fewest to most marbles.
+\item Altogether the four friends have $30$ marbles. What is the greatest number of marbles Chi can have? In that case, how many marbles does each friend have?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} This extends Problem 29: instead of comparing pairs directly, the information here compares \emph{sums}. Let An, Bình, Chi, Dũng have $a, b, c, d$ marbles (positive integers). We have:
+\[ \text{(1) } a+b=c+d,\qquad \text{(2) } a+d>b+c,\qquad \text{(3) } b>a+c. \]
+\begin{recallbox}Adding the two sides of an equation to the two sides of an inequality (left to left, right to right) gives an inequality in the same direction: if $X>Y$ and $M=N$, then $X+M>Y+N$ and $X-M>Y-N$.\end{recallbox}
+
+\step{1}{Compare An and Chi: add (2) and (1)}
+$(a+d)+(a+b)>(b+c)+(c+d)$, that is $2a+b+d>b+d+2c$. Remove $b+d$ from both sides: $2a>2c$, so $a>c$: \textbf{An has more than Chi}.
+
+\step{2}{Compare Bình and Dũng: subtract (1) from (2)}
+$(a+d)-(a+b)>(b+c)-(c+d)$, that is $d-b>b-d$. Add $b+d$ to both sides: $2d>2b$, so $d>b$: \textbf{Dũng has more than Bình}.
+
+\step{3}{Compare An and Bình: use (3)}
+$b>a+c\ge a+1>a$ (since $c\ge 1$). So \textbf{Bình has more than An}.
+
+\step{4}{Part a -- Conclusion}
+Putting it together: $c<a<b<d$.
+\begin{figC}
+\foreach \n/\x in {Chi/0,An/2,Bình/4,Dũng/6}{\node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,font=\small,minimum width=1.3cm,text height=1.7ex,text depth=0.4ex] (\n) at (\x,0) {\n};}
+\draw[->,tmBlue,line width=0.9pt] (Chi)--(An); \draw[->,tmBlue,line width=0.9pt] (An)--(Bình); \draw[->,tmBlue,line width=0.9pt] (Bình)--(Dũng);
+\node[font=\scriptsize,text=Slate] at (3,-0.55) {fewer $\longrightarrow$ more};
+\end{figC}
+From fewest to most: \textbf{Chi, An, Bình, Dũng}.
+
+\step{5}{Part b -- Use the total of 30}
+From (1), $a+b=c+d$, and the total is $30$, so $a+b=c+d=15$. Hence $b=15-a$.\par
+Substitute into (3): $15-a>a+c$, that is $2a+c<15$, or $2a+c\le 14$.\par
+By part a, $a>c$, so $a\ge c+1$. Therefore $2(c+1)+c\le 2a+c\le 14$, that is $3c+2\le 14$, $3c\le 12$, $c\le 4$.
+
+\step{6}{Part b -- Can $c=4$ actually happen?}
+With $c=4$: we need $a\ge 5$ and $2a+4\le 14$, that is $a\le 5$. So $a=5$, $b=15-5=10$, $d=15-4=11$.\par
+Check all three conditions:
+(1) $5+10=15=4+11$ \checkmark;\quad (2) $5+11=16>14=10+4$ \checkmark;\quad (3) $10>5+4=9$ \checkmark.
+\begin{warnbox}Proving ``$c\le 4$'' is only half the job: we must also show a concrete case with $c=4$ before we can claim that $4$ is the greatest value.\end{warnbox}
+\verify{Listing with a computer every $(a,b,c,d)$ with total $30$ satisfying (1), (2), (3): there are $12$ of them, the largest $c$ is $4$, occurring only in $(5,10,4,11)$; and in every one of them $c<a<b<d$.}
+\ans{a) Chi, An, Bình, Dũng;\ b) Chi has at most $4$ marbles; then An has $5$, Bình $10$, Chi $4$, Dũng $11$.}
+}
+
+% ------------------------------------------------------------------ 50
+\begin{probbox}{50}{\stars{1}}
+A shop sells candy A at $12$ thousand dong per $100$ g and candy B at $20$ thousand dong per $100$ g.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item How many grams of each kind must be mixed to get $1$ kg of mixture costing $15$ thousand dong per $100$ g (the mixture is worth exactly the total value of the candy put in)?
+\item How many grams of candy C, costing $30$ thousand dong per $100$ g, must be added to the $1$ kg mixture of part a to get a new mixture costing $18$ thousand dong per $100$ g?
+\item Prove that if candy A and candy B (both present) are mixed in any proportion, the price of the mixture is always more than $12$ and less than $20$ thousand dong per $100$ g.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} This extends Problem 30. The principle: \emph{the cost of the mixture $=$ the total cost of the parts mixed}. To keep the arithmetic short we measure mass in ``portions'' ($1$ portion $=100$ g); then prices are ``thousand dong per portion'' and $1$ kg $=10$ portions.
+\begin{recallbox}Cost $=$ price (per unit of mass) $\times$ mass. Average price $=$ total cost $\div$ total mass.\end{recallbox}
+
+\step{1}{Part a -- Set up an equation}
+Let the mass of candy A be $x$ portions; candy B is then $10-x$ portions.\par
+Cost of A: $12x$; cost of B: $20(10-x)=200-20x$; cost of $1$ kg of mixture: $15\cdot 10=150$ (thousand dong). So
+\[ 12x+200-20x=150 \iff 200-8x=150 \iff 8x=50 \iff x=6.25. \]
+So we need $6.25$ portions $=625$ g of candy A and $1000-625=375$ g of candy B.
+\verify{$12\cdot 6.25+20\cdot 3.75=75+75=150$ thousand dong for $10$ portions, that is $15$ thousand dong per portion \checkmark.}
+
+\step{2}{Part a -- The ``lever'' view}
+\begin{figC}
+\draw[Navy,line width=1pt] (0,0)--(8,0);
+\foreach \x/\l in {0/12,3/15,8/20}{\draw[Navy,line width=1pt] (\x,0.12)--(\x,-0.12); \node[below,font=\small] at (\x,-0.12) {\l};}
+\node[above,font=\small\bfseries,text=tmBlue] at (0,0.15) {A};
+\node[above,font=\small\bfseries,text=tmOrange!85!black] at (8,0.15) {B};
+\node[above,font=\small\bfseries,text=AnsRed] at (3,0.15) {mixture};
+\brcdn{0}{3}{-0.75}{from A: $3$}
+\brcdn{3}{8}{-0.75}{from B: $5$}
+\end{figC}
+The price $15$ is $3$ away from A's price and $5$ away from B's price. Each portion of A is $3$ thousand ``short'' of $15$, each portion of B is $5$ thousand ``over''. For the shortfall and the excess to cancel, the masses must be A : B $=5:3$ (the distances \emph{reversed}). Sharing $1000$ g in the ratio $5:3$: A $=\frac58\cdot 1000=625$ g, B $=\frac38\cdot1000=375$ g. The same as Step 1.
+\begin{proofbox}With $5$ parts of A and $3$ parts of B: the shortfall is $5\cdot 3=15$ and the excess is $3\cdot 5=15$ -- equal, so the average price is exactly $15$.\end{proofbox}
+
+\step{3}{Part b}
+Let the mass of candy C added be $y$ portions. Total cost: $150+30y$; total mass: $10+y$ portions. We need the price $18$:
+\[ 150+30y=18(10+y)=180+18y \iff 12y=30 \iff y=2.5. \]
+So we must add $2.5$ portions $=250$ g of candy C.
+\verify{Total cost $150+30\cdot 2.5=225$ thousand dong for $12.5$ portions: $225\div 12.5=18$ \checkmark. (By the lever: $18$ is $3$ away from $15$ and $12$ away from $30$, so old mixture : C $=12:3=4:1$, i.e.\ C $=1000\div 4=250$ g \checkmark.)}
+
+\step{4}{Part c}
+Let the masses of A and B be $x$ and $y$ portions, with $x>0$, $y>0$. The price of the mixture is $G=\dfrac{12x+20y}{x+y}$.
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item Since $y>0$, $20y>12y$, so $12x+20y>12x+12y=12(x+y)$. Dividing by $x+y>0$: $G>12$.
+\item Since $x>0$, $12x<20x$, so $12x+20y<20x+20y=20(x+y)$. Dividing by $x+y$: $G<20$.
+\end{itemize}
+So $12<G<20$: the price of the mixture always lies \emph{between} the prices of the two candies.
+\begin{warnbox}You cannot mix A and B to get a price of $25$ thousand dong per portion, or of $10$ thousand dong per portion: an average never goes outside the range from the lowest to the highest price.\end{warnbox}
+\begin{parentbox}You can illustrate part c by mixing water: mixing water at $20^\circ$C with water at $60^\circ$C gives warm water in between, never hotter than $60^\circ$C. ``An average always lies in between'' is a very useful idea.\end{parentbox}
+\ans{a) $625$ g of candy A and $375$ g of candy B;\ b) $250$ g of candy C;\ c) see the solution.}
+}

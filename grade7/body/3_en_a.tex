@@ -762,3 +762,225 @@ The answer is \textbf{(A)}.
 \ans{(A) $\dfrac15$}
 }
 
+% ---------------------------------------------------------------- Problem 9
+\begin{probbox}{9}{\relax}
+A fair six-sided die has the numbers $1$ to $6$ on its faces. The die is rolled once. What is the probability that it shows a $5$?
+\choices{$\dfrac{2}{6}$}{$\dfrac{1}{6}$}{$\dfrac{5}{6}$}{$\dfrac{3}{6}$}{$\dfrac{4}{6}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The die is \emph{fair}, so the six faces are equally likely. The event we care about: ``the face showing is $5$''.
+\step{1}{List the possible outcomes}
+$\{1,\,2,\,3,\,4,\,5,\,6\}$ -- $6$ equally likely outcomes.
+\step{2}{Count the favourable outcomes}
+Only one face shows $5$: $1$ favourable outcome.
+\step{3}{Compute the probability}
+\begin{recallbox}$P=\dfrac{\text{number of favourable outcomes}}{\text{number of all outcomes}}$.\end{recallbox}
+$P(5)=\dfrac16$.
+\begin{warnbox}Do not confuse ``the number $5$'' with ``the number of favourable outcomes''. Many students write $\dfrac56$ (option C) because they see a $5$ in the question. The $5$ is only the \emph{name} of the face; the number of faces with that name is only $1$. ($\dfrac56$ is the probability of rolling a number \emph{from $1$ to $5$}, i.e.\ anything but $6$.)\end{warnbox}
+\verify{Each face has probability $\dfrac16$, and the six faces together give $\dfrac66=1$ \checkmark.}
+The answer is \textbf{(B)}.
+\ans{(B) $\dfrac16$}
+}
+
+% ---------------------------------------------------------------- Problem 10
+\begin{probbox}{10}{\relax}
+Five friends An, Hà, Chi, Minh and Tùng sit in a row of five seats. An does \emph{not} sit next to Hà, and Chi sits next to Minh. Who \emph{cannot} sit in the middle seat?
+\choices{An}{Hà}{Chi}{Minh}{Tùng}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The five seats are in a row, numbered $1,2,3,4,5$ from left to right; the middle seat is seat $3$. Two conditions: (i) An and Hà do \emph{not} sit next to each other; (ii) Chi and Minh sit next to each other. We must find the friend who can \emph{never} sit in seat $3$.
+\begin{recallbox}To show that a friend \emph{can} sit in the middle: just give \emph{one} arrangement satisfying every condition. To show that a friend \emph{cannot}: suppose they sit in the middle and show that every arrangement then breaks a condition (proof by contradiction).\end{recallbox}
+\step{1}{An, Hà, Chi and Minh can each sit in the middle}
+Here is one arrangement for each of them (seats $1\to5$):
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|l|}\hline
+In the middle & seat 1 & seat 2 & \textbf{seat 3} & seat 4 & seat 5 & check\\ \hline
+An & Chi & Minh & \textbf{An} & Tùng & Hà & An (3), Hà (5) not neighbours\\ \hline
+Hà & Chi & Minh & \textbf{Hà} & Tùng & An & Hà (3), An (5) not neighbours\\ \hline
+Chi & An & Minh & \textbf{Chi} & Tùng & Hà & Chi (3) next to Minh (2)\\ \hline
+Minh & An & Chi & \textbf{Minh} & Tùng & Hà & Minh (3) next to Chi (2)\\ \hline
+\end{tabular}
+\end{center}
+In all four arrangements Chi and Minh are always neighbours, and An and Hà are always apart (An in seat $1$ or $3$, Hà in seat $5$, or the other way round). So options (A), (B), (C), (D) are eliminated.
+\step{2}{Show that Tùng cannot sit in the middle}
+Suppose Tùng sits in seat $3$. The other four seats split into two pairs of neighbouring seats: the left pair (seats $1$--$2$) and the right pair (seats $4$--$5$). Note that seats $2$ and $4$ are \emph{not} neighbours (Tùng is between them).
+\begin{figC}
+\foreach \i/\n/\c in {1/?/tmBlue,2/?/tmBlue,3/Tùng/tmOrange,4/?/tmGreen,5/?/tmGreen}{
+  \draw[\c,line width=1pt,fill=\c!12,rounded corners=3pt] (\i*1.5-0.6,0) rectangle (\i*1.5+0.6,0.65);
+  \node[font=\bfseries] at (\i*1.5,0.33){\n};\node[font=\footnotesize] at (\i*1.5,-0.28){seat \i};}
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (0.9,-0.5)--(3.6,-0.5) node[midway,below=5pt,font=\footnotesize]{left pair};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (5.4,-0.5)--(8.1,-0.5) node[midway,below=5pt,font=\footnotesize]{right pair};
+\end{figC}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
+\item Chi and Minh must be neighbours, and the only neighbouring seats (not counting Tùng's) are seats $1$--$2$ or seats $4$--$5$. So Chi and Minh take up one whole pair.
+\item Then An and Hà are forced into the other pair -- that is, \emph{next to each other}. This contradicts the condition ``An does not sit next to Hà''.
+\end{itemize}
+So the assumption is false: Tùng cannot sit in the middle seat.
+\begin{warnbox}Do not choose an answer just because ``I tried a few ways and none worked''. For a ``cannot'' question you must argue that \emph{every} way fails, as in Step 2.\end{warnbox}
+\verify{You could check by listing all $5\times4\times3\times2\times1=120$ arrangements: no valid one puts Tùng in the middle, while each of the other friends has a valid one.}
+The answer is \textbf{(E)}.
+\ans{(E) Tùng}
+}
+
+% ---------------------------------------------------------------- Problem 11
+\begin{probbox}{11}{\relax}
+A box of jelly beans contains $15$ red, $20$ blue and $16$ green jelly beans. Khoa takes a green jelly bean and eats it. Then he takes a blue jelly bean and eats it too. If each jelly bean left in the box is equally likely to be chosen, what is the probability that the next jelly bean Khoa takes is red?
+\choices{$\dfrac{15}{31}$}{$\dfrac{34}{49}$}{$\dfrac{15}{49}$}{$\dfrac{2}{7}$}{$\dfrac{1}{15}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The box has lost $2$ jelly beans before the draw we care about. So we must \emph{recount} the jelly beans in the box just before the third draw.
+\begin{recallbox}When objects are taken out and not replaced, update both the \emph{number of favourable outcomes} (numerator) and the \emph{total number of outcomes} (denominator) before computing the probability of the next draw.\end{recallbox}
+\step{1}{Jelly beans at the start}
+$15+20+16=51$.
+\step{2}{Jelly beans after Khoa eats $2$}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}\hline
+ & red & blue & green & total\\ \hline
+At the start & $15$ & $20$ & $16$ & $51$\\ \hline
+After eating $1$ green & $15$ & $20$ & $15$ & $50$\\ \hline
+After eating $1$ blue & $15$ & $19$ & $15$ & $49$\\ \hline
+\end{tabular}
+\end{center}
+The number of red jelly beans does not change ($15$) because Khoa has not eaten a red one; the total goes down to $49$.
+\step{3}{Compute the probability}
+$P(\text{red})=\dfrac{15}{49}$.
+\begin{warnbox}Two common wrong ways: (1) forgetting to subtract the eaten jelly beans, giving $\dfrac{15}{51}$ (not among the options -- a signal to check your work!); (2) comparing the red ones only with the remaining green ones, giving $\dfrac{15}{31}$ (option A). The denominator must be \emph{all} the jelly beans left in the box.\end{warnbox}
+\verify{$P(\text{red})+P(\text{not red})=\dfrac{15}{49}+\dfrac{19+15}{49}=\dfrac{15}{49}+\dfrac{34}{49}=1$ \checkmark. (By the way: $\dfrac{34}{49}$ in option (B) is the probability of \emph{not} getting a red one.)}
+The answer is \textbf{(C)}.
+\ans{(C) $\dfrac{15}{49}$}
+}
+
+% ---------------------------------------------------------------- Problem 12
+\begin{probbox}{12}{\relax}
+Nam is counting the sheep in a flock as they cross a road. The sheep start crossing at $2$:$00$ p.m., at a steady rate of $3$ sheep per minute. After counting $42$ sheep, Nam falls asleep. He sleeps for exactly an hour and a half and then wakes up, and at that moment the number of sheep that have crossed since $2$:$00$ p.m.\ is exactly half of the whole flock. How many sheep are in the whole flock?
+\choices{$630$}{$621$}{$582$}{$624$}{$618$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The sheep cross \emph{steadily}, $3$ per minute. The time from $2$:$00$ p.m.\ until Nam wakes up has two parts: the time Nam spends counting $42$ sheep, and the time Nam sleeps ($1$ hour $30$ minutes). The number of sheep that cross in this whole period equals \emph{half the flock}.
+\begin{recallbox}Steady change: amount $=$ rate $\times$ time, so time $=$ amount $\div$ rate.\end{recallbox}
+\step{1}{Time Nam spends counting $42$ sheep}
+$42\div3=14$ minutes. So Nam falls asleep at $2$:$14$ p.m.
+\step{2}{Time Nam sleeps}
+An hour and a half $=60+30=90$ minutes. Nam wakes up at $2$:$14$ p.m.\ $+\ 90$ minutes $=3$:$44$ p.m.
+\step{3}{Total time from $2$:$00$ p.m.\ to waking up}
+$14+90=104$ minutes.
+\begin{figC}
+\draw[->,line width=1pt,Ink] (0,0)--(10.8,0);
+\fill[tmBlue!25] (0,-0.15) rectangle (1.4,0.15);\fill[tmOrange!30] (1.4,-0.15) rectangle (10.4,0.15);
+\foreach \x/\t in {0/2{:}00,1.4/2{:}14,10.4/3{:}44}{\draw[Ink,line width=1pt] (\x,0.2)--(\x,-0.2);\node[below=3pt,font=\footnotesize] at (\x,-0.2){$\t$ p.m.};}
+\node[above,font=\footnotesize,text=tmBlue!80!black] at (0.7,0.2){counting: $14$ min};
+\node[above,font=\footnotesize,text=tmOrange!80!black] at (5.9,0.2){asleep: $90$ min};
+\end{figC}
+\step{4}{Sheep that crossed in $104$ minutes}
+$3\times104=312$ sheep. (Or: $42$ sheep while counting $+\ 3\times90=270$ sheep while asleep $=312$ sheep.)
+\step{5}{Sheep in the whole flock}
+$312$ sheep is half the flock, so the whole flock has $312\times2=624$ sheep.
+\begin{warnbox}Do not forget the $42$ sheep that crossed \emph{before} Nam fell asleep. Counting only the $270$ sheep while asleep and doubling gives $540$ -- which does not fit the problem, because it is the number of sheep crossed ``since $2$:$00$ p.m.'' that is half the flock.\end{warnbox}
+\verify{Half the flock $=624\div2=312$ sheep, which takes $312\div3=104$ minutes, i.e.\ from $2$:$00$ p.m.\ to $3$:$44$ p.m.; subtracting the $14$ minutes of counting leaves exactly $90$ minutes of sleep \checkmark.}
+The answer is \textbf{(D)}.
+\ans{(D) $624$}
+}
+
+% ---------------------------------------------------------------- Problem 13
+\begin{probbox}{13}{\relax}
+A positive whole number is called a \emph{palindrome} if its digits read the same from left to right as from right to left. For example, $474$ and $222$ are palindromes. How many palindromes are there between $100$ and $1000$?
+\choices{$10$}{$90$}{$100$}{$900$}{$1000$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The numbers between $100$ and $1000$ are the \emph{three-digit} numbers ($101$ to $999$; $100$ and $1000$ are not palindromes, so including them or not changes nothing). A three-digit number $\overline{abc}$ is a palindrome when reading it backwards, $\overline{cba}$, gives the same number, that is $c=a$. So a palindrome has the form $\overline{aba}$.
+\step{1}{Choose the hundreds digit $a$}
+$a$ is the first digit, so $a\neq0$: $a\in\{1,2,\dots,9\}$ -- $9$ ways.
+\step{2}{Choose the tens digit $b$}
+$b$ can be any digit from $0$ to $9$ -- $10$ ways.
+\step{3}{The ones digit}
+The ones digit must equal $a$ -- only $1$ way (it cannot be chosen freely).
+\step{4}{Apply the multiplication rule}
+\begin{recallbox}Multiplication rule: number of ways $=$ product of the numbers of choices at each stage.\end{recallbox}
+\countboxes{hundreds a/9/from 1 to 9/tmBlue,tens b/10/from 0 to 9/tmOrange,ones/1/must equal a/tmGreen}{90}
+There are $9\times10\times1=90$ palindromes.
+\verify{List by $a$: for $a=1$ we have $101,111,121,\dots,191$ -- exactly $10$ numbers. Each value of $a$ from $1$ to $9$ gives $10$ such numbers, so the total is $9\times10=90$ \checkmark.}
+\begin{warnbox}Option (D) $900$ is the number of \emph{all} three-digit numbers (from $100$ to $999$), not the palindromes. Option (C) $100$ comes from forgetting the condition $a\neq 0$ (counting ``$010$'', ``$020$''\ldots, which are not three-digit numbers).\end{warnbox}
+The answer is \textbf{(B)}.
+\ans{(B) $90$}
+}
+
+% ---------------------------------------------------------------- Problem 14
+\begin{probbox}{14}{\relax}
+\begin{minipage}[t]{0.5\linewidth}\vspace{0pt}
+The figure shown is made only of octagons and small squares. The ratio of the number of octagons to the number of squares is
+\choicesII{$1:1$}{$2:1$}{$25:12$}{$5:0$}{$5:3$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.46\linewidth}\vspace{0pt}
+\centering\begin{tikzpicture}[scale=0.62]
+\foreach \i in {0,...,4}{\foreach \j in {0,...,3}{\cpOct{\i}{\j}}}
+\foreach \i in {0.5,1.5,2.5,3.5}{\foreach \j in {0.5,1.5,2.5}{\cpDia{\i}{\j}}}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We count the octagons and the squares separately, then form the ratio (octagons : squares) and simplify.
+\step{1}{Count the octagons}
+The octagons are arranged in $4$ rows of $5$. Number of octagons: $4\times5=20$.
+\step{2}{Count the squares}
+Each small square sits where \emph{four} octagons meet (between two neighbouring rows and between two neighbouring columns).
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt,topsep=1pt]
+\item Between $5$ columns of octagons there are $5-1=4$ vertical gaps.
+\item Between $4$ rows of octagons there are $4-1=3$ horizontal gaps.
+\end{itemize}
+Number of squares: $3\times4=12$ (exactly what you see when counting directly in the figure: $3$ rows of $4$).
+\begin{warnbox}There are \emph{no} squares on the outer edge of the figure (the notch between two octagons on the edge is not closed). Do not count extra ``half squares'' around the border.\end{warnbox}
+\step{3}{Form and simplify the ratio}
+\begin{recallbox}Simplify a ratio $a:b$ by dividing both numbers by their GCD.\end{recallbox}
+Ratio: $20:12$. GCD$(20,12)=4$, so $20:12=(20\div4):(12\div4)=5:3$.
+\verify{$5:3$ means $3$ squares for every $5$ octagons; $20=5\times4$ and $12=3\times4$ \checkmark.}
+The distractors: (D) $5:0$ forgets to count the squares; (C) $25:12$ miscounts the octagons as $5\times5$. The answer is \textbf{(E)}.
+\ans{(E) $5:3$}
+}
+
+% ---------------------------------------------------------------- Problem 15
+\begin{probbox}{15}{\relax}
+\begin{minipage}[t]{0.52\linewidth}\vspace{0pt}
+The figure shown consists of three identical rectangles overlapping each other. How many rectangles of all sizes are there in the figure?
+\choicesII{$11$}{$15$}{$7$}{$13$}{$9$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\linewidth}\vspace{0pt}
+\centering\begin{tikzpicture}[x=0.95cm,y=0.42cm]
+\draw[Ink,line width=1pt] (0,2) rectangle (2,4);
+\draw[Ink,line width=1pt] (1,1) rectangle (3,3);
+\draw[Ink,line width=1pt] (2,0) rectangle (4,2);
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Call the three identical rectangles \textbf{I} (top left), \textbf{II} (middle) and \textbf{III} (bottom right). Where their sides cross, more small rectangles appear. We must count \emph{all} rectangles whose four sides are all drawn in the figure.
+\step{1}{Look carefully at the figure}
+Label the points as below. Notice: the bottom side of rectangle I and the top side of rectangle III lie on \emph{the same straight line} and join at the point $O$ -- the centre of rectangle II. Likewise the right side of I and the left side of III join at $O$. So inside rectangle II there is a ``plus sign'' that divides II into $4$ equal small cells.
+\begin{center}\begin{tikzpicture}[x=1.5cm,y=0.75cm,font=\sffamily\small]
+\fill[tmOrange!25] (1,2) rectangle (2,3);\fill[tmGreen!25] (2,2) rectangle (3,3);
+\fill[tmBlue!20] (1,1) rectangle (2,2);\fill[tmPurple!20] (2,1) rectangle (3,2);
+\draw[Ink,line width=1pt] (0,2) rectangle (2,4);
+\draw[Ink,line width=1pt] (1,1) rectangle (3,3);
+\draw[Ink,line width=1pt] (2,0) rectangle (4,2);
+\node at (1.5,2.5){$1$};\node at (2.5,2.5){$2$};\node at (1.5,1.5){$3$};\node at (2.5,1.5){$4$};
+\fill[AnsRed] (2,2) circle (2pt);\node[above right,font=\footnotesize\bfseries,text=AnsRed] at (2,2){$O$};
+\node[font=\bfseries,text=Slate] at (0.5,3.4){I};\node[font=\bfseries,text=Slate] at (3.5,0.6){III};
+\node[font=\bfseries,text=Slate,anchor=west] at (3.05,2.75){II};
+\end{tikzpicture}\end{center}
+\step{2}{Count type by type}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
+\item \textbf{The three original large rectangles:} I, II, III -- $3$ rectangles.
+\item \textbf{The four small cells} inside rectangle II (cells $1$, $2$, $3$, $4$) -- $4$ rectangles. Each cell has all four sides: for example cell $1$ has its top and left sides on rectangle II, and its bottom and right sides on rectangle I.
+\item \textbf{Halves of rectangle II} (two neighbouring cells joined): cells $1+2$ (top half), $3+4$ (bottom half), $1+3$ (left half), $2+4$ (right half) -- $4$ rectangles.
+\end{itemize}
+\step{3}{Check that there are no others}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
+\item The part of rectangle I \emph{outside} rectangle II is L-shaped, and no segment passes through it. A rectangle containing part of this L-shaped region must use the left side and the top side of rectangle I as its sides; these two sides are exactly as long as the sides of rectangle I, so that rectangle is rectangle I itself. Likewise, a rectangle containing part of III outside II can only be rectangle III.
+\item Every other rectangle must lie entirely inside rectangle II. Rectangle II with its inner ``plus sign'' is a $2\times2$ grid of cells, and in Step 2 we have listed them all: $4$ cells, $4$ halves and rectangle II itself.
+\end{itemize}
+\begin{warnbox}Do not count the large rectangle surrounding all three shapes (from the top-left corner of I to the bottom-right corner of III): \emph{none} of its sides is fully drawn. And do not miss the small cells created by the ``plus sign'' in the centre.\end{warnbox}
+\step{4}{Add up}
+$3+4+4=11$ rectangles.
+\verify{Another count -- inside rectangle II alone (a complete $2\times2$ grid): by Example 7 there are $9$ rectangles ($4$ cells, $4$ halves and II itself). Adding rectangles I and III: $9+2=11$ \checkmark.}
+The answer is \textbf{(A)}.
+\ans{(A) $11$}
+}

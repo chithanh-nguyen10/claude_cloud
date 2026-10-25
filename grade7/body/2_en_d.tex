@@ -1,0 +1,643 @@
+% ===== Topic 2, part d: problems 41-50 (EN) =====
+\providecommand{\tbGrid}[4]{\begin{tikzpicture}[baseline=0.2cm,x=0.5cm,y=0.5cm]
+  \draw[Ink,line width=0.7pt] (0,0) grid[step=1] (2,2);
+  \node[font=\sffamily\bfseries,text=tmBlue!80!black,inner sep=0pt,#4] at (#1,#2) {#3};\end{tikzpicture}}
+% helper inside a tikzpicture: \tbG{x0}{y0}{cx}{cy}{letter}{transform} draws a 2x2 grid (cell 0.5) at (x0,y0)
+\providecommand{\tbG}[6]{\draw[Ink,line width=0.7pt] (#1,#2) grid[step=0.5] ++(1,1);
+  \node[font=\sffamily\bfseries,text=tmBlue!80!black,inner sep=0pt,#6] at ({#1+#3},{#2+#4}) {#5};}
+
+% ---------------------------------------------------------------- 41
+\begin{probbox}{41}{\stars{1}}
+\textit{(Extension of Problem 16.)} We only consider rectangles whose two side lengths are \emph{positive
+integers} (in cm); a square also counts as a rectangle.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Find all rectangles whose area (in cm$^2$) is numerically \emph{equal} to their perimeter (in cm).
+\item Find all rectangles whose area is numerically \emph{twice} their perimeter.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Call the sides $a$ and $b$ (positive integers). Without loss of generality,
+assume $a\le b$ ($a$ is the shorter side). The area is $ab$ and the perimeter is $2(a+b)$. This is a ``whole-number
+solutions'' problem: one equation with two unknowns. Trick: use $a\le b$ to \emph{trap} $a$ in a small range, then
+try each value.
+
+\textbf{a)} Condition: $ab=2a+2b$.
+
+\step{1}{An upper bound for $a$}
+Since $a\le b$, we have $2a+2b\le 2b+2b=4b$. Hence $ab\le 4b$. Dividing both sides by $b>0$: $a\le 4$.
+
+\step{2}{A lower bound for $a$}
+Since $2a>0$, we have $ab=2a+2b>2b$. Dividing both sides by $b>0$: $a>2$. So $a=3$ or $a=4$.
+
+\step{3}{Try each value}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $a=3$: $3b=6+2b\Rightarrow b=6$. The $3\times 6$ rectangle.
+\item $a=4$: $4b=8+2b\Rightarrow 2b=8\Rightarrow b=4$. The $4\times 4$ square.
+\end{itemize}
+\begin{figC}\begin{scope}[x=0.45cm,y=0.45cm]
+\fill[tmBlue!15] (0,0) rectangle (6,3);\draw[Line] (0,0) grid[step=1] (6,3);\draw[tmBlue!80!black,line width=1pt] (0,0) rectangle (6,3);
+\node[below,font=\footnotesize] at (3,0){$A=18$, $P=18$};
+\begin{scope}[xshift=4cm]
+\fill[tmGreen!15] (0,0) rectangle (4,4);\draw[Line] (0,0) grid[step=1] (4,4);\draw[tmGreen!70!black,line width=1pt] (0,0) rectangle (4,4);
+\node[below,font=\footnotesize] at (2,0){$A=16$, $P=16$};
+\end{scope}
+\end{scope}\end{figC}
+
+\textbf{b)} Condition: $ab=2\cdot 2(a+b)=4a+4b$.
+
+\step{4}{Trap $a$ as before}
+$ab=4a+4b\le 8b\Rightarrow a\le 8$; and $ab=4a+4b>4b\Rightarrow a>4$. So $a\in\{5,6,7,8\}$.
+
+\step{5}{Try each value}
+From $ab=4a+4b$ we get $ab-4b=4a$, i.e.\ $b(a-4)=4a$, so $b=\dfrac{4a}{a-4}$.
+\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+$a$ & $5$ & $6$ & $7$ & $8$\\\hline
+$b=\dfrac{4a}{a-4}$ & $\dfrac{20}{1}=20$ & $\dfrac{24}{2}=12$ & $\dfrac{28}{3}$ (not an integer) & $\dfrac{32}{4}=8$\\\hline
+\end{tabular}\end{center}
+There are three rectangles: $5\times 20$, $6\times 12$, $8\times 8$.
+
+\begin{proofbox}Why have we missed none? Every rectangle that works has its shorter side $a$ in the range we
+trapped, and for each $a$ the side $b$ is determined uniquely by the equation. We tried all those values of
+$a$.\end{proofbox}
+\begin{tipbox}Another way for part a): $ab-2a-2b+4=4$, i.e.\ $(a-2)(b-2)=4=1\cdot 4=2\cdot 2$. Hence
+$a-2=1,\ b-2=4$ or $a-2=b-2=2$. Again we get $3\times 6$ and $4\times 4$.\end{tipbox}
+\verify{$3\times 6$: $A=18$, $P=2\cdot 9=18$. $4\times4$: $16=16$. $5\times 20$: $A=100$, $P=50$;
+$6\times 12$: $A=72$, $P=36$; $8\times 8$: $A=64$, $P=32$ -- all twice.}
+\ans{a) $3\times 6$ and $4\times 4$. \quad b) $5\times 20$, $6\times 12$, $8\times 8$.}
+}
+
+% ---------------------------------------------------------------- 42
+\begin{probbox}{42}{\stars{1}}
+\textit{(Extension of Problem 17.)} The letter P is written in the top-right cell of a $2\times 2$ grid:
+\tbGrid{1.5}{1.5}{P}{}\,. We may use three transformations, as many times as we like and in any order:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $Q$: rotate the grid $90^\circ$ clockwise about its centre;
+\item $D$: reflect the grid in the \emph{vertical} line through the centre;
+\item $N$: reflect the grid in the \emph{horizontal} line through the centre.
+\end{itemize}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Draw the result of doing $D$ and then $N$. Can that result be obtained using only $Q$?
+\item Show that doing $D$ and then $Q$ has the same effect as a reflection in one of the \emph{diagonals} of the
+grid. Which diagonal?
+\item How many different pictures can be obtained altogether (including the starting picture)? Explain why there
+cannot be more.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} As in Problem 17, think of the grid as a clear square \emph{card} with the
+letter P drawn on it. Each transformation lifts the card and puts it back exactly in its place. To keep track we
+record two things: which cell P is in, and how it has been turned or flipped.
+
+\textbf{a)}
+\step{1}{Do $D$}
+Reflecting in the vertical line: the top-right cell goes to the top-left cell, and P is ``mirrored'' (its bowl
+now faces left).
+\step{2}{Then do $N$}
+Reflecting in the horizontal line: the top-left cell goes down to the bottom-left cell, and the letter is flipped
+top-to-bottom. Result: P is in the bottom-left cell, \emph{upside down} (looking like a ``d''), as in the third
+picture below.
+\begin{figC}
+\tbG{0}{0}{0.75}{0.75}{P}{}\node at (1.75,0.5){$\xrightarrow{\;D\;}$};
+\tbG{2.5}{0}{0.25}{0.75}{P}{xscale=-1}\node at (4.25,0.5){$\xrightarrow{\;N\;}$};
+\tbG{5}{0}{0.25}{0.25}{P}{rotate=180}
+\node[anchor=west] at (6.2,0.5){\small$=$ rotation by $180^\circ$};
+\end{figC}
+\step{3}{Compare with the $Q$ moves}
+Doing $Q$ twice (a $180^\circ$ rotation): the top-right cell goes to the opposite cell through the centre, the
+bottom-left cell, and the letter is upside down. This is the same result. So \textbf{$D$ then $N$ has the same
+effect as $Q$ then $Q$.}
+\begin{recallbox}Two reflections in two perpendicular lines (both through the centre) have the same effect as a
+$180^\circ$ rotation about the centre.\end{recallbox}
+
+\textbf{b)}
+\step{4}{Do $D$ and then $Q$}
+$D$: P goes to the top-left cell, mirrored. $Q$ ($90^\circ$ clockwise): the top-left cell goes to the top-right
+cell. Result: P is \emph{back in the top-right cell}, but its stem is horizontal and its bowl is on top:
+\begin{figC}
+\tbG{0}{0}{0.75}{0.75}{P}{}\node at (1.75,0.5){$\xrightarrow{\;D\;}$};
+\tbG{2.5}{0}{0.25}{0.75}{P}{xscale=-1}\node at (4.25,0.5){$\xrightarrow{\;Q\;}$};
+\tbG{5}{0}{0.75}{0.75}{P}{cm={0,1,1,0,(0,0)}}\draw[tmOrange,dashed,line width=0.9pt] (4.85,-0.15)--(6.15,1.15);
+\draw[tmOrange,dashed,line width=0.9pt] (4.05,-0.5)--(5.15,0.6);
+\end{figC}
+\step{5}{Recognise the diagonal reflection}
+The top-right cell has not moved, which means it lies on the mirror line. The diagonal through the top-right cell
+(and the bottom-left cell) is the diagonal joining the \textbf{bottom-left corner to the top-right corner}
+(dashed). Reflecting in this line turns ``up'' into ``right'' and vice versa, so the (vertical) stem of P becomes
+horizontal and the bowl of P (on the right) moves to the top -- exactly as in the picture. A further check: a
+letter in the top-left cell moves to the bottom-right cell in both cases.
+
+\textbf{c)}
+\step{6}{There cannot be more than $8$ pictures}
+\begin{proofbox}Mark the top-right corner of the card with a star. Each time the card is put back, the star can
+only be in $1$ of the $4$ corners of the frame. In addition, the card can only be \emph{face up} or \emph{face
+down} (each reflection $D$ or $N$ switches face up and face down; the rotation $Q$ does not). Once we know where
+the star is and whether the card is face up or face down, the position of the card -- and hence the whole
+picture -- is completely determined. So there are at most $4\times 2=8$ pictures.\end{proofbox}
+\step{7}{All $8$ pictures occur}
+Four ``face up'' pictures: rotations by $0^\circ$, $90^\circ$, $180^\circ$, $270^\circ$ (using $Q$ from $0$ to $3$
+times). Four ``face down'' pictures: each of the above followed by $D$. The letter P has no line of symmetry, so
+these $8$ pictures are all different:
+\begin{figC}
+\tbG{0}{0}{0.75}{0.75}{P}{}\tbG{1.5}{0}{0.75}{0.25}{P}{rotate=-90}
+\tbG{3}{0}{0.25}{0.25}{P}{rotate=180}\tbG{4.5}{0}{0.25}{0.75}{P}{rotate=90}
+\tbG{0}{-1.5}{0.25}{0.75}{P}{xscale=-1}\tbG{1.5}{-1.5}{0.25}{0.25}{P}{cm={0,-1,-1,0,(0,0)}}
+\tbG{3}{-1.5}{0.75}{0.25}{P}{yscale=-1}\tbG{4.5}{-1.5}{0.75}{0.75}{P}{cm={0,1,1,0,(0,0)}}
+\node[anchor=east,font=\footnotesize] at (-0.2,0.5){face up};\node[anchor=east,font=\footnotesize] at (-0.2,-1){face down};
+\end{figC}
+\begin{warnbox}Do not count ``$4$ cells $\times$ $8$ orientations $=32$''. The cell and the orientation of the
+letter are \emph{tied together}, because both move with the same card.\end{warnbox}
+\ans{a) P in the bottom-left cell, upside down; the same as $Q$ then $Q$ (a $180^\circ$ rotation). \ b) The
+diagonal joining the bottom-left corner to the top-right corner. \ c) $8$ pictures.}
+}
+
+% ---------------------------------------------------------------- 43
+\begin{probbox}{43}{\stars{1}}
+\textit{(Extension of Problem 18.)} Rectangle $ABCD$ has $AB=12$ cm and $BC=8$ cm. Point $P$ lies inside the
+rectangle. (We write $S_{XYZ}$ for the area of triangle $XYZ$.)
+\begin{figC}\begin{scope}[x=0.36cm,y=0.36cm]
+\fill[tmBlue!25] (0,0)--(12,0)--(7,3)--cycle;\fill[tmOrange!25] (12,8)--(0,8)--(7,3)--cycle;
+\draw[Ink,line width=1pt] (0,0) rectangle (12,8);
+\draw[Ink] (0,0)--(7,3)--(12,0) (0,8)--(7,3)--(12,8);
+\fill[Ink] (7,3) circle (2.5pt);\node[right=2pt] at (7,3){$P$};
+\node[below left] at (0,0){$A$};\node[below right] at (12,0){$B$};\node[above right] at (12,8){$C$};\node[above left] at (0,8){$D$};
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Prove that wherever $P$ is, we always have $S_{PAB}+S_{PCD}=48$ cm$^2$.
+\item Given $S_{PAB}=18$ cm$^2$ and $S_{PBC}=20$ cm$^2$, find $S_{PCD}$, $S_{PDA}$ and the distances from $P$ to
+the four sides of the rectangle.
+\item Is there a point $P$ inside the rectangle with $S_{PAB}=20$, $S_{PBC}=30$ and $S_{PCD}=30$ (cm$^2$)?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each of the four triangles has a side of the rectangle as its base and $P$ as
+its apex. The height of each triangle is just \emph{the distance from $P$ to that side}. Call the distances from
+$P$ to $AB$, $BC$, $CD$, $DA$ respectively $h_1,h_2,h_3,h_4$.
+\begin{figC}\begin{scope}[x=0.36cm,y=0.36cm]
+\draw[Ink,line width=1pt] (0,0) rectangle (12,8);
+\draw[tmBlue,thick,<->] (7,0.1)--(7,2.9);\draw[tmOrange!80!black,thick,<->] (7,3.1)--(7,7.9);
+\draw[tmGreen!70!black,thick,<->] (7.1,3)--(11.9,3);\draw[tmPurple,thick,<->] (0.1,3)--(6.9,3);
+\fill[Ink] (7,3) circle (2.5pt);
+\node[right,font=\footnotesize] at (7,1.5){$h_1$};\node[right,font=\footnotesize] at (7,5.5){$h_3$};
+\node[above,font=\footnotesize] at (9.5,3){$h_2$};\node[above,font=\footnotesize] at (3.5,3){$h_4$};
+\node[below left] at (0,0){$A$};\node[below right] at (12,0){$B$};\node[above right] at (12,8){$C$};\node[above left] at (0,8){$D$};
+\end{scope}\end{figC}
+
+\textbf{a)}
+\step{1}{The sum of two heights}
+Draw through $P$ the line perpendicular to $AB$; since $AB\parallel CD$ it is also perpendicular to $CD$. The part
+between $AB$ and $CD$ has length $BC=8$, and $P$ divides it into two parts $h_1$ and $h_3$. So $h_1+h_3=8$.
+Similarly $h_2+h_4=AB=12$.
+\step{2}{Add the two areas}
+\begin{recallbox}Area of a triangle $=\tfrac12\times$ base $\times$ height.\end{recallbox}
+\[ S_{PAB}+S_{PCD}=\frac{12\cdot h_1}{2}+\frac{12\cdot h_3}{2}=6(h_1+h_3)=6\cdot 8=48 \text{ (cm}^2). \]
+The result does not depend on the position of $P$. (It is exactly half the area of the rectangle,
+$12\cdot 8=96$.) Similarly, $S_{PBC}+S_{PDA}=\tfrac{8}{2}(h_2+h_4)=4\cdot 12=48$ cm$^2$.
+
+\textbf{b)}
+\step{3}{Use part a}
+$S_{PCD}=48-18=30$ cm$^2$, \quad $S_{PDA}=48-20=28$ cm$^2$.
+\step{4}{Compute the four distances}
+From $A=\tfrac12\cdot$ base $\cdot h$ we get $h=2A\div$ base.
+\[ h_1=\frac{2\cdot 18}{12}=3,\quad h_2=\frac{2\cdot 20}{8}=5,\quad h_3=\frac{2\cdot 30}{12}=5,\quad h_4=\frac{2\cdot 28}{8}=7 \text{ (cm)}. \]
+
+\textbf{c)}
+\step{5}{Check the compulsory condition}
+By part a), we always have $S_{PAB}+S_{PCD}=48$. But $20+30=50\ne 48$. So \textbf{there is no} such point $P$.
+
+\begin{tipbox}Problem 18 is a special case: $P$ is the centre of a square, so the four triangles are equal. Here $P$
+is arbitrary, yet ``the sum of two opposite triangles'' is still always half of the figure.\end{tipbox}
+\verify{$h_1+h_3=3+5=8=BC$ and $h_2+h_4=5+7=12=AB$. With $A(0,0)$ we get $P(7,3)$ -- exactly the point in the
+picture.}
+\ans{b) $S_{PCD}=30$ cm$^2$, $S_{PDA}=28$ cm$^2$; the distances to $AB,BC,CD,DA$ are $3,5,5,7$ cm. \ c) No.}
+}
+
+% ---------------------------------------------------------------- 44
+\begin{probbox}{44}{\stars{1}}
+\textit{(Extension of Problem 22.)} Parallelogram $ABCD$ has area $48$ cm$^2$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Let $M$ and $N$ be the midpoints of $BC$ and $CD$ respectively. Find the area of triangle $AMN$.
+\item Keep $N$ as the midpoint of $CD$, but take $M$ on side $BC$ with $BM=3\,MC$. Find the area of triangle $AMN$.
+\end{enumerate}
+\begin{figC}\begin{scope}[x=0.55cm,y=0.55cm]
+\fill[tmBlue!25] (0,0)--(7,2)--(5,4)--cycle;
+\draw[Ink,line width=1pt] (0,0)--(6,0)--(8,4)--(2,4)--cycle;
+\draw[tmBlue!80!black,line width=1pt] (0,0)--(7,2)--(5,4)--cycle;
+\node[below left] at (0,0){$A$};\node[below right] at (6,0){$B$};\node[above right] at (8,4){$C$};\node[above left] at (2,4){$D$};
+\node[right] at (7,2){$M$};\node[above] at (5,4){$N$};
+\end{scope}\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Triangle $AMN$ sits ``diagonally'' inside the parallelogram. We take the whole
+parallelogram and remove the three corner triangles $ABM$, $MCN$ and $NDA$ (as usual, $S_{XYZ}$ denotes the area
+of triangle $XYZ$):
+\[ S_{AMN}=S_{ABCD}-S_{ABM}-S_{MCN}-S_{NDA}. \]
+\begin{recallbox}(1) Each diagonal divides a parallelogram into two triangles of equal area ($=24$ cm$^2$).
+(2) Two triangles with a common apex whose bases lie on the same line have areas in the same ratio as their bases.
+\end{recallbox}
+
+\textbf{a)}
+\step{1}{Triangle $ABM$}
+Compared with triangle $ABC$ ($=24$): common apex $A$, base $BM=\tfrac12 BC$. So $S_{ABM}=\tfrac12\cdot 24=12$.
+\step{2}{Triangle $NDA$}
+Compared with triangle $ACD$ ($=24$): common apex $A$, base $DN=\tfrac12 DC$. So $S_{NDA}=12$.
+\step{3}{Triangle $MCN$ (in two steps, as in Problem 22)}
+Triangle $BCD$ has area $24$. Triangle $MCD$ shares the apex $D$ with it, with base $CM=\tfrac12 CB$:
+$S_{MCD}=12$. Triangle $MCN$ shares the apex $M$ with triangle $MCD$, with base $CN=\tfrac12 CD$:
+$S_{MCN}=\tfrac12\cdot 12=6$.
+\step{4}{Result}
+$S_{AMN}=48-12-6-12=18$ cm$^2$.
+
+\textbf{b)}
+\step{5}{Redo it with $MC=\tfrac14 BC$}
+Since $BM=3\,MC$, we have $BC=4\,MC$, i.e.\ $MC=\tfrac14 BC$ and $BM=\tfrac34 BC$.
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $S_{ABM}=\tfrac34\cdot 24=18$;
+\item $S_{NDA}=12$ (unchanged);
+\item $S_{MCD}=\tfrac14\cdot 24=6$, then $S_{MCN}=\tfrac12\cdot 6=3$.
+\end{itemize}
+$S_{AMN}=48-18-3-12=15$ cm$^2$.
+
+\begin{tipbox}The ``corner'' rule: if on two sides of a triangle, measured from the same vertex, we take the parts
+$\tfrac{p}{q}$ and $\tfrac{r}{s}$ of those sides, then the small triangle at that corner has area
+$\tfrac{p}{q}\cdot\tfrac{r}{s}$ of the big triangle. In part b): $\tfrac14\cdot\tfrac12=\tfrac18$ of $24$ is
+$3$.\end{tipbox}
+\verify{Put $A(0,0)$, $B(8,0)$, $D(2,6)$, $C(10,6)$ (area $8\cdot 6=48$). Part a): $M(9,3)$, $N(6,6)$; enclose
+triangle $AMN$ in a $9\times 6=54$ rectangle and subtract $\tfrac{9\cdot3}{2}=13.5$, $\tfrac{3\cdot 3}{2}=4.5$,
+$\tfrac{6\cdot6}{2}=18$: $18$ remains. Correct.}
+\ans{a) $18$ cm$^2$. \quad b) $15$ cm$^2$.}
+}
+
+% ---------------------------------------------------------------- 45
+\begin{probbox}{45}{\stars{1}}
+\textit{(Extension of Problem 21.)} Consider triangles whose three side lengths are positive integers and whose
+perimeter is $15$ (two triangles with the same three side lengths count as one).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Let $c$ be the longest side. Prove that $5\le c\le 7$.
+\item How many such triangles are there? List them.
+\item How many of them are isosceles? How many have \emph{exactly} two equal sides?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Call the sides $a\le b\le c$ (in increasing order, so that nothing is counted
+twice). We have $a+b+c=15$, and by the triangle inequality we only need to check $a+b>c$.
+\begin{recallbox}Three segments $a\le b\le c$ are the sides of a triangle exactly when $a+b>c$ (the two smaller
+sides add up to more than the largest one).\end{recallbox}
+
+\textbf{a)}
+\step{1}{Upper bound}
+$a+b=15-c$. The condition $a+b>c$ becomes $15-c>c$, i.e.\ $2c<15$, $c<7.5$. Since $c$ is an integer, $c\le 7$.
+\step{2}{Lower bound}
+$c$ is the largest side, so $a\le c$ and $b\le c$, hence $15=a+b+c\le 3c$, i.e.\ $c\ge 5$.
+
+\textbf{b)}
+\step{3}{List them by $c$}
+For each $c$ we have $a+b=15-c$ and $a\le b\le c$.
+\begin{center}\begin{tabular}{|c|c|l|c|}\hline
+$c$ & $a+b$ & Pairs $(a,b)$ with $a\le b\le c$ & Number of triangles\\\hline
+$7$ & $8$ & $(1,7),\ (2,6),\ (3,5),\ (4,4)$ & $4$\\
+$6$ & $9$ & $(3,6),\ (4,5)$ \quad (not $(2,7)$ since $7>6$) & $2$\\
+$5$ & $10$ & $(5,5)$ & $1$\\\hline
+\end{tabular}\end{center}
+Altogether $4+2+1=7$ triangles:
+\[ (1,7,7),\ (2,6,7),\ (3,5,7),\ (4,4,7),\ (3,6,6),\ (4,5,6),\ (5,5,5). \]
+\begin{warnbox}For $c=7$, the pair $(1,7)$ gives the triangle $1,7,7$ -- very ``thin'' but still valid because
+$1+7=8>7$. On the other hand, no triangle has a side $8$, because the other two sides would add up to
+$7<8$.\end{warnbox}
+
+\textbf{c)}
+\step{4}{Pick out the isosceles triangles}
+An isosceles triangle has at least two equal sides: $(1,7,7)$, $(4,4,7)$, $(3,6,6)$, $(5,5,5)$ -- that is $4$
+triangles. Among them $(5,5,5)$ is equilateral (three equal sides), so $3$ triangles have exactly two equal sides.
+\verify{Each triple adds up to $15$ and satisfies $a+b>c$: $8>7$, $8>7$, $8>7$, $8>7$, $9>6$, $9>6$, $10>5$.
+Correct.}
+\ans{a) $5\le c\le 7$. \ b) $7$ triangles. \ c) $4$ isosceles triangles, $3$ of which have exactly two equal sides.}
+}
+
+% ---------------------------------------------------------------- 46
+\begin{probbox}{46}{\stars{2}}
+\textit{(Extension of Problem 23.)} On a square grid (each square has side $1$), triangle $ABC$ has vertices
+$A(0,0)$, $B(12,0)$, $C(3,9)$. Exactly $43$ points where gridlines cross lie \emph{inside} the triangle (not on its
+sides). For each such point $P$ we get three triangles $PAB$, $PBC$, $PCA$.
+\begin{figC}\begin{scope}[x=0.36cm,y=0.36cm]
+\draw[Line,line width=0.5pt] (0,0) grid[step=1] (12,9);
+\draw[Ink,line width=1.3pt] (0,0)--(12,0)--(3,9)--cycle;
+\node[below left] at (0,0){$A$};\node[below right] at (12,0){$B$};\node[above] at (3,9){$C$};
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Find the area of triangle $ABC$.
+\item Find the point $P$ for which the three triangles $PAB$, $PBC$, $PCA$ have equal areas.
+\item Of all the $3\cdot 43=129$ triangles, how many have an area of exactly $\tfrac13$ of the area of triangle
+$ABC$? For how many positions of $P$ is at least one of the three triangles like that?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This is the ``one-third version'' of Problem 23. The key idea is the same: for a
+triangle with a fixed base, the area depends only on the height, and points with the same height lie on a line
+parallel to the base.
+
+\textbf{a)}
+\step{1}{Area of triangle $ABC$}
+The base $AB=12$ lies on the $x$-axis and the height is the $y$-coordinate of $C$, which is $9$. Writing $S_{XYZ}$ for
+the area of triangle $XYZ$:
+$S_{ABC}=\tfrac{12\cdot 9}{2}=54$. One third is $18$.
+
+\textbf{c)} (done first; part b) follows immediately)
+\step{2}{Triangle $PAB$ with area $18$}
+The base is $AB=12$, so the height must be $2\cdot 18\div 12=3$, i.e.\ $P$ lies on the horizontal line $y=3$.
+On this line: side $AC$ (going ``$1$ right, $3$ up'') passes through $(1,3)$; side $BC$ (going ``$1$ left, $1$
+up'' from $B$) passes through $(9,3)$. The points inside: $x=2,3,\dots,8$, i.e.\ $7$ points.
+
+\step{3}{Triangle $PBC$ with area $18$}
+\begin{proofbox}Take $E$ on $AB$ with $EB=\tfrac13 AB=4$, i.e.\ $E(8,0)$. Triangles $EBC$ and $ABC$ share the apex
+$C$, and the base $EB=\tfrac13 AB$, so $S_{EBC}=\tfrac13\cdot 54=18$. Hence $S_{PBC}=18$ exactly when $P$ is as far
+from $BC$ as $E$ is, i.e.\ when $P$ lies on the line through $E$ parallel to $BC$ (on the inside of the
+triangle).\end{proofbox}
+$BC$ goes in the direction ``$1$ left, $1$ up''. Starting from $E(8,0)$ in that direction: $(7,1)$, $(6,2)$,
+$(5,3)$, $(4,4)$, $(3,5)$, then $(2,6)$ -- this point is on $AC$ (on $AC$ the $y$-coordinate is $3$ times the
+$x$-coordinate), so it does not count. That gives $5$ points.
+
+\step{4}{Triangle $PCA$ with area $18$}
+Similarly, take $F$ on $AB$ with $AF=4$, i.e.\ $F(4,0)$; $P$ must lie on the line through $F$ parallel to $AC$
+(direction ``$1$ right, $3$ up''): $(5,3)$, then $(6,6)$ -- which is on $BC$ (since $6+6=12$), so it does not
+count. That gives $1$ point.
+\begin{figC}\begin{scope}[x=0.36cm,y=0.36cm]
+\draw[Line,line width=0.5pt] (0,0) grid[step=1] (12,9);
+\draw[Ink,line width=1.3pt] (0,0)--(12,0)--(3,9)--cycle;
+\draw[tmBlue,line width=1pt] (1,3)--(9,3);
+\draw[tmOrange!90!black,line width=1pt] (8,0)--(2,6);
+\draw[tmGreen!70!black,line width=1pt] (4,0)--(6,6);
+\foreach \p in {(2,3),(3,3),(4,3),(6,3),(7,3),(8,3)}{\fill[tmBlue] \p circle (3pt);}
+\foreach \p in {(7,1),(6,2),(4,4),(3,5)}{\fill[tmOrange!90!black] \p circle (3pt);}
+\fill[AnsRed] (5,3) circle (4pt);
+\node[below left] at (0,0){$A$};\node[below right] at (12,0){$B$};\node[above] at (3,9){$C$};
+\node[below] at (8,0){$E$};\node[below] at (4,0){$F$};
+\end{scope}\end{figC}
+
+\step{5}{Count}
+Number of triangles: $7+5+1=13$. The point $(5,3)$ lies on all three lines (the red point), so it was counted three
+times. Number of different positions of $P$: $13-2=11$.
+
+\textbf{b)}
+\step{6}{Three equal triangles}
+The three triangles have total area $54$, so they are equal when each has area $18$, i.e.\ $P$ must lie on
+\emph{all three} lines we found. There is only one such point: $P(5,3)$.
+
+\begin{tipbox}The point $(5,3)$ is the \emph{centroid} of the triangle: $x=\tfrac{0+12+3}{3}=5$,
+$y=\tfrac{0+0+9}{3}=3$. You will study the centroid in detail in the chapter on triangles.\end{tipbox}
+\verify{For $P(5,3)$: $S_{PAB}=\tfrac{12\cdot 3}{2}=18$. $S_{PCA}$: enclosing rectangle $5\times 9=45$, minus
+$\tfrac{3\cdot 9}{2}=13.5$ (top-left corner), $\tfrac{2\cdot 6}{2}=6$ (top-right corner), $\tfrac{5\cdot 3}{2}=7.5$
+(bottom-right corner): $18$ remains. So $S_{PBC}=54-18-18=18$. Correct.}
+\ans{a) $54$. \ b) $P(5,3)$. \ c) $13$ triangles, at $11$ positions of $P$.}
+}
+
+% ---------------------------------------------------------------- 47
+\begin{probbox}{47}{\stars{1}}
+\textit{(Extension of Problem 25.)} Again we arrange $4\times 2$ rectangles in a ``staircase'' as in Problem 25,
+but this time the top-left vertex of each rectangle (from the second one on) is placed on the bottom side of the
+rectangle just above it, at distance $s$ from that rectangle's bottom-left vertex, where $s$ is $1$, $2$ or $3$.
+(Problem 25 is the case $s=2$.)
+\begin{figC}\begin{scope}[x=0.38cm,y=0.38cm]
+\foreach \i in {0,1,2,3}{\draw[Ink,line width=0.9pt] (\i,-2*\i) rectangle (\i+4,-2*\i+2);}
+\draw[tmBlue,<->] (0,-0.5)--(1,-0.5);\node[below,font=\footnotesize] at (0.5,-0.5){$s$};
+\node[above] at (2,2){$4$};\node[left] at (0,1){$2$};
+\foreach \k in {0,1,2}{\fill[Ink] (5.5+0.5*\k,-6.6-0.5*\k) circle (2.3pt);}
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item For $s=1$ and $10$ rectangles, find the perimeter of the whole figure.
+\item Find a formula for the perimeter in terms of the number of rectangles $n$ and the distance $s$.
+\item Can we choose $s\in\{1,2,3\}$ and a number of rectangles $n$ so that the perimeter is exactly $100$? Find all
+the ways.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} In Problem 25 we saw that the perimeter of a ``staircase'' equals the perimeter
+of the smallest rectangle enclosing it. That argument works for every $s$ (the top-right boundary only goes right
+and down; so does the bottom-left boundary). So we only need the width and the height of the whole figure.
+\begin{recallbox}A ``staircase'' shape (whose boundary on each side only goes right/down) has the same perimeter as
+its enclosing rectangle: $2\times(\text{width}+\text{height})$.\end{recallbox}
+
+\textbf{b)} (done first, since part a) follows from it)
+\step{1}{Width and height}
+Each new rectangle is shifted $s$ to the right. The first has width $4$ and each later one adds $s$:
+width $=4+(n-1)s$. Each new rectangle is $2$ lower: height $=2n$.
+\step{2}{The formula}
+\[ P=2\big(4+(n-1)s+2n\big). \]
+
+\textbf{a)}
+\step{3}{Substitute $s=1$, $n=10$}
+Width $4+9\cdot 1=13$, height $20$; $P=2(13+20)=66$.
+
+\textbf{c)}
+\step{4}{Consider each value of $s$}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $s=1$: $P=2(4+n-1+2n)=2(3n+3)=6n+6$. $6n+6=100\Rightarrow 6n=94$: not divisible, rejected.
+\item $s=2$: $P=2(4+2n-2+2n)=2(4n+2)=8n+4$. $8n+4=100\Rightarrow n=12$. Accepted.
+\item $s=3$: $P=2(4+3n-3+2n)=2(5n+1)=10n+2$. $10n+2=100\Rightarrow 10n=98$: rejected.
+\end{itemize}
+There is only one way: $s=2$ and $n=12$.
+\begin{warnbox}Remember that the height $2n$ does not depend on $s$; only the width changes. Many students wrongly
+add in the hidden pieces inside the figure.\end{warnbox}
+\verify{Part a) by direct counting: vertical sides $10\cdot 4=40$; horizontal sides on top $4+9\cdot 1=13$; at the
+bottom $9\cdot 1+4=13$. Total $66$. Correct. Part c): $s=2$, $n=12$: $8\cdot 12+4=100$. Correct.}
+\ans{a) $66$. \ b) $P=2\big(4+(n-1)s+2n\big)$. \ c) Only $s=2$, $n=12$.}
+}
+
+% ---------------------------------------------------------------- 48
+\begin{probbox}{48}{\stars{1}}
+\textit{(Extension of Problem 27.)} The figure below consists of $15$ identical small parallelograms arranged in $3$
+rows of $5$. The small parallelogram in the very middle is shaded.
+\begin{figC}\begin{scope}[x=0.5cm,y=0.5cm]
+\fill[tmOrange!45] (5.4,1)--(7.6,1)--(8.6,2)--(6.4,2)--cycle;
+\foreach \k in {0,...,5}{\draw[Ink,line width=0.9pt] (2.2*\k,0)--(2.2*\k+3,3);}
+\foreach \j in {0,...,3}{\draw[Ink,line width=0.9pt] (\j,\j)--(\j+11,\j);}
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item How many parallelograms are there in the figure altogether?
+\item How many parallelograms contain the shaded small parallelogram?
+\item How many parallelograms are made of \emph{exactly} $4$ small parallelograms?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The figure has $4$ horizontal lines and $6$ slanted lines. As in Problem 27,
+each parallelogram corresponds to a choice of $2$ horizontal lines (top and bottom sides) and $2$ slanted lines
+(left and right sides).
+\begin{recallbox}The number of ways to choose $2$ lines out of $k$ lines is $\dfrac{k(k-1)}{2}$.\end{recallbox}
+
+\textbf{a)}
+\step{1}{Count}
+Choose $2$ of the $4$ horizontal lines: $\tfrac{4\cdot 3}{2}=6$ ways; choose $2$ of the $6$ slanted lines:
+$\tfrac{6\cdot5}{2}=15$ ways. Number of parallelograms: $6\times 15=90$.
+
+\textbf{b)}
+\step{2}{Condition for containing the shaded cell}
+Number the horizontal lines from the bottom up as $0,1,2,3$; the shaded cell lies between lines $1$ and $2$. A
+parallelogram contains this cell when its bottom side is line $0$ or $1$ ($2$ ways) and its top side is line $2$ or
+$3$ ($2$ ways). Number the slanted lines from left to right as $0,1,\dots,5$; the shaded cell lies between lines $2$
+and $3$. The left side is line $0$, $1$ or $2$ ($3$ ways); the right side is line $3$, $4$ or $5$ ($3$ ways).
+\step{3}{Multiply}
+$2\times 2\times 3\times 3=36$ parallelograms.
+\begin{proofbox}Why multiply? The four choices (bottom, top, left, right) are independent: every combination gives
+exactly one parallelogram containing the shaded cell, and different combinations give different
+parallelograms.\end{proofbox}
+
+\textbf{c)}
+\step{4}{``Sizes'' made of exactly $4$ cells}
+A parallelogram $h$ rows high and $w$ columns wide consists of $h\times w$ cells. We need $h\times w=4$ with
+$h\le 3$, $w\le 5$:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $h=1$, $w=4$: choose the row ($3$ ways) and $4$ adjacent columns out of $5$ ($2$ ways): $3\cdot 2=6$;
+\item $h=2$, $w=2$: choose $2$ adjacent rows ($2$ ways) and $2$ adjacent columns ($4$ ways): $2\cdot 4=8$;
+\item $h=4$, $w=1$: impossible, since there are only $3$ rows.
+\end{itemize}
+Total: $6+8=14$.
+\begin{warnbox}Do not forget the $2\times 2$ type! And there are no parallelograms $4$ rows high.\end{warnbox}
+\verify{Part a) counted by rows: $1$ row high: $3\cdot 15=45$; $2$ rows high: $2\cdot 15=30$; $3$ rows high: $15$
+(each band has $5+4+3+2+1=15$ choices of columns). Total $90$. It matches.}
+\ans{a) $90$. \ b) $36$. \ c) $14$.}
+}
+
+% ---------------------------------------------------------------- 49
+\begin{probbox}{49}{\stars{2}}
+\textit{(Extension of Problems 28 and 29.)} A $4\times 5\times 6$ rectangular box is built from $120$ small cubes with
+edge $1$. All the outside faces of the box are painted, and then the small cubes are separated.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item How many small cubes have exactly $3$ painted faces? exactly $2$? exactly $1$? no painted face at all?
+\item What is the total number of painted small faces ($1\times 1$ squares)? Explain why the result equals the
+surface area of the box.
+\item An $n\times n\times n$ cube ($n\ge 3$) is painted and separated in the same way. Find $n$ such that the number
+of small cubes with exactly $1$ painted face equals the number of small cubes with no painted face.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The number of painted faces of a small cube depends on its \emph{position}: at a
+corner, on an edge, on a face, or completely inside. Look at the front face (size $6\times 4$) to see this clearly:
+\begin{figC}\begin{scope}[x=0.5cm,y=0.5cm]
+\foreach \x in {0,...,5}{\foreach \z in {0,...,3}{
+  \pgfmathtruncatemacro\ex{(\x==0||\x==5)?1:0}\pgfmathtruncatemacro\ez{(\z==0||\z==3)?1:0}
+  \pgfmathtruncatemacro\t{\ex+\ez}
+  \ifnum\t=2 \fill[tmOrange!60] (\x,\z) rectangle (\x+1,\z+1);\fi
+  \ifnum\t=1 \fill[tmGreen!40] (\x,\z) rectangle (\x+1,\z+1);\fi
+  \ifnum\t=0 \fill[tmBlue!30] (\x,\z) rectangle (\x+1,\z+1);\fi}}
+\draw[Ink] (0,0) grid[step=1] (6,4);
+\foreach \x in {0,...,6}{\draw[Ink] (\x,4)--(\x+2.5,5.75);}
+\foreach \d in {0,...,5}{\draw[Ink] (0.5*\d,4+0.35*\d)--(6+0.5*\d,4+0.35*\d);}
+\foreach \z in {0,...,4}{\draw[Ink] (6,\z)--(8.5,\z+1.75);}
+\foreach \d in {0,...,5}{\draw[Ink] (6+0.5*\d,0.35*\d)--(6+0.5*\d,4+0.35*\d);}
+\draw[Ink,line width=1.1pt] (0,0)--(6,0)--(8.5,1.75)--(8.5,5.75)--(2.5,5.75)--(0,4)--cycle (0,4)--(6,4)--(6,0) (6,4)--(8.5,5.75);
+\node[below,font=\footnotesize] at (3,0){$6$};\node[left,font=\footnotesize] at (0,2){$4$};\node[right,font=\footnotesize] at (7.3,0.6){$5$};
+\begin{scope}[xshift=5.2cm,yshift=0.4cm,font=\footnotesize]
+\fill[tmOrange!60] (0,3) rectangle (0.6,3.6);\node[right] at (0.7,3.3){corner: $3$ painted faces};
+\fill[tmGreen!40] (0,2) rectangle (0.6,2.6);\node[right] at (0.7,2.3){on an edge: $2$ faces};
+\fill[tmBlue!30] (0,1) rectangle (0.6,1.6);\node[right] at (0.7,1.3){inside a face: $1$ face};
+\end{scope}
+\end{scope}\end{figC}
+
+\textbf{a)}
+\step{1}{Cubes at the corners: $3$ painted faces}
+The box has $8$ corners, each with exactly one cube: $8$ cubes.
+\step{2}{Cubes on an edge (not at its ends): $2$ painted faces}
+The box has $12$ edges: $4$ of length $4$, $4$ of length $5$, $4$ of length $6$. An edge of length $L$ contains $L$
+cubes; removing the $2$ cubes at its ends (already counted as corners) leaves $L-2$ cubes:
+\[ 4\cdot(4-2)+4\cdot(5-2)+4\cdot(6-2)=8+12+16=36. \]
+\step{3}{Cubes in the middle of a face: $1$ painted face}
+On a $p\times q$ face, removing the outer border leaves $(p-2)(q-2)$ squares. The box has $2$ faces $4\times5$, $2$
+faces $4\times 6$ and $2$ faces $5\times 6$:
+\[ 2\cdot(2\cdot 3)+2\cdot(2\cdot 4)+2\cdot(3\cdot 4)=12+16+24=52. \]
+\step{4}{Cubes completely inside: not painted}
+Peel off a ``shell'' of thickness $1$ on every side; what remains is a box of
+$(4-2)\times(5-2)\times(6-2)=2\times 3\times 4=24$ cubes.
+\verify{$8+36+52+24=120$ -- exactly the total number of cubes.}
+
+\textbf{b)}
+\step{5}{Count the painted small faces}
+$8\cdot 3+36\cdot 2+52\cdot 1+24\cdot 0=24+72+52=148$.
+\begin{recallbox}The surface area of an $a\times b\times c$ box is $2(ab+bc+ca)$.\end{recallbox}
+$2(4\cdot5+5\cdot6+6\cdot4)=2(20+30+24)=148$. The two results agree because each $1\times 1$ square on the outside
+of the box is exactly one painted small face of exactly one cube -- we are simply counting the same collection in
+two ways.
+
+\textbf{c)}
+\step{6}{Write the equation}
+For an $n\times n\times n$ cube: each face has $(n-2)^2$ middle squares, so the $6$ faces give $6(n-2)^2$ cubes
+with exactly $1$ painted face; the inside is a cube of $(n-2)^3$ small cubes. We need:
+\[ (n-2)^3=6(n-2)^2. \]
+\step{7}{Solve}
+Since $n\ge 3$, $(n-2)^2>0$; dividing both sides by $(n-2)^2$: $n-2=6$, i.e.\ $n=8$.
+\begin{warnbox}The condition $n\ge 3$ matters: for $n=2$ both numbers are $0$ (``equal'' in a trivial way), and we
+must not divide by $0$.\end{warnbox}
+\verify{$n=8$: $6\cdot 6^2=216$ and $6^3=216$. Correct.}
+\ans{a) $8$; $36$; $52$; $24$ cubes. \ b) $148$. \ c) $n=8$.}
+}
+
+% ---------------------------------------------------------------- 50
+\begin{probbox}{50}{\stars{2}}
+\textit{(Extension of Problems 19 and 25.)} Ten unit squares (side $1$) are joined to form a flat shape such that:
+adjacent squares share a whole side, and the shape is ``in one piece'' (from any square one can reach any other
+square through shared sides). The perimeter of the shape is the total length of the square sides that are not
+covered by another square.
+\begin{figC}\begin{scope}[x=0.38cm,y=0.38cm]
+\foreach \c in {(0,0),(1,0),(2,0),(2,1),(3,1),(4,1),(4,2),(1,1),(4,0),(5,1)}{\fill[tmBlue!30,draw=Ink] \c rectangle ++(1,1);}
+\node[font=\footnotesize] at (3,-0.8){an example};
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Show that the perimeter is always an even number.
+\item What is the greatest possible perimeter?
+\item What is the smallest possible perimeter?
+\item Which numbers can be the perimeter of such a shape?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Let $k$ be the number of \emph{shared sides} (sides where two squares are joined).
+Key idea: each shared side removes two square sides from the perimeter.
+
+\textbf{a)}
+\step{1}{A formula for the perimeter}
+$10$ squares have $10\cdot 4=40$ sides in total. Each shared side is a side of two squares and is not on the
+perimeter; every other square side is on the perimeter. Therefore
+\[ P=40-2k. \]
+$40$ and $2k$ are both even, so $P$ is even.
+
+\textbf{b)}
+\step{2}{A shape in one piece has at least $9$ shared sides}
+\begin{proofbox}Rebuild the shape by placing one square at a time: start with any square, and each time add a
+square next to one already placed (this is always possible because the shape is in one piece). Each added square
+creates at least $1$ new shared side. There are $9$ additions, so $k\ge 9$.\end{proofbox}
+\step{3}{Conclusion}
+$P=40-2k\le 40-18=22$. Equality holds for a straight row $1\times 10$: perimeter $2(10+1)=22$. So the greatest
+perimeter is $22$.
+
+\textbf{c)}
+\step{4}{Compare with the enclosing rectangle}
+Let the smallest rectangle (with sides along the grid) containing the whole shape be $a\times b$ ($a$ columns,
+$b$ rows).
+\begin{proofbox}Every column of the enclosing rectangle contains at least one square. The highest square in the
+column has its top side on the perimeter, and the lowest square has its bottom side on the perimeter: each column
+contributes at least $2$ units of horizontal sides. Likewise each row contributes at least $2$ units of vertical
+sides. So $P\ge 2a+2b=2(a+b)$.\end{proofbox}
+\step{5}{Bound $a+b$}
+The enclosing rectangle contains $10$ squares, so $ab\ge 10$. If $a+b\le 6$ then $ab\le 9$ (pairs with sum $6$:
+$1\cdot5=5$, $2\cdot4=8$, $3\cdot3=9$; smaller sums give even smaller products) -- impossible. So $a+b\ge 7$ and
+$P\ge 14$.
+\step{6}{A shape with perimeter $14$ exists}
+The $2\times 5$ rectangle: perimeter $2(2+5)=14$. So the smallest perimeter is $14$.
+
+\textbf{d)}
+\step{7}{The possible values}
+From a), b), c): $P$ is even and $14\le P\le 22$, so $P\in\{14,16,18,20,22\}$. Each value is achieved by the
+following ``two-row'' shapes (using the idea of Problem 25: the boundary is a staircase, so the perimeter equals that
+of the enclosing rectangle):
+\begin{figC}\begin{scope}[x=0.3cm,y=0.3cm]
+\foreach \top/\bot/\xs/\lab in {5/5/0/14,6/4/6.5/16,7/3/14/18,8/2/22.5/20}{
+  \foreach \i in {1,...,\top}{\fill[tmBlue!30,draw=Ink] (\xs+\i-1,1) rectangle ++(1,1);}
+  \foreach \i in {1,...,\bot}{\fill[tmBlue!30,draw=Ink] (\xs+\i-1,0) rectangle ++(1,1);}
+  \node[font=\footnotesize] at (\xs+\top/2,-0.9){$P=\lab$};}
+\foreach \i in {1,...,10}{\fill[tmGreen!35,draw=Ink] (\i-1,-4) rectangle ++(1,1);}
+\node[font=\footnotesize,anchor=west] at (10.5,-3.5){$P=22$};
+\end{scope}\end{figC}
+Top row $5,6,7,8$ squares, bottom row $5,4,3,2$ squares: the enclosing rectangles are $5\times2$, $6\times 2$,
+$7\times 2$, $8\times 2$, with perimeters $14,16,18,20$; and the straight row gives $22$.
+\begin{warnbox}``Compact'' does not automatically mean a smaller perimeter: a $3\times 3$ square with one extra square
+sticking out has perimeter $12+2=14$, the same as the $2\times 5$ rectangle, not less.\end{warnbox}
+\verify{The $6+4$ shape: $k=5+3+4=12$, $P=40-24=16$. The $8+2$ shape: $k=7+1+2=10$, $P=40-20=20$. Correct.}
+\ans{a) $P=40-2k$ is even. \ b) $22$. \ c) $14$. \ d) $14$, $16$, $18$, $20$, $22$.}
+}

@@ -1,0 +1,363 @@
+% ======================================================================
+% Topic 3 -- Counting and Probability -- part c (problems 31--40)
+% ======================================================================
+\clearpage
+\dividerbar{Extension and challenge}
+
+% ---------------------------------------------------------------- Problem 31
+\begin{probbox}{31}{\relax}
+A pencil case holds $6$ red pens, $9$ blue pens and $5$ black pens, identical except for the colour of the ink. One pen is taken at random.
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item Find the probability of taking a blue pen.
+\item Find the probability of taking a pen that is \emph{not} black.
+\item How many more black pens must be put into the case so that the probability of taking a black pen is $\dfrac12$?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each pen is one equally likely outcome. Parts a and b are direct probability calculations; part c is a ``backwards'' problem: when black pens are added, \emph{both} the number of black pens \emph{and} the total number of pens increase.
+\step{1}{Total number of pens}
+$6+9+5=20$ pens.
+\step{2}{Part a}
+\begin{recallbox}$P=\dfrac{\text{number of favourable outcomes}}{\text{number of all outcomes}}$.\end{recallbox}
+$P(\text{blue})=\dfrac{9}{20}$.
+\step{3}{Part b -- complement}
+\begin{recallbox}$P(\text{not }A)=1-P(A)$.\end{recallbox}
+$P(\text{black})=\dfrac{5}{20}=\dfrac14$, so $P(\text{not black})=1-\dfrac14=\dfrac34$.
+
+\emph{Check by counting directly:} the pens that are not black are $6+9=15$ pens, $\dfrac{15}{20}=\dfrac34$ \checkmark.
+\step{4}{Part c -- reasoning}
+A probability of $\dfrac12$ for black means that the black pens make up \emph{exactly half} of all the pens, that is, the number of black pens \emph{equals} the number of pens that are not black.
+
+The number of non-black pens (red and blue) stays $15$, since we only add black pens. So after adding there must be $15$ black pens. There were $5$ black pens at the start, so we need to add $15-5=10$ pens.
+\begin{figC}
+\blk{0}{3}{0}{0.55}{AnsRed}{6 red}\blk{3}{7.5}{0}{0.55}{tmBlue}{9 blue}
+\blk{0}{2.5}{-0.8}{0.55}{Ink}{5 black}\blk{2.5}{7.5}{-0.8}{0.55}{Slate}{add 10 black}
+\brcup{0}{7.5}{0.45}{$15$ non-black pens}
+\brcdn{0}{7.5}{-1.25}{$15$ black pens}
+\end{figC}
+\begin{warnbox}Many students think ``to go from $\dfrac14$ to $\dfrac12$, double the black pens, so add $5$''. But when $5$ black pens are added the total also rises to $25$, and the probability is $\dfrac{10}{25}=\dfrac25$, not yet $\dfrac12$.\end{warnbox}
+\verify{Adding $10$ black pens: $15$ black pens out of $20+10=30$ pens; $P(\text{black})=\dfrac{15}{30}=\dfrac12$ \checkmark.}
+\ans{a) $\dfrac{9}{20}$;\quad b) $\dfrac34$;\quad c) add $10$ black pens.}
+}
+
+% ---------------------------------------------------------------- Problem 32
+\begin{probbox}{32}{\relax}
+\begin{minipage}[t]{0.6\linewidth}\vspace{0pt}
+A spinner is divided into four sectors with central angles $180^\circ$ (red), $90^\circ$ (blue), $60^\circ$ (yellow) and $30^\circ$ (purple), as shown. The spinner is spun once.
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item Find the probability that the arrow lands on blue.
+\item Find the probability that the arrow lands on yellow or purple.
+\item Hùng says: ``There are $4$ colours, so each colour has probability $\dfrac14$.'' Is Hùng right or wrong? Why?
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}
+\centering\begin{tikzpicture}[scale=1.05]
+\fill[AnsRed!45] (0,0)--(90:1.2) arc (90:270:1.2)--cycle;
+\fill[tmBlue!45] (0,0)--(270:1.2) arc (270:360:1.2)--cycle;
+\fill[StarGold!70] (0,0)--(0:1.2) arc (0:60:1.2)--cycle;
+\fill[tmPurple!45] (0,0)--(60:1.2) arc (60:90:1.2)--cycle;
+\draw[Ink,line width=1pt] (0,0) circle (1.2);
+\foreach \a in {90,270,0,60}{\draw[Ink,line width=0.8pt] (0,0)--(\a:1.2);}
+\node[font=\footnotesize] at (180:0.65){$180^\circ$};
+\node[font=\footnotesize] at (315:0.7){$90^\circ$};
+\node[font=\footnotesize] at (30:0.75){$60^\circ$};
+\node[font=\scriptsize] at (75:0.9){$30^\circ$};
+\draw[-{Stealth[length=6pt]},line width=1.4pt,Ink] (0,0)--(130:0.9);\fill[Ink] (0,0) circle (1.5pt);
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The sectors have \emph{different} sizes, so the four sectors are \emph{not} equally likely. We cannot use ``$1$ sector out of $4$''. Instead, the chance of the arrow stopping in a sector is proportional to the size of the sector, that is, to its central angle.
+\begin{recallbox}For a spinner with unequal sectors: $P(\text{sector})=\dfrac{\text{central angle of the sector}}{360^\circ}$. The whole circle has $360^\circ$.\end{recallbox}
+\step{1}{Check the data}
+$180^\circ+90^\circ+60^\circ+30^\circ=360^\circ$ -- exactly one full circle \checkmark.
+\step{2}{Part a}
+$P(\text{blue})=\dfrac{90}{360}=\dfrac14$.
+
+\emph{Another way to think:} we can divide the spinner into $12$ equal small sectors of $30^\circ$ each. Then red takes $6$ small sectors, blue $3$, yellow $2$ and purple $1$; these $12$ small sectors are equally likely. $P(\text{blue})=\dfrac{3}{12}=\dfrac14$ \checkmark.
+\step{3}{Part b}
+The yellow and purple sectors do not overlap, so their total angle is $60^\circ+30^\circ=90^\circ$.
+$P(\text{yellow or purple})=\dfrac{90}{360}=\dfrac14$ (or $\dfrac{2+1}{12}=\dfrac{3}{12}=\dfrac14$).
+\step{4}{Part c}
+Hùng is \textbf{wrong}. The formula ``favourable divided by all'' only works when the outcomes are \emph{equally likely}. Here the four colours are not equally likely: the red sector is half of the spinner, so $P(\text{red})=\dfrac{180}{360}=\dfrac12$, while $P(\text{purple})=\dfrac{30}{360}=\dfrac{1}{12}$ -- very different.
+\verify{$P(\text{red})+P(\text{blue})+P(\text{yellow})+P(\text{purple})=\dfrac{6}{12}+\dfrac{3}{12}+\dfrac{2}{12}+\dfrac{1}{12}=1$ \checkmark.}
+\begin{parentbox}Cut a paper plate into $12$ equal ``slices of cake'' and colour them as in the problem. Counting the slices of each colour, your child will see at once why a big sector has a big probability.\end{parentbox}
+\ans{a) $\dfrac14$;\quad b) $\dfrac14$;\quad c) Wrong, because the sectors are not equal (e.g.\ $P(\text{red})=\dfrac12$, $P(\text{purple})=\dfrac1{12}$).}
+}
+
+% ---------------------------------------------------------------- Problem 33
+\begin{probbox}{33}{\relax}
+The school canteen has this lunch menu: one main dish out of $3$ (chicken rice, phở, bún chả); one drink out of $2$ (iced tea, orange juice); one dessert out of $2$ (chè, yoghurt). Each lunch consists of one main dish, one drink and one dessert.
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item How many different lunches are there?
+\item Lan is given a lunch at random. Find the probability that it includes phở.
+\item Find the probability that Lan's lunch includes both phở and orange juice.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each lunch is made by three successive choices: main dish, drink, dessert. ``Given at random'' means all the different lunches are equally likely.
+\step{1}{Part a -- multiplication rule}
+\begin{recallbox}Multiplication rule: if a task has stages with $m$, $n$ and $p$ ways, there are $m\times n\times p$ ways altogether.\end{recallbox}
+Number of lunches: $3\times2\times2=12$.
+\begin{center}\begin{tikzpicture}[grow'=right,level distance=2.6cm,font=\sffamily\footnotesize,
+  every node/.style={draw=tmBlue,fill=tmBlue!8,rounded corners=2pt,inner sep=2pt},
+  level 1/.style={sibling distance=2.4cm},level 2/.style={sibling distance=1.2cm},level 3/.style={sibling distance=0.6cm},
+  edge from parent/.style={draw=Ink!60}]
+\node[fill=Ink!10,draw=Ink]{Lunch}
+  child{node{chicken rice} child{node{iced tea} child{node{chè}} child{node{yoghurt}}} child{node{orange juice} child{node{chè}} child{node{yoghurt}}}}
+  child{node[fill=tmOrange!25,draw=tmOrange]{phở} child{node{iced tea} child{node{chè}} child{node{yoghurt}}} child{node[fill=tmOrange!25,draw=tmOrange]{orange juice} child{node[fill=tmOrange!25,draw=tmOrange]{chè}} child{node[fill=tmOrange!25,draw=tmOrange]{yoghurt}}}}
+  child{node{bún chả} child{node{iced tea} child{node{chè}} child{node{yoghurt}}} child{node{orange juice} child{node{chè}} child{node{yoghurt}}}};
+\end{tikzpicture}\end{center}
+The tree has $3$ big branches, each splitting into $2$ branches, each of which splits into $2$ again: $12$ end points, exactly $12$ lunches.
+\step{2}{Part b}
+Lunches with phở: the main dish is fixed as phở, drink $2$ ways, dessert $2$ ways: $1\times2\times2=4$ lunches (the middle branch of the tree).
+$P(\text{phở})=\dfrac{4}{12}=\dfrac13$.
+\begin{tipbox}A quick way to think: the main dish is chosen at random from $3$ dishes, and each dish appears in the same number of lunches, so $P(\text{phở})=\dfrac13$. The drink and dessert do not matter.\end{tipbox}
+\step{3}{Part c}
+Main dish phở, drink orange juice, only the dessert is left to choose: $1\times1\times2=2$ lunches (orange in the tree).
+$P(\text{phở and orange juice})=\dfrac{2}{12}=\dfrac16$.
+\verify{List them: (phở, orange juice, chè) and (phở, orange juice, yoghurt) -- exactly $2$ lunches \checkmark.}
+\ans{a) $12$ lunches;\quad b) $\dfrac13$;\quad c) $\dfrac16$.}
+}
+
+% ---------------------------------------------------------------- Problem 34
+\begin{probbox}{34}{\relax}
+A hall has $20$ rows of seats. The first row has $12$ seats, and each row behind has $2$ seats more than the row just in front of it.
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item How many seats are in row $20$?
+\item Which row has exactly $30$ seats?
+\item How many seats does the hall have altogether?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The numbers of seats in the rows are $12,14,16,\dots$ -- an \emph{evenly spaced sequence} with step $d=2$. We need the $20$th term, the position of the term $30$, and the sum of $20$ terms.
+\step{1}{Part a -- find the pattern}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+Row & $1$ & $2$ & $3$ & $4$ & $k$\\ \hline
+Seats & $12$ & $12+2$ & $12+2\times2$ & $12+3\times2$ & $12+(k-1)\times2$\\ \hline
+\end{tabular}
+\end{center}
+From row $1$ to row $k$ there are $k-1$ ``jumps'', each adding $2$ seats. Row $20$: $12+19\times2=12+38=50$ seats.
+\begin{warnbox}Not $12+20\times2=52$: from row $1$ to row $20$ there are only $19$ increases (the ``off by one'' error).\end{warnbox}
+\step{2}{Part b}
+We need $12+(k-1)\times2=30$, so $(k-1)\times2=18$, $k-1=9$, $k=10$. Row $10$ has $30$ seats.
+\step{3}{Part c -- sum of an evenly spaced sequence}
+\begin{recallbox}Sum of an evenly spaced sequence $=\dfrac{(\text{first}+\text{last})\times\text{number of terms}}{2}$ (Gauss's pairing method).\end{recallbox}
+Total number of seats: $\dfrac{(12+50)\times20}{2}=\dfrac{62\times20}{2}=620$ seats.
+\begin{proofbox}Pair row $1$ with row $20$: $12+50=62$; row $2$ with row $19$: $14+48=62$; \ldots; row $10$ with row $11$: $30+32=62$. There are $10$ pairs of $62$ seats each, so the total is $10\times62=620$.\end{proofbox}
+\verify{Another way: if every row had $12$ seats there would be $20\times12=240$ seats; the ``extra'' is $0+2+4+\dots+38=2\times(0+1+\dots+19)=2\times190=380$; total $240+380=620$ \checkmark.}
+\ans{a) $50$ seats;\quad b) row $10$;\quad c) $620$ seats.}
+}
+
+% ---------------------------------------------------------------- Problem 35
+\begin{probbox}{35}{\stars{1}}
+A box contains only red and blue marbles. If one marble is drawn at random, the probability that it is red is $\dfrac35$. If $5$ more blue marbles are put into the box, the probability of drawing a red marble drops to $\dfrac12$. How many red marbles and how many blue marbles were in the box at the start?
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We do not know the total number of marbles, only \emph{proportions}. Adding blue marbles does not change the number of red marbles. Let us translate the two probabilities into the language of ``equal parts'' (a bar model).
+\step{1}{Translate the first condition}
+$P(\text{red})=\dfrac35$: if the marbles are split into $5$ equal parts, red takes $3$ parts and blue takes $5-3=2$ parts.
+\step{2}{Translate the second condition}
+After adding $5$ blue marbles, $P(\text{red})=\dfrac12$: red makes up exactly half, i.e.\ \emph{the number of red marbles equals the number of blue marbles}.
+\step{3}{Draw the model and compare}
+\begin{figC}
+\rowlab{-0.15}{0}{Red}
+\blk{0}{1.5}{0}{0.55}{AnsRed}{1 part}\blk{1.5}{3}{0}{0.55}{AnsRed}{1 part}\blk{3}{4.5}{0}{0.55}{AnsRed}{1 part}
+\rowlab{-0.15}{-0.8}{Blue}
+\blk{0}{1.5}{-0.8}{0.55}{tmBlue}{1 part}\blk{1.5}{3}{-0.8}{0.55}{tmBlue}{1 part}\blk{3}{4.5}{-0.8}{0.55}{tmTeal}{add 5}
+\brcdn{3}{4.5}{-1.25}{$1$ part $=5$ marbles}
+\end{figC}
+Red: $3$ parts. Blue after adding: $2$ parts $+\ 5$ marbles. These are equal, so the $5$ marbles are exactly $3-2=1$ part.
+\step{4}{Compute the numbers at the start}
+$1$ part $=5$ marbles. Red: $3\times5=15$ marbles. Blue: $2\times5=10$ marbles.
+\begin{tipbox}\emph{Algebra version (for those who like it):} let the number of red marbles be $3k$ and blue $2k$. After adding: $3k=2k+5$, so $k=5$.\end{tipbox}
+\verify{At the start: $15$ red, $10$ blue, $P(\text{red})=\dfrac{15}{25}=\dfrac35$ \checkmark. Adding $5$ blue: $15$ red, $15$ blue, $P(\text{red})=\dfrac{15}{30}=\dfrac12$ \checkmark.}
+\begin{warnbox}Do not try to ``subtract probabilities'': $\dfrac35-\dfrac12=\dfrac1{10}$ tells us nothing directly about the number of marbles. A probability is a \emph{ratio}; go back to actual quantities.\end{warnbox}
+\ans{At the start there were $15$ red and $10$ blue marbles.}
+}
+
+% ---------------------------------------------------------------- Problem 36
+\begin{probbox}{36}{\stars{1}}
+Recall: a palindrome is a number that reads the same forwards and backwards (for example $3443$, $7007$).
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item How many four-digit palindromes are there?
+\item How many of them are even?
+\item A four-digit palindrome is chosen at random. Find the probability that it is even.
+\item Show that every four-digit palindrome is divisible by $11$.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} A four-digit number $\overline{abcd}$ is a palindrome when reading it backwards, $\overline{dcba}$, gives the same number: $d=a$ and $c=b$. So a four-digit palindrome has the form $\overline{abba}$, and only \emph{two} digits are chosen freely: $a$ and $b$.
+\step{1}{Part a}
+\begin{recallbox}Multiplication rule; the first digit of a number cannot be $0$.\end{recallbox}
+\countboxes{digit a/9/from 1 to 9/tmBlue,digit b/10/from 0 to 9/tmOrange,third/1/equals b/tmGreen,fourth/1/equals a/tmGreen}{90}
+$a$: $9$ ways ($1$ to $9$); $b$: $10$ ways; the last two digits are forced to equal $b$ and $a$. There are $9\times10=90$ numbers.
+\step{2}{Part b}
+A number is even when its ones digit is even. The ones digit is $a$, so $a$ must be even \emph{and} non-zero: $a\in\{2,4,6,8\}$ -- $4$ ways. $b$ still has $10$ ways. There are $4\times10=40$ even palindromes.
+\begin{warnbox}The digit $0$ is even, but $a=0$ is not allowed because $a$ is also the first digit. So there are $4$, not $5$, choices for $a$.\end{warnbox}
+\step{3}{Part c}
+$P(\text{even})=\dfrac{40}{90}=\dfrac49$.
+\step{4}{Part d -- proof}
+\begin{proofbox}Write $\overline{abba}$ using place values:
+$\overline{abba}=1000a+100b+10b+a=1001a+110b$.
+Since $1001=11\times91$ and $110=11\times10$,
+$\overline{abba}=11\times91\times a+11\times10\times b=11\times(91a+10b)$,
+which is divisible by $11$.\end{proofbox}
+\verify{Examples: $3443=11\times313$; $7007=11\times637$; $1221=11\times111$ \checkmark. Counting check: the palindromes starting with $1$ are $1001,1111,\dots,1991$ -- exactly $10$ numbers; nine first digits give $90$ numbers \checkmark.}
+\ans{a) $90$;\quad b) $40$;\quad c) $\dfrac49$;\quad d) $\overline{abba}=11\times(91a+10b)$.}
+}
+
+% ---------------------------------------------------------------- Problem 37
+\begin{probbox}{37}{\stars{1}}
+Using the four digits $0,1,2,3$, four-digit numbers with all digits different are made (each digit used exactly once).
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item How many such numbers can be made?
+\item How many of them are even?
+\item One of the numbers from part a) is chosen at random. Find the probability that it is even.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each number is an arrangement of the four digits $0,1,2,3$ in the four places (thousands, hundreds, tens, ones), with the condition that the thousands digit is not $0$.
+\step{1}{Part a -- choose the restricted position first}
+\begin{recallbox}Multiplication rule. A position with a condition is chosen first.\end{recallbox}
+\countboxes{thousands/3/1 2 or 3/tmBlue,hundreds/3/0 allowed/tmOrange,tens/2/remaining/tmGreen,ones/1/remaining/tmPurple}{18}
+Thousands: $3$ ways ($1$, $2$ or $3$). Hundreds: $3$ digits left (now $0$ may be used): $3$ ways. Tens: $2$ ways. Ones: $1$ way. There are $3\times3\times2\times1=18$ numbers.
+\begin{warnbox}Forgetting the condition ``thousands digit not $0$'' gives $4\times3\times2\times1=24$ -- which includes $6$ ``numbers'' starting with $0$, such as $0123$, that are really three-digit numbers.\end{warnbox}
+\step{2}{Part b -- split into cases by the ones digit}
+An even number ends in $0$ or $2$. These two cases differ because the digit $0$ affects the thousands place.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
+\item \textbf{Case 1: ones digit $0$.} The three digits $1,2,3$ go freely into the other three places (no more worry about $0$ in front): $3\times2\times1=6$ numbers.
+\item \textbf{Case 2: ones digit $2$.} $0,1,3$ remain. Thousands not $0$: $2$ ways ($1$ or $3$); hundreds: $2$ ways; tens: $1$ way. There are $2\times2\times1=4$ numbers.
+\end{itemize}
+\begin{recallbox}Addition rule: for separate cases, add the numbers of ways in each case.\end{recallbox}
+Number of even numbers: $6+4=10$.
+\step{3}{Part c}
+$P(\text{even})=\dfrac{10}{18}=\dfrac59$.
+\verify{List the even numbers. Case 1: $1230,1320,2130,2310,3120,3210$ ($6$ numbers). Case 2: $1032,1302,3012,3102$ ($4$ numbers). Total $10$ \checkmark. Odd numbers (ending in $1$ or $3$): each case is like Case 2, with $4$ numbers, total $8$; and $10+8=18$ \checkmark.}
+\ans{a) $18$ numbers;\quad b) $10$ even numbers;\quad c) $\dfrac59$.}
+}
+
+% ---------------------------------------------------------------- Problem 38
+\begin{probbox}{38}{\stars{1}}
+\begin{minipage}[t]{0.62\linewidth}\vspace{0pt}
+The figure shows a rectangular grid of $2$ rows and $3$ columns of squares.
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item How many rectangles (including squares) are there in the figure altogether?
+\item How many squares are there?
+\item One of these rectangles is chosen at random. Find the probability that it is a square.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}
+\centering\begin{tikzpicture}[scale=0.75]
+\foreach \x in {0,1,2,3}{\draw[Ink,line width=1pt] (\x,0)--(\x,2);}
+\foreach \y in {0,1,2}{\draw[Ink,line width=1pt] (0,\y)--(3,\y);}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This is a grid with full-length lines, so the ``choose two lines'' trick works. We will also count by size to check.
+\step{1}{Part a -- choose two horizontal and two vertical lines}
+\begin{recallbox}A rectangle in a grid is determined by $2$ horizontal and $2$ vertical lines. The number of ways to choose $2$ of $n$ lines is $\dfrac{n\times(n-1)}{2}$.\end{recallbox}
+The grid has $3$ horizontal and $4$ vertical lines.
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt,topsep=1pt]
+\item Choose $2$ horizontal lines: $\dfrac{3\times2}{2}=3$ ways.
+\item Choose $2$ vertical lines: $\dfrac{4\times3}{2}=6$ ways.
+\end{itemize}
+By the multiplication rule: $3\times6=18$ rectangles.
+\step{2}{Check with a table of sizes}
+Write ``height $\times$ width'' (in squares). A shape $w$ squares wide has $4-w$ horizontal positions; $h$ squares high, $3-h$ vertical positions.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+Size & $1\times1$ & $1\times2$ & $1\times3$ & $2\times1$ & $2\times2$ & $2\times3$ & Total\\ \hline
+Number & $2\times3=6$ & $2\times2=4$ & $2\times1=2$ & $1\times3=3$ & $1\times2=2$ & $1\times1=1$ & $18$\\ \hline
+\end{tabular}
+\end{center}
+Both methods give $18$ \checkmark.
+\step{3}{Part b}
+The squares are the $1\times1$ and $2\times2$ shapes: $6+2=8$ squares.
+\begin{warnbox}There is no $3\times3$ square because the grid is only $2$ squares high. And do not forget the two $2\times2$ squares (left and right, overlapping in the middle column).\end{warnbox}
+\step{4}{Part c}
+$P(\text{square})=\dfrac{8}{18}=\dfrac49$.
+\ans{a) $18$;\quad b) $8$;\quad c) $\dfrac49$.}
+}
+
+% ---------------------------------------------------------------- Problem 39
+\begin{probbox}{39}{\stars{1}}
+Four friends An, Bình, Chi and Dũng are seated at random on four chairs in a row.
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item How many seating arrangements are there?
+\item Find the probability that An and Bình sit next to each other.
+\item Find the probability that An and Bình sit at the two ends of the row.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} ``Seated at random'' means all arrangements are equally likely. We count all arrangements, then the favourable ones for each event. Number the chairs $1,2,3,4$ from left to right.
+\step{1}{Part a}
+\begin{recallbox}Seating $n$ people on $n$ chairs: $n\times(n-1)\times\dots\times2\times1$ ways (multiplication rule; each next chair has one person fewer to choose from).\end{recallbox}
+Chair $1$: $4$ choices of person; chair $2$: $3$; chair $3$: $2$; chair $4$: $1$. There are $4\times3\times2\times1=24$ arrangements.
+\step{2}{Part b -- treat An and Bình as one ``block''}
+\begin{figC}
+\draw[tmOrange,line width=1.2pt,rounded corners=4pt,fill=tmOrange!12] (0,0) rectangle (2.4,0.7);
+\node[font=\bfseries] at (0.6,0.35){An};\node[font=\bfseries] at (1.8,0.35){Bình};
+\draw[tmBlue,line width=1pt,rounded corners=3pt,fill=tmBlue!10] (2.7,0) rectangle (3.9,0.7);\node[font=\bfseries] at (3.3,0.35){Chi};
+\draw[tmGreen,line width=1pt,rounded corners=3pt,fill=tmGreen!10] (4.2,0) rectangle (5.4,0.7);\node[font=\bfseries] at (4.8,0.35){Dũng};
+\node[font=\footnotesize,text=tmOrange!80!black] at (1.2,-0.3){one block, taking $2$ neighbouring chairs};
+\end{figC}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
+\item Position of the block (An, Bình): chairs $1$--$2$, $2$--$3$ or $3$--$4$: $3$ ways.
+\item Inside the block, An on the left or Bình on the left: $2$ ways.
+\item Chi and Dũng on the $2$ remaining chairs: $2\times1=2$ ways.
+\end{itemize}
+Favourable arrangements: $3\times2\times2=12$. So $P(\text{next to each other})=\dfrac{12}{24}=\dfrac12$.
+\begin{warnbox}Do not forget to multiply by $2$ for swapping An and Bình inside the block: ``An--Bình'' and ``Bình--An'' are two different arrangements.\end{warnbox}
+\step{3}{Part c}
+An and Bình on chairs $1$ and $4$: An on chair $1$ and Bình on chair $4$, or the other way round -- $2$ ways. Chi and Dũng on chairs $2$, $3$: $2$ ways. Favourable arrangements: $2\times2=4$.
+$P(\text{both ends})=\dfrac{4}{24}=\dfrac16$.
+\verify{Part b, counted another way: if An sits at an end (chair $1$ or $4$, $2$ possibilities) there is only $1$ chair next to An; if An sits in the middle (chair $2$ or $3$) there are $2$ chairs next to An. Number of (An, Bình) neighbouring chair pairs: $2\times1+2\times2=6$; times $2$ ways to seat Chi and Dũng: $12$ \checkmark.}
+\begin{parentbox}With $4$ people, let your child use $4$ name cards and actually lay out all $24$ arrangements in order (starting with An, then starting with Bình\ldots). Listing once helps the child trust the multiplication rule.\end{parentbox}
+\ans{a) $24$ arrangements;\quad b) $\dfrac12$;\quad c) $\dfrac16$.}
+}
+
+% ---------------------------------------------------------------- Problem 40
+\begin{probbox}{40}{\stars{2}}
+A box contains $4$ red marbles and $6$ blue marbles of the same size. Hoa draws one marble at random, does \emph{not put it back}, and then draws a second marble at random.
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item Find the probability that both marbles are red.
+\item Find the probability that the two marbles have the same colour.
+\item Find the probability that the two marbles have different colours.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Hoa draws two marbles \emph{one after the other} without replacement. Imagine the marbles numbered $1$ to $10$ (marbles $1$--$4$ red, marbles $5$--$10$ blue). Each \emph{ordered pair} (first marble, second marble) is one outcome, and these outcomes are equally likely.
+\step{1}{Count all outcomes}
+\begin{recallbox}Multiplication rule: the first draw has $10$ ways; for each of them, the second draw has $9$ marbles left, so $9$ ways.\end{recallbox}
+Number of outcomes: $10\times9=90$ ordered pairs.
+\step{2}{Part a -- both red}
+First draw red: $4$ ways. Then $3$ red marbles are left, second draw red: $3$ ways. Favourable outcomes: $4\times3=12$.
+$P(\text{red, red})=\dfrac{12}{90}=\dfrac{2}{15}$.
+\step{3}{Tree diagram with the numbers of ways}
+\begin{center}\begin{tikzpicture}[grow'=right,level distance=3.1cm,font=\sffamily\footnotesize,
+  every node/.style={draw=Ink!60,rounded corners=2pt,inner sep=2.5pt,fill=white},
+  level 1/.style={sibling distance=2.2cm},level 2/.style={sibling distance=1.1cm},
+  edge from parent/.style={draw=Ink!60}]
+\node[fill=Ink!10]{Start}
+  child{node[fill=AnsRed!15,draw=AnsRed]{Red: $4$ ways}
+     child{node[fill=AnsRed!15,draw=AnsRed]{Red: $3$ ways $\Rightarrow 4\times3=12$}}
+     child{node[fill=tmBlue!15,draw=tmBlue]{Blue: $6$ ways $\Rightarrow 4\times6=24$}}}
+  child{node[fill=tmBlue!15,draw=tmBlue]{Blue: $6$ ways}
+     child{node[fill=AnsRed!15,draw=AnsRed]{Red: $4$ ways $\Rightarrow 6\times4=24$}}
+     child{node[fill=tmBlue!15,draw=tmBlue]{Blue: $5$ ways $\Rightarrow 6\times5=30$}}};
+\end{tikzpicture}\end{center}
+Check: $12+24+24+30=90$ \checkmark{} -- the four branches cover every outcome.
+\step{4}{Part b -- same colour}
+Same colour has two separate cases: (red, red) with $12$ outcomes and (blue, blue) with $30$ outcomes.
+\begin{recallbox}Addition rule for cases that do not overlap.\end{recallbox}
+Favourable outcomes: $12+30=42$. $P(\text{same colour})=\dfrac{42}{90}=\dfrac{7}{15}$.
+\step{5}{Part c -- complement}
+``Different colours'' is the complement of ``same colour'': $P(\text{different colours})=1-\dfrac{7}{15}=\dfrac{8}{15}$.
+\verify{Direct count: (red, blue) $24$ and (blue, red) $24$, total $48$; $\dfrac{48}{90}=\dfrac{8}{15}$ \checkmark.}
+\begin{warnbox}The most common mistake: acting as if all $10$ marbles are still there for the second draw, computing $\dfrac{4}{10}\times\dfrac{4}{10}$ or counting $4\times4$ red pairs. Because the marble is \emph{not put back}, the second draw has only $9$ marbles and only $3$ red ones.\end{warnbox}
+\begin{tipbox}You can also count without order: the number of ways to choose $2$ of $10$ marbles is $\dfrac{10\times9}{2}=45$, the number of ways to choose $2$ of the $4$ red marbles is $\dfrac{4\times3}{2}=6$, so $P(\text{red, red})=\dfrac{6}{45}=\dfrac{2}{15}$ -- the same result. What matters is that the numerator and denominator are counted \emph{the same way} (both ordered or both unordered).\end{tipbox}
+\ans{a) $\dfrac{2}{15}$;\quad b) $\dfrac{7}{15}$;\quad c) $\dfrac{8}{15}$.}
+}
