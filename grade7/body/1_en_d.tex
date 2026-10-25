@@ -160,7 +160,7 @@ So for $n\le 6$ the dot cannot return to $O$, and $n\ge 7$.
 Odd group: $\{1,3,5,7\}$, choose $+1-3-5+7=0$. Even group: $\{2,4,6\}$, choose $+2+4-6=0$.\par
 Let the first move be horizontal. The moves: right $1$, up $2$, left $3$, up $4$, left $5$, down $6$, right $7$. The positions are
 \[ (0,0)\to(1,0)\to(1,2)\to(-2,2)\to(-2,6)\to(-7,6)\to(-7,0)\to(0,0). \]
-\begin{figC}\begin{scope}[scale=0.36]
+\begin{figC}\begin{scope}[scale=0.5]
 \draw[Line,line width=0.3pt] (-8,-1) grid (2,7);
 \draw[->,Navy,line width=0.5pt] (-8,0)--(2.4,0); \draw[->,Navy,line width=0.5pt] (0,-1)--(0,7.4);
 \draw[tmBlue,line width=1.3pt,->] (0,0)--(1,0)--(1,2)--(-2,2)--(-2,6)--(-7,6)--(-7,0)--(-0.32,0);
@@ -334,12 +334,12 @@ Point (remove multiples of $8$) & $5$ & $2$ & $7$ & $4$ & $1$ & $6$ & $3$ & $0$ 
 \end{center}
 The first eight meetings fall on all $8$ different points $0,1,\dots,7$; the $9$th meeting is back at point $5$ and everything repeats. So there are \textbf{$8$ meeting points}.
 \begin{figC}
-\draw[Ink,line width=1.1pt] (0,0) circle (1.3);
+\draw[Ink,line width=1.1pt] (0,0) circle (1.6);
 \foreach \i/\k in {0/8,1/5,2/2,3/7,4/4,5/1,6/6,7/3}{
   \pgfmathsetmacro\rvabAng{90+45*\i}
-  \fill[AnsRed] (\rvabAng:1.3) circle (2.6pt);
-  \node[font=\scriptsize,anchor=\rvabAng+180,inner sep=2pt] at (\rvabAng:1.42) {point \i};
-  \node[font=\scriptsize\bfseries,text=tmBlue] at (\rvabAng:0.98) {\k};}
+  \fill[AnsRed] (\rvabAng:1.6) circle (2.6pt);
+  \node[font=\scriptsize,anchor=\rvabAng+180,inner sep=2pt] at (\rvabAng:1.72) {point \i};
+  \node[font=\scriptsize\bfseries,text=tmBlue] at (\rvabAng:1.25) {\k};}
 \node[font=\scriptsize,text=tmBlue,align=center] at (0,0) {meeting\\no.};
 \end{figC}
 (Blue numbers inside: which meeting falls on that point; the points are numbered in Emma's running direction.)

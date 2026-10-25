@@ -160,7 +160,7 @@ Vậy với $n\le 6$, chấm không thể về $O$, nên $n\ge 7$.
 Nhóm lẻ: $\{1,3,5,7\}$, chọn $+1-3-5+7=0$. Nhóm chẵn: $\{2,4,6\}$, chọn $+2+4-6=0$.\par
 Cho bước đầu là ngang. Cách đi: phải $1$, lên $2$, trái $3$, lên $4$, trái $5$, xuống $6$, phải $7$. Các vị trí lần lượt:
 \[ (0;0)\to(1;0)\to(1;2)\to(-2;2)\to(-2;6)\to(-7;6)\to(-7;0)\to(0;0). \]
-\begin{figC}\begin{scope}[scale=0.36]
+\begin{figC}\begin{scope}[scale=0.5]
 \draw[Line,line width=0.3pt] (-8,-1) grid (2,7);
 \draw[->,Navy,line width=0.5pt] (-8,0)--(2.4,0); \draw[->,Navy,line width=0.5pt] (0,-1)--(0,7.4);
 \draw[tmBlue,line width=1.3pt,->] (0,0)--(1,0)--(1,2)--(-2,2)--(-2,6)--(-7,6)--(-7,0)--(-0.32,0);
@@ -334,12 +334,12 @@ $5k$ & $5$ & $10$ & $15$ & $20$ & $25$ & $30$ & $35$ & $40$ & $45$\\ \hline
 \end{center}
 Tám lần gặp đầu rơi vào đủ $8$ điểm khác nhau $0,1,\dots,7$; lần thứ $9$ trở lại điểm $5$ và mọi thứ lặp lại. Vậy có \textbf{$8$ điểm gặp}.
 \begin{figC}
-\draw[Ink,line width=1.1pt] (0,0) circle (1.3);
+\draw[Ink,line width=1.1pt] (0,0) circle (1.6);
 \foreach \i/\k in {0/8,1/5,2/2,3/7,4/4,5/1,6/6,7/3}{
   \pgfmathsetmacro\rvabAng{90+45*\i}
-  \fill[AnsRed] (\rvabAng:1.3) circle (2.6pt);
-  \node[font=\scriptsize,anchor=\rvabAng+180,inner sep=2pt] at (\rvabAng:1.42) {điểm \i};
-  \node[font=\scriptsize\bfseries,text=tmBlue] at (\rvabAng:0.98) {\k};}
+  \fill[AnsRed] (\rvabAng:1.6) circle (2.6pt);
+  \node[font=\scriptsize,anchor=\rvabAng+180,inner sep=2pt] at (\rvabAng:1.72) {điểm \i};
+  \node[font=\scriptsize\bfseries,text=tmBlue] at (\rvabAng:1.25) {\k};}
 \node[font=\scriptsize,text=tmBlue,align=center] at (0,0) {lần\\gặp};
 \end{figC}
 (Số xanh bên trong: lần gặp thứ mấy rơi vào điểm đó; các điểm được đánh số theo chiều chạy của Emma.)

@@ -229,7 +229,7 @@ $(a+b)+(b+c)+(c+a)=2(a+b+c)$, so \emph{the total of the three objects is half of
 \end{itemize}
 \end{knowbox}
 
-\textbf{Two small examples.}
+\needspace{10\baselineskip}\textbf{Two small examples.}
 
 \emph{a) An isosceles triangle with a $70^\circ$ angle.} The $70^\circ$ angle may be a \emph{base angle} or the \emph{apex angle}, so we must look at two cases:
 \begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
@@ -238,7 +238,7 @@ $(a+b)+(b+c)+(c+a)=2(a+b+c)$, so \emph{the total of the three objects is half of
 \end{itemize}
 \begin{figC}
 \draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,0)--(2.4,0)--(1.2,3.3)--cycle;
-\node[font=\footnotesize] at (0.45,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.95,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.2,2.6){$40^\circ$};
+\node[font=\footnotesize] at (0.45,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.95,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.2,2.35){$40^\circ$};
 \draw[tmOrange!85!black,line width=1pt,fill=tmOrange!10] (4,0)--(7.4,0)--(5.7,2.43)--cycle;
 \node[font=\footnotesize] at (4.55,0.22){$55^\circ$}; \node[font=\footnotesize] at (6.85,0.22){$55^\circ$}; \node[font=\footnotesize] at (5.7,1.85){$70^\circ$};
 \end{figC}
@@ -299,7 +299,7 @@ happen together again every $\text{lcm}(p,q)$ minutes.
 The first bus returns after $12, 24, 36, 48, \mathbf{60},\dots$ minutes; the second after $20, 40, \mathbf{60},\dots$ minutes.
 The two buses meet at the station again every $\text{lcm}(12,20)=60$ minutes, that is, at 8:00 a.m., 9:00 a.m., \dots
 
-Similarly, if the two sequences $7,10,13,\dots$ (difference $3$) and $2011,2006,2001,\dots$ (difference $5$) have a common term, then their common terms are $\text{lcm}(3,5)=15$ apart.
+Similarly, if the two sequences $7,10,13,\dots$ (difference $3$) and $2026,2021,2016,\dots$ (difference $5$) have a common term, then their common terms are $\text{lcm}(3,5)=15$ apart.
 \end{tipbox}
 
 \begin{proofbox}
@@ -307,8 +307,8 @@ Similarly, if the two sequences $7,10,13,\dots$ (difference $3$) and $2011,2006,
 and each gap adds $d$. It is like walking from the $1$st lamp post to the $5$th: you only pass $4$ gaps.
 \begin{figC}
 \foreach \i/\v in {0/a,1/a+d,2/a+2d,3/a+3d}{\fill[tmBlue] (2.2*\i,0) circle (2.5pt); \node[below,font=\footnotesize] at (2.2*\i,-0.1){$\v$};}
-\foreach \i in {0,1,2}{\draw[->,tmOrange,line width=0.9pt] (2.2*\i+0.15,0.15) to[bend left=30] node[above,font=\footnotesize]{$+d$} (2.2*\i+2.05,0.15);}
-\node[font=\footnotesize,text=Slate] at (0,0.7){1st}; \node[font=\footnotesize,text=Slate] at (6.6,0.7){4th};
+\foreach \i in {0,1,2}{\draw[->,tmOrange,line width=0.9pt] (2.2*\i,0.1) to[out=60,in=120] node[above,font=\footnotesize]{$+d$} (2.2*\i+2.2,0.1);}
+\node[font=\footnotesize,text=Slate] at (0,-0.75){(1st)}; \node[font=\footnotesize,text=Slate] at (6.6,-0.75){(4th)};
 \end{figC}
 From the $1$st term to the $4$th term there are $3$ steps of $+d$, so the $4$th term is $a+3d$.
 \end{proofbox}
@@ -539,6 +539,7 @@ $\dfrac{2}{3}$ hour $=\dfrac{2}{3}\cdot 60=40$ minutes. So $t=1$ hour $40$ minut
 \ans{$1$ hour $40$ minutes.}
 \end{exbox}
 
+\needspace{14\baselineskip}
 \begin{exbox}{Example 7 \ (A balance-scale problem)}
 Both scales below are balanced. Identical shapes have equal weights.
 \begin{center}

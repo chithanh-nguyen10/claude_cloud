@@ -16,6 +16,7 @@ trên hình.
 \item Tính xác suất để Ruby dừng ở $B$ mà \emph{không} đi qua điểm $N$.
 \end{enumerate}
 \end{probbox}
+\needspace{8\baselineskip}
 \probsol{
 \textbf{Phân tích đề.} Mỗi dãy $6$ lần tung là một dãy gồm $6$ kí hiệu $\uparrow$ (lên) hoặc $\rightarrow$ (sang phải).
 Có $2^6=2\times2\times2\times2\times2\times2=64$ dãy, đồng khả năng. Mỗi dãy là một \emph{đường đi} trên lưới.
@@ -415,7 +416,8 @@ Tất cả có $13$ số.
 
 \step{3}{Câu c: tách theo hàng}
 Viết hai số theo giá trị các hàng: $\nd{abc}=100a+10b+c$ và $\nd{cba}=100c+10b+a$. Khi đó
-\[\nd{abc}-\nd{cba}=(100a+10b+c)-(100c+10b+a)=100a-a+10b-10b+c-100c=99a-99c=99(a-c).\]
+\[\nd{abc}-\nd{cba}=(100a+10b+c)-(100c+10b+a)=100a-a+10b-10b+c-100c,\]
+\[\text{tức là}\quad\nd{abc}-\nd{cba}=99a-99c=99(a-c).\]
 Vì $a-c$ là một số nguyên nên $99(a-c)$ chia hết cho $99$. (Chữ số hàng chục $b$ triệt tiêu hoàn toàn!)
 \begin{warnbox}$\nd{ab}$ là cách viết số có chữ số $a$ và $b$, \emph{không phải} tích $a\times b$. Luôn đổi $\nd{ab}$ thành $10a+b$ trước khi tính.\end{warnbox}
 \verify{a) $47+74=121=11^2$. b) $73-37=36=6^2$, $98-89=9=3^2$. c) $731-137=594=99\times6$; $205-502=-297=99\times(-3)$.}

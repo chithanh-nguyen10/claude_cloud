@@ -15,6 +15,7 @@ each time it shows tails she moves \emph{right} one dot (as in problem 16). The 
 \item Find the probability that Ruby stops at $B$ \emph{without} passing through dot $N$.
 \end{enumerate}
 \end{probbox}
+\needspace{8\baselineskip}
 \probsol{
 \textbf{Understanding the problem.} Each sequence of $6$ tosses is a sequence of $6$ symbols $\uparrow$ (up) or $\rightarrow$ (right).
 There are $2^6=2\times2\times2\times2\times2\times2=64$ sequences, all equally likely. Each sequence is a \emph{path} on the grid.
@@ -423,7 +424,8 @@ There are $13$ numbers in all.
 
 \step{3}{Part c: split by place value}
 Write both numbers using place values: $\nd{abc}=100a+10b+c$ and $\nd{cba}=100c+10b+a$. Then
-\[\nd{abc}-\nd{cba}=(100a+10b+c)-(100c+10b+a)=100a-a+10b-10b+c-100c=99a-99c=99(a-c).\]
+\[\nd{abc}-\nd{cba}=(100a+10b+c)-(100c+10b+a)=100a-a+10b-10b+c-100c,\]
+\[\text{that is}\quad\nd{abc}-\nd{cba}=99a-99c=99(a-c).\]
 Since $a-c$ is an integer, $99(a-c)$ is divisible by $99$. (The tens digit $b$ cancels out completely!)
 \begin{warnbox}$\nd{ab}$ denotes the number with digits $a$ and $b$, \emph{not} the product $a\times b$. Always rewrite $\nd{ab}$ as $10a+b$
 before calculating.\end{warnbox}

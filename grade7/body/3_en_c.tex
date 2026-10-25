@@ -40,7 +40,7 @@ So $10$ black pens must be added.
 
 \emph{Remark:} $P(\text{black})=\dfrac12$ also means that the number of black pens \emph{equals} the number of non-black pens. There are always $15$ non-black pens, so there must be $15$ black pens, i.e.\ we add $15-5=10$ -- in agreement with the solution above.
 \begin{warnbox}Many students think ``to go from $\dfrac14$ to $\dfrac12$, double the black pens, so add $5$''. But when $5$ black pens are added the total also rises to $25$, and the probability is $\dfrac{10}{25}=\dfrac25$, not yet $\dfrac12$.\end{warnbox}
-\verify{Adding $10$ black pens: $15$ black pens out of $20+10=30$ pens; $P(\text{black})=\dfrac{15}{30}=\dfrac12$ \checkmark.}
+\verify{Adding $10$ black pens: $15$ black pens out of $20+10=30$ pens; $P(\text{black})=\dfrac{15}{30}=\dfrac12$~\checkmark.}
 \ans{a) $\dfrac{9}{20}$;\quad b) $\dfrac34$;\quad c) add $10$ black pens.}
 }
 
@@ -81,7 +81,7 @@ $P(\text{blue})=\dfrac{90}{360}=\dfrac14$.
 \emph{Another way to think:} we can divide the spinner into $12$ equal small sectors of $30^\circ$ each. Then red takes $6$ small sectors, blue $3$, yellow $2$ and purple $1$; these $12$ small sectors are equally likely. $P(\text{blue})=\dfrac{3}{12}=\dfrac14$ \checkmark.
 \step{3}{Part b}
 The yellow and purple sectors do not overlap, so their total angle is $60^\circ+30^\circ=90^\circ$.
-$P(\text{yellow or purple})=\dfrac{90}{360}=\dfrac14$ (or $\dfrac{2+1}{12}=\dfrac{3}{12}=\dfrac14$).
+\[P(\text{yellow or purple})=\frac{90}{360}=\frac14\quad\Big(\text{or }\frac{2+1}{12}=\frac{3}{12}=\frac14\Big).\]
 \step{4}{Part c}
 Leo is \textbf{wrong}. The formula ``favourable divided by all'' only works when the outcomes are \emph{equally likely}. Here the four colours are not equally likely: the red sector is half of the spinner, so $P(\text{red})=\dfrac{180}{360}=\dfrac12$, while $P(\text{purple})=\dfrac{30}{360}=\dfrac{1}{12}$ -- very different.
 \verify{$P(\text{red})+P(\text{blue})+P(\text{yellow})+P(\text{purple})=\dfrac{6}{12}+\dfrac{3}{12}+\dfrac{2}{12}+\dfrac{1}{12}=1$ \checkmark.}
@@ -311,9 +311,9 @@ Chair $1$: $4$ choices of person; chair $2$: $3$; chair $3$: $2$; chair $4$: $1$
 Glue Anna and Ben together into one ``block'' taking $2$ neighbouring chairs. The table shows that the block has only $3$ positions:
 \begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
  & Chair $1$ & Chair $2$ & Chair $3$ & Chair $4$\\ \hline
-Position 1 & \cellcolor{tmOrange!20}block & \cellcolor{tmOrange!20}block & & \\ \hline
-Position 2 & & \cellcolor{tmOrange!20}block & \cellcolor{tmOrange!20}block & \\ \hline
-Position 3 & & & \cellcolor{tmOrange!20}block & \cellcolor{tmOrange!20}block\\ \hline
+Position 1 & \multicolumn{2}{c|}{\cellcolor{tmOrange!20}Anna and Ben} & & \\ \hline
+Position 2 & & \multicolumn{2}{c|}{\cellcolor{tmOrange!20}Anna and Ben} & \\ \hline
+Position 3 & & & \multicolumn{2}{c|}{\cellcolor{tmOrange!20}Anna and Ben}\\ \hline
 \end{tabular}\end{center}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
 \item Position of the block (Anna, Ben): chairs $1$--$2$, $2$--$3$ or $3$--$4$: $3$ ways.

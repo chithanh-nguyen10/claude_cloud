@@ -40,7 +40,7 @@ Vậy cần bỏ thêm $10$ bút đen.
 
 \emph{Nhận xét:} $P(\text{đen})=\dfrac12$ cũng có nghĩa là số bút đen \emph{bằng} số bút không đen. Số bút không đen luôn là $15$, nên phải có $15$ bút đen, tức là thêm $15-5=10$ chiếc -- khớp với lời giải trên.
 \begin{warnbox}Nhiều bạn nghĩ ``muốn từ $\dfrac14$ lên $\dfrac12$ thì gấp đôi số bút đen, thêm $5$ chiếc''. Nhưng khi thêm $5$ bút đen thì tổng cũng tăng lên $25$, xác suất là $\dfrac{10}{25}=\dfrac25$, chưa bằng $\dfrac12$.\end{warnbox}
-\verify{Thêm $10$ bút đen: có $15$ bút đen trong tổng số $20+10=30$ bút; $P(\text{đen})=\dfrac{15}{30}=\dfrac12$ \checkmark.}
+\verify{Thêm $10$ bút đen: có $15$ bút đen trong tổng số $20+10=30$ bút; $P(\text{đen})=\dfrac{15}{30}=\dfrac12$~\checkmark.}
 \ans{a) $\dfrac{9}{20}$;\quad b) $\dfrac34$;\quad c) thêm $10$ bút đen.}
 }
 
@@ -81,7 +81,7 @@ $P(\text{xanh})=\dfrac{90}{360}=\dfrac14$.
 \emph{Cách nghĩ khác:} ta có thể chia bánh xe thành $12$ ô nhỏ bằng nhau, mỗi ô $30^\circ$. Khi đó đỏ chiếm $6$ ô nhỏ, xanh $3$ ô, vàng $2$ ô, tím $1$ ô; $12$ ô nhỏ này đồng khả năng. $P(\text{xanh})=\dfrac{3}{12}=\dfrac14$ \checkmark.
 \step{3}{Câu b}
 Ô vàng và ô tím không chồng lên nhau, nên góc tổng là $60^\circ+30^\circ=90^\circ$.
-$P(\text{vàng hoặc tím})=\dfrac{90}{360}=\dfrac14$ (hoặc $\dfrac{2+1}{12}=\dfrac{3}{12}=\dfrac14$).
+\[P(\text{vàng hoặc tím})=\frac{90}{360}=\frac14\quad\Big(\text{hoặc }\frac{2+1}{12}=\frac{3}{12}=\frac14\Big).\]
 \step{4}{Câu c}
 Leo nói \textbf{sai}. Công thức ``thuận lợi chia tất cả'' chỉ dùng được khi các kết quả \emph{đồng khả năng}. Ở đây bốn màu không đồng khả năng: ô đỏ chiếm nửa bánh xe nên $P(\text{đỏ})=\dfrac{180}{360}=\dfrac12$, còn $P(\text{tím})=\dfrac{30}{360}=\dfrac{1}{12}$ -- khác xa nhau.
 \verify{$P(\text{đỏ})+P(\text{xanh})+P(\text{vàng})+P(\text{tím})=\dfrac{6}{12}+\dfrac{3}{12}+\dfrac{2}{12}+\dfrac{1}{12}=1$ \checkmark.}
@@ -311,9 +311,9 @@ Ghế $1$: $4$ cách chọn người; ghế $2$: $3$ cách; ghế $3$: $2$ cách
 Ghép Anna và Ben thành một ``khối'' chiếm $2$ ghế liền nhau. Bảng dưới đây cho thấy khối chỉ có $3$ vị trí:
 \begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
  & Ghế $1$ & Ghế $2$ & Ghế $3$ & Ghế $4$\\ \hline
-Vị trí 1 & \cellcolor{tmOrange!20}khối & \cellcolor{tmOrange!20}khối & & \\ \hline
-Vị trí 2 & & \cellcolor{tmOrange!20}khối & \cellcolor{tmOrange!20}khối & \\ \hline
-Vị trí 3 & & & \cellcolor{tmOrange!20}khối & \cellcolor{tmOrange!20}khối\\ \hline
+Vị trí 1 & \multicolumn{2}{c|}{\cellcolor{tmOrange!20}Anna và Ben} & & \\ \hline
+Vị trí 2 & & \multicolumn{2}{c|}{\cellcolor{tmOrange!20}Anna và Ben} & \\ \hline
+Vị trí 3 & & & \multicolumn{2}{c|}{\cellcolor{tmOrange!20}Anna và Ben}\\ \hline
 \end{tabular}\end{center}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
 \item Vị trí của khối (Anna, Ben): chiếm ghế $1$--$2$, $2$--$3$ hoặc $3$--$4$: $3$ cách.

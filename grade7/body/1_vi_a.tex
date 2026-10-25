@@ -229,7 +229,7 @@ $(a+b)+(b+c)+(c+a)=2(a+b+c)$, nên \emph{tổng ba vật bằng nửa tổng cá
 \end{itemize}
 \end{knowbox}
 
-\textbf{Hai ví dụ nhỏ.}
+\needspace{10\baselineskip}\textbf{Hai ví dụ nhỏ.}
 
 \emph{a) Tam giác cân có một góc $70^\circ$.} Góc $70^\circ$ có thể là \emph{góc ở đáy} hoặc \emph{góc ở đỉnh}, nên phải xét hai trường hợp:
 \begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
@@ -238,7 +238,7 @@ $(a+b)+(b+c)+(c+a)=2(a+b+c)$, nên \emph{tổng ba vật bằng nửa tổng cá
 \end{itemize}
 \begin{figC}
 \draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,0)--(2.4,0)--(1.2,3.3)--cycle;
-\node[font=\footnotesize] at (0.45,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.95,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.2,2.6){$40^\circ$};
+\node[font=\footnotesize] at (0.45,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.95,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.2,2.35){$40^\circ$};
 \draw[tmOrange!85!black,line width=1pt,fill=tmOrange!10] (4,0)--(7.4,0)--(5.7,2.43)--cycle;
 \node[font=\footnotesize] at (4.55,0.22){$55^\circ$}; \node[font=\footnotesize] at (6.85,0.22){$55^\circ$}; \node[font=\footnotesize] at (5.7,1.85){$70^\circ$};
 \end{figC}
@@ -299,7 +299,7 @@ cùng xảy ra lại sau mỗi $\text{BCNN}(p,q)$ phút.
 Thời điểm xe thứ nhất về bến: sau $12, 24, 36, 48, \mathbf{60},\dots$ phút; xe thứ hai: sau $20, 40, \mathbf{60},\dots$ phút.
 Hai xe lại gặp nhau ở bến sau mỗi $\text{BCNN}(12,20)=60$ phút, tức lúc $8\,h$, $9\,h$, \dots
 
-Tương tự, hai dãy $7,10,13,\dots$ (cách $3$) và $2011,2006,2001,\dots$ (cách $5$) nếu có số chung thì các số chung cách nhau $\text{BCNN}(3,5)=15$.
+Tương tự, hai dãy $7,10,13,\dots$ (cách $3$) và $2026,2021,2016,\dots$ (cách $5$) nếu có số chung thì các số chung cách nhau $\text{BCNN}(3,5)=15$.
 \end{tipbox}
 
 \begin{proofbox}
@@ -307,8 +307,8 @@ Tương tự, hai dãy $7,10,13,\dots$ (cách $3$) và $2011,2006,2001,\dots$ (c
 mỗi khoảng cộng thêm $d$. Giống như đi từ cột điện thứ $1$ đến cột thứ $5$ chỉ qua $4$ khoảng.
 \begin{figC}
 \foreach \i/\v in {0/a,1/a+d,2/a+2d,3/a+3d}{\fill[tmBlue] (2.2*\i,0) circle (2.5pt); \node[below,font=\footnotesize] at (2.2*\i,-0.1){$\v$};}
-\foreach \i in {0,1,2}{\draw[->,tmOrange,line width=0.9pt] (2.2*\i+0.15,0.15) to[bend left=30] node[above,font=\footnotesize]{$+d$} (2.2*\i+2.05,0.15);}
-\node[font=\footnotesize,text=Slate] at (0,0.7){thứ 1}; \node[font=\footnotesize,text=Slate] at (6.6,0.7){thứ 4};
+\foreach \i in {0,1,2}{\draw[->,tmOrange,line width=0.9pt] (2.2*\i,0.1) to[out=60,in=120] node[above,font=\footnotesize]{$+d$} (2.2*\i+2.2,0.1);}
+\node[font=\footnotesize,text=Slate] at (0,-0.75){(thứ 1)}; \node[font=\footnotesize,text=Slate] at (6.6,-0.75){(thứ 4)};
 \end{figC}
 Từ số thứ $1$ đến số thứ $4$ có $3$ bước $+d$, nên số thứ $4$ là $a+3d$.
 \end{proofbox}
@@ -539,6 +539,7 @@ $\dfrac{2}{3}$ giờ $=\dfrac{2}{3}\cdot 60=40$ phút. Vậy $t=1$ giờ $40$ ph
 \ans{$1$ giờ $40$ phút.}
 \end{exbox}
 
+\needspace{14\baselineskip}
 \begin{exbox}{Ví dụ 7 \ (Bài toán chiếc cân)}
 Cả hai chiếc cân dưới đây đều thăng bằng. Các hình giống nhau thì nặng bằng nhau.
 \begin{center}

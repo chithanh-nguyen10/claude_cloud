@@ -2,6 +2,7 @@
 % Topic 4 -- Number Sense -- part b: problems 16--30 (EN)
 % ============================================================
 
+\needspace{10\baselineskip}
 \begin{probbox}{16}{\relax}
 The mean (average) of five consecutive integers is $21$. The smallest of the five integers is
 \choices{$17$}{$21$}{$1$}{$18$}{$19$}
@@ -26,9 +27,9 @@ We have $5n=105$, so $n=105\div 5=21$. The five numbers are $19,\ 20,\ 21,\ 22,\
 \draw[->,thick,Navy] (-0.5,0)--(6.6,0);
 \foreach \x/\lab in {0/18,1/19,2/20,3/21,4/22,5/23,6/24}{\draw[Navy,line width=0.8pt] (\x,0.08)--(\x,-0.08); \node[below,text=Ink] at (\x,-0.1) {$\lab$};}
 \foreach \x in {1,2,3,4,5}{\fill[KidOrange] (\x,0) circle (2.7pt);}
-\draw[<->,tmBlue] (1,0.45)--(3,0.45) node[midway,above,font=\footnotesize]{back $2$};
-\draw[<->,tmBlue] (3,0.45)--(5,0.45) node[midway,above,font=\footnotesize]{forward $2$};
-\node[tmGreen!70!black,font=\footnotesize\bfseries] at (3,1.1) {middle number $=$ mean};
+\draw[->,tmBlue,shorten <=1pt] (3,0.45)--(1,0.45) node[midway,above,font=\footnotesize]{back $2$};
+\draw[->,tmBlue,shorten <=1pt] (3,0.45)--(5,0.45) node[midway,above,font=\footnotesize]{forward $2$};
+\node[tmGreen!70!black,font=\footnotesize\bfseries] at (3,1.25) {middle number $=$ mean};
 \end{figC}
 
 \begin{proofbox}With an \emph{odd} number of consecutive integers, the numbers placed symmetrically around the middle one ``balance out'' (one is $1$ less, one is $1$ more; one is $2$ less, one is $2$ more\dots). So the sum equals (middle number) $\times$ (how many numbers), which means the mean is exactly the middle number.\end{proofbox}
@@ -40,6 +41,7 @@ The smallest number is $19$, which is option \textbf{(E)}.
 \ans{(E) $19$}
 }
 
+\needspace{10\baselineskip}
 \begin{probbox}{17}{\relax}
 How many positive whole numbers, including $1$, divide exactly into both $40$ and $72$?
 \choices{$9$}{$12$}{$4$}{$2$}{$5$}
@@ -71,6 +73,7 @@ There are $4$ such numbers, which is option \textbf{(C)}.
 \ans{(C) $4$}
 }
 
+\needspace{10\baselineskip}
 \begin{probbox}{18}{\relax}
 The number that goes into the box to make $\dfrac{3}{7}=\dfrac{\square}{63}$ true is
 \choices{$27$}{$9$}{$59$}{$63$}{$3$}
@@ -94,6 +97,7 @@ The missing number is $27$, which is option \textbf{(A)}.
 \ans{(A) $27$}
 }
 
+\needspace{10\baselineskip}
 \begin{probbox}{19}{\relax}
 A fraction is equal to $\dfrac{5}{8}$. Its numerator and denominator add up to $91$. What is the difference between the denominator and the numerator of this fraction?
 \choices{$21$}{$3$}{$33$}{$13$}{$19$}
@@ -122,6 +126,7 @@ The difference is $21$, which is option \textbf{(A)}.
 \ans{(A) $21$}
 }
 
+\needspace{10\baselineskip}
 \begin{probbox}{20}{\relax}
 Sally is driving at $80$ km/h along a road with equally spaced power poles. Her car passes a pole every $4$ seconds. Which of the following is closest to the distance between two neighbouring poles?
 \choices{$50$ m}{$60$ m}{$70$ m}{$80$ m}{$90$ m}
@@ -150,6 +155,7 @@ Choose option \textbf{(E)}.
 \ans{(E) $90$ m}
 }
 
+\needspace{11\baselineskip}
 \begin{probbox}{21}{\relax}
 Each of the integers $334$ and $419$ has digits whose product is $36$ (since $3\cdot 3\cdot 4=36$ and $4\cdot 1\cdot 9=36$). How many $3$-digit positive integers have digits whose product is $36$?
 \choices{$21$}{$15$}{$18$}{$24$}{$12$}
@@ -196,6 +202,7 @@ Choose option \textbf{(A)}.
 \ans{(A) $21$}
 }
 
+\needspace{21\baselineskip}
 \begin{probbox}{22}{\relax}
 An \emph{arithmetic sequence} is a sequence in which each term after the first is obtained by adding a constant to the previous term. For example, $2,4,6,8$ and $1,4,7,10$ are arithmetic sequences.
 
@@ -247,6 +254,7 @@ $x=37$, which is option \textbf{(A)}.
 \ans{(A) $37$}
 }
 
+\needspace{10\baselineskip}
 \begin{probbox}{23}{\relax}
 In the six-digit number $\nd{1ABCDE}$, each letter represents a digit. Given that $\nd{1ABCDE}\times 3=\nd{ABCDE1}$, the value of $A+B+C+D+E$ is
 \choices{$29$}{$26$}{$22$}{$30$}{$28$}
@@ -288,6 +296,7 @@ $A+B+C+D+E=26$, which is option \textbf{(B)}.
 \ans{(B) $26$}
 }
 
+\needspace{13\baselineskip}
 \begin{probbox}{24}{\relax}
 On a coordinate grid, a dot starts at the point $(20,19)$. On its first move it goes $1$ unit horizontally or vertically, that is, to one of the points $(21,19)$, $(19,19)$, $(20,20)$ or $(20,18)$. On its second move it goes $2$ units in a direction perpendicular to the first move (either way). Each move after that is $1$ unit longer than the previous one ($3$ units, $4$ units, $5$ units,\dots) and must be perpendicular to the direction of the move just before it. The dot stops after $10$ moves. Which of the following final positions is \textbf{not} possible?
 \choices{$(27,33)$}{$(30,40)$}{$(21,21)$}{$(42,44)$}{$(37,37)$}
@@ -335,8 +344,8 @@ First move up: up $1$, right $2$, up $3$, left $4$, up $5$, right $6$, up $7$, r
 \draw[Line,line width=0.3pt] (-3,-1) grid (23,26);
 \draw[tmBlue,line width=1.4pt,->] (0,0)--(0,1)--(2,1)--(2,4)--(-2,4)--(-2,9)--(4,9)--(4,16)--(12,16)--(12,25)--(22,25);
 \fill[tmGreen] (0,0) circle (10pt); \fill[AnsRed] (22,25) circle (10pt);
-\node[below right,font=\scriptsize,text=tmGreen!70!black] at (0,0) {$(20,19)$};
-\node[below,font=\scriptsize,text=AnsRed] at (22,24.6) {$(42,44)$};
+\node[below right,font=\scriptsize,text=tmGreen!70!black,fill=white,inner sep=1pt] at (0,-0.3) {$(20,19)$};
+\node[below left,font=\scriptsize,text=AnsRed,fill=white,inner sep=1pt] at (21.6,24.6) {$(42,44)$};
 \end{scope}\end{figC}
 
 \begin{warnbox}Checking only ``is the point too far away?'' is not enough: $(30,40)$ is no farther than $(42,44)$. What decides it is odd/even and which totals can actually be made.\end{warnbox}
@@ -346,6 +355,7 @@ Choose option \textbf{(B)}.
 \ans{(B) $(30,40)$}
 }
 
+\needspace{10\baselineskip}
 \begin{probbox}{25}{\relax}
 In the ``Coin Game'', you toss three coins at the same time. You win only if the $3$ coins all show heads or all show tails. If you play the game once only, what is the probability of winning?
 \choices{$\dfrac16$}{$\dfrac14$}{$\dfrac{2}{27}$}{$\dfrac23$}{$\dfrac13$}
@@ -387,6 +397,7 @@ Choose option \textbf{(B)}.
 \ans{(B) $\dfrac14$}
 }
 
+\needspace{16\baselineskip}
 \begin{probbox}{26}{\relax}
 In the right-angled triangle $PQR$, the right angle is at $Q$ and $PQ=QR$. The segments $QS$, $TU$ and $VW$ are perpendicular to $PR$, and the segments $ST$ and $UV$ are perpendicular to $QR$, as shown. What fraction of the area of triangle $PQR$ is shaded?
 \begin{figC}\begin{scope}[scale=0.42]
@@ -433,6 +444,7 @@ Choose option \textbf{(D)}.
 \ans{(D) $\dfrac{5}{32}$}
 }
 
+\needspace{12\baselineskip}
 \begin{probbox}{27}{\relax}
 Emily went to a second-hand market where, every $15$ minutes, the price of every item was reduced by $10\%$ of its \emph{current} price. At $9$:$00$ a.m., the price of a rug was $\$10.00$. At $9$:$15$ a.m., the price was reduced to $\$9.00$. As soon as the price of the rug fell \emph{below} $\$8.00$, Emily bought it. At what time did Emily buy the rug?
 \choicesII{$9$:$45$ a.m.}{$9$:$15$ a.m.}{$9$:$30$ a.m.}{$10$:$15$ a.m.}{$10$:$00$ a.m.}
@@ -467,6 +479,7 @@ Choose option \textbf{(A)}.
 \ans{(A) $9$:$45$ a.m.}
 }
 
+\needspace{11\baselineskip}
 \begin{probbox}{28}{\relax}
 The number $2018$ is used to create six-digit positive integers: each of them must contain the digits $2,0,1,8$ \emph{together and in this order}. For example, $720\,186$ is allowed, but $209\,318$ and $210\,893$ are not. How many of these six-digit integers are divisible by $9$?
 \choices{$28$}{$27$}{$31$}{$34$}{$22$}
@@ -507,6 +520,7 @@ Choose option \textbf{(C)}.
 \ans{(C) $31$}
 }
 
+\needspace{12\baselineskip}
 \begin{probbox}{29}{\relax}
 The number $N$ is the product of all positive odd integers from $1$ to $99$ that do \emph{not} end in the digit $5$. That is,
 \[N=1\times 3\times 7\times 9\times 11\times 13\times 17\times 19\times\cdots\times 91\times 93\times 97\times 99.\]
@@ -538,6 +552,7 @@ Choose option \textbf{(A)}.
 \ans{(A) $1$}
 }
 
+\needspace{11\baselineskip}
 \begin{probbox}{30}{\relax}
 Five students wrote a quiz with a maximum score of $50$. The scores of four of the students were $42$, $43$, $46$ and $49$. The score of the fifth student was $N$. The mean of the five students' scores was the same as the median of the five students' scores. The number of possible values of $N$ is
 \choices{$3$}{$4$}{$1$}{$0$}{$2$}

@@ -1,5 +1,6 @@
 % ===================== Chủ đề 1 -- Đại số và Phương trình -- phần c (VI): Bài 31--40 =====================
 \providecommand{\rvabBox}[4]{\begin{tikzpicture}[baseline=-0.7ex,font=\small]
+  \path (-0.66,-0.42) rectangle (0.66,0.42);
   \draw[Navy,line width=0.8pt,fill=tmBlue!6] (-0.66,-0.32) rectangle (0.66,0.32);
   \draw[Navy,line width=0.8pt] (0,-0.32)--(0,0.32) (-0.66,0)--(0.66,0);
   \node[inner sep=0pt] at (-0.33,0.16){$#1$};\node[inner sep=0pt] at (0.33,0.16){$#2$};
@@ -25,9 +26,7 @@ $\dfrac{2}{3}$ quãng đường.
 \step{1}{Quãng đường đã đi và quãng đường còn lại}
 Đã đi: $\dfrac{2}{3}$ của $180$ km là $180:3\cdot 2=60\cdot 2=120$ (km). Còn lại: $180-120=60$ (km).
 \step{2}{Câu a: gọi ẩn và lập phương trình}
-Gọi vận tốc của xe máy là $v$ (km/h), $v>0$. Trong $3$ giờ, xe đi được $3v$ (km). Theo Bước 1, quãng đường này là $120$ km, nên
-\[3v=120\quad\Rightarrow\quad v=120:3=40.\]
-Vậy vận tốc của xe máy là $40$ km/h.
+Gọi vận tốc của xe máy là $v$ (km/h), $v>0$. Trong $3$ giờ, xe đi được $3v$ (km). Theo Bước 1, quãng đường này là $120$ km, nên $3v=120$, suy ra $v=120:3=40$ (km/h).
 \step{3}{Câu b: thời gian còn lại}
 Gọi $t$ (giờ) là thời gian đi hết $60$ km còn lại với vận tốc $40$ km/h. Ta có $40t=60$, suy ra $t=60:40=1{,}5$ (giờ) $=1$ giờ $30$ phút.
 \begin{tipbox}Cách khác, dùng tỉ lệ thuận: khi vận tốc không đổi, thời gian tỉ lệ thuận với quãng đường. $120$ km mất $3$ giờ; $60$ km bằng một nửa của $120$ km nên mất một nửa của $3$ giờ, tức là $1{,}5$ giờ.\end{tipbox}
@@ -103,7 +102,7 @@ Số nào bình phương lên bằng $25$? Có $5\cdot 5=25$, nhưng cũng có $
 \begin{probbox}{34}{\stars{1}}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=0pt]
 \item Tổng của năm số lẻ liên tiếp bằng $155$. Tìm năm số đó.
-\item Bạn Leo nói: ``Tớ tìm được bốn số lẻ liên tiếp có tổng bằng $150$.'' Nam nói đúng hay sai? Vì sao?
+\item Bạn Leo nói: ``Tớ tìm được bốn số lẻ liên tiếp có tổng bằng $150$.'' Leo nói đúng hay sai? Vì sao?
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -169,7 +168,8 @@ Mỗi lượt đi xe buýt, bạn Lucy phải trả \$2{,}50. Công ty xe buýt 
 Mỗi lượt \$2{,}50, nên $n$ lượt hết $2{,}5\cdot n=2{,}5n$ (đô la).
 \step{2}{Câu b: lập bất đẳng thức}
 Vé tháng rẻ hơn khi số tiền vé lượt lớn hơn \$72, tức là $2{,}5n>72$. Chia cả hai vế cho số dương $2{,}5$: $n>72:2{,}5=28{,}8$.
-\step{3}{Chọn số tự nhiên nhỏ nhất và kiểm tra bằng bảng}
+\step{3}{Chọn số tự nhiên nhỏ nhất và kiểm tra}
+Số tự nhiên nhỏ nhất lớn hơn $28{,}8$ là $29$. Kiểm tra bằng bảng:
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -178,7 +178,7 @@ $28$ & $70$ & vé lượt rẻ hơn\\ \hline
 $29$ & $72{,}5$ & \textbf{vé tháng rẻ hơn}\\ \hline
 \end{tabular}
 \end{center}
-Số tự nhiên nhỏ nhất lớn hơn $28{,}8$ là $29$. Vậy cần đi ít nhất $29$ lượt.
+Vậy cần đi ít nhất $29$ lượt.
 \begin{warnbox}Số lượt phải là số tự nhiên, nên không trả lời ``$28{,}8$ lượt''. Cũng không ``làm tròn'' thành $28$: với $28$ lượt, vé lượt chỉ hết \$70, vẫn rẻ hơn vé tháng. Ta phải lấy số tự nhiên nhỏ nhất \emph{lớn hơn} $28{,}8$, đó là $29$.\end{warnbox}
 \begin{parentbox}Đây là bài toán ``đời thường'' rất tốt để trò chuyện với con: gói cước điện thoại, vé bơi theo tháng... đều có thể so sánh theo cách này.\end{parentbox}
 \ans{a) $2{,}5n$ đô la;\ \ b) ít nhất $29$ lượt.}
