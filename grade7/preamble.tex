@@ -15,6 +15,7 @@
 \usepackage{colortbl}
 \usepackage{comment}
 \usepackage{needspace}
+\usepackage{environ}
 \usepackage{fancyhdr}
 \usepackage{fontawesome5}
 \usepackage{graphicx}
@@ -87,7 +88,7 @@
   \draw[Navy!55, line width=1pt] (FL) -- (FR);
   \node[fill=white, draw=Navy, line width=1.2pt, rounded corners=8pt, font=\bfseries\small,
         text=Navy, inner xsep=11pt, inner ysep=4pt] at ($(current page.south)+(0,2.18cm)$) {{\color{tmBlue}\faGlobe}\ \ thinkalgo.com};
-  \node[text=Slate, font=\footnotesize, anchor=north west, align=left, inner sep=0pt, text width=7.6cm]
+  \node[text=Slate, font=\footnotesize, anchor=north west, align=left, inner sep=0pt, text width=8.2cm]
         at ($(FL)+(0.1cm,-0.30cm)$) {{\color{tmBlue}\faTag}\ \TopicWord: \textbf{\color{Ink}\CurTopic}\\[1.5pt]{\color{tmBlue}\faGraduationCap}\ \DocGrade};
   \node[text=Slate, font=\footnotesize] at ($(current page.south)+(0,1.20cm)$) {\thepage};
   \node[text=Slate, font=\scriptsize, anchor=north east, align=right, inner sep=0pt, text width=7.4cm]
@@ -130,11 +131,26 @@
 \newcommand{\guide}{\par\vspace{2pt}{\bfseries\color{tmBlue}\GuideWord}\par\nopagebreak}
 
 % ---------------- PROBLEM (Bài): SOLID BLUE tab, white text ----------------
-\newtcolorbox{probbox}[2]{enhanced,breakable,colback=white,colframe=tmBlue,boxrule=1pt,arc=5pt,
+\newtcolorbox{probboxT}[2]{enhanced,breakable,colback=white,colframe=tmBlue,boxrule=1pt,arc=5pt,
   left=12pt,right=10pt,top=14pt,bottom=7pt,
   attach boxed title to top left={xshift=10pt,yshift=-\tcboxedtitleheight/2},
   boxed title style={colback=tmBlue,colframe=tmBlue,arc=4pt,boxrule=0pt},
   fonttitle=\bfseries\color{white},title={\ProbWord\ #1\ifx\relax#2\relax\else#2\fi}}
+% unbreakable copy used inside the student block
+\newtcolorbox{probboxS}[2]{enhanced,colback=white,colframe=tmBlue,boxrule=1pt,arc=5pt,
+  left=12pt,right=10pt,top=14pt,bottom=7pt,
+  attach boxed title to top left={xshift=10pt,yshift=-\tcboxedtitleheight/2},
+  boxed title style={colback=tmBlue,colframe=tmBlue,arc=4pt,boxrule=0pt},
+  fonttitle=\bfseries\color{white},title={\ProbWord\ #1\ifx\relax#2\relax\else#2\fi}}
+% Teacher: the problem box is printed where it stands.
+% Student: the problem is stored and printed by \probsol together with its blank "work" box inside one
+%          unbreakable block, so a problem is never separated from its writing space by a page break.
+\ifsol
+  \newenvironment{probbox}[2]{\begin{probboxT}{#1}{#2}}{\end{probboxT}}
+\else
+  \NewEnviron{probbox}[2]{\global\let\StuProbBody\BODY\gdef\StuProbArgs{{#1}{#2}}}
+  \newcommand{\StuProb}[2]{\begin{probboxS}{#1}{#2}\StuProbBody\end{probboxS}}
+\fi
 
 % ---------------- SOLUTION (Lời giải): OUTLINE GREEN tab (white fill, green border + text) ----------------
 % Teacher: a green tcolorbox. Student: the body is dropped entirely (comment pkg — robust with tables/\\).
@@ -176,8 +192,11 @@
     \setlength{\solht}{\dimexpr\ht\solmeasure+\dp\solmeasure+0.85cm\relax}%
     \ifdim\solht<1.35cm\setlength{\solht}{1.35cm}\fi
     \ifdim\solht>\StudentMaxWork\setlength{\solht}{\StudentMaxWork}\fi
+    \par\noindent\begin{minipage}{\linewidth}%
+    \expandafter\StuProb\StuProbArgs
     \begin{tcolorbox}[colback=white,colframe=Line,boxrule=0.8pt,arc=5pt,
       left=8pt,right=8pt,top=4pt,bottom=4pt,height=\solht]{\footnotesize\color{Slate}\itshape\WorkWord}\end{tcolorbox}%
+    \end{minipage}\par\medskip
   \fi}
 
 % ---------------- practice divider: blue left accent bar, no fill ----------------
@@ -262,7 +281,7 @@
 % Grade 7 additions (shared by all four editions)
 % ======================================================================
 % student edition: blank "work" box height = min(solution height, this cap)
-\newlength{\StudentMaxWork}\setlength{\StudentMaxWork}{7.5cm}
+\newlength{\StudentMaxWork}\setlength{\StudentMaxWork}{4.5cm}
 
 % ThinkAlgo tip box (label set per language by \TipWord)
 \newtcolorbox{tipbox}{enhanced,breakable,colback=StarGold!8,colframe=StarGold!75!black,boxrule=1pt,arc=4pt,

@@ -22,6 +22,7 @@ Outputs (standalone, each compiles on its own with pdflatex)
   G7_TEXDIR=/some/dir python3 ...    # build in a private folder (PDFs stay there)
 """
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -34,7 +35,7 @@ CHAPTERS = {
     2: {"vi": "Hình học và Đo lường", "en": "Geometry and Measurement"},
     3: {"vi": "Đếm và Xác suất", "en": "Counting and Probability"},
     4: {"vi": "Số học và Tư duy số", "en": "Number Sense"},
-    5: {"vi": "Chủ đề khác: Tư duy logic và Câu đố", "en": "Others: Logic and Puzzles"},
+    5: {"vi": "Chủ đề khác: Logic và Câu đố", "en": "Others: Logic and Puzzles"},
 }
 BOOK = {
     "vi": {"slug": "ThinkAlgo_Toan7", "title": "Toán Tư duy Lớp 7",
@@ -140,6 +141,11 @@ def assemble(lang, teacher, chapters, book=True):
         cover(lang, teacher, chapters) if book else "",
     ]
     body = [chapter(n, lang) for n in chapters]
+    if not teacher:
+        # In the student book each problem is printed together with its work box as one
+        # unbreakable block (see \probsol), so the \needspace hints tuned for the teacher
+        # layout in front of problems only create gaps there: drop them.
+        body = [re.sub(r"\\needspace\{[^{}]*\}(?=\s*\\begin\{probbox\})", "", b) for b in body]
     return "\n".join(head + body + [r"\end{document}", ""])
 
 
