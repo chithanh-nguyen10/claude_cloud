@@ -137,7 +137,7 @@ def assemble(lang, teacher, chapters, book=True):
         read("labels_%s.tex" % lang),
         r"\def\DocTopic{%s}" % BOOK[lang]["title"],
         r"\begin{document}",
-        cover(lang, teacher, chapters) if book else r"\titlehead",
+        cover(lang, teacher, chapters) if book else "",
     ]
     body = [chapter(n, lang) for n in chapters]
     return "\n".join(head + body + [r"\end{document}", ""])
