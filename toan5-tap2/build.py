@@ -41,7 +41,7 @@ PARTS = [
     ("09", "chap", "Dòng nước. Vật có chiều dài", "River Currents and Long Objects"),
     ("10", "chap", "Chuyển động vòng tròn", "Motion around a Circular Track"),
     ("11", "chap", "Thống kê, xác suất", "Statistics and Probability"),
-    ("12", "chap", "Sơ đồ Venn, tính ngược", "Venn Diagrams and Working Backwards"),
+    ("12", "chap", "Sơ đồ Venn, tính ngược", "Venn Diagrams, Working Back"),
     ("13", "chap", "Giả thiết tạm", "The Supposition Method"),
     ("rev1", "rev", "Ôn tập tổng hợp -- Đề 1", "Mixed Review -- Paper 1"),
     ("rev2", "rev", "Ôn tập tổng hợp -- Đề 2", "Mixed Review -- Paper 2"),
