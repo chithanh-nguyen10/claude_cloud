@@ -56,7 +56,7 @@
 \AtBeginDocument{\color{Ink}}
 \raggedbottom  % natural flow, even spacing (no stretched gaps)
 % tall lines (stacked fractions) never touch the line above/below: keep at least 4pt apart, else add 6pt
-\setlength{\lineskiplimit}{4pt}\setlength{\lineskip}{6pt}
+\setlength{\lineskiplimit}{4pt}\setlength{\lineskip}{6pt}\setlength{\normallineskiplimit}{4pt}\setlength{\normallineskip}{6pt}% boxes reset to the "normal" values
 \setlength{\parindent}{0pt}\setlength{\parskip}{0.18em}
 \renewcommand{\arraystretch}{1.35}
 \providecommand{\AnsWord}{Đáp số}
@@ -269,10 +269,10 @@
 % ---------------- helpers for the Grade 5 book: sub-part labels and 2/3-column part layouts ----------------
 \newcommand{\pa}[1]{\textbf{#1)}\ }
 \newenvironment{cols2}{\par\vspace{3pt}\noindent\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.3}%
-  \begin{tabular}{@{}>{\raggedright\arraybackslash\rule{0pt}{3.1ex}}p{0.48\linewidth}<{\rule[-1.6ex]{0pt}{0pt}}@{\hspace{0.03\linewidth}}>{\raggedright\arraybackslash\rule{0pt}{3.1ex}}p{0.48\linewidth}<{\rule[-1.6ex]{0pt}{0pt}}@{}}}%
+  \begin{tabular}{@{}>{\raggedright\arraybackslash\rule{0pt}{4.4ex}}p{0.48\linewidth}<{\rule[-2.3ex]{0pt}{0pt}}@{\hspace{0.03\linewidth}}>{\raggedright\arraybackslash\rule{0pt}{4.4ex}}p{0.48\linewidth}<{\rule[-2.3ex]{0pt}{0pt}}@{}}}%
   {\end{tabular}\par}
 \newenvironment{cols3}{\par\vspace{3pt}\noindent\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.3}%
-  \begin{tabular}{@{}>{\raggedright\arraybackslash\rule{0pt}{3.1ex}}p{0.32\linewidth}<{\rule[-1.6ex]{0pt}{0pt}}@{\hspace{0.015\linewidth}}>{\raggedright\arraybackslash\rule{0pt}{3.1ex}}p{0.32\linewidth}<{\rule[-1.6ex]{0pt}{0pt}}@{\hspace{0.015\linewidth}}>{\raggedright\arraybackslash\rule{0pt}{3.1ex}}p{0.32\linewidth}<{\rule[-1.6ex]{0pt}{0pt}}@{}}}%
+  \begin{tabular}{@{}>{\raggedright\arraybackslash\rule{0pt}{4.4ex}}p{0.32\linewidth}<{\rule[-2.3ex]{0pt}{0pt}}@{\hspace{0.015\linewidth}}>{\raggedright\arraybackslash\rule{0pt}{4.4ex}}p{0.32\linewidth}<{\rule[-2.3ex]{0pt}{0pt}}@{\hspace{0.015\linewidth}}>{\raggedright\arraybackslash\rule{0pt}{4.4ex}}p{0.32\linewidth}<{\rule[-2.3ex]{0pt}{0pt}}@{}}}%
   {\end{tabular}\par}
 % gap between consecutive problems / examples
 \newcommand{\gap}{\vspace{0.3cm}}

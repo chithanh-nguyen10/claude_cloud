@@ -11,9 +11,9 @@ def math(s):
     segs=re.findall(r'\$\$.*?\$\$|\$[^$]*\$|\\\[.*?\\\]',s,re.S)
     out=[]
     for m in segs:
-        m=re.sub(r'\\text\{[^{}]*\}','T',m)          # words inside math may be translated
+        m=re.sub(r'\\text\{(?:[^{}]|\{[^{}]*\})*\}','T',m)          # words inside math may be translated
         m=re.sub(r'\\(?:mbox|textbf|emph|textit)\{[^{}]*\}','T',m)
-        m=m.replace('{,}','.')
+        m=m.replace('{,}','.').replace(';',',')   # VI lists use ';' (decimal comma)
         m=re.sub(r'\s+','',m)
         out.append(m)
     return out
