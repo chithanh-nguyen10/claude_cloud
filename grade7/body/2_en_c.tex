@@ -1,0 +1,394 @@
+% ======================================================================
+% Topic 2 -- Geometry and Measurement -- part c (problems 31--40)
+% ======================================================================
+\clearpage
+\dividerbar{Extension and challenge}
+
+\begin{probbox}{31}{\relax}
+In the coordinate plane $Oxy$, consider the point $A(-3,\,2)$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Let $B$ be the reflection of $A$ in the $x$-axis, $C$ the reflection of $A$ in the $y$-axis, and $D$ the reflection of $A$ in the origin $O$. Find the coordinates of $B$, $C$, $D$ and state the quadrant of each point.
+  \item The four points $A$, $C$, $D$, $B$ are the vertices of a rectangle. Find the perimeter and the area of that rectangle.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} ``Reflection in an axis'' is like looking in a mirror placed along that axis: the image lies on the other side of the axis, at the same distance from it as the original point. We check which coordinate changes sign and which stays the same.
+\begin{recallbox}Reflection in the $x$-axis: $(x,\,y)\to(x,\,-y)$. Reflection in the $y$-axis: $(x,\,y)\to(-x,\,y)$. Reflection in the origin $O$ (also a $180^\circ$ rotation about $O$): $(x,\,y)\to(-x,\,-y)$.\end{recallbox}
+\step{1}{Point $B$ -- reflection in $Ox$}
+Mirroring in the $x$-axis: the point keeps its left--right position (the $x$-coordinate is unchanged) and only moves from above to below (the $y$-coordinate changes sign). $B(-3,\,-2)$, of the form $(-,-)$: quadrant III.
+
+\step{2}{Point $C$ -- reflection in $Oy$}
+Mirroring in the $y$-axis: the $y$-coordinate is unchanged, the $x$-coordinate changes sign. $C(3,\,2)$, of the form $(+,+)$: quadrant I.
+
+\step{3}{Point $D$ -- reflection in the origin $O$}
+Both coordinates change sign: $D(3,\,-2)$, of the form $(+,-)$: quadrant IV.
+\begin{gmFig}[scale=0.55]
+  \draw[Line,line width=0.3pt] (-4.5,-3.5) grid (4.5,3.5);
+  \draw[->,Navy,thick] (-4.8,0)--(4.9,0) node[right,text=Ink]{$x$};
+  \draw[->,Navy,thick] (0,-3.8)--(0,3.9) node[above,text=Ink]{$y$};
+  \foreach \t in {-4,...,-1,1,2,3,4}{\node[below,font=\scriptsize] at (\t,0){$\t$};}
+  \foreach \t in {-3,...,-1,1,2,3}{\node[left,font=\scriptsize] at (0,\t){$\t$};}
+  \fill[tmBlue!15] (-3,2) rectangle (3,-2);
+  \draw[tmBlue,thick] (-3,2) rectangle (3,-2);
+  \fill[AnsRed] (-3,2) circle (3pt) node[above left]{$A$};
+  \fill[tmPurple] (-3,-2) circle (3pt) node[below left]{$B$};
+  \fill[tmGreen!70!black] (3,2) circle (3pt) node[above right]{$C$};
+  \fill[tmOrange] (3,-2) circle (3pt) node[below right]{$D$};
+  \node[above,font=\footnotesize,text=tmBlue] at (1.5,2){$6$};
+  \node[right,font=\footnotesize,text=tmBlue] at (3,1){$4$};
+\end{gmFig}
+
+\step{4}{Find the dimensions of the rectangle}
+$A(-3,\,2)$ and $C(3,\,2)$ have the same $y$-coordinate: $AC=3-(-3)=6$.
+$A(-3,\,2)$ and $B(-3,\,-2)$ have the same $x$-coordinate: $AB=2-(-2)=4$.
+
+\step{5}{Find the perimeter and the area}
+\begin{recallbox}Rectangle with length $a$, width $b$: $P=2\cdot(a+b)$, $S=a\cdot b$.\end{recallbox}
+$P=2\cdot(6+4)=20$ (units); $\;S=6\cdot4=24$ (square units).
+\begin{tipbox}This rectangle has both coordinate axes as lines of symmetry. Each quadrant contains exactly one quarter of it, a $3\times2$ rectangle of area $6$; and $4\cdot6=24$.\end{tipbox}
+\verify{Each quadrant contains one point: $A$ (II), $C$ (I), $B$ (III), $D$ (IV), as in the figure.}
+\ans{a) $B(-3,\,-2)$: III; $C(3,\,2)$: I; $D(3,\,-2)$: IV. \quad b) Perimeter $20$, area $24$.}
+}
+
+\begin{probbox}{32}{\relax}
+In the figure, triangle $ABC$ has $\widehat{BAC}=40^\circ$; side $BC$ is extended in both directions and side $AB$ is extended beyond $B$. The exterior angle at vertex $C$ is $115^\circ$. The value of $x$ is
+\begin{gmFig}[scale=0.55]
+  \coordinate (B) at (0,0); \coordinate (C) at (4,0); \coordinate (A) at (1.460,5.448);
+  \coordinate (L) at (-1.6,0); \coordinate (D) at (-0.42,-1.567); \coordinate (E) at (5.8,0);
+  \draw[Ink,thick] (L)--(E); \draw[Ink,thick] (D)--(A)--(C);
+  \pic[draw,thick,angle radius=0.7cm,"$40^\circ$",angle eccentricity=1.45]{angle=B--A--C};
+  \pic[draw,thick,angle radius=0.45cm,"$115^\circ$",angle eccentricity=2.1]{angle=E--C--A};
+  \pic[draw,AnsRed,thick,angle radius=0.45cm,"$x^\circ$",angle eccentricity=1.8]{angle=L--B--D};
+  \node[above] at (A){$A$}; \node[above left] at (B){$B$}; \node[below] at (C){$C$};
+\end{gmFig}
+\choices{$65$}{$75$}{$105$}{$115$}{$140$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Angle $x^\circ$ at vertex $B$ is formed by two extensions (of $BC$ and of $BA$), so it is \emph{vertically opposite} to the interior angle $\widehat{ABC}$. So we only need $\widehat{ABC}$. We solve it in two ways.
+
+\step{1}{Method 1 -- via the interior angle at $C$}
+\begin{recallbox}Two supplementary angles add up to $180^\circ$; the three interior angles of a triangle add up to $180^\circ$.\end{recallbox}
+The interior angle at $C$ is supplementary to the exterior angle $115^\circ$: $\widehat{ACB}=180^\circ-115^\circ=65^\circ$.
+Interior angle at $B$: $\widehat{ABC}=180^\circ-40^\circ-65^\circ=75^\circ$.
+
+\step{2}{Method 2 -- the exterior angle property}
+\begin{recallbox}An exterior angle of a triangle equals the sum of the two interior angles not adjacent to it.\end{recallbox}
+The exterior angle at $C$ equals $\widehat{A}+\widehat{B}$: $115^\circ=40^\circ+\widehat{ABC}$, so $\widehat{ABC}=115^\circ-40^\circ=75^\circ$.
+
+\step{3}{Deduce $x$}
+\begin{recallbox}Vertically opposite angles are equal.\end{recallbox}
+$x^\circ=\widehat{ABC}=75^\circ$, so $x=75$.
+\begin{warnbox}
+\begin{itemize}[leftmargin=1.3em,itemsep=0pt,topsep=0pt]
+  \item (A) $65$ is the interior angle at $C$, not at $B$.
+  \item (C) $105$ is the angle supplementary to $\widehat{ABC}$ -- confusing ``supplementary'' with ``vertically opposite''.
+\end{itemize}
+\end{warnbox}
+\verify{$40^\circ+75^\circ+65^\circ=180^\circ$ and $40^\circ+75^\circ=115^\circ$ (exterior angle at $C$). Both conditions hold.}
+So the answer is \textbf{(B)}.
+\ans{(B) $75$}
+}
+
+\begin{probbox}{33}{\relax}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=0pt]
+  \item In an isosceles triangle, the apex angle is $4$ times each base angle. Find the angles of the triangle.
+  \item An isosceles triangle has an angle of $36^\circ$. Find all possibilities for the other two angles. For each possibility, find the difference between the largest and the smallest angle of the triangle.
+  \item Is there an isosceles triangle with a base angle of $92^\circ$? Why?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} All three parts rest on two facts: an isosceles triangle has two equal base angles, and the three angles add up to $180^\circ$.
+\begin{recallbox}Isosceles triangle: apex angle $d$, each base angle $g$, then $d+2g=180^\circ$.\end{recallbox}
+\step{1}{Part a -- using ``equal parts''}
+Let each base angle be $1$ part. The apex angle is $4$ times as large, so it is $4$ parts. The three angles together make $1+1+4=6$ parts, corresponding to $180^\circ$.
+\begin{barfigC}
+  \blk{0}{1}{0}{0.6}{tmBlue}{$g$}
+  \blk{1}{2}{0}{0.6}{tmBlue}{$g$}
+  \blk{2}{3}{0}{0.6}{tmOrange}{}
+  \blk{3}{4}{0}{0.6}{tmOrange}{}
+  \blk{4}{5}{0}{0.6}{tmOrange}{}
+  \blk{5}{6}{0}{0.6}{tmOrange}{}
+  \brcup{2}{6}{0.5}{apex angle $=4g$}
+  \brcdn{0}{6}{-0.5}{$180^\circ$}
+\end{barfigC}
+One part: $180^\circ\div6=30^\circ$. So each base angle is $30^\circ$ and the apex angle is $4\cdot30^\circ=120^\circ$.
+
+\step{2}{Part b -- two cases}
+\emph{Case 1: $36^\circ$ is the apex angle.} Each base angle: $(180^\circ-36^\circ)\div2=144^\circ\div2=72^\circ$. Triangle $36^\circ,\,72^\circ,\,72^\circ$. Difference between largest and smallest: $72^\circ-36^\circ=36^\circ$.
+
+\emph{Case 2: $36^\circ$ is a base angle.} The other base angle is $36^\circ$, the apex angle $180^\circ-72^\circ=108^\circ$. Triangle $36^\circ,\,36^\circ,\,108^\circ$. Difference: $108^\circ-36^\circ=72^\circ$.
+
+\step{3}{Part c -- reasoning}
+\begin{proofbox}If one base angle were $92^\circ$, the other base angle would also be $92^\circ$. Then the two base angles alone would add up to $184^\circ$, more than $180^\circ$ -- impossible, since \emph{all three} angles add up to only $180^\circ$. So no such isosceles triangle exists. (In general: a base angle of an isosceles triangle is always less than $90^\circ$.)\end{proofbox}
+\verify{$30+30+120=180$; $\;36+72+72=180$; $\;36+36+108=180$.}
+\ans{a) $30^\circ$, $30^\circ$, $120^\circ$. \ b) $72^\circ$ and $72^\circ$ (difference $36^\circ$), or $36^\circ$ and $108^\circ$ (difference $72^\circ$). \ c) No.}
+}
+
+\begin{probbox}{34}{\stars{1}}
+In the coordinate plane, consider the point $A(4,\,1)$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Rotating $A$ about the origin $O$ through $90^\circ$ counterclockwise gives the point $B$; rotating $B$ a further $90^\circ$ counterclockwise gives $C$; rotating $C$ a further $90^\circ$ counterclockwise gives $E$. Find the coordinates of $B$, $C$, $E$.
+  \item Rotating $A$ about $O$ through $270^\circ$ \emph{clockwise} gives which of these three points?
+  \item The quadrilateral $ABCE$ is a square. Find its area.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We use the rule for a $90^\circ$ rotation in the coordinate plane, then find the area of the ``tilted'' square by placing it inside a big square whose sides run along the grid lines.
+\begin{recallbox}Rotation of $90^\circ$ counterclockwise about $O$: $(x,\,y)\to(-y,\,x)$. Rotating $\alpha$ clockwise is the same as rotating $360^\circ-\alpha$ counterclockwise.\end{recallbox}
+\begin{proofbox}Why $(x,\,y)\to(-y,\,x)$? The point $A(4,\,1)$ is reached by going ``right $4$, up $1$''. Turn this whole path $90^\circ$ counterclockwise: ``right'' becomes ``up'', and ``up'' becomes ``left''. So the image is reached by ``up $4$, left $1$'', i.e.\ the point $(-1,\,4)$.\end{proofbox}
+\step{1}{Part a -- apply the rule three times}
+$A(4,\,1)\to B(-1,\,4)\to C(-4,\,-1)\to E(1,\,-4)$.
+
+(Check: $C$ is the image of $A$ under a $180^\circ$ rotation, which is indeed $(-4,\,-1)$, both coordinates changing sign.)
+
+\step{2}{Part b}
+Rotating $270^\circ$ clockwise is the same as rotating $360^\circ-270^\circ=90^\circ$ counterclockwise, so we get exactly the point $B(-1,\,4)$.
+
+\step{3}{Part c -- put the square in a frame}
+\begin{gmFig}[scale=0.42]
+  \draw[Line,line width=0.3pt] (-4,-4) grid (4,4);
+  \draw[->,Navy] (-4.6,0)--(4.7,0) node[right,text=Ink]{$x$};
+  \draw[->,Navy] (0,-4.6)--(0,4.7) node[above,text=Ink]{$y$};
+  \draw[tmOrange!90!black,thick,dashed] (-4,-4) rectangle (4,4);
+  \fill[tmOrange!25] (4,1)--(4,4)--(-1,4)--cycle;
+  \fill[tmOrange!25] (-1,4)--(-4,4)--(-4,-1)--cycle;
+  \fill[tmOrange!25] (-4,-1)--(-4,-4)--(1,-4)--cycle;
+  \fill[tmOrange!25] (1,-4)--(4,-4)--(4,1)--cycle;
+  \fill[tmBlue!25,draw=tmBlue,thick] (4,1)--(-1,4)--(-4,-1)--(1,-4)--cycle;
+  \node[right] at (4,1){$A$}; \node[above] at (-1,4){$B$}; \node[left] at (-4,-1){$C$}; \node[below] at (1,-4){$E$};
+  \node[font=\scriptsize] at (2.9,3.2){$5\times3$};
+\end{gmFig}
+Square $ABCE$ fits inside the big square with vertices $(\pm4,\,\pm4)$, of side $4-(-4)=8$ and area $8\cdot8=64$.
+
+The extra parts are $4$ equal right triangles in the four corners. For example, the triangle in the top-right corner has vertices $A(4,\,1)$, $(4,\,4)$, $B(-1,\,4)$: its horizontal leg is $4-(-1)=5$, its vertical leg is $4-1=3$, and its area is $\dfrac{5\cdot3}{2}=7.5$.
+
+Area of square $ABCE$: $64-4\cdot7.5=64-30=34$ (square units).
+\begin{tipbox}``Frame it and subtract'' is a very powerful way to find the area of a polygon whose vertices are grid points: draw the smallest surrounding rectangle, then subtract the right triangles (trapezoids, rectangles) outside the polygon.\end{tipbox}
+\verify{The four equal right triangles (each $5\times3$) together with square $ABCE$ fill the $8\times8$ frame: $4\cdot7.5+34=64$. Also, the frame side $8=5+3$ is exactly the sum of the two legs.}
+\ans{a) $B(-1,\,4)$, $C(-4,\,-1)$, $E(1,\,-4)$. \ b) Point $B$. \ c) $34$ square units.}
+}
+
+\begin{probbox}{35}{\relax}
+Fill in the blanks:
+\par\smallskip
+a) $2.4\text{ km}=\ldots\text{ m}$; \qquad b) $75\text{ mm}=\ldots\text{ cm}$; \qquad c) $3\text{ m}^2=\ldots\text{ cm}^2$; \qquad d) $2500\text{ cm}^3=\ldots$ litres.
+\par\smallskip
+e) A rectangular board is $1.2$ m long and $50$ cm wide. Find the area of the board in $\text{cm}^2$ and in $\text{m}^2$.
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each part is a unit conversion. Key point: lengths go up by a factor of $10$ per step, areas by $100$, volumes by $1000$.
+\begin{recallbox}$1\text{ km}=1000\text{ m}$; $\;1\text{ cm}=10\text{ mm}$; $\;1\text{ m}^2=10\,000\text{ cm}^2$; $\;1\text{ litre}=1\text{ dm}^3=1000\text{ cm}^3$. Larger to smaller: multiply; smaller to larger: divide.\end{recallbox}
+\step{1}{Part a}
+km is larger than m, so multiply: $2.4\cdot1000=2400$. So $2.4\text{ km}=2400\text{ m}$.
+
+\step{2}{Part b}
+mm is smaller than cm, so divide: $75\div10=7.5$. So $75\text{ mm}=7.5\text{ cm}$.
+
+\step{3}{Part c}
+$3\text{ m}^2=3\cdot10\,000\text{ cm}^2=30\,000\text{ cm}^2$.
+\begin{warnbox}Converting an area by multiplying only by $100$ (as for lengths in m to cm) gives $300$ -- wrong. A $1\text{ m}\times1\text{ m}$ square is $100\text{ cm}\times100\text{ cm}$ and contains $10\,000$ squares of $1\text{ cm}^2$.\end{warnbox}
+
+\step{4}{Part d}
+$2500\text{ cm}^3=2500\div1000\text{ dm}^3=2.5\text{ dm}^3=2.5$ litres.
+
+\step{5}{Part e -- use the same unit first}
+The two dimensions are in different units, so convert before multiplying: $1.2\text{ m}=120\text{ cm}$.
+Area: $120\cdot50=6000\ (\text{cm}^2)$.
+In $\text{m}^2$: $6000\div10\,000=0.6\ (\text{m}^2)$.
+\verify{Directly in metres: $50\text{ cm}=0.5\text{ m}$, so $1.2\cdot0.5=0.6\ (\text{m}^2)$. It matches.}
+\ans{a) $2400$; \ b) $7.5$; \ c) $30\,000$; \ d) $2.5$; \ e) $6000\text{ cm}^2=0.6\text{ m}^2$.}
+}
+
+\begin{probbox}{36}{\stars{1}}
+An built a $4\text{ cm}\times3\text{ cm}\times3\text{ cm}$ box from $36$ small cubes of edge $1$ cm (as in Problem 10). An paints all the outside faces of the box and then takes the small cubes apart. How many small cubes have exactly $3$ painted faces? Exactly $2$? Exactly $1$? No painted face?
+\begin{gmFig}[scale=0.55]
+  \fill[tmBlue!20] (0,0) rectangle (4,3);
+  \fill[tmBlue!10] (0,3)--(1.5,4)--(5.5,4)--(4,3)--cycle;
+  \fill[tmBlue!30] (4,0)--(5.5,1)--(5.5,4)--(4,3)--cycle;
+  \draw[Ink] (0,0) grid (4,3);
+  \foreach \t in {1,2}{\draw[Ink] (4+0.5*\t,0.333*\t)--(4+0.5*\t,3+0.333*\t); \draw[Ink] (0.5*\t,3+0.333*\t)--(4+0.5*\t,3+0.333*\t);}
+  \foreach \t in {1,2}{\draw[Ink] (4,\t)--(5.5,\t+1);}
+  \foreach \t in {1,2,3}{\draw[Ink] (\t,3)--(\t+1.5,4);}
+  \draw[Ink,thick] (0,0) rectangle (4,3); \draw[Ink,thick] (0,3)--(1.5,4)--(5.5,4)--(5.5,1)--(4,0); \draw[Ink,thick] (4,3)--(5.5,4);
+\end{gmFig}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The number of painted faces of a small cube depends on its \emph{position}: at a corner, along an edge, in the middle of a face, or completely inside. We count each type.
+\step{1}{Corner cubes -- $3$ painted faces}
+Each corner cube of the box shows $3$ faces (one front/back, one top/bottom, one left/right). The box has $8$ corners, so $\mathbf{8}$ cubes have $3$ painted faces.
+
+\step{2}{Cubes along an edge (not at the ends) -- $2$ painted faces}
+The box has $12$ edges: $4$ edges of length $4$ cm, $4$ edges of length $3$ cm (height) and $4$ edges of length $3$ cm (depth). Along an edge of $n$ cubes, remove the two end cubes (already counted in step 1): $n-2$ cubes remain.
+\begin{itemize}[leftmargin=1.3em,itemsep=0pt,topsep=0pt]
+  \item $4$ edges of length $4$: each $4-2=2$ cubes, total $4\cdot2=8$;
+  \item $8$ edges of length $3$: each $3-2=1$ cube, total $8\cdot1=8$.
+\end{itemize}
+So $8+8=\mathbf{16}$ cubes have $2$ painted faces.
+
+\step{3}{Cubes in the middle of a face -- $1$ painted face}
+On an $m\times n$ face, removing the outer border leaves $(m-2)\cdot(n-2)$ cubes.
+\begin{itemize}[leftmargin=1.3em,itemsep=0pt,topsep=0pt]
+  \item $2$ faces $4\times3$ (front, back): each $2\cdot1=2$ cubes, total $4$;
+  \item $2$ faces $4\times3$ (top, bottom): each $2\cdot1=2$ cubes, total $4$;
+  \item $2$ faces $3\times3$ (left, right): each $1\cdot1=1$ cube, total $2$.
+\end{itemize}
+So $4+4+2=\mathbf{10}$ cubes have $1$ painted face.
+
+\step{4}{Cubes completely inside -- unpainted}
+Removing one layer of ``skin'' on each side, the inner core measures $(4-2)\times(3-2)\times(3-2)=2\times1\times1$, i.e.\ $\mathbf{2}$ cubes.
+\begin{gmFig}[scale=0.8]
+  \foreach \x/\y/\c/\l in {0/0/AnsRed/3,1.6/0/tmOrange/2,3.2/0/tmGreen/1,4.8/0/Slate/0}{
+    \fill[\c!30,draw=\c!80!black] (\x,\y) rectangle ++(0.8,0.8);
+    \node[font=\footnotesize,below] at (\x+0.4,\y){$\l$ faces};}
+  \node[font=\footnotesize] at (0.4,1.1){$8$}; \node[font=\footnotesize] at (2.0,1.1){$16$};
+  \node[font=\footnotesize] at (3.6,1.1){$10$}; \node[font=\footnotesize] at (5.2,1.1){$2$};
+\end{gmFig}
+\begin{parentbox}If you have a set of toy cubes (or a Rubik's-type cube), build the $4\times3\times3$ box with your child, stick coloured paper on the outside faces, then take it apart and count. Your child will see for themselves why a corner cube has $3$ coloured faces.\end{parentbox}
+\verify{The four types must add up to the number of cubes: $8+16+10+2=36=4\cdot3\cdot3$. Correct.}
+\ans{$3$ faces: $8$ cubes; $2$ faces: $16$ cubes; $1$ face: $10$ cubes; unpainted: $2$ cubes.}
+}
+
+\begin{probbox}{37}{\relax}
+A rectangle has the same perimeter as a square of area $81\text{ cm}^2$. The length of the rectangle is twice its width. The area of the rectangle is
+\choices{$81\text{ cm}^2$}{$72\text{ cm}^2$}{$54\text{ cm}^2$}{$36\text{ cm}^2$}{$64\text{ cm}^2$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The chain of reasoning: area of the square $\to$ side of the square $\to$ perimeter (shared by both figures) $\to$ half-perimeter of the rectangle $\to$ length and width $\to$ area.
+\begin{recallbox}Square with side $a$: $S=a\cdot a$, $P=4a$. Rectangle: $P=2\cdot(\text{length}+\text{width})$, $S=\text{length}\cdot\text{width}$.\end{recallbox}
+\step{1}{Side of the square}
+We need a number $a$ with $a\cdot a=81$: $a=9$ cm (since $9\cdot9=81$).
+
+\step{2}{Perimeter}
+Perimeter of the square $=4\cdot9=36$ cm, which is also the perimeter of the rectangle.
+
+\step{3}{Sum of length and width}
+Half-perimeter of the rectangle: $36\div2=18$ cm $=$ length $+$ width.
+
+\step{4}{Split in the given ratio}
+The length is twice the width: width is $1$ part, length is $2$ parts, $3$ parts in all corresponding to $18$ cm.
+\begin{barfigC}
+  \rowlab{-0.2}{0}{width}
+  \blk{0}{2}{0}{0.55}{tmBlue}{$6$}
+  \rowlab{-0.2}{-0.8}{length}
+  \blk{0}{2}{-0.8}{0.55}{tmOrange}{$6$}
+  \blk{2}{4}{-0.8}{0.55}{tmOrange}{$6$}
+  \vbrace{4.2}{0.3}{-1.1}{total $18$ cm}
+\end{barfigC}
+One part $=18\div3=6$ cm. Width $6$ cm, length $12$ cm.
+
+\step{5}{Area}
+$S=12\cdot6=72\ (\text{cm}^2)$.
+\begin{tipbox}Both figures have perimeter $36$ cm, but the square's area $81\text{ cm}^2$ is larger than the rectangle's ($72\text{ cm}^2$). Among all rectangles with the same perimeter, the square has the largest area.\end{tipbox}
+\verify{Perimeter of the rectangle: $2\cdot(12+6)=36$ cm $=$ perimeter of the square; $12=2\cdot6$. Correct.}
+So the answer is \textbf{(B)}.
+\ans{(B) $72\text{ cm}^2$}
+}
+
+\begin{probbox}{38}{\stars{1}}
+A circular spinner is divided into four regions with central angles $36^\circ$, $x^\circ$, $2x^\circ$ and $3x^\circ$ (see figure).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Find $x$.
+  \item What percentage of the spinner's area does each region take up?
+  \item About what percentage of spins will \emph{not} stop in the largest region?
+\end{enumerate}
+\begin{gmFig}[scale=0.9]
+  \fill[tmPurple!20] (0,0)--(90:1.7) arc[start angle=90,end angle=126,radius=1.7]--cycle;
+  \fill[tmBlue!20] (0,0)--(126:1.7) arc[start angle=126,end angle=180,radius=1.7]--cycle;
+  \fill[tmGreen!20] (0,0)--(180:1.7) arc[start angle=180,end angle=288,radius=1.7]--cycle;
+  \fill[tmOrange!25] (0,0)--(288:1.7) arc[start angle=288,end angle=450,radius=1.7]--cycle;
+  \draw[Ink,thick] (0,0) circle (1.7);
+  \foreach \a in {90,126,180,288}{\draw[Ink,thick] (0,0)--(\a:1.7);}
+  \node[font=\footnotesize] at (108:1.2){$36^\circ$};
+  \node[font=\footnotesize] at (153:1.1){$x^\circ$};
+  \node[font=\footnotesize] at (234:1.0){$2x^\circ$};
+  \node[font=\footnotesize] at (9:0.95){$3x^\circ$};
+\end{gmFig}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The four central angles together make a full turn. This gives an equation for $x$; then we convert each angle to a percentage.
+\begin{recallbox}The angles around a point add up to $360^\circ$. A region with central angle $n^\circ$ is $\dfrac{n}{360}$ of the circle.\end{recallbox}
+\step{1}{Part a -- set up the equation}
+$36+x+2x+3x=360$, i.e.\ $36+6x=360$.
+Subtract $36$ from both sides: $6x=324$. Divide by $6$: $x=54$.
+
+\step{2}{Part b -- the angles and percentages}
+The four angles: $36^\circ$, $54^\circ$, $108^\circ$, $162^\circ$.
+\[ \frac{36}{360}=10\%,\qquad \frac{54}{360}=15\%,\qquad \frac{108}{360}=30\%,\qquad \frac{162}{360}=45\%. \]
+(Shortcut: $\frac{36}{360}=\frac1{10}$; the other angles are $1.5$, $3$ and $4.5$ times $36^\circ$, so the percentages are $15\%$, $30\%$, $45\%$.)
+
+\step{3}{Part c -- use the complement}
+The largest region is the $162^\circ$ one, with $45\%$. The pointer does \emph{not} stop there in about $100\%-45\%=55\%$ of spins.
+\begin{warnbox}The ``$55\%$'' is only \emph{approximately} the share of spins after a great many spins. In just a few spins the actual count may differ; the area ratio tells how \emph{often} the pointer stops somewhere in the long run.\end{warnbox}
+\verify{$36+54+108+162=360$ and $10\%+15\%+30\%+45\%=100\%$.}
+\ans{a) $x=54$. \ b) $10\%$, $15\%$, $30\%$, $45\%$. \ c) About $55\%$.}
+}
+
+\begin{probbox}{39}{\stars{1}}
+A rectangle is $15$ cm long and $6$ cm wide. On its top side, two segments of the same length $a$ cm are taken at the two ends, and the two right triangles at the top corners are cut off, leaving the shaded trapezoid shown. The area of the trapezoid is $72\text{ cm}^2$. Find $a$ and the length of the shorter parallel side of the trapezoid.
+\begin{gmFig}[scale=0.42]
+  \fill[tmBlue!35] (0,0)--(15,0)--(12,6)--(3,6)--cycle;
+  \draw[Ink,thick] (0,0) rectangle (15,6);
+  \draw[Ink,thick] (0,0)--(3,6); \draw[Ink,thick] (15,0)--(12,6);
+  \node[above] at (1.5,6){$a$}; \node[above] at (13.5,6){$a$};
+  \node[below] at (7.5,0){$15$ cm}; \node[right] at (15,3){$6$ cm};
+\end{gmFig}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Problem 14 gave the dimensions and asked for the area; this problem goes the other way: the area is given and a dimension is asked for. We express the trapezoid's area in terms of $a$ as ``rectangle minus two triangles'', then find $a$.
+\begin{recallbox}$S_{\text{rectangle}}=$ length $\times$ width; $\;S_{\text{right triangle}}=\dfrac{\text{product of the two legs}}{2}$.\end{recallbox}
+\step{1}{Area of the rectangle}
+$15\cdot6=90\ (\text{cm}^2)$.
+
+\step{2}{Total area of the two cut-off triangles}
+Area of the two triangles $=90-72=18\ (\text{cm}^2)$, so each triangle has area $18\div2=9\ (\text{cm}^2)$.
+
+\step{3}{Find $a$}
+Each right triangle has legs $a$ and $6$:
+\[ \frac{a\cdot6}{2}=9\quad\Rightarrow\quad 3\cdot a=9\quad\Rightarrow\quad a=3. \]
+
+\step{4}{Shorter parallel side of the trapezoid}
+Shorter side $=15-a-a=15-3-3=9$ cm.
+\verify{By the trapezoid formula: $\dfrac{(15+9)\cdot6}{2}=\dfrac{24\cdot6}{2}=72\ (\text{cm}^2)$. Correct.}
+\begin{tipbox}It can also be solved with the trapezoid formula: the shorter side $b$ satisfies $\dfrac{(15+b)\cdot 6}{2}=72$, i.e.\ $(15+b)\cdot3=72$, $15+b=24$, $b=9$; then $a=(15-9)\div2=3$.\end{tipbox}
+\ans{$a=3$ cm; shorter parallel side $9$ cm.}
+}
+
+\begin{probbox}{40}{\stars{1}}
+Triangle $ABC$ has a right angle at $A$, with $AB=6$ cm, $AC=8$ cm and $BC=10$ cm.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Find the area of triangle $ABC$.
+  \item Find the length of the height $AH$ drawn from $A$ to side $BC$.
+  \item Let $M$ be the midpoint of $BC$. Find the area of triangle $ABM$.
+\end{enumerate}
+\begin{gmFig}[scale=0.55]
+  \coordinate (B) at (0,0); \coordinate (C) at (10,0); \coordinate (A) at (3.6,4.8);
+  \coordinate (H) at (3.6,0); \coordinate (M) at (5,0);
+  \fill[tmBlue!10] (A)--(B)--(C)--cycle;
+  \draw[Ink,thick] (A)--(B)--(C)--cycle;
+  \draw[AnsRed,thick,dashed] (A)--(H); \draw[Ink] (H) rectangle ++(0.3,0.3);
+  \draw[tmGreen!70!black,thick] (A)--(M);
+  \draw[Ink] ($(A)+(-0.24,-0.32)$)--($(A)+(0.08,-0.56)$)--($(A)+(0.32,-0.24)$);
+  \node[above] at (A){$A$}; \node[below left] at (B){$B$}; \node[below right] at (C){$C$};
+  \node[below] at (H){$H$}; \node[below] at (M){$M$};
+  \node[left] at (1.8,2.4){$6$}; \node[right] at (6.8,2.6){$8$};
+\end{gmFig}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Any side of a triangle may be chosen as the base, as long as we use the height belonging to that base. The area is always the same. We compute the area the easy way (base $AB$, height $AC$), then use it to find the height to the base $BC$.
+\begin{recallbox}$S=\dfrac{\text{base}\cdot\text{height}}{2}$, so height $=\dfrac{2\cdot S}{\text{base}}$. In a right triangle, each leg is the height to the other leg.\end{recallbox}
+\step{1}{Part a -- choose base $AB$}
+Since angle $A$ is a right angle, $AC$ is perpendicular to $AB$: with $AB$ as the base, $AC$ is the height.
+\[ S_{ABC}=\frac{6\cdot8}{2}=24\ (\text{cm}^2). \]
+
+\step{2}{Part b -- choose base $BC$}
+With $BC=10$ cm as the base, the matching height is $AH$. The area is still $24\text{ cm}^2$:
+\[ \frac{10\cdot AH}{2}=24\quad\Rightarrow\quad 10\cdot AH=48\quad\Rightarrow\quad AH=4.8\text{ cm}. \]
+
+\step{3}{Part c -- the midpoint halves the area}
+\begin{recallbox}Two triangles with equal bases and a common height have equal areas.\end{recallbox}
+Triangles $ABM$ and $ACM$ have bases $BM=MC=5$ cm (since $M$ is the midpoint) and the common height $AH$ (both drawn from $A$ to the line $BC$). So they have equal areas, each half of triangle $ABC$:
+\[ S_{ABM}=\frac{5\cdot4.8}{2}=12\ (\text{cm}^2)=\frac{24}{2}. \]
+\begin{warnbox}Do not use ``base $BC$ times side $AB$'' -- side $AB$ is not perpendicular to $BC$, so it is not the height to the base $BC$.\end{warnbox}
+\verify{$AH=4.8$ is smaller than both $AB=6$ and $AC=8$ -- sensible, because the perpendicular is the shortest path from $A$ to the line $BC$. And $\frac{10\cdot4.8}{2}=24$.}
+\ans{a) $24\text{ cm}^2$. \ b) $AH=4.8$ cm. \ c) $12\text{ cm}^2$.}
+}
