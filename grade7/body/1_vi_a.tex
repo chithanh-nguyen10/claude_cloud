@@ -604,17 +604,19 @@ Kết quả $3$ giờ ứng với phương án \textbf{(E)}.
 }
 
 % ---------------------------------------------------------------- Bài 2
+\needspace{16\baselineskip}
 \begin{probbox}{2}{\relax}
 Trong hình vẽ, tam giác có một cạnh dài $14$ cm và hai cạnh bằng nhau, mỗi cạnh dài $12$ cm; hình chữ nhật có chiều rộng
 $8$ cm và chiều dài $x$ cm. Biết chu vi tam giác bằng chu vi hình chữ nhật. Tìm $x$.
 \begin{figC}
-\draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,2.6)--(2.8,2.6)--(1.4,1.2)--cycle;
-\node[above] at (1.4,2.6){$14$ cm};
-\node[anchor=west] at (2.35,1.95){$12$ cm};
-\draw[tmBlue,line width=0.9pt] ($(0.7,1.9)+(-0.1,-0.1)$)--($(0.7,1.9)+(0.1,0.1)$);
-\draw[tmBlue,line width=0.9pt] ($(2.1,1.9)+(-0.1,0.1)$)--($(2.1,1.9)+(0.1,-0.1)$);
-\draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (0.4,0)rectangle(2.4,0.9);
-\node[right] at (2.4,0.45){$8$ cm};
+% vẽ đúng tỉ lệ 0,2 cm : 1 cm: đáy 14 -> 2,8; cạnh bên 12 -> 2,4 (chiều cao 1,95); hình chữ nhật 11 x 8 -> 2,2 x 1,6
+\draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,4.05)--(2.8,4.05)--(1.4,2.1)--cycle;
+\node[above] at (1.4,4.05){$14$ cm};
+\node[anchor=west] at (2.3,3.15){$12$ cm};
+\draw[tmBlue,line width=0.9pt] (0.6025,3.005)--(0.7975,3.145);
+\draw[tmBlue,line width=0.9pt] (2.0025,3.145)--(2.1975,3.005);
+\draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (0.3,0)rectangle(2.5,1.6);
+\node[right] at (2.5,0.8){$8$ cm};
 \node[below] at (1.4,0){$x$ cm};
 \end{figC}
 \choices{$8$}{$10$}{$11$}{$14$}{$15$}

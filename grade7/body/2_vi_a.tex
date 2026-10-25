@@ -1062,7 +1062,7 @@ $S=9\cdot9=81\ (\text{m}^2)$.
   \draw[Line] (0,0) grid (9,9);
   \draw[tmGreen!70!black,thick] (0,0) rectangle (9,9);
   \node[below] at (4.5,0){$9$ m}; \node[right] at (9,4.5){$9$ m};
-  \node[font=\footnotesize,align=left,anchor=west] at (10.5,4.5){$9$ hàng, mỗi hàng $9$ ô $1\text{ m}^2$:\\ $9\cdot9=81\text{ m}^2$};
+  \node[font=\footnotesize,align=left,anchor=west] at (13,4.5){$9$ hàng, mỗi hàng $9$ ô $1\text{ m}^2$:\\ $9\cdot9=81\text{ m}^2$};
 \end{gmFig}
 \begin{warnbox}
 \begin{itemize}[leftmargin=1.3em,itemsep=0pt,topsep=0pt]
@@ -1090,7 +1090,7 @@ Hai tam giác cân, mỗi tam giác có ít nhất một góc bằng $70^\circ$.
 \emph{Trường hợp 2: $70^\circ$ là góc ở đáy.} Góc đáy kia cũng $70^\circ$, góc ở đỉnh: $180^\circ-2\cdot70^\circ=40^\circ$. Tam giác: $70^\circ,\,70^\circ,\,40^\circ$.
 
 Chỉ có hai tam giác như vậy.
-\begin{gmFig}[scale=0.75]
+\begin{gmFig}[scale=0.85]
   \coordinate (A) at (0,0); \coordinate (B) at (3,0); \coordinate (C) at (1.5,2.142);
   \fill[tmPurple!10] (A)--(B)--(C)--cycle; \draw[Ink,thick] (A)--(B)--(C)--cycle;
   \pic[draw,thick,angle radius=0.45cm,"$55^\circ$",angle eccentricity=1.8]{angle=B--A--C};
@@ -1098,12 +1098,12 @@ Chỉ có hai tam giác như vậy.
   \pic[draw,AnsRed,thick,angle radius=0.45cm,"$70^\circ$",angle eccentricity=1.7]{angle=A--C--B};
   \node[font=\footnotesize] at (1.5,-0.5){$70^\circ$ ở đỉnh};
   \begin{scope}[shift={(5,0)}]
-    \coordinate (A) at (0,0); \coordinate (B) at (2,0); \coordinate (C) at (1,2.747);
+    \coordinate (A) at (0,0); \coordinate (B) at (3,0); \coordinate (C) at (1.5,4.121);
     \fill[tmTeal!10] (A)--(B)--(C)--cycle; \draw[Ink,thick] (A)--(B)--(C)--cycle;
     \pic[draw,AnsRed,thick,angle radius=0.4cm,"$70^\circ$",angle eccentricity=1.9]{angle=B--A--C};
     \pic[draw,AnsRed,thick,angle radius=0.4cm,"$70^\circ$",angle eccentricity=1.9]{angle=C--B--A};
     \pic[draw,thick,angle radius=0.6cm,"$40^\circ$",angle eccentricity=1.5]{angle=A--C--B};
-    \node[font=\footnotesize] at (1,-0.5){$70^\circ$ ở đáy};
+    \node[font=\footnotesize] at (1.5,-0.5){$70^\circ$ ở đáy};
   \end{scope}
 \end{gmFig}
 
@@ -1163,8 +1163,8 @@ Trong hình chữ nhật dưới đây (dài $12$ cm, rộng $5$ cm), hai đoạ
 \begin{gmFig}[scale=0.45]
   \fill[Slate!70,draw=Ink,thick] (0,0)--(12,0)--(10,5)--(2,5)--cycle;
   \draw[Ink,thick] (0,0) rectangle (12,5);
-  \draw[Ink] (0.95,4.75)--(0.95,5.25); \draw[Ink] (1.05,4.75)--(1.05,5.25);
-  \draw[Ink] (10.95,4.75)--(10.95,5.25); \draw[Ink] (11.05,4.75)--(11.05,5.25);
+  \draw[Ink] (0.88,4.75)--(0.88,5.25); \draw[Ink] (1.12,4.75)--(1.12,5.25);
+  \draw[Ink] (10.88,4.75)--(10.88,5.25); \draw[Ink] (11.12,4.75)--(11.12,5.25);
   \node[above] at (11,5.2){$2$ cm};
   \node[right] at (12,2.5){$5$ cm};
   \node[below] at (6,0){$12$ cm};
@@ -1175,7 +1175,7 @@ Trong hình chữ nhật dưới đây (dài $12$ cm, rộng $5$ cm), hai đoạ
 \textbf{Phân tích đề.} Phần tô màu là một hình thang: đáy lớn là cạnh dưới của hình chữ nhật, đáy nhỏ nằm trên cạnh trên. Hai đoạn ở hai đầu cạnh trên được đánh dấu giống nhau, nghĩa là chúng \emph{bằng nhau}, mỗi đoạn $2$ cm. Ta giải bằng hai cách để tự kiểm tra.
 
 \step{1}{Cách 1 -- hình chữ nhật trừ hai tam giác}
-\begin{recallbox}$S_{\text{hình chữ nhật}}=$ dài $\times$ rộng; $\;S_{\text{tam giác vuông}}=\dfrac{\text{tích hai cạnh góc vuông}}{2}$.\end{recallbox}
+\begin{recallbox}Diện tích hình chữ nhật $=$ dài $\times$ rộng. Diện tích tam giác vuông bằng nửa tích hai cạnh góc vuông.\end{recallbox}
 Diện tích hình chữ nhật: $12\cdot5=60\ (\text{cm}^2)$.
 
 Hai phần không tô màu là hai tam giác vuông ở hai góc; mỗi tam giác có hai cạnh góc vuông là $2$ cm (trên cạnh trên) và $5$ cm (cạnh bên của hình chữ nhật):

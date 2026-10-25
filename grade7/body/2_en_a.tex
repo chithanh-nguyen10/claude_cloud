@@ -1056,7 +1056,7 @@ $S=9\cdot9=81\ (\text{m}^2)$.
   \draw[Line] (0,0) grid (9,9);
   \draw[tmGreen!70!black,thick] (0,0) rectangle (9,9);
   \node[below] at (4.5,0){$9$ m}; \node[right] at (9,4.5){$9$ m};
-  \node[font=\footnotesize,align=left,anchor=west] at (10.5,4.5){$9$ rows of $9$ squares of $1\text{ m}^2$:\\ $9\cdot9=81\text{ m}^2$};
+  \node[font=\footnotesize,align=left,anchor=west] at (13,4.5){$9$ rows of $9$ squares of $1\text{ m}^2$:\\ $9\cdot9=81\text{ m}^2$};
 \end{gmFig}
 \begin{warnbox}
 \begin{itemize}[leftmargin=1.3em,itemsep=0pt,topsep=0pt]
@@ -1084,7 +1084,7 @@ Two isosceles triangles each have at least one angle of $70^\circ$. In the first
 \emph{Case 2: $70^\circ$ is a base angle.} The other base angle is also $70^\circ$, and the apex angle is $180^\circ-2\cdot70^\circ=40^\circ$. Triangle: $70^\circ,\,70^\circ,\,40^\circ$.
 
 There are only these two triangles.
-\begin{gmFig}[scale=0.75]
+\begin{gmFig}[scale=0.85]
   \coordinate (A) at (0,0); \coordinate (B) at (3,0); \coordinate (C) at (1.5,2.142);
   \fill[tmPurple!10] (A)--(B)--(C)--cycle; \draw[Ink,thick] (A)--(B)--(C)--cycle;
   \pic[draw,thick,angle radius=0.45cm,"$55^\circ$",angle eccentricity=1.8]{angle=B--A--C};
@@ -1092,12 +1092,12 @@ There are only these two triangles.
   \pic[draw,AnsRed,thick,angle radius=0.45cm,"$70^\circ$",angle eccentricity=1.7]{angle=A--C--B};
   \node[font=\footnotesize] at (1.5,-0.5){$70^\circ$ at the apex};
   \begin{scope}[shift={(5,0)}]
-    \coordinate (A) at (0,0); \coordinate (B) at (2,0); \coordinate (C) at (1,2.747);
+    \coordinate (A) at (0,0); \coordinate (B) at (3,0); \coordinate (C) at (1.5,4.121);
     \fill[tmTeal!10] (A)--(B)--(C)--cycle; \draw[Ink,thick] (A)--(B)--(C)--cycle;
     \pic[draw,AnsRed,thick,angle radius=0.4cm,"$70^\circ$",angle eccentricity=1.9]{angle=B--A--C};
     \pic[draw,AnsRed,thick,angle radius=0.4cm,"$70^\circ$",angle eccentricity=1.9]{angle=C--B--A};
     \pic[draw,thick,angle radius=0.6cm,"$40^\circ$",angle eccentricity=1.5]{angle=A--C--B};
-    \node[font=\footnotesize] at (1,-0.5){$70^\circ$ at the base};
+    \node[font=\footnotesize] at (1.5,-0.5){$70^\circ$ at the base};
   \end{scope}
 \end{gmFig}
 
@@ -1157,8 +1157,8 @@ In the rectangle below ($12$ cm long, $5$ cm wide), the two segments marked alik
 \begin{gmFig}[scale=0.45]
   \fill[Slate!70,draw=Ink,thick] (0,0)--(12,0)--(10,5)--(2,5)--cycle;
   \draw[Ink,thick] (0,0) rectangle (12,5);
-  \draw[Ink] (0.95,4.75)--(0.95,5.25); \draw[Ink] (1.05,4.75)--(1.05,5.25);
-  \draw[Ink] (10.95,4.75)--(10.95,5.25); \draw[Ink] (11.05,4.75)--(11.05,5.25);
+  \draw[Ink] (0.88,4.75)--(0.88,5.25); \draw[Ink] (1.12,4.75)--(1.12,5.25);
+  \draw[Ink] (10.88,4.75)--(10.88,5.25); \draw[Ink] (11.12,4.75)--(11.12,5.25);
   \node[above] at (11,5.2){$2$ cm};
   \node[right] at (12,2.5){$5$ cm};
   \node[below] at (6,0){$12$ cm};
@@ -1169,7 +1169,7 @@ In the rectangle below ($12$ cm long, $5$ cm wide), the two segments marked alik
 \textbf{Understanding the problem.} The shaded region is a trapezoid: its longer parallel side is the bottom side of the rectangle, and its shorter parallel side lies on the top side. The two segments at the ends of the top side are marked alike, which means they are \emph{equal}, each $2$ cm. We solve it in two ways to check ourselves.
 
 \step{1}{Method 1 -- rectangle minus two triangles}
-\begin{recallbox}$S_{\text{rectangle}}=$ length $\times$ width; $\;S_{\text{right triangle}}=\dfrac{\text{product of the two legs}}{2}$.\end{recallbox}
+\begin{recallbox}Area of a rectangle $=$ length $\times$ width. The area of a right triangle is half the product of its two legs.\end{recallbox}
 Area of the rectangle: $12\cdot5=60\ (\text{cm}^2)$.
 
 The two unshaded parts are right triangles in the corners; each has legs $2$ cm (on the top side) and $5$ cm (a side of the rectangle):

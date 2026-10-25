@@ -17,7 +17,8 @@
 \providecommand{\lgxcdBal}[5]{\begin{scope}[yshift=#1cm]
   \draw[Ink,line width=1pt] (-2.7,0)--(-0.3,0) (0.3,0)--(2.7,0);
   \draw[Ink,line width=0.9pt] (-1.5,0)--(-1.5,-0.55)--(1.5,-0.55)--(1.5,0);
-  \draw[Ink,line width=0.9pt] (-0.18,-0.85)--(0,-0.58)--(0.18,-0.85);
+  \draw[Ink,fill=Slate!25,line width=0.9pt] (-0.22,-0.95)--(0,-0.55)--(0.22,-0.95)--cycle;
+  \draw[Ink,line width=1pt] (-0.45,-0.95)--(0.45,-0.95);
   \begin{scope}[xshift=-1.5cm]\lgxcdRow{#2}{#3}\end{scope}
   \begin{scope}[xshift=1.5cm]\lgxcdRow{#4}{#5}\end{scope}\end{scope}}
 % square grid n x n with box lines every #2 rows / #3 columns; #4 = given r/c/v, #5 = filled r/c/v (rows from top)
@@ -168,7 +169,9 @@ Hannah và Kevin ngồi cạnh nhau; Lily và Maya \emph{không} ngồi cạnh n
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
   \item Có tất cả bao nhiêu cách ngồi thoả mãn các điều kiện trên?
   \item Trong các khẳng định sau, khẳng định nào \emph{chắc chắn đúng}?\\
-  (1) Lily ngồi ở một đầu hàng ghế. \quad (2) Hannah không ngồi ở đầu hàng ghế. \quad (3) Kevin ngồi ở ghế số $3$.
+  (1) Lily ngồi ở một đầu hàng ghế.\\
+  (2) Hannah không ngồi ở đầu hàng ghế.\\
+  (3) Kevin ngồi ở ghế số $3$.
   \item Nếu biết thêm Lily ngồi ghế số $1$ và Hannah ngồi bên trái Kevin, hãy xác định chỗ ngồi của từng bạn.
 \end{enumerate}
 \end{probbox}
@@ -189,7 +192,7 @@ Hoàn toàn tương tự (lật ngược hàng ghế): Hannah -- Kevin ở ghế
 $4 + 4 = 8$ cách.
 \begin{recallbox}\textbf{Quy tắc nhân:} nếu một việc gồm các bước liên tiếp, bước 1 có $m$ cách, bước 2 có $n$ cách, thì cả việc có
 $m\times n$ cách. \textbf{Quy tắc cộng:} các trường hợp tách rời nhau thì cộng số cách.\end{recallbox}
-\step{4}{Câu b): kiểm tra từng khẳng định}
+\needspace{7\baselineskip}\step{4}{Câu b): kiểm tra từng khẳng định}
 \begin{center}\small
 \begin{tabular}{|c|c|c|c|c|}
 \hline
@@ -379,11 +382,11 @@ $5 + 11 + 17$ đều bằng $33$.}
 Ba chiếc cân hai đĩa dưới đây đều thăng bằng. Các vật cùng hình dạng thì nặng bằng nhau.
 \begin{figC}
 \lgxcdBal{0}{2}{2,3}{5}{1,1,1,1,1}
-\lgxcdBal{-1.5}{2}{3,3}{4}{1,1,1,1}
-\lgxcdBal{-3}{2}{4,1}{2}{2,2}
+\lgxcdBal{-1.7}{2}{3,3}{4}{1,1,1,1}
+\lgxcdBal{-3.4}{2}{4,1}{2}{2,2}
 \node[font=\small\bfseries,text=Slate] at (-3.3,0){(1)};
-\node[font=\small\bfseries,text=Slate] at (-3.3,-1.5){(2)};
-\node[font=\small\bfseries,text=Slate] at (-3.3,-3){(3)};
+\node[font=\small\bfseries,text=Slate] at (-3.3,-1.7){(2)};
+\node[font=\small\bfseries,text=Slate] at (-3.3,-3.4){(3)};
 \end{figC}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
   \item Mỗi vật \lgxcdI{3}, \lgxcdI{2}, \lgxcdI{4} nặng bằng bao nhiêu vật \lgxcdI{1}?

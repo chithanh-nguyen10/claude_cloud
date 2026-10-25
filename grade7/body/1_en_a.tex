@@ -604,17 +604,19 @@ The result $3$ hours is option \textbf{(E)}.
 }
 
 % ---------------------------------------------------------------- Problem 2
+\needspace{16\baselineskip}
 \begin{probbox}{2}{\relax}
 In the diagram, the triangle has one side of length $14$ cm and two equal sides of length $12$ cm each; the rectangle has width
 $8$ cm and length $x$ cm. The perimeter of the triangle equals the perimeter of the rectangle. Find $x$.
 \begin{figC}
-\draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,2.6)--(2.8,2.6)--(1.4,1.2)--cycle;
-\node[above] at (1.4,2.6){$14$ cm};
-\node[anchor=west] at (2.35,1.95){$12$ cm};
-\draw[tmBlue,line width=0.9pt] ($(0.7,1.9)+(-0.1,-0.1)$)--($(0.7,1.9)+(0.1,0.1)$);
-\draw[tmBlue,line width=0.9pt] ($(2.1,1.9)+(-0.1,0.1)$)--($(2.1,1.9)+(0.1,-0.1)$);
-\draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (0.4,0)rectangle(2.4,0.9);
-\node[right] at (2.4,0.45){$8$ cm};
+% drawn to scale 0.2 : 1 -- base 14 -> 2.8; equal sides 12 -> 2.4 (height 1.95); rectangle 11 x 8 -> 2.2 x 1.6
+\draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,4.05)--(2.8,4.05)--(1.4,2.1)--cycle;
+\node[above] at (1.4,4.05){$14$ cm};
+\node[anchor=west] at (2.3,3.15){$12$ cm};
+\draw[tmBlue,line width=0.9pt] (0.6025,3.005)--(0.7975,3.145);
+\draw[tmBlue,line width=0.9pt] (2.0025,3.145)--(2.1975,3.005);
+\draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (0.3,0)rectangle(2.5,1.6);
+\node[right] at (2.5,0.8){$8$ cm};
 \node[below] at (1.4,0){$x$ cm};
 \end{figC}
 \choices{$8$}{$10$}{$11$}{$14$}{$15$}

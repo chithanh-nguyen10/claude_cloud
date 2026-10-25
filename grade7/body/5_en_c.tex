@@ -17,7 +17,8 @@
 \providecommand{\lgxcdBal}[5]{\begin{scope}[yshift=#1cm]
   \draw[Ink,line width=1pt] (-2.7,0)--(-0.3,0) (0.3,0)--(2.7,0);
   \draw[Ink,line width=0.9pt] (-1.5,0)--(-1.5,-0.55)--(1.5,-0.55)--(1.5,0);
-  \draw[Ink,line width=0.9pt] (-0.18,-0.85)--(0,-0.58)--(0.18,-0.85);
+  \draw[Ink,fill=Slate!25,line width=0.9pt] (-0.22,-0.95)--(0,-0.55)--(0.22,-0.95)--cycle;
+  \draw[Ink,line width=1pt] (-0.45,-0.95)--(0.45,-0.95);
   \begin{scope}[xshift=-1.5cm]\lgxcdRow{#2}{#3}\end{scope}
   \begin{scope}[xshift=1.5cm]\lgxcdRow{#4}{#5}\end{scope}\end{scope}}
 % square grid n x n with box lines every #2 rows / #3 columns; #4 = given r/c/v, #5 = filled r/c/v (rows from top)
@@ -170,7 +171,9 @@ chair $5$).
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
   \item How many seating arrangements satisfy these conditions?
   \item Which of the following statements is \emph{certainly true}?\\
-  (1) Lily sits at one end of the row. \quad (2) Hannah does not sit at an end of the row. \quad (3) Kevin sits in chair $3$.
+  (1) Lily sits at one end of the row.\\
+  (2) Hannah does not sit at an end of the row.\\
+  (3) Kevin sits in chair $3$.
   \item If we also know that Lily sits in chair $1$ and Hannah sits to the left of Kevin, find each friend's seat.
 \end{enumerate}
 \end{probbox}
@@ -191,7 +194,7 @@ Exactly the same (turn the row around): Hannah -- Kevin in chairs $(3,4)$, Lily 
 $4 + 4 = 8$ ways.
 \begin{recallbox}\textbf{Multiplication rule:} if a task consists of consecutive steps, step 1 in $m$ ways and step 2 in $n$ ways, then
 the task can be done in $m\times n$ ways. \textbf{Addition rule:} separate cases are added.\end{recallbox}
-\step{4}{Part b): check each statement}
+\needspace{7\baselineskip}\step{4}{Part b): check each statement}
 \begin{center}\small
 \begin{tabular}{|c|c|c|c|c|}
 \hline
@@ -385,11 +388,11 @@ $5 + 11 + 17$ both equal $33$.}
 The three equal-arm balances below are all balanced. Objects of the same shape have the same mass.
 \begin{figC}
 \lgxcdBal{0}{2}{2,3}{5}{1,1,1,1,1}
-\lgxcdBal{-1.5}{2}{3,3}{4}{1,1,1,1}
-\lgxcdBal{-3}{2}{4,1}{2}{2,2}
+\lgxcdBal{-1.7}{2}{3,3}{4}{1,1,1,1}
+\lgxcdBal{-3.4}{2}{4,1}{2}{2,2}
 \node[font=\small\bfseries,text=Slate] at (-3.3,0){(1)};
-\node[font=\small\bfseries,text=Slate] at (-3.3,-1.5){(2)};
-\node[font=\small\bfseries,text=Slate] at (-3.3,-3){(3)};
+\node[font=\small\bfseries,text=Slate] at (-3.3,-1.7){(2)};
+\node[font=\small\bfseries,text=Slate] at (-3.3,-3.4){(3)};
 \end{figC}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
   \item How many \lgxcdI{1} does each of \lgxcdI{3}, \lgxcdI{2}, \lgxcdI{4} weigh?
