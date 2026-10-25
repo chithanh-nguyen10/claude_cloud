@@ -1,4 +1,4 @@
-\shead{Venn diagrams with two circles}
+\shead{Sơ đồ Venn hai vòng tròn}
 % ---- chapter 12 helpers: Venn diagrams with two and three circles ----
 \newcommand{\stpVennII}[6]{% #1 #2 circle labels; #3 only A, #4 both, #5 only B, #6 outside (text)
 \begin{tikzpicture}[font=\small]
@@ -33,574 +33,577 @@
 \node[anchor=south west,font=\footnotesize] at (-3.9,-2.25) {#2};
 \end{tikzpicture}}
 \begin{knowbox}
-A \textbf{Venn diagram} shows groups as closed curves (circles) inside a rectangle that stands for everybody.
+\textbf{Sơ đồ Venn} biểu diễn các nhóm bằng những vòng khép kín (vòng tròn) nằm trong một hình chữ nhật biểu thị toàn bộ.
 \begin{center}
-\stpVennII{Group A}{Group B}{\footnotesize only A}{\footnotesize both}{\footnotesize only B}{in neither group}
+\stpVennII{Nhóm A}{Nhóm B}{\footnotesize chỉ A}{\footnotesize cả hai}{\footnotesize chỉ B}{không thuộc nhóm nào}
 \end{center}
 \begin{itemize}[leftmargin=1.4em,itemsep=3pt]
-\item The \emph{overlap} of the two circles holds those who belong to \textbf{both} groups.
-\item The rest of each circle holds those who belong to \textbf{only} that group.
-\item Inside the rectangle but outside both circles are those who belong to \textbf{neither} group.
+\item \emph{Phần giao nhau} của hai vòng tròn gồm những người thuộc \textbf{cả hai} nhóm.
+\item Phần còn lại của mỗi vòng tròn (phần khác biệt) gồm những người \textbf{chỉ} thuộc nhóm đó.
+\item Phần nằm trong hình chữ nhật nhưng ở ngoài hai vòng tròn gồm những người \textbf{không thuộc nhóm nào}.
 \end{itemize}
-When we add A $+$ B, the members of both groups are counted \emph{twice}. So:
+Khi cộng A $+$ B, những người thuộc cả hai nhóm được tính \emph{hai lần}. Vì vậy:
 \begin{center}
-\textbf{at least one group} $=$ A $+$ B $-$ both \qquad\quad \textbf{both} $=$ A $+$ B $-$ (at least one group)\\[3pt]
-\textbf{only A} $=$ A $-$ both \qquad\quad \textbf{neither} $=$ everybody $-$ (at least one group)
+\textbf{thuộc ít nhất một nhóm} $=$ A $+$ B $-$ cả hai \qquad\quad \textbf{cả hai} $=$ A $+$ B $-$ (thuộc ít nhất một nhóm)\\[3pt]
+\textbf{chỉ A} $=$ A $-$ cả hai \qquad\quad \textbf{không thuộc nhóm nào} $=$ toàn bộ $-$ (thuộc ít nhất một nhóm)
 \end{center}
 \end{knowbox}
-\shead{Venn diagrams with three circles}
+\shead{Sơ đồ Venn ba vòng tròn}
 \begin{knowbox}
-Three circles A, B, C make $7$ regions inside them (plus the region outside). Fill in the diagram \textbf{from the centre outwards}:
+Ba vòng tròn A, B, C tạo thành $7$ phần ở bên trong (cùng với phần ở bên ngoài). Ta điền số vào sơ đồ \textbf{từ trong ra ngoài}:
 \begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
-\item the centre: those in all three groups;
-\item each overlap of two circles: (in both groups) $-$ (in all three);
-\item each ``only'' region: (whole circle) $-$ (the three numbers already written in it).
+\item phần chính giữa: những người thuộc cả ba nhóm;
+\item mỗi phần giao của hai vòng: (thuộc cả hai nhóm đó) $-$ (thuộc cả ba nhóm);
+\item mỗi phần ``chỉ'': (cả vòng tròn) $-$ (ba số đã điền trong vòng tròn đó).
 \end{enumerate}
-Adding all the regions gives the number in at least one group. In one line:
+Cộng tất cả các phần ta được số người thuộc ít nhất một nhóm. Viết gọn:
 \begin{center}
-at least one $=$ A $+$ B $+$ C $-$ (A and B) $-$ (B and C) $-$ (C and A) $+$ (all three).
+thuộc ít nhất một nhóm $=$ A $+$ B $+$ C $-$ (A và B) $-$ (B và C) $-$ (C và A) $+$ (cả ba).
 \end{center}
 \end{knowbox}
-\shead{Working backwards with a table}
+\shead{Tính ngược bằng cách lập bảng}
 \begin{knowbox}
-When things are passed from one person (or box) to another several times and we know the \textbf{final} result, we work \textbf{backwards} from the end:
+Khi đồ vật được chuyển từ người này (hộp này) sang người khác nhiều lần và ta biết kết quả \textbf{cuối cùng}, ta \textbf{tính ngược} từ cuối:
 \begin{itemize}[leftmargin=1.4em,itemsep=3pt]
-\item Passing things around does \emph{not} change the total. If at the end everyone has the same, each has total $:$ number of people.
-\item Undo the steps in reverse order: whoever \emph{gave} gets the amount back ($+$), whoever \emph{received} gives it back ($-$).
-\item ``Gives as many as the other already has'' makes the receiver's amount \emph{double}; going back we \emph{halve} it.
-\item A \textbf{table} with one row for each moment keeps the work tidy. Check by working forwards.
+\item Chuyển cho nhau \emph{không} làm thay đổi tổng số. Nếu lúc cuối mọi người có số lượng bằng nhau thì mỗi người có: tổng số $:$ số người.
+\item Xét các lần chuyển theo thứ tự ngược lại: người \emph{đã cho} được nhận lại ($+$), người \emph{đã nhận} phải trả lại ($-$).
+\item ``Cho bạn đúng bằng số bạn đang có'' làm số của người nhận \emph{gấp đôi}; khi tính ngược ta \emph{chia đôi}.
+\item Lập \textbf{bảng}, mỗi hàng ứng với một thời điểm, để trình bày gọn gàng. Thử lại bằng cách tính xuôi.
 \end{itemize}
 \end{knowbox}
 \gap
 \begin{exbox}{\ExWord\ 1}
-A group of $30$ pupils each joins at least one of two clubs: $18$ join the Chess club and $19$ join the Drawing club. How many pupils join both clubs? How many join only one club?
+Một nhóm $30$ học sinh, mỗi bạn tham gia ít nhất một trong hai câu lạc bộ: $18$ bạn tham gia CLB Cờ vua và $19$ bạn tham gia CLB Vẽ. Hỏi có bao nhiêu bạn tham gia cả hai câu lạc bộ? Bao nhiêu bạn chỉ tham gia một câu lạc bộ?
 \guide
-Adding $18+19=37$ counts the pupils in both clubs twice, so
-\par both clubs: $37-30=7$ pupils.\par
-Only Chess: $18-7=11$; only Drawing: $19-7=12$; only one club: $11+12=23$ pupils.
+Khi lấy $18+19=37$, những bạn tham gia cả hai câu lạc bộ được tính hai lần, nên
+\par số bạn tham gia cả hai câu lạc bộ là: $37-30=7$ (bạn).\par
+Chỉ tham gia Cờ vua: $18-7=11$ (bạn); chỉ tham gia Vẽ: $19-7=12$ (bạn); chỉ tham gia một câu lạc bộ: $11+12=23$ (bạn).
 \begin{center}
-\stpVennII{Chess $18$}{Drawing $19$}{$11$}{$\mathbf{7}$}{$12$}{$30$ pupils}
+\stpVennII{Cờ vua $18$}{Vẽ $19$}{$11$}{$\mathbf{7}$}{$12$}{$30$ học sinh}
 \end{center}
-\dapso{$7$ pupils; $23$ pupils.}
+\dapso{$7$ bạn; $23$ bạn.}
 \end{exbox}
 \gap
 \begin{exbox}{\ExWord\ 2}
-Class 5C has $36$ pupils. $20$ pupils can swim, $15$ can play badminton and $8$ can do both. How many pupils can do neither?
+Lớp 5C có $36$ học sinh. Có $20$ bạn biết bơi, $15$ bạn biết chơi cầu lông và $8$ bạn biết cả hai. Hỏi có bao nhiêu bạn không biết bơi cũng không biết chơi cầu lông?
 \guide
-\emph{Method 1.} At least one: $20+15-8=27$ pupils.\par Neither: $36-27=9$ pupils.\par
-\emph{Method 2.} Only swim: $20-8=12$; only badminton: $15-8=7$.\par At least one: $12+7+8=27$; neither: $36-27=9$.
+\emph{Cách 1.} Số bạn biết ít nhất một môn: $20+15-8=27$ (bạn).\par Không biết môn nào: $36-27=9$ (bạn).\par
+\emph{Cách 2.} Chỉ biết bơi: $20-8=12$ (bạn); chỉ biết cầu lông: $15-8=7$ (bạn).\par Biết ít nhất một môn: $12+7+8=27$ (bạn); không biết môn nào: $36-27=9$ (bạn).
 \begin{center}
-\stpVennII{Swim $20$}{Badminton $15$}{$12$}{$8$}{$7$}{neither: $\mathbf{9}$}
+\stpVennII{Bơi $20$}{Cầu lông $15$}{$12$}{$8$}{$7$}{không môn nào: $\mathbf{9}$}
 \end{center}
-\dapso{$9$ pupils.}
+\dapso{$9$ bạn.}
 \end{exbox}
 \gap
 \begin{exbox}{\ExWord\ 3}
-Every pupil in a group likes at least one of football, swimming and chess. $25$ like football, $20$ like swimming and $18$ like chess; $8$ like football and swimming, $6$ like swimming and chess, $7$ like football and chess, and $3$ like all three.\par
-\pa{a} How many like only football? \quad \pa{b} How many pupils are in the group?
+Mỗi bạn trong một nhóm học sinh thích ít nhất một trong ba môn: bóng đá, bơi, cờ vua. Có $25$ bạn thích bóng đá, $20$ bạn thích bơi, $18$ bạn thích cờ vua; $8$ bạn thích bóng đá và bơi, $6$ bạn thích bơi và cờ vua, $7$ bạn thích bóng đá và cờ vua, $3$ bạn thích cả ba môn.\par
+\pa{a} Có bao nhiêu bạn chỉ thích bóng đá? \quad \pa{b} Nhóm có bao nhiêu học sinh?
 \guide
-Fill in from the centre: all three: $3$.\par
-Football and swimming only: $8-3=5$; \ swimming and chess only: $6-3=3$; \ football and chess only: $7-3=4$.\par
-\pa{a} Only football: $25-5-4-3=13$.\par
-Only swimming: $20-5-3-3=9$; \ only chess: $18-4-3-3=8$.
+Điền từ trong ra ngoài: cả ba môn: $3$ bạn.\par
+Chỉ thích bóng đá và bơi: $8-3=5$; \ chỉ thích bơi và cờ vua: $6-3=3$; \ chỉ thích bóng đá và cờ vua: $7-3=4$.\par
+\pa{a} Chỉ thích bóng đá: $25-5-4-3=13$ (bạn).\par
+Chỉ thích bơi: $20-5-3-3=9$; \ chỉ thích cờ vua: $18-4-3-3=8$.
 \begin{center}
-\stpVennIII{Football $25$}{Swimming $20$}{Chess $18$}{$\mathbf{13}$}{$9$}{$8$}{$5$}{$4$}{$3$}{$3$}{}
+\stpVennIII{Bóng đá $25$}{Bơi $20$}{Cờ vua $18$}{$\mathbf{13}$}{$9$}{$8$}{$5$}{$4$}{$3$}{$3$}{}
 \end{center}
-\pa{b} $13+9+8+5+4+3+3=45$ pupils.\par
-(Check: $25+20+18-8-6-7+3=45$.)
-\dapso{\pa{a} $13$ pupils. \pa{b} $45$ pupils.}
+\pa{b} $13+9+8+5+4+3+3=45$ (học sinh).\par
+(Thử lại: $25+20+18-8-6-7+3=45$.)
+\dapso{\pa{a} $13$ bạn. \pa{b} $45$ học sinh.}
 \end{exbox}
 \gap
 \begin{exbox}{\ExWord\ 4}
-An, Bình and Chi have $75$ stickers altogether. An gives Bình $6$ stickers, then Bình gives Chi $9$ stickers, then Chi gives An $4$ stickers. Now the three have the same number. How many stickers did each have at first?
+An, Bình và Chi có tất cả $75$ hình dán. An cho Bình $6$ hình, sau đó Bình cho Chi $9$ hình, rồi Chi cho An $4$ hình thì lúc này số hình dán của ba bạn bằng nhau. Hỏi lúc đầu mỗi bạn có bao nhiêu hình dán?
 \guide
-The total stays $75$, so at the end each has $75:3=25$ stickers. Work backwards, one row per step:
+Tổng số vẫn là $75$, nên lúc cuối mỗi bạn có $75:3=25$ (hình). Tính ngược, mỗi hàng ứng với một lần cho:
 \begin{center}
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|c|c|c|}
 \hline
  & An & Bình & Chi\\\hline
-At the end & $25$ & $25$ & $25$\\\hline
-Before ``Chi gives An $4$'' & $25-4=21$ & $25$ & $25+4=29$\\\hline
-Before ``Bình gives Chi $9$'' & $21$ & $25+9=34$ & $29-9=20$\\\hline
-Before ``An gives Bình $6$'' (at first) & $21+6=\mathbf{27}$ & $34-6=\mathbf{28}$ & $\mathbf{20}$\\\hline
+Lúc cuối & $25$ & $25$ & $25$\\\hline
+Trước khi Chi cho An $4$ hình & $25-4=21$ & $25$ & $25+4=29$\\\hline
+Trước khi Bình cho Chi $9$ hình & $21$ & $25+9=34$ & $29-9=20$\\\hline
+Trước khi An cho Bình $6$ hình (lúc đầu) & $21+6=\mathbf{27}$ & $34-6=\mathbf{28}$ & $\mathbf{20}$\\\hline
 \end{tabular}
 \end{center}
-Check: $27+28+20=75$.
-\dapso{An $27$, Bình $28$, Chi $20$ stickers.}
+Thử lại: $27+28+20=75$.
+\dapso{An $27$ hình, Bình $28$ hình, Chi $20$ hình dán.}
 \end{exbox}
 \gap
 \begin{exbox}{\ExWord\ 5}
-Lan, Mai and Cúc have $120$ shells. First Lan gives Mai and Cúc each as many shells as each of them already has. Then Mai does the same for Lan and Cúc, and finally Cúc does the same for Lan and Mai. Now all three have the same number. How many shells did each have at first?
+Lan, Mai và Cúc có $120$ vỏ ốc. Đầu tiên Lan cho Mai và Cúc mỗi bạn số vỏ ốc đúng bằng số vỏ ốc bạn đó đang có. Sau đó Mai cũng làm như vậy với Lan và Cúc, cuối cùng Cúc cũng làm như vậy với Lan và Mai. Lúc này số vỏ ốc của ba bạn bằng nhau. Hỏi lúc đầu mỗi bạn có bao nhiêu vỏ ốc?
 \guide
-At the end each has $120:3=40$. Each time, the two receivers \emph{double}; going back we halve them, and the giver gets back what they received.
+Lúc cuối mỗi bạn có $120:3=40$ (vỏ ốc). Mỗi lần cho, số vỏ ốc của hai bạn được nhận \emph{gấp đôi}; khi tính ngược ta chia đôi số của hai bạn đó, còn bạn đã cho thì được nhận lại phần đã cho.
 \begin{center}
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|c|c|c|}
 \hline
  & Lan & Mai & Cúc\\\hline
-At the end & $40$ & $40$ & $40$\\\hline
-Before Cúc gives & $20$ & $20$ & $40+20+20=80$\\\hline
-Before Mai gives & $10$ & $20+10+40=70$ & $40$\\\hline
-At first (before Lan gives) & $10+35+20=\mathbf{65}$ & $\mathbf{35}$ & $\mathbf{20}$\\\hline
+Lúc cuối & $40$ & $40$ & $40$\\\hline
+Trước khi Cúc cho & $20$ & $20$ & $40+20+20=80$\\\hline
+Trước khi Mai cho & $10$ & $20+10+40=70$ & $40$\\\hline
+Lúc đầu (trước khi Lan cho) & $10+35+20=\mathbf{65}$ & $\mathbf{35}$ & $\mathbf{20}$\\\hline
 \end{tabular}
 \end{center}
-Check forwards: $(65,35,20)\to(10,70,40)\to(20,20,80)\to(40,40,40)$.
-\dapso{Lan $65$, Mai $35$, Cúc $20$ shells.}
+Thử lại (tính xuôi): $(65;\ 35;\ 20)\to(10;\ 70;\ 40)\to(20;\ 20;\ 80)\to(40;\ 40;\ 40)$.
+\dapso{Lan $65$, Mai $35$, Cúc $20$ vỏ ốc.}
 \end{exbox}
-\dividerbar{Practice}
+\dividerbar{Luyện tập}
 \begin{probbox}{1}{\relax}
-Every pupil of class 5A got at least one mark $10$ in Maths or Vietnamese. $21$ pupils got a $10$ in Maths, $17$ in Vietnamese, and $6$ got a $10$ in both. How many pupils are there in class 5A?
+Mỗi học sinh lớp 5A đều được ít nhất một điểm $10$ môn Toán hoặc môn Tiếng Việt. Có $21$ bạn được điểm $10$ môn Toán, $17$ bạn được điểm $10$ môn Tiếng Việt và $6$ bạn được điểm $10$ cả hai môn. Hỏi lớp 5A có bao nhiêu học sinh?
 \end{probbox}
 \probsol{
-$21+17-6=32$ pupils.
-\dapso{$32$ pupils.}}
+$21+17-6=32$ (học sinh).
+\dapso{$32$ học sinh.}}
 \gap
 \begin{probbox}{2}{\relax}
-Each of $40$ pupils likes reading or drawing (or both). $28$ like reading and $22$ like drawing. How many like both?
+Mỗi bạn trong $40$ học sinh thích đọc sách hoặc thích vẽ (hoặc thích cả hai). Có $28$ bạn thích đọc sách và $22$ bạn thích vẽ. Hỏi có bao nhiêu bạn thích cả hai?
 \end{probbox}
 \probsol{
-$28+22=50$ counts those who like both twice.\par Both: $50-40=10$ pupils.
-\dapso{$10$ pupils.}}
+Tổng $28+22=50$ tính hai lần những bạn thích cả hai.\par Thích cả hai: $50-40=10$ (bạn).
+\dapso{$10$ bạn.}}
 \gap
 \begin{probbox}{3}{\relax}
-In a group of $45$ tourists, $30$ speak English, $20$ speak French and $5$ speak neither language.\par
-\pa{a} How many speak both? \quad \pa{b} How many speak only English? \quad \pa{c} only French?
+Trong một đoàn $45$ khách du lịch, có $30$ người nói được tiếng Anh, $20$ người nói được tiếng Pháp và $5$ người không nói được thứ tiếng nào trong hai thứ tiếng đó.\par
+\pa{a} Có bao nhiêu người nói được cả hai thứ tiếng? \quad \pa{b} Bao nhiêu người chỉ nói được tiếng Anh? \quad \pa{c} chỉ nói được tiếng Pháp?
 \end{probbox}
 \probsol{
-At least one language: $45-5=40$.\par
-\pa{a} Both: $30+20-40=10$.\par
-\pa{b} Only English: $30-10=20$.\par
-\pa{c} Only French: $20-10=10$.
-\dapso{\pa{a} $10$. \pa{b} $20$. \pa{c} $10$.}}
+Nói được ít nhất một thứ tiếng: $45-5=40$ (người).\par
+\pa{a} Cả hai thứ tiếng: $30+20-40=10$ (người).\par
+\pa{b} Chỉ tiếng Anh: $30-10=20$ (người).\par
+\pa{c} Chỉ tiếng Pháp: $20-10=10$ (người).
+\dapso{\pa{a} $10$ người. \pa{b} $20$ người. \pa{c} $10$ người.}}
 \gap
+\needspace{7.5cm}
 \begin{probbox}{4}{\relax}
-The Venn diagram shows what the people at a party drink.
+Sơ đồ Venn cho biết đồ uống của những người dự một bữa tiệc.
 \begin{center}
-\stpVennII{Tea}{Coffee}{$14$}{$6$}{$9$}{neither: $3$}
+\stpVennII{Trà}{Cà phê}{$14$}{$6$}{$9$}{không uống: $3$}
 \end{center}
-\pa{a} How many drink tea? \quad \pa{b} How many drink coffee? \quad \pa{c} How many people are at the party?
+\pa{a} Có bao nhiêu người uống trà? \quad \pa{b} Bao nhiêu người uống cà phê? \quad \pa{c} Bữa tiệc có bao nhiêu người?
 \end{probbox}
 \probsol{
-\pa{a} Tea: $14+6=20$.\par
-\pa{b} Coffee: $6+9=15$.\par
-\pa{c} $14+6+9+3=32$ people.
-\dapso{\pa{a} $20$. \pa{b} $15$. \pa{c} $32$ people.}}
+\pa{a} Uống trà: $14+6=20$ (người).\par
+\pa{b} Uống cà phê: $6+9=15$ (người).\par
+\pa{c} $14+6+9+3=32$ (người).
+\dapso{\pa{a} $20$ người. \pa{b} $15$ người. \pa{c} $32$ người.}}
 \gap
+\needspace{7.5cm}
 \begin{probbox}{5}{\relax}
-Each member of a sports team plays football or basketball (or both), as the diagram shows.
+Mỗi thành viên của một đội thể thao chơi bóng đá hoặc bóng rổ (hoặc cả hai), như sơ đồ dưới đây.
 \begin{center}
-\stpVennII{Football}{Basketball}{$12$}{$4$}{$9$}{}
+\stpVennII{Bóng đá}{Bóng rổ}{$12$}{$4$}{$9$}{}
 \end{center}
-\pa{a} How many members does the team have? \quad \pa{b} How many play basketball?
+\pa{a} Đội có bao nhiêu thành viên? \quad \pa{b} Có bao nhiêu bạn chơi bóng rổ?
 \end{probbox}
 \probsol{
-\pa{a} $12+4+9=25$ members.\par
-\pa{b} $4+9=13$ members.
-\dapso{\pa{a} $25$. \pa{b} $13$.}}
+\pa{a} $12+4+9=25$ (thành viên).\par
+\pa{b} $4+9=13$ (bạn).
+\dapso{\pa{a} $25$ thành viên. \pa{b} $13$ bạn.}}
 \gap
 \begin{probbox}{6}{\relax}
-A maths team of $20$ pupils is given two hard problems; everybody solves at least one. $3$ pupils cannot solve problem 1 and $5$ cannot solve problem 2. How many solve both problems?
+Đội tuyển Toán gồm $20$ học sinh được giao hai bài toán khó; bạn nào cũng làm được ít nhất một bài. Có $3$ bạn không làm được bài 1 và $5$ bạn không làm được bài 2. Hỏi có bao nhiêu bạn làm được cả hai bài?
 \end{probbox}
 \probsol{
-The $3$ who cannot solve problem 1 solve only problem 2.\par The $5$ who cannot solve problem 2 solve only problem 1.\par
-Both: $20-3-5=12$ pupils.
-\dapso{$12$ pupils.}}
+$3$ bạn không làm được bài 1 là những bạn chỉ làm được bài 2.\par $5$ bạn không làm được bài 2 là những bạn chỉ làm được bài 1.\par
+Làm được cả hai bài: $20-3-5=12$ (bạn).
+\dapso{$12$ bạn.}}
 \gap
 \begin{probbox}{7}{\relax}
-Class 5D has $38$ pupils. $15$ sign up for swimming, $20$ for football and $7$ for both. How many sign up for neither?
+Lớp 5D có $38$ học sinh. Có $15$ bạn đăng kí học bơi, $20$ bạn đăng kí học bóng đá và $7$ bạn đăng kí cả hai môn. Hỏi có bao nhiêu bạn không đăng kí môn nào?
 \end{probbox}
 \probsol{
-At least one: $15+20-7=28$.\par Neither: $38-28=10$ pupils.
-\dapso{$10$ pupils.}}
+Đăng kí ít nhất một môn: $15+20-7=28$ (bạn).\par Không đăng kí môn nào: $38-28=10$ (bạn).
+\dapso{$10$ bạn.}}
 \gap
 \begin{probbox}{8}{\relax}
-In a class of $35$ pupils, $14$ have a dog, $11$ have a cat and $5$ have both. How many pupils have neither a dog nor a cat?
+Một lớp có $35$ học sinh, trong đó $14$ bạn nuôi chó, $11$ bạn nuôi mèo và $5$ bạn nuôi cả chó và mèo. Hỏi có bao nhiêu bạn không nuôi chó cũng không nuôi mèo?
 \end{probbox}
 \probsol{
-At least one pet: $14+11-5=20$.\par Neither: $35-20=15$ pupils.
-\dapso{$15$ pupils.}}
+Nuôi ít nhất một con vật: $14+11-5=20$ (bạn).\par Không nuôi con nào: $35-20=15$ (bạn).
+\dapso{$15$ bạn.}}
 \gap
 \begin{probbox}{9}{\relax}
-In a village, $60$ families were asked: $42$ have a television, $35$ have a computer, and every family has at least one of them.\par
-\pa{a} How many have both? \quad \pa{b} only a television? \quad \pa{c} only a computer?
+Khảo sát $60$ gia đình trong một thôn: $42$ gia đình có ti vi, $35$ gia đình có máy tính và gia đình nào cũng có ít nhất một trong hai thứ đó.\par
+\pa{a} Có bao nhiêu gia đình có cả hai thứ? \quad \pa{b} chỉ có ti vi? \quad \pa{c} chỉ có máy tính?
 \end{probbox}
 \probsol{
-\pa{a} $42+35-60=17$ families.\par
-\pa{b} $42-17=25$ families.\par
-\pa{c} $35-17=18$ families.
-\dapso{\pa{a} $17$. \pa{b} $25$. \pa{c} $18$.}}
+\pa{a} $42+35-60=17$ (gia đình).\par
+\pa{b} $42-17=25$ (gia đình).\par
+\pa{c} $35-17=18$ (gia đình).
+\dapso{\pa{a} $17$. \pa{b} $25$. \pa{c} $18$ gia đình.}}
 \gap
 \begin{probbox}{10}{\relax}
-How many of the numbers from $1$ to $30$ are divisible by $2$ or by $3$?
+Trong các số từ $1$ đến $30$, có bao nhiêu số chia hết cho $2$ hoặc chia hết cho $3$?
 \end{probbox}
 \probsol{
-Divisible by $2$: $30:2=15$ numbers. Divisible by $3$: $30:3=10$ numbers.\par
-Divisible by both, i.e.\ by $6$: $6,\ 12,\ 18,\ 24,\ 30$: $5$ numbers.
+Chia hết cho $2$: $30:2=15$ (số). Chia hết cho $3$: $30:3=10$ (số).\par
+Chia hết cho cả $2$ và $3$, tức là chia hết cho $6$: $6;\ 12;\ 18;\ 24;\ 30$: $5$ số.
 \begin{center}
-\stpVennII{Divisible by $2$}{Divisible by $3$}{$10$}{$5$}{$5$}{}
+\stpVennII{Chia hết cho $2$}{Chia hết cho $3$}{$10$}{$5$}{$5$}{}
 \end{center}
-By $2$ or by $3$: $15+10-5=20$ numbers.
-\dapso{$20$ numbers.}}
+Chia hết cho $2$ hoặc cho $3$: $15+10-5=20$ (số).
+\dapso{$20$ số.}}
 \gap
 \begin{probbox}{11}{\relax}
-How many of the numbers from $1$ to $50$ are divisible neither by $2$ nor by $5$?
+Trong các số từ $1$ đến $50$, có bao nhiêu số không chia hết cho $2$ và cũng không chia hết cho $5$?
 \end{probbox}
 \probsol{
-By $2$: $25$ numbers; by $5$: $10$ numbers; by both (by $10$): $5$ numbers.\par
-By $2$ or $5$: $25+10-5=30$.\par Neither: $50-30=20$ numbers.
-\dapso{$20$ numbers.}}
+Chia hết cho $2$: $25$ số; chia hết cho $5$: $10$ số; chia hết cho cả hai (cho $10$): $5$ số.\par
+Chia hết cho $2$ hoặc $5$: $25+10-5=30$ (số).\par Không chia hết cho số nào: $50-30=20$ (số).
+\dapso{$20$ số.}}
 \gap
 \begin{probbox}{12}{\relax}
-In a music group, $16$ pupils play the piano, $10$ play the guitar, and $22$ pupils play at least one of them. How many play both? How many play only the piano?
+Trong một nhóm nhạc, $16$ bạn chơi đàn piano, $10$ bạn chơi đàn ghi-ta và $22$ bạn chơi ít nhất một trong hai loại đàn đó. Hỏi có bao nhiêu bạn chơi cả hai loại đàn? Bao nhiêu bạn chỉ chơi piano?
 \end{probbox}
 \probsol{
-Both: $16+10-22=4$ pupils.\par Only piano: $16-4=12$ pupils.
-\dapso{$4$ pupils; $12$ pupils.}}
+Chơi cả hai loại đàn: $16+10-22=4$ (bạn).\par Chỉ chơi piano: $16-4=12$ (bạn).
+\dapso{$4$ bạn; $12$ bạn.}}
 \gap
 \begin{probbox}{13}{\relax}
-$18$ pupils of a class entered the singing contest, $13$ entered the drawing contest, and $25$ pupils entered at least one contest. How many pupils entered exactly one contest?
+Một lớp có $18$ bạn dự thi hát, $13$ bạn dự thi vẽ và $25$ bạn dự thi ít nhất một cuộc thi. Hỏi có bao nhiêu bạn chỉ dự thi đúng một cuộc thi?
 \end{probbox}
 \probsol{
-Both contests: $18+13-25=6$ pupils.\par Exactly one: $25-6=19$ pupils.
-\dapso{$19$ pupils.}}
+Dự thi cả hai: $18+13-25=6$ (bạn).\par Chỉ dự thi một cuộc thi: $25-6=19$ (bạn).
+\dapso{$19$ bạn.}}
 \gap
 \begin{probbox}{14}{\relax}
-$100$ pupils were asked about breakfast: $58$ like phở, $47$ like bánh mì and $15$ like neither. How many like both?
+Hỏi $100$ học sinh về bữa sáng: $58$ bạn thích phở, $47$ bạn thích bánh mì và $15$ bạn không thích món nào trong hai món đó. Hỏi có bao nhiêu bạn thích cả hai món?
 \end{probbox}
 \probsol{
-At least one: $100-15=85$.\par Both: $58+47-85=20$ pupils.
-\dapso{$20$ pupils.}}
+Thích ít nhất một món: $100-15=85$ (bạn).\par Thích cả hai món: $58+47-85=20$ (bạn).
+\dapso{$20$ bạn.}}
 \gap
+\needspace{7.5cm}
 \begin{probbox}{15}{\relax}
-The diagram shows how many pupils of a class are in the Maths, English and Art clubs.
+Sơ đồ cho biết số học sinh của một lớp tham gia các câu lạc bộ Toán, Tiếng Anh và Mĩ thuật.
 \begin{center}
-\stpVennIII{Maths}{English}{Art}{$8$}{$7$}{$6$}{$3$}{$2$}{$4$}{$1$}{no club: $5$}
+\stpVennIII{Toán}{Tiếng Anh}{Mĩ thuật}{$8$}{$7$}{$6$}{$3$}{$2$}{$4$}{$1$}{không CLB nào: $5$}
 \end{center}
-\pa{a} How many pupils are in the Maths club? \quad \pa{b} How many are in exactly one club?\par
-\pa{c} How many pupils are there in the class?
+\pa{a} Câu lạc bộ Toán có bao nhiêu học sinh? \quad \pa{b} Có bao nhiêu bạn tham gia đúng một câu lạc bộ?\par
+\pa{c} Lớp có bao nhiêu học sinh?
 \end{probbox}
 \probsol{
-\pa{a} Every number inside the Maths circle: $8+3+2+1=14$.\par
-\pa{b} $8+7+6=21$.\par
-\pa{c} $8+7+6+3+2+4+1+5=36$.
-\dapso{\pa{a} $14$. \pa{b} $21$. \pa{c} $36$ pupils.}}
+\pa{a} Cộng mọi số nằm trong vòng Toán: $8+3+2+1=14$ (học sinh).\par
+\pa{b} $8+7+6=21$ (bạn).\par
+\pa{c} $8+7+6+3+2+4+1+5=36$ (học sinh).
+\dapso{\pa{a} $14$. \pa{b} $21$. \pa{c} $36$ học sinh.}}
 \gap
 \begin{probbox}{16}{\relax}
-Every pupil of a contest team takes at least one of Maths, English and Art: $25$ take Maths, $20$ take English and $15$ take Art. $6$ take Maths and English, $4$ take English and Art, $5$ take Maths and Art, and nobody takes all three. How many pupils are in the team?
+Mỗi học sinh trong đội dự thi của trường thi ít nhất một trong ba môn Toán, Tiếng Anh, Mĩ thuật: $25$ bạn thi Toán, $20$ bạn thi Tiếng Anh, $15$ bạn thi Mĩ thuật. Có $6$ bạn thi Toán và Tiếng Anh, $4$ bạn thi Tiếng Anh và Mĩ thuật, $5$ bạn thi Toán và Mĩ thuật, và không có bạn nào thi cả ba môn. Hỏi đội có bao nhiêu học sinh?
 \end{probbox}
 \probsol{
-Adding $25+20+15=60$ counts each pupil who takes two subjects twice.\par
-Team: $60-6-4-5=45$ pupils.
-\dapso{$45$ pupils.}}
+Tổng $25+20+15=60$ tính hai lần mỗi bạn thi hai môn.\par
+Số học sinh của đội: $60-6-4-5=45$ (học sinh).
+\dapso{$45$ học sinh.}}
 \gap
 \begin{probbox}{17}{\relax}
-$40$ pupils were asked about fruit: $20$ like apples, $18$ bananas, $16$ oranges; $7$ like apples and bananas, $6$ bananas and oranges, $5$ apples and oranges, and $2$ like all three. How many pupils like none of the three?
+Hỏi $40$ học sinh về loại quả yêu thích: $20$ bạn thích táo, $18$ bạn thích chuối, $16$ bạn thích cam; $7$ bạn thích táo và chuối, $6$ bạn thích chuối và cam, $5$ bạn thích táo và cam, $2$ bạn thích cả ba loại. Hỏi có bao nhiêu bạn không thích loại nào trong ba loại quả đó?
 \end{probbox}
 \probsol{
-At least one: $20+18+16-7-6-5+2=38$.\par None: $40-38=2$ pupils.
-\dapso{$2$ pupils.}}
+Thích ít nhất một loại: $20+18+16-7-6-5+2=38$ (bạn).\par Không thích loại nào: $40-38=2$ (bạn).
+\dapso{$2$ bạn.}}
 \gap
 \begin{probbox}{18}{\relax}
-In a class of $30$, $15$ like singing, $12$ dancing and $10$ drawing; $5$ like singing and dancing, $4$ dancing and drawing, $3$ singing and drawing, and $1$ likes all three.\par
-\pa{a} How many like only singing? \quad \pa{b} How many like none of them?
+Một lớp có $30$ học sinh: $15$ bạn thích hát, $12$ bạn thích múa, $10$ bạn thích vẽ; $5$ bạn thích hát và múa, $4$ bạn thích múa và vẽ, $3$ bạn thích hát và vẽ, $1$ bạn thích cả ba.\par
+\pa{a} Có bao nhiêu bạn chỉ thích hát? \quad \pa{b} Có bao nhiêu bạn không thích hoạt động nào?
 \end{probbox}
 \probsol{
-\pa{a} Singing and dancing only: $5-1=4$; singing and drawing only: $3-1=2$.\par Only singing: $15-4-2-1=8$.\par
-\pa{b} At least one: $15+12+10-5-4-3+1=26$; none: $30-26=4$.
-\dapso{\pa{a} $8$. \pa{b} $4$.}}
+\pa{a} Chỉ thích hát và múa: $5-1=4$; chỉ thích hát và vẽ: $3-1=2$.\par Chỉ thích hát: $15-4-2-1=8$ (bạn).\par
+\pa{b} Thích ít nhất một hoạt động: $15+12+10-5-4-3+1=26$; không thích hoạt động nào: $30-26=4$ (bạn).
+\dapso{\pa{a} $8$ bạn. \pa{b} $4$ bạn.}}
 \gap
 \begin{probbox}{19}{\relax}
-In a group, twice as many pupils like football as like volleyball. $6$ pupils like both, and $30$ pupils like at least one of the two games. How many like football and how many like volleyball?
+Trong một nhóm, số bạn thích bóng đá gấp đôi số bạn thích bóng chuyền. Có $6$ bạn thích cả hai môn và $30$ bạn thích ít nhất một trong hai môn. Hỏi có bao nhiêu bạn thích bóng đá, bao nhiêu bạn thích bóng chuyền?
 \end{probbox}
 \probsol{
-Football $+$ volleyball $=30+6=36$.\par Volleyball $1$ part, football $2$ parts: $3$ parts $=36$, one part $=12$.\par
-Volleyball: $12$; football: $24$.
-\dapso{Football $24$, volleyball $12$.}}
+Số bạn thích bóng đá $+$ số bạn thích bóng chuyền $=30+6=36$.\par Bóng chuyền $1$ phần, bóng đá $2$ phần: $3$ phần là $36$, một phần là $12$.\par
+Bóng chuyền: $12$ bạn; bóng đá: $24$ bạn.
+\dapso{Bóng đá $24$ bạn, bóng chuyền $12$ bạn.}}
 \gap
 \begin{probbox}{20}{\relax}
-An, Bình and Cường have $60$ marbles. An gives Bình $5$ marbles, Bình gives Cường $8$, then Cường gives An $3$. Now they all have the same number. How many did each have at first?
+An, Bình và Cường có $60$ viên bi. An cho Bình $5$ viên, Bình cho Cường $8$ viên, rồi Cường cho An $3$ viên thì số bi của ba bạn bằng nhau. Hỏi lúc đầu mỗi bạn có bao nhiêu viên bi?
 \end{probbox}
 \probsol{
-At the end each has $60:3=20$.\par
-An: $20-3+5=22$.\par Bình: $20+8-5=23$.\par Cường: $20-8+3=15$.\par Check: $22+23+15=60$.
-\dapso{An $22$, Bình $23$, Cường $15$.}}
+Lúc cuối mỗi bạn có $60:3=20$ (viên).\par
+An: $20-3+5=22$ (viên).\par Bình: $20+8-5=23$ (viên).\par Cường: $20-8+3=15$ (viên).\par Thử lại: $22+23+15=60$.
+\dapso{An $22$, Bình $23$, Cường $15$ viên bi.}}
 \gap
 \begin{probbox}{21}{\relax}
-Two boxes hold $48$ pens. After $7$ pens are moved from box A to box B, the two boxes hold the same number. How many pens were in each box at first?
+Hai hộp có $48$ chiếc bút. Chuyển $7$ chiếc bút từ hộp A sang hộp B thì số bút hai hộp bằng nhau. Hỏi lúc đầu mỗi hộp có bao nhiêu chiếc bút?
 \end{probbox}
 \probsol{
-At the end each box holds $48:2=24$.\par Box A: $24+7=31$; box B: $24-7=17$.
-\dapso{Box A $31$, box B $17$.}}
+Lúc cuối mỗi hộp có $48:2=24$ (chiếc).\par Hộp A: $24+7=31$ (chiếc); hộp B: $24-7=17$ (chiếc).
+\dapso{Hộp A $31$ chiếc, hộp B $17$ chiếc.}}
 \gap
 \begin{probbox}{22}{\relax}
-Three shelves hold $90$ books. $8$ books are moved from shelf I to shelf II, then $12$ from shelf II to shelf III, then $5$ from shelf III to shelf I. Now the shelves hold the same number. How many books were on each shelf at first?
+Ba ngăn tủ có $90$ quyển sách. Chuyển $8$ quyển từ ngăn I sang ngăn II, rồi $12$ quyển từ ngăn II sang ngăn III, sau đó $5$ quyển từ ngăn III sang ngăn I thì số sách ba ngăn bằng nhau. Hỏi lúc đầu mỗi ngăn có bao nhiêu quyển sách?
 \end{probbox}
 \probsol{
-At the end: $90:3=30$ each.\par
-Shelf I: $30-5+8=33$.\par Shelf II: $30+12-8=34$.\par Shelf III: $30-12+5=23$.
-\dapso{$33$, $34$, $23$ books.}}
+Lúc cuối mỗi ngăn có $90:3=30$ (quyển).\par
+Ngăn I: $30-5+8=33$ (quyển).\par Ngăn II: $30+12-8=34$ (quyển).\par Ngăn III: $30-12+5=23$ (quyển).
+\dapso{$33$ quyển, $34$ quyển, $23$ quyển.}}
 \gap
 \begin{probbox}{23}{\relax}
-Hà gives Lan $4$ stickers, and then Lan gives Hà $10$ stickers. Now Hà has $26$ and Lan has $18$. How many did each have at first?
+Hà cho Lan $4$ hình dán, sau đó Lan cho Hà $10$ hình dán. Lúc này Hà có $26$ hình, Lan có $18$ hình. Hỏi lúc đầu mỗi bạn có bao nhiêu hình dán?
 \end{probbox}
 \probsol{
-Before Lan gives: Hà $26-10=16$, Lan $18+10=28$.\par
-Before Hà gives (at first): Hà $16+4=20$, Lan $28-4=24$.
-\dapso{Hà $20$, Lan $24$.}}
+Trước khi Lan cho: Hà có $26-10=16$ (hình), Lan có $18+10=28$ (hình).\par
+Trước khi Hà cho (lúc đầu): Hà có $16+4=20$ (hình), Lan có $28-4=24$ (hình).
+\dapso{Hà $20$ hình, Lan $24$ hình.}}
 \gap
 \begin{probbox}{24}{\relax}
-From basket A, Mum moves into basket B as many oranges as basket B already has. Now each basket holds $30$ oranges. How many were in each basket at first?
+Mẹ chuyển từ rổ A sang rổ B số quả cam đúng bằng số cam rổ B đang có. Lúc này mỗi rổ có $30$ quả cam. Hỏi lúc đầu mỗi rổ có bao nhiêu quả cam?
 \end{probbox}
 \probsol{
-Basket B doubled, so at first it held $30:2=15$.\par Basket A gave $15$: at first $30+15=45$.
-\dapso{Basket A $45$, basket B $15$.}}
+Số cam rổ B đã gấp đôi, nên lúc đầu rổ B có $30:2=15$ (quả).\par Rổ A đã cho đi $15$ quả, nên lúc đầu có $30+15=45$ (quả).
+\dapso{Rổ A $45$ quả, rổ B $15$ quả.}}
 \gap
 \begin{probbox}{25}{\relax}
-Two tanks hold $80$ litres of water. Tank A pours into tank B as much water as tank B has; then tank B pours into tank A as much as tank A then has. Now the tanks hold the same amount. How much did each tank hold at first?
+Hai bể chứa $80$ lít nước. Bể A đổ sang bể B một lượng nước bằng lượng nước bể B đang có; sau đó bể B đổ sang bể A một lượng nước bằng lượng nước bể A lúc đó. Lúc này hai bể có lượng nước bằng nhau. Hỏi lúc đầu mỗi bể chứa bao nhiêu lít nước?
 \end{probbox}
 \probsol{
-At the end: $40$ litres each.\par
-Before step 2: A $40:2=20$, B $40+20=60$.\par
-Before step 1: B $60:2=30$, A $20+30=50$.
-\dapso{Tank A $50$ litres, tank B $30$ litres.}}
+Lúc cuối mỗi bể có $40$ lít.\par
+Trước lần đổ thứ hai: bể A có $40:2=20$ (lít), bể B có $40+20=60$ (lít).\par
+Trước lần đổ thứ nhất: bể B có $60:2=30$ (lít), bể A có $20+30=50$ (lít).
+\dapso{Bể A $50$ lít, bể B $30$ lít.}}
 \gap
 \begin{probbox}{26}{\relax}
-Hùng puts $36$ marbles into three boxes. He moves from box 1 into box 2 as many marbles as box 2 has, then from box 2 into box 3 as many as box 3 has. Now the three boxes hold the same number. How many marbles were in each box at first?
+Hùng có $36$ viên bi để trong ba hộp. Hùng chuyển từ hộp một sang hộp hai số bi đúng bằng số bi hộp hai đang có, rồi chuyển từ hộp hai sang hộp ba số bi đúng bằng số bi hộp ba đang có thì số bi ba hộp bằng nhau. Hỏi lúc đầu mỗi hộp có bao nhiêu viên bi?
 \end{probbox}
 \probsol{
-At the end: $36:3=12$ each.\par
-Before step 2: box 3 had $12:2=6$, box 2 had $12+6=18$, box 1 had $12$.\par
-Before step 1: box 2 had $18:2=9$, box 1 had $12+9=21$.
-\dapso{$21$, $9$, $6$ marbles.}}
+Lúc cuối mỗi hộp có $36:3=12$ (viên).\par
+Trước lần chuyển thứ hai: hộp ba có $12:2=6$ (viên), hộp hai có $12+6=18$ (viên), hộp một có $12$ viên.\par
+Trước lần chuyển thứ nhất: hộp hai có $18:2=9$ (viên), hộp một có $12+9=21$ (viên).
+\dapso{$21$ viên, $9$ viên, $6$ viên.}}
 \gap
 \begin{probbox}{27}{\relax}
-Hòa, Bình and Việt have $70$ cards. Hòa gives Bình $5$ cards, Bình gives Việt $7$, then Việt gives Hòa $9$. Now Hòa and Bình have the same number, and each has twice as many as Việt. How many cards did each have at first?
+Hòa, Bình và Việt có $70$ thẻ đọc. Hòa cho Bình $5$ thẻ, Bình cho Việt $7$ thẻ, rồi Việt cho Hòa $9$ thẻ thì lúc này Hòa và Bình có số thẻ bằng nhau và mỗi bạn có số thẻ gấp đôi số thẻ của Việt. Hỏi lúc đầu mỗi bạn có bao nhiêu thẻ đọc?
 \end{probbox}
 \probsol{
-At the end: Việt $1$ part, Hòa $2$ parts, Bình $2$ parts; $5$ parts $=70$, so one part $=14$.\par
-End: Hòa $28$, Bình $28$, Việt $14$.\par
-At first: Hòa $28-9+5=24$; Bình $28+7-5=30$; Việt $14-7+9=16$.
-\dapso{Hòa $24$, Bình $30$, Việt $16$.}}
+Lúc cuối: Việt $1$ phần, Hòa $2$ phần, Bình $2$ phần; $5$ phần là $70$ thẻ, một phần là $14$ thẻ.\par
+Lúc cuối: Hòa $28$, Bình $28$, Việt $14$ thẻ.\par
+Lúc đầu: Hòa $28-9+5=24$; Bình $28+7-5=30$; Việt $14-7+9=16$ (thẻ).
+\dapso{Hòa $24$, Bình $30$, Việt $16$ thẻ.}}
 \gap
 \begin{probbox}{28}{\relax}
-A woman sells half of her mangoes and $2$ more; then she sells half of the rest and $3$ more. She has $5$ mangoes left. How many mangoes did she have?
+Một bác bán một nửa số xoài và thêm $2$ quả; sau đó bán một nửa số xoài còn lại và thêm $3$ quả thì còn lại $5$ quả. Hỏi lúc đầu bác có bao nhiêu quả xoài?
 \end{probbox}
 \probsol{
-Before the second sale: $(5+3)\times2=16$ mangoes.\par
-At first: $(16+2)\times2=36$ mangoes.
-\dapso{$36$ mangoes.}}
+Trước lần bán thứ hai: $(5+3)\times2=16$ (quả).\par
+Lúc đầu: $(16+2)\times2=36$ (quả).
+\dapso{$36$ quả xoài.}}
 \gap
 \begin{probbox}{29}{\relax}
-Ân and Bảo have $64$ marbles. Ân gives Bảo as many as Bảo has; then Bảo gives Ân as many as Ân has; then Ân again gives Bảo as many as Bảo has. Now they have the same number. How many did each have at first?
+Ân và Bảo có $64$ viên bi. Ân cho Bảo số bi bằng số bi Bảo đang có; sau đó Bảo cho Ân số bi bằng số bi Ân đang có; rồi Ân lại cho Bảo số bi bằng số bi Bảo đang có. Lúc này số bi hai bạn bằng nhau. Hỏi lúc đầu mỗi bạn có bao nhiêu viên bi?
 \end{probbox}
 \probsol{
-At the end: $32$ each.\par
-Before step 3: Bảo $16$, Ân $48$.\par
-Before step 2: Ân $24$, Bảo $40$.\par
-At first: Bảo $20$, Ân $44$.
-\dapso{Ân $44$, Bảo $20$.}}
+Lúc cuối mỗi bạn có $32$ viên.\par
+Trước lần cho thứ ba: Bảo $16$, Ân $48$.\par
+Trước lần cho thứ hai: Ân $24$, Bảo $40$.\par
+Lúc đầu: Bảo $20$, Ân $44$.
+\dapso{Ân $44$ viên, Bảo $20$ viên.}}
 \gap
 \begin{probbox}{30}{\relax}
-On the first day $\dfrac14$ of the water in a tank is used; on the second day $\dfrac13$ of what is left is used. $60$ litres remain. How much water was in the tank at first?
+Ngày thứ nhất dùng $\dfrac14$ lượng nước trong bể; ngày thứ hai dùng $\dfrac13$ lượng nước còn lại. Bể còn $60$ lít. Hỏi lúc đầu bể có bao nhiêu lít nước?
 \end{probbox}
 \probsol{
-$60$ litres is $1-\dfrac13=\dfrac23$ of what was left after day one: $60:\dfrac23=90$ litres.\par
-$90$ litres is $1-\dfrac14=\dfrac34$ of the tank: $90:\dfrac34=120$ litres.
-\dapso{$120$ litres.}}
-\dividerbar{Challenge -- Extension}
+$60$ lít là $1-\dfrac13=\dfrac23$ lượng nước còn sau ngày thứ nhất: $60:\dfrac23=90$ (lít).\par
+$90$ lít là $1-\dfrac14=\dfrac34$ lượng nước trong bể: $90:\dfrac34=120$ (lít).
+\dapso{$120$ lít.}}
+\dividerbar{Thử thách -- Nâng cao}
 \begin{probbox}{31}{\stars{2}}
-How many numbers from $1$ to $30$ are divisible by $2$, by $3$ or by $5$? How many are divisible by none of them?
+Trong các số từ $1$ đến $30$, có bao nhiêu số chia hết cho $2$, cho $3$ hoặc cho $5$? Có bao nhiêu số không chia hết cho số nào trong ba số đó?
 \end{probbox}
 \probsol{
-By $2$: $15$; by $3$: $10$; by $5$: $6$.\par
-By $6$: $5$; by $10$: $3$; by $15$: $2$; by $30$ (all three): $1$.\par
-Fill in from the centre:
+Chia hết cho $2$: $15$; cho $3$: $10$; cho $5$: $6$.\par
+Cho $6$: $5$; cho $10$: $3$; cho $15$: $2$; cho $30$ (cả ba): $1$.\par
+Điền từ trong ra ngoài:
 \begin{center}
-\stpVennIII{by $2$}{by $3$}{by $5$}{$8$}{$4$}{$2$}{$4$}{$2$}{$1$}{$1$}{none: $8$}
+\stpVennIII{cho $2$}{cho $3$}{cho $5$}{$8$}{$4$}{$2$}{$4$}{$2$}{$1$}{$1$}{không: $8$}
 \end{center}
-At least one: $15+10+6-5-3-2+1=22$.\par None: $30-22=8$.
-\dapso{$22$ numbers; $8$ numbers.}}
+Chia hết cho ít nhất một số: $15+10+6-5-3-2+1=22$.\par Không chia hết cho số nào: $30-22=8$.
+\dapso{$22$ số; $8$ số.}}
 \gap
 \begin{probbox}{32}{\stars{1}}
-In a class of $40$, $25$ pupils like Maths and $28$ like Literature. What is the least number of pupils who can like both? The greatest?
+Một lớp có $40$ học sinh, $25$ bạn thích Toán và $28$ bạn thích Văn. Số bạn thích cả hai môn ít nhất là bao nhiêu? Nhiều nhất là bao nhiêu?
 \end{probbox}
 \probsol{
-At most $40$ pupils like at least one, so both $\ge25+28-40=13$ (when everybody likes at least one).\par
-Both cannot be more than the smaller group: at most $25$ (when every Maths lover also likes Literature).
-\dapso{Least $13$, greatest $25$.}}
+Số bạn thích ít nhất một môn không quá $40$, nên số bạn thích cả hai ít nhất là $25+28-40=13$ (khi bạn nào cũng thích ít nhất một môn).\par
+Số bạn thích cả hai không thể nhiều hơn nhóm nhỏ hơn: nhiều nhất là $25$ (khi mọi bạn thích Toán đều thích Văn).
+\dapso{Ít nhất $13$ bạn, nhiều nhất $25$ bạn.}}
 \gap
 \begin{probbox}{33}{\stars{1}}
-$45$ pupils each belong to at least one of three clubs A, B, C. Club A has $24$ members, B has $22$, C has $20$; $9$ pupils are in A and B, $7$ in B and C, $8$ in C and A. How many are in all three clubs?
+$45$ học sinh, mỗi bạn tham gia ít nhất một trong ba câu lạc bộ A, B, C. CLB A có $24$ bạn, B có $22$ bạn, C có $20$ bạn; $9$ bạn tham gia A và B, $7$ bạn tham gia B và C, $8$ bạn tham gia C và A. Hỏi có bao nhiêu bạn tham gia cả ba câu lạc bộ?
 \end{probbox}
 \probsol{
-$45=24+22+20-9-7-8+(\text{all three})=42+(\text{all three})$.\par
-All three: $45-42=3$ pupils.
-\dapso{$3$ pupils.}}
+$45=24+22+20-9-7-8+(\text{cả ba})=42+(\text{cả ba})$.\par
+Cả ba câu lạc bộ: $45-42=3$ (bạn).
+\dapso{$3$ bạn.}}
 \gap
 \begin{probbox}{34}{\stars{2}}
-In a school contest team, $30$ pupils do Maths, $24$ do English and $20$ do Science. $46$ pupils do Maths or English, $38$ do English or Science, $42$ do Science or Maths, and nobody does all three.\par
-\pa{a} How many do Maths and English? \quad \pa{b} English and Science? \quad \pa{c} Science and Maths?\par
-\pa{d} How many pupils are in the team?
+Trong đội tuyển của một trường có $30$ bạn thi Toán, $24$ bạn thi Tiếng Anh và $20$ bạn thi Khoa học. Biết có $46$ bạn thi Toán hoặc Tiếng Anh, $38$ bạn thi Tiếng Anh hoặc Khoa học, $42$ bạn thi Khoa học hoặc Toán và không có bạn nào thi cả ba môn.\par
+\pa{a} Có bao nhiêu bạn thi cả Toán và Tiếng Anh? \quad \pa{b} cả Tiếng Anh và Khoa học? \quad \pa{c} cả Khoa học và Toán?\par
+\pa{d} Đội tuyển có bao nhiêu học sinh?
 \end{probbox}
 \probsol{
-\pa{a} $30+24-46=8$.\par
-\pa{b} $24+20-38=6$.\par
-\pa{c} $20+30-42=8$.\par
-\pa{d} $30+24+20-8-6-8=52$ pupils.
-\dapso{\pa{a} $8$. \pa{b} $6$. \pa{c} $8$. \pa{d} $52$ pupils.}}
+\pa{a} $30+24-46=8$ (bạn).\par
+\pa{b} $24+20-38=6$ (bạn).\par
+\pa{c} $20+30-42=8$ (bạn).\par
+\pa{d} $30+24+20-8-6-8=52$ (học sinh).
+\dapso{\pa{a} $8$. \pa{b} $6$. \pa{c} $8$. \pa{d} $52$ học sinh.}}
 \gap
 \begin{probbox}{35}{\stars{1}}
-In a class, $8$ pupils like both dogs and cats, $5$ like neither, and $14$ like dogs. The number who like only cats is twice the number who like only dogs. How many pupils are in the class, and how many like cats?
+Trong một lớp có $8$ bạn thích cả chó và mèo, $5$ bạn không thích con nào, $14$ bạn thích chó. Số bạn chỉ thích mèo gấp đôi số bạn chỉ thích chó. Hỏi lớp có bao nhiêu học sinh và có bao nhiêu bạn thích mèo?
 \end{probbox}
 \probsol{
-Only dogs: $14-8=6$.\par Only cats: $6\times2=12$.\par
-Class: $6+12+8+5=31$ pupils.\par Cats: $12+8=20$ pupils.
-\dapso{$31$ pupils; $20$ like cats.}}
+Chỉ thích chó: $14-8=6$ (bạn).\par Chỉ thích mèo: $6\times2=12$ (bạn).\par
+Số học sinh của lớp: $6+12+8+5=31$ (học sinh).\par Thích mèo: $12+8=20$ (bạn).
+\dapso{$31$ học sinh; $20$ bạn thích mèo.}}
 \gap
 \begin{probbox}{36}{\stars{1}}
-How many numbers from $1$ to $100$ are divisible by $3$ but not by $4$?
+Trong các số từ $1$ đến $100$, có bao nhiêu số chia hết cho $3$ nhưng không chia hết cho $4$?
 \end{probbox}
 \probsol{
-By $3$: $33$ numbers (since $100=3\times33+1$).\par By both $3$ and $4$, i.e.\ by $12$: $8$ numbers ($12,\ 24,\ \dots,\ 96$).\par
-By $3$ but not $4$: $33-8=25$.
-\dapso{$25$ numbers.}}
+Chia hết cho $3$: $33$ số (vì $100=3\times33+1$).\par Chia hết cho cả $3$ và $4$, tức là chia hết cho $12$: $8$ số ($12;\ 24;\ \dots;\ 96$).\par
+Chia hết cho $3$ nhưng không chia hết cho $4$: $33-8=25$ (số).
+\dapso{$25$ số.}}
 \gap
 \begin{probbox}{37}{\stars{2}}
-Each pupil in a group does at least one of three sports A, B, C: $55$ do A, $45$ do B and $40$ do C. $20$ pupils do exactly two sports and $5$ do all three. How many pupils are in the group?
+Mỗi bạn trong một nhóm chơi ít nhất một trong ba môn thể thao A, B, C: $55$ bạn chơi A, $45$ bạn chơi B, $40$ bạn chơi C. Có $20$ bạn chơi đúng hai môn và $5$ bạn chơi cả ba môn. Hỏi nhóm có bao nhiêu bạn?
 \end{probbox}
 \probsol{
-In $55+45+40=140$, a pupil with one sport is counted once, with exactly two sports twice, with three sports three times.\par
-Pupils with exactly one sport: $140-2\times20-3\times5=85$.\par
-Group: $85+20+5=110$ pupils.
-\dapso{$110$ pupils.}}
+Trong tổng $55+45+40=140$, bạn chơi một môn được tính một lần, bạn chơi đúng hai môn được tính hai lần, bạn chơi ba môn được tính ba lần.\par
+Số bạn chơi đúng một môn: $140-2\times20-3\times5=85$ (bạn).\par
+Số bạn của nhóm: $85+20+5=110$ (bạn).
+\dapso{$110$ bạn.}}
 \gap
 \begin{probbox}{38}{\stars{1}}
-Of $50$ pupils, $35$ can swim and $30$ can play chess.\par
-\pa{a} At least how many pupils can do both? \quad \pa{b} If exactly $4$ pupils can do neither, how many can do both?
+Trong $50$ học sinh, có $35$ bạn biết bơi và $30$ bạn biết chơi cờ vua.\par
+\pa{a} Có ít nhất bao nhiêu bạn biết cả hai? \quad \pa{b} Nếu có đúng $4$ bạn không biết môn nào thì có bao nhiêu bạn biết cả hai?
 \end{probbox}
 \probsol{
-\pa{a} At most $50$ can do at least one, so both $\ge35+30-50=15$.\par
-\pa{b} At least one: $50-4=46$; both: $35+30-46=19$.
-\dapso{\pa{a} $15$. \pa{b} $19$.}}
+\pa{a} Số bạn biết ít nhất một môn không quá $50$, nên số bạn biết cả hai ít nhất là $35+30-50=15$.\par
+\pa{b} Biết ít nhất một môn: $50-4=46$ (bạn); biết cả hai: $35+30-46=19$ (bạn).
+\dapso{\pa{a} $15$ bạn. \pa{b} $19$ bạn.}}
 \gap
 \begin{probbox}{39}{\stars{2}}
-Quân, Sơn and Tùng have $48$ marbles. Quân takes half of his marbles and shares them equally between the other two; then Sơn does the same with half of the marbles he then has; finally Tùng does the same. Now the three have the same number. How many did each have at first?
+Quân, Sơn và Tùng có $48$ viên bi. Quân lấy một nửa số bi của mình chia đều cho hai bạn còn lại; sau đó Sơn cũng lấy một nửa số bi mình đang có chia đều cho hai bạn còn lại; cuối cùng Tùng cũng làm như vậy. Lúc này số bi của ba bạn bằng nhau. Hỏi lúc đầu mỗi bạn có bao nhiêu viên bi?
 \end{probbox}
 \probsol{
-At the end: $16$ each. A giver keeps half; each of the others receives a quarter of what the giver had.
+Lúc cuối mỗi bạn có $16$ viên. Người cho giữ lại một nửa; mỗi bạn kia nhận một phần tư số bi người cho có trước đó.
 \begin{center}
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|c|c|c|}
 \hline
  & Quân & Sơn & Tùng\\\hline
-At the end & $16$ & $16$ & $16$\\\hline
-Before Tùng gives & $16-8=8$ & $16-8=8$ & $16\times2=32$\\\hline
-Before Sơn gives & $8-4=4$ & $8\times2=16$ & $32-4=28$\\\hline
-At first & $4\times2=\mathbf{8}$ & $16-2=\mathbf{14}$ & $28-2=\mathbf{26}$\\\hline
+Lúc cuối & $16$ & $16$ & $16$\\\hline
+Trước khi Tùng chia & $16-8=8$ & $16-8=8$ & $16\times2=32$\\\hline
+Trước khi Sơn chia & $8-4=4$ & $8\times2=16$ & $32-4=28$\\\hline
+Lúc đầu & $4\times2=\mathbf{8}$ & $16-2=\mathbf{14}$ & $28-2=\mathbf{26}$\\\hline
 \end{tabular}
 \end{center}
-\dapso{Quân $8$, Sơn $14$, Tùng $26$.}}
+\dapso{Quân $8$, Sơn $14$, Tùng $26$ viên bi.}}
 \gap
 \begin{probbox}{40}{\stars{2}}
-There are three drums of oil A, B, C. The oil in drum A is split into $3$ equal parts: one part is poured into B and one into C. Then the oil now in B is split into $4$ equal parts: one part is poured into A and one into C. Then the oil now in C is split into $3$ equal parts: one into A and one into B. Now A holds $40$ litres, B $46$ litres and C $18$ litres. How much oil was in each drum at first?
+Có ba thùng dầu A, B, C. Người ta chia số dầu thùng A thành $3$ phần bằng nhau, rót sang thùng B một phần, thùng C một phần. Sau đó chia số dầu thùng B lúc đó thành $4$ phần bằng nhau, rót sang thùng A một phần, thùng C một phần. Rồi chia số dầu thùng C lúc đó thành $3$ phần bằng nhau, rót sang thùng A một phần, thùng B một phần. Lúc này thùng A có $40$ lít, thùng B có $46$ lít và thùng C có $18$ lít. Hỏi lúc đầu mỗi thùng có bao nhiêu lít dầu?
 \end{probbox}
 \probsol{
-Before C pours: C kept $1$ part of $3$, so C had $18\times3=54$; A and B each got $18$: A $40-18=22$, B $46-18=28$.\par
-Before B pours: B kept $2$ parts of $4$, so B had $28\times2=56$; A and C each got $56:4=14$: A $22-14=8$, C $54-14=40$.\par
-Before A pours: A kept $1$ part of $3$, so A had $8\times3=24$; B and C each got $8$: B $56-8=48$, C $40-8=32$.
-\dapso{A $24$ litres, B $48$ litres, C $32$ litres.}}
+Trước khi thùng C rót: C còn lại $1$ phần trong $3$ phần, nên C có $18\times3=54$ (lít); A và B mỗi thùng nhận $18$ lít: A có $40-18=22$ (lít), B có $46-18=28$ (lít).\par
+Trước khi thùng B rót: B còn lại $2$ phần trong $4$ phần, nên B có $28\times2=56$ (lít); A và C mỗi thùng nhận $56:4=14$ (lít): A có $22-14=8$ (lít), C có $54-14=40$ (lít).\par
+Trước khi thùng A rót: A còn lại $1$ phần trong $3$ phần, nên A có $8\times3=24$ (lít); B và C mỗi thùng nhận $8$ lít: B có $56-8=48$ (lít), C có $40-8=32$ (lít).
+\dapso{Thùng A $24$ lít, thùng B $48$ lít, thùng C $32$ lít.}}
 \gap
 \begin{probbox}{41}{\stars{1}}
-Lan reads a book. On day one she reads $\dfrac13$ of the book and $4$ more pages; on day two, half of the remaining pages and $6$ more; on day three, the last $24$ pages. How many pages has the book?
+Lan đọc một quyển sách. Ngày thứ nhất Lan đọc $\dfrac13$ quyển sách và thêm $4$ trang; ngày thứ hai đọc một nửa số trang còn lại và thêm $6$ trang; ngày thứ ba đọc nốt $24$ trang cuối. Hỏi quyển sách có bao nhiêu trang?
 \end{probbox}
 \probsol{
-On day two, half of the remaining pages and $6$ more leave $24$ pages, so before day two there were $(24+6)\times2=60$ pages left.\par
-Day one: $60+4=64$ pages is $1-\dfrac13=\dfrac23$ of the book.\par Book: $64:\dfrac23=96$ pages.
-\dapso{$96$ pages.}}
+Ngày thứ hai đọc một nửa số trang còn lại và thêm $6$ trang thì còn $24$ trang, nên trước ngày thứ hai còn $(24+6)\times2=60$ (trang).\par
+Ngày thứ nhất: $60+4=64$ (trang) là $1-\dfrac13=\dfrac23$ quyển sách.\par Quyển sách có: $64:\dfrac23=96$ (trang).
+\dapso{$96$ trang.}}
 \gap
 \begin{probbox}{42}{\stars{2}}
-Three boxes I, II, III hold some sweets. First, box I gives boxes II and III each as many sweets as each already holds. Then box II gives boxes I and III each as many as each then holds. Now box I has $20$ sweets, box II $30$ and box III $40$. How many sweets did each box hold at first?
+Ba hộp I, II, III đựng kẹo. Đầu tiên hộp I cho hộp II và hộp III mỗi hộp số kẹo đúng bằng số kẹo hộp đó đang có. Sau đó hộp II cho hộp I và hộp III mỗi hộp số kẹo đúng bằng số kẹo hộp đó lúc ấy. Lúc này hộp I có $20$ cái, hộp II có $30$ cái, hộp III có $40$ cái kẹo. Hỏi lúc đầu mỗi hộp có bao nhiêu cái kẹo?
 \end{probbox}
 \probsol{
-Before box II gives: I $20:2=10$, III $40:2=20$, II $30+10+20=60$.\par
-Before box I gives: II $60:2=30$, III $20:2=10$, I $10+30+10=50$.\par
-Check: $(50,30,10)\to(10,60,20)\to(20,30,40)$.
-\dapso{I $50$, II $30$, III $10$ sweets.}}
+Trước khi hộp II cho: hộp I có $20:2=10$, hộp III có $40:2=20$, hộp II có $30+10+20=60$ (cái).\par
+Trước khi hộp I cho: hộp II có $60:2=30$, hộp III có $20:2=10$, hộp I có $10+30+10=50$ (cái).\par
+Thử lại: $(50;\ 30;\ 10)\to(10;\ 60;\ 20)\to(20;\ 30;\ 40)$.
+\dapso{Hộp I $50$ cái, hộp II $30$ cái, hộp III $10$ cái.}}
 \gap
 \begin{probbox}{43}{\stars{1}}
-Bình spends $\dfrac14$ of his money on books, then $\dfrac25$ of the remaining money on a bag, then $15\,000$ dong on snacks. He has $30\,000$ dong left. How much money did he have at first?
+Bình dùng $\dfrac14$ số tiền để mua sách, rồi dùng $\dfrac25$ số tiền còn lại để mua cặp, sau đó tiêu $15\,000$ đồng ăn sáng. Bình còn lại $30\,000$ đồng. Hỏi lúc đầu Bình có bao nhiêu tiền?
 \end{probbox}
 \probsol{
-Before the snacks: $30\,000+15\,000=45\,000$ dong.\par
-This is $1-\dfrac25=\dfrac35$ of the money left after the books: $45\,000:\dfrac35=75\,000$ dong.\par
-This is $\dfrac34$ of his money: $75\,000:\dfrac34=100\,000$ dong.
-\dapso{$100\,000$ dong.}}
+Trước khi ăn sáng: $30\,000+15\,000=45\,000$ (đồng).\par
+Số tiền này là $1-\dfrac25=\dfrac35$ số tiền còn lại sau khi mua sách: $45\,000:\dfrac35=75\,000$ (đồng).\par
+Số tiền đó là $\dfrac34$ số tiền lúc đầu: $75\,000:\dfrac34=100\,000$ (đồng).
+\dapso{$100\,000$ đồng.}}
 \gap
 \begin{probbox}{44}{\stars{1}}
-Mai says: ``Multiply my age by $3$, add $12$, divide by $5$ and take away $4$: you get $5$.'' How old is Mai?
+Mai nói: ``Lấy tuổi của tớ nhân với $3$, cộng $12$, chia cho $5$ rồi trừ đi $4$ thì được $5$.'' Hỏi Mai bao nhiêu tuổi?
 \end{probbox}
 \probsol{
 $5+4=9$; \ $9\times5=45$; \ $45-12=33$; \ $33:3=11$.\par
-Check: $11\times3+12=45$, $45:5=9$, $9-4=5$.
-\dapso{$11$ years old.}}
+Thử lại: $11\times3+12=45$; $45:5=9$; $9-4=5$.
+\dapso{$11$ tuổi.}}
 \gap
 \begin{probbox}{45}{\stars{2}}
-$40$ pupils each join at least one of three clubs: Reading $22$, Science $18$, Dance $20$. $3$ pupils join all three. How many pupils join exactly two clubs? Exactly one?
+$40$ học sinh, mỗi bạn tham gia ít nhất một trong ba câu lạc bộ: Đọc sách $22$ bạn, Khoa học $18$ bạn, Múa $20$ bạn. Có $3$ bạn tham gia cả ba câu lạc bộ. Hỏi có bao nhiêu bạn tham gia đúng hai câu lạc bộ? Đúng một câu lạc bộ?
 \end{probbox}
 \probsol{
-In $22+18+20=60$: one club counted once, two clubs twice, three clubs three times.\par
-Without the $3$ pupils in all three clubs: $37$ pupils, counted $60-9=51$ times.\par
-Each pupil in exactly two clubs adds $1$ extra: exactly two $=51-37=14$.\par Exactly one: $37-14=23$.
-\dapso{Exactly two: $14$; exactly one: $23$.}}
+Trong tổng $22+18+20=60$: bạn tham gia một CLB được tính một lần, hai CLB được tính hai lần, ba CLB được tính ba lần.\par
+Bỏ ra $3$ bạn tham gia cả ba CLB: còn $37$ bạn, được tính $60-9=51$ lần.\par
+Mỗi bạn tham gia đúng hai CLB được tính thừa $1$ lần: số bạn tham gia đúng hai CLB là $51-37=14$.\par Đúng một CLB: $37-14=23$ (bạn).
+\dapso{Đúng hai CLB: $14$ bạn; đúng một CLB: $23$ bạn.}}
 \gap
 \begin{probbox}{46}{\stars{2}}
-In a class, $\dfrac35$ of the pupils like Maths, $\dfrac12$ like English, $\dfrac14$ like both, and $6$ pupils like neither. How many pupils are in the class?
+Trong một lớp, $\dfrac35$ số học sinh thích Toán, $\dfrac12$ số học sinh thích Tiếng Anh, $\dfrac14$ số học sinh thích cả hai môn và có $6$ bạn không thích môn nào trong hai môn đó. Hỏi lớp có bao nhiêu học sinh?
 \end{probbox}
 \probsol{
-At least one: $\dfrac35+\dfrac12-\dfrac14=\dfrac{17}{20}$ of the class.\par
-Neither: $1-\dfrac{17}{20}=\dfrac{3}{20}$ of the class $=6$ pupils.\par
-Class: $6:\dfrac{3}{20}=40$ pupils.
-\dapso{$40$ pupils.}}
+Thích ít nhất một môn: $\dfrac35+\dfrac12-\dfrac14=\dfrac{17}{20}$ số học sinh.\par
+Không thích môn nào: $1-\dfrac{17}{20}=\dfrac{3}{20}$ số học sinh, ứng với $6$ bạn.\par
+Số học sinh của lớp: $6:\dfrac{3}{20}=40$ (học sinh).
+\dapso{$40$ học sinh.}}
 \gap
 \begin{probbox}{47}{\stars{1}}
-A shop sells $40\%$ of its rice in the morning and $50\%$ of the rest in the afternoon. $66$ kg are left. How much rice did the shop have?
+Một cửa hàng buổi sáng bán $40\%$ số gạo, buổi chiều bán $50\%$ số gạo còn lại thì còn $66$ kg. Hỏi lúc đầu cửa hàng có bao nhiêu ki-lô-gam gạo?
 \end{probbox}
 \probsol{
-After the morning, $60\%$ is left; the afternoon leaves half of that: $30\%$ of the rice.\par
-$30\%$ is $66$ kg, so the rice: $66:30\times100=220$ kg.
+Sau buổi sáng còn $60\%$ số gạo; buổi chiều bán một nửa số đó nên còn $30\%$ số gạo.\par
+$30\%$ số gạo là $66$ kg, nên số gạo là: $66:30\times100=220$ (kg).
 \dapso{$220$ kg.}}
 \gap
 \begin{probbox}{48}{\stars{1}}
-An, Bình, Chi and Dũng have $100$ cards. An gives Bình $3$, Bình gives Chi $5$, Chi gives Dũng $7$, and Dũng gives An $9$. Now all four have the same number. How many did each have at first?
+An, Bình, Chi và Dũng có $100$ tấm thẻ. An cho Bình $3$ thẻ, Bình cho Chi $5$ thẻ, Chi cho Dũng $7$ thẻ, rồi Dũng cho An $9$ thẻ thì số thẻ của bốn bạn bằng nhau. Hỏi lúc đầu mỗi bạn có bao nhiêu tấm thẻ?
 \end{probbox}
 \probsol{
-At the end: $100:4=25$ each.\par
-An: $25-9+3=19$; \ Bình: $25+5-3=27$; \ Chi: $25+7-5=27$; \ Dũng: $25-7+9=27$.
-\dapso{An $19$, Bình $27$, Chi $27$, Dũng $27$.}}
+Lúc cuối mỗi bạn có $100:4=25$ (thẻ).\par
+An: $25-9+3=19$; \ Bình: $25+5-3=27$; \ Chi: $25+7-5=27$; \ Dũng: $25-7+9=27$ (thẻ).
+\dapso{An $19$, Bình $27$, Chi $27$, Dũng $27$ thẻ.}}
 \gap
 \begin{probbox}{49}{\stars{1}}
-How many two-digit numbers contain at least one digit $5$?
+Có bao nhiêu số có hai chữ số mà có ít nhất một chữ số $5$?
 \end{probbox}
 \probsol{
-Tens digit $5$: $50$ to $59$, $10$ numbers.\par Ones digit $5$: $15,\ 25,\ \dots,\ 95$, $9$ numbers.\par Both: only $55$.\par
-At least one digit $5$: $10+9-1=18$.
-\dapso{$18$ numbers.}}
+Chữ số hàng chục là $5$: từ $50$ đến $59$, có $10$ số.\par Chữ số hàng đơn vị là $5$: $15;\ 25;\ \dots;\ 95$, có $9$ số.\par Cả hai chữ số là $5$: chỉ có số $55$.\par
+Có ít nhất một chữ số $5$: $10+9-1=18$ (số).
+\dapso{$18$ số.}}
 \gap
 \begin{probbox}{50}{\stars{2}}
-An, Bình and Chi play three games. The loser of each game gives each of the other two as many marbles as that player already has. An loses game 1, Bình loses game 2 and Chi loses game 3. At the end An has $16$, Bình $24$ and Chi $32$ marbles. How many did each have at first?
+An, Bình và Chi chơi ba ván. Sau mỗi ván, người thua phải cho mỗi người còn lại số bi đúng bằng số bi người đó đang có. An thua ván 1, Bình thua ván 2, Chi thua ván 3. Lúc cuối An có $16$ viên, Bình có $24$ viên và Chi có $32$ viên bi. Hỏi lúc đầu mỗi bạn có bao nhiêu viên bi?
 \end{probbox}
 \probsol{
-Going back, the two winners halve and the loser gets it back.
+Khi tính ngược, số bi của hai người thắng được chia đôi, người thua nhận lại phần đã cho.
 \begin{center}
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|l|c|c|c|}
 \hline
  & An & Bình & Chi\\\hline
-At the end & $16$ & $24$ & $32$\\\hline
-Before game 3 & $8$ & $12$ & $32+8+12=52$\\\hline
-Before game 2 & $4$ & $12+4+26=42$ & $26$\\\hline
-At first & $4+21+13=\mathbf{38}$ & $\mathbf{21}$ & $\mathbf{13}$\\\hline
+Lúc cuối & $16$ & $24$ & $32$\\\hline
+Trước ván 3 & $8$ & $12$ & $32+8+12=52$\\\hline
+Trước ván 2 & $4$ & $12+4+26=42$ & $26$\\\hline
+Lúc đầu & $4+21+13=\mathbf{38}$ & $\mathbf{21}$ & $\mathbf{13}$\\\hline
 \end{tabular}
 \end{center}
-\dapso{An $38$, Bình $21$, Chi $13$ marbles.}}
+\dapso{An $38$, Bình $21$, Chi $13$ viên bi.}}
