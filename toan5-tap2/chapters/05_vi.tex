@@ -1,0 +1,734 @@
+\tikzset{xhf/.style={draw=tmBlue!70!black,line width=0.45pt,line join=round}}
+\providecommand{\xhcuboid}{}\renewcommand{\xhcuboid}[7][tmBlue]{\begin{scope}[shift={({#2+0.5*(#3)},{#4+0.35*(#3)})}]
+\filldraw[xhf,fill=#1!22] (0,0) rectangle (#5,#7);
+\filldraw[xhf,fill=#1!8] (0,#7)--(#5,#7)--({#5+0.5*(#6)},{#7+0.35*(#6)})--({0.5*(#6)},{#7+0.35*(#6)})--cycle;
+\filldraw[xhf,fill=#1!45] (#5,0)--({#5+0.5*(#6)},{0.35*(#6)})--({#5+0.5*(#6)},{#7+0.35*(#6)})--(#5,#7)--cycle;
+\end{scope}}
+\providecommand{\xhcube}{}\renewcommand{\xhcube}[4][tmBlue]{\xhcuboid[#1]{#2}{#3}{#4}{1}{1}{1}}
+
+\shead{Xếp các khối nhỏ thành hình hộp}
+\begin{knowbox}
+\begin{minipage}[t]{0.62\linewidth}
+Khi xếp khít các khối nhỏ bằng nhau (hình lập phương đơn vị, hình lập phương nhỏ, viên gạch) thành một khối mới thì \textbf{thể tích của khối mới} bằng tổng thể tích các khối nhỏ:
+\[V_{\text{khối lớn}}=V_{\text{một khối nhỏ}}\times\text{số khối nhỏ}.\]
+Để tính diện tích xung quanh, diện tích toàn phần, thể tích của khối hộp xếp từ các khối nhỏ bằng nhau:\par
+\smallskip
+\textbf{Bước 1.} Tìm các kích thước của khối hộp lớn:\par
+chiều dài lớn $=$ chiều dài khối nhỏ $\times$ số khối xếp theo chiều dài;\par
+chiều rộng lớn $=$ chiều rộng khối nhỏ $\times$ số khối xếp theo chiều rộng;\par
+chiều cao lớn $=$ chiều cao khối nhỏ $\times$ số lớp.\par
+\smallskip
+\textbf{Bước 2.} Áp dụng công thức của hình hộp chữ nhật, hình lập phương.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[scale=0.62]
+\xhcube{0}{1}{0}\xhcube{1}{1}{0}\xhcube{2}{1}{0}\xhcube{0}{1}{1}\xhcube{1}{1}{1}\xhcube{2}{1}{1}\xhcube{0}{0}{0}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{0}{0}{1}\xhcube{1}{0}{1}\xhcube{2}{0}{1}
+\node[dim,below] at (1.5,0){$3$ hình};
+\node[dim,right] at (4,0.6){$2$ lớp};
+\end{tikzpicture}\par\smallskip
+{\small $3\times2\times2=12$ hình}
+\end{minipage}
+\end{knowbox}
+
+\shead{Xếp được bao nhiêu hình lập phương vào hộp?}
+\begin{knowbox}
+Để xếp các hình lập phương cạnh $a$ vào một cái hộp (các độ dài cùng một đơn vị đo):\par
+\smallskip
+-- theo mỗi cạnh của hộp, tìm xem xếp được bao nhiêu lần độ dài $a$ (lấy thương; phần dư để trống);\par
+-- số hình lập phương $=$ (số hình theo chiều dài) $\times$ (số hình theo chiều rộng) $\times$ (số hình theo chiều cao).\par
+\smallskip
+Nếu xếp các hình lập phương nhỏ thành một hình lập phương lớn thì cạnh hình lớn gấp cạnh hình nhỏ một số tự nhiên lần, do đó
+\[\text{số hình lập phương nhỏ}=n\times n\times n,\qquad n=\text{cạnh lớn}:\text{cạnh nhỏ}.\]
+Nếu biết diện tích toàn phần của hình lập phương lớn thì diện tích một mặt là $S_{tp}:6$; cạnh là số nhân với chính nó bằng diện tích một mặt.
+\end{knowbox}
+
+\shead{Sơn bề mặt khối hình tạo bởi các hình lập phương nhỏ}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+Hình lập phương lớn có $n$ hình lập phương nhỏ trên mỗi cạnh ($n\ge3$) được sơn cả $6$ mặt rồi tách rời ra:\par
+\smallskip
+-- \textbf{được sơn $3$ mặt}: các hình ở $8$ đỉnh: $8$ hình;\par
+-- \textbf{được sơn đúng $2$ mặt}: nằm trên $12$ cạnh, trừ các hình ở đỉnh: $12\times(n-2)$;\par
+-- \textbf{được sơn đúng $1$ mặt}: nằm trên $6$ mặt, không nằm trên cạnh: $6\times(n-2)\times(n-2)$;\par
+-- \textbf{không được sơn mặt nào}: phần lõi bên trong, là hình lập phương có $n-2$ hình trên mỗi cạnh: $(n-2)\times(n-2)\times(n-2)$.\par
+\smallskip
+Với hình hộp chữ nhật có $a;\ b;\ c$ hình nhỏ trên các cạnh (đều $\ge3$): sơn $3$ mặt: $8$; đúng $2$ mặt: $4\times[(a-2)+(b-2)+(c-2)]$; đúng $1$ mặt: $2\times[(a-2)(b-2)+(b-2)(c-2)+(a-2)(c-2)]$; không sơn: $(a-2)(b-2)(c-2)$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.37\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\xhcube[tmOrange]{0}{3}{0}\xhcube[tmGreen]{1}{3}{0}\xhcube[tmGreen]{2}{3}{0}\xhcube[tmOrange]{3}{3}{0}\xhcube[tmGreen]{0}{3}{1}\xhcube[tmBlue]{1}{3}{1}\xhcube[tmBlue]{2}{3}{1}\xhcube[tmGreen]{3}{3}{1}\xhcube[tmGreen]{0}{3}{2}\xhcube[tmBlue]{1}{3}{2}\xhcube[tmBlue]{2}{3}{2}\xhcube[tmGreen]{3}{3}{2}\xhcube[tmOrange]{0}{3}{3}\xhcube[tmGreen]{1}{3}{3}\xhcube[tmGreen]{2}{3}{3}\xhcube[tmOrange]{3}{3}{3}\xhcube[tmGreen]{0}{2}{0}\xhcube[tmBlue]{1}{2}{0}\xhcube[tmBlue]{2}{2}{0}\xhcube[tmGreen]{3}{2}{0}\xhcube[tmBlue]{0}{2}{1}\xhcube[tmBlue]{3}{2}{1}\xhcube[tmBlue]{0}{2}{2}\xhcube[tmBlue]{3}{2}{2}\xhcube[tmGreen]{0}{2}{3}\xhcube[tmBlue]{1}{2}{3}\xhcube[tmBlue]{2}{2}{3}\xhcube[tmGreen]{3}{2}{3}\xhcube[tmGreen]{0}{1}{0}\xhcube[tmBlue]{1}{1}{0}\xhcube[tmBlue]{2}{1}{0}\xhcube[tmGreen]{3}{1}{0}\xhcube[tmBlue]{0}{1}{1}\xhcube[tmBlue]{3}{1}{1}\xhcube[tmBlue]{0}{1}{2}\xhcube[tmBlue]{3}{1}{2}\xhcube[tmGreen]{0}{1}{3}\xhcube[tmBlue]{1}{1}{3}\xhcube[tmBlue]{2}{1}{3}\xhcube[tmGreen]{3}{1}{3}\xhcube[tmOrange]{0}{0}{0}\xhcube[tmGreen]{1}{0}{0}\xhcube[tmGreen]{2}{0}{0}\xhcube[tmOrange]{3}{0}{0}\xhcube[tmGreen]{0}{0}{1}\xhcube[tmBlue]{1}{0}{1}\xhcube[tmBlue]{2}{0}{1}\xhcube[tmGreen]{3}{0}{1}\xhcube[tmGreen]{0}{0}{2}\xhcube[tmBlue]{1}{0}{2}\xhcube[tmBlue]{2}{0}{2}\xhcube[tmGreen]{3}{0}{2}\xhcube[tmOrange]{0}{0}{3}\xhcube[tmGreen]{1}{0}{3}\xhcube[tmGreen]{2}{0}{3}\xhcube[tmOrange]{3}{0}{3}
+\end{tikzpicture}\par\smallskip
+{\scriptsize\textcolor{tmOrange}{\rule{6pt}{6pt}}\,$3$ mặt\quad\textcolor{tmGreen}{\rule{6pt}{6pt}}\,$2$ mặt\quad\textcolor{tmBlue}{\rule{6pt}{6pt}}\,$1$ mặt}
+\end{minipage}\par
+\smallskip
+\emph{Kiểm tra:} tổng bốn nhóm bằng số hình lập phương nhỏ. Nếu có cạnh chỉ gồm ít hơn $3$ hình nhỏ thì ta đếm trực tiếp.
+\end{knowbox}
+
+\shead{Đếm hình lập phương trong khối xếp. Hình nhìn từ các phía}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+Để đếm số hình lập phương trong một khối xếp, ta đếm \textbf{theo từng cột} (hoặc theo từng lớp). Nếu đề bài không nói gì khác thì mỗi hình đều đặt trên mặt bàn hoặc trên một hình khác, nên các hình bị che khuất nằm bên dưới các hình nhìn thấy.\par
+\smallskip
+\textbf{Hình nhìn từ trên xuống có ghi số} cho biết các ô ở đáy; số ghi trong mỗi ô là số hình lập phương xếp chồng ở ô đó. Số hình lập phương bằng tổng các số ghi trong ô.\par
+\smallskip
+Ở \textbf{hình nhìn từ phía trước}, mỗi cột cao bằng chồng cao nhất của cột đó.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{2pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\foreach \x/\y/\h in {0/1/2,1/1/3,2/1/1,0/0/1,1/0/2,2/0/1}{\draw[xhf,fill=tmBlue!8] (\x,\y) rectangle ++(1,1); \node[font=\small\bfseries] at (\x+0.5,\y+0.5){\h};}
+\node[dim,below] at (1.5,0){phía trước};
+\node[dim,above] at (1.5,2){nhìn từ trên xuống};
+\end{tikzpicture}\par\smallskip
+$2+3+1+1+2+1=10$ hình
+\end{minipage}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+\begin{minipage}[t]{0.6\linewidth}
+Một viên gạch dạng hình hộp chữ nhật có chiều dài $24$ cm, chiều rộng $12$ cm, chiều cao $6$ cm. Bác thợ xây xếp $6$ viên gạch như thế thành một khối gạch dạng hình hộp chữ nhật: mỗi lớp $2$ viên đặt cạnh nhau, xếp $3$ lớp (như hình bên).\par
+\pa{a} Tính diện tích xung quanh và diện tích toàn phần của khối gạch đó.\par
+\pa{b} Tính thể tích của khối gạch đó.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.085]
+\xhcuboid[tmOrange]{0}{12}{0}{24}{12}{6}\xhcuboid[tmOrange]{0}{12}{6}{24}{12}{6}\xhcuboid[tmOrange]{0}{12}{12}{24}{12}{6}
+\xhcuboid[tmOrange]{0}{0}{0}{24}{12}{6}\xhcuboid[tmOrange]{0}{0}{6}{24}{12}{6}\xhcuboid[tmOrange]{0}{0}{12}{24}{12}{6}
+\node[dim,below] at (12,0){$24$ cm};
+\end{tikzpicture}
+\end{minipage}
+\guide
+\pa{a} Chiều dài khối gạch là $24$ cm.\par
+Chiều rộng khối gạch là: $12\times2=24$ (cm).\par
+Chiều cao khối gạch là: $6\times3=18$ (cm).\par
+Diện tích xung quanh của khối gạch là: $(24+24)\times2\times18=1\,728$ (cm$^2$).\par
+Diện tích mặt đáy của khối gạch là: $24\times24=576$ (cm$^2$).\par
+Diện tích toàn phần của khối gạch là: $1\,728+576\times2=2\,880$ (cm$^2$).\par
+\pa{b} \emph{Cách 1.} Thể tích khối gạch là: $24\times24\times18=10\,368$ (cm$^3$).\par
+\emph{Cách 2.} Thể tích một viên gạch là: $24\times12\times6=1\,728$ (cm$^3$).\par
+Thể tích khối gạch là: $1\,728\times6=10\,368$ (cm$^3$).
+\dapso{\pa{a} $1\,728$ cm$^2$; $2\,880$ cm$^2$;\par \pa{b} $10\,368$ cm$^3$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Người ta xếp các hình lập phương nhỏ cạnh $2$ cm thành một hình lập phương lớn có diện tích toàn phần là $864$ cm$^2$. Hỏi đã dùng bao nhiêu hình lập phương nhỏ?
+\guide
+\emph{Cách 1.} Diện tích một mặt của hình lập phương lớn là: $864:6=144$ (cm$^2$).\par
+Ta có $144=12\times12$ nên cạnh hình lập phương lớn dài $12$ cm.\par
+Mỗi cạnh của hình lập phương lớn có: $12:2=6$ (hình nhỏ).\par
+Số hình lập phương nhỏ là: $6\times6\times6=216$ (hình).\par
+\emph{Cách 2.} Cạnh hình lập phương lớn dài $12$ cm (như trên).\par
+Thể tích hình lập phương lớn là: $12\times12\times12=1\,728$ (cm$^3$).\par
+Thể tích một hình lập phương nhỏ là: $2\times2\times2=8$ (cm$^3$).\par
+Số hình lập phương nhỏ là: $1\,728:8=216$ (hình).
+\dapso{$216$ hình.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Một cái thùng dạng hình hộp chữ nhật dài $1{,}2$ m, rộng $0{,}8$ m, cao $0{,}5$ m.\par
+\pa{a} Nếu xếp các khối gỗ đồ chơi hình lập phương cạnh $1$ dm vào thùng thì xếp được nhiều nhất bao nhiêu khối?\par
+\pa{b} Nếu xếp các hộp quà hình lập phương cạnh $3$ dm vào thùng thì xếp được nhiều nhất bao nhiêu hộp?
+\guide
+Đổi: $1{,}2$ m $=12$ dm; $0{,}8$ m $=8$ dm; $0{,}5$ m $=5$ dm.\par
+\pa{a} Theo chiều dài xếp được $12:1=12$ (khối); theo chiều rộng $8$ khối; theo chiều cao $5$ khối.\par
+Số khối gỗ xếp được là: $12\times8\times5=480$ (khối).\par
+\pa{b} Theo chiều dài xếp được: $12:3=4$ (hộp).\par
+Vì $8:3=2$ (dư $2$ dm) nên theo chiều rộng xếp được $2$ hộp.\par
+Vì $5:3=1$ (dư $2$ dm) nên theo chiều cao xếp được $1$ hộp.\par
+Số hộp quà xếp được là: $4\times2\times1=8$ (hộp).
+\dapso{\pa{a} $480$ khối;\par \pa{b} $8$ hộp.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Mai dán các hình lập phương nhỏ cạnh $1$ cm thành một hình lập phương lớn cạnh $5$ cm rồi sơn cả $6$ mặt ngoài.\par
+\pa{a} Mai đã dùng bao nhiêu hình lập phương nhỏ?\par
+\pa{b} Có bao nhiêu hình lập phương nhỏ được sơn $3$ mặt? Sơn đúng $2$ mặt? Sơn đúng $1$ mặt? Không được sơn mặt nào?
+\guide
+\pa{a} Mỗi cạnh có: $5:1=5$ (hình nhỏ).\par Số hình lập phương nhỏ là: $5\times5\times5=125$ (hình).\par
+\pa{b} Các hình được sơn $3$ mặt nằm ở $8$ đỉnh: có $8$ hình.\par
+Mỗi cạnh có $5-2=3$ hình không nằm ở đỉnh.\par
+Số hình được sơn đúng $2$ mặt là: $12\times3=36$ (hình).\par
+Mỗi mặt có $3\times3=9$ hình không nằm trên cạnh.\par
+Số hình được sơn đúng $1$ mặt là: $6\times9=54$ (hình).\par
+Các hình không được sơn tạo thành hình lập phương lõi có $3$ hình trên mỗi cạnh: $3\times3\times3=27$ (hình).\par
+\emph{Thử lại:} $8+36+54+27=125$.
+\dapso{\pa{a} $125$ hình;\par \pa{b} $8$ hình; $36$ hình; $54$ hình; $27$ hình.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+\begin{minipage}[t]{0.58\linewidth}
+Nam xếp các hình lập phương thành khối như hình bên.\par
+\pa{a} Khối đó có bao nhiêu hình lập phương?\par
+\pa{b} Vẽ hình nhìn từ phía trước.\par
+\pa{c} Nam cần thêm ít nhất bao nhiêu hình lập phương để được một khối hộp chữ nhật dài $3$ hình, rộng $2$ hình, cao $3$ hình?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\xhcube{0}{1}{0}\xhcube{1}{1}{0}\xhcube{2}{1}{0}\xhcube{0}{1}{1}\xhcube{1}{1}{1}\xhcube{1}{1}{2}\xhcube{0}{0}{0}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{1}{0}{1}
+\node[dim,below] at (1.5,0){phía trước};
+\end{tikzpicture}
+\end{minipage}
+\guide
+\pa{a} Ghi số hình lập phương ở mỗi ô đáy (hình nhìn từ trên xuống):\par
+\begin{center}\begin{tikzpicture}[scale=0.45]
+\foreach \x/\y/\h in {0/1/2,1/1/3,2/1/1,0/0/1,1/0/2,2/0/1}{\draw[xhf,fill=tmBlue!8] (\x,\y) rectangle ++(1,1); \node[font=\small\bfseries] at (\x+0.5,\y+0.5){\h};}
+\node[dim,below] at (1.5,0){phía trước};
+\end{tikzpicture}\qquad
+\begin{tikzpicture}[scale=0.45]
+\foreach \x/\y in {0/0,0/1,1/0,1/1,1/2,2/0}{\draw[xhf,fill=tmBlue!20] (\x,\y) rectangle ++(1,1);}
+\node[dim,below] at (1.5,0){nhìn từ phía trước};
+\end{tikzpicture}\end{center}
+Hàng sau có: $2+3+1=6$ (hình); hàng trước có: $1+2+1=4$ (hình).\par
+Khối đó có: $6+4=10$ (hình).\par
+\pa{b} Các cột của hình nhìn từ phía trước cao bằng chồng cao nhất: $2$; $3$; $1$ (hình trên).\par
+\pa{c} Khối hộp chữ nhật có: $3\times2\times3=18$ (hình).\par
+Cần thêm: $18-10=8$ (hình).
+\dapso{\pa{a} $10$ hình;\par \pa{c} $8$ hình.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Cần bao nhiêu hình lập phương cạnh $1$ cm để xếp thành một hình lập phương cạnh $6$ cm?
+\end{probbox}
+\probsol{
+Mỗi cạnh có: $6:1=6$ (hình nhỏ).\par
+Số hình lập phương nhỏ cần dùng là: $6\times6\times6=216$ (hình).
+\dapso{$216$ hình.}}
+\gap
+\begin{probbox}{2}{\relax}
+Cần bao nhiêu hình lập phương cạnh $3$ cm để xếp thành một hình lập phương cạnh $12$ cm?
+\end{probbox}
+\probsol{
+Mỗi cạnh có: $12:3=4$ (hình nhỏ).\par
+Số hình lập phương nhỏ cần dùng là: $4\times4\times4=64$ (hình).
+\dapso{$64$ hình.}}
+\gap
+\begin{probbox}{3}{\relax}
+Cần bao nhiêu hình lập phương cạnh $2$ cm để xếp đầy một cái hộp dài $10$ cm, rộng $8$ cm, cao $6$ cm?
+\end{probbox}
+\probsol{
+Theo chiều dài: $10:2=5$ (hình); theo chiều rộng: $8:2=4$ (hình); theo chiều cao: $6:2=3$ (hình).\par
+Số hình lập phương cần dùng là: $5\times4\times3=60$ (hình).
+\dapso{$60$ hình.}}
+\gap
+\begin{probbox}{4}{\relax}
+Một cái hòm đựng đồ chơi dài $1{,}2$ m, rộng $0{,}6$ m, cao $0{,}4$ m. Cần bao nhiêu khối gỗ hình lập phương cạnh $2$ dm để xếp đầy khít hòm?
+\end{probbox}
+\probsol{
+Đổi: $1{,}2$ m $=12$ dm; $0{,}6$ m $=6$ dm; $0{,}4$ m $=4$ dm.\par
+Theo chiều dài: $12:2=6$ (khối); theo chiều rộng: $6:2=3$ (khối); theo chiều cao: $4:2=2$ (khối).\par
+Số khối gỗ cần dùng là: $6\times3\times2=36$ (khối).
+\dapso{$36$ khối.}}
+\gap
+\begin{probbox}{5}{\relax}
+Xếp $64$ hình lập phương nhỏ, mỗi hình có thể tích $1$ cm$^3$, thành một hình lập phương lớn. Tính diện tích xung quanh, diện tích toàn phần và thể tích của hình lập phương lớn.
+\end{probbox}
+\probsol{
+Hình lập phương nhỏ có thể tích $1$ cm$^3$ thì có cạnh $1$ cm.\par
+Ta có $64=4\times4\times4$ nên mỗi cạnh hình lớn có $4$ hình nhỏ; cạnh hình lớn dài $4$ cm.\par
+Diện tích xung quanh là: $4\times4\times4=64$ (cm$^2$).\par
+Diện tích toàn phần là: $4\times4\times6=96$ (cm$^2$).\par
+Thể tích là: $64\times1=64$ (cm$^3$).
+\dapso{$64$ cm$^2$; $96$ cm$^2$; $64$ cm$^3$.}}
+\gap
+\begin{probbox}{6}{\relax}
+Xếp $125$ hình lập phương nhỏ, mỗi hình có thể tích $27$ cm$^3$, thành một hình lập phương lớn. Tính diện tích toàn phần và thể tích của hình lập phương lớn.
+\end{probbox}
+\probsol{
+Ta có $27=3\times3\times3$ nên cạnh hình lập phương nhỏ dài $3$ cm.\par
+Ta có $125=5\times5\times5$ nên mỗi cạnh hình lớn có $5$ hình nhỏ.\par
+Cạnh hình lập phương lớn là: $3\times5=15$ (cm).\par
+Diện tích toàn phần là: $15\times15\times6=1\,350$ (cm$^2$).\par
+Thể tích là: $27\times125=3\,375$ (cm$^3$).
+\dapso{$1\,350$ cm$^2$; $3\,375$ cm$^3$.}}
+\gap
+\begin{probbox}{7}{\relax}
+Người ta xếp các hình lập phương nhỏ cạnh $1$ cm thành một hình lập phương lớn có diện tích toàn phần $216$ cm$^2$. Hỏi đã dùng bao nhiêu hình lập phương nhỏ?
+\end{probbox}
+\probsol{
+Diện tích một mặt là: $216:6=36$ (cm$^2$).\par
+Ta có $36=6\times6$ nên cạnh hình lập phương lớn dài $6$ cm.\par
+Số hình lập phương nhỏ là: $6\times6\times6=216$ (hình).
+\dapso{$216$ hình.}}
+\gap
+\begin{probbox}{8}{\relax}
+Người ta xếp các hình lập phương nhỏ cạnh $2$ cm thành một hình lập phương lớn có diện tích xung quanh $400$ cm$^2$. Hỏi đã dùng bao nhiêu hình lập phương nhỏ?
+\end{probbox}
+\probsol{
+Diện tích một mặt là: $400:4=100$ (cm$^2$).\par
+Ta có $100=10\times10$ nên cạnh hình lập phương lớn dài $10$ cm.\par
+Mỗi cạnh có: $10:2=5$ (hình nhỏ).\par
+Số hình lập phương nhỏ là: $5\times5\times5=125$ (hình).
+\dapso{$125$ hình.}}
+\gap
+\begin{probbox}{9}{\relax}
+Người ta đặt nằm chồng khít $5$ viên gạch lên nhau, mỗi viên dài $20$ cm, rộng $10$ cm, cao $5$ cm. Tính diện tích xung quanh, diện tích toàn phần và thể tích của chồng gạch.
+\end{probbox}
+\probsol{
+Chồng gạch là hình hộp chữ nhật dài $20$ cm, rộng $10$ cm, cao: $5\times5=25$ (cm).\par
+Diện tích xung quanh là: $(20+10)\times2\times25=1\,500$ (cm$^2$).\par
+Diện tích toàn phần là: $1\,500+20\times10\times2=1\,900$ (cm$^2$).\par
+Thể tích là: $20\times10\times25=5\,000$ (cm$^3$).
+\dapso{$1\,500$ cm$^2$; $1\,900$ cm$^2$; $5\,000$ cm$^3$.}}
+\gap
+\begin{probbox}{10}{\relax}
+Xếp chồng hai hình lập phương bằng nhau được một hình hộp chữ nhật cao $16$ cm. Tính diện tích xung quanh và diện tích toàn phần của hình hộp chữ nhật đó.
+\end{probbox}
+\probsol{
+Cạnh mỗi hình lập phương là: $16:2=8$ (cm).\par
+Hình hộp chữ nhật dài $8$ cm, rộng $8$ cm, cao $16$ cm.\par
+Diện tích xung quanh là: $(8+8)\times2\times16=512$ (cm$^2$).\par
+Diện tích toàn phần là: $512+8\times8\times2=640$ (cm$^2$).
+\dapso{$512$ cm$^2$; $640$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Xếp thẳng hàng ba hình lập phương bằng nhau được một hình hộp chữ nhật dài $21$ cm. Tính diện tích toàn phần của hình hộp chữ nhật đó.
+\end{probbox}
+\probsol{
+Cạnh mỗi hình lập phương là: $21:3=7$ (cm). Diện tích một mặt là: $7\times7=49$ (cm$^2$).\par
+Bốn mặt dài của hình hộp gồm $3\times4=12$ mặt hình lập phương; hai mặt hai đầu là $2$ mặt nữa.\par
+Diện tích toàn phần là: $49\times14=686$ (cm$^2$).\par
+\emph{Thử lại:} $2\times(21\times7+21\times7+7\times7)=686$ (cm$^2$).
+\dapso{$686$ cm$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+Một thùng các-tông dài $60$ cm, rộng $40$ cm, cao $30$ cm. Cần bao nhiêu hộp hình lập phương cạnh $10$ cm để xếp đầy khít thùng?
+\end{probbox}
+\probsol{
+Theo chiều dài: $60:10=6$ (hộp); theo chiều rộng: $40:10=4$ (hộp); theo chiều cao: $30:10=3$ (hộp).\par
+Số hộp cần dùng là: $6\times4\times3=72$ (hộp).
+\dapso{$72$ hộp.}}
+\gap
+\begin{probbox}{13}{\relax}
+Một ngăn kéo dài $50$ cm, rộng $35$ cm, cao $22$ cm. Có thể xếp vào đó nhiều nhất bao nhiêu hộp hình lập phương cạnh $10$ cm?
+\end{probbox}
+\probsol{
+Theo chiều dài: $50:10=5$ (hộp).\par
+Vì $35:10=3$ (dư $5$ cm) nên theo chiều rộng xếp được $3$ hộp.\par
+Vì $22:10=2$ (dư $2$ cm) nên theo chiều cao xếp được $2$ hộp.\par
+Số hộp xếp được nhiều nhất là: $5\times3\times2=30$ (hộp).
+\dapso{$30$ hộp.}}
+\gap
+\begin{probbox}{14}{\relax}
+Một cái thùng dài $9$ dm, rộng $6$ dm, cao $4$ dm. Người ta xếp vào thùng các hộp hình lập phương cạnh $3$ dm.\par
+\pa{a} Xếp được nhiều nhất bao nhiêu hộp?\par
+\pa{b} Khi đã xếp số hộp đó, phần thùng còn trống có thể tích bao nhiêu?
+\end{probbox}
+\probsol{
+\pa{a} Theo chiều dài: $9:3=3$ (hộp); theo chiều rộng: $6:3=2$ (hộp); theo chiều cao: $4:3=1$ (dư $1$ dm) nên được $1$ hộp.\par
+Số hộp xếp được là: $3\times2\times1=6$ (hộp).\par
+\pa{b} Thể tích cái thùng là: $9\times6\times4=216$ (dm$^3$).\par
+Thể tích $6$ hộp là: $3\times3\times3\times6=162$ (dm$^3$).\par
+Phần còn trống là: $216-162=54$ (dm$^3$).
+\dapso{\pa{a} $6$ hộp;\par \pa{b} $54$ dm$^3$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Một hình lập phương cạnh $3$ cm được xếp từ các hình lập phương nhỏ cạnh $1$ cm rồi sơn tất cả các mặt. Có bao nhiêu hình nhỏ được sơn $3$ mặt, sơn đúng $2$ mặt, sơn đúng $1$ mặt, không được sơn mặt nào?
+\end{probbox}
+\probsol{
+Mỗi cạnh có $3$ hình nhỏ, trong đó $3-2=1$ hình không nằm ở đỉnh.\par
+Sơn $3$ mặt: $8$ hình.\par
+Sơn đúng $2$ mặt: $12\times1=12$ (hình).\par
+Sơn đúng $1$ mặt: $6\times1\times1=6$ (hình).\par
+Không được sơn: $1\times1\times1=1$ (hình) -- đó là hình nằm chính giữa.\par
+\emph{Thử lại:} $8+12+6+1=27=3\times3\times3$.
+\dapso{$8$ hình; $12$ hình; $6$ hình; $1$ hình.}}
+\gap
+\begin{probbox}{16}{\relax}
+Một hình lập phương lớn được xếp từ $216$ hình lập phương nhỏ bằng nhau rồi sơn tất cả các mặt. Hỏi có bao nhiêu hình nhỏ được sơn đúng $2$ mặt? Bao nhiêu hình nhỏ được sơn đúng $1$ mặt?
+\end{probbox}
+\probsol{
+Ta có $216=6\times6\times6$ nên mỗi cạnh có $6$ hình nhỏ.\par
+Số hình được sơn đúng $2$ mặt là: $12\times(6-2)=48$ (hình).\par
+Số hình được sơn đúng $1$ mặt là: $6\times4\times4=96$ (hình).
+\dapso{$48$ hình; $96$ hình.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một hình lập phương lớn được xếp từ $343$ hình lập phương nhỏ bằng nhau rồi sơn tất cả các mặt. Hỏi có bao nhiêu hình nhỏ không được sơn mặt nào?
+\end{probbox}
+\probsol{
+Ta có $343=7\times7\times7$ nên mỗi cạnh có $7$ hình nhỏ.\par
+Các hình không được sơn tạo thành hình lập phương lõi có $7-2=5$ hình trên mỗi cạnh.\par
+Số hình không được sơn là: $5\times5\times5=125$ (hình).
+\dapso{$125$ hình.}}
+\gap
+\begin{probbox}{18}{\relax}
+Người ta xếp các hình lập phương nhỏ cạnh $1$ cm thành hình lập phương lớn cạnh $10$ cm rồi sơn tất cả các mặt. Hỏi có bao nhiêu hình nhỏ được sơn ít nhất $2$ mặt?
+\end{probbox}
+\probsol{
+Mỗi cạnh có $10$ hình nhỏ.\par
+Số hình được sơn $3$ mặt: $8$ hình.\par
+Số hình được sơn đúng $2$ mặt là: $12\times(10-2)=96$ (hình).\par
+Số hình được sơn ít nhất $2$ mặt là: $8+96=104$ (hình).
+\dapso{$104$ hình.}}
+\gap
+\begin{probbox}{19}{\relax}
+Người ta xếp các hình lập phương nhỏ cạnh $1$ cm thành hình hộp chữ nhật dài $5$ cm, rộng $4$ cm, cao $3$ cm rồi sơn tất cả các mặt. Có bao nhiêu hình nhỏ được sơn $3$ mặt, sơn đúng $2$ mặt, sơn đúng $1$ mặt, không được sơn mặt nào?
+\end{probbox}
+\probsol{
+Trên các cạnh có $5;\ 4;\ 3$ hình nhỏ; bỏ các hình ở đỉnh còn $3;\ 2;\ 1$ hình.\par
+Sơn $3$ mặt: $8$ hình.\par
+Sơn đúng $2$ mặt: $4\times(3+2+1)=24$ (hình).\par
+Sơn đúng $1$ mặt: $2\times(3\times2+2\times1+3\times1)=22$ (hình).\par
+Không được sơn: $3\times2\times1=6$ (hình).\par
+\emph{Thử lại:} $8+24+22+6=60=5\times4\times3$.
+\dapso{$8$ hình; $24$ hình; $22$ hình; $6$ hình.}}
+\gap
+\begin{probbox}{20}{\relax}
+Người ta xếp các hình lập phương nhỏ cạnh $2$ cm thành hình hộp chữ nhật dài $14$ cm, rộng $10$ cm, cao $6$ cm rồi sơn tất cả các mặt. Có bao nhiêu hình nhỏ được sơn đúng $2$ mặt, sơn đúng $1$ mặt, không được sơn mặt nào?
+\end{probbox}
+\probsol{
+Trên các cạnh có: $14:2=7$; $10:2=5$; $6:2=3$ (hình); bỏ các hình ở đỉnh còn $5;\ 3;\ 1$ hình.\par
+Sơn đúng $2$ mặt: $4\times(5+3+1)=36$ (hình).\par
+Sơn đúng $1$ mặt: $2\times(5\times3+3\times1+5\times1)=46$ (hình).\par
+Không được sơn: $5\times3\times1=15$ (hình).
+\dapso{$36$ hình; $46$ hình; $15$ hình.}}
+\gap
+\begin{probbox}{21}{\relax}
+Một hình lập phương lớn xếp từ các hình lập phương nhỏ bằng nhau được sơn tất cả các mặt. Có đúng $64$ hình nhỏ không được sơn. Hỏi có tất cả bao nhiêu hình nhỏ và có bao nhiêu hình nhỏ được sơn đúng $1$ mặt?
+\end{probbox}
+\probsol{
+Phần lõi không được sơn là hình lập phương: $64=4\times4\times4$ nên mỗi cạnh lõi có $4$ hình.\par
+Mỗi cạnh hình lập phương lớn có: $4+2=6$ (hình).\par
+Số hình nhỏ là: $6\times6\times6=216$ (hình).\par
+Số hình được sơn đúng $1$ mặt là: $6\times4\times4=96$ (hình).
+\dapso{$216$ hình; $96$ hình.}}
+\gap
+\begin{probbox}{22}{\relax}
+Một hình lập phương lớn xếp từ các hình lập phương nhỏ bằng nhau được sơn tất cả các mặt. Có đúng $150$ hình nhỏ được sơn đúng $1$ mặt. Hỏi có tất cả bao nhiêu hình nhỏ?
+\end{probbox}
+\probsol{
+Mỗi mặt có: $150:6=25$ (hình) được sơn đúng $1$ mặt; $25=5\times5$.\par
+Do đó $n-2=5$, mỗi cạnh có $7$ hình nhỏ.\par
+Số hình nhỏ là: $7\times7\times7=343$ (hình).
+\dapso{$343$ hình.}}
+\gap
+\begin{probbox}{23}{\relax}
+Xếp các hình lập phương nhỏ cạnh $1$ cm thành một hình lập phương lớn rồi sơn tất cả các mặt. Có đúng $84$ hình nhỏ được sơn $2$ mặt. Tính thể tích hình lập phương lớn.
+\end{probbox}
+\probsol{
+Mỗi cạnh có: $84:12=7$ (hình) được sơn đúng $2$ mặt.\par
+Mỗi cạnh có: $7+2=9$ (hình nhỏ), nên cạnh hình lập phương lớn dài $9$ cm.\par
+Thể tích là: $9\times9\times9=729$ (cm$^3$).
+\dapso{$729$ cm$^3$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Xếp các hình lập phương nhỏ cạnh $1$ cm thành hình lập phương lớn cạnh $5$ cm. Sau đó lấy đi một lớp trên cùng. Hỏi còn lại bao nhiêu hình nhỏ và diện tích toàn phần của khối còn lại là bao nhiêu?
+\end{probbox}
+\probsol{
+Một lớp có: $5\times5=25$ (hình), còn lại: $125-25=100$ (hình).\par
+Khối còn lại là hình hộp chữ nhật dài $5$ cm, rộng $5$ cm, cao $4$ cm.\par
+Diện tích xung quanh là: $(5+5)\times2\times4=80$ (cm$^2$).\par
+Diện tích toàn phần là: $80+5\times5\times2=130$ (cm$^2$).
+\dapso{$100$ hình; $130$ cm$^2$.}}
+\gap
+\begin{probbox}{25}{\relax}
+Xếp các hình lập phương nhỏ cạnh $1$ cm thành hình lập phương lớn cạnh $4$ cm. Lấy đi một hình nhỏ ở một đỉnh. Tính diện tích toàn phần của khối còn lại.
+\end{probbox}
+\probsol{
+Lúc đầu diện tích toàn phần là: $4\times4\times6=96$ (cm$^2$).\par
+Lấy hình ở đỉnh đi thì mất $3$ ô vuông $1$ cm$^2$ ở mặt ngoài nhưng lại lộ ra $3$ ô vuông $1$ cm$^2$ mới ở chỗ lõm.\par
+Diện tích không thay đổi: $96-3+3=96$ (cm$^2$).
+\dapso{$96$ cm$^2$.}}
+\gap
+\begin{probbox}{26}{\relax}
+\begin{minipage}[t]{0.6\linewidth}
+Khối bậc thang bên có bao nhiêu hình lập phương? (Phía sau không bị thiếu hình nào.)
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.45]
+\xhcube{0}{1}{0}\xhcube{1}{1}{0}\xhcube{2}{1}{0}\xhcube{1}{1}{1}\xhcube{2}{1}{1}\xhcube{2}{1}{2}\xhcube{0}{0}{0}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{1}{0}{1}\xhcube{2}{0}{1}\xhcube{2}{0}{2}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Khối bậc thang có $2$ hàng (trước và sau).\par
+Nhìn từ phía trước, các cột có $1;\ 2;\ 3$ hình: mỗi hàng có $1+2+3=6$ (hình).\par
+Số hình lập phương là: $6\times2=12$ (hình).
+\dapso{$12$ hình.}}
+\gap
+\begin{probbox}{27}{\relax}
+\begin{minipage}[t]{0.6\linewidth}
+Hình bên là hình nhìn từ trên xuống của một khối xếp; số trong mỗi ô cho biết có bao nhiêu hình lập phương xếp chồng ở ô đó.\par
+\pa{a} Khối đó có bao nhiêu hình lập phương?\par
+\pa{b} Ở hình nhìn từ phía trước, mỗi cột cao bao nhiêu hình?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\foreach \x/\y/\h in {0/1/3,1/1/1,2/1/2,0/0/2,1/0/2,2/0/1}{\draw[xhf,fill=tmBlue!8] (\x,\y) rectangle ++(1,1); \node[font=\small\bfseries] at (\x+0.5,\y+0.5){\h};}
+\node[dim,below] at (1.5,0){phía trước};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\pa{a} Số hình lập phương là: $3+1+2+2+2+1=11$ (hình).\par
+\pa{b} Từ trái sang phải, chồng cao nhất ở mỗi cột có $3;\ 2;\ 2$ hình.
+\dapso{\pa{a} $11$ hình;\par \pa{b} $3;\ 2;\ 2$ hình.}}
+\gap
+\begin{probbox}{28}{\relax}
+\begin{minipage}[t]{0.6\linewidth}
+Khối xếp bên có bao nhiêu hình lập phương? Cần thêm bao nhiêu hình nữa thì đủ để xếp một hình lập phương có $3$ hình nhỏ trên mỗi cạnh?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.45]
+\xhcube{0}{1}{0}\xhcube{1}{1}{0}\xhcube{2}{1}{0}\xhcube{0}{1}{1}\xhcube{1}{1}{1}\xhcube{2}{1}{1}\xhcube{0}{1}{2}\xhcube{1}{1}{2}\xhcube{2}{1}{2}\xhcube{0}{0}{0}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{0}{0}{1}\xhcube{1}{0}{1}\xhcube{2}{0}{1}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Hàng trước có: $3\times2=6$ (hình); hàng sau có: $3\times3=9$ (hình).\par
+Khối xếp có: $6+9=15$ (hình).\par
+Hình lập phương có $3$ hình nhỏ trên mỗi cạnh gồm: $3\times3\times3=27$ (hình).\par
+Cần thêm: $27-15=12$ (hình).
+\dapso{$15$ hình; thêm $12$ hình.}}
+\gap
+\begin{probbox}{29}{\relax}
+Khoa xếp $64$ con xúc xắc, mỗi con là hình lập phương cạnh $2$ cm, thành một hình lập phương lớn. Tính diện tích toàn phần và thể tích của hình lập phương lớn.
+\end{probbox}
+\probsol{
+Ta có $64=4\times4\times4$ nên mỗi cạnh có $4$ con xúc xắc.\par
+Cạnh hình lập phương lớn là: $2\times4=8$ (cm).\par
+Diện tích toàn phần là: $8\times8\times6=384$ (cm$^2$).\par
+Thể tích là: $8\times8\times8=512$ (cm$^3$).
+\dapso{$384$ cm$^2$; $512$ cm$^3$.}}
+\gap
+\begin{probbox}{30}{\relax}
+Người ta sơn tất cả các mặt của một khối gỗ hình hộp chữ nhật dài $12$ dm, rộng $8$ dm, cao $6$ dm, sau đó xẻ thành các khối lập phương cạnh $2$ dm. Hỏi có bao nhiêu khối lập phương? Bao nhiêu khối không được sơn mặt nào? Bao nhiêu khối được sơn đúng $1$ mặt?
+\end{probbox}
+\probsol{
+Trên các cạnh có: $12:2=6$; $8:2=4$; $6:2=3$ (khối).\par
+Số khối lập phương là: $6\times4\times3=72$ (khối).\par
+Bỏ các khối ở đỉnh, trên các cạnh còn $4;\ 2;\ 1$ khối.\par
+Không được sơn: $4\times2\times1=8$ (khối).\par
+Sơn đúng $1$ mặt: $2\times(4\times2+2\times1+4\times1)=28$ (khối).
+\dapso{$72$ khối; $8$ khối; $28$ khối.}}
+\dividerbar{Thử thách -- Nâng cao}
+\begin{probbox}{31}{\stars{1}}
+Một hình lập phương lớn xếp từ các hình lập phương nhỏ được sơn tất cả các mặt. Số hình nhỏ được sơn đúng $1$ mặt bằng số hình nhỏ được sơn đúng $2$ mặt. Hỏi hình lập phương lớn gồm bao nhiêu hình nhỏ?
+\end{probbox}
+\probsol{
+Gọi số hình nhỏ trên mỗi cạnh là $n$, đặt $k=n-2$.\par
+Sơn đúng $1$ mặt: $6\times k\times k$; sơn đúng $2$ mặt: $12\times k$.\par
+$6\times k\times k=12\times k$ nên $k=2$, do đó $n=4$.\par
+Số hình nhỏ là: $4\times4\times4=64$ (hình).
+\dapso{$64$ hình.}}
+\gap
+\begin{probbox}{32}{\stars{2}}
+Một hình lập phương lớn xếp từ các hình lập phương nhỏ được sơn tất cả các mặt. Số hình nhỏ không được sơn bằng số hình nhỏ được sơn đúng $1$ mặt. Hỏi có bao nhiêu hình nhỏ?
+\end{probbox}
+\probsol{
+Đặt $k=n-2$. Không được sơn: $k\times k\times k$; sơn đúng $1$ mặt: $6\times k\times k$.\par
+$k\times k\times k=6\times k\times k$ nên $k=6$, do đó $n=8$.\par
+Số hình nhỏ là: $8\times8\times8=512$ (hình).\par
+\emph{Thử lại:} không sơn $6\times6\times6=216$; sơn $1$ mặt $6\times36=216$.
+\dapso{$512$ hình.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Một hình lập phương cạnh $4$ cm xếp từ các hình lập phương nhỏ cạnh $1$ cm được sơn tất cả các mặt rồi tách rời ra. Hỏi số mặt được sơn bằng mấy phần tổng số mặt của tất cả các hình nhỏ?
+\end{probbox}
+\probsol{
+Số ô vuông được sơn chính là mặt ngoài hình lớn: $4\times4\times6=96$ (ô).\par
+Tổng số mặt của các hình nhỏ là: $64\times6=384$ (mặt).\par
+Phân số cần tìm: $\dfrac{96}{384}=\dfrac14$.
+\dapso{$\dfrac14$.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Xếp các hình lập phương nhỏ cạnh $1$ cm thành hình lập phương lớn cạnh $5$ cm. Chỉ sơn $4$ mặt xung quanh (không sơn mặt trên và mặt dưới). Có bao nhiêu hình nhỏ được sơn đúng $2$ mặt, sơn đúng $1$ mặt, không được sơn mặt nào?
+\end{probbox}
+\probsol{
+Mỗi lớp trong $5$ lớp là một hình vuông $5\times5$ được sơn ở viền ngoài.\par
+Trong một lớp: $4$ hình ở góc được sơn $2$ mặt; $4\times3=12$ hình được sơn $1$ mặt; $3\times3=9$ hình không được sơn.\par
+Sơn đúng $2$ mặt: $4\times5=20$ (hình).\par
+Sơn đúng $1$ mặt: $12\times5=60$ (hình).\par
+Không được sơn: $9\times5=45$ (hình).\par
+\emph{Thử lại:} $20+60+45=125$.
+\dapso{$20$ hình; $60$ hình; $45$ hình.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Xếp các hình lập phương nhỏ cạnh $1$ cm thành hình lập phương lớn cạnh $6$ cm. Sơn $4$ mặt xung quanh màu xanh; mặt trên và mặt dưới màu đỏ. Hỏi có bao nhiêu hình nhỏ được sơn cả hai màu?
+\end{probbox}
+\probsol{
+Hình nhỏ có màu đỏ nằm ở lớp trên cùng hoặc lớp dưới cùng.\par
+Hình đó có thêm màu xanh khi nằm ở viền ngoài của lớp.\par
+Viền ngoài của một lớp $6\times6$ có: $6\times6-4\times4=20$ (hình).\par
+Số hình được sơn cả hai màu là: $20\times2=40$ (hình).
+\dapso{$40$ hình.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Xếp $343$ hình lập phương nhỏ cạnh $2$ cm thành một hình lập phương lớn. Sau đó lấy đi một lớp trên cùng. Tính diện tích toàn phần của khối còn lại.
+\end{probbox}
+\probsol{
+Ta có $343=7\times7\times7$ nên cạnh hình lập phương lớn là: $2\times7=14$ (cm).\par
+Lấy đi lớp trên cùng, còn lại hình hộp chữ nhật dài $14$ cm, rộng $14$ cm, cao: $14-2=12$ (cm).\par
+Diện tích xung quanh là: $(14+14)\times2\times12=672$ (cm$^2$).\par
+Diện tích toàn phần là: $672+14\times14\times2=1\,064$ (cm$^2$).
+\dapso{$1\,064$ cm$^2$.}}
+\gap
+\begin{probbox}{37}{\stars{2}}
+Xếp các hình lập phương nhỏ cạnh $1$ cm thành hình lập phương lớn cạnh $5$ cm. Sau đó rút ra một hàng hình nhỏ để tạo một đường hầm thẳng, tiết diện $1$ cm $\times$ $1$ cm, xuyên từ chính giữa mặt trước đến chính giữa mặt sau. Hỏi còn lại bao nhiêu hình nhỏ? Diện tích toàn phần của khối lúc này (kể cả mặt trong đường hầm) là bao nhiêu?
+\end{probbox}
+\probsol{
+Đường hầm lấy đi $5$ hình nhỏ, còn lại: $125-5=120$ (hình).\par
+Mặt ngoài lúc đầu là: $5\times5\times6=150$ (cm$^2$); hai lỗ hầm làm mất $2$ cm$^2$.\par
+Đường hầm có $4$ mặt trong, mỗi mặt dài $5$ cm, rộng $1$ cm: $4\times5=20$ (cm$^2$).\par
+Diện tích toàn phần là: $150-2+20=168$ (cm$^2$).
+\dapso{$120$ hình; $168$ cm$^2$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Một cái hộp dài $20$ cm, rộng $12$ cm, cao $8$ cm. Người ta xếp đầy khít hộp bằng các hình lập phương bằng nhau có độ dài cạnh là số tự nhiên (đơn vị xăng-ti-mét). Hỏi ít nhất phải dùng bao nhiêu hình lập phương?
+\end{probbox}
+\probsol{
+Muốn dùng ít hình nhất thì cạnh hình lập phương phải lớn nhất.\par
+Cạnh đó phải là số mà $20;\ 12;\ 8$ đều chia hết; số lớn nhất như vậy là $4$.\par
+Với cạnh $4$ cm: $20:4=5$; $12:4=3$; $8:4=2$.\par
+Số hình lập phương ít nhất là: $5\times3\times2=30$ (hình).
+\dapso{$30$ hình.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Một cái thùng dài $6$ dm, rộng $4$ dm, cao $2$ dm. Người ta xếp đầy khít thùng bằng các hình lập phương bằng nhau có độ dài cạnh là số tự nhiên (đơn vị đề-xi-mét). Hỏi xếp được nhiều nhất bao nhiêu hình? Ít nhất bao nhiêu hình?
+\end{probbox}
+\probsol{
+Nhiều nhất: cạnh $1$ dm, số hình là: $6\times4\times2=48$ (hình).\par
+Ít nhất: cạnh phải là số mà $6;\ 4;\ 2$ đều chia hết; số lớn nhất như vậy là $2$.\par
+Với cạnh $2$ dm, số hình là: $3\times2\times1=6$ (hình).
+\dapso{Nhiều nhất $48$ hình, ít nhất $6$ hình.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Người ta dán các hình lập phương cạnh $1$ cm thành một hàng thẳng, mặt áp mặt. Một hàng $10$ hình có diện tích toàn phần $42$ cm$^2$. Hỏi hàng có diện tích toàn phần $82$ cm$^2$ gồm bao nhiêu hình?
+\end{probbox}
+\probsol{
+Mỗi hình cho $4$ mặt ở phía xung quanh của hàng; $2$ đầu hàng thêm $2$ mặt.\par
+Hàng $n$ hình có diện tích $4\times n+2$ (cm$^2$). Thử: $4\times10+2=42$.\par
+$4\times n+2=82$ nên $4\times n=80$, $n=20$.
+\dapso{$20$ hình.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+\begin{minipage}[t]{0.6\linewidth}
+Một khối bậc thang được dán từ các hình lập phương cạnh $1$ cm (chỉ có một hàng). Tính số hình lập phương và diện tích toàn phần của khối bậc thang (kể cả mặt đáy).
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.42]
+\xhcube{0}{0}{0}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{3}{0}{0}\xhcube{1}{0}{1}\xhcube{2}{0}{1}\xhcube{3}{0}{1}\xhcube{2}{0}{2}\xhcube{3}{0}{2}\xhcube{3}{0}{3}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Số hình lập phương là: $1+2+3+4=10$ (hình).\par
+Mặt trước và mặt sau: $10+10=20$ (cm$^2$).\par
+Mặt đáy: $4$ cm$^2$; nhìn từ trên xuống thấy $4$ cm$^2$ (mỗi cột một ô).\par
+Hướng sang trái: $1+1+1+1=4$ (cm$^2$) (đầu bên trái và ba bậc đứng); hướng sang phải: $4$ cm$^2$.\par
+Diện tích toàn phần là: $20+4+4+4+4=36$ (cm$^2$).
+\dapso{$10$ hình; $36$ cm$^2$.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+\begin{minipage}[t]{0.6\linewidth}
+Hình bên là hình nhìn từ trên xuống của một khối xếp, có ghi số hình lập phương ở mỗi ô. Khối đó có bao nhiêu hình lập phương? Cần thêm bao nhiêu hình để được một hình lập phương có $3$ hình nhỏ trên mỗi cạnh?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\foreach \x/\y/\h in {0/2/3,1/2/2,2/2/1,0/1/2,1/1/2,2/1/1,0/0/1,1/0/1,2/0/1}{\draw[xhf,fill=tmBlue!8] (\x,\y) rectangle ++(1,1); \node[font=\small\bfseries] at (\x+0.5,\y+0.5){\h};}
+\node[dim,below] at (1.5,0){phía trước};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Số hình lập phương là: $(3+2+1)+(2+2+1)+(1+1+1)=6+5+3=14$ (hình).\par
+Hình lập phương đầy đủ có $27$ hình.\par
+Cần thêm: $27-14=13$ (hình).
+\dapso{$14$ hình; thêm $13$ hình.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Một hình lập phương cạnh $6$ cm xếp từ các hình lập phương nhỏ cạnh $1$ cm được sơn tất cả các mặt rồi tách rời ra. Tính tổng diện tích các mặt được sơn và tổng diện tích các mặt không được sơn của tất cả các hình nhỏ.
+\end{probbox}
+\probsol{
+Phần được sơn chính là mặt ngoài hình lớn: $6\times6\times6=216$ (cm$^2$).\par
+Có $216$ hình nhỏ, mỗi hình có $6$ mặt $1$ cm$^2$: $216\times6=1\,296$ (cm$^2$).\par
+Phần không được sơn là: $1\,296-216=1\,080$ (cm$^2$).
+\dapso{Được sơn $216$ cm$^2$; không được sơn $1\,080$ cm$^2$.}}
+\gap
+\begin{probbox}{44}{\stars{2}}
+Một hình hộp chữ nhật xếp từ các hình lập phương cạnh $1$ cm có đáy dài $6$ cm, rộng $5$ cm. Sơn tất cả các mặt thì có $24$ hình nhỏ không được sơn. Tính chiều cao hình hộp và số hình nhỏ được sơn đúng $1$ mặt.
+\end{probbox}
+\probsol{
+Phần lõi không được sơn có mỗi lớp gồm $(6-2)\times(5-2)=4\times3=12$ (hình).\par
+Số lớp của lõi là: $24:12=2$ (lớp), nên chiều cao là: $2+2=4$ (cm).\par
+Bỏ các hình ở đỉnh, trên các cạnh còn $4;\ 3;\ 2$ hình.\par
+Sơn đúng $1$ mặt: $2\times(4\times3+3\times2+4\times2)=2\times26=52$ (hình).
+\dapso{Chiều cao $4$ cm; $52$ hình.}}
+\gap
+\begin{probbox}{45}{\stars{2}}
+Người ta dùng các viên gạch dài $12$ cm, rộng $8$ cm, cao $6$ cm, đặt cùng một chiều, xếp cạnh nhau và chồng thành lớp để được một khối đặc hình lập phương. Cần ít nhất bao nhiêu viên gạch?
+\end{probbox}
+\probsol{
+Cạnh hình lập phương phải chia hết cho chiều dài, chiều rộng và chiều cao viên gạch.\par
+Số nhỏ nhất chia hết cho $12;\ 8;\ 6$ là $24$, nên cạnh hình lập phương là $24$ cm.\par
+Theo chiều dài: $24:12=2$ (viên); theo chiều rộng: $24:8=3$ (viên); theo chiều cao: $24:6=4$ (lớp).\par
+Số viên gạch là: $2\times3\times4=24$ (viên).
+\dapso{$24$ viên.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Một hình lập phương lớn xếp từ các hình lập phương nhỏ được sơn tất cả các mặt. Có đúng $98$ hình nhỏ được sơn. Hỏi mỗi cạnh hình lớn có bao nhiêu hình nhỏ?
+\end{probbox}
+\probsol{
+Số hình được sơn $=$ số hình tất cả $-$ số hình ở lõi.\par
+Thử $n=4$: $64-8=56$. Thử $n=5$: $125-27=98$ (đúng).\par
+Vậy mỗi cạnh có $5$ hình nhỏ.
+\dapso{$5$ hình.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+\begin{minipage}[t]{0.6\linewidth}
+Từ hình lập phương cạnh $4$ cm xếp bởi các hình lập phương nhỏ cạnh $1$ cm, người ta lấy đi cả $8$ hình ở $8$ đỉnh. Hỏi còn lại bao nhiêu hình nhỏ? Diện tích toàn phần của khối còn lại là bao nhiêu?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.4]
+\xhcube{1}{3}{0}\xhcube{2}{3}{0}\xhcube{0}{3}{1}\xhcube{1}{3}{1}\xhcube{2}{3}{1}\xhcube{3}{3}{1}\xhcube{0}{3}{2}\xhcube{1}{3}{2}\xhcube{2}{3}{2}\xhcube{3}{3}{2}\xhcube{1}{3}{3}\xhcube{2}{3}{3}\xhcube{0}{2}{0}\xhcube{1}{2}{0}\xhcube{2}{2}{0}\xhcube{3}{2}{0}\xhcube{0}{2}{1}\xhcube{1}{2}{1}\xhcube{2}{2}{1}\xhcube{3}{2}{1}\xhcube{0}{2}{2}\xhcube{1}{2}{2}\xhcube{2}{2}{2}\xhcube{3}{2}{2}\xhcube{0}{2}{3}\xhcube{1}{2}{3}\xhcube{2}{2}{3}\xhcube{3}{2}{3}\xhcube{0}{1}{0}\xhcube{1}{1}{0}\xhcube{2}{1}{0}\xhcube{3}{1}{0}\xhcube{0}{1}{1}\xhcube{1}{1}{1}\xhcube{2}{1}{1}\xhcube{3}{1}{1}\xhcube{0}{1}{2}\xhcube{1}{1}{2}\xhcube{2}{1}{2}\xhcube{3}{1}{2}\xhcube{0}{1}{3}\xhcube{1}{1}{3}\xhcube{2}{1}{3}\xhcube{3}{1}{3}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{0}{0}{1}\xhcube{1}{0}{1}\xhcube{2}{0}{1}\xhcube{3}{0}{1}\xhcube{0}{0}{2}\xhcube{1}{0}{2}\xhcube{2}{0}{2}\xhcube{3}{0}{2}\xhcube{1}{0}{3}\xhcube{2}{0}{3}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Số hình còn lại là: $64-8=56$ (hình).\par
+Mỗi lần lấy đi một hình ở đỉnh thì mất $3$ ô vuông ở mặt ngoài nhưng lộ ra $3$ ô vuông mới, nên diện tích không đổi.\par
+Diện tích toàn phần là: $4\times4\times6=96$ (cm$^2$).
+\dapso{$56$ hình; $96$ cm$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+Xếp các hình lập phương nhỏ cạnh $1$ cm thành hình hộp chữ nhật dài $8$ cm, rộng $6$ cm, cao $4$ cm đặt trên mặt bàn. Sơn tất cả các mặt trừ mặt đáy. Hỏi có bao nhiêu hình nhỏ được sơn đúng $1$ mặt?
+\end{probbox}
+\probsol{
+\emph{Mặt trên:} các hình không nằm ở viền: $(8-2)\times(6-2)=24$ (hình).\par
+\emph{Mặt trước và mặt sau:} các hình không nằm ở cạnh trái, cạnh phải (mỗi hàng $6$ hình) và không ở hàng trên cùng (còn $3$ hàng; hàng dưới cùng không bị sơn ở đáy): mỗi mặt $6\times3=18$ (hình), cả hai mặt $36$ hình.\par
+\emph{Mặt trái và mặt phải:} mỗi mặt $(6-2)\times3=12$ (hình), cả hai mặt $24$ hình.\par
+Số hình được sơn đúng $1$ mặt là: $24+36+24=84$ (hình).
+\dapso{$84$ hình.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Một hình lập phương được xếp từ $27$ hình lập phương nhỏ ($3$ hình trên mỗi cạnh). Trong đó có tất cả bao nhiêu hình lập phương (gồm các hình có $1$, $2$ hoặc $3$ hình nhỏ trên mỗi cạnh)?
+\end{probbox}
+\probsol{
+Hình lập phương cạnh $1$: $27$ hình.\par
+Hình lập phương cạnh $2$: theo mỗi chiều có $2$ vị trí, nên có $2\times2\times2=8$ (hình).\par
+Hình lập phương cạnh $3$: $1$ hình.\par
+Tất cả có: $27+8+1=36$ (hình).
+\dapso{$36$ hình.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+\begin{minipage}[t]{0.56\linewidth}
+Một khối xếp đặt trên đáy gồm $3\times2$ ô vuông, ô nào cũng có ít nhất một hình lập phương. Hình bên là hình nhìn từ phía trước và hình nhìn từ bên phải của khối. Khối đó có nhiều nhất bao nhiêu hình lập phương? Ít nhất bao nhiêu hình?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.4\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.42]
+\foreach \x/\y in {0/0,0/1,0/2,1/0,2/0,2/1}{\draw[xhf,fill=tmBlue!20] (\x,\y) rectangle ++(1,1);}
+\node[dim,below] at (1.5,0){từ phía trước};
+\begin{scope}[xshift=4.5cm]
+\foreach \x/\y in {0/0,0/1,1/0,1/1,1/2}{\draw[xhf,fill=tmBlue!20] (\x,\y) rectangle ++(1,1);}
+\node[dim,below] at (1,0){từ bên phải};
+\node[dim] at (0.4,-1.3){trước}; \node[dim] at (1.6,-1.3){sau};
+\end{scope}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Nhìn từ phía trước: ba cột (từ trái sang phải) cao $3;\ 1;\ 2$ hình. Nhìn từ bên phải: hàng trước cao $2$ hình, hàng sau cao $3$ hình.\par
+\emph{Nhiều nhất:} mỗi chồng cao bằng số bé hơn trong hai số: chiều cao của cột và chiều cao của hàng chứa nó.\par
+Hàng trước: $2+1+2=5$ (hình); hàng sau: $3+1+2=6$ (hình). Nhiều nhất: $5+6=11$ (hình).\par
+\emph{Ít nhất:} đặt $3$ hình ở ô bên trái hàng sau (vừa đủ cột trái cao $3$, vừa đủ hàng sau cao $3$), đặt $2$ hình ở ô bên phải hàng trước; mỗi ô còn lại $1$ hình.\par
+Ít nhất: $3+2+1+1+1+1=9$ (hình).
+\dapso{Nhiều nhất $11$ hình, ít nhất $9$ hình.}}

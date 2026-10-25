@@ -1,0 +1,526 @@
+\shead{Chuyển động trên sông}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Nước sông chảy theo một chiều. Thuyền đi \emph{xuôi dòng} được dòng nước đẩy đi nhanh hơn; thuyền đi \emph{ngược dòng} bị dòng nước cản lại nên đi chậm hơn.
+\item Gọi $v_{\text{thực}}$ là vận tốc của thuyền khi nước lặng (vận tốc thực), $v_{\text{nước}}$ là vận tốc dòng nước. Khi đó
+\[v_{\text{xuôi}}=v_{\text{thực}}+v_{\text{nước}},\qquad v_{\text{ngược}}=v_{\text{thực}}-v_{\text{nước}}.\]
+\item Từ đó $v_{\text{xuôi}}-v_{\text{ngược}}=2\times v_{\text{nước}}$, nên
+\[v_{\text{nước}}=(v_{\text{xuôi}}-v_{\text{ngược}}):2,\qquad v_{\text{thực}}=(v_{\text{xuôi}}+v_{\text{ngược}}):2.\]
+\item Bè, cái lá, khúc gỗ trôi trên mặt nước (không có máy, không chèo) trôi với vận tốc đúng bằng vận tốc dòng nước.
+\end{itemize}
+\begin{center}
+\begin{tikzpicture}[font=\footnotesize,>=Stealth]
+\fill[tmBlue!12] (0,0) rectangle (10,1.9);
+\draw[line width=1.2pt,tmGreen!60!black] (0,0)--(10,0) (0,1.9)--(10,1.9);
+\foreach \y in {0.3,0.95,1.6}{\draw[tmBlue!45,domain=0.2:9.8,samples=80] plot (\x,{\y+0.04*sin(\x*260)});}
+\draw[->,line width=1.6pt,tmBlue] (3.9,0.95)--(6.1,0.95) node[midway,above=1pt,lbl,text=tmBlue]{dòng nước};
+\fill[tmOrange] (0.7,1.32)--(1.9,1.32)--(1.7,1.12)--(0.85,1.12)--cycle; \fill[tmOrange!70!black] (1.1,1.32) rectangle (1.45,1.5);
+\draw[->,line width=1pt,tmOrange!80!black] (2.1,1.3)--(3.3,1.3);
+\fill[tmPurple] (9.3,0.62)--(8.1,0.62)--(8.3,0.42)--(9.15,0.42)--cycle; \fill[tmPurple!70!black] (8.55,0.62) rectangle (8.9,0.8);
+\draw[->,line width=1pt,tmPurple] (7.9,0.6)--(6.7,0.6);
+\node[lbl,above] at (0.2,1.9){A}; \node[lbl,above] at (9.8,1.9){B};
+\node[lbl,anchor=west] at (10.1,1.35){xuôi dòng: $v_{\text{thực}}+v_{\text{nước}}$};
+\node[lbl,anchor=west] at (10.1,0.5){ngược dòng: $v_{\text{thực}}-v_{\text{nước}}$};
+\end{tikzpicture}
+\end{center}
+\textbf{Lưu ý:} khi đi xuôi và đi ngược trên cùng một quãng sông AB thì thời gian đi và vận tốc là hai đại lượng \emph{tỉ lệ nghịch}: đi nhanh hơn thì hết ít thời gian hơn.
+\end{knowbox}
+\gap
+\shead{Chuyển động của vật có chiều dài đáng kể}
+\begin{knowbox}
+Đoàn tàu có chiều dài đáng kể, nên chỉ khi \emph{đuôi tàu} đã đi qua thì mới coi là tàu đã đi qua. Ta theo dõi \emph{đầu tàu} và xét xem đầu tàu đi được quãng đường bao nhiêu.\par\smallskip
+\textbf{a) Tàu chạy qua một cột điện} (một cái cây, một người đứng yên): tính từ lúc đầu tàu tới cột điện đến lúc đuôi tàu rời cột điện, đầu tàu đi được quãng đường bằng \emph{chiều dài đoàn tàu}.
+\[\text{thời gian tàu qua cột điện}=\text{chiều dài tàu}:\text{vận tốc tàu}.\]
+\begin{center}
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,x=0.85cm,y=0.85cm]
+\draw[line width=1pt,Slate] (-3.4,0)--(3.6,0);
+\foreach \i in {0,1,2}{\draw[fill=tmOrange!25,draw=tmOrange!80!black,rounded corners=1pt] (-3.1+\i,0.15) rectangle ++(0.92,0.55); \fill[Ink] (-2.9+\i,0.12) circle(0.07) (-2.4+\i,0.12) circle(0.07);}
+\draw[line width=1.2pt,tmGreen!60!black] (0.04,0)--(0.04,1.4); \fill[tmGreen!60!black] (0.04,1.4) circle(0.08);
+\foreach \i in {0,1,2}{\draw[fill=tmOrange!12,draw=tmOrange!60,dashed,rounded corners=1pt] (0.08+\i,0.15) rectangle ++(0.92,0.55);}
+\node[lbl,above] at (0.04,1.45){cột điện};
+\node[dim] at (-1.6,1.05){lúc bắt đầu}; \node[dim] at (1.6,1.05){lúc kết thúc};
+\draw[->,tmBlue,line width=0.9pt] (0,-0.35)--node[below,lbl,text=tmBlue]{đầu tàu đi được một chiều dài tàu}(3.08,-0.35);
+\end{tikzpicture}
+\end{center}
+\textbf{b) Tàu chạy qua một cây cầu} (một đường hầm, một sân ga): tính từ lúc đầu tàu bắt đầu lên cầu đến lúc đuôi tàu rời khỏi cầu, đầu tàu đi được quãng đường bằng \emph{chiều dài cầu cộng chiều dài tàu}.
+\[\text{thời gian tàu qua cầu}=(\text{chiều dài tàu}+\text{chiều dài cầu}):\text{vận tốc tàu}.\]
+\begin{center}
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,x=0.85cm,y=0.85cm]
+\fill[tmBlue!12] (0,-0.9) rectangle (5,-0.15);
+\draw[line width=1.2pt,Slate] (-3.4,0)--(8.4,0);
+\draw[line width=2pt,tmBlue!70!black] (0,0)--(5,0); \foreach \x in {0,1.25,...,5}{\draw[tmBlue!70!black,line width=0.8pt] (\x,0)--(\x,-0.9);}
+\foreach \i in {0,1,2}{\draw[fill=tmOrange!25,draw=tmOrange!80!black,rounded corners=1pt] (-3.04+\i,0.15) rectangle ++(0.92,0.55); \fill[Ink] (-2.84+\i,0.12) circle(0.07) (-2.34+\i,0.12) circle(0.07);}
+\foreach \i in {0,1,2}{\draw[fill=tmOrange!12,draw=tmOrange!60,dashed,rounded corners=1pt] (5.04+\i,0.15) rectangle ++(0.92,0.55);}
+\node[dim] at (-1.5,1.0){đầu tàu tới cầu}; \node[dim] at (6.5,1.0){đuôi tàu rời cầu};
+\draw[|<->|,Slate] (0,-1.2)--node[below,dim]{chiều dài cầu}(5,-1.2);
+\draw[|<->|,Slate] (5,-1.2)--node[below,dim]{chiều dài tàu}(8,-1.2);
+\draw[->,tmBlue,line width=0.9pt] (0,1.55)--node[above,lbl,text=tmBlue]{quãng đường đầu tàu đi được}(8,1.55);
+\end{tikzpicture}
+\end{center}
+\textbf{Đổi đơn vị:} $1$ m/giây $=3{,}6$ km/giờ. Chẳng hạn $54$ km/giờ $=54\,000$ m $:3\,600$ giây $=15$ m/giây.
+\end{knowbox}
+\gap
+\shead{Đoàn tàu và một vật chuyển động khác}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Hai tàu chạy ngược chiều} (trên hai đường ray song song): từ lúc hai đầu tàu gặp nhau đến lúc hai đuôi tàu rời nhau, hai tàu cùng đi được tổng chiều dài của hai tàu.
+\[\text{thời gian tránh nhau}=(\text{chiều dài tàu 1}+\text{chiều dài tàu 2}):(v_1+v_2).\]
+\item \textbf{Tàu này vượt tàu kia} (cùng chiều): tàu nhanh phải đi hơn tàu chậm một quãng bằng tổng chiều dài hai tàu.
+\[\text{thời gian vượt nhau}=(\text{chiều dài tàu 1}+\text{chiều dài tàu 2}):(v_1-v_2).\]
+\item \textbf{Tàu và người đi xe đạp, người đi bộ, ô tô} (vật có chiều dài không đáng kể): thay tổng chiều dài bằng chiều dài đoàn tàu;
+ngược chiều: $\text{thời gian}=\text{chiều dài tàu}:(v_{\text{tàu}}+v)$; cùng chiều: $\text{thời gian}=\text{chiều dài tàu}:(v_{\text{tàu}}-v)$.
+\item Một hành khách \emph{ngồi} trên tàu này nhìn tàu kia chạy qua thì chỉ thấy chiều dài của tàu \emph{kia} lướt qua.
+\end{itemize}\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Quãng sông AB dài $36$ km, dòng nước chảy từ A đến B với vận tốc $3$ km/giờ. Lúc $6$ giờ $30$ phút, một chiếc thuyền có vận tốc thực $15$ km/giờ rời A đi đến B, nghỉ ở B $30$ phút rồi quay về A. Hỏi thuyền về đến A lúc mấy giờ?
+\guide
+Vận tốc thuyền khi xuôi dòng: $15+3=18$ (km/giờ); thời gian đi từ A đến B: $36:18=2$ (giờ).\par
+Vận tốc thuyền khi ngược dòng: $15-3=12$ (km/giờ); thời gian đi từ B về A: $36:12=3$ (giờ).\par
+Thuyền về đến A lúc: $6$ giờ $30$ phút $+\,2$ giờ $+\,30$ phút $+\,3$ giờ $=12$ giờ.
+\dapso{$12$ giờ trưa.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Một chiếc ca nô đi xuôi dòng từ A đến B hết $4$ giờ và đi ngược dòng từ B về A hết $6$ giờ. Hỏi một cái bè thả trôi theo dòng nước từ A thì sau bao lâu đến B?
+\guide
+\textit{Cách 1 (chọn độ dài quãng sông).} Coi quãng sông AB gồm $12$ đơn vị độ dài ($12$ chia hết cho cả $4$ và $6$).\par
+Vận tốc xuôi dòng: $12:4=3$ (đơn vị/giờ); vận tốc ngược dòng: $12:6=2$ (đơn vị/giờ).\par
+Vận tốc dòng nước (cũng là vận tốc của bè): $(3-2):2=0{,}5$ (đơn vị/giờ).\par
+Thời gian bè trôi từ A đến B: $12:0{,}5=24$ (giờ).\par\smallskip
+\textit{Cách 2 (dùng phân số).} Mỗi giờ ca nô xuôi dòng đi được $\dfrac14$ quãng sông AB, ngược dòng đi được $\dfrac16$ quãng sông AB.\par
+Mỗi giờ dòng nước đưa bè trôi được $\left(\dfrac14-\dfrac16\right):2=\dfrac1{24}$ quãng sông AB, nên bè trôi hết $24$ giờ.
+\dapso{$24$ giờ.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Một đoàn tàu chạy với vận tốc $54$ km/giờ đi qua một cột điện hết $8$ giây.
+\begin{cols2}
+\pa{a} Tính chiều dài đoàn tàu. & \pa{b} Với vận tốc đó, đoàn tàu chạy qua một cây cầu dài $330$ m hết bao lâu?
+\end{cols2}
+\guide
+$54$ km/giờ $=54\,000$ m $:3\,600$ giây $=15$ m/giây.\par
+\pa{a} Khi qua cột điện, tàu đi được quãng đường bằng chiều dài tàu: $15\times8=120$ (m).\par
+\pa{b} Khi qua cầu, tàu đi được $120+330=450$ (m); thời gian: $450:15=30$ (giây).
+\dapso{\pa{a} $120$ m;\quad \pa{b} $30$ giây.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Tàu P dài $160$ m chạy với vận tốc $20$ m/giây. Tàu Q dài $140$ m chạy với vận tốc $10$ m/giây trên đường ray song song. Hai tàu đi qua nhau hết bao lâu
+\begin{cols2}
+\pa{a} nếu hai tàu chạy ngược chiều? & \pa{b} nếu tàu P vượt tàu Q (cùng chiều)?
+\end{cols2}
+\guide
+Trong cả hai trường hợp, quãng đường cần đi là tổng chiều dài hai tàu: $160+140=300$ (m).\par
+\pa{a} Ngược chiều: mỗi giây hai tàu gần nhau thêm $20+10=30$ (m); thời gian: $300:30=10$ (giây).\par
+\pa{b} Cùng chiều: mỗi giây tàu P đi hơn tàu Q $20-10=10$ (m); thời gian: $300:10=30$ (giây).
+\dapso{\pa{a} $10$ giây;\quad \pa{b} $30$ giây.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Một đoàn tàu dài $150$ m chạy qua một cây cầu dài $210$ m hết $24$ giây. Cũng đoàn tàu đó vượt qua một người đi xe đạp cùng chiều hết $12$ giây. Tính vận tốc của người đi xe đạp.
+\guide
+Vận tốc đoàn tàu: $(150+210):24=15$ (m/giây).\par\smallskip
+\textit{Cách 1.} Trong $12$ giây, đầu tàu đi được $15\times12=180$ (m). Lúc đầu, đầu tàu ngang người đi xe đạp; lúc sau, người đó ngang đuôi tàu, nên người đi xe đạp đi được $180-150=30$ (m).\par
+Vận tốc người đi xe đạp: $30:12=2{,}5$ (m/giây).\par\smallskip
+\textit{Cách 2.} Trong $12$ giây tàu đi hơn người đi xe đạp $150$ m, nên hiệu vận tốc là $150:12=12{,}5$ (m/giây).\par
+Vận tốc người đi xe đạp: $15-12{,}5=2{,}5$ (m/giây) $=9$ km/giờ.
+\dapso{$2{,}5$ m/giây (tức là $9$ km/giờ).}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Một chiếc thuyền có vận tốc thực $16$ km/giờ, vận tốc dòng nước là $2$ km/giờ. Tính vận tốc của thuyền khi xuôi dòng và khi ngược dòng.
+\end{probbox}
+\probsol{
+Vận tốc xuôi dòng: $16+2=18$ (km/giờ).\par Vận tốc ngược dòng: $16-2=14$ (km/giờ).
+\dapso{xuôi dòng $18$ km/giờ, ngược dòng $14$ km/giờ.}}
+\gap
+\begin{probbox}{2}{\relax}
+Lúc $7$ giờ $15$ phút, một chiếc thuyền đi xuôi dòng từ A và đến B lúc $9$ giờ $45$ phút. Biết vận tốc thực của thuyền là $21$ km/giờ, vận tốc dòng nước là $3$ km/giờ. Tính độ dài quãng sông AB.
+\end{probbox}
+\probsol{
+Thời gian thuyền đi: $9$ giờ $45$ phút $-\,7$ giờ $15$ phút $=2$ giờ $30$ phút $=2{,}5$ giờ.\par
+Vận tốc xuôi dòng: $21+3=24$ (km/giờ).\par Quãng sông AB: $24\times2{,}5=60$ (km).
+\dapso{$60$ km.}}
+\gap
+\begin{probbox}{3}{\relax}
+Một chiếc ca nô đi xuôi dòng $45$ km hết $1$ giờ $30$ phút và đi ngược dòng quãng đường đó hết $2$ giờ $15$ phút. Tính vận tốc thực của ca nô và vận tốc dòng nước.
+\end{probbox}
+\probsol{
+$1$ giờ $30$ phút $=1{,}5$ giờ; $2$ giờ $15$ phút $=2{,}25$ giờ.\par
+Vận tốc xuôi dòng: $45:1{,}5=30$ (km/giờ); vận tốc ngược dòng: $45:2{,}25=20$ (km/giờ).\par
+Vận tốc thực: $(30+20):2=25$ (km/giờ); vận tốc dòng nước: $(30-20):2=5$ (km/giờ).
+\dapso{$25$ km/giờ và $5$ km/giờ.}}
+\gap
+\begin{probbox}{4}{\relax}
+Một chiếc ca nô đi xuôi dòng từ A đến B dài $48$ km hết $3$ giờ và đi ngược dòng từ B về A hết $4$ giờ. Hỏi một chiếc lá thả trôi theo dòng nước từ A thì sau bao lâu đến B?
+\end{probbox}
+\probsol{
+Vận tốc xuôi dòng: $48:3=16$ (km/giờ); vận tốc ngược dòng: $48:4=12$ (km/giờ).\par
+Vận tốc dòng nước (cũng là vận tốc chiếc lá): $(16-12):2=2$ (km/giờ).\par Thời gian lá trôi: $48:2=24$ (giờ).
+\dapso{$24$ giờ.}}
+\gap
+\begin{probbox}{5}{\relax}
+Một chiếc phà đi xuôi dòng với vận tốc $22$ km/giờ và đi ngược dòng với vận tốc $16$ km/giờ. Tính vận tốc thực của phà và vận tốc dòng nước.
+\end{probbox}
+\probsol{
+Vận tốc thực: $(22+16):2=19$ (km/giờ).\par Vận tốc dòng nước: $(22-16):2=3$ (km/giờ).
+\dapso{$19$ km/giờ và $3$ km/giờ.}}
+\gap
+\begin{probbox}{6}{\relax}
+Một chiếc thuyền có vận tốc thực $12$ km/giờ, vận tốc dòng nước là $2{,}5$ km/giờ. Hỏi thuyền đi ngược dòng $38$ km hết bao lâu?
+\end{probbox}
+\probsol{
+Vận tốc ngược dòng: $12-2{,}5=9{,}5$ (km/giờ).\par Thời gian: $38:9{,}5=4$ (giờ).
+\dapso{$4$ giờ.}}
+\gap
+\begin{probbox}{7}{\relax}
+Một chiếc thuyền có vận tốc thực $18$ km/giờ đi xuôi dòng từ A đến B hết $2$ giờ. Vận tốc dòng nước là $3$ km/giờ. Hỏi thuyền đi ngược dòng từ B về A hết bao lâu?
+\end{probbox}
+\probsol{
+Vận tốc xuôi dòng: $18+3=21$ (km/giờ); quãng sông AB: $21\times2=42$ (km).\par
+Vận tốc ngược dòng: $18-3=15$ (km/giờ); thời gian: $42:15=2{,}8$ (giờ) $=2$ giờ $48$ phút.
+\dapso{$2$ giờ $48$ phút.}}
+\gap
+\begin{probbox}{8}{\relax}
+Một cái bè trôi trên sông được $7{,}5$ km trong $2{,}5$ giờ. Trên dòng sông đó, một chiếc thuyền có vận tốc thực $15$ km/giờ đi ngược dòng $36$ km. Hỏi thuyền đi hết bao lâu?
+\end{probbox}
+\probsol{
+Vận tốc dòng nước: $7{,}5:2{,}5=3$ (km/giờ).\par Vận tốc ngược dòng của thuyền: $15-3=12$ (km/giờ).\par Thời gian: $36:12=3$ (giờ).
+\dapso{$3$ giờ.}}
+\gap
+\begin{probbox}{9}{\relax}
+Một ca nô có vận tốc thực $20$ km/giờ đi xuôi dòng từ A đến B rồi quay về A ngay. Quãng sông AB dài $48$ km, vận tốc dòng nước là $4$ km/giờ. Tính thời gian cả đi lẫn về.
+\end{probbox}
+\probsol{
+Thời gian xuôi dòng: $48:(20+4)=2$ (giờ).\par Thời gian ngược dòng: $48:(20-4)=3$ (giờ).\par Cả đi lẫn về: $2+3=5$ (giờ).
+\dapso{$5$ giờ.}}
+\gap
+\begin{probbox}{10}{\relax}
+Vận tốc xuôi dòng của một chiếc thuyền gấp $1{,}5$ lần vận tốc ngược dòng. Vận tốc dòng nước là $2$ km/giờ. Tính vận tốc thực của thuyền.
+\end{probbox}
+\probsol{
+Vận tốc xuôi dòng hơn vận tốc ngược dòng: $2\times2=4$ (km/giờ).\par
+Vận tốc ngược dòng $1$ phần, vận tốc xuôi dòng $1{,}5$ phần; hiệu $0{,}5$ phần ứng với $4$ km/giờ.\par
+Vận tốc ngược dòng: $4:0{,}5=8$ (km/giờ); vận tốc xuôi dòng: $8\times1{,}5=12$ (km/giờ).\par
+Vận tốc thực: $(12+8):2=10$ (km/giờ).
+\dapso{$10$ km/giờ.}}
+\gap
+\begin{probbox}{11}{\relax}
+Một chiếc thuyền đi xuôi dòng từ A đến B hết $3$ giờ và đi ngược dòng từ B về A hết $4$ giờ. Vận tốc dòng nước là $2$ km/giờ. Tính độ dài quãng sông AB.
+\end{probbox}
+\probsol{
+Trên cùng quãng đường, vận tốc tỉ lệ nghịch với thời gian: vận tốc xuôi dòng $:$ vận tốc ngược dòng $=4:3$.\par
+Hiệu hai vận tốc là $2\times2=4$ (km/giờ), ứng với $4-3=1$ phần.\par
+Vận tốc xuôi dòng: $4\times4=16$ (km/giờ); quãng sông AB: $16\times3=48$ (km).
+\dapso{$48$ km.}}
+\gap
+\begin{probbox}{12}{\relax}
+Một chiếc ca nô đi xuôi dòng từ C đến D hết $2$ giờ và đi ngược dòng từ D về C hết $3$ giờ. Vận tốc dòng nước là $2{,}5$ km/giờ. Tính vận tốc thực của ca nô.
+\end{probbox}
+\probsol{
+Vận tốc xuôi dòng $:$ vận tốc ngược dòng $=3:2$; hiệu hai vận tốc $2\times2{,}5=5$ (km/giờ) ứng với $1$ phần.\par
+Vận tốc xuôi dòng: $15$ km/giờ; vận tốc ngược dòng: $10$ km/giờ.\par Vận tốc thực: $(15+10):2=12{,}5$ (km/giờ).
+\dapso{$12{,}5$ km/giờ.}}
+\gap
+\begin{probbox}{13}{\relax}
+Một chiếc sà lan đi xuôi dòng từ A đến B hết $5$ giờ và đi ngược dòng từ B về A hết $7$ giờ. Hỏi một khúc gỗ trôi theo dòng nước từ A đến B hết bao lâu?
+\end{probbox}
+\probsol{
+Mỗi giờ sà lan xuôi dòng đi được $\dfrac15$ quãng sông AB, ngược dòng đi được $\dfrac17$ quãng sông AB.\par
+Mỗi giờ dòng nước đưa khúc gỗ trôi được $\left(\dfrac15-\dfrac17\right):2=\dfrac2{35}:2=\dfrac1{35}$ quãng sông AB.\par Vậy khúc gỗ trôi hết $35$ giờ.
+\dapso{$35$ giờ.}}
+\gap
+\begin{probbox}{14}{\relax}
+Một chiếc thuyền có vận tốc thực $15$ km/giờ đi xuôi dòng từ A đến B rồi quay về A ngay. Vận tốc dòng nước là $3$ km/giờ, thời gian cả đi lẫn về là $5$ giờ. Tính độ dài quãng sông AB.
+\end{probbox}
+\probsol{
+Vận tốc xuôi dòng $18$ km/giờ, vận tốc ngược dòng $12$ km/giờ.\par
+Thời gian tỉ lệ nghịch với vận tốc: thời gian xuôi $:$ thời gian ngược $=12:18=2:3$; $5$ phần $=5$ giờ nên $1$ phần $=1$ giờ.\par
+Thời gian xuôi dòng $2$ giờ; quãng sông AB: $18\times2=36$ (km). (\emph{Thử lại:} $36:12=3$ giờ ngược dòng.)
+\dapso{$36$ km.}}
+\gap
+\begin{probbox}{15}{\relax}
+Khi nước lặng, Nam chèo thuyền với vận tốc $4$ km/giờ. Trên một dòng sông có vận tốc dòng nước $1$ km/giờ, Nam chèo ngược dòng $6$ km rồi chèo trở về chỗ cũ. Hỏi Nam chèo cả đi lẫn về hết bao lâu?
+\end{probbox}
+\probsol{
+Thời gian ngược dòng: $6:(4-1)=2$ (giờ).\par Thời gian xuôi dòng: $6:(4+1)=1{,}2$ (giờ).\par Cả đi lẫn về: $3{,}2$ giờ $=3$ giờ $12$ phút.
+\dapso{$3$ giờ $12$ phút.}}
+\gap
+\begin{probbox}{16}{\relax}
+Một đoàn tàu chạy với vận tốc $72$ km/giờ đi qua một cột điện hết $9$ giây. Tính chiều dài đoàn tàu.
+\end{probbox}
+\probsol{
+$72$ km/giờ $=72\,000$ m $:3\,600$ giây $=20$ m/giây.\par Chiều dài đoàn tàu: $20\times9=180$ (m).
+\dapso{$180$ m.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một đoàn tàu dài $240$ m đi qua một người đứng bên đường ray hết $16$ giây. Tính vận tốc đoàn tàu theo đơn vị m/giây và km/giờ.
+\end{probbox}
+\probsol{
+Vận tốc: $240:16=15$ (m/giây).\par $15$ m/giây $=15\times3{,}6=54$ km/giờ.
+\dapso{$15$ m/giây $=54$ km/giờ.}}
+\gap
+\begin{probbox}{18}{\relax}
+Một đoàn tàu dài $150$ m chạy với vận tốc $15$ m/giây. Hỏi đoàn tàu chạy qua một cây cầu dài $300$ m hết bao lâu?
+\end{probbox}
+\probsol{
+Quãng đường đầu tàu phải đi: $150+300=450$ (m).\par Thời gian: $450:15=30$ (giây).
+\dapso{$30$ giây.}}
+\gap
+\begin{probbox}{19}{\relax}
+Một đoàn tàu chạy với vận tốc $54$ km/giờ đi qua một cây cầu dài $0{,}6$ km hết $48$ giây. Tính chiều dài đoàn tàu.
+\end{probbox}
+\probsol{
+$54$ km/giờ $=15$ m/giây; $0{,}6$ km $=600$ m.\par Quãng đường đi trong $48$ giây: $15\times48=720$ (m).\par Chiều dài đoàn tàu: $720-600=120$ (m).
+\dapso{$120$ m.}}
+\gap
+\begin{probbox}{20}{\relax}
+Một đoàn tàu đi qua một cột điện hết $10$ giây và đi qua một cây cầu dài $360$ m hết $34$ giây. Tính vận tốc và chiều dài đoàn tàu.
+\end{probbox}
+\probsol{
+Thời gian tăng thêm $34-10=24$ (giây) là thời gian tàu đi hết chiều dài cầu $360$ m.\par
+Vận tốc: $360:24=15$ (m/giây).\par Chiều dài tàu: $15\times10=150$ (m).
+\dapso{$15$ m/giây và $150$ m.}}
+\gap
+\begin{probbox}{21}{\relax}
+Một đoàn tàu dài $200$ m chạy với vận tốc $20$ m/giây qua một đường hầm dài $1$ km.
+\begin{cols2}
+\pa{a} Tính thời gian từ lúc đầu tàu vào hầm đến lúc đuôi tàu ra khỏi hầm. & \pa{b} Toàn bộ đoàn tàu nằm trong hầm trong bao lâu?
+\end{cols2}
+\end{probbox}
+\probsol{
+$1$ km $=1\,000$ m.\par
+\pa{a} Đầu tàu đi được $1\,000+200=1\,200$ (m): $1\,200:20=60$ (giây).\par
+\pa{b} Toàn bộ tàu nằm trong hầm từ lúc đuôi tàu vào hầm đến lúc đầu tàu ra khỏi hầm; đầu tàu đi được $1\,000-200=800$ (m): $800:20=40$ (giây).
+\dapso{\pa{a} $60$ giây;\quad \pa{b} $40$ giây.}}
+\gap
+\begin{probbox}{22}{\relax}
+Một đoàn tàu dài $180$ m lướt qua một người đi xe đạp ngược chiều với vận tốc $18$ km/giờ hết $9$ giây. Tính vận tốc đoàn tàu theo km/giờ.
+\end{probbox}
+\probsol{
+$18$ km/giờ $=5$ m/giây.\par Tổng vận tốc: $180:9=20$ (m/giây).\par
+Vận tốc tàu: $20-5=15$ (m/giây) $=54$ km/giờ.
+\dapso{$54$ km/giờ.}}
+\gap
+\begin{probbox}{23}{\relax}
+Một đoàn tàu dài $200$ m vượt qua một người chạy bộ cùng chiều với vận tốc $2$ m/giây hết $25$ giây. Tính vận tốc đoàn tàu theo km/giờ.
+\end{probbox}
+\probsol{
+Hiệu vận tốc: $200:25=8$ (m/giây).\par Vận tốc tàu: $8+2=10$ (m/giây) $=36$ km/giờ.
+\dapso{$36$ km/giờ.}}
+\gap
+\begin{probbox}{24}{\relax}
+Một đoàn tàu dài $120$ m chạy với vận tốc $54$ km/giờ gặp một đoàn tàu dài $180$ m chạy ngược chiều với vận tốc $36$ km/giờ trên đường ray song song. Hỏi hai tàu tránh nhau hết bao lâu?
+\end{probbox}
+\probsol{
+$54$ km/giờ $=15$ m/giây; $36$ km/giờ $=10$ m/giây.\par Tổng chiều dài: $300$ m; tổng vận tốc: $25$ m/giây.\par Thời gian: $300:25=12$ (giây).
+\dapso{$12$ giây.}}
+\gap
+\begin{probbox}{25}{\relax}
+Một tàu nhanh dài $160$ m chạy với vận tốc $20$ m/giây vượt một tàu hàng dài $140$ m chạy cùng chiều với vận tốc $15$ m/giây trên đường ray song song. Hỏi tàu nhanh vượt tàu hàng hết bao lâu?
+\end{probbox}
+\probsol{
+Tổng chiều dài: $160+140=300$ (m).\par Hiệu vận tốc: $20-15=5$ (m/giây).\par Thời gian: $300:5=60$ (giây) $=1$ phút.
+\dapso{$1$ phút.}}
+\gap
+\begin{probbox}{26}{\relax}
+Một ô tô chạy với vận tốc $72$ km/giờ song song với một đoàn tàu chạy cùng chiều với vận tốc $54$ km/giờ. Ô tô đi từ ngang đuôi tàu đến ngang đầu tàu hết $40$ giây. Tính chiều dài đoàn tàu.
+\end{probbox}
+\probsol{
+$72$ km/giờ $=20$ m/giây; $54$ km/giờ $=15$ m/giây.\par Mỗi giây ô tô đi hơn tàu $20-15=5$ (m).\par Chiều dài đoàn tàu: $5\times40=200$ (m).
+\dapso{$200$ m.}}
+\gap
+\begin{probbox}{27}{\relax}
+Lan ngồi cạnh cửa sổ một đoàn tàu đang chạy với vận tốc $15$ m/giây. Một đoàn tàu ở đường ray bên cạnh chạy ngược chiều với vận tốc $10$ m/giây đi qua cửa sổ của Lan hết $9$ giây. Tính chiều dài đoàn tàu đó.
+\end{probbox}
+\probsol{
+Lan chỉ thấy chiều dài của tàu kia lướt qua, với vận tốc $15+10=25$ (m/giây).\par Chiều dài: $25\times9=225$ (m).
+\dapso{$225$ m.}}
+\gap
+\begin{probbox}{28}{\relax}
+Một đoàn tàu đi qua một cột tín hiệu hết $10$ giây và đi qua một sân ga dài $150$ m hết $16$ giây. Tính chiều dài và vận tốc đoàn tàu.
+\end{probbox}
+\probsol{
+Qua sân ga tàu cần thêm $16-10=6$ (giây), nên vận tốc là $150:6=25$ (m/giây).\par Chiều dài: $25\times10=250$ (m).
+\dapso{$250$ m và $25$ m/giây.}}
+\gap
+\begin{probbox}{29}{\relax}
+Một đoàn tàu dài $150$ m chạy với vận tốc $15$ m/giây qua một cây cầu hết $40$ giây. Tính chiều dài cây cầu.
+\end{probbox}
+\probsol{
+Quãng đường tàu đi: $15\times40=600$ (m).\par Chiều dài cầu: $600-150=450$ (m).
+\dapso{$450$ m.}}
+\gap
+\begin{probbox}{30}{\relax}
+Với cùng một vận tốc, một đoàn tàu chạy qua cây cầu dài $240$ m hết $25$ giây và chạy qua cây cầu dài $420$ m hết $37$ giây. Tính vận tốc và chiều dài đoàn tàu.
+\end{probbox}
+\probsol{
+Cầu thứ hai dài hơn $420-240=180$ (m) và tàu đi lâu hơn $37-25=12$ (giây).\par
+Vận tốc: $180:12=15$ (m/giây).\par Quãng đường qua cầu thứ nhất: $15\times25=375$ (m); chiều dài tàu: $375-240=135$ (m).
+\dapso{$15$ m/giây và $135$ m.}}
+\dividerbar{Thử thách -- Nâng cao}
+\begin{probbox}{31}{\stars{1}}
+Một chiếc thuyền có vận tốc thực $18$ km/giờ đi xuôi dòng từ A đến B rồi quay về A ngay. Vận tốc dòng nước là $2$ km/giờ, thời gian cả đi lẫn về là $4$ giờ $30$ phút. Tính độ dài quãng sông AB.
+\end{probbox}
+\probsol{
+Vận tốc xuôi dòng $20$ km/giờ, vận tốc ngược dòng $16$ km/giờ.\par
+Thời gian xuôi $:$ thời gian ngược $=16:20=4:5$.\par $9$ phần $=4{,}5$ giờ nên $1$ phần $=0{,}5$ giờ; thời gian xuôi dòng $2$ giờ.\par
+Quãng sông AB: $20\times2=40$ (km).
+\dapso{$40$ km.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Hai bến A và B cách nhau $60$ km, dòng nước chảy từ A đến B với vận tốc $3$ km/giờ. Cùng lúc, một ca nô đi từ A đến B và một ca nô khác đi từ B về A; vận tốc thực của mỗi ca nô đều là $20$ km/giờ. Hỏi sau bao lâu hai ca nô gặp nhau và chỗ gặp nhau cách A bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Vận tốc hai ca nô: $20+3=23$ (km/giờ) và $20-3=17$ (km/giờ).\par
+Tổng vận tốc: $23+17=40$ (km/giờ) (dòng nước giúp ca nô này bao nhiêu thì cản ca nô kia bấy nhiêu).\par
+Thời gian: $60:40=1{,}5$ (giờ); chỗ gặp nhau cách A: $23\times1{,}5=34{,}5$ (km).
+\dapso{sau $1$ giờ $30$ phút, cách A $34{,}5$ km.}}
+\gap
+\begin{probbox}{33}{\stars{2}}
+Khi một chiếc thuyền rời bến A đi xuôi dòng thì một cái bè cũng được thả trôi từ A. Thuyền (vận tốc thực $12$ km/giờ, vận tốc dòng nước $3$ km/giờ) đến B cách A $30$ km rồi quay lại ngay. Hỏi sau khi rời A bao lâu thì thuyền gặp bè?
+\end{probbox}
+\probsol{
+Thuyền xuôi dòng hết $30:15=2$ (giờ). Trong thời gian đó bè trôi được $3\times2=6$ (km).\par
+Khi thuyền quay lại, thuyền cách bè $30-6=24$ (km). Thuyền ngược dòng $9$ km/giờ, bè xuôi $3$ km/giờ: mỗi giờ hai bên gần nhau thêm $12$ km.\par
+Thời gian gặp nhau: $24:12=2$ (giờ), tức là $2+2=4$ (giờ) sau khi rời A.
+\note{Nếu ``đứng trên mặt nước'' mà nhìn, thuyền rời xa bè $2$ giờ rồi quay lại $2$ giờ: dòng nước không ảnh hưởng.}
+\dapso{$4$ giờ.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Bình chèo thuyền ngược dòng thì chiếc mũ rơi xuống nước. $20$ phút sau Bình mới phát hiện, liền quay thuyền lại và vớt được mũ ở chỗ cách nơi mũ rơi $2$ km về phía hạ lưu. Tính vận tốc dòng nước.
+\end{probbox}
+\probsol{
+So với mặt nước thì chiếc mũ đứng yên; Bình chèo rời xa mũ $20$ phút nên cũng cần $20$ phút để quay lại chỗ mũ.\par
+Vậy mũ đã trôi $20+20=40$ (phút) $=\dfrac23$ giờ và trôi được $2$ km.\par
+Vận tốc dòng nước: $2:\dfrac23=3$ (km/giờ).
+\dapso{$3$ km/giờ.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+Một chiếc phà đi xuôi dòng với vận tốc $20$ km/giờ, đi ngược dòng với vận tốc $12$ km/giờ. Phà đi từ A đến B, nghỉ ở B $30$ phút rồi quay về A; tổng thời gian là $4$ giờ $30$ phút. Tính độ dài quãng sông AB.
+\end{probbox}
+\probsol{
+Thời gian phà chạy: $4$ giờ $30$ phút $-\,30$ phút $=4$ giờ.\par
+Thời gian xuôi $:$ thời gian ngược $=12:20=3:5$; $8$ phần $=4$ giờ, $1$ phần $=0{,}5$ giờ.\par
+Thời gian xuôi dòng $1{,}5$ giờ; quãng sông AB: $20\times1{,}5=30$ (km).
+\dapso{$30$ km.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Vận tốc thực của một chiếc thuyền gấp $4$ lần vận tốc dòng nước. Thuyền đi xuôi dòng từ A đến B hết $2$ giờ. Hỏi thuyền đi ngược dòng từ B về A hết bao lâu?
+\end{probbox}
+\probsol{
+Coi vận tốc dòng nước là $1$ phần: vận tốc thực $4$ phần, vận tốc xuôi dòng $5$ phần, vận tốc ngược dòng $3$ phần.\par
+Thời gian tỉ lệ nghịch với vận tốc: thời gian ngược dòng $=2\times5:3=\dfrac{10}3$ (giờ) $=3$ giờ $20$ phút.
+\dapso{$3$ giờ $20$ phút.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Một chiếc ca nô đi xuôi dòng từ A đến B hết $3$ giờ và đi ngược dòng từ B về A hết $4$ giờ $30$ phút. Nếu tắt máy để ca nô trôi theo dòng nước thì ca nô đi từ A đến B hết bao lâu?
+\end{probbox}
+\probsol{
+Mỗi giờ: xuôi dòng đi được $\dfrac13$ quãng sông AB, ngược dòng đi được $1:4{,}5=\dfrac29$ quãng sông AB.\par
+Mỗi giờ dòng nước đưa ca nô trôi được $\left(\dfrac13-\dfrac29\right):2=\dfrac1{18}$ quãng sông AB.\par Thời gian trôi: $18$ giờ.
+\dapso{$18$ giờ.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Lúc $7$ giờ một chiếc thuyền rời B đi ngược dòng và đến A lúc $10$ giờ. Thuyền nghỉ, rời A lúc $10$ giờ $30$ phút và về đến B lúc $12$ giờ $30$ phút. Vận tốc dòng nước là $2$ km/giờ. Tính quãng sông AB.
+\end{probbox}
+\probsol{
+Ngược dòng hết $3$ giờ, xuôi dòng hết $2$ giờ; vận tốc ngược dòng $:$ vận tốc xuôi dòng $=2:3$.\par
+Hiệu hai vận tốc $2\times2=4$ (km/giờ) ứng với $1$ phần; vận tốc ngược dòng $8$ km/giờ.\par Quãng sông AB: $8\times3=24$ (km).
+\dapso{$24$ km.}}
+\gap
+\begin{probbox}{39}{\stars{2}}
+Lúc $6$ giờ, một cái bè bắt đầu trôi từ A. Lúc $8$ giờ, một chiếc thuyền (vận tốc thực $9$ km/giờ) rời A đi xuôi dòng. Vận tốc dòng nước là $3$ km/giờ. Hỏi thuyền đuổi kịp bè lúc mấy giờ, ở chỗ cách A bao xa?
+\end{probbox}
+\probsol{
+Lúc $8$ giờ bè đã ở phía trước $3\times2=6$ (km).\par
+Thuyền xuôi dòng $12$ km/giờ, bè $3$ km/giờ: mỗi giờ thuyền gần bè thêm $9$ km (đúng bằng vận tốc thực).\par
+Thời gian đuổi: $6:9=\dfrac23$ (giờ) $=40$ phút, tức lúc $8$ giờ $40$ phút; chỗ gặp cách A: $12\times\dfrac23=8$ (km).
+\dapso{lúc $8$ giờ $40$ phút, cách A $8$ km.}}
+\gap
+\begin{probbox}{40}{\stars{2}}
+Một đoàn tàu vượt qua một người đi bộ cùng chiều với vận tốc $1$ m/giây hết $22$ giây, và lướt qua một người đi bộ ngược chiều với vận tốc $1$ m/giây hết $18$ giây. Tính vận tốc và chiều dài đoàn tàu.
+\end{probbox}
+\probsol{
+Cả hai lần, tàu đều đi hết chiều dài của mình: một lần với vận tốc $v-1$ (trong $22$ giây), một lần với vận tốc $v+1$ (trong $18$ giây).\par
+Cùng quãng đường nên $(v-1):(v+1)=18:22=9:11$; hiệu $2$ m/giây ứng với $2$ phần, nên $1$ phần $=1$ m/giây.\par
+$v-1=9$ nên $v=10$ m/giây; chiều dài tàu: $9\times22=198$ (m).
+\dapso{$10$ m/giây và $198$ m.}}
+\gap
+\begin{probbox}{41}{\stars{2}}
+Một đoàn tàu chạy qua một đường hầm dài $1{,}5$ km. Từ lúc đầu tàu vào hầm đến lúc đuôi tàu ra khỏi hầm hết $90$ giây; toàn bộ đoàn tàu nằm trong hầm trong $60$ giây. Tính vận tốc và chiều dài đoàn tàu.
+\end{probbox}
+\probsol{
+Trong $90$ giây đầu tàu đi được (hầm $+$ tàu); trong $60$ giây đầu tàu đi được (hầm $-$ tàu).\par
+Cộng lại: trong $150$ giây đầu tàu đi được $2$ lần chiều dài hầm $=3\,000$ m; vận tốc: $3\,000:150=20$ (m/giây).\par
+Hầm $+$ tàu $=20\times90=1\,800$ (m); chiều dài tàu: $1\,800-1\,500=300$ (m).
+\dapso{$20$ m/giây và $300$ m.}}
+\gap
+\begin{probbox}{42}{\stars{2}}
+Một tàu nhanh dài $180$ m chạy với vận tốc $24$ m/giây. Tàu nhanh vượt một tàu chậm trên đường ray song song hết $50$ giây; nếu hai tàu chạy ngược chiều thì tránh nhau hết $10$ giây. Tính vận tốc và chiều dài tàu chậm.
+\end{probbox}
+\probsol{
+Cùng một quãng đường (tổng chiều dài hai tàu): đi với hiệu vận tốc hết $50$ giây, với tổng vận tốc hết $10$ giây; nên tổng $:$ hiệu $=5:1$.\par
+Tổng $5$ phần, hiệu $1$ phần: tàu nhanh $3$ phần, tàu chậm $2$ phần; $3$ phần $=24$ m/giây.\par
+Tàu chậm: $16$ m/giây. Tổng chiều dài: $(24+16)\times10=400$ (m); tàu chậm dài: $400-180=220$ (m).
+\dapso{$16$ m/giây và $220$ m.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Một hành khách ngồi trên đoàn tàu chạy với vận tốc $54$ km/giờ thấy một đoàn tàu dài $300$ m chạy ngược chiều lướt qua mình hết $12$ giây. Tính vận tốc đoàn tàu kia theo km/giờ.
+\end{probbox}
+\probsol{
+Tổng vận tốc: $300:12=25$ (m/giây).\par Tàu kia: $25-15=10$ (m/giây) $=36$ km/giờ.
+\dapso{$36$ km/giờ.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Một cây cầu dài gấp $4$ lần chiều dài một đoàn tàu. Đoàn tàu chạy với vận tốc $20$ m/giây, từ lúc đầu tàu lên cầu đến lúc đuôi tàu rời cầu hết $25$ giây. Tính chiều dài đoàn tàu và chiều dài cây cầu.
+\end{probbox}
+\probsol{
+Quãng đường: $20\times25=500$ (m) $=$ cầu $+$ tàu $=5$ lần chiều dài tàu.\par
+Chiều dài tàu: $500:5=100$ (m); chiều dài cầu: $400$ m.
+\dapso{tàu $100$ m, cầu $400$ m.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Hai đoàn tàu, mỗi đoàn dài $150$ m, chạy ngược chiều và tránh nhau hết $10$ giây. Vận tốc tàu này gấp $1{,}5$ lần vận tốc tàu kia. Tính vận tốc mỗi tàu.
+\end{probbox}
+\probsol{
+Tổng vận tốc: $300:10=30$ (m/giây).\par Tàu chậm $1$ phần, tàu nhanh $1{,}5$ phần: $30:2{,}5=12$ (m/giây).\par Tàu nhanh: $18$ m/giây.
+\dapso{$12$ m/giây và $18$ m/giây.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Tàu A dài $240$ m chạy với vận tốc $72$ km/giờ vượt tàu B chạy cùng chiều với vận tốc $54$ km/giờ. Thời gian vượt nhau là $1$ phút $30$ giây. Tính chiều dài tàu B.
+\end{probbox}
+\probsol{
+Hiệu vận tốc: $20-15=5$ (m/giây); $1$ phút $30$ giây $=90$ giây.\par Tổng chiều dài: $5\times90=450$ (m).\par Tàu B dài: $450-240=210$ (m).
+\dapso{$210$ m.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+Trên một dòng sông có vận tốc dòng nước $1$ m/giây, một tàu chở hàng dài $80$ m đi xuôi dòng (vận tốc thực $6$ m/giây) gặp một tàu dài $70$ m đi ngược dòng (vận tốc thực $4$ m/giây). Hỏi hai tàu đi qua nhau hết bao lâu?
+\end{probbox}
+\probsol{
+Vận tốc hai tàu: $6+1=7$ (m/giây) và $4-1=3$ (m/giây); tổng vận tốc $10$ m/giây (bằng tổng hai vận tốc thực).\par
+Tổng chiều dài: $150$ m. Thời gian: $150:10=15$ (giây).
+\dapso{$15$ giây.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+Một hàng học sinh dài $300$ m đi đều với vận tốc $1{,}5$ m/giây. Một bạn đi xe đạp với vận tốc $4{,}5$ m/giây từ cuối hàng lên đầu hàng rồi quay ngay về cuối hàng. Hỏi bạn đó đi hết bao lâu?
+\end{probbox}
+\probsol{
+Từ cuối lên đầu (cùng chiều): mỗi giây đi hơn hàng $4{,}5-1{,}5=3$ (m): $300:3=100$ (giây).\par
+Từ đầu về cuối (ngược chiều): $4{,}5+1{,}5=6$ (m/giây): $300:6=50$ (giây).\par Tổng cộng: $150$ giây $=2$ phút $30$ giây.
+\dapso{$2$ phút $30$ giây.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+Một đoàn tàu dài $250$ m chạy với vận tốc $72$ km/giờ. Đầu tàu vào đường hầm lúc $9$ giờ $0$ phút $0$ giây và đuôi tàu ra khỏi hầm lúc $9$ giờ $1$ phút $40$ giây. Tính chiều dài đường hầm.
+\end{probbox}
+\probsol{
+Thời gian: $1$ phút $40$ giây $=100$ giây; vận tốc $20$ m/giây.\par Quãng đường: $20\times100=2\,000$ (m).\par Đường hầm dài: $2\,000-250=1\,750$ (m).
+\dapso{$1\,750$ m.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Vận tốc ngược dòng của một chiếc thuyền bằng $\dfrac23$ vận tốc xuôi dòng. Một cái bè trôi từ A đến B hết $30$ giờ. Hỏi thuyền đi xuôi dòng từ A đến B và đi ngược dòng từ B về A, mỗi lượt hết bao lâu?
+\end{probbox}
+\probsol{
+Vận tốc xuôi dòng $3$ phần, ngược dòng $2$ phần; hiệu $1$ phần $=2$ lần vận tốc dòng nước, nên vận tốc dòng nước là $\dfrac12$ phần.\par
+Vận tốc xuôi dòng gấp $3:\dfrac12=6$ lần vận tốc dòng nước: $30:6=5$ (giờ).\par
+Vận tốc ngược dòng gấp $4$ lần vận tốc dòng nước: $30:4=7{,}5$ (giờ) $=7$ giờ $30$ phút.
+\dapso{xuôi dòng $5$ giờ, ngược dòng $7$ giờ $30$ phút.}}

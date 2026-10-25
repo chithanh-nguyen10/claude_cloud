@@ -1,0 +1,627 @@
+\shead{Cuboids}
+\gdef\cuboidVT#1#2#3#4{\coordinate (Q) at (0,0); \coordinate (P) at (#1,0); \coordinate (C) at (#1,#3); \coordinate (D) at (0,#3);
+ \coordinate (M) at ({0.5*#2},{0.38*#2}); \coordinate (N) at ($(P)+(M)$); \coordinate (B) at ($(C)+(M)$); \coordinate (A) at ($(D)+(M)$);
+ \fill[tmBlue!6] (Q)--(P)--(C)--(D)--cycle; \fill[tmBlue!3] (D)--(C)--(B)--(A)--cycle; \fill[tmBlue!13] (P)--(N)--(B)--(C)--cycle;
+ \ifdim #4pt>0pt \coordinate (wl) at (0,#4);
+  \fill[cyan!30] (Q)--(P)--($(P)+(wl)$)--($(Q)+(wl)$)--cycle; \fill[cyan!45] (P)--(N)--($(N)+(wl)$)--($(P)+(wl)$)--cycle;
+  \fill[cyan!16] ($(Q)+(wl)$)--($(P)+(wl)$)--($(N)+(wl)$)--($(M)+(wl)$)--cycle;
+  \draw[cyan!60!black,line width=0.5pt] ($(Q)+(wl)$)--($(P)+(wl)$)--($(N)+(wl)$);
+  \draw[cyan!60!black,line width=0.4pt,dashed] ($(N)+(wl)$)--($(M)+(wl)$)--($(Q)+(wl)$); \fi
+ \draw[geo,dashed,line width=0.6pt] (M)--(Q) (M)--(N) (M)--(A);
+ \draw[geo] (Q)--(P)--(C)--(D)--cycle (D)--(A)--(B)--(C) (P)--(N)--(B);}
+\begin{knowbox}
+\begin{minipage}[t]{0.58\linewidth}
+A matchbox, a brick and a shoebox all have the shape of a \textbf{cuboid} (a rectangular box).\par
+\smallskip
+Cuboid ABCD.MNPQ has:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item $6$ \textbf{faces}, all rectangles; opposite faces are equal. ABCD and MNPQ are the two \textbf{bases}; the other four faces are the \textbf{side faces};
+\item $12$ \textbf{edges}, in three groups of $4$ equal edges;
+\item $8$ \textbf{vertices}: A, B, C, D, M, N, P, Q.
+\end{itemize}
+The three \textbf{dimensions} are the \textbf{length} $a$, the \textbf{width} $b$ (the two sides of the base) and the \textbf{height} $c$ (a side edge such as $DQ$).\par
+\smallskip
+In a drawing, edges we cannot see are drawn \emph{dashed}.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[scale=0.85]
+\cuboidVT{3.4}{2.2}{2}{0}
+\node[lbl,above left] at (A){A}; \node[lbl,above right] at (B){B}; \node[lbl,right] at (C){C}; \node[lbl,left] at (D){D};
+\node[lbl,above left] at (M){M}; \node[lbl,right] at (N){N}; \node[lbl,below right] at (P){P}; \node[lbl,below left] at (Q){Q};
+\node[dim,below] at ($(Q)!0.5!(P)$){$a$}; \node[dim,below right] at ($(P)!0.5!(N)$){$b$}; \node[dim,left] at ($(Q)!0.5!(D)$){$c$};
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\shead{Cubes and nets}
+\begin{knowbox}
+\begin{minipage}[t]{0.56\linewidth}
+A \textbf{cube} is a cuboid whose $12$ edges are all equal. Its $6$ faces are equal squares.\par
+\smallskip
+If we cut a box along some edges and unfold it flat, we get a \textbf{net} of the box. A net of a cube is made of $6$ equal squares; the figure on the right is one of them. Folding the net back up gives the cube again.\par
+\smallskip
+Not every set of $6$ joined squares is a net: two squares must never land on the same face when we fold.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.4\linewidth}\vspace{2pt}\centering
+\begin{tikzpicture}[scale=0.55]
+\foreach \x/\y in {1/2,0/1,1/1,2/1,3/1,1/0}{\draw[geo,fill=tmBlue!10] (\x,\y) rectangle ++(1,1);}
+\node[dim] at (1.5,2.5){top}; \node[dim] at (1.5,0.5){base};
+\end{tikzpicture}\qquad
+\begin{tikzpicture}[scale=0.6]
+\cuboidVT{1.6}{1.6}{1.6}{0}
+\node[dim,below] at ($(Q)!0.5!(P)$){$a$};
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\shead{Lateral area and total surface area}
+\begin{knowbox}
+The \textbf{lateral area} $S_{\text{lat}}$ of a cuboid is the total area of its $4$ side faces. Unfolded, the four side faces make one long rectangle whose length is the \textbf{perimeter of the base} and whose width is the \textbf{height}:
+\[S_{\text{lat}}=(a+b)\times2\times c\qquad(\text{perimeter of base}\times\text{height})\]
+The \textbf{total surface area} $S_{\text{tot}}$ is the lateral area plus the areas of the two bases:
+\[S_{\text{tot}}=S_{\text{lat}}+a\times b\times2\]
+For a \textbf{cube} with edge $a$: \quad $S_{\text{lat}}=a\times a\times4,\qquad S_{\text{tot}}=a\times a\times6.$\par
+\smallskip
+\emph{Remember:} all dimensions must be in the same unit. A box \emph{without a lid} has only one base: its area is $S_{\text{lat}}+a\times b$.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+A cuboid is $8$ cm long, $5$ cm wide and $6$ cm high. Find:
+\begin{cols3}
+\pa{a} its lateral area; & \pa{b} the area of one base; & \pa{c} its total surface area.
+\end{cols3}
+\guide
+\pa{a} Perimeter of the base: $(8+5)\times2=26$ cm.\par $S_{\text{lat}}=26\times6=156$ cm$^2$.\par
+\pa{b} Area of one base: $8\times5=40$ cm$^2$.\par
+\pa{c} $S_{\text{tot}}=156+40\times2=236$ cm$^2$.
+\dapso{\pa{a} $156$ cm$^2$; \pa{b} $40$ cm$^2$; \pa{c} $236$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+A cube has a total surface area of $294$ cm$^2$. Find its edge and its lateral area.
+\guide
+A cube has $6$ equal faces. Area of one face: $294:6=49$ cm$^2$.\par
+Since $49=7\times7$, the edge is $7$ cm.\par
+Lateral area: $49\times4=196$ cm$^2$.
+\dapso{Edge $7$ cm; $196$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+A cuboid has a base of area $60$ cm$^2$. Its length is $3$ times its height and is $8$ cm more than its height. Find its lateral area and total surface area.
+\guide
+The length is $3$ times the height, so the difference is $3-1=2$ times the height.\par
+Height: $8:2=4$ cm.\quad Length: $4\times3=12$ cm.\quad Width: $60:12=5$ cm.\par
+$S_{\text{lat}}=(12+5)\times2\times4=136$ cm$^2$.\par
+$S_{\text{tot}}=136+60\times2=256$ cm$^2$.
+\dapso{$136$ cm$^2$; $256$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+\begin{minipage}[t]{0.6\linewidth}
+A tin box \emph{without a lid} is $50$ cm long, $30$ cm wide and $20$ cm high. How much tin is needed to make it? (Ignore the seams.)
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.42]
+\cuboidVT{5}{3}{2}{0}
+\fill[white] (D)--(C)--(B)--(A)--cycle; \draw[geo] (D)--(C)--(B)--(A)--cycle;
+\node[dim,below] at ($(Q)!0.5!(P)$){$50$ cm}; \node[dim,right] at ($(P)!0.5!(N)$){$30$ cm}; \node[dim,left] at ($(Q)!0.5!(D)$){$20$ cm};
+\end{tikzpicture}
+\end{minipage}
+\guide
+The box has $4$ side faces and only $1$ base.\par
+Lateral area: $(50+30)\times2\times20=3\,200$ cm$^2$.\par
+Base: $50\times30=1\,500$ cm$^2$.\par
+Tin needed: $3\,200+1\,500=4\,700$ cm$^2$.
+\dapso{$4\,700$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+A room is $6$ m long, $4.5$ m wide and $3.5$ m high. The four walls and the ceiling are to be painted. The doors and windows have a total area of $7.5$ m$^2$. Find the area to be painted.
+\guide
+Four walls (lateral area): $(6+4.5)\times2\times3.5=73.5$ m$^2$.\par
+Ceiling: $6\times4.5=27$ m$^2$.\par
+Area to paint: $73.5+27-7.5=93$ m$^2$.
+\note{The floor is not painted, and the doors and windows are taken away.}
+\dapso{$93$ m$^2$.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+\begin{minipage}[t]{0.58\linewidth}
+Cuboid ABCD.MNPQ has $QP=7$ cm, $QM=4$ cm and $QD=5$ cm.\par
+\pa{a} Find the lengths of the edges AB, BN and NP.\par
+\pa{b} Find the areas of the base MNPQ and of the faces DCPQ and ADQM.\par
+\pa{c} Find its lateral area and total surface area.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\cuboidVT{4.2}{3.2}{3}{0}
+\node[lbl,above left] at (A){A}; \node[lbl,above right] at (B){B}; \node[lbl,right] at (C){C}; \node[lbl,left] at (D){D};
+\node[lbl,above left] at (M){M}; \node[lbl,right] at (N){N}; \node[lbl,below right] at (P){P}; \node[lbl,below left] at (Q){Q};
+\node[dim,below] at ($(Q)!0.5!(P)$){$7$ cm}; \node[dim,left] at ($(Q)!0.5!(D)$){$5$ cm}; \node[dim,right] at ($(Q)!0.45!(M)$){$4$ cm};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\pa{a} $AB=QP=7$ cm; $BN=QD=5$ cm; $NP=QM=4$ cm.\par
+\pa{b} $S_{MNPQ}=7\times4=28$ cm$^2$; $S_{DCPQ}=7\times5=35$ cm$^2$; $S_{ADQM}=4\times5=20$ cm$^2$.\par
+\pa{c} $S_{\text{lat}}=(7+4)\times2\times5=110$ cm$^2$.\par $S_{\text{tot}}=110+28\times2=166$ cm$^2$.
+\dapso{\pa{a} $7$ cm, $5$ cm, $4$ cm;\par \pa{b} $28$ cm$^2$, $35$ cm$^2$, $20$ cm$^2$;\par \pa{c} $110$ cm$^2$, $166$ cm$^2$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Which of the figures below are nets of a cube?\par\smallskip
+\begin{center}
+\begin{tikzpicture}[scale=0.42]
+\foreach \x/\y in {1/2,0/1,1/1,2/1,3/1,1/0}{\draw[geo,fill=tmBlue!10] (\x,\y) rectangle ++(1,1);}
+\node[lbl] at (2,-0.6){\pa{a}};
+\begin{scope}[xshift=5.5cm]
+\foreach \x/\y in {0/0,1/0,2/0,0/1,1/1,2/1}{\draw[geo,fill=tmBlue!10] (\x,\y) rectangle ++(1,1);}
+\node[lbl] at (1.5,-0.6){\pa{b}};
+\end{scope}
+\begin{scope}[xshift=10cm]
+\foreach \x/\y in {0/2,1/2,1/1,2/1,2/0,3/0}{\draw[geo,fill=tmBlue!10] (\x,\y) rectangle ++(1,1);}
+\node[lbl] at (2,-0.6){\pa{c}};
+\end{scope}
+\begin{scope}[xshift=15.5cm]
+\foreach \x/\y in {0/0,1/0,2/0,3/0,0/1,1/1}{\draw[geo,fill=tmBlue!10] (\x,\y) rectangle ++(1,1);}
+\node[lbl] at (2,-0.6){\pa{d}};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{probbox}
+\probsol{
+\pa{a} The row of $4$ squares folds into the $4$ side faces; the square above is the top and the square below is the base. It is a net.\par
+\pa{b} Folding the $2\times3$ block, the squares overlap and two faces stay open. It is not a net.\par
+\pa{c} This ``staircase'' folds into a cube with no overlap. It is a net.\par
+\pa{d} The two squares on top of the row both become the same end face, and the other end stays open. It is not a net.
+\dapso{Figures \textbf{a)} and \textbf{c)}.}}
+\gap
+\begin{probbox}{3}{\relax}
+Find the lateral area and the total surface area of a cuboid with:
+\begin{cols2}
+\pa{a} $a=9$ cm, $b=6$ cm, $c=5$ cm; & \pa{b} $a=2.5$ m, $b=1.5$ m, $c=1.2$ m;\\
+\pa{c} $a=\dfrac45$ m, $b=\dfrac12$ m, $c=\dfrac13$ m; & \pa{d} $a=1.2$ dm, $b=8$ cm, $c=5$ cm.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $S_{\text{lat}}=(9+6)\times2\times5=150$ cm$^2$; $S_{\text{tot}}=150+9\times6\times2=258$ cm$^2$.\par
+\pa{b} $S_{\text{lat}}=(2.5+1.5)\times2\times1.2=9.6$ m$^2$; $S_{\text{tot}}=9.6+2.5\times1.5\times2=17.1$ m$^2$.\par
+\pa{c} $S_{\text{lat}}=\left(\dfrac45+\dfrac12\right)\times2\times\dfrac13=\dfrac{13}{10}\times\dfrac23=\dfrac{13}{15}$ m$^2$;\par
+$S_{\text{tot}}=\dfrac{13}{15}+\dfrac45\times\dfrac12\times2=\dfrac{13}{15}+\dfrac{12}{15}=\dfrac53$ m$^2$.\par
+\pa{d} $1.2$ dm $=12$ cm. $S_{\text{lat}}=(12+8)\times2\times5=200$ cm$^2$; $S_{\text{tot}}=200+12\times8\times2=392$ cm$^2$.
+\dapso{\pa{a} $150$ cm$^2$, $258$ cm$^2$;\par \pa{b} $9.6$ m$^2$, $17.1$ m$^2$;\par \pa{c} $\dfrac{13}{15}$ m$^2$, $\dfrac53$ m$^2$;\par \pa{d} $200$ cm$^2$, $392$ cm$^2$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Find the lateral area and the total surface area of a cube with edge:
+\begin{cols3}
+\pa{a} $6$ cm; & \pa{b} $2.5$ dm; & \pa{c} $\dfrac34$ m.
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $S_{\text{lat}}=6\times6\times4=144$ cm$^2$; $S_{\text{tot}}=6\times6\times6=216$ cm$^2$.\par
+\pa{b} $S_{\text{lat}}=2.5\times2.5\times4=25$ dm$^2$; $S_{\text{tot}}=2.5\times2.5\times6=37.5$ dm$^2$.\par
+\pa{c} $S_{\text{lat}}=\dfrac34\times\dfrac34\times4=\dfrac94$ m$^2$; $S_{\text{tot}}=\dfrac34\times\dfrac34\times6=\dfrac{27}8$ m$^2$.
+\dapso{\pa{a} $144$ cm$^2$, $216$ cm$^2$;\par \pa{b} $25$ dm$^2$, $37.5$ dm$^2$;\par \pa{c} $\dfrac94$ m$^2$, $\dfrac{27}8$ m$^2$.}}
+\gap
+\begin{probbox}{5}{\relax}
+A cuboid is $15$ cm long, $10$ cm wide and $8$ cm high. Find:
+\begin{cols3}
+\pa{a} the perimeter of its base; & \pa{b} its lateral area; & \pa{c} its total surface area.
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $(15+10)\times2=50$ cm.\par
+\pa{b} $50\times8=400$ cm$^2$.\par
+\pa{c} $400+15\times10\times2=700$ cm$^2$.
+\dapso{\pa{a} $50$ cm; \pa{b} $400$ cm$^2$; \pa{c} $700$ cm$^2$.}}
+\gap
+\begin{probbox}{6}{\relax}
+Mai wraps a gift box $24$ cm long, $16$ cm wide and $10$ cm high, covering every face. What is the least area of wrapping paper she needs?
+\end{probbox}
+\probsol{
+The paper must cover all $6$ faces, i.e.\ the total surface area.\par
+$S_{\text{lat}}=(24+16)\times2\times10=800$ cm$^2$.\par
+$S_{\text{tot}}=800+24\times16\times2=1\,568$ cm$^2$.
+\dapso{$1\,568$ cm$^2$.}}
+\gap
+\begin{probbox}{7}{\relax}
+A box is $40$ cm long, $25$ cm wide and $20$ cm high. Lan covers its four side faces with blue paper and its two bases with yellow paper (outside only). Which colour of paper is used more, and by how many square centimetres?
+\end{probbox}
+\probsol{
+Blue paper (lateral area): $(40+25)\times2\times20=2\,600$ cm$^2$.\par
+Yellow paper (two bases): $40\times25\times2=2\,000$ cm$^2$.\par
+Blue is more by $2\,600-2\,000=600$ cm$^2$.
+\dapso{Blue paper, by $600$ cm$^2$.}}
+\gap
+\begin{probbox}{8}{\relax}
+An iron box without a lid is $60$ cm long, $40$ cm wide and $30$ cm high. How much iron sheet is used to make it? (Ignore the seams.)
+\end{probbox}
+\probsol{
+Lateral area: $(60+40)\times2\times30=6\,000$ cm$^2$.\par
+Base: $60\times40=2\,400$ cm$^2$.\par
+Iron sheet: $6\,000+2\,400=8\,400$ cm$^2$.
+\dapso{$8\,400$ cm$^2$.}}
+\gap
+\begin{probbox}{9}{\relax}
+A classroom is $8$ m long, $6$ m wide and $3.5$ m high. The four walls and the ceiling are to be painted; the doors and windows cover $9.5$ m$^2$. Find the area to be painted.
+\end{probbox}
+\probsol{
+Walls: $(8+6)\times2\times3.5=98$ m$^2$.\par
+Ceiling: $8\times6=48$ m$^2$.\par
+Area to paint: $98+48-9.5=136.5$ m$^2$.
+\dapso{$136.5$ m$^2$.}}
+\gap
+\begin{probbox}{10}{\relax}
+A water tank in the shape of a cube without a lid has edge $1.5$ m. Its outside (side faces and bottom) is painted. Find the painted area.
+\end{probbox}
+\probsol{
+One face: $1.5\times1.5=2.25$ m$^2$.\par
+A cube without a lid has $5$ faces: $2.25\times5=11.25$ m$^2$.
+\dapso{$11.25$ m$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+A cube has a lateral area of $100$ cm$^2$. Find its edge and its total surface area.
+\end{probbox}
+\probsol{
+One face: $100:4=25$ cm$^2$; since $25=5\times5$, the edge is $5$ cm.\par
+$S_{\text{tot}}=25\times6=150$ cm$^2$.
+\dapso{$5$ cm; $150$ cm$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+A cube has a total surface area of $600$ cm$^2$. Find its lateral area.
+\end{probbox}
+\probsol{
+One face: $600:6=100$ cm$^2$.\par
+$S_{\text{lat}}=100\times4=400$ cm$^2$.
+\dapso{$400$ cm$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+A cube has a lateral area of $1.44$ m$^2$. Find its edge and its total surface area.
+\end{probbox}
+\probsol{
+One face: $1.44:4=0.36$ m$^2$; since $0.36=0.6\times0.6$, the edge is $0.6$ m.\par
+$S_{\text{tot}}=0.36\times6=2.16$ m$^2$.
+\dapso{$0.6$ m; $2.16$ m$^2$.}}
+\gap
+\begin{probbox}{14}{\relax}
+A cuboid has a lateral area of $360$ cm$^2$ and a height of $9$ cm. Its length is $4$ cm more than its width. Find the length and the width.
+\end{probbox}
+\probsol{
+Perimeter of the base: $360:9=40$ cm.\par
+Length $+$ width: $40:2=20$ cm.\par
+Length: $(20+4):2=12$ cm.\quad Width: $20-12=8$ cm.
+\dapso{Length $12$ cm, width $8$ cm.}}
+\gap
+\begin{probbox}{15}{\relax}
+A cuboid has a base perimeter of $36$ dm and a height of $7$ dm. Find its lateral area.
+\end{probbox}
+\probsol{
+$S_{\text{lat}}=36\times7=252$ dm$^2$.
+\dapso{$252$ dm$^2$.}}
+\gap
+\begin{probbox}{16}{\relax}
+A cuboid has a lateral area of $480$ cm$^2$ and a base perimeter of $48$ cm. Find its height.
+\end{probbox}
+\probsol{
+Height $=$ lateral area $:$ perimeter of base.\par
+$c=480:48=10$ cm.
+\dapso{$10$ cm.}}
+\gap
+\begin{probbox}{17}{\relax}
+A cuboid is $2.4$ m long and $1.6$ m wide, and its total surface area is $19.68$ m$^2$. Find its height.
+\end{probbox}
+\probsol{
+Two bases: $2.4\times1.6\times2=7.68$ m$^2$.\par
+Lateral area: $19.68-7.68=12$ m$^2$.\par
+Perimeter of base: $(2.4+1.6)\times2=8$ m.\par
+Height: $12:8=1.5$ m.
+\dapso{$1.5$ m.}}
+\gap
+\begin{probbox}{18}{\relax}
+A wooden crate is $1.2$ m long, $0.8$ m wide and $0.6$ m high. All of its outside faces are varnished, using $0.25$ kg of varnish per square metre. How many kilograms of varnish are needed?
+\end{probbox}
+\probsol{
+$S_{\text{lat}}=(1.2+0.8)\times2\times0.6=2.4$ m$^2$.\par
+$S_{\text{tot}}=2.4+1.2\times0.8\times2=4.32$ m$^2$.\par
+Varnish: $0.25\times4.32=1.08$ kg.
+\dapso{$1.08$ kg.}}
+\gap
+\begin{probbox}{19}{\relax}
+A swimming pool is $25$ m long, $10$ m wide and $1.6$ m deep. Its bottom and its four walls are covered with tiles measuring $25$ cm by $20$ cm. How many tiles are needed? (Ignore the joints.)
+\end{probbox}
+\probsol{
+Walls: $(25+10)\times2\times1.6=112$ m$^2$.\quad Bottom: $25\times10=250$ m$^2$.\par
+Area to tile: $112+250=362$ m$^2$.\par
+One tile: $25\times20=500$ cm$^2$ $=0.05$ m$^2$.\par
+Tiles: $362:0.05=7\,240$ tiles.
+\dapso{$7\,240$ tiles.}}
+\gap
+\begin{probbox}{20}{\relax}
+A fish pond is $3$ m long, $2$ m wide and $0.8$ m deep. Its bottom and walls are covered with square tiles of side $2$ dm. How many tiles are needed?
+\end{probbox}
+\probsol{
+Walls: $(3+2)\times2\times0.8=8$ m$^2$.\quad Bottom: $3\times2=6$ m$^2$.\par
+Area to tile: $8+6=14$ m$^2$ $=1\,400$ dm$^2$.\par
+One tile: $2\times2=4$ dm$^2$.\quad Tiles: $1\,400:4=350$.
+\dapso{$350$ tiles.}}
+\gap
+\begin{probbox}{21}{\relax}
+A cuboid has a base perimeter of $30$ cm; its length is $3$ cm more than its width, and its height is $\dfrac23$ of its length. Find its lateral area and total surface area.
+\end{probbox}
+\probsol{
+Length $+$ width: $30:2=15$ cm.\par
+Length: $(15+3):2=9$ cm.\quad Width: $6$ cm.\quad Height: $9\times\dfrac23=6$ cm.\par
+$S_{\text{lat}}=30\times6=180$ cm$^2$.\par
+$S_{\text{tot}}=180+9\times6\times2=288$ cm$^2$.
+\dapso{$180$ cm$^2$; $288$ cm$^2$.}}
+\gap
+\begin{probbox}{22}{\relax}
+Compare the total surface area of a cube with edge $6$ cm and that of a cuboid $8$ cm long, $6$ cm wide and $4$ cm high.
+\end{probbox}
+\probsol{
+Cube: $6\times6\times6=216$ cm$^2$.\par
+Cuboid: $(8+6)\times2\times4+8\times6\times2=112+96=208$ cm$^2$.\par
+$216-208=8$ cm$^2$.
+\dapso{The cube's is larger, by $8$ cm$^2$.}}
+\gap
+\begin{probbox}{23}{\relax}
+A cuboid has a square base of side $5$ cm and a height of $12$ cm. Find its lateral area and total surface area.
+\end{probbox}
+\probsol{
+Perimeter of base: $5\times4=20$ cm.\par
+$S_{\text{lat}}=20\times12=240$ cm$^2$.\par
+$S_{\text{tot}}=240+5\times5\times2=290$ cm$^2$.
+\dapso{$240$ cm$^2$; $290$ cm$^2$.}}
+\gap
+\begin{probbox}{24}{\relax}
+A lantern has a frame in the shape of a cuboid with a square base of side $20$ cm and a height of $35$ cm. Paper is glued on the four sides and the bottom. How many square decimetres of paper are used?
+\end{probbox}
+\probsol{
+Four sides: $20\times4\times35=2\,800$ cm$^2$.\par
+Bottom: $20\times20=400$ cm$^2$.\par
+Paper: $2\,800+400=3\,200$ cm$^2$ $=32$ dm$^2$.
+\dapso{$32$ dm$^2$.}}
+\gap
+\begin{probbox}{25}{\relax}
+A piece of cardboard is just enough to make a cube-shaped box without a lid, with edge $2.5$ dm. Find the area of the cardboard. (Ignore the flaps.)
+\end{probbox}
+\probsol{
+One face: $2.5\times2.5=6.25$ dm$^2$.\par
+The box has $5$ faces: $6.25\times5=31.25$ dm$^2$.
+\dapso{$31.25$ dm$^2$.}}
+\gap
+\begin{probbox}{26}{\relax}
+A cube-shaped tank without a lid has a base perimeter of $4.8$ m. Both its inside and its outside are painted, and $1$ kg of paint covers $3$ m$^2$. How many kilograms of paint are needed?
+\end{probbox}
+\probsol{
+Edge: $4.8:4=1.2$ m.\quad One face: $1.2\times1.2=1.44$ m$^2$.\par
+Without a lid there are $5$ faces, painted on both sides: $1.44\times5\times2=14.4$ m$^2$.\par
+Paint: $14.4:3=4.8$ kg.
+\dapso{$4.8$ kg.}}
+\gap
+\begin{probbox}{27}{\relax}
+The $12$ edges of a cuboid add up to $96$ cm. Its length is $12$ cm and its width is $8$ cm. Find its total surface area.
+\end{probbox}
+\probsol{
+A cuboid has $4$ lengths, $4$ widths and $4$ heights.\par
+Length $+$ width $+$ height: $96:4=24$ cm.\quad Height: $24-12-8=4$ cm.\par
+$S_{\text{lat}}=(12+8)\times2\times4=160$ cm$^2$.\par
+$S_{\text{tot}}=160+12\times8\times2=352$ cm$^2$.
+\dapso{$352$ cm$^2$.}}
+\gap
+\begin{probbox}{28}{\relax}
+The $12$ edges of a cube add up to $72$ cm. Find its total surface area.
+\end{probbox}
+\probsol{
+Edge: $72:12=6$ cm.\par
+$S_{\text{tot}}=6\times6\times6=216$ cm$^2$.
+\dapso{$216$ cm$^2$.}}
+\gap
+\begin{probbox}{29}{\relax}
+A glass aquarium without a lid is $80$ cm long, $40$ cm wide and $50$ cm high. How many square decimetres of glass are used?
+\end{probbox}
+\probsol{
+Four walls: $(80+40)\times2\times50=12\,000$ cm$^2$.\par
+Bottom: $80\times40=3\,200$ cm$^2$.\par
+Glass: $12\,000+3\,200=15\,200$ cm$^2$ $=152$ dm$^2$.
+\dapso{$152$ dm$^2$.}}
+\gap
+\begin{probbox}{30}{\relax}
+The total surface area of a cube is $50$ cm$^2$ more than its lateral area. Find its lateral area.
+\end{probbox}
+\probsol{
+The difference is the area of the two bases: one face is $50:2=25$ cm$^2$.\par
+$S_{\text{lat}}=25\times4=100$ cm$^2$.
+\dapso{$100$ cm$^2$.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+A cuboid has a base of area $120$ cm$^2$. Its length is $9$ cm more than its height, and its height is $\dfrac25$ of its length. Find its lateral area and total surface area.
+\end{probbox}
+\probsol{
+Height $2$ parts, length $5$ parts; the difference is $3$ parts $=9$ cm, so $1$ part is $3$ cm.\par
+Height: $3\times2=6$ cm.\quad Length: $3\times5=15$ cm.\quad Width: $120:15=8$ cm.\par
+$S_{\text{lat}}=(15+8)\times2\times6=276$ cm$^2$.\par
+$S_{\text{tot}}=276+120\times2=516$ cm$^2$.
+\dapso{$276$ cm$^2$; $516$ cm$^2$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+A water tank has a lateral area of $10.5$ m$^2$ and a height of $1.5$ m. Its length is $1$ m more than its width. Find its length and width.
+\end{probbox}
+\probsol{
+Perimeter of base: $10.5:1.5=7$ m.\quad Length $+$ width: $7:2=3.5$ m.\par
+Length: $(3.5+1):2=2.25$ m.\quad Width: $3.5-2.25=1.25$ m.
+\dapso{Length $2.25$ m, width $1.25$ m.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+An iron crate in the shape of a cuboid has a width equal to $\dfrac34$ of its length and $0.5$ m less than its length; its height is $1.2$ m.\par
+\pa{a} Find its total surface area.\par
+\pa{b} The outside is painted completely, using $3$ kg of paint for every $4$ m$^2$. How many kilograms of paint are needed?
+\end{probbox}
+\probsol{
+\pa{a} Length $4$ parts, width $3$ parts; the difference is $1$ part $=0.5$ m.\par
+Length: $0.5\times4=2$ m.\quad Width: $0.5\times3=1.5$ m.\par
+$S_{\text{lat}}=(2+1.5)\times2\times1.2=8.4$ m$^2$.\quad $S_{\text{tot}}=8.4+2\times1.5\times2=14.4$ m$^2$.\par
+\pa{b} $1$ m$^2$ needs $3:4=0.75$ kg. Paint: $0.75\times14.4=10.8$ kg.
+\dapso{\pa{a} $14.4$ m$^2$; \pa{b} $10.8$ kg.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+If the edge of a cube is increased by $2$ cm, its total surface area increases by $120$ cm$^2$. Find the original edge.
+\end{probbox}
+\probsol{
+Each of the $6$ faces grows by $120:6=20$ cm$^2$.\par
+A square of side $a$ becomes a square of side $a+2$: the new part is two strips $a$ by $2$ and a corner square $2$ by $2$.\par
+$a\times2\times2+2\times2=20$, so $a\times4=16$ and $a=4$ cm.\par
+\emph{Check:} $6\times6\times6-4\times4\times6=216-96=120$ cm$^2$.
+\dapso{$4$ cm.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+Two cubes, each with edge $5$ cm, are glued face to face to make a cuboid. Find the total surface area of the cuboid. How much less is it than the total of the two cubes' surface areas?
+\end{probbox}
+\probsol{
+The cuboid is $10$ cm $\times\,5$ cm $\times\,5$ cm.\par
+$S_{\text{tot}}=(10+5)\times2\times5+10\times5\times2=150+100=250$ cm$^2$.\par
+Two cubes: $5\times5\times6\times2=300$ cm$^2$.\par
+Less by $300-250=50$ cm$^2$: the two glued faces ($2\times25$ cm$^2$) are hidden.
+\dapso{$250$ cm$^2$; $50$ cm$^2$ less.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Three cubes with edge $4$ cm are put in a row and glued into a cuboid. Find the total surface area of that cuboid.
+\end{probbox}
+\probsol{
+The cuboid is $12$ cm $\times\,4$ cm $\times\,4$ cm.\par
+$S_{\text{tot}}=(12+4)\times2\times4+12\times4\times2=128+96=224$ cm$^2$.\par
+\emph{Other way:} the $3$ cubes have $18$ faces; each of the $2$ joints hides $2$ faces, so $18-4=14$ faces remain: $14\times4\times4=224$ cm$^2$.
+\dapso{$224$ cm$^2$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+A cuboid $10$ cm long, $6$ cm wide and $4$ cm high is cut into two equal halves by a cut parallel to its base. Find the total surface area of the original cuboid and the total surface area of the two halves together.
+\end{probbox}
+\probsol{
+Original: $(10+6)\times2\times4+10\times6\times2=128+120=248$ cm$^2$.\par
+The cut makes two new faces, each $10\times6=60$ cm$^2$.\par
+Two halves together: $248+60\times2=368$ cm$^2$.
+\dapso{$248$ cm$^2$; $368$ cm$^2$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+A cuboid has a square base and a lateral area of $160$ cm$^2$. Its height is $2.5$ times the side of the base. Find its total surface area.
+\end{probbox}
+\probsol{
+Each side face is a rectangle (base side) $\times$ ($2.5\times$ base side), so it equals $2.5$ squares of the base.\par
+Lateral area $=4\times2.5=10$ base squares: one base square is $160:10=16$ cm$^2$ (side $4$ cm, height $10$ cm).\par
+$S_{\text{tot}}=160+16\times2=192$ cm$^2$.
+\dapso{$192$ cm$^2$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+A cube has a total surface area of $1.5$ m$^2$. Find its edge and its lateral area.
+\end{probbox}
+\probsol{
+One face: $1.5:6=0.25$ m$^2$; since $0.25=0.5\times0.5$, the edge is $0.5$ m.\par
+$S_{\text{lat}}=0.25\times4=1$ m$^2$.
+\dapso{$0.5$ m; $1$ m$^2$.}}
+\gap
+\begin{probbox}{40}{\stars{2}}
+\begin{minipage}[t]{0.6\linewidth}
+From a rectangular sheet of card $40$ cm by $30$ cm, Nam cuts a square of side $5$ cm from each corner and folds up the sides to make an open box. Find the length, width and height of the box and the area of card it uses.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.09]
+\draw[geo,fill=tmBlue!8] (5,0)--(35,0)--(35,5)--(40,5)--(40,25)--(35,25)--(35,30)--(5,30)--(5,25)--(0,25)--(0,5)--(5,5)--cycle;
+\draw[dashed,Slate] (5,5) rectangle (35,25);
+\foreach \x/\y in {0/0,35/0,0/25,35/25}{\draw[Slate,densely dotted] (\x,\y) rectangle ++(5,5);}
+\node[dim,below] at (20,0){$40$ cm}; \node[dim,right] at (40,15){$30$ cm};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Length: $40-5\times2=30$ cm.\quad Width: $30-5\times2=20$ cm.\quad Height: $5$ cm.\par
+Card used: $40\times30-5\times5\times4=1\,200-100=1\,100$ cm$^2$.\par
+\emph{Check:} $S_{\text{lat}}+$ base $=(30+20)\times2\times5+30\times20=500+600=1\,100$ cm$^2$.
+\dapso{$30$ cm, $20$ cm, $5$ cm; $1\,100$ cm$^2$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+A room is $5$ m long, $4$ m wide and $3$ m high. The inside walls and the ceiling are painted. The door and windows cover $4$ m$^2$. Painting costs $25\,000$ đồng per square metre. Find the cost.
+\end{probbox}
+\probsol{
+Walls: $(5+4)\times2\times3=54$ m$^2$.\quad Ceiling: $5\times4=20$ m$^2$.\par
+Area to paint: $54+20-4=70$ m$^2$.\par
+Cost: $25\,000\times70=1\,750\,000$ đồng.
+\dapso{$1\,750\,000$ đồng.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+The $12$ edges of a cuboid add up to $120$ cm. Its length is $3$ times its width and its height is $2$ times its width. Find its total surface area.
+\end{probbox}
+\probsol{
+Length $+$ width $+$ height: $120:4=30$ cm $=3+1+2=6$ widths.\par
+Width: $30:6=5$ cm.\quad Length: $15$ cm.\quad Height: $10$ cm.\par
+$S_{\text{tot}}=(15+5)\times2\times10+15\times5\times2=400+150=550$ cm$^2$.
+\dapso{$550$ cm$^2$.}}
+\gap
+\begin{probbox}{43}{\stars{2}}
+Three different faces of a cuboid have areas $12$ cm$^2$, $15$ cm$^2$ and $20$ cm$^2$. Find its total surface area, and find its three dimensions (whole numbers of centimetres).
+\end{probbox}
+\probsol{
+Each face appears twice: $S_{\text{tot}}=(12+15+20)\times2=94$ cm$^2$.\par
+Try whole numbers: the edge shared by the faces $12$ and $15$ divides both, so it is $1$ or $3$.\par
+If it is $3$: the other edges are $12:3=4$ and $15:3=5$, and $4\times5=20$. \checkmark\par
+(If it were $1$: $12\times15=180\neq20$.)
+\dapso{$94$ cm$^2$; $3$ cm, $4$ cm, $5$ cm.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+A cube-shaped box without a lid has edge $15$ cm. Coloured paper is glued on both the inside and the outside. Find the area of paper used.
+\end{probbox}
+\probsol{
+One face: $15\times15=225$ cm$^2$.\par
+$5$ faces, both sides: $225\times5\times2=2\,250$ cm$^2$.
+\dapso{$2\,250$ cm$^2$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+A cuboid has a square base of side $6$ cm. Its lateral area is $3$ times the total area of its two bases. Find its height and total surface area.
+\end{probbox}
+\probsol{
+Two bases: $6\times6\times2=72$ cm$^2$.\par
+$S_{\text{lat}}=72\times3=216$ cm$^2$.\quad Height: $216:(6\times4)=9$ cm.\par
+$S_{\text{tot}}=216+72=288$ cm$^2$.
+\dapso{$9$ cm; $288$ cm$^2$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Two identical cuboids, each $8$ cm $\times\,5$ cm $\times\,3$ cm, are glued together along their largest faces. Find the total surface area of the new cuboid.
+\end{probbox}
+\probsol{
+The largest face is $8\times5=40$ cm$^2$. The new cuboid is $8$ cm $\times\,5$ cm $\times\,6$ cm.\par
+$S_{\text{tot}}=(8+5)\times2\times6+8\times5\times2=156+80=236$ cm$^2$.\par
+\emph{Check:} one cuboid has $(8+5)\times2\times3+80=158$ cm$^2$; $158\times2-40\times2=236$ cm$^2$.
+\dapso{$236$ cm$^2$.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+A pool is $12.5$ m long, $6$ m wide and $1.4$ m deep. Its bottom and walls are tiled with tiles of $25$ cm $\times\,20$ cm. Tiles are sold in boxes of $12$. How many boxes must be bought?
+\end{probbox}
+\probsol{
+Walls: $(12.5+6)\times2\times1.4=51.8$ m$^2$.\quad Bottom: $12.5\times6=75$ m$^2$.\par
+Area: $51.8+75=126.8$ m$^2$.\quad One tile: $0.05$ m$^2$.\par
+Tiles: $126.8:0.05=2\,536$.\par
+$2\,536:12=211$ remainder $4$, so $211$ boxes are not enough; we need $212$ boxes.
+\dapso{$212$ boxes.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+A cube has the same total surface area as a cuboid $12$ cm long, $9$ cm wide and $4$ cm high. Find the edge of the cube.
+\end{probbox}
+\probsol{
+Cuboid: $(12+9)\times2\times4+12\times9\times2=168+216=384$ cm$^2$.\par
+One face of the cube: $384:6=64$ cm$^2$ $=8\times8$.
+\dapso{$8$ cm.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+A cuboid is $5$ cm high. If its length is decreased by $3$ cm and its width increased by $3$ cm, its base becomes a square of side $8$ cm. Compare the total surface areas of the old and the new cuboid.
+\end{probbox}
+\probsol{
+Old length: $8+3=11$ cm.\quad Old width: $8-3=5$ cm.\par
+Base perimeter does not change ($32$ cm), so the lateral area is the same: $32\times5=160$ cm$^2$.\par
+Old: $160+11\times5\times2=270$ cm$^2$.\quad New: $160+8\times8\times2=288$ cm$^2$.\par
+The new one is larger by $18$ cm$^2$.
+\dapso{The new cuboid's is larger, by $18$ cm$^2$.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+A cube of edge $6$ cm is cut into $8$ equal small cubes. Find the total surface area of the $8$ small cubes and compare it with that of the big cube.
+\end{probbox}
+\probsol{
+Each small cube has edge $6:2=3$ cm.\par
+One small cube: $3\times3\times6=54$ cm$^2$.\quad $8$ cubes: $54\times8=432$ cm$^2$.\par
+Big cube: $6\times6\times6=216$ cm$^2$.\quad $432:216=2$.
+\dapso{$432$ cm$^2$, twice as much.}}

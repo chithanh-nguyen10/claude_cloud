@@ -1,0 +1,632 @@
+\shead{Collecting and presenting data}
+% ---- chapter 11 helpers: bar chart, pie chart with legend, pictograph icons ----
+\newcommand{\stpBars}[6]{% #1 cm per unit, #2 ymax, #3 ystep, #4 list name/height/shown, #5 y caption, #6 x caption
+\begin{tikzpicture}[font=\footnotesize,y=#1cm,x=1cm,>=stealth]
+\foreach \n/\v/\d [count=\i] in {#4}{\xdef\stpN{\i}}
+\pgfmathsetmacro\stpW{\stpN*1.2+0.1}
+\foreach \t in {0,#3,...,#2}{\draw[Line] (0,\t)--(\stpW,\t); \node[left,text=Slate] at (0,\t){$\t$};}
+\foreach \n/\v/\d [count=\i] in {#4}{
+  \pgfmathsetmacro\stpC{\i*1.2-0.5}
+  \fill[tmBlue!65] (\stpC-0.3,0) rectangle (\stpC+0.3,\v);
+  \node[above,font=\footnotesize\bfseries,text=Ink] at (\stpC,\v){$\d$};
+  \node[below,text=Ink] at (\stpC,0){\n};}
+\draw[->,line width=0.8pt] (0,0)--([yshift=0.55cm]0,#2);
+\draw[->,line width=0.8pt] (0,0)--(\stpW+0.35,0);
+\node[above,text=Slate] at ([yshift=0.55cm]0,#2){#5};
+\node[right,text=Slate] at (\stpW+0.35,0){#6};
+\end{tikzpicture}}
+\newcommand{\stpPie}[2][1.5]{% #2 list value/text/colour/legend name (value in percent)
+\begin{tikzpicture}[font=\footnotesize]
+\def\stpA{90}
+\foreach \v/\t/\c/\n [count=\i] in {#2}{
+  \pgfmathsetmacro\stpB{\stpA-3.6*\v}
+  \pgfmathsetmacro\stpM{(\stpA+\stpB)/2}
+  \pgfmathsetmacro\stpR{0.64*#1}
+  \fill[\c] (0,0) -- (\stpA:#1) arc[start angle=\stpA,end angle=\stpB,radius=#1] -- cycle;
+  \draw[white,line width=1.2pt] (0,0) -- (\stpA:#1);
+  \node[text=Ink,font=\footnotesize\bfseries] at (\stpM:\stpR) {\t};
+  \fill[\c] (#1+0.7,#1-0.55*\i+0.1) rectangle ++(0.32,0.32);
+  \node[anchor=west,text=Ink,font=\small] at (#1+1.1,#1-0.55*\i+0.26) {\n};
+  \global\let\stpA\stpB}
+\draw[Slate,line width=0.8pt] (0,0) circle (#1);
+\end{tikzpicture}}
+\newcommand{\stpIcons}[1]{\foreach \k in {1,...,#1}{\textcolor{tmBlue}{\faBook}\ }}
+\begin{knowbox}
+To compare, judge and decide, people \textbf{collect information} (data) and then \textbf{organise} it. Sometimes we ask everybody; sometimes we ask only a typical group.\par\smallskip
+Data are usually shown as:
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item a \textbf{table} -- each value is written in its own cell;
+\item a \textbf{pictograph} -- each picture stands for the same number of things;
+\item a \textbf{bar chart} -- the height of each bar, read on the vertical scale, gives the value;
+\item a \textbf{pie chart} -- the whole circle is the whole total ($100\%$); each slice is a percentage of the total. Half the circle is $50\%$, a quarter is $25\%$.
+\end{itemize}
+From a pie chart: \quad \textbf{part $=$ total $:100\times$ percentage}; \quad \textbf{total $=$ part $:$ percentage $\times100$}.
+\end{knowbox}
+\shead{The mean (average)}
+\begin{knowbox}
+\textbf{Mean} $=$ (sum of the values) $:$ (number of values). \qquad \textbf{Sum} $=$ mean $\times$ number of values.
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item The mean always lies between the smallest and the largest value.
+\item To find a \emph{missing value}: work out the sum from the mean, then subtract the values you know.
+\item If one value grows by some amount, the sum grows by that amount and the mean grows by (that amount) $:$ (number of values).
+\end{itemize}
+\end{knowbox}
+\shead{Chance and counting outcomes}
+\begin{knowbox}
+When we repeat an experiment (tossing a coin, rolling a dice, spinning a spinner, picking a ball without looking), we record how many times each outcome happens.
+\begin{center}
+\textbf{ratio describing how often an outcome happened} $=$ $\dfrac{\text{number of times it happened}}{\text{total number of trials}}$
+\end{center}
+For example, a dice is rolled $20$ times and the face with $6$ dots comes up $3$ times: the ratio is $\dfrac{3}{20}$. If we roll more times, this ratio may change.\par\smallskip
+\textbf{Counting outcomes.} List every possible result in an orderly way (a list, a table or a tree). A coin has $2$ outcomes, a dice has $6$; a coin \emph{and} a dice together have $2\times6=12$.\par
+When all outcomes are \emph{equally likely}, the \textbf{chance} of an event $=$ (number of outcomes that give the event) $:$ (number of all outcomes). An event that always happens is \emph{certain}; one that can never happen is \emph{impossible}.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Lan writes down how many pages she reads each day of one week:
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\textbf{Day} & Mon & Tue & Wed & Thu & Fri & Sat & Sun\\\hline
+\textbf{Pages} & $18$ & $25$ & $20$ & $32$ & $15$ & $30$ & $28$\\\hline
+\end{tabular}
+\end{center}
+\begin{cols2}
+\pa{a} On which day did she read most? Least? & \pa{b} How many pages did she read per day on average?\\
+\multicolumn{2}{@{}l@{}}{\pa{c} On how many days did she read more than her average?}
+\end{cols2}
+\guide
+\pa{a} Most on Thursday ($32$ pages); least on Friday ($15$ pages).\par
+\pa{b} Pages in the week: $18+25+20+32+15+30+28=168$.\par Mean per day: $168:7=24$ pages.\par
+\pa{c} More than $24$: Tuesday, Thursday, Saturday and Sunday, i.e.\ $4$ days.
+\dapso{\pa{a} Thursday; Friday. \pa{b} $24$ pages. \pa{c} $4$ days.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+The bar chart shows how many books five classes gave to the school library.
+\begin{center}
+\stpBars{0.05}{80}{10}{5A/45/45,5B/60/60,5C/35/35,5D/70/70,5E/40/40}{(books)}{(class)}
+\end{center}
+\begin{cols2}
+\pa{a} How many books did the five classes give? & \pa{b} How many books did a class give on average?\\
+\multicolumn{2}{@{}l@{}}{\pa{c} How many more books did the class that gave most give than the class that gave least?}
+\end{cols2}
+\guide
+\pa{a} $45+60+35+70+40=250$ books.\par
+\pa{b} $250:5=50$ books.\par
+\pa{c} Most: 5D ($70$); least: 5C ($35$).\par Difference: $70-35=35$ books.
+\dapso{\pa{a} $250$ books. \pa{b} $50$ books. \pa{c} $35$ books.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+$400$ pupils were asked about their favourite fruit. The results are shown in the pie chart.
+\begin{center}
+\stpPie{35/35\%/tmBlue!55/Mango,20/20\%/tmOrange!60/Banana,25/25\%/tmGreen!50/Watermelon,20/?/tmPurple!40/Orange}
+\end{center}
+\pa{a} What percentage of the pupils chose oranges?\par
+\pa{b} How many pupils chose mangoes?\par
+\pa{c} How many more pupils chose mangoes than bananas?
+\guide
+\pa{a} The whole circle is $100\%$: $100\%-35\%-20\%-25\%=20\%$.\par
+\pa{b} $400:100\times35=140$ pupils.\par
+\pa{c} \emph{Method 1.} Bananas: $400:100\times20=80$ pupils; \ $140-80=60$ pupils.\par
+\emph{Method 2.} Mangoes are $35\%-20\%=15\%$ more; \ $400:100\times15=60$ pupils.
+\dapso{\pa{a} $20\%$. \pa{b} $140$ pupils. \pa{c} $60$ pupils.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Minh rolls a dice $40$ times and records the results.
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Outcome} & $1$ dot & $2$ dots & $3$ dots & $4$ dots & $5$ dots & $6$ dots\\\hline
+\textbf{Times} & $6$ & $8$ & $5$ & $7$ & $9$ & $5$\\\hline
+\end{tabular}
+\end{center}
+Write the ratio describing how often each event happened, compared with the number of rolls:\par
+\pa{a} $6$ dots; \quad \pa{b} an even number of dots; \quad \pa{c} at least $5$ dots.
+\guide
+\pa{a} $6$ dots came up $5$ times: $\dfrac{5}{40}=\dfrac{1}{8}$.\par
+\pa{b} Even ($2$, $4$, $6$ dots): $8+7+5=20$ times; \ $\dfrac{20}{40}=\dfrac12$.\par
+\pa{c} At least $5$ dots ($5$ or $6$ dots): $9+5=14$ times; \ $\dfrac{14}{40}=\dfrac{7}{20}$.
+\note{This does not mean the same thing will happen next time: with more rolls the ratios change.}
+\dapso{\pa{a} $\dfrac18$. \pa{b} $\dfrac12$. \pa{c} $\dfrac{7}{20}$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Box I holds three cards numbered $1$, $2$, $3$; box II holds two cards numbered $4$, $5$. Without looking, Hoa takes one card from each box and adds the two numbers.\par
+\pa{a} List all possible outcomes. \quad \pa{b} What is the chance that the sum is $7$?
+\guide
+\pa{a} Make a table (row: box I, column: box II):
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+$+$ & $4$ & $5$\\\hline
+$1$ & $5$ & $6$\\\hline
+$2$ & $6$ & $7$\\\hline
+$3$ & $7$ & $8$\\\hline
+\end{tabular}
+\end{center}
+There are $3\times2=6$ equally likely outcomes: $1+4,\ 1+5,\ 2+4,\ 2+5,\ 3+4,\ 3+5$.\par
+\pa{b} The sum is $7$ in $2$ outcomes ($2+5$ and $3+4$).\par Chance: $\dfrac26=\dfrac13$.
+\dapso{\pa{a} $6$ outcomes. \pa{b} $\dfrac13$.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+The noon temperature in a town on five days was:
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\textbf{Day} & Mon & Tue & Wed & Thu & Fri\\\hline
+\textbf{Temperature ($^\circ$C)} & $31$ & $29$ & $33$ & $30$ & $32$\\\hline
+\end{tabular}
+\end{center}
+\pa{a} Which day was hottest, which coolest? \quad \pa{b} Find the mean noon temperature.
+\end{probbox}
+\probsol{
+\pa{a} Hottest: Wednesday ($33^\circ$C); coolest: Tuesday ($29^\circ$C).\par
+\pa{b} $(31+29+33+30+32):5=155:5=31^\circ$C.
+\dapso{\pa{a} Wednesday; Tuesday. \pa{b} $31^\circ$C.}}
+\gap
+\begin{probbox}{2}{\relax}
+Nam's marks in six maths tests were $7,\ 9,\ 8,\ 10,\ 6,\ 8$. What is his mean mark?
+\end{probbox}
+\probsol{
+Sum: $7+9+8+10+6+8=48$.\par Mean: $48:6=8$.
+\dapso{$8$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Four friends are $135$ cm, $142$ cm, $138$ cm and $145$ cm tall. Find their mean height.
+\end{probbox}
+\probsol{
+$(135+142+138+145):4=560:4=140$ cm.
+\dapso{$140$ cm.}}
+\gap
+\begin{probbox}{4}{\relax}
+The pictograph shows how many books four groups read in May.
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Group 1 & \stpIcons{5}\\\hline
+Group 2 & \stpIcons{3}\\\hline
+Group 3 & \stpIcons{6}\\\hline
+Group 4 & \stpIcons{4}\\\hline
+\end{tabular}\par\smallskip
+Each \textcolor{tmBlue}{\faBook} stands for $4$ books.
+\end{center}
+\pa{a} How many books did the four groups read? \quad \pa{b} How many books did a group read on average?
+\end{probbox}
+\probsol{
+Number of pictures: $5+3+6+4=18$.\par
+\pa{a} Books: $4\times18=72$.\par
+\pa{b} Mean: $72:4=18$ books.
+\dapso{\pa{a} $72$ books. \pa{b} $18$ books.}}
+\gap
+\begin{probbox}{5}{\relax}
+A shop sold $24$ bicycles in January, $30$ in February, $27$ in March and $39$ in April.\par
+\pa{a} How many bicycles were sold in the four months? \quad \pa{b} How many a month on average?\par
+\pa{c} In how many months did the shop sell more than its average?
+\end{probbox}
+\probsol{
+\pa{a} $24+30+27+39=120$ bicycles.\par
+\pa{b} $120:4=30$ bicycles.\par
+\pa{c} Only April ($39>30$; February's $30$ is equal to the mean, not more): $1$ month.
+\dapso{\pa{a} $120$. \pa{b} $30$. \pa{c} $1$ month.}}
+\gap
+\begin{probbox}{6}{\relax}
+The chart shows the number of pupils in each grade of a primary school.
+\begin{center}
+\stpBars{0.025}{150}{25}{Grade 1/120/120,Grade 2/135/135,Grade 3/110/110,Grade 4/140/140,Grade 5/125/125}{(pupils)}{}
+\end{center}
+\pa{a} Which grade has the most pupils? The fewest?\par
+\pa{b} How many pupils does the school have?\par
+\pa{c} How many more pupils does Grade 4 have than Grade 3?
+\end{probbox}
+\probsol{
+\pa{a} Most: Grade 4 ($140$); fewest: Grade 3 ($110$).\par
+\pa{b} $120+135+110+140+125=630$ pupils.\par
+\pa{c} $140-110=30$ pupils.
+\dapso{\pa{a} Grade 4; Grade 3. \pa{b} $630$ pupils. \pa{c} $30$ pupils.}}
+\gap
+\begin{probbox}{7}{\relax}
+The chart shows the rainfall in a town from May to August.
+\begin{center}
+\stpBars{0.014}{250}{50}{May/80/80,June/150/150,July/210/210,August/120/120}{(mm)}{(month)}
+\end{center}
+Find the total rainfall and the mean rainfall per month.
+\end{probbox}
+\probsol{
+Total: $80+150+210+120=560$ mm.\par Mean: $560:4=140$ mm.
+\dapso{$560$ mm; $140$ mm.}}
+\gap
+\begin{probbox}{8}{\relax}
+Class 5B has $40$ pupils. The pie chart shows how they come to school.
+\begin{center}
+\stpPie{30/30\%/tmBlue!55/On foot,45/45\%/tmOrange!60/By bicycle,25/25\%/tmGreen!50/By motorbike with parents}
+\end{center}
+\pa{a} How many pupils walk to school?\par
+\pa{b} How many more pupils come by bicycle than by motorbike?
+\end{probbox}
+\probsol{
+\pa{a} $40:100\times30=12$ pupils.\par
+\pa{b} By bicycle: $40:100\times45=18$; by motorbike: $40:100\times25=10$.\par Difference: $18-10=8$ pupils.
+\dapso{\pa{a} $12$ pupils. \pa{b} $8$ pupils.}}
+\gap
+\begin{probbox}{9}{\relax}
+$200$ pupils chose their favourite sport.
+\begin{center}
+\stpPie{40/40\%/tmBlue!55/Football,25/25\%/tmOrange!60/Badminton,20/20\%/tmGreen!50/Swimming,15/15\%/tmPurple!40/Chess}
+\end{center}
+\pa{a} How many pupils chose football? \quad \pa{b} chess?\par
+\pa{c} How many pupils chose football or swimming?
+\end{probbox}
+\probsol{
+\pa{a} $200:100\times40=80$ pupils.\par
+\pa{b} $200:100\times15=30$ pupils.\par
+\pa{c} $40\%+20\%=60\%$; \ $200:100\times60=120$ pupils.
+\dapso{\pa{a} $80$. \pa{b} $30$. \pa{c} $120$ pupils.}}
+\gap
+\begin{probbox}{10}{\relax}
+$300$ pupils each joined one after-school club.
+\begin{center}
+\stpPie{30/30\%/tmBlue!55/Art,25/25\%/tmOrange!60/Music,25/?/tmGreen!50/Science,20/20\%/tmPurple!40/Sport}
+\end{center}
+What percentage of the pupils joined the Science club, and how many pupils is that?
+\end{probbox}
+\probsol{
+Science: $100\%-30\%-25\%-20\%=25\%$.\par Pupils: $300:100\times25=75$.
+\dapso{$25\%$; $75$ pupils.}}
+\gap
+\begin{probbox}{11}{\relax}
+A family spends $12\,000\,000$ dong a month as the chart shows.
+\begin{center}
+\stpPie{50/50\%/tmBlue!55/Food,25/25\%/tmOrange!60/School,15/15\%/tmGreen!50/Savings,10/10\%/tmPurple!40/Other}
+\end{center}
+How much money goes on food? How much is saved?
+\end{probbox}
+\probsol{
+Food is half: $12\,000\,000:2=6\,000\,000$ dong.\par
+Savings: $12\,000\,000:100\times15=1\,800\,000$ dong.
+\dapso{Food $6\,000\,000$ dong; savings $1\,800\,000$ dong.}}
+\gap
+\begin{probbox}{12}{\relax}
+In a survey, $36$ pupils chose mango as their favourite fruit. They are $30\%$ of all the pupils asked. How many pupils were asked?
+\end{probbox}
+\probsol{
+$30\%$ of the pupils are $36$ pupils, so all the pupils ($100\%$): $36:30\times100=120$.
+\dapso{$120$ pupils.}}
+\gap
+\begin{probbox}{13}{\relax}
+The mean of five numbers is $18$. Four of them are $15$, $20$, $17$ and $22$. Find the fifth number.
+\end{probbox}
+\probsol{
+Sum of the five numbers: $18\times5=90$.\par Sum of the four: $15+20+17+22=74$.\par Fifth number: $90-74=16$.
+\dapso{$16$.}}
+\gap
+\begin{probbox}{14}{\relax}
+An's mean mark in three tests is $8$. After a fourth test his mean mark is $8.5$. What did he get in the fourth test?
+\end{probbox}
+\probsol{
+Sum of three marks: $8\times3=24$.\par Sum of four marks: $8.5\times4=34$.\par Fourth mark: $34-24=10$.
+\dapso{$10$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Three bags of rice weigh $25$ kg on average. A fourth bag of $33$ kg is added. What is the mean weight of the four bags?
+\end{probbox}
+\probsol{
+Three bags: $25\times3=75$ kg.\par Four bags: $75+33=108$ kg.\par Mean: $108:4=27$ kg.
+\dapso{$27$ kg.}}
+\gap
+\begin{probbox}{16}{\relax}
+Tú tosses a coin $50$ times; it lands heads up $28$ times. Write the ratio describing how often it landed heads, and how often tails, compared with the number of tosses.
+\end{probbox}
+\probsol{
+Heads: $\dfrac{28}{50}=\dfrac{14}{25}$.\par Tails: $50-28=22$ times, $\dfrac{22}{50}=\dfrac{11}{25}$.
+\dapso{Heads $\dfrac{14}{25}$; tails $\dfrac{11}{25}$.}}
+\gap
+\begin{probbox}{17}{\relax}
+A spinner with red, blue and yellow parts is spun $60$ times: red $21$ times, blue $15$ times, yellow $24$ times.\par
+\pa{a} Write the ratio for each colour. \quad \pa{b} Write the ratio for ``not red''.
+\end{probbox}
+\probsol{
+\pa{a} Red: $\dfrac{21}{60}=\dfrac{7}{20}$; \ blue: $\dfrac{15}{60}=\dfrac14$; \ yellow: $\dfrac{24}{60}=\dfrac25$.\par
+\pa{b} Not red: $15+24=39$ times; \ $\dfrac{39}{60}=\dfrac{13}{20}$.
+\dapso{\pa{a} $\dfrac{7}{20}$; $\dfrac14$; $\dfrac25$. \pa{b} $\dfrac{13}{20}$.}}
+\gap
+\begin{probbox}{18}{\relax}
+A dice is rolled $30$ times:
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Outcome} & $1$ dot & $2$ dots & $3$ dots & $4$ dots & $5$ dots & $6$ dots\\\hline
+\textbf{Times} & $4$ & $6$ & $5$ & $3$ & $7$ & $5$\\\hline
+\end{tabular}
+\end{center}
+Write the ratio for: \pa{a} an odd number of dots; \quad \pa{b} more than $4$ dots.
+\end{probbox}
+\probsol{
+\pa{a} Odd ($1$, $3$, $5$): $4+5+7=16$ times; \ $\dfrac{16}{30}=\dfrac{8}{15}$.\par
+\pa{b} More than $4$ ($5$, $6$): $7+5=12$ times; \ $\dfrac{12}{30}=\dfrac25$.
+\dapso{\pa{a} $\dfrac{8}{15}$. \pa{b} $\dfrac25$.}}
+\gap
+\begin{probbox}{19}{\relax}
+Bình rolls a dice many times. The face with $6$ dots comes up $9$ times, and the ratio for $6$ dots is $\dfrac{3}{20}$. How many times did Bình roll the dice? How many rolls did not show $6$ dots?
+\end{probbox}
+\probsol{
+$9$ times is $3$ parts out of $20$, so one part is $9:3=3$ rolls.\par Rolls: $3\times20=60$.\par Not $6$ dots: $60-9=51$.
+\dapso{$60$ rolls; $51$ rolls.}}
+\gap
+\begin{probbox}{20}{\relax}
+A bag holds red and blue balls. Mai takes a ball without looking, writes its colour and puts it back. She does this $25$ times, and the ratio for red is $\dfrac25$. How many times did she get red, and how many times blue?
+\end{probbox}
+\probsol{
+Red: $25\times\dfrac25=10$ times.\par Blue: $25-10=15$ times.
+\dapso{Red $10$ times, blue $15$ times.}}
+\gap
+\begin{probbox}{21}{\relax}
+Two coins are tossed at the same time.\par
+\pa{a} List all possible outcomes. \quad \pa{b} In how many outcomes is there one head and one tail?
+\end{probbox}
+\probsol{
+Write H for heads and T for tails (first coin, then second coin).\par
+\pa{a} HH, HT, TH, TT: $4$ outcomes.\par
+\pa{b} HT and TH: $2$ outcomes.
+\dapso{\pa{a} $4$ outcomes. \pa{b} $2$ outcomes.}}
+\gap
+\begin{probbox}{22}{\relax}
+A school canteen offers $3$ main dishes (rice, noodles, bread) and $2$ drinks (milk, juice). A lunch is one main dish and one drink. How many different lunches are there? List them.
+\end{probbox}
+\probsol{
+Each dish goes with $2$ drinks: $3\times2=6$ lunches.\par
+Rice--milk, rice--juice, noodles--milk, noodles--juice, bread--milk, bread--juice.
+\dapso{$6$ lunches.}}
+\gap
+\begin{probbox}{23}{\relax}
+Using the digits $1$, $4$, $7$, how many two-digit numbers with two different digits can be written? How many of them are even?
+\end{probbox}
+\probsol{
+Numbers: $14,\ 17,\ 41,\ 47,\ 71,\ 74$: $6$ numbers ($3$ choices for the tens digit, then $2$ for the ones).\par
+Even numbers end in $4$: $14$ and $74$, i.e.\ $2$ numbers.
+\dapso{$6$ numbers; $2$ even.}}
+\gap
+\begin{probbox}{24}{\relax}
+A bag holds $3$ red, $5$ blue and $2$ yellow balls of the same size. One ball is taken without looking.\par
+\pa{a} Which colour is most likely? \quad \pa{b} What is the chance of a blue ball?\par
+\pa{c} Is a green ball certain, possible or impossible?
+\end{probbox}
+\probsol{
+\pa{a} Blue: there are most blue balls ($5$).\par
+\pa{b} $10$ balls, $5$ blue: $\dfrac{5}{10}=\dfrac12$.\par
+\pa{c} There are no green balls: impossible.
+\dapso{\pa{a} Blue. \pa{b} $\dfrac12$. \pa{c} Impossible.}}
+\gap
+\begin{probbox}{25}{\relax}
+A football team scored $2,\ 0,\ 3,\ 1,\ 4,\ 2,\ 1,\ 3$ goals in eight matches. Find the mean number of goals per match. In how many matches did the team score more than the mean?
+\end{probbox}
+\probsol{
+Goals: $2+0+3+1+4+2+1+3=16$.\par Mean: $16:8=2$ goals.\par More than $2$: the matches with $3,\ 4,\ 3$ goals, i.e.\ $3$ matches.
+\dapso{$2$ goals; $3$ matches.}}
+\gap
+\begin{probbox}{26}{\relax}
+The chart shows the rice harvest of a farm (in tonnes).
+\begin{center}
+\stpBars{0.06}{60}{10}{2021/42/42,2022/45/45,2023/48/48,2024/50/50,2025/55/55}{(tonnes)}{(year)}
+\end{center}
+\pa{a} Find the mean harvest per year. \quad \pa{b} How much more was harvested in 2025 than in 2021?
+\end{probbox}
+\probsol{
+\pa{a} $(42+45+48+50+55):5=240:5=48$ tonnes.\par
+\pa{b} $55-42=13$ tonnes.
+\dapso{\pa{a} $48$ tonnes. \pa{b} $13$ tonnes.}}
+\gap
+\begin{probbox}{27}{\relax}
+A library has $1\,200$ books.
+\begin{center}
+\stpPie{35/35\%/tmBlue!55/Comics,25/25\%/tmOrange!60/Science,30/30\%/tmGreen!50/Stories,10/10\%/tmPurple!40/Other}
+\end{center}
+\pa{a} How many science books are there? \quad \pa{b} How many more story books than ``other'' books?
+\end{probbox}
+\probsol{
+\pa{a} $1\,200:100\times25=300$ books.\par
+\pa{b} Stories are $30\%-10\%=20\%$ more: $1\,200:100\times20=240$ books.
+\dapso{\pa{a} $300$ books. \pa{b} $240$ books.}}
+\gap
+\begin{probbox}{28}{\relax}
+Hoa spent her $160\,000$ dong of pocket money as shown.
+\begin{center}
+\stpPie{50/50\%/tmBlue!55/Books,25/25\%/tmOrange!60/Savings,15/15\%/tmGreen!50/Snacks,10/10\%/tmPurple!40/Gifts}
+\end{center}
+\pa{a} How much did she save? \quad \pa{b} How much more did she spend on books than on snacks?
+\end{probbox}
+\probsol{
+\pa{a} A quarter: $160\,000:4=40\,000$ dong.\par
+\pa{b} Books: $80\,000$ dong; snacks: $160\,000:100\times15=24\,000$ dong.\par Difference: $80\,000-24\,000=56\,000$ dong.
+\dapso{\pa{a} $40\,000$ dong. \pa{b} $56\,000$ dong.}}
+\gap
+\begin{probbox}{29}{\relax}
+Five girls weigh $32$ kg on average and three boys weigh $36$ kg on average. Find the mean weight of all eight children.
+\end{probbox}
+\probsol{
+Girls: $32\times5=160$ kg.\par Boys: $36\times3=108$ kg.\par Mean: $(160+108):8=268:8=33.5$ kg.
+\dapso{$33.5$ kg.}}
+\gap
+\begin{probbox}{30}{\relax}
+Lan tosses a coin several times. It lands tails up $14$ times, and the ratio for heads is $\dfrac35$. How many times did she toss the coin, and how many heads were there?
+\end{probbox}
+\probsol{
+Ratio for tails: $1-\dfrac35=\dfrac25$.\par So $14$ times is $2$ parts out of $5$: one part is $7$ tosses.\par Tosses: $7\times5=35$; heads: $35-14=21$.
+\dapso{$35$ tosses; $21$ heads.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+The mean of six numbers is $15$. When one number is removed, the mean of the other five is $14$. Which number was removed?
+\end{probbox}
+\probsol{
+Six numbers: $15\times6=90$.\par Five numbers: $14\times5=70$.\par Removed: $90-70=20$.
+\dapso{$20$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+The mean age of $10$ players in a team is $30$. When the coach is counted too, the mean age is $31$. How old is the coach?
+\end{probbox}
+\probsol{
+Players: $30\times10=300$ years.\par With the coach ($11$ people): $31\times11=341$ years.\par Coach: $341-300=41$.
+\dapso{$41$ years old.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Hùng's mean mark in four tests is $7.5$. What must he get in the fifth test so that his mean mark becomes $8$?
+\end{probbox}
+\probsol{
+Four tests: $7.5\times4=30$.\par Five tests: $8\times5=40$.\par Fifth test: $40-30=10$.
+\dapso{$10$.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+The mean of three numbers is $35$. The first is twice the second, and the second is twice the third. Find the three numbers.
+\end{probbox}
+\probsol{
+Sum: $35\times3=105$.\par If the third number is $1$ part, the second is $2$ parts and the first is $4$ parts: $7$ parts.\par
+One part: $105:7=15$.\par Numbers: $60$, $30$, $15$.
+\dapso{$60$, $30$, $15$.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+The mean of five consecutive even numbers is $36$. Find the largest of them.
+\end{probbox}
+\probsol{
+For equally spaced numbers the mean is the middle number: $36$.\par The numbers are $32,\ 34,\ 36,\ 38,\ 40$.
+\dapso{$40$.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+The mean of four marks was worked out as $8.25$, but one mark was copied as $6$ instead of $9$. What is the correct mean?
+\end{probbox}
+\probsol{
+Wrong sum: $8.25\times4=33$.\par Correct sum: $33-6+9=36$.\par Correct mean: $36:4=9$.
+\dapso{$9$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+The chart shows tickets sold at a museum from Monday to Friday; the bar for Wednesday is missing. The mean is $160$ tickets a day. How many tickets were sold on Wednesday?
+\begin{center}
+\stpBars{0.016}{250}{50}{Mon/120/120,Tue/150/150,Wed/0/?,Thu/180/180,Fri/210/210}{(tickets)}{(day)}
+\end{center}
+\end{probbox}
+\probsol{
+Five days: $160\times5=800$ tickets.\par The other four days: $120+150+180+210=660$.\par Wednesday: $800-660=140$ tickets.
+\dapso{$140$ tickets.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Each pupil of class 5A chose one sport. $12$ pupils chose basketball.
+\begin{center}
+\stpPie{40/40\%/tmBlue!55/Football,30/30\%/tmOrange!60/Basketball,20/20\%/tmGreen!50/Swimming,10/10\%/tmPurple!40/Chess}
+\end{center}
+\pa{a} How many pupils are there in class 5A? \quad \pa{b} How many chose football? Chess?
+\end{probbox}
+\probsol{
+\pa{a} $12$ pupils are $30\%$: $12:30\times100=40$ pupils.\par
+\pa{b} Football: $40:100\times40=16$; \ chess: $40:100\times10=4$.
+\dapso{\pa{a} $40$ pupils. \pa{b} $16$; $4$.}}
+\gap
+\begin{probbox}{39}{\stars{2}}
+$160$ pupils named their favourite pet: dog $40\%$, rabbit $15\%$, and the rest chose cat or fish. Twice as many pupils chose cats as chose fish. How many pupils chose cats?
+\end{probbox}
+\probsol{
+Cat and fish: $100\%-40\%-15\%=45\%$.\par Fish $1$ part, cat $2$ parts: one part is $45\%:3=15\%$.\par Cat: $30\%$, i.e.\ $160:100\times30=48$ pupils.
+\dapso{$48$ pupils.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+In class 5A ($40$ pupils), $35\%$ like reading best. In class 5B ($36$ pupils), $50\%$ like reading best. Which class has more pupils who like reading best, and by how many?
+\end{probbox}
+\probsol{
+5A: $40:100\times35=14$ pupils.\par 5B: $36:2=18$ pupils.\par 5B has $18-14=4$ more.
+\dapso{Class 5B, by $4$ pupils.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Using the digits $0,\ 3,\ 5,\ 8$, how many two-digit numbers with different digits can be written? How many of them are divisible by $5$?
+\end{probbox}
+\probsol{
+Tens digit: $3$ choices ($3$, $5$, $8$; not $0$); ones digit: $3$ choices (any other digit).\par Numbers: $3\times3=9$.\par
+Divisible by $5$ means ending in $0$ or $5$: $30,\ 50,\ 80,\ 35,\ 85$: $5$ numbers.
+\dapso{$9$ numbers; $5$ of them.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Six friends meet, and every two of them shake hands once. How many handshakes are there?
+\end{probbox}
+\probsol{
+Each person shakes $5$ hands: $6\times5=30$, but each handshake is counted twice.\par Handshakes: $30:2=15$.
+\dapso{$15$ handshakes.}}
+\gap
+\begin{probbox}{43}{\stars{2}}
+Two dice are rolled together and the dots are added.\par
+\pa{a} How many outcomes are there? \quad \pa{b} In how many outcomes is the sum $7$? What is the chance of a sum of $7$?\par
+\pa{c} What is the chance of a sum of $12$?
+\end{probbox}
+\probsol{
+\pa{a} Each of the $6$ faces of the first dice goes with $6$ faces of the second: $6\times6=36$ outcomes.\par
+\pa{b} Sum $7$: $1+6,\ 2+5,\ 3+4,\ 4+3,\ 5+2,\ 6+1$: $6$ outcomes. Chance: $\dfrac{6}{36}=\dfrac16$.\par
+\pa{c} Only $6+6$: chance $\dfrac{1}{36}$.
+\dapso{\pa{a} $36$. \pa{b} $6$; $\dfrac16$. \pa{c} $\dfrac{1}{36}$.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+A box holds $4$ red and $6$ blue balls. \pa{a} What is the chance of taking a red ball without looking?\par
+\pa{b} How many red balls must be added so that the chance of red becomes $\dfrac12$?
+\end{probbox}
+\probsol{
+\pa{a} $\dfrac{4}{10}=\dfrac25$.\par
+\pa{b} The chance is $\dfrac12$ when there are as many red as blue balls: $6$ red.\par Add $6-4=2$ red balls.
+\dapso{\pa{a} $\dfrac25$. \pa{b} $2$ red balls.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+A bag holds $20$ red, blue and green balls. The chance of a red ball is $\dfrac14$ and the chance of a blue ball is $\dfrac25$. How many balls of each colour are there?
+\end{probbox}
+\probsol{
+Red: $20\times\dfrac14=5$.\par Blue: $20\times\dfrac25=8$.\par Green: $20-5-8=7$.
+\dapso{$5$ red, $8$ blue, $7$ green.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+A spinner is divided into $8$ equal parts: $3$ red, $4$ blue and $1$ yellow.
+\begin{center}
+\begin{tikzpicture}[font=\footnotesize]
+\foreach \c [count=\i from 0] in {tmPink!45,tmBlue!50,tmPink!45,tmBlue!50,StarGold,tmBlue!50,tmPink!45,tmBlue!50}{
+  \fill[\c] (0,0) -- (90-45*\i:1.3) arc[start angle=90-45*\i,end angle=45-45*\i,radius=1.3] -- cycle;
+  \draw[white,line width=1.2pt] (0,0) -- (90-45*\i:1.3);}
+\draw[Slate,line width=0.8pt] (0,0) circle (1.3);
+\draw[-{Stealth},line width=1.4pt,Ink] (0,0) -- (25:1.0);
+\fill[Ink] (0,0) circle (2.5pt);
+\foreach \c/\n [count=\i] in {tmPink!45/Red,tmBlue!50/Blue,StarGold/Yellow}{
+  \fill[\c] (2.0,1.0-0.55*\i) rectangle ++(0.32,0.32);
+  \node[anchor=west,font=\small] at (2.4,1.16-0.55*\i) {\n};}
+\end{tikzpicture}
+\end{center}
+\pa{a} What is the chance that the arrow stops on blue? \quad \pa{b} About how many times would you expect blue in $80$ spins?
+\end{probbox}
+\probsol{
+\pa{a} $4$ of the $8$ equal parts are blue: $\dfrac48=\dfrac12$.\par
+\pa{b} About half of the spins: $80\times\dfrac12=40$ times.
+\dapso{\pa{a} $\dfrac12$. \pa{b} About $40$ times.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+The mean age of a family of four is $24$ years now. What was their mean age $4$ years ago (all four were already born then)?
+\end{probbox}
+\probsol{
+Total age now: $24\times4=96$ years.\par $4$ years ago each person was $4$ years younger: $96-4\times4=80$ years.\par Mean: $80:4=20$ years.
+\dapso{$20$ years.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+In a test, the $32$ pupils of a class have a mean mark of $8$. The $20$ girls have a mean mark of $8.3$. Find the mean mark of the boys.
+\end{probbox}
+\probsol{
+Whole class: $8\times32=256$.\par Girls: $8.3\times20=166$.\par Boys: $32-20=12$ pupils with $256-166=90$ marks.\par Mean: $90:12=7.5$.
+\dapso{$7.5$.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+A box holds $12$ balls, some red and some white. Nam takes a ball, notes its colour and puts it back, $60$ times; red comes up $45$ times. About how many red balls are there in the box?
+\end{probbox}
+\probsol{
+Ratio for red: $\dfrac{45}{60}=\dfrac34$.\par So about $\dfrac34$ of the balls are red: $12\times\dfrac34=9$ balls.
+\dapso{About $9$ red balls.}}
+\gap
+\begin{probbox}{50}{\stars{1}}
+An, Bình and Chi stand in a row for a photo.\par
+\pa{a} In how many different orders can they stand? \quad \pa{b} In how many of them is An in the middle?
+\end{probbox}
+\probsol{
+\pa{a} First place: $3$ choices, second: $2$, third: $1$; \ $3\times2\times1=6$ orders:\par
+ABC, ACB, BAC, BCA, CAB, CBA (A $=$ An, B $=$ Bình, C $=$ Chi).\par
+\pa{b} An in the middle: BAC and CAB, i.e.\ $2$ orders.
+\dapso{\pa{a} $6$. \pa{b} $2$.}}

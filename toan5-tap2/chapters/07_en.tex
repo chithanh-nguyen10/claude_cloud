@@ -1,0 +1,511 @@
+\shead{Two objects moving towards each other}
+\begin{knowbox}
+Two objects start \emph{at the same time} from $A$ and $B$, a distance $s$ apart, and move towards each other with speeds $v_1$ and $v_2$.
+\begin{barfigC}
+\draw[geo] (0,0)--(7,0);
+\draw[geo] (0,0.12)--(0,-0.12) (7,0.12)--(7,-0.12);
+\node[lbl,above] at (0,0.12){$A$}; \node[lbl,above] at (7,0.12){$B$};
+\draw[->,line width=1pt,tmOrange] (0.1,-0.35)--(1.5,-0.35); \node[dim,below] at (0.8,-0.4){$v_1$};
+\draw[->,line width=1pt,tmGreen] (6.9,-0.35)--(5.5,-0.35); \node[dim,below] at (6.2,-0.4){$v_2$};
+\fill[AnsRed] (4,0) circle (2.2pt); \node[lbl,above] at (4,0.12){$C$};
+\brcup{0}{7}{0.7}{$s$}
+\end{barfigC}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Every hour the gap between them shrinks by $v_1+v_2$ (the \emph{closing speed}).
+\item Time until they meet: $\ t=s:(v_1+v_2)$.
+\item The meeting point $C$ is $v_1\times t$ from $A$ and $v_2\times t$ from $B$.
+\item Clock time of meeting $=$ starting time $+\ t$.
+\item If one object sets off earlier, first find how far it has gone by the time the other one starts; the \emph{remaining} distance is then shared as above.
+\end{itemize}
+\end{knowbox}
+\gap
+\shead{Two objects moving in the same direction}
+\begin{knowbox}
+Two objects start \emph{at the same time} from $A$ and $B$ ($s$ apart) and move in the same direction $A\to B$; the one behind is faster: $v_1>v_2$.
+\begin{barfigC}
+\draw[geo] (0,0)--(7.2,0);
+\draw[geo] (0,0.12)--(0,-0.12) (2.6,0.12)--(2.6,-0.12);
+\node[lbl,above] at (0,0.12){$A$}; \node[lbl,above] at (2.6,0.12){$B$};
+\draw[->,line width=1pt,tmOrange] (0.1,-0.35)--(1.7,-0.35); \node[dim,below] at (0.9,-0.4){$v_1$};
+\draw[->,line width=1pt,tmGreen] (2.7,-0.35)--(3.6,-0.35); \node[dim,below] at (3.15,-0.4){$v_2$};
+\fill[AnsRed] (6.4,0) circle (2.2pt); \node[lbl,above] at (6.4,0.12){$C$};
+\brcup{0}{2.6}{0.7}{$s$}
+\end{barfigC}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Every hour the faster one gains $v_1-v_2$ on the slower one.
+\item Time to catch up: $\ t=s:(v_1-v_2)$; the catching point is $v_1\times t$ from $A$.
+\item If both start from the \emph{same place} at \emph{different times}, the head start is $s=v_2\times$ (difference in starting times).
+\end{itemize}
+\textbf{Note:} use the same units throughout (km, h, km/h or m, min, m/min). Two objects moving \emph{away} from each other (opposite directions from the same point) separate by $v_1+v_2$ every hour.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Two towns $A$ and $B$ are $225$ km apart. At 6:45 a car leaves $A$ for $B$ at $48$ km/h; at the same time a coach leaves $B$ for $A$ at $42$ km/h. At what time do they meet, and how far from $A$ is the meeting point?
+\guide
+\begin{barfigC}
+\draw[geo] (0,0)--(7,0);
+\draw[geo] (0,0.12)--(0,-0.12) (7,0.12)--(7,-0.12);
+\node[lbl,above] at (0,0.12){$A$}; \node[lbl,above] at (7,0.12){$B$};
+\draw[->,line width=1pt,tmOrange] (0.1,-0.35)--(1.5,-0.35); \node[dim,below] at (0.8,-0.4){$48$ km/h};
+\draw[->,line width=1pt,tmGreen] (6.9,-0.35)--(5.5,-0.35); \node[dim,below] at (6.2,-0.4){$42$ km/h};
+\fill[AnsRed] (3.73,0) circle (2.2pt); \node[lbl,above] at (3.73,0.12){$C$};
+\brcup{0}{7}{0.7}{$225$ km}
+\end{barfigC}
+Every hour the two vehicles close up: $48+42=90$ (km).\par
+Time until they meet: $225:90=2.5$ (h) $=2$ h $30$ min.\par
+They meet at: 6:45 $+\ 2$ h $30$ min $=$ 9:15.\par
+The meeting point is $48\times2.5=120$ (km) from $A$.
+\ans{9:15; $120$ km from $A$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+At 7:10 Lan leaves school by bicycle at $12$ km/h. At 7:40 her brother leaves the school on a motorbike at $36$ km/h and rides after her along the same road. At what time does he catch up with her, and how far from school?
+\guide
+Lan's head start in time: 7:40 $-$ 7:10 $=30$ min $=0.5$ h.\par
+Distance Lan has covered by 7:40: $12\times0.5=6$ (km).\par
+Every hour the motorbike gains: $36-12=24$ (km).\par
+Time to catch up: $6:24=0.25$ (h) $=15$ min. \ They meet at 7:40 $+\ 15$ min $=$ 7:55.\par
+Distance from school: $36\times0.25=9$ (km).
+\ans{7:55; $9$ km from school.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Points $A$ and $B$ are $18$ km apart. At 6:30 a motorbike leaves $A$ at $42$ km/h and, at the same time, a cyclist leaves $B$ at $15$ km/h; both travel in the direction from $A$ to $B$. At what time does the motorbike catch the cyclist, and how far from $A$?
+\guide
+\begin{barfigC}
+\draw[geo] (0,0)--(7.2,0);
+\draw[geo] (0,0.12)--(0,-0.12) (2.4,0.12)--(2.4,-0.12);
+\node[lbl,above] at (0,0.12){$A$}; \node[lbl,above] at (2.4,0.12){$B$};
+\draw[->,line width=1pt,tmOrange] (0.1,-0.35)--(1.7,-0.35); \node[dim,below] at (0.9,-0.4){$42$ km/h};
+\draw[->,line width=1pt,tmGreen] (2.5,-0.35)--(3.4,-0.35); \node[dim,below] at (3.1,-0.4){$15$ km/h};
+\fill[AnsRed] (3.73,0) circle (2.2pt); \node[lbl,above] at (3.73,0.12){$C$};
+\brcup{0}{2.4}{0.7}{$18$ km}
+\end{barfigC}
+Every hour the motorbike gains: $42-15=27$ (km).\par
+Time to catch up: $18:27=\dfrac23$ (h) $=40$ min. \ It catches up at 6:30 $+\ 40$ min $=$ 7:10.\par
+Distance from $A$: $42\times\dfrac23=28$ (km).
+\ans{7:10; $28$ km from $A$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Two towns are $180$ km apart. A car and a motorbike set off from the two towns at the same time towards each other and meet after $2$ hours. The car is $10$ km/h faster than the motorbike. Find the speed of each.
+\guide
+Sum of the two speeds (the closing speed): $180:2=90$ (km/h).
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Motorbike:}
+\blk{0}{3.2}{0.62}{0.42}{tmBlue}{}
+\rowlab{-0.15}{0}{Car:}
+\blk{0}{3.2}{0}{0.42}{tmGreen}{}
+\blk{3.2}{3.9}{0}{0.42}{tmOrange}{}
+\brcdn{3.2}{3.9}{-0.32}{$10$ km/h}
+\vbrace{4.1}{0.85}{-0.22}{$90$ km/h}
+\end{barfigC}
+Speed of the motorbike: $(90-10):2=40$ (km/h).\par
+Speed of the car: $40+10=50$ (km/h).
+\ans{car $50$ km/h, motorbike $40$ km/h.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Two places are $150$ km apart. At 8:00 two cars leave them and drive towards each other at $35$ km/h and $40$ km/h. At what time are the two cars $30$ km apart?
+\guide
+Every hour the cars close up by $35+40=75$ (km). There are \emph{two} moments when they are $30$ km apart.\par
+\textbf{Before they meet:} together they have driven $150-30=120$ (km); time: $120:75=1.6$ (h) $=1$ h $36$ min, so at 9:36.\par
+\textbf{After they meet:} together they have driven $150+30=180$ (km); time: $180:75=2.4$ (h) $=2$ h $24$ min, so at 10:24.
+\ans{at 9:36 and at 10:24.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+Two villages are $36$ km apart. Two cyclists leave the villages at the same time and ride towards each other at $13$ km/h and $11$ km/h. After how long do they meet?
+\end{probbox}
+\probsol{
+Closing speed: $13+11=24$ (km/h).\par Time: $36:24=1.5$ (h) $=1$ h $30$ min.
+\dapso{$1$ h $30$ min.}}
+\gap
+\begin{probbox}{2}{\relax}
+Road $AB$ is $279$ km long. At 7:20 a car leaves $A$ for $B$ at $68$ km/h; at the same time a coach leaves $B$ for $A$ at $56$ km/h. At what time do they meet?
+\end{probbox}
+\probsol{
+Closing speed: $68+56=124$ (km/h).\par Time: $279:124=2.25$ (h) $=2$ h $15$ min.\par They meet at 7:20 $+\ 2$ h $15$ min $=$ 9:35.
+\dapso{9:35.}}
+\gap
+\begin{probbox}{3}{\relax}
+Two cities $A$ and $B$ are $168$ km apart. At the same moment a motorbike leaves $A$ at $38$ km/h and a car leaves $B$ at $46$ km/h, heading towards each other. After how long do they meet, and how far from $A$?
+\end{probbox}
+\probsol{
+Closing speed: $38+46=84$ (km/h).\par Time: $168:84=2$ (h).\par Distance from $A$: $38\times2=76$ (km).
+\dapso{after $2$ h, $76$ km from $A$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Two towns $A$ and $B$ are $210$ km apart. At 6:30 two cars leave $A$ and $B$ and drive towards each other, the car from $A$ at $45$ km/h and the car from $B$ at $39$ km/h. At what time do they meet, and how far from $A$ is the meeting point?
+\end{probbox}
+\probsol{
+Closing speed: $45+39=84$ (km/h).\par Time: $210:84=2.5$ (h) $=2$ h $30$ min; they meet at 9:00.\par Distance from $A$: $45\times2.5=112.5$ (km).
+\dapso{9:00; $112.5$ km from $A$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Two towns are $196$ km apart. A car and a motorbike leave the two towns at the same time towards each other and meet after $2$ h $20$ min. The car is $12$ km/h faster than the motorbike. Find the speed of each.
+\end{probbox}
+\probsol{
+$2$ h $20$ min $=2\dfrac13$ h $=\dfrac73$ h.\par Sum of the speeds: $196:\dfrac73=84$ (km/h).\par
+Motorbike: $(84-12):2=36$ (km/h); car: $36+12=48$ (km/h).
+\dapso{car $48$ km/h, motorbike $36$ km/h.}}
+\gap
+\begin{probbox}{6}{\relax}
+Two towns $A$ and $B$ are $245$ km apart. Two cars leave $A$ and $B$ at the same time towards each other and meet after $2.5$ h at a point $C$ that is $105$ km from $A$. Find the speed of each car.
+\end{probbox}
+\probsol{
+Car from $A$: $105:2.5=42$ (km/h).\par Distance $CB$: $245-105=140$ (km).\par Car from $B$: $140:2.5=56$ (km/h).
+\dapso{$42$ km/h and $56$ km/h.}}
+\gap
+\begin{probbox}{7}{\relax}
+Road $AB$ is $288$ km long. A car and a motorbike leave $A$ and $B$ at the same time towards each other and meet after $3$ h $12$ min. The car's speed is $1.5$ times the motorbike's. Find the speed of each.
+\end{probbox}
+\probsol{
+$3$ h $12$ min $=3.2$ h. \ Sum of the speeds: $288:3.2=90$ (km/h).\par
+$1.5=\dfrac32$: motorbike $2$ parts, car $3$ parts; $5$ parts $=90$, one part $=18$ km/h.\par
+Motorbike: $18\times2=36$ (km/h); car: $18\times3=54$ (km/h).
+\dapso{car $54$ km/h, motorbike $36$ km/h.}}
+\gap
+\begin{probbox}{8}{\relax}
+Road $AB$ is $270$ km long. At 7:00 a lorry leaves $A$ for $B$ at $40$ km/h. At 8:15 a car leaves $B$ for $A$ at $60$ km/h. At what time do they meet, and how far from $A$?
+\end{probbox}
+\probsol{
+From 7:00 to 8:15 is $1$ h $15$ min $=1.25$ h; the lorry has gone $40\times1.25=50$ (km).\par
+Remaining distance: $270-50=220$ (km). \ Closing speed: $40+60=100$ (km/h).\par
+Time: $220:100=2.2$ (h) $=2$ h $12$ min; they meet at 8:15 $+\ 2$ h $12$ min $=$ 10:27.\par
+Distance from $A$: $50+40\times2.2=138$ (km).
+\dapso{10:27; $138$ km from $A$.}}
+\gap
+\begin{probbox}{9}{\relax}
+At 6:30 a coach leaves $A$ for $B$ at $50$ km/h. Half an hour later a second coach leaves $B$ for $A$ at $45$ km/h. The two coaches meet at 9:00. How long is road $AB$?
+\end{probbox}
+\probsol{
+First coach drives from 6:30 to 9:00: $2.5$ h, covering $50\times2.5=125$ (km).\par
+Second coach starts at 7:00 and drives $2$ h, covering $45\times2=90$ (km).\par
+$AB=125+90=215$ (km).
+\dapso{$215$ km.}}
+\gap
+\begin{probbox}{10}{\relax}
+Two places are $160$ km apart. Two cars leave them at the same time and drive towards each other at $38$ km/h and $42$ km/h. How far apart are they after $1$ h $30$ min?
+\end{probbox}
+\probsol{
+Closing speed: $38+42=80$ (km/h).\par In $1.5$ h they close up $80\times1.5=120$ (km).\par Still apart: $160-120=40$ (km).
+\dapso{$40$ km.}}
+\gap
+\begin{probbox}{11}{\relax}
+Two cars leave $A$ and $B$ at the same time and drive towards each other. The first car needs $4$ h to drive the whole road $AB$; the second needs $6$ h. After $2$ h the cars are still $30$ km apart. How long is road $AB$?
+\end{probbox}
+\probsol{
+In $1$ h the first car covers $\dfrac14$ of $AB$ and the second $\dfrac16$ of $AB$; together $\dfrac14+\dfrac16=\dfrac5{12}$ of $AB$.\par
+In $2$ h together: $\dfrac5{12}\times2=\dfrac56$ of $AB$. \ Remaining: $1-\dfrac56=\dfrac16$ of $AB$, which is $30$ km.\par
+$AB=30\times6=180$ (km).
+\dapso{$180$ km.}}
+\gap
+\begin{probbox}{12}{\relax}
+A motorbike needs $3$ h to ride from $A$ to $B$; a bicycle needs $6$ h to ride from $B$ to $A$. They set off at the same time towards each other. After how long do they meet?
+\end{probbox}
+\probsol{
+In $1$ h together they cover $\dfrac13+\dfrac16=\dfrac12$ of $AB$.\par Time to cover the whole road together: $1:\dfrac12=2$ (h).
+\dapso{$2$ h.}}
+\gap
+\begin{probbox}{13}{\relax}
+Lan's house and Mai's house are $2.4$ km apart. At 16:40 the two girls leave home and walk towards each other, Lan at $4.5$ km/h and Mai at $3.5$ km/h. After how many minutes do they meet, and at what time?
+\end{probbox}
+\probsol{
+Closing speed: $4.5+3.5=8$ (km/h).\par Time: $2.4:8=0.3$ (h) $=18$ min.\par They meet at 16:40 $+\ 18$ min $=$ 16:58.
+\dapso{after $18$ min, at 16:58.}}
+\gap
+\begin{probbox}{14}{\relax}
+$A$ and $B$ are $24$ km apart. A walker leaves $A$ at $4$ km/h and, at the same time, a cyclist leaves $B$ at $12$ km/h; they go towards each other. How far from $A$ do they meet?
+\end{probbox}
+\probsol{
+Closing speed: $4+12=16$ (km/h).\par Time: $24:16=1.5$ (h).\par Distance from $A$: $4\times1.5=6$ (km).
+\dapso{$6$ km.}}
+\gap
+\begin{probbox}{15}{\relax}
+Road $AB$ is $132$ km long. A car leaves $A$ at $52$ km/h and, at the same time, a motorbike leaves $B$; they travel towards each other and meet after $1$ h $30$ min. Find the speed of the motorbike.
+\end{probbox}
+\probsol{
+Sum of the speeds: $132:1.5=88$ (km/h).\par Motorbike: $88-52=36$ (km/h).
+\dapso{$36$ km/h.}}
+\gap
+\begin{probbox}{16}{\relax}
+$A$ and $B$ are $48$ km apart. At the same time a car leaves $A$ at $58$ km/h and a motorbike leaves $B$ at $42$ km/h, both going in the direction from $A$ to $B$. After how long does the car catch the motorbike, and how far from $A$?
+\end{probbox}
+\probsol{
+The car gains $58-42=16$ (km) every hour.\par Time: $48:16=3$ (h).\par Distance from $A$: $58\times3=174$ (km).
+\dapso{after $3$ h, $174$ km from $A$.}}
+\gap
+\begin{probbox}{17}{\relax}
+At 6:40 a cyclist leaves a town at $14$ km/h. At 7:10 a motorbike leaves the same place at $35$ km/h and follows the same road. At what time does the motorbike catch the cyclist?
+\end{probbox}
+\probsol{
+Head start in time: $30$ min $=0.5$ h; head start in distance: $14\times0.5=7$ (km).\par
+The motorbike gains $35-14=21$ (km) every hour.\par Time: $7:21=\dfrac13$ (h) $=20$ min; it catches up at 7:30.
+\dapso{7:30.}}
+\gap
+\begin{probbox}{18}{\relax}
+A car leaves $A$ and a bicycle leaves $B$ at the same time, both going in the direction from $A$ to $B$. The car drives at $52$ km/h and the bicycle at $16$ km/h. The car catches the bicycle after $1$ h $45$ min. How far apart are $A$ and $B$?
+\end{probbox}
+\probsol{
+The car gains $52-16=36$ (km) every hour.\par $1$ h $45$ min $=1.75$ h. \ $AB=36\times1.75=63$ (km).
+\dapso{$63$ km.}}
+\gap
+\begin{probbox}{19}{\relax}
+A cyclist riding at $15$ km/h has already covered $15$ km when a motorbike sets off after him from the same starting point at $40$ km/h. After how many minutes does the motorbike catch the cyclist?
+\end{probbox}
+\probsol{
+The motorbike gains $40-15=25$ (km) every hour.\par Time: $15:25=0.6$ (h) $=36$ min.
+\dapso{$36$ min.}}
+\gap
+\begin{probbox}{20}{\relax}
+At 8:00 a lorry leaves $A$ at $45$ km/h. At 9:20 a car leaves $A$ at $75$ km/h along the same road. At what time does the car catch the lorry, and how far from $A$?
+\end{probbox}
+\probsol{
+From 8:00 to 9:20 is $1$ h $20$ min $=\dfrac43$ h; the lorry is $45\times\dfrac43=60$ (km) ahead.\par
+The car gains $75-45=30$ (km) every hour. \ Time: $60:30=2$ (h); it catches up at 11:20.\par
+Distance from $A$: $75\times2=150$ (km).
+\dapso{11:20; $150$ km from $A$.}}
+\gap
+\begin{probbox}{21}{\relax}
+$A$ and $B$ are $36$ km apart. Two cars leave $A$ and $B$ at the same time in the same direction (from $A$ to $B$). After $3$ h the car from $A$ catches the car from $B$. The sum of their speeds is $84$ km/h. Find the speed of each car.
+\end{probbox}
+\probsol{
+Difference of the speeds: $36:3=12$ (km/h).\par
+Car from $A$: $(84+12):2=48$ (km/h); car from $B$: $48-12=36$ (km/h).
+\dapso{$48$ km/h and $36$ km/h.}}
+\gap
+\begin{probbox}{22}{\relax}
+A motorbike is $30$ km behind a lorry; both drive in the same direction, the motorbike at $50$ km/h and the lorry at $35$ km/h. How far apart are they after $1$ h $20$ min?
+\end{probbox}
+\probsol{
+The gap shrinks by $50-35=15$ (km) every hour.\par In $1$ h $20$ min $=\dfrac43$ h it shrinks by $15\times\dfrac43=20$ (km).\par Still apart: $30-20=10$ (km).
+\dapso{$10$ km.}}
+\gap
+\begin{probbox}{23}{\relax}
+Nam leaves home by bicycle at $250$ m/min. $6$ minutes later his mum sets off after him on a motorbike at $550$ m/min. After how many minutes does Mum catch Nam, and how far from home?
+\end{probbox}
+\probsol{
+Nam's head start: $250\times6=1\,500$ (m).\par Mum gains $550-250=300$ (m) every minute.\par
+Time: $1\,500:300=5$ (min). \ Distance from home: $550\times5=2\,750$ (m) $=2.75$ km.
+\dapso{$5$ min; $2.75$ km.}}
+\gap
+\begin{probbox}{24}{\relax}
+Two cars leave the same crossroads at the same time and drive in opposite directions, at $45$ km/h and $55$ km/h. After how long are they $250$ km apart?
+\end{probbox}
+\probsol{
+They move apart by $45+55=100$ (km) every hour.\par Time: $250:100=2.5$ (h) $=2$ h $30$ min.
+\dapso{$2$ h $30$ min.}}
+\gap
+\begin{probbox}{25}{\relax}
+At 7:00 two cars leave the same place and drive along the same road in the same direction, at $42$ km/h and $54$ km/h. At what time are they $15$ km apart?
+\end{probbox}
+\probsol{
+The faster car pulls away by $54-42=12$ (km) every hour.\par Time: $15:12=1.25$ (h) $=1$ h $15$ min; at 8:15.
+\dapso{8:15.}}
+\gap
+\begin{probbox}{26}{\relax}
+At 7:00 a cyclist leaves $A$ at $12$ km/h. At 8:00 a motorbike leaves $A$ along the same road and catches the cyclist at 8:30. Find the speed of the motorbike.
+\end{probbox}
+\probsol{
+By 8:30 the cyclist has ridden $1.5$ h: $12\times1.5=18$ (km).\par The motorbike covers these $18$ km in $30$ min $=0.5$ h.\par Speed: $18:0.5=36$ (km/h).
+\dapso{$36$ km/h.}}
+\gap
+\begin{probbox}{27}{\relax}
+Road $AB$ is $150$ km long. At 7:00 a car leaves $A$ at $50$ km/h and a motorbike leaves $B$ at $40$ km/h, towards each other. Before they meet, the motorbike rider stops to rest for $18$ minutes. At what time do they meet, and how far from $A$?
+\end{probbox}
+\probsol{
+During the $18$ min $=0.3$ h rest only the car moves: $50\times0.3=15$ (km).\par
+The rest of the distance, $150-15=135$ (km), is closed at $50+40=90$ (km/h): $135:90=1.5$ (h).\par
+Total time: $1.5+0.3=1.8$ (h) $=1$ h $48$ min; they meet at 8:48.\par Distance from $A$: $50\times1.8=90$ (km).
+\dapso{8:48; $90$ km from $A$.}}
+\gap
+\begin{probbox}{28}{\relax}
+Two towns are $120$ km apart. At 7:00 a coach and a car leave the two towns towards each other at $42$ km/h and $53$ km/h. At what time, before they meet, are they $25$ km apart?
+\end{probbox}
+\probsol{
+They must close up $120-25=95$ (km) at $42+53=95$ (km/h).\par Time: $95:95=1$ (h); at 8:00.
+\dapso{8:00.}}
+\gap
+\begin{probbox}{29}{\relax}
+At 6:00 a motorbike leaves $A$ for $B$ at $40$ km/h. At 7:00 a car leaves $A$ at $60$ km/h on the same road and catches the motorbike exactly at $B$. How long is road $AB$?
+\end{probbox}
+\probsol{
+Head start of the motorbike: $40\times1=40$ (km).\par The car gains $60-40=20$ (km) every hour; time: $40:20=2$ (h).\par
+$AB=60\times2=120$ (km).
+\dapso{$120$ km.}}
+\gap
+\begin{probbox}{30}{\relax}
+Lan's house and Hoa's house are $4.2$ km apart. At 6:45 Lan walks from her house at $80$ m/min and Hoa cycles from her house at $200$ m/min, towards each other. At what time do they meet, and how far from Lan's house?
+\end{probbox}
+\probsol{
+$4.2$ km $=4\,200$ m. \ Closing speed: $80+200=280$ (m/min).\par
+Time: $4\,200:280=15$ (min); they meet at 7:00.\par Distance from Lan's house: $80\times15=1\,200$ (m) $=1.2$ km.
+\dapso{7:00; $1.2$ km from Lan's house.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{2}}
+Road $AB$ is $240$ km long. At 7:00 a car leaves $A$ for $B$ at $80$ km/h; at the same time a motorbike and a lorry leave $B$ for $A$ at $30$ km/h and $50$ km/h. At what time is the car exactly halfway between the motorbike and the lorry?
+\end{probbox}
+\probsol{
+Think of a point $M$ always halfway between the motorbike and the lorry. It starts at $B$ and moves towards $A$ at the average speed $(30+50):2=40$ (km/h).\par
+The car is halfway when it meets $M$: closing speed $80+40=120$ (km/h); time $240:120=2$ (h); at 9:00.\par
+\emph{Check:} at 9:00 the car is $160$ km from $A$, the motorbike $240-60=180$ km and the lorry $240-100=140$ km from $A$; $160$ is halfway between $140$ and $180$.
+\dapso{9:00.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Road $AB$ is $150$ km long. Two cars start from $A$ and $B$ at the same time. If they drive towards each other, they meet after $1$ h $15$ min. If they drive in the same direction (from $A$ towards $B$), the car from $A$ catches the other after $7$ h $30$ min. Find the speed of each car.
+\end{probbox}
+\probsol{
+Sum of the speeds: $150:1.25=120$ (km/h). \ Difference: $150:7.5=20$ (km/h).\par
+Car from $A$: $(120+20):2=70$ (km/h); car from $B$: $70-20=50$ (km/h).
+\dapso{$70$ km/h and $50$ km/h.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+$A$ and $B$ are $90$ km apart. Two riders start from $A$ and $B$ at the same time. Riding towards each other they meet after $1.5$ h; riding in the same direction, the rider from $A$ catches the other after $4.5$ h. Find their speeds.
+\end{probbox}
+\probsol{
+Sum: $90:1.5=60$ (km/h). \ Difference: $90:4.5=20$ (km/h).\par
+Rider from $A$: $(60+20):2=40$ (km/h); rider from $B$: $20$ km/h.
+\dapso{$40$ km/h and $20$ km/h.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Two cars at $A$ and $B$, $60$ km apart, set off at the same time in the same direction towards $C$ ($B$ lies between $A$ and $C$). After $2.5$ h the car from $A$ catches the car from $B$. The sum of their speeds is $104$ km/h. Find the speed of each.
+\end{probbox}
+\probsol{
+Difference of the speeds: $60:2.5=24$ (km/h).\par
+Car from $A$: $(104+24):2=64$ (km/h); car from $B$: $64-24=40$ (km/h).
+\dapso{$64$ km/h and $40$ km/h.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Two cars leave $A$ and $B$ at the same time towards each other and first meet $40$ km from $A$. Each car drives on to the other end, turns back at once and they meet a second time $20$ km from $B$. How long is road $AB$?
+\end{probbox}
+\probsol{
+At the first meeting the two cars together have covered $AB$ once; the car from $A$ has covered $40$ km.\par
+At the second meeting together they have covered $AB$ three times, so the car from $A$ has covered $40\times3=120$ (km).\par
+That car has gone the whole of $AB$ and then $20$ km back: $AB=120-20=100$ (km).
+\dapso{$100$ km.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Road $AB$ is $210$ km. Two cars leave $A$ and $B$ at the same time towards each other and meet after $2$ h. At that moment the car from $A$ has gone $30$ km more than the car from $B$. Find their speeds.
+\end{probbox}
+\probsol{
+Sum of the speeds: $210:2=105$ (km/h). \ Difference: $30:2=15$ (km/h).\par
+Car from $A$: $(105+15):2=60$ (km/h); car from $B$: $45$ km/h.
+\dapso{$60$ km/h and $45$ km/h.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+At 6:00 a cyclist leaves $A$ at $15$ km/h. When he reaches the $15$-km mark he rests there for $30$ minutes, then rides on. At 7:00 a motorbike leaves $A$ at $45$ km/h along the same road. At what time does the motorbike catch the cyclist?
+\end{probbox}
+\probsol{
+The cyclist reaches the $15$-km mark at $15:15=1$ h after 6:00, i.e.\ at 7:00, and rests there until 7:30.\par
+The motorbike reaches that mark after $15:45=\dfrac13$ h $=20$ min, at 7:20 --- while the cyclist is still resting.\par
+So it catches him at 7:20 (at the $15$-km mark).
+\dapso{7:20.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Two friends are $6$ km apart and walk towards each other at $4$ km/h and $5$ km/h. A dog starts with the first friend and runs at $15$ km/h to the second, then back to the first, and so on until the friends meet. How far does the dog run?
+\end{probbox}
+\probsol{
+The friends meet after $6:(4+5)=\dfrac23$ (h).\par The dog runs all that time: $15\times\dfrac23=10$ (km).
+\dapso{$10$ km.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+At 7:00 a lorry leaves $A$ at $40$ km/h. At 8:00 a car leaves $A$ at $60$ km/h on the same road. After the car has started, at what times are the two vehicles $10$ km apart?
+\end{probbox}
+\probsol{
+At 8:00 the lorry is $40$ km ahead; the car gains $60-40=20$ (km) every hour.\par
+Before catching up: gain $40-10=30$ km, time $30:20=1.5$ h; at 9:30.\par
+After catching up: gain $40+10=50$ km, time $50:20=2.5$ h; at 10:30.
+\dapso{9:30 and 10:30.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+At 8:00 a motorbike leaves $A$ for $B$ at $36$ km/h; $AB=108$ km. A car drives at $54$ km/h. At what time must the car leave $A$ to catch the motorbike exactly at $B$?
+\end{probbox}
+\probsol{
+The motorbike needs $108:36=3$ (h); it reaches $B$ at 11:00.\par The car needs $108:54=2$ (h), so it must leave at 9:00.
+\dapso{9:00.}}
+\gap
+\begin{probbox}{41}{\stars{2}}
+A car leaves $A$ at $45$ km/h. Half an hour later a second car leaves $B$ at $60$ km/h and drives towards $A$. They meet exactly at the midpoint of $AB$. How long is $AB$?
+\end{probbox}
+\probsol{
+Each car covers half of $AB$. To cover $1$ km the first car needs $\dfrac1{45}$ h and the second $\dfrac1{60}$ h; the difference is $\dfrac1{45}-\dfrac1{60}=\dfrac1{180}$ (h).\par
+Over half of $AB$ the difference is $0.5$ h, so half of $AB$ is $0.5:\dfrac1{180}=90$ (km).\par
+$AB=90\times2=180$ (km). \ (\emph{Check:} $90:45=2$ h, $90:60=1.5$ h.)
+\dapso{$180$ km.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Two cars leave $A$ and $B$ at the same time towards each other at $50$ km/h and $62$ km/h. They meet at a point $18$ km from the midpoint of $AB$. How long is $AB$?
+\end{probbox}
+\probsol{
+At the meeting point the faster car has gone $18\times2=36$ (km) more than the slower one.\par
+It gains $62-50=12$ (km) every hour, so they meet after $36:12=3$ (h).\par $AB=(50+62)\times3=336$ (km).
+\dapso{$336$ km.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Two cyclists leave $A$ and $B$ at the same time towards each other at $15$ km/h and $10$ km/h. After meeting, the faster cyclist needs $40$ more minutes to reach $B$. After how long did they meet, and how long is $AB$?
+\end{probbox}
+\probsol{
+After meeting, the faster cyclist rides the part that the slower one rode before meeting: $15\times\dfrac23=10$ (km).\par
+The slower cyclist rode those $10$ km in $10:10=1$ (h), so they met after $1$ h.\par $AB=(15+10)\times1=25$ (km).
+\dapso{after $1$ h; $25$ km.}}
+\gap
+\begin{probbox}{44}{\stars{2}}
+$A$ and $B$ are $90$ km apart. If a cyclist from $A$ and a motorbike from $B$ start at the same time towards each other, they meet after $2$ h. If the cyclist starts $1$ h earlier, they meet $1$ h $36$ min after the motorbike starts. Find the speed of each.
+\end{probbox}
+\probsol{
+Sum of the speeds: $90:2=45$ (km/h).\par
+Second case: in $1$ h $36$ min $=1.6$ h after the motorbike starts, the two close up $45\times1.6=72$ (km).\par
+So in the first hour alone the cyclist rode $90-72=18$ (km): his speed is $18$ km/h.\par Motorbike: $45-18=27$ (km/h).
+\dapso{cyclist $18$ km/h, motorbike $27$ km/h.}}
+\gap
+\begin{probbox}{45}{\stars{2}}
+At exactly 3:00 the minute hand of a clock points to $12$ and the hour hand to $3$. After how many minutes does the minute hand first catch up with the hour hand?
+\end{probbox}
+\probsol{
+Measure in minute marks: at 3:00 the hour hand is $15$ marks ahead.\par
+The minute hand moves $1$ mark per minute; the hour hand $5$ marks per hour, i.e.\ $\dfrac1{12}$ mark per minute.\par
+Gain per minute: $1-\dfrac1{12}=\dfrac{11}{12}$ (mark). \ Time: $15:\dfrac{11}{12}=\dfrac{180}{11}=16\dfrac4{11}$ (min).
+\dapso{$16\dfrac4{11}$ min.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Road $AB$ is $240$ km. At 7:00 two cars leave $A$ and $B$ towards each other and meet at 9:00. The speed of the car from $A$ is $\dfrac35$ of the speed of the car from $B$. Find the speeds and the distance from $A$ to the meeting point.
+\end{probbox}
+\probsol{
+Time: $2$ h; sum of the speeds: $240:2=120$ (km/h).\par $3+5=8$ parts; one part $120:8=15$ (km/h).\par
+Car from $A$: $45$ km/h; car from $B$: $75$ km/h.\par Distance from $A$: $45\times2=90$ (km).
+\dapso{$45$ km/h, $75$ km/h; $90$ km from $A$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+At 7:00 car $X$ is $40$ km behind car $Y$ on the same road; both drive forward, $X$ at $60$ km/h and $Y$ at $40$ km/h. At 8:00 car $Y$ speeds up to $50$ km/h. At what time does $X$ catch $Y$?
+\end{probbox}
+\probsol{
+From 7:00 to 8:00 the gap shrinks by $60-40=20$ (km): at 8:00 it is $20$ km.\par
+After 8:00 it shrinks by $60-50=10$ (km) each hour: $20:10=2$ (h). \ $X$ catches $Y$ at 10:00.
+\dapso{10:00.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+At 6:00 a walker leaves $A$ for $B$ at $5$ km/h. At 7:00 a cyclist leaves $A$ at $15$ km/h along the same road. The cyclist overtakes the walker, rides on and reaches $B$ $1$ hour before the walker. How long is $AB$?
+\end{probbox}
+\probsol{
+Head start: $5$ km; gain $10$ km/h; the cyclist overtakes after $0.5$ h, at 7:30, $15\times0.5=7.5$ km from $A$.\par
+From there, for each km the walker needs $\dfrac15$ h and the cyclist $\dfrac1{15}$ h: a difference of $\dfrac15-\dfrac1{15}=\dfrac2{15}$ (h).\par
+The difference is $1$ h, so the remaining distance is $1:\dfrac2{15}=7.5$ (km).\par $AB=7.5+7.5=15$ (km).
+\dapso{$15$ km.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+Hoa's house and Lan's house are $3.4$ km apart. At 7:00 Hoa walks towards Lan's house at $80$ m/min; at 7:05 Lan walks towards Hoa's house at $70$ m/min. At what time do they meet, and how far from Hoa's house?
+\end{probbox}
+\probsol{
+By 7:05 Hoa has walked $80\times5=400$ (m); remaining $3\,400-400=3\,000$ (m).\par
+Closing speed $80+70=150$ (m/min); time $3\,000:150=20$ (min); they meet at 7:25.\par
+Distance from Hoa's house: $80\times25=2\,000$ (m) $=2$ km.
+\dapso{7:25; $2$ km from Hoa's house.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Car $X$ drives the whole road $AB$ in $6$ h; car $Y$ drives it in $4$ h. Car $X$ leaves $A$ for $B$; $1$ hour later car $Y$ leaves $B$ for $A$. How long after car $Y$ starts do they meet?
+\end{probbox}
+\probsol{
+In its first hour car $X$ covers $\dfrac16$ of $AB$; $\dfrac56$ of $AB$ remains.\par
+Together they cover $\dfrac16+\dfrac14=\dfrac5{12}$ of $AB$ per hour.\par Time: $\dfrac56:\dfrac5{12}=2$ (h).
+\dapso{$2$ h.}}

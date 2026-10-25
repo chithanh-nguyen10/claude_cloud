@@ -1,0 +1,627 @@
+\shead{Hình hộp chữ nhật}
+\gdef\cuboidVT#1#2#3#4{\coordinate (Q) at (0,0); \coordinate (P) at (#1,0); \coordinate (C) at (#1,#3); \coordinate (D) at (0,#3);
+ \coordinate (M) at ({0.5*#2},{0.38*#2}); \coordinate (N) at ($(P)+(M)$); \coordinate (B) at ($(C)+(M)$); \coordinate (A) at ($(D)+(M)$);
+ \fill[tmBlue!6] (Q)--(P)--(C)--(D)--cycle; \fill[tmBlue!3] (D)--(C)--(B)--(A)--cycle; \fill[tmBlue!13] (P)--(N)--(B)--(C)--cycle;
+ \ifdim #4pt>0pt \coordinate (wl) at (0,#4);
+  \fill[cyan!30] (Q)--(P)--($(P)+(wl)$)--($(Q)+(wl)$)--cycle; \fill[cyan!45] (P)--(N)--($(N)+(wl)$)--($(P)+(wl)$)--cycle;
+  \fill[cyan!16] ($(Q)+(wl)$)--($(P)+(wl)$)--($(N)+(wl)$)--($(M)+(wl)$)--cycle;
+  \draw[cyan!60!black,line width=0.5pt] ($(Q)+(wl)$)--($(P)+(wl)$)--($(N)+(wl)$);
+  \draw[cyan!60!black,line width=0.4pt,dashed] ($(N)+(wl)$)--($(M)+(wl)$)--($(Q)+(wl)$); \fi
+ \draw[geo,dashed,line width=0.6pt] (M)--(Q) (M)--(N) (M)--(A);
+ \draw[geo] (Q)--(P)--(C)--(D)--cycle (D)--(A)--(B)--(C) (P)--(N)--(B);}
+\begin{knowbox}
+\begin{minipage}[t]{0.58\linewidth}
+Bao diêm, viên gạch, hộp giày đều có dạng \textbf{hình hộp chữ nhật}.\par
+\smallskip
+Hình hộp chữ nhật ABCD.MNPQ có:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item $6$ \textbf{mặt} đều là hình chữ nhật; hai mặt đối diện thì bằng nhau. ABCD và MNPQ là hai \textbf{mặt đáy}; bốn mặt còn lại là các \textbf{mặt bên};
+\item $12$ \textbf{cạnh}, chia thành ba nhóm, mỗi nhóm $4$ cạnh bằng nhau;
+\item $8$ \textbf{đỉnh}: A, B, C, D, M, N, P, Q.
+\end{itemize}
+Hình hộp chữ nhật có ba \textbf{kích thước}: \textbf{chiều dài} $a$, \textbf{chiều rộng} $b$ (hai cạnh của mặt đáy) và \textbf{chiều cao} $c$ (cạnh bên, chẳng hạn $DQ$).\par
+\smallskip
+Khi vẽ hình, các cạnh bị khuất được vẽ bằng \emph{nét đứt}.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[scale=0.85]
+\cuboidVT{3.4}{2.2}{2}{0}
+\node[lbl,above left] at (A){A}; \node[lbl,above right] at (B){B}; \node[lbl,right] at (C){C}; \node[lbl,left] at (D){D};
+\node[lbl,above left] at (M){M}; \node[lbl,right] at (N){N}; \node[lbl,below right] at (P){P}; \node[lbl,below left] at (Q){Q};
+\node[dim,below] at ($(Q)!0.5!(P)$){$a$}; \node[dim,below right] at ($(P)!0.5!(N)$){$b$}; \node[dim,left] at ($(Q)!0.5!(D)$){$c$};
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\shead{Hình lập phương. Hình khai triển}
+\begin{knowbox}
+\begin{minipage}[t]{0.56\linewidth}
+\textbf{Hình lập phương} là hình hộp chữ nhật có $12$ cạnh bằng nhau. Sáu mặt của hình lập phương là các hình vuông bằng nhau.\par
+\smallskip
+Cắt một cái hộp theo một số cạnh rồi trải phẳng ra, ta được \textbf{hình khai triển} của hộp. Hình khai triển của hình lập phương gồm $6$ hình vuông bằng nhau; hình bên là một ví dụ. Gấp hình khai triển lại, ta lại được hình lập phương.\par
+\smallskip
+Không phải cách ghép $6$ hình vuông nào cũng là hình khai triển: khi gấp lại, không được có hai hình vuông chồng lên cùng một mặt.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.4\linewidth}\vspace{2pt}\centering
+\begin{tikzpicture}[scale=0.55]
+\foreach \x/\y in {1/2,0/1,1/1,2/1,3/1,1/0}{\draw[geo,fill=tmBlue!10] (\x,\y) rectangle ++(1,1);}
+\node[dim] at (1.5,2.5){nắp}; \node[dim] at (1.5,0.5){đáy};
+\end{tikzpicture}\qquad
+\begin{tikzpicture}[scale=0.6]
+\cuboidVT{1.6}{1.6}{1.6}{0}
+\node[dim,below] at ($(Q)!0.5!(P)$){$a$};
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\shead{Diện tích xung quanh và diện tích toàn phần}
+\begin{knowbox}
+\textbf{Diện tích xung quanh} $S_{xq}$ của hình hộp chữ nhật là tổng diện tích bốn mặt bên. Trải bốn mặt bên ra, ta được một hình chữ nhật có chiều dài bằng \textbf{chu vi mặt đáy}, chiều rộng bằng \textbf{chiều cao}:
+\[S_{xq}=(a+b)\times2\times c\qquad(\text{chu vi đáy}\times\text{chiều cao})\]
+\textbf{Diện tích toàn phần} $S_{tp}$ là tổng của diện tích xung quanh và diện tích hai đáy:
+\[S_{tp}=S_{xq}+a\times b\times2\]
+Với \textbf{hình lập phương} cạnh $a$: \quad $S_{xq}=a\times a\times4,\qquad S_{tp}=a\times a\times6.$\par
+\smallskip
+\emph{Chú ý:} các kích thước phải cùng một đơn vị đo. Hộp \emph{không có nắp} chỉ có một mặt đáy: diện tích của nó là $S_{xq}+a\times b$.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Một hình hộp chữ nhật có chiều dài $8$ cm, chiều rộng $5$ cm, chiều cao $6$ cm. Tính:
+\begin{cols3}
+\pa{a} diện tích xung quanh; & \pa{b} diện tích một mặt đáy; & \pa{c} diện tích toàn phần.
+\end{cols3}
+\guide
+\pa{a} Chu vi mặt đáy là: $(8+5)\times2=26$ cm.\par $S_{xq}=26\times6=156$ cm$^2$.\par
+\pa{b} Diện tích một mặt đáy là: $8\times5=40$ cm$^2$.\par
+\pa{c} $S_{tp}=156+40\times2=236$ cm$^2$.
+\dapso{\pa{a} $156$ cm$^2$; \pa{b} $40$ cm$^2$; \pa{c} $236$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Một hình lập phương có diện tích toàn phần là $294$ cm$^2$. Tính độ dài cạnh và diện tích xung quanh của hình lập phương đó.
+\guide
+Hình lập phương có $6$ mặt bằng nhau. Diện tích một mặt là: $294:6=49$ cm$^2$.\par
+Vì $49=7\times7$ nên cạnh hình lập phương dài $7$ cm.\par
+Diện tích xung quanh là: $49\times4=196$ cm$^2$.
+\dapso{Cạnh $7$ cm; $196$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Một hình hộp chữ nhật có diện tích mặt đáy là $60$ cm$^2$. Chiều dài gấp $3$ lần chiều cao và hơn chiều cao $8$ cm. Tính diện tích xung quanh và diện tích toàn phần của hình hộp chữ nhật đó.
+\guide
+Chiều dài gấp $3$ lần chiều cao nên hiệu bằng $3-1=2$ lần chiều cao.\par
+Chiều cao: $8:2=4$ cm.\quad Chiều dài: $4\times3=12$ cm.\quad Chiều rộng: $60:12=5$ cm.\par
+$S_{xq}=(12+5)\times2\times4=136$ cm$^2$.\par
+$S_{tp}=136+60\times2=256$ cm$^2$.
+\dapso{$136$ cm$^2$; $256$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+\begin{minipage}[t]{0.6\linewidth}
+Một cái hộp bằng tôn \emph{không có nắp} có chiều dài $50$ cm, chiều rộng $30$ cm, chiều cao $20$ cm. Tính diện tích tôn dùng để làm cái hộp đó (không tính mép hàn).
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.42]
+\cuboidVT{5}{3}{2}{0}
+\fill[white] (D)--(C)--(B)--(A)--cycle; \draw[geo] (D)--(C)--(B)--(A)--cycle;
+\node[dim,below] at ($(Q)!0.5!(P)$){$50$ cm}; \node[dim,right] at ($(P)!0.5!(N)$){$30$ cm}; \node[dim,left] at ($(Q)!0.5!(D)$){$20$ cm};
+\end{tikzpicture}
+\end{minipage}
+\guide
+Cái hộp có $4$ mặt bên và chỉ có $1$ mặt đáy.\par
+Diện tích xung quanh: $(50+30)\times2\times20=3\,200$ cm$^2$.\par
+Diện tích đáy: $50\times30=1\,500$ cm$^2$.\par
+Diện tích tôn cần dùng: $3\,200+1\,500=4\,700$ cm$^2$.
+\dapso{$4\,700$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Một căn phòng dạng hình hộp chữ nhật có chiều dài $6$ m, chiều rộng $4{,}5$ m, chiều cao $3{,}5$ m. Người ta quét vôi bốn bức tường và trần nhà. Tổng diện tích các cửa là $7{,}5$ m$^2$. Tính diện tích cần quét vôi.
+\guide
+Diện tích bốn bức tường (diện tích xung quanh): $(6+4{,}5)\times2\times3{,}5=73{,}5$ m$^2$.\par
+Diện tích trần nhà: $6\times4{,}5=27$ m$^2$.\par
+Diện tích cần quét vôi: $73{,}5+27-7{,}5=93$ m$^2$.
+\note{Nền nhà không quét vôi, và phải trừ đi diện tích các cửa.}
+\dapso{$93$ m$^2$.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+\begin{minipage}[t]{0.58\linewidth}
+Hình hộp chữ nhật ABCD.MNPQ có $QP=7$ cm, $QM=4$ cm, $QD=5$ cm.\par
+\pa{a} Tìm độ dài các cạnh AB, BN, NP.\par
+\pa{b} Tính diện tích mặt đáy MNPQ và các mặt bên DCPQ, ADQM.\par
+\pa{c} Tính diện tích xung quanh và diện tích toàn phần của hình hộp.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\cuboidVT{4.2}{3.2}{3}{0}
+\node[lbl,above left] at (A){A}; \node[lbl,above right] at (B){B}; \node[lbl,right] at (C){C}; \node[lbl,left] at (D){D};
+\node[lbl,above left] at (M){M}; \node[lbl,right] at (N){N}; \node[lbl,below right] at (P){P}; \node[lbl,below left] at (Q){Q};
+\node[dim,below] at ($(Q)!0.5!(P)$){$7$ cm}; \node[dim,left] at ($(Q)!0.5!(D)$){$5$ cm}; \node[dim,right] at ($(Q)!0.45!(M)$){$4$ cm};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\pa{a} $AB=QP=7$ cm; $BN=QD=5$ cm; $NP=QM=4$ cm.\par
+\pa{b} $S_{MNPQ}=7\times4=28$ cm$^2$; $S_{DCPQ}=7\times5=35$ cm$^2$; $S_{ADQM}=4\times5=20$ cm$^2$.\par
+\pa{c} $S_{xq}=(7+4)\times2\times5=110$ cm$^2$.\par $S_{tp}=110+28\times2=166$ cm$^2$.
+\dapso{\pa{a} $7$ cm, $5$ cm, $4$ cm;\par \pa{b} $28$ cm$^2$, $35$ cm$^2$, $20$ cm$^2$;\par \pa{c} $110$ cm$^2$, $166$ cm$^2$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Hình nào dưới đây là hình khai triển của hình lập phương?\par\smallskip
+\begin{center}
+\begin{tikzpicture}[scale=0.42]
+\foreach \x/\y in {1/2,0/1,1/1,2/1,3/1,1/0}{\draw[geo,fill=tmBlue!10] (\x,\y) rectangle ++(1,1);}
+\node[lbl] at (2,-0.6){\pa{a}};
+\begin{scope}[xshift=5.5cm]
+\foreach \x/\y in {0/0,1/0,2/0,0/1,1/1,2/1}{\draw[geo,fill=tmBlue!10] (\x,\y) rectangle ++(1,1);}
+\node[lbl] at (1.5,-0.6){\pa{b}};
+\end{scope}
+\begin{scope}[xshift=10cm]
+\foreach \x/\y in {0/2,1/2,1/1,2/1,2/0,3/0}{\draw[geo,fill=tmBlue!10] (\x,\y) rectangle ++(1,1);}
+\node[lbl] at (2,-0.6){\pa{c}};
+\end{scope}
+\begin{scope}[xshift=15.5cm]
+\foreach \x/\y in {0/0,1/0,2/0,3/0,0/1,1/1}{\draw[geo,fill=tmBlue!10] (\x,\y) rectangle ++(1,1);}
+\node[lbl] at (2,-0.6){\pa{d}};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{probbox}
+\probsol{
+\pa{a} Hàng $4$ hình vuông gấp thành $4$ mặt bên; hình vuông phía trên là nắp, hình vuông phía dưới là đáy. Đây là hình khai triển.\par
+\pa{b} Gấp khối $2\times3$ hình vuông thì có các hình vuông chồng lên nhau và còn hở hai mặt. Không phải hình khai triển.\par
+\pa{c} Hình ``bậc thang'' này gấp được thành hình lập phương, không có mặt nào chồng lên nhau. Đây là hình khai triển.\par
+\pa{d} Hai hình vuông phía trên cùng gấp vào một mặt ở đầu hộp, còn đầu kia bị hở. Không phải hình khai triển.
+\dapso{Hình \textbf{a)} và hình \textbf{c)}.}}
+\gap
+\begin{probbox}{3}{\relax}
+Tính diện tích xung quanh và diện tích toàn phần của hình hộp chữ nhật có:
+\begin{cols2}
+\pa{a} $a=9$ cm, $b=6$ cm, $c=5$ cm; & \pa{b} $a=2{,}5$ m, $b=1{,}5$ m, $c=1{,}2$ m;\\
+\pa{c} $a=\dfrac45$ m, $b=\dfrac12$ m, $c=\dfrac13$ m; & \pa{d} $a=1{,}2$ dm, $b=8$ cm, $c=5$ cm.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $S_{xq}=(9+6)\times2\times5=150$ cm$^2$; $S_{tp}=150+9\times6\times2=258$ cm$^2$.\par
+\pa{b} $S_{xq}=(2{,}5+1{,}5)\times2\times1{,}2=9{,}6$ m$^2$; $S_{tp}=9{,}6+2{,}5\times1{,}5\times2=17{,}1$ m$^2$.\par
+\pa{c} $S_{xq}=\left(\dfrac45+\dfrac12\right)\times2\times\dfrac13=\dfrac{13}{10}\times\dfrac23=\dfrac{13}{15}$ m$^2$;\par
+$S_{tp}=\dfrac{13}{15}+\dfrac45\times\dfrac12\times2=\dfrac{13}{15}+\dfrac{12}{15}=\dfrac53$ m$^2$.\par
+\pa{d} $1{,}2$ dm $=12$ cm. $S_{xq}=(12+8)\times2\times5=200$ cm$^2$; $S_{tp}=200+12\times8\times2=392$ cm$^2$.
+\dapso{\pa{a} $150$ cm$^2$, $258$ cm$^2$;\par \pa{b} $9{,}6$ m$^2$, $17{,}1$ m$^2$;\par \pa{c} $\dfrac{13}{15}$ m$^2$, $\dfrac53$ m$^2$;\par \pa{d} $200$ cm$^2$, $392$ cm$^2$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Tính diện tích xung quanh và diện tích toàn phần của hình lập phương có cạnh:
+\begin{cols3}
+\pa{a} $6$ cm; & \pa{b} $2{,}5$ dm; & \pa{c} $\dfrac34$ m.
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $S_{xq}=6\times6\times4=144$ cm$^2$; $S_{tp}=6\times6\times6=216$ cm$^2$.\par
+\pa{b} $S_{xq}=2{,}5\times2{,}5\times4=25$ dm$^2$; $S_{tp}=2{,}5\times2{,}5\times6=37{,}5$ dm$^2$.\par
+\pa{c} $S_{xq}=\dfrac34\times\dfrac34\times4=\dfrac94$ m$^2$; $S_{tp}=\dfrac34\times\dfrac34\times6=\dfrac{27}8$ m$^2$.
+\dapso{\pa{a} $144$ cm$^2$, $216$ cm$^2$;\par \pa{b} $25$ dm$^2$, $37{,}5$ dm$^2$;\par \pa{c} $\dfrac94$ m$^2$, $\dfrac{27}8$ m$^2$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Một hình hộp chữ nhật có chiều dài $15$ cm, chiều rộng $10$ cm, chiều cao $8$ cm. Tính:
+\begin{cols3}
+\pa{a} chu vi mặt đáy; & \pa{b} diện tích xung quanh; & \pa{c} diện tích toàn phần.
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $(15+10)\times2=50$ cm.\par
+\pa{b} $50\times8=400$ cm$^2$.\par
+\pa{c} $400+15\times10\times2=700$ cm$^2$.
+\dapso{\pa{a} $50$ cm; \pa{b} $400$ cm$^2$; \pa{c} $700$ cm$^2$.}}
+\gap
+\begin{probbox}{6}{\relax}
+Mai gói một hộp quà dạng hình hộp chữ nhật dài $24$ cm, rộng $16$ cm, cao $10$ cm, giấy gói phủ kín tất cả các mặt. Mai cần ít nhất bao nhiêu xăng-ti-mét vuông giấy gói?
+\end{probbox}
+\probsol{
+Giấy phải phủ kín $6$ mặt, tức là bằng diện tích toàn phần.\par
+$S_{xq}=(24+16)\times2\times10=800$ cm$^2$.\par
+$S_{tp}=800+24\times16\times2=1\,568$ cm$^2$.
+\dapso{$1\,568$ cm$^2$.}}
+\gap
+\begin{probbox}{7}{\relax}
+Một cái hộp dạng hình hộp chữ nhật dài $40$ cm, rộng $25$ cm, cao $20$ cm. Lan dán giấy màu xanh vào bốn mặt xung quanh và giấy màu vàng vào hai mặt đáy (chỉ dán mặt ngoài). Hỏi diện tích giấy màu nào lớn hơn và lớn hơn bao nhiêu xăng-ti-mét vuông?
+\end{probbox}
+\probsol{
+Diện tích giấy xanh (diện tích xung quanh): $(40+25)\times2\times20=2\,600$ cm$^2$.\par
+Diện tích giấy vàng (hai mặt đáy): $40\times25\times2=2\,000$ cm$^2$.\par
+Giấy xanh nhiều hơn: $2\,600-2\,000=600$ cm$^2$.
+\dapso{Giấy xanh, lớn hơn $600$ cm$^2$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Một cái thùng bằng sắt không có nắp dạng hình hộp chữ nhật dài $60$ cm, rộng $40$ cm, cao $30$ cm. Tính diện tích sắt dùng để làm cái thùng đó (không tính mép hàn).
+\end{probbox}
+\probsol{
+Diện tích xung quanh: $(60+40)\times2\times30=6\,000$ cm$^2$.\par
+Diện tích đáy: $60\times40=2\,400$ cm$^2$.\par
+Diện tích sắt: $6\,000+2\,400=8\,400$ cm$^2$.
+\dapso{$8\,400$ cm$^2$.}}
+\gap
+\begin{probbox}{9}{\relax}
+Một phòng học dạng hình hộp chữ nhật dài $8$ m, rộng $6$ m, cao $3{,}5$ m. Người ta quét vôi bốn bức tường và trần nhà; diện tích các cửa là $9{,}5$ m$^2$. Tính diện tích cần quét vôi.
+\end{probbox}
+\probsol{
+Diện tích bốn bức tường: $(8+6)\times2\times3{,}5=98$ m$^2$.\par
+Diện tích trần nhà: $8\times6=48$ m$^2$.\par
+Diện tích cần quét vôi: $98+48-9{,}5=136{,}5$ m$^2$.
+\dapso{$136{,}5$ m$^2$.}}
+\gap
+\begin{probbox}{10}{\relax}
+Một bể nước dạng hình lập phương không có nắp, cạnh $1{,}5$ m. Người ta sơn mặt ngoài của bể (các mặt bên và đáy). Tính diện tích được sơn.
+\end{probbox}
+\probsol{
+Diện tích một mặt: $1{,}5\times1{,}5=2{,}25$ m$^2$.\par
+Bể không có nắp có $5$ mặt: $2{,}25\times5=11{,}25$ m$^2$.
+\dapso{$11{,}25$ m$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Một hình lập phương có diện tích xung quanh là $100$ cm$^2$. Tính độ dài cạnh và diện tích toàn phần của hình lập phương đó.
+\end{probbox}
+\probsol{
+Diện tích một mặt: $100:4=25$ cm$^2$; vì $25=5\times5$ nên cạnh dài $5$ cm.\par
+$S_{tp}=25\times6=150$ cm$^2$.
+\dapso{$5$ cm; $150$ cm$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+Một hình lập phương có diện tích toàn phần là $600$ cm$^2$. Tính diện tích xung quanh của hình lập phương đó.
+\end{probbox}
+\probsol{
+Diện tích một mặt: $600:6=100$ cm$^2$.\par
+$S_{xq}=100\times4=400$ cm$^2$.
+\dapso{$400$ cm$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Một hình lập phương có diện tích xung quanh là $1{,}44$ m$^2$. Tính độ dài cạnh và diện tích toàn phần của hình lập phương đó.
+\end{probbox}
+\probsol{
+Diện tích một mặt: $1{,}44:4=0{,}36$ m$^2$; vì $0{,}36=0{,}6\times0{,}6$ nên cạnh dài $0{,}6$ m.\par
+$S_{tp}=0{,}36\times6=2{,}16$ m$^2$.
+\dapso{$0{,}6$ m; $2{,}16$ m$^2$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Một hình hộp chữ nhật có diện tích xung quanh là $360$ cm$^2$, chiều cao $9$ cm. Chiều dài hơn chiều rộng $4$ cm. Tính chiều dài và chiều rộng của hình hộp.
+\end{probbox}
+\probsol{
+Chu vi mặt đáy: $360:9=40$ cm.\par
+Nửa chu vi (dài $+$ rộng): $40:2=20$ cm.\par
+Chiều dài: $(20+4):2=12$ cm.\quad Chiều rộng: $20-12=8$ cm.
+\dapso{Chiều dài $12$ cm, chiều rộng $8$ cm.}}
+\gap
+\begin{probbox}{15}{\relax}
+Một hình hộp chữ nhật có chu vi đáy $36$ dm, chiều cao $7$ dm. Tính diện tích xung quanh của hình hộp đó.
+\end{probbox}
+\probsol{
+$S_{xq}=36\times7=252$ dm$^2$.
+\dapso{$252$ dm$^2$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Một hình hộp chữ nhật có diện tích xung quanh $480$ cm$^2$, chu vi đáy $48$ cm. Tính chiều cao của hình hộp.
+\end{probbox}
+\probsol{
+Chiều cao $=$ diện tích xung quanh $:$ chu vi đáy.\par
+$c=480:48=10$ cm.
+\dapso{$10$ cm.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một hình hộp chữ nhật có chiều dài $2{,}4$ m, chiều rộng $1{,}6$ m và diện tích toàn phần $19{,}68$ m$^2$. Tính chiều cao của hình hộp.
+\end{probbox}
+\probsol{
+Diện tích hai đáy: $2{,}4\times1{,}6\times2=7{,}68$ m$^2$.\par
+Diện tích xung quanh: $19{,}68-7{,}68=12$ m$^2$.\par
+Chu vi đáy: $(2{,}4+1{,}6)\times2=8$ m.\par
+Chiều cao: $12:8=1{,}5$ m.
+\dapso{$1{,}5$ m.}}
+\gap
+\begin{probbox}{18}{\relax}
+Một cái thùng gỗ dạng hình hộp chữ nhật dài $1{,}2$ m, rộng $0{,}8$ m, cao $0{,}6$ m. Người ta quét vecni toàn bộ mặt ngoài của thùng, mỗi mét vuông hết $0{,}25$ kg vecni. Hỏi cần bao nhiêu ki-lô-gam vecni?
+\end{probbox}
+\probsol{
+$S_{xq}=(1{,}2+0{,}8)\times2\times0{,}6=2{,}4$ m$^2$.\par
+$S_{tp}=2{,}4+1{,}2\times0{,}8\times2=4{,}32$ m$^2$.\par
+Số vecni cần dùng: $0{,}25\times4{,}32=1{,}08$ kg.
+\dapso{$1{,}08$ kg.}}
+\gap
+\begin{probbox}{19}{\relax}
+Một bể bơi dạng hình hộp chữ nhật dài $25$ m, rộng $10$ m, sâu $1{,}6$ m. Người ta lát kín đáy và xung quanh thành bể bằng các viên gạch hình chữ nhật kích thước $25$ cm và $20$ cm. Hỏi cần bao nhiêu viên gạch? (Coi diện tích mạch vữa không đáng kể.)
+\end{probbox}
+\probsol{
+Diện tích xung quanh: $(25+10)\times2\times1{,}6=112$ m$^2$.\quad Diện tích đáy: $25\times10=250$ m$^2$.\par
+Diện tích cần lát: $112+250=362$ m$^2$.\par
+Diện tích một viên gạch: $25\times20=500$ cm$^2$ $=0{,}05$ m$^2$.\par
+Số viên gạch: $362:0{,}05=7\,240$ viên.
+\dapso{$7\,240$ viên gạch.}}
+\gap
+\begin{probbox}{20}{\relax}
+Một cái ao nuôi cá dạng hình hộp chữ nhật dài $3$ m, rộng $2$ m, sâu $0{,}8$ m. Người ta lát đáy và xung quanh thành ao bằng gạch hình vuông cạnh $2$ dm. Hỏi cần bao nhiêu viên gạch?
+\end{probbox}
+\probsol{
+Diện tích xung quanh: $(3+2)\times2\times0{,}8=8$ m$^2$.\quad Diện tích đáy: $3\times2=6$ m$^2$.\par
+Diện tích cần lát: $8+6=14$ m$^2$ $=1\,400$ dm$^2$.\par
+Một viên gạch: $2\times2=4$ dm$^2$.\quad Số viên gạch: $1\,400:4=350$ viên.
+\dapso{$350$ viên gạch.}}
+\gap
+\begin{probbox}{21}{\relax}
+Một hình hộp chữ nhật có chu vi đáy $30$ cm; chiều dài hơn chiều rộng $3$ cm, chiều cao bằng $\dfrac23$ chiều dài. Tính diện tích xung quanh và diện tích toàn phần của hình hộp.
+\end{probbox}
+\probsol{
+Nửa chu vi đáy: $30:2=15$ cm.\par
+Chiều dài: $(15+3):2=9$ cm.\quad Chiều rộng: $6$ cm.\quad Chiều cao: $9\times\dfrac23=6$ cm.\par
+$S_{xq}=30\times6=180$ cm$^2$.\par
+$S_{tp}=180+9\times6\times2=288$ cm$^2$.
+\dapso{$180$ cm$^2$; $288$ cm$^2$.}}
+\gap
+\begin{probbox}{22}{\relax}
+So sánh diện tích toàn phần của hình lập phương cạnh $6$ cm với diện tích toàn phần của hình hộp chữ nhật dài $8$ cm, rộng $6$ cm, cao $4$ cm.
+\end{probbox}
+\probsol{
+Hình lập phương: $6\times6\times6=216$ cm$^2$.\par
+Hình hộp chữ nhật: $(8+6)\times2\times4+8\times6\times2=112+96=208$ cm$^2$.\par
+$216-208=8$ cm$^2$.
+\dapso{Diện tích toàn phần của hình lập phương lớn hơn, lớn hơn $8$ cm$^2$.}}
+\gap
+\begin{probbox}{23}{\relax}
+Một hình hộp chữ nhật có đáy là hình vuông cạnh $5$ cm, chiều cao $12$ cm. Tính diện tích xung quanh và diện tích toàn phần của hình hộp.
+\end{probbox}
+\probsol{
+Chu vi đáy: $5\times4=20$ cm.\par
+$S_{xq}=20\times12=240$ cm$^2$.\par
+$S_{tp}=240+5\times5\times2=290$ cm$^2$.
+\dapso{$240$ cm$^2$; $290$ cm$^2$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Khung một chiếc đèn lồng có dạng hình hộp chữ nhật, đáy là hình vuông cạnh $20$ cm, chiều cao $35$ cm. Người ta dán giấy kín bốn mặt xung quanh và mặt đáy. Hỏi đã dùng bao nhiêu đề-xi-mét vuông giấy?
+\end{probbox}
+\probsol{
+Bốn mặt xung quanh: $20\times4\times35=2\,800$ cm$^2$.\par
+Mặt đáy: $20\times20=400$ cm$^2$.\par
+Diện tích giấy: $2\,800+400=3\,200$ cm$^2$ $=32$ dm$^2$.
+\dapso{$32$ dm$^2$.}}
+\gap
+\begin{probbox}{25}{\relax}
+Người ta dùng một miếng bìa vừa đủ để làm một cái hộp không có nắp dạng hình lập phương cạnh $2{,}5$ dm. Tính diện tích miếng bìa đó (không tính mép dán).
+\end{probbox}
+\probsol{
+Diện tích một mặt: $2{,}5\times2{,}5=6{,}25$ dm$^2$.\par
+Hộp có $5$ mặt: $6{,}25\times5=31{,}25$ dm$^2$.
+\dapso{$31{,}25$ dm$^2$.}}
+\gap
+\begin{probbox}{26}{\relax}
+Một cái thùng không có nắp dạng hình lập phương có chu vi đáy $4{,}8$ m. Người ta sơn cả mặt trong và mặt ngoài của thùng, cứ $3$ m$^2$ hết $1$ kg sơn. Hỏi cần bao nhiêu ki-lô-gam sơn?
+\end{probbox}
+\probsol{
+Cạnh thùng: $4{,}8:4=1{,}2$ m.\quad Diện tích một mặt: $1{,}2\times1{,}2=1{,}44$ m$^2$.\par
+Thùng không nắp có $5$ mặt, sơn cả hai phía: $1{,}44\times5\times2=14{,}4$ m$^2$.\par
+Số sơn cần dùng: $14{,}4:3=4{,}8$ kg.
+\dapso{$4{,}8$ kg.}}
+\gap
+\begin{probbox}{27}{\relax}
+Tổng độ dài $12$ cạnh của một hình hộp chữ nhật là $96$ cm. Chiều dài $12$ cm, chiều rộng $8$ cm. Tính diện tích toàn phần của hình hộp.
+\end{probbox}
+\probsol{
+Hình hộp chữ nhật có $4$ cạnh dài, $4$ cạnh rộng và $4$ cạnh cao.\par
+Dài $+$ rộng $+$ cao: $96:4=24$ cm.\quad Chiều cao: $24-12-8=4$ cm.\par
+$S_{xq}=(12+8)\times2\times4=160$ cm$^2$.\par
+$S_{tp}=160+12\times8\times2=352$ cm$^2$.
+\dapso{$352$ cm$^2$.}}
+\gap
+\begin{probbox}{28}{\relax}
+Tổng độ dài $12$ cạnh của một hình lập phương là $72$ cm. Tính diện tích toàn phần của hình lập phương đó.
+\end{probbox}
+\probsol{
+Cạnh: $72:12=6$ cm.\par
+$S_{tp}=6\times6\times6=216$ cm$^2$.
+\dapso{$216$ cm$^2$.}}
+\gap
+\begin{probbox}{29}{\relax}
+Một bể cá bằng kính không có nắp dạng hình hộp chữ nhật dài $80$ cm, rộng $40$ cm, cao $50$ cm. Hỏi đã dùng bao nhiêu đề-xi-mét vuông kính?
+\end{probbox}
+\probsol{
+Bốn mặt xung quanh: $(80+40)\times2\times50=12\,000$ cm$^2$.\par
+Mặt đáy: $80\times40=3\,200$ cm$^2$.\par
+Diện tích kính: $12\,000+3\,200=15\,200$ cm$^2$ $=152$ dm$^2$.
+\dapso{$152$ dm$^2$.}}
+\gap
+\begin{probbox}{30}{\relax}
+Diện tích toàn phần của một hình lập phương lớn hơn diện tích xung quanh của nó $50$ cm$^2$. Tính diện tích xung quanh của hình lập phương đó.
+\end{probbox}
+\probsol{
+Phần hơn chính là diện tích hai mặt đáy: một mặt là $50:2=25$ cm$^2$.\par
+$S_{xq}=25\times4=100$ cm$^2$.
+\dapso{$100$ cm$^2$.}}
+\dividerbar{Thử thách -- Nâng cao}
+\begin{probbox}{31}{\stars{1}}
+Một hình hộp chữ nhật có diện tích mặt đáy $120$ cm$^2$. Chiều dài hơn chiều cao $9$ cm, chiều cao bằng $\dfrac25$ chiều dài. Tính diện tích xung quanh và diện tích toàn phần của hình hộp.
+\end{probbox}
+\probsol{
+Chiều cao $2$ phần, chiều dài $5$ phần; hiệu là $3$ phần $=9$ cm nên $1$ phần là $3$ cm.\par
+Chiều cao: $3\times2=6$ cm.\quad Chiều dài: $3\times5=15$ cm.\quad Chiều rộng: $120:15=8$ cm.\par
+$S_{xq}=(15+8)\times2\times6=276$ cm$^2$.\par
+$S_{tp}=276+120\times2=516$ cm$^2$.
+\dapso{$276$ cm$^2$; $516$ cm$^2$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Một bể nước dạng hình hộp chữ nhật có diện tích xung quanh $10{,}5$ m$^2$, chiều cao $1{,}5$ m. Chiều dài hơn chiều rộng $1$ m. Tính chiều dài và chiều rộng của bể.
+\end{probbox}
+\probsol{
+Chu vi đáy: $10{,}5:1{,}5=7$ m.\quad Nửa chu vi: $7:2=3{,}5$ m.\par
+Chiều dài: $(3{,}5+1):2=2{,}25$ m.\quad Chiều rộng: $3{,}5-2{,}25=1{,}25$ m.
+\dapso{Chiều dài $2{,}25$ m, chiều rộng $1{,}25$ m.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Một cái thùng sắt dạng hình hộp chữ nhật có chiều rộng bằng $\dfrac34$ chiều dài và kém chiều dài $0{,}5$ m; chiều cao $1{,}2$ m.\par
+\pa{a} Tính diện tích toàn phần của thùng.\par
+\pa{b} Người ta sơn kín mặt ngoài của thùng, cứ $4$ m$^2$ hết $3$ kg sơn. Hỏi cần bao nhiêu ki-lô-gam sơn?
+\end{probbox}
+\probsol{
+\pa{a} Chiều dài $4$ phần, chiều rộng $3$ phần; hiệu là $1$ phần $=0{,}5$ m.\par
+Chiều dài: $0{,}5\times4=2$ m.\quad Chiều rộng: $0{,}5\times3=1{,}5$ m.\par
+$S_{xq}=(2+1{,}5)\times2\times1{,}2=8{,}4$ m$^2$.\quad $S_{tp}=8{,}4+2\times1{,}5\times2=14{,}4$ m$^2$.\par
+\pa{b} Mỗi mét vuông hết $3:4=0{,}75$ kg. Số sơn: $0{,}75\times14{,}4=10{,}8$ kg.
+\dapso{\pa{a} $14{,}4$ m$^2$; \pa{b} $10{,}8$ kg.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Nếu tăng cạnh của một hình lập phương thêm $2$ cm thì diện tích toàn phần tăng thêm $120$ cm$^2$. Tính cạnh của hình lập phương ban đầu.
+\end{probbox}
+\probsol{
+Mỗi mặt trong $6$ mặt tăng thêm $120:6=20$ cm$^2$.\par
+Hình vuông cạnh $a$ thành hình vuông cạnh $a+2$: phần tăng thêm gồm hai dải hình chữ nhật $a$ và $2$, cùng một hình vuông nhỏ $2$ và $2$ ở góc.\par
+$a\times2\times2+2\times2=20$, nên $a\times4=16$ và $a=4$ cm.\par
+\emph{Thử lại:} $6\times6\times6-4\times4\times6=216-96=120$ cm$^2$.
+\dapso{$4$ cm.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+Người ta ghép hai hình lập phương cạnh $5$ cm, áp sát một mặt vào nhau, được một hình hộp chữ nhật. Tính diện tích toàn phần của hình hộp chữ nhật đó. Diện tích này ít hơn tổng diện tích toàn phần của hai hình lập phương bao nhiêu?
+\end{probbox}
+\probsol{
+Hình hộp chữ nhật có kích thước $10$ cm, $5$ cm, $5$ cm.\par
+$S_{tp}=(10+5)\times2\times5+10\times5\times2=150+100=250$ cm$^2$.\par
+Hai hình lập phương: $5\times5\times6\times2=300$ cm$^2$.\par
+Ít hơn $300-250=50$ cm$^2$: hai mặt áp vào nhau ($2\times25$ cm$^2$) bị che khuất.
+\dapso{$250$ cm$^2$; ít hơn $50$ cm$^2$.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Xếp ba hình lập phương cạnh $4$ cm thành một hàng rồi dán lại được một hình hộp chữ nhật. Tính diện tích toàn phần của hình hộp chữ nhật đó.
+\end{probbox}
+\probsol{
+Hình hộp chữ nhật có kích thước $12$ cm, $4$ cm, $4$ cm.\par
+$S_{tp}=(12+4)\times2\times4+12\times4\times2=128+96=224$ cm$^2$.\par
+\emph{Cách khác:} $3$ hình lập phương có $18$ mặt; mỗi chỗ ghép trong $2$ chỗ ghép che mất $2$ mặt, còn $18-4=14$ mặt: $14\times4\times4=224$ cm$^2$.
+\dapso{$224$ cm$^2$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Một hình hộp chữ nhật dài $10$ cm, rộng $6$ cm, cao $4$ cm được cắt thành hai phần bằng nhau bởi một nhát cắt song song với mặt đáy. Tính diện tích toàn phần của hình hộp ban đầu và tổng diện tích toàn phần của hai phần.
+\end{probbox}
+\probsol{
+Ban đầu: $(10+6)\times2\times4+10\times6\times2=128+120=248$ cm$^2$.\par
+Nhát cắt tạo thêm hai mặt mới, mỗi mặt $10\times6=60$ cm$^2$.\par
+Tổng của hai phần: $248+60\times2=368$ cm$^2$.
+\dapso{$248$ cm$^2$; $368$ cm$^2$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Một hình hộp chữ nhật có đáy là hình vuông và diện tích xung quanh $160$ cm$^2$. Chiều cao gấp $2{,}5$ lần cạnh đáy. Tính diện tích toàn phần của hình hộp.
+\end{probbox}
+\probsol{
+Mỗi mặt bên là hình chữ nhật có hai cạnh là cạnh đáy và $2{,}5$ lần cạnh đáy, nên bằng $2{,}5$ lần diện tích mặt đáy.\par
+Diện tích xung quanh $=4\times2{,}5=10$ lần diện tích mặt đáy: một mặt đáy là $160:10=16$ cm$^2$ (cạnh đáy $4$ cm, chiều cao $10$ cm).\par
+$S_{tp}=160+16\times2=192$ cm$^2$.
+\dapso{$192$ cm$^2$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Một hình lập phương có diện tích toàn phần $1{,}5$ m$^2$. Tính cạnh và diện tích xung quanh của hình lập phương đó.
+\end{probbox}
+\probsol{
+Diện tích một mặt: $1{,}5:6=0{,}25$ m$^2$; vì $0{,}25=0{,}5\times0{,}5$ nên cạnh dài $0{,}5$ m.\par
+$S_{xq}=0{,}25\times4=1$ m$^2$.
+\dapso{$0{,}5$ m; $1$ m$^2$.}}
+\gap
+\begin{probbox}{40}{\stars{2}}
+\begin{minipage}[t]{0.6\linewidth}
+Từ một tấm bìa hình chữ nhật $40$ cm $\times\,30$ cm, Nam cắt ở mỗi góc một hình vuông cạnh $5$ cm rồi gấp các mép lên để được một cái hộp không nắp. Tính chiều dài, chiều rộng, chiều cao của hộp và diện tích bìa đã dùng làm hộp.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.09]
+\draw[geo,fill=tmBlue!8] (5,0)--(35,0)--(35,5)--(40,5)--(40,25)--(35,25)--(35,30)--(5,30)--(5,25)--(0,25)--(0,5)--(5,5)--cycle;
+\draw[dashed,Slate] (5,5) rectangle (35,25);
+\foreach \x/\y in {0/0,35/0,0/25,35/25}{\draw[Slate,densely dotted] (\x,\y) rectangle ++(5,5);}
+\node[dim,below] at (20,0){$40$ cm}; \node[dim,right] at (40,15){$30$ cm};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Chiều dài: $40-5\times2=30$ cm.\quad Chiều rộng: $30-5\times2=20$ cm.\quad Chiều cao: $5$ cm.\par
+Diện tích bìa đã dùng: $40\times30-5\times5\times4=1\,200-100=1\,100$ cm$^2$.\par
+\emph{Thử lại:} $S_{xq}+$ đáy $=(30+20)\times2\times5+30\times20=500+600=1\,100$ cm$^2$.
+\dapso{$30$ cm, $20$ cm, $5$ cm; $1\,100$ cm$^2$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Một căn phòng dạng hình hộp chữ nhật dài $5$ m, rộng $4$ m, cao $3$ m. Người ta sơn mặt trong các bức tường và trần nhà. Diện tích các cửa là $4$ m$^2$. Tiền công sơn là $25\,000$ đồng mỗi mét vuông. Tính số tiền công phải trả.
+\end{probbox}
+\probsol{
+Bốn bức tường: $(5+4)\times2\times3=54$ m$^2$.\quad Trần nhà: $5\times4=20$ m$^2$.\par
+Diện tích cần sơn: $54+20-4=70$ m$^2$.\par
+Tiền công: $25\,000\times70=1\,750\,000$ đồng.
+\dapso{$1\,750\,000$ đồng.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Tổng độ dài $12$ cạnh của một hình hộp chữ nhật là $120$ cm. Chiều dài gấp $3$ lần chiều rộng, chiều cao gấp $2$ lần chiều rộng. Tính diện tích toàn phần của hình hộp.
+\end{probbox}
+\probsol{
+Dài $+$ rộng $+$ cao: $120:4=30$ cm, bằng $3+1+2=6$ lần chiều rộng.\par
+Chiều rộng: $30:6=5$ cm.\quad Chiều dài: $15$ cm.\quad Chiều cao: $10$ cm.\par
+$S_{tp}=(15+5)\times2\times10+15\times5\times2=400+150=550$ cm$^2$.
+\dapso{$550$ cm$^2$.}}
+\gap
+\begin{probbox}{43}{\stars{2}}
+Ba mặt khác nhau của một hình hộp chữ nhật có diện tích $12$ cm$^2$, $15$ cm$^2$ và $20$ cm$^2$. Tính diện tích toàn phần của hình hộp và tìm ba kích thước của nó (là số tự nhiên, đơn vị xăng-ti-mét).
+\end{probbox}
+\probsol{
+Mỗi mặt xuất hiện hai lần: $S_{tp}=(12+15+20)\times2=94$ cm$^2$.\par
+Thử các số tự nhiên: cạnh chung của hai mặt $12$ cm$^2$ và $15$ cm$^2$ chia hết cả $12$ và $15$, nên là $1$ hoặc $3$.\par
+Nếu là $3$: hai cạnh còn lại là $12:3=4$ và $15:3=5$, và $4\times5=20$. \checkmark\par
+(Nếu là $1$: $12\times15=180\neq20$.)
+\dapso{$94$ cm$^2$; $3$ cm, $4$ cm, $5$ cm.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Một cái hộp không nắp dạng hình lập phương cạnh $15$ cm. Người ta dán giấy màu cả mặt trong và mặt ngoài của hộp. Tính diện tích giấy màu đã dùng.
+\end{probbox}
+\probsol{
+Diện tích một mặt: $15\times15=225$ cm$^2$.\par
+$5$ mặt, dán cả hai phía: $225\times5\times2=2\,250$ cm$^2$.
+\dapso{$2\,250$ cm$^2$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Một hình hộp chữ nhật có đáy là hình vuông cạnh $6$ cm. Diện tích xung quanh gấp $3$ lần tổng diện tích hai đáy. Tính chiều cao và diện tích toàn phần của hình hộp.
+\end{probbox}
+\probsol{
+Diện tích hai đáy: $6\times6\times2=72$ cm$^2$.\par
+$S_{xq}=72\times3=216$ cm$^2$.\quad Chiều cao: $216:(6\times4)=9$ cm.\par
+$S_{tp}=216+72=288$ cm$^2$.
+\dapso{$9$ cm; $288$ cm$^2$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Hai hình hộp chữ nhật giống nhau, mỗi hình có kích thước $8$ cm, $5$ cm, $3$ cm, được dán áp sát vào nhau theo mặt lớn nhất. Tính diện tích toàn phần của hình hộp chữ nhật mới.
+\end{probbox}
+\probsol{
+Mặt lớn nhất là $8\times5=40$ cm$^2$. Hình hộp mới có kích thước $8$ cm, $5$ cm, $6$ cm.\par
+$S_{tp}=(8+5)\times2\times6+8\times5\times2=156+80=236$ cm$^2$.\par
+\emph{Thử lại:} một hình hộp có $(8+5)\times2\times3+80=158$ cm$^2$; $158\times2-40\times2=236$ cm$^2$.
+\dapso{$236$ cm$^2$.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+Một bể bơi dạng hình hộp chữ nhật dài $12{,}5$ m, rộng $6$ m, sâu $1{,}4$ m. Người ta lát đáy và xung quanh thành bể bằng gạch kích thước $25$ cm $\times\,20$ cm. Gạch được bán theo hộp, mỗi hộp $12$ viên. Hỏi phải mua bao nhiêu hộp gạch?
+\end{probbox}
+\probsol{
+Xung quanh: $(12{,}5+6)\times2\times1{,}4=51{,}8$ m$^2$.\quad Đáy: $12{,}5\times6=75$ m$^2$.\par
+Diện tích cần lát: $51{,}8+75=126{,}8$ m$^2$.\quad Một viên gạch: $0{,}05$ m$^2$.\par
+Số viên gạch: $126{,}8:0{,}05=2\,536$ viên.\par
+$2\,536:12=211$ (dư $4$), nên $211$ hộp chưa đủ; phải mua $212$ hộp.
+\dapso{$212$ hộp.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Một hình lập phương có diện tích toàn phần bằng diện tích toàn phần của hình hộp chữ nhật dài $12$ cm, rộng $9$ cm, cao $4$ cm. Tính cạnh của hình lập phương.
+\end{probbox}
+\probsol{
+Hình hộp chữ nhật: $(12+9)\times2\times4+12\times9\times2=168+216=384$ cm$^2$.\par
+Một mặt của hình lập phương: $384:6=64$ cm$^2$ $=8\times8$.
+\dapso{$8$ cm.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Một hình hộp chữ nhật cao $5$ cm. Nếu giảm chiều dài $3$ cm và tăng chiều rộng $3$ cm thì mặt đáy trở thành hình vuông cạnh $8$ cm. So sánh diện tích toàn phần của hình hộp cũ và hình hộp mới.
+\end{probbox}
+\probsol{
+Chiều dài cũ: $8+3=11$ cm.\quad Chiều rộng cũ: $8-3=5$ cm.\par
+Chu vi đáy không đổi ($32$ cm) nên diện tích xung quanh không đổi: $32\times5=160$ cm$^2$.\par
+Hình cũ: $160+11\times5\times2=270$ cm$^2$.\quad Hình mới: $160+8\times8\times2=288$ cm$^2$.\par
+Hình mới lớn hơn $18$ cm$^2$.
+\dapso{Diện tích toàn phần của hình hộp mới lớn hơn, lớn hơn $18$ cm$^2$.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Một hình lập phương cạnh $6$ cm được cắt thành $8$ hình lập phương nhỏ bằng nhau. Tính tổng diện tích toàn phần của $8$ hình lập phương nhỏ và so sánh với diện tích toàn phần của hình lập phương lớn.
+\end{probbox}
+\probsol{
+Mỗi hình lập phương nhỏ có cạnh $6:2=3$ cm.\par
+Một hình nhỏ: $3\times3\times6=54$ cm$^2$.\quad $8$ hình: $54\times8=432$ cm$^2$.\par
+Hình lớn: $6\times6\times6=216$ cm$^2$.\quad $432:216=2$.
+\dapso{$432$ cm$^2$, gấp $2$ lần.}}

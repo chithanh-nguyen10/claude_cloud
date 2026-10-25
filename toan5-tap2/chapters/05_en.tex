@@ -1,0 +1,733 @@
+\tikzset{xhf/.style={draw=tmBlue!70!black,line width=0.45pt,line join=round}}
+\providecommand{\xhcuboid}{}\renewcommand{\xhcuboid}[7][tmBlue]{\begin{scope}[shift={({#2+0.5*(#3)},{#4+0.35*(#3)})}]
+\filldraw[xhf,fill=#1!22] (0,0) rectangle (#5,#7);
+\filldraw[xhf,fill=#1!8] (0,#7)--(#5,#7)--({#5+0.5*(#6)},{#7+0.35*(#6)})--({0.5*(#6)},{#7+0.35*(#6)})--cycle;
+\filldraw[xhf,fill=#1!45] (#5,0)--({#5+0.5*(#6)},{0.35*(#6)})--({#5+0.5*(#6)},{#7+0.35*(#6)})--(#5,#7)--cycle;
+\end{scope}}
+\providecommand{\xhcube}{}\renewcommand{\xhcube}[4][tmBlue]{\xhcuboid[#1]{#2}{#3}{#4}{1}{1}{1}}
+
+\shead{Building a box from small blocks}
+\begin{knowbox}
+\begin{minipage}[t]{0.62\linewidth}
+When equal small blocks (unit cubes, small cubes, bricks) are stacked tightly into a new solid, the \textbf{volume of the new solid} is the sum of the volumes of the blocks:
+\[V_{\text{big}}=V_{\text{one block}}\times\text{number of blocks}.\]
+To find the lateral area, total surface area or volume of a box built from equal blocks:\par
+\smallskip
+\textbf{Step 1.} Find the dimensions of the big box:\par
+length $=$ length of a block $\times$ number of blocks along the length;\par
+width $=$ width of a block $\times$ number of blocks along the width;\par
+height $=$ height of a block $\times$ number of layers.\par
+\smallskip
+\textbf{Step 2.} Use the formulas for the cuboid or cube.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[scale=0.62]
+\xhcube{0}{1}{0}\xhcube{1}{1}{0}\xhcube{2}{1}{0}\xhcube{0}{1}{1}\xhcube{1}{1}{1}\xhcube{2}{1}{1}\xhcube{0}{0}{0}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{0}{0}{1}\xhcube{1}{0}{1}\xhcube{2}{0}{1}
+\node[dim,below] at (1.5,0){$3$ cubes};
+\node[dim,right] at (4,0.6){$2$ layers};
+\end{tikzpicture}\par\smallskip
+{\small $3\times2\times2=12$ cubes}
+\end{minipage}
+\end{knowbox}
+
+\shead{How many cubes fit in a box?}
+\begin{knowbox}
+To pack cubes of edge $a$ into a box (all lengths in the same unit):\par
+\smallskip
+-- along each edge of the box, count how many times $a$ fits (the quotient; any remainder is wasted space);\par
+-- number of cubes $=$ (number along the length) $\times$ (number along the width) $\times$ (number along the height).\par
+\smallskip
+If a big cube is built from small cubes, the edge of the big cube is a whole number of small edges, so
+\[\text{number of small cubes}=n\times n\times n,\qquad n=\text{big edge}:\text{small edge}.\]
+If we know the total surface area of the big cube, one face is $S_{\text{total}}:6$, and the edge is the number that multiplied by itself gives this area.
+\end{knowbox}
+
+\shead{Painting the outside of a solid made of small cubes}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+A big cube with $n$ small cubes along each edge ($n\ge3$) is painted on all $6$ faces, then taken apart:\par
+\smallskip
+-- \textbf{painted on $3$ faces}: the cubes at the $8$ corners: $8$ cubes;\par
+-- \textbf{painted on exactly $2$ faces}: on the $12$ edges, not at corners: $12\times(n-2)$;\par
+-- \textbf{painted on exactly $1$ face}: on the $6$ faces, not on edges: $6\times(n-2)\times(n-2)$;\par
+-- \textbf{not painted}: the hidden core, a cube of edge $n-2$: $(n-2)\times(n-2)\times(n-2)$.\par
+\smallskip
+For a box with $a,\ b,\ c$ small cubes along its edges (all $\ge3$): $3$ faces: $8$; exactly $2$ faces: $4\times[(a-2)+(b-2)+(c-2)]$; exactly $1$ face: $2\times[(a-2)(b-2)+(b-2)(c-2)+(a-2)(c-2)]$; none: $(a-2)(b-2)(c-2)$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.37\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\xhcube[tmOrange]{0}{3}{0}\xhcube[tmGreen]{1}{3}{0}\xhcube[tmGreen]{2}{3}{0}\xhcube[tmOrange]{3}{3}{0}\xhcube[tmGreen]{0}{3}{1}\xhcube[tmBlue]{1}{3}{1}\xhcube[tmBlue]{2}{3}{1}\xhcube[tmGreen]{3}{3}{1}\xhcube[tmGreen]{0}{3}{2}\xhcube[tmBlue]{1}{3}{2}\xhcube[tmBlue]{2}{3}{2}\xhcube[tmGreen]{3}{3}{2}\xhcube[tmOrange]{0}{3}{3}\xhcube[tmGreen]{1}{3}{3}\xhcube[tmGreen]{2}{3}{3}\xhcube[tmOrange]{3}{3}{3}\xhcube[tmGreen]{0}{2}{0}\xhcube[tmBlue]{1}{2}{0}\xhcube[tmBlue]{2}{2}{0}\xhcube[tmGreen]{3}{2}{0}\xhcube[tmBlue]{0}{2}{1}\xhcube[tmBlue]{3}{2}{1}\xhcube[tmBlue]{0}{2}{2}\xhcube[tmBlue]{3}{2}{2}\xhcube[tmGreen]{0}{2}{3}\xhcube[tmBlue]{1}{2}{3}\xhcube[tmBlue]{2}{2}{3}\xhcube[tmGreen]{3}{2}{3}\xhcube[tmGreen]{0}{1}{0}\xhcube[tmBlue]{1}{1}{0}\xhcube[tmBlue]{2}{1}{0}\xhcube[tmGreen]{3}{1}{0}\xhcube[tmBlue]{0}{1}{1}\xhcube[tmBlue]{3}{1}{1}\xhcube[tmBlue]{0}{1}{2}\xhcube[tmBlue]{3}{1}{2}\xhcube[tmGreen]{0}{1}{3}\xhcube[tmBlue]{1}{1}{3}\xhcube[tmBlue]{2}{1}{3}\xhcube[tmGreen]{3}{1}{3}\xhcube[tmOrange]{0}{0}{0}\xhcube[tmGreen]{1}{0}{0}\xhcube[tmGreen]{2}{0}{0}\xhcube[tmOrange]{3}{0}{0}\xhcube[tmGreen]{0}{0}{1}\xhcube[tmBlue]{1}{0}{1}\xhcube[tmBlue]{2}{0}{1}\xhcube[tmGreen]{3}{0}{1}\xhcube[tmGreen]{0}{0}{2}\xhcube[tmBlue]{1}{0}{2}\xhcube[tmBlue]{2}{0}{2}\xhcube[tmGreen]{3}{0}{2}\xhcube[tmOrange]{0}{0}{3}\xhcube[tmGreen]{1}{0}{3}\xhcube[tmGreen]{2}{0}{3}\xhcube[tmOrange]{3}{0}{3}
+\end{tikzpicture}\par\smallskip
+{\scriptsize\textcolor{tmOrange}{\rule{6pt}{6pt}}\,$3$ faces\quad\textcolor{tmGreen}{\rule{6pt}{6pt}}\,$2$ faces\quad\textcolor{tmBlue}{\rule{6pt}{6pt}}\,$1$ face}
+\end{minipage}\par
+\smallskip
+\emph{Check:} the four groups add up to all the small cubes. If an edge has fewer than $3$ small cubes, count directly.
+\end{knowbox}
+
+\shead{Counting cubes in a stack. Views}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+To count the cubes in a stack, count \textbf{column by column} (or layer by layer). Unless the problem says otherwise, every cube rests on the table or on another cube, so hidden cubes are under the visible ones.\par
+\smallskip
+A \textbf{top view with numbers} shows the base squares; the number in each square is how many cubes are stacked there. The number of cubes is the sum of these numbers.\par
+\smallskip
+In the \textbf{front view}, each column is as tall as the tallest stack in that column.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{2pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\foreach \x/\y/\h in {0/1/2,1/1/3,2/1/1,0/0/1,1/0/2,2/0/1}{\draw[xhf,fill=tmBlue!8] (\x,\y) rectangle ++(1,1); \node[font=\small\bfseries] at (\x+0.5,\y+0.5){\h};}
+\node[dim,below] at (1.5,0){front};
+\node[dim,above] at (1.5,2){top view};
+\end{tikzpicture}\par\smallskip
+$2+3+1+1+2+1=10$ cubes
+\end{minipage}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+\begin{minipage}[t]{0.6\linewidth}
+A brick is a cuboid $24$ cm long, $12$ cm wide and $6$ cm high. A builder stacks $6$ such bricks into a block shaped like a cuboid: $2$ bricks side by side in each layer, $3$ layers (see the figure).\par
+\pa{a} Find the lateral area and the total surface area of the block.\par
+\pa{b} Find the volume of the block.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.085]
+\xhcuboid[tmOrange]{0}{12}{0}{24}{12}{6}\xhcuboid[tmOrange]{0}{12}{6}{24}{12}{6}\xhcuboid[tmOrange]{0}{12}{12}{24}{12}{6}
+\xhcuboid[tmOrange]{0}{0}{0}{24}{12}{6}\xhcuboid[tmOrange]{0}{0}{6}{24}{12}{6}\xhcuboid[tmOrange]{0}{0}{12}{24}{12}{6}
+\node[dim,below] at (12,0){$24$ cm};
+\end{tikzpicture}
+\end{minipage}
+\guide
+\pa{a} Length of the block: $24$ cm.\par
+Width of the block: $12\times2=24$ cm.\par
+Height of the block: $6\times3=18$ cm.\par
+Lateral area: $(24+24)\times2\times18=1\,728$ cm$^2$.\par
+Area of the base: $24\times24=576$ cm$^2$.\par
+Total surface area: $1\,728+576\times2=2\,880$ cm$^2$.\par
+\pa{b} \emph{Method 1.} $V=24\times24\times18=10\,368$ cm$^3$.\par
+\emph{Method 2.} One brick: $24\times12\times6=1\,728$ cm$^3$; $6$ bricks: $1\,728\times6=10\,368$ cm$^3$.
+\dapso{\pa{a} $1\,728$ cm$^2$; $2\,880$ cm$^2$;\par \pa{b} $10\,368$ cm$^3$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Small cubes of edge $2$ cm are stacked into a big cube whose total surface area is $864$ cm$^2$. How many small cubes are used?
+\guide
+\emph{Method 1.} One face of the big cube: $864:6=144$ cm$^2$.\par
+$144=12\times12$, so the edge of the big cube is $12$ cm.\par
+Along each edge there are $12:2=6$ small cubes.\par
+Number of small cubes: $6\times6\times6=216$.\par
+\emph{Method 2.} The edge of the big cube is $12$ cm (as above).\par
+Volume of the big cube: $12\times12\times12=1\,728$ cm$^3$.\par
+Volume of a small cube: $2\times2\times2=8$ cm$^3$.\par
+Number of small cubes: $1\,728:8=216$.
+\dapso{$216$ small cubes.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+A crate (a cuboid) is $1.2$ m long, $0.8$ m wide and $0.5$ m high.\par
+\pa{a} At most how many cube-shaped toy blocks of edge $1$ dm fit in the crate?\par
+\pa{b} At most how many cube-shaped gift boxes of edge $3$ dm fit in the crate?
+\guide
+Change units: $1.2$ m $=12$ dm; $0.8$ m $=8$ dm; $0.5$ m $=5$ dm.\par
+\pa{a} Along the length: $12:1=12$ blocks; along the width: $8$ blocks; along the height: $5$ blocks.\par
+Number of blocks: $12\times8\times5=480$.\par
+\pa{b} Along the length: $12:3=4$ boxes.\par
+Along the width: $8:3=2$ (remainder $2$ dm), so $2$ boxes.\par
+Along the height: $5:3=1$ (remainder $2$ dm), so $1$ box.\par
+Number of gift boxes: $4\times2\times1=8$.
+\dapso{\pa{a} $480$ blocks;\par \pa{b} $8$ boxes.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Mai glues $1$ cm cubes into a big cube of edge $5$ cm and paints all $6$ outside faces.\par
+\pa{a} How many small cubes did she use?\par
+\pa{b} How many small cubes are painted on $3$ faces? On exactly $2$ faces? On exactly $1$ face? On no face?
+\guide
+\pa{a} Each edge has $5:1=5$ small cubes.\par Number of small cubes: $5\times5\times5=125$.\par
+\pa{b} Painted on $3$ faces: the $8$ corner cubes.\par
+Each edge has $5-2=3$ cubes that are not corners.\par
+Exactly $2$ faces: $12\times3=36$.\par
+Each face has $3\times3=9$ cubes not on an edge.\par
+Exactly $1$ face: $6\times9=54$.\par
+No face: the core cube of edge $3$: $3\times3\times3=27$.\par
+\emph{Check:} $8+36+54+27=125$.
+\dapso{\pa{a} $125$;\par \pa{b} $8$; $36$; $54$; $27$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+\begin{minipage}[t]{0.58\linewidth}
+Nam builds the stack of cubes in the figure.\par
+\pa{a} How many cubes are in the stack?\par
+\pa{b} Draw the front view.\par
+\pa{c} How many more cubes does Nam need to turn the stack into a cuboid $3$ cubes long, $2$ cubes wide and $3$ cubes high?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\xhcube{0}{1}{0}\xhcube{1}{1}{0}\xhcube{2}{1}{0}\xhcube{0}{1}{1}\xhcube{1}{1}{1}\xhcube{1}{1}{2}\xhcube{0}{0}{0}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{1}{0}{1}
+\node[dim,below] at (1.5,0){front};
+\end{tikzpicture}
+\end{minipage}
+\guide
+\pa{a} Write the number of cubes on each base square (top view):\par
+\begin{center}\begin{tikzpicture}[scale=0.45]
+\foreach \x/\y/\h in {0/1/2,1/1/3,2/1/1,0/0/1,1/0/2,2/0/1}{\draw[xhf,fill=tmBlue!8] (\x,\y) rectangle ++(1,1); \node[font=\small\bfseries] at (\x+0.5,\y+0.5){\h};}
+\node[dim,below] at (1.5,0){front};
+\end{tikzpicture}\qquad
+\begin{tikzpicture}[scale=0.45]
+\foreach \x/\y in {0/0,0/1,1/0,1/1,1/2,2/0}{\draw[xhf,fill=tmBlue!20] (\x,\y) rectangle ++(1,1);}
+\node[dim,below] at (1.5,0){front view};
+\end{tikzpicture}\end{center}
+Back row: $2+3+1=6$ cubes; front row: $1+2+1=4$ cubes.\par
+Number of cubes: $6+4=10$.\par
+\pa{b} The columns of the front view are as tall as the tallest stacks: $2$, $3$, $1$ (figure above).\par
+\pa{c} The cuboid has $3\times2\times3=18$ cubes.\par
+Cubes still needed: $18-10=8$.
+\dapso{\pa{a} $10$ cubes;\par \pa{c} $8$ cubes.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+How many $1$ cm cubes are needed to build a cube of edge $6$ cm?
+\end{probbox}
+\probsol{
+Each edge has $6:1=6$ small cubes.\par
+Number of small cubes: $6\times6\times6=216$.
+\dapso{$216$ cubes.}}
+\gap
+\begin{probbox}{2}{\relax}
+How many cubes of edge $3$ cm are needed to build a cube of edge $12$ cm?
+\end{probbox}
+\probsol{
+Each edge has $12:3=4$ small cubes.\par
+Number of small cubes: $4\times4\times4=64$.
+\dapso{$64$ cubes.}}
+\gap
+\begin{probbox}{3}{\relax}
+How many cubes of edge $2$ cm are needed to fill a box $10$ cm long, $8$ cm wide and $6$ cm high?
+\end{probbox}
+\probsol{
+Along the length: $10:2=5$; along the width: $8:2=4$; along the height: $6:2=3$.\par
+Number of cubes: $5\times4\times3=60$.
+\dapso{$60$ cubes.}}
+\gap
+\begin{probbox}{4}{\relax}
+A toy chest is $1.2$ m long, $0.6$ m wide and $0.4$ m high. How many cube-shaped blocks of edge $2$ dm fill it exactly?
+\end{probbox}
+\probsol{
+$1.2$ m $=12$ dm; $0.6$ m $=6$ dm; $0.4$ m $=4$ dm.\par
+Along the length: $12:2=6$; along the width: $6:2=3$; along the height: $4:2=2$.\par
+Number of blocks: $6\times3\times2=36$.
+\dapso{$36$ blocks.}}
+\gap
+\begin{probbox}{5}{\relax}
+$64$ small cubes, each with volume $1$ cm$^3$, are stacked into a big cube. Find the lateral area, the total surface area and the volume of the big cube.
+\end{probbox}
+\probsol{
+A small cube of volume $1$ cm$^3$ has edge $1$ cm.\par
+$64=4\times4\times4$, so each edge of the big cube has $4$ small cubes: the edge is $4$ cm.\par
+Lateral area: $4\times4\times4=64$ cm$^2$.\par
+Total surface area: $4\times4\times6=96$ cm$^2$.\par
+Volume: $64\times1=64$ cm$^3$.
+\dapso{$64$ cm$^2$; $96$ cm$^2$; $64$ cm$^3$.}}
+\gap
+\begin{probbox}{6}{\relax}
+$125$ small cubes, each with volume $27$ cm$^3$, are stacked into a big cube. Find the total surface area and the volume of the big cube.
+\end{probbox}
+\probsol{
+$27=3\times3\times3$, so a small cube has edge $3$ cm.\par
+$125=5\times5\times5$, so the big cube has $5$ small cubes along each edge.\par
+Edge of the big cube: $3\times5=15$ cm.\par
+Total surface area: $15\times15\times6=1\,350$ cm$^2$.\par
+Volume: $27\times125=3\,375$ cm$^3$.
+\dapso{$1\,350$ cm$^2$; $3\,375$ cm$^3$.}}
+\gap
+\begin{probbox}{7}{\relax}
+A big cube with total surface area $216$ cm$^2$ is built from $1$ cm cubes. How many small cubes are used?
+\end{probbox}
+\probsol{
+One face: $216:6=36$ cm$^2$.\par
+$36=6\times6$, so the edge is $6$ cm.\par
+Number of small cubes: $6\times6\times6=216$.
+\dapso{$216$ cubes.}}
+\gap
+\begin{probbox}{8}{\relax}
+A big cube with lateral area $400$ cm$^2$ is built from cubes of edge $2$ cm. How many small cubes are used?
+\end{probbox}
+\probsol{
+One face: $400:4=100$ cm$^2$.\par
+$100=10\times10$, so the edge is $10$ cm.\par
+Along each edge: $10:2=5$ small cubes.\par
+Number of small cubes: $5\times5\times5=125$.
+\dapso{$125$ cubes.}}
+\gap
+\begin{probbox}{9}{\relax}
+Five bricks, each $20$ cm long, $10$ cm wide and $5$ cm high, are laid flat one on top of another. Find the lateral area, the total surface area and the volume of the pile.
+\end{probbox}
+\probsol{
+The pile is a cuboid $20$ cm long, $10$ cm wide and $5\times5=25$ cm high.\par
+Lateral area: $(20+10)\times2\times25=1\,500$ cm$^2$.\par
+Total surface area: $1\,500+20\times10\times2=1\,900$ cm$^2$.\par
+Volume: $20\times10\times25=5\,000$ cm$^3$.
+\dapso{$1\,500$ cm$^2$; $1\,900$ cm$^2$; $5\,000$ cm$^3$.}}
+\gap
+\begin{probbox}{10}{\relax}
+Two equal cubes are stacked to make a cuboid $16$ cm high. Find the lateral area and the total surface area of the cuboid.
+\end{probbox}
+\probsol{
+Edge of each cube: $16:2=8$ cm.\par
+The cuboid is $8$ cm long, $8$ cm wide and $16$ cm high.\par
+Lateral area: $(8+8)\times2\times16=512$ cm$^2$.\par
+Total surface area: $512+8\times8\times2=640$ cm$^2$.
+\dapso{$512$ cm$^2$; $640$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Three equal cubes are put in a row to make a cuboid $21$ cm long. Find the total surface area of the cuboid.
+\end{probbox}
+\probsol{
+Edge of each cube: $21:3=7$ cm. One face: $7\times7=49$ cm$^2$.\par
+The four long sides of the cuboid consist of $3\times4=12$ cube faces; the two ends are $2$ more faces.\par
+Total surface area: $49\times14=686$ cm$^2$.\par
+\emph{Check:} $2\times(21\times7+21\times7+7\times7)=686$ cm$^2$.
+\dapso{$686$ cm$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+A carton is $60$ cm long, $40$ cm wide and $30$ cm high. How many cube-shaped boxes of edge $10$ cm fill it exactly?
+\end{probbox}
+\probsol{
+Along the length: $60:10=6$; along the width: $40:10=4$; along the height: $30:10=3$.\par
+Number of boxes: $6\times4\times3=72$.
+\dapso{$72$ boxes.}}
+\gap
+\begin{probbox}{13}{\relax}
+A drawer is $50$ cm long, $35$ cm wide and $22$ cm high. At most how many cube-shaped boxes of edge $10$ cm fit in it?
+\end{probbox}
+\probsol{
+Along the length: $50:10=5$.\par
+Along the width: $35:10=3$ (remainder $5$ cm), so $3$ boxes.\par
+Along the height: $22:10=2$ (remainder $2$ cm), so $2$ boxes.\par
+Number of boxes: $5\times3\times2=30$.
+\dapso{$30$ boxes.}}
+\gap
+\begin{probbox}{14}{\relax}
+A crate is $9$ dm long, $6$ dm wide and $4$ dm high. Cube-shaped boxes of edge $3$ dm are packed in it.\par
+\pa{a} At most how many boxes fit?\par
+\pa{b} With that many boxes inside, how much space in the crate is left empty?
+\end{probbox}
+\probsol{
+\pa{a} Along the length: $9:3=3$; along the width: $6:3=2$; along the height: $4:3=1$ (remainder $1$ dm).\par
+Number of boxes: $3\times2\times1=6$.\par
+\pa{b} Volume of the crate: $9\times6\times4=216$ dm$^3$.\par
+Volume of $6$ boxes: $3\times3\times3\times6=162$ dm$^3$.\par
+Empty space: $216-162=54$ dm$^3$.
+\dapso{\pa{a} $6$ boxes;\par \pa{b} $54$ dm$^3$.}}
+\gap
+\begin{probbox}{15}{\relax}
+A cube of edge $3$ cm made of $1$ cm cubes is painted on all its faces. How many small cubes are painted on $3$ faces, on exactly $2$ faces, on exactly $1$ face, on no face?
+\end{probbox}
+\probsol{
+Each edge has $3$ small cubes; $3-2=1$ of them is not a corner.\par
+$3$ faces: $8$.\par
+Exactly $2$ faces: $12\times1=12$.\par
+Exactly $1$ face: $6\times1\times1=6$.\par
+No face: $1\times1\times1=1$ (the cube in the very middle).\par
+\emph{Check:} $8+12+6+1=27=3\times3\times3$.
+\dapso{$8$; $12$; $6$; $1$.}}
+\gap
+\begin{probbox}{16}{\relax}
+A big cube is made of $216$ equal small cubes and then painted on all its faces. How many small cubes are painted on exactly $2$ faces? On exactly $1$ face?
+\end{probbox}
+\probsol{
+$216=6\times6\times6$, so each edge has $6$ small cubes.\par
+Exactly $2$ faces: $12\times(6-2)=48$.\par
+Exactly $1$ face: $6\times4\times4=96$.
+\dapso{$48$; $96$.}}
+\gap
+\begin{probbox}{17}{\relax}
+A big cube is made of $343$ equal small cubes and then painted on all its faces. How many small cubes have no paint at all?
+\end{probbox}
+\probsol{
+$343=7\times7\times7$, so each edge has $7$ small cubes.\par
+The unpainted cubes form a core cube with $7-2=5$ cubes along each edge.\par
+Number of unpainted cubes: $5\times5\times5=125$.
+\dapso{$125$ cubes.}}
+\gap
+\begin{probbox}{18}{\relax}
+A cube of edge $10$ cm is built from $1$ cm cubes and painted on all its faces. How many small cubes are painted on at least $2$ faces?
+\end{probbox}
+\probsol{
+Each edge has $10$ small cubes.\par
+Painted on $3$ faces: $8$.\par
+Painted on exactly $2$ faces: $12\times(10-2)=96$.\par
+At least $2$ faces: $8+96=104$.
+\dapso{$104$ cubes.}}
+\gap
+\begin{probbox}{19}{\relax}
+A cuboid $5$ cm long, $4$ cm wide and $3$ cm high is built from $1$ cm cubes and painted on all its faces. How many small cubes are painted on $3$ faces, on exactly $2$ faces, on exactly $1$ face, on no face?
+\end{probbox}
+\probsol{
+Along the edges there are $5$, $4$, $3$ cubes; without the corners: $3$, $2$, $1$.\par
+$3$ faces: $8$.\par
+Exactly $2$ faces: $4\times(3+2+1)=24$.\par
+Exactly $1$ face: $2\times(3\times2+2\times1+3\times1)=22$.\par
+No face: $3\times2\times1=6$.\par
+\emph{Check:} $8+24+22+6=60=5\times4\times3$.
+\dapso{$8$; $24$; $22$; $6$.}}
+\gap
+\begin{probbox}{20}{\relax}
+A cuboid $14$ cm long, $10$ cm wide and $6$ cm high is built from cubes of edge $2$ cm and painted on all its faces. How many small cubes are painted on exactly $2$ faces, on exactly $1$ face, on no face?
+\end{probbox}
+\probsol{
+Along the edges: $14:2=7$, $10:2=5$, $6:2=3$ cubes; without the corners: $5$, $3$, $1$.\par
+Exactly $2$ faces: $4\times(5+3+1)=36$.\par
+Exactly $1$ face: $2\times(5\times3+3\times1+5\times1)=46$.\par
+No face: $5\times3\times1=15$.
+\dapso{$36$; $46$; $15$.}}
+\gap
+\begin{probbox}{21}{\relax}
+A big cube made of equal small cubes is painted on all its faces. Exactly $64$ small cubes have no paint. How many small cubes are there in all, and how many are painted on exactly $1$ face?
+\end{probbox}
+\probsol{
+The unpainted core is a cube: $64=4\times4\times4$, so it has $4$ cubes along each edge.\par
+The big cube has $4+2=6$ cubes along each edge.\par
+In all: $6\times6\times6=216$ small cubes.\par
+Exactly $1$ face: $6\times4\times4=96$.
+\dapso{$216$ cubes; $96$ cubes.}}
+\gap
+\begin{probbox}{22}{\relax}
+A big cube made of equal small cubes is painted on all its faces. Exactly $150$ small cubes are painted on just $1$ face. How many small cubes are there in all?
+\end{probbox}
+\probsol{
+On each face: $150:6=25$ such cubes; $25=5\times5$.\par
+So $n-2=5$, and each edge has $7$ small cubes.\par
+In all: $7\times7\times7=343$.
+\dapso{$343$ cubes.}}
+\gap
+\begin{probbox}{23}{\relax}
+A big cube is built from $1$ cm cubes and painted on all its faces. Exactly $84$ small cubes are painted on $2$ faces. Find the volume of the big cube.
+\end{probbox}
+\probsol{
+On each edge: $84:12=7$ such cubes.\par
+Each edge has $7+2=9$ small cubes, so the edge is $9$ cm.\par
+Volume: $9\times9\times9=729$ cm$^3$.
+\dapso{$729$ cm$^3$.}}
+\gap
+\begin{probbox}{24}{\relax}
+A cube of edge $5$ cm is built from $1$ cm cubes. The top layer is then lifted off. How many small cubes are left, and what is the total surface area of the remaining solid?
+\end{probbox}
+\probsol{
+One layer has $5\times5=25$ cubes, so $125-25=100$ cubes are left.\par
+The remaining solid is a cuboid $5$ cm long, $5$ cm wide and $4$ cm high.\par
+Lateral area: $(5+5)\times2\times4=80$ cm$^2$.\par
+Total surface area: $80+5\times5\times2=130$ cm$^2$.
+\dapso{$100$ cubes; $130$ cm$^2$.}}
+\gap
+\begin{probbox}{25}{\relax}
+A cube of edge $4$ cm is built from $1$ cm cubes. One corner cube is removed. Find the total surface area of the remaining solid.
+\end{probbox}
+\probsol{
+Total surface area at first: $4\times4\times6=96$ cm$^2$.\par
+Removing the corner cube takes away $3$ outside squares of $1$ cm$^2$, but uncovers $3$ new squares of $1$ cm$^2$ inside the gap.\par
+The area does not change: $96-3+3=96$ cm$^2$.
+\dapso{$96$ cm$^2$.}}
+\gap
+\begin{probbox}{26}{\relax}
+\begin{minipage}[t]{0.6\linewidth}
+How many cubes are there in this staircase? (No cube is missing from the back.)
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.45]
+\xhcube{0}{1}{0}\xhcube{1}{1}{0}\xhcube{2}{1}{0}\xhcube{1}{1}{1}\xhcube{2}{1}{1}\xhcube{2}{1}{2}\xhcube{0}{0}{0}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{1}{0}{1}\xhcube{2}{0}{1}\xhcube{2}{0}{2}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+The staircase is $2$ cubes deep.\par
+Seen from the front, the columns have $1$, $2$ and $3$ cubes: $1+2+3=6$ cubes in one row.\par
+Number of cubes: $6\times2=12$.
+\dapso{$12$ cubes.}}
+\gap
+\begin{probbox}{27}{\relax}
+\begin{minipage}[t]{0.6\linewidth}
+The figure is the top view of a stack of cubes; each number tells how many cubes stand on that square.\par
+\pa{a} How many cubes are in the stack?\par
+\pa{b} How tall is each column of the front view?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\foreach \x/\y/\h in {0/1/3,1/1/1,2/1/2,0/0/2,1/0/2,2/0/1}{\draw[xhf,fill=tmBlue!8] (\x,\y) rectangle ++(1,1); \node[font=\small\bfseries] at (\x+0.5,\y+0.5){\h};}
+\node[dim,below] at (1.5,0){front};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\pa{a} $3+1+2+2+2+1=11$ cubes.\par
+\pa{b} From left to right, the tallest stack in each column has $3$, $2$ and $2$ cubes.
+\dapso{\pa{a} $11$ cubes;\par \pa{b} $3$, $2$, $2$.}}
+\gap
+\begin{probbox}{28}{\relax}
+\begin{minipage}[t]{0.6\linewidth}
+How many cubes are in the stack? How many more cubes are needed to have enough for a cube with $3$ small cubes along each edge?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.45]
+\xhcube{0}{1}{0}\xhcube{1}{1}{0}\xhcube{2}{1}{0}\xhcube{0}{1}{1}\xhcube{1}{1}{1}\xhcube{2}{1}{1}\xhcube{0}{1}{2}\xhcube{1}{1}{2}\xhcube{2}{1}{2}\xhcube{0}{0}{0}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{0}{0}{1}\xhcube{1}{0}{1}\xhcube{2}{0}{1}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Front row: $3\times2=6$ cubes; back row: $3\times3=9$ cubes.\par
+Number of cubes: $6+9=15$.\par
+A cube with $3$ small cubes along each edge has $3\times3\times3=27$ cubes.\par
+More cubes needed: $27-15=12$.
+\dapso{$15$ cubes; $12$ more cubes.}}
+\gap
+\begin{probbox}{29}{\relax}
+Khoa stacks $64$ dice, each a cube of edge $2$ cm, into one big cube. Find the total surface area and the volume of the big cube.
+\end{probbox}
+\probsol{
+$64=4\times4\times4$, so each edge has $4$ dice.\par
+Edge of the big cube: $2\times4=8$ cm.\par
+Total surface area: $8\times8\times6=384$ cm$^2$.\par
+Volume: $8\times8\times8=512$ cm$^3$.
+\dapso{$384$ cm$^2$; $512$ cm$^3$.}}
+\gap
+\begin{probbox}{30}{\relax}
+A wooden block $12$ dm long, $8$ dm wide and $6$ dm high is painted on all its faces and then sawn into cubes of edge $2$ dm. How many cubes are there? How many have no paint? How many are painted on exactly $1$ face?
+\end{probbox}
+\probsol{
+Along the edges: $12:2=6$, $8:2=4$, $6:2=3$ cubes.\par
+Number of cubes: $6\times4\times3=72$.\par
+Without the corners: $4$, $2$, $1$ cubes along the edges.\par
+No paint: $4\times2\times1=8$.\par
+Exactly $1$ face: $2\times(4\times2+2\times1+4\times1)=28$.
+\dapso{$72$ cubes; $8$ cubes; $28$ cubes.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+A big cube made of small cubes is painted on all its faces. The number of small cubes painted on exactly $1$ face equals the number painted on exactly $2$ faces. How many small cubes make up the big cube?
+\end{probbox}
+\probsol{
+Let each edge have $n$ small cubes and put $k=n-2$.\par
+Exactly $1$ face: $6\times k\times k$; exactly $2$ faces: $12\times k$.\par
+$6\times k\times k=12\times k$ gives $k=2$, so $n=4$.\par
+Number of small cubes: $4\times4\times4=64$.
+\dapso{$64$ cubes.}}
+\gap
+\begin{probbox}{32}{\stars{2}}
+A big cube made of small cubes is painted on all its faces. The number of unpainted small cubes equals the number of small cubes painted on exactly $1$ face. How many small cubes are there?
+\end{probbox}
+\probsol{
+Let $k=n-2$. Unpainted: $k\times k\times k$; exactly $1$ face: $6\times k\times k$.\par
+$k\times k\times k=6\times k\times k$ gives $k=6$, so $n=8$.\par
+Number of small cubes: $8\times8\times8=512$.\par
+\emph{Check:} unpainted $6\times6\times6=216$; one face $6\times36=216$.
+\dapso{$512$ cubes.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+A cube of edge $4$ cm made of $1$ cm cubes is painted on all its faces and taken apart. What fraction of all the faces of the small cubes is painted?
+\end{probbox}
+\probsol{
+Painted squares: the surface of the big cube, $4\times4\times6=96$ squares.\par
+All faces of the small cubes: $64\times6=384$ squares.\par
+Fraction painted: $\dfrac{96}{384}=\dfrac14$.
+\dapso{$\dfrac14$.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+A cube of edge $5$ cm is built from $1$ cm cubes. Only its $4$ side faces are painted (not the top, not the bottom). How many small cubes are painted on exactly $2$ faces, on exactly $1$ face, on no face?
+\end{probbox}
+\probsol{
+Each of the $5$ layers is a $5\times5$ square whose border is painted.\par
+In one layer: $4$ corner cubes with $2$ faces; $4\times3=12$ cubes with $1$ face; $3\times3=9$ unpainted.\par
+Exactly $2$ faces: $4\times5=20$.\par
+Exactly $1$ face: $12\times5=60$.\par
+No face: $9\times5=45$.\par
+\emph{Check:} $20+60+45=125$.
+\dapso{$20$; $60$; $45$.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+A cube of edge $6$ cm is built from $1$ cm cubes. The $4$ side faces are painted blue; the top and the bottom are painted red. How many small cubes carry both colours?
+\end{probbox}
+\probsol{
+A cube with red paint lies in the top layer or the bottom layer.\par
+It also has blue paint if it lies on the border of that layer.\par
+Border of a $6\times6$ layer: $6\times6-4\times4=20$ cubes.\par
+Both colours: $20\times2=40$ cubes.
+\dapso{$40$ cubes.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+$343$ cubes of edge $2$ cm are stacked into a big cube. The top layer is then lifted off. Find the total surface area of the remaining solid.
+\end{probbox}
+\probsol{
+$343=7\times7\times7$, so the big cube is $2\times7=14$ cm along each edge.\par
+Without the top layer it is a cuboid $14$ cm by $14$ cm by $14-2=12$ cm.\par
+Lateral area: $(14+14)\times2\times12=672$ cm$^2$.\par
+Total surface area: $672+14\times14\times2=1\,064$ cm$^2$.
+\dapso{$1\,064$ cm$^2$.}}
+\gap
+\begin{probbox}{37}{\stars{2}}
+A cube of edge $5$ cm is built from $1$ cm cubes. Then a straight tunnel $1$ cm by $1$ cm is cut right through the middle, from the centre of the front face to the centre of the back face, by taking out a row of small cubes. How many small cubes are left? What is the total surface area of the solid now (inside of the tunnel included)?
+\end{probbox}
+\probsol{
+The tunnel takes out $5$ small cubes: $125-5=120$ cubes are left.\par
+Outside surface at first: $5\times5\times6=150$ cm$^2$; the two openings remove $2$ cm$^2$.\par
+The tunnel has $4$ walls, each $5$ cm by $1$ cm: $4\times5=20$ cm$^2$.\par
+Total surface area: $150-2+20=168$ cm$^2$.
+\dapso{$120$ cubes; $168$ cm$^2$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+A box is $20$ cm long, $12$ cm wide and $8$ cm high. It is filled exactly with equal cubes whose edge is a whole number of centimetres. What is the smallest possible number of cubes?
+\end{probbox}
+\probsol{
+Fewest cubes means the biggest possible edge.\par
+The edge must divide $20$, $12$ and $8$ exactly; the largest such number is $4$.\par
+With edge $4$ cm: $20:4=5$, $12:4=3$, $8:4=2$.\par
+Number of cubes: $5\times3\times2=30$.
+\dapso{$30$ cubes.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+A crate is $6$ dm long, $4$ dm wide and $2$ dm high. It is filled exactly with equal cubes whose edge is a whole number of decimetres. What are the largest and the smallest possible numbers of cubes?
+\end{probbox}
+\probsol{
+Largest number: edge $1$ dm, $6\times4\times2=48$ cubes.\par
+Smallest number: the edge must divide $6$, $4$ and $2$; the largest such number is $2$.\par
+With edge $2$ dm: $3\times2\times1=6$ cubes.
+\dapso{Largest $48$, smallest $6$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+$1$ cm cubes are glued face to face in a straight row. A row of $10$ cubes has total surface area $42$ cm$^2$. How many cubes are in a row whose total surface area is $82$ cm$^2$?
+\end{probbox}
+\probsol{
+Each cube shows $4$ faces along the sides of the row; the $2$ ends show $2$ more faces.\par
+A row of $n$ cubes has area $4\times n+2$ (cm$^2$). Check: $4\times10+2=42$.\par
+$4\times n+2=82$, so $4\times n=80$ and $n=20$.
+\dapso{$20$ cubes.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+\begin{minipage}[t]{0.6\linewidth}
+A staircase is glued from $1$ cm cubes (one cube deep). Find the number of cubes and the total surface area of the staircase, bottom included.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.42]
+\xhcube{0}{0}{0}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{3}{0}{0}\xhcube{1}{0}{1}\xhcube{2}{0}{1}\xhcube{3}{0}{1}\xhcube{2}{0}{2}\xhcube{3}{0}{2}\xhcube{3}{0}{3}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Cubes: $1+2+3+4=10$.\par
+Front and back: $10+10=20$ cm$^2$.\par
+Bottom: $4$ cm$^2$; from above we see $4$ cm$^2$ (one square on each column).\par
+Facing left: $1+1+1+1=4$ cm$^2$ (the left end and the three risers); facing right: $4$ cm$^2$.\par
+Total surface area: $20+4+4+4+4=36$ cm$^2$.
+\dapso{$10$ cubes; $36$ cm$^2$.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+\begin{minipage}[t]{0.6\linewidth}
+The figure is the top view of a stack, with the number of cubes on each square. How many cubes are in the stack? How many more cubes are needed to make a cube with $3$ small cubes along each edge?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.5]
+\foreach \x/\y/\h in {0/2/3,1/2/2,2/2/1,0/1/2,1/1/2,2/1/1,0/0/1,1/0/1,2/0/1}{\draw[xhf,fill=tmBlue!8] (\x,\y) rectangle ++(1,1); \node[font=\small\bfseries] at (\x+0.5,\y+0.5){\h};}
+\node[dim,below] at (1.5,0){front};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Number of cubes: $(3+2+1)+(2+2+1)+(1+1+1)=6+5+3=14$.\par
+The full cube has $27$ cubes.\par
+More cubes needed: $27-14=13$.
+\dapso{$14$ cubes; $13$ more cubes.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+A cube of edge $6$ cm made of $1$ cm cubes is painted on all its faces and then taken apart. Find the total painted area and the total unpainted area of all the small cubes.
+\end{probbox}
+\probsol{
+The painted area is the surface of the big cube: $6\times6\times6=216$ cm$^2$.\par
+All the small cubes: $216$ cubes, each with $6$ faces of $1$ cm$^2$: $216\times6=1\,296$ cm$^2$.\par
+Unpainted area: $1\,296-216=1\,080$ cm$^2$.
+\dapso{Painted $216$ cm$^2$; unpainted $1\,080$ cm$^2$.}}
+\gap
+\begin{probbox}{44}{\stars{2}}
+A cuboid made of $1$ cm cubes has a base $6$ cm by $5$ cm. It is painted on all its faces, and $24$ small cubes have no paint. Find the height of the cuboid and the number of small cubes painted on exactly $1$ face.
+\end{probbox}
+\probsol{
+The unpainted core has $6-2=4$ by $5-2=3$ cubes in each layer: $12$ cubes per layer.\par
+Layers in the core: $24:12=2$, so the height is $2+2=4$ cm.\par
+Without corners the edges have $4$, $3$, $2$ cubes.\par
+Exactly $1$ face: $2\times(4\times3+3\times2+4\times2)=2\times26=52$.
+\dapso{Height $4$ cm; $52$ cubes.}}
+\gap
+\begin{probbox}{45}{\stars{2}}
+Bricks $12$ cm long, $8$ cm wide and $6$ cm high are all laid the same way, side by side and in layers, to build a solid cube. What is the smallest number of bricks needed?
+\end{probbox}
+\probsol{
+The edge of the cube must be a whole number of brick lengths, of brick widths and of brick heights.\par
+The smallest number divisible by $12$, $8$ and $6$ is $24$, so the cube has edge $24$ cm.\par
+Along the length: $24:12=2$; along the width: $24:8=3$; in height: $24:6=4$.\par
+Number of bricks: $2\times3\times4=24$.
+\dapso{$24$ bricks.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+A big cube made of small cubes is painted on all its faces. Exactly $98$ small cubes have paint on them. How many small cubes are there along each edge?
+\end{probbox}
+\probsol{
+Painted cubes $=$ all cubes $-$ the core.\par
+Try $n=4$: $64-8=56$. Try $n=5$: $125-27=98$. \checkmark\par
+So each edge has $5$ small cubes.
+\dapso{$5$ cubes.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+\begin{minipage}[t]{0.6\linewidth}
+From a cube of edge $4$ cm made of $1$ cm cubes, all $8$ corner cubes are removed. How many small cubes are left? What is the total surface area of the solid?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.4]
+\xhcube{1}{3}{0}\xhcube{2}{3}{0}\xhcube{0}{3}{1}\xhcube{1}{3}{1}\xhcube{2}{3}{1}\xhcube{3}{3}{1}\xhcube{0}{3}{2}\xhcube{1}{3}{2}\xhcube{2}{3}{2}\xhcube{3}{3}{2}\xhcube{1}{3}{3}\xhcube{2}{3}{3}\xhcube{0}{2}{0}\xhcube{1}{2}{0}\xhcube{2}{2}{0}\xhcube{3}{2}{0}\xhcube{0}{2}{1}\xhcube{1}{2}{1}\xhcube{2}{2}{1}\xhcube{3}{2}{1}\xhcube{0}{2}{2}\xhcube{1}{2}{2}\xhcube{2}{2}{2}\xhcube{3}{2}{2}\xhcube{0}{2}{3}\xhcube{1}{2}{3}\xhcube{2}{2}{3}\xhcube{3}{2}{3}\xhcube{0}{1}{0}\xhcube{1}{1}{0}\xhcube{2}{1}{0}\xhcube{3}{1}{0}\xhcube{0}{1}{1}\xhcube{1}{1}{1}\xhcube{2}{1}{1}\xhcube{3}{1}{1}\xhcube{0}{1}{2}\xhcube{1}{1}{2}\xhcube{2}{1}{2}\xhcube{3}{1}{2}\xhcube{0}{1}{3}\xhcube{1}{1}{3}\xhcube{2}{1}{3}\xhcube{3}{1}{3}\xhcube{1}{0}{0}\xhcube{2}{0}{0}\xhcube{0}{0}{1}\xhcube{1}{0}{1}\xhcube{2}{0}{1}\xhcube{3}{0}{1}\xhcube{0}{0}{2}\xhcube{1}{0}{2}\xhcube{2}{0}{2}\xhcube{3}{0}{2}\xhcube{1}{0}{3}\xhcube{2}{0}{3}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Cubes left: $64-8=56$.\par
+Each removed corner takes away $3$ outside squares and uncovers $3$ new squares, so the area does not change.\par
+Total surface area: $4\times4\times6=96$ cm$^2$.
+\dapso{$56$ cubes; $96$ cm$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+A cuboid $8$ cm long, $6$ cm wide and $4$ cm high is built from $1$ cm cubes and stands on a table. All its faces are painted except the bottom. How many small cubes are painted on exactly $1$ face?
+\end{probbox}
+\probsol{
+\emph{Top face:} cubes not on its border: $(8-2)\times(6-2)=24$.\par
+\emph{Front face and back face:} cubes not on the left or right edge ($6$ in a row) and not in the top row ($3$ rows; the bottom row has no paint underneath): $6\times3=18$ on each, $36$ in all.\par
+\emph{Left face and right face:} $(6-2)\times3=12$ on each, $24$ in all.\par
+Exactly $1$ face: $24+36+24=84$.
+\dapso{$84$ cubes.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+A cube is built from $27$ small cubes ($3$ along each edge). How many cubes of all sizes can be seen in it (cubes of $1$, $2$ or $3$ small cubes along an edge)?
+\end{probbox}
+\probsol{
+Cubes of edge $1$: $27$.\par
+Cubes of edge $2$: along each direction there are $2$ positions, so $2\times2\times2=8$.\par
+Cubes of edge $3$: $1$.\par
+In all: $27+8+1=36$.
+\dapso{$36$ cubes.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+\begin{minipage}[t]{0.56\linewidth}
+A stack of cubes stands on a base of $3\times2$ squares; every base square has at least one cube. Its front view and its view from the right are shown. What are the largest and the smallest possible numbers of cubes in the stack?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.4\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.42]
+\foreach \x/\y in {0/0,0/1,0/2,1/0,2/0,2/1}{\draw[xhf,fill=tmBlue!20] (\x,\y) rectangle ++(1,1);}
+\node[dim,below] at (1.5,0){front view};
+\begin{scope}[xshift=4.5cm]
+\foreach \x/\y in {0/0,0/1,1/0,1/1,1/2}{\draw[xhf,fill=tmBlue!20] (\x,\y) rectangle ++(1,1);}
+\node[dim,below] at (1,0){right view};
+\node[dim] at (0.5,-1.3){front}; \node[dim] at (1.6,-1.3){back};
+\end{scope}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Front view: the three columns (left to right) are $3$, $1$, $2$ tall. Right view: the front row is $2$ tall, the back row $3$ tall.\par
+\emph{Largest:} each stack can be as tall as both views allow, i.e.\ the smaller of its column height and its row height.\par
+Front row: $2+1+2=5$; back row: $3+1+2=6$. Largest: $5+6=11$ cubes.\par
+\emph{Smallest:} put $3$ cubes on the left square of the back row (this gives both the $3$ of the left column and the $3$ of the back row) and $2$ cubes on the right square of the front row; every other square gets $1$ cube.\par
+Smallest: $3+2+1+1+1+1=9$ cubes.
+\dapso{Largest $11$, smallest $9$.}}

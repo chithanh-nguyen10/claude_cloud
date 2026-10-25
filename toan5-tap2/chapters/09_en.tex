@@ -1,0 +1,526 @@
+\shead{Boats on a river}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item The water of a river flows in one direction. A boat going \emph{with} the current (downstream) is helped by the water; a boat going \emph{against} the current (upstream) is held back by it.
+\item Let $v_{\text{boat}}$ be the speed of the boat in still water and $v_{\text{current}}$ the speed of the current. Then
+\[v_{\text{down}}=v_{\text{boat}}+v_{\text{current}},\qquad v_{\text{up}}=v_{\text{boat}}-v_{\text{current}}.\]
+\item Hence $v_{\text{down}}-v_{\text{up}}=2\times v_{\text{current}}$, so
+\[v_{\text{current}}=(v_{\text{down}}-v_{\text{up}}):2,\qquad v_{\text{boat}}=(v_{\text{down}}+v_{\text{up}}):2.\]
+\item A raft, a leaf or a log floating on the water (no engine, no oars) moves at exactly the speed of the current.
+\end{itemize}
+\begin{center}
+\begin{tikzpicture}[font=\footnotesize,>=Stealth]
+\fill[tmBlue!12] (0,0) rectangle (10,1.9);
+\draw[line width=1.2pt,tmGreen!60!black] (0,0)--(10,0) (0,1.9)--(10,1.9);
+\foreach \y in {0.3,0.95,1.6}{\draw[tmBlue!45,domain=0.2:9.8,samples=80] plot (\x,{\y+0.04*sin(\x*260)});}
+\draw[->,line width=1.6pt,tmBlue] (3.9,0.95)--(6.1,0.95) node[midway,above=1pt,lbl,text=tmBlue]{current};
+\fill[tmOrange] (0.7,1.32)--(1.9,1.32)--(1.7,1.12)--(0.85,1.12)--cycle; \fill[tmOrange!70!black] (1.1,1.32) rectangle (1.45,1.5);
+\draw[->,line width=1pt,tmOrange!80!black] (2.1,1.3)--(3.3,1.3);
+\fill[tmPurple] (9.3,0.62)--(8.1,0.62)--(8.3,0.42)--(9.15,0.42)--cycle; \fill[tmPurple!70!black] (8.55,0.62) rectangle (8.9,0.8);
+\draw[->,line width=1pt,tmPurple] (7.9,0.6)--(6.7,0.6);
+\node[lbl,above] at (0.2,1.9){A}; \node[lbl,above] at (9.8,1.9){B};
+\node[lbl,anchor=west] at (10.1,1.35){downstream: $v_{\text{boat}}+v_{\text{current}}$};
+\node[lbl,anchor=west] at (10.1,0.5){upstream: $v_{\text{boat}}-v_{\text{current}}$};
+\end{tikzpicture}
+\end{center}
+\textbf{Note:} when the same stretch AB is travelled both ways, the times are in the \emph{inverse} ratio of the speeds: the faster trip takes less time.
+\end{knowbox}
+\gap
+\shead{Trains: moving objects that have a length}
+\begin{knowbox}
+A train is long, so ``the train has passed'' something only when its \emph{tail} has gone by. We follow the \emph{head} of the train and ask how far it travels.\par\smallskip
+\textbf{a) Passing a pole} (a tree, a person standing still): from the moment the head reaches the pole until the tail leaves it, the head travels \emph{one train length}.
+\[\text{time to pass a pole}=\text{train length}:\text{train speed}.\]
+\begin{center}
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,x=0.85cm,y=0.85cm]
+\draw[line width=1pt,Slate] (-3.4,0)--(3.6,0);
+\foreach \i in {0,1,2}{\draw[fill=tmOrange!25,draw=tmOrange!80!black,rounded corners=1pt] (-3.1+\i,0.15) rectangle ++(0.92,0.55); \fill[Ink] (-2.9+\i,0.12) circle(0.07) (-2.4+\i,0.12) circle(0.07);}
+\draw[line width=1.2pt,tmGreen!60!black] (0.04,0)--(0.04,1.4); \fill[tmGreen!60!black] (0.04,1.4) circle(0.08);
+\foreach \i in {0,1,2}{\draw[fill=tmOrange!12,draw=tmOrange!60,dashed,rounded corners=1pt] (0.08+\i,0.15) rectangle ++(0.92,0.55);}
+\node[lbl,above] at (0.04,1.45){pole};
+\node[dim] at (-1.6,1.05){first moment}; \node[dim] at (1.6,1.05){last moment};
+\draw[->,tmBlue,line width=0.9pt] (0,-0.35)--node[below,lbl,text=tmBlue]{the head travels one train length}(3.08,-0.35);
+\end{tikzpicture}
+\end{center}
+\textbf{b) Crossing a bridge} (or a tunnel, a platform): from the moment the head reaches the bridge until the tail leaves it, the head travels the \emph{bridge length plus the train length}.
+\[\text{time to cross a bridge}=(\text{train length}+\text{bridge length}):\text{train speed}.\]
+\begin{center}
+\begin{tikzpicture}[font=\footnotesize,>=Stealth,x=0.85cm,y=0.85cm]
+\fill[tmBlue!12] (0,-0.9) rectangle (5,-0.15);
+\draw[line width=1.2pt,Slate] (-3.4,0)--(8.4,0);
+\draw[line width=2pt,tmBlue!70!black] (0,0)--(5,0); \foreach \x in {0,1.25,...,5}{\draw[tmBlue!70!black,line width=0.8pt] (\x,0)--(\x,-0.9);}
+\foreach \i in {0,1,2}{\draw[fill=tmOrange!25,draw=tmOrange!80!black,rounded corners=1pt] (-3.04+\i,0.15) rectangle ++(0.92,0.55); \fill[Ink] (-2.84+\i,0.12) circle(0.07) (-2.34+\i,0.12) circle(0.07);}
+\foreach \i in {0,1,2}{\draw[fill=tmOrange!12,draw=tmOrange!60,dashed,rounded corners=1pt] (5.04+\i,0.15) rectangle ++(0.92,0.55);}
+\node[dim] at (-1.5,1.0){head reaches the bridge}; \node[dim] at (6.5,1.0){tail leaves the bridge};
+\draw[|<->|,Slate] (0,-1.2)--node[below,dim]{bridge length}(5,-1.2);
+\draw[|<->|,Slate] (5,-1.2)--node[below,dim]{train length}(8,-1.2);
+\draw[->,tmBlue,line width=0.9pt] (0,1.55)--node[above,lbl,text=tmBlue]{distance travelled by the head}(8,1.55);
+\end{tikzpicture}
+\end{center}
+\textbf{Units:} $1$ m/s $=3.6$ km/h. For example $54$ km/h $=54\,000$ m $:3\,600$ s $=15$ m/s.
+\end{knowbox}
+\gap
+\shead{A train and another moving object}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Two trains in opposite directions} (on parallel tracks): from ``the heads meet'' to ``the tails part'', together they cover the sum of the two lengths.
+\[\text{time}=(\text{length}_1+\text{length}_2):(v_1+v_2).\]
+\item \textbf{One train overtaking another} (same direction): the faster train must gain the sum of the two lengths.
+\[\text{time}=(\text{length}_1+\text{length}_2):(v_1-v_2).\]
+\item \textbf{A train and a cyclist, walker or car} (a short object, its length ignored): replace the sum of the lengths by the train length only;
+opposite directions: $\text{time}=\text{train length}:(v_{\text{train}}+v)$; same direction: $\text{time}=\text{train length}:(v_{\text{train}}-v)$.
+\item A passenger \emph{sitting} in one train who watches another train go past sees only the length of the \emph{other} train.
+\end{itemize}\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+The river stretch AB is $36$ km long and the current flows from A to B at $3$ km/h. At $6$:$30$ a boat whose speed in still water is $15$ km/h leaves A for B, rests $30$ minutes at B and then returns to A. At what time does it get back to A?
+\guide
+Downstream speed: $15+3=18$ (km/h); time from A to B: $36:18=2$ (h).\par
+Upstream speed: $15-3=12$ (km/h); time from B to A: $36:12=3$ (h).\par
+Back at A: $6$ h $30$ min $+\,2$ h $+\,30$ min $+\,3$ h $=12$ h $00$ min.
+\dapso{at $12$:$00$ (noon).}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+A canoe goes downstream from A to B in $4$ hours and comes back upstream from B to A in $6$ hours. How long does a raft take to drift from A to B?
+\guide
+\textit{Method 1 (choose a length).} Let AB be $12$ equal units ($12$ is divisible by both $4$ and $6$).\par
+Downstream speed: $12:4=3$ (units per hour); upstream speed: $12:6=2$ (units per hour).\par
+Speed of the current (= speed of the raft): $(3-2):2=0.5$ (units per hour).\par
+Time for the raft: $12:0.5=24$ (h).\par\smallskip
+\textit{Method 2 (fractions of AB).} In $1$ hour the canoe covers $\dfrac14$ of AB downstream and $\dfrac16$ of AB upstream.\par
+In $1$ hour the current carries the raft $\left(\dfrac14-\dfrac16\right):2=\dfrac1{24}$ of AB, so the raft needs $24$ hours.
+\dapso{$24$ hours.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+A train travelling at $54$ km/h passes an electricity pole in $8$ seconds.
+\begin{cols2}
+\pa{a} How long is the train? & \pa{b} At the same speed, how long does it take to cross a bridge $330$ m long?
+\end{cols2}
+\guide
+$54$ km/h $=54\,000$ m $:3\,600$ s $=15$ m/s.\par
+\pa{a} Passing the pole, the train travels its own length: $15\times8=120$ (m).\par
+\pa{b} Crossing the bridge, it travels $120+330=450$ (m); time: $450:15=30$ (s).
+\dapso{\pa{a} $120$ m;\quad \pa{b} $30$ seconds.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Train P is $160$ m long and runs at $20$ m/s. Train Q is $140$ m long and runs at $10$ m/s on a parallel track. How long does it take them to pass each other
+\begin{cols2}
+\pa{a} if they run in opposite directions? & \pa{b} if P overtakes Q (same direction)?
+\end{cols2}
+\guide
+In both cases the distance to be covered is the sum of the lengths: $160+140=300$ (m).\par
+\pa{a} Opposite directions: they close up $20+10=30$ m each second; time: $300:30=10$ (s).\par
+\pa{b} Same direction: P gains $20-10=10$ m each second; time: $300:10=30$ (s).
+\dapso{\pa{a} $10$ seconds;\quad \pa{b} $30$ seconds.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+A train $150$ m long crosses a bridge $210$ m long in $24$ seconds. The same train overtakes a cyclist riding in the same direction in $12$ seconds. Find the cyclist's speed.
+\guide
+Speed of the train: $(150+210):24=15$ (m/s).\par\smallskip
+\textit{Method 1.} In $12$ s the head of the train travels $15\times12=180$ (m). It started level with the cyclist and finished one train length ahead, so the cyclist rode $180-150=30$ (m).\par
+Cyclist's speed: $30:12=2.5$ (m/s).\par\smallskip
+\textit{Method 2.} The train gains $150$ m in $12$ s, so the difference of the speeds is $150:12=12.5$ (m/s).\par
+Cyclist's speed: $15-12.5=2.5$ (m/s) $=9$ km/h.
+\dapso{$2.5$ m/s (that is, $9$ km/h).}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+A boat's speed in still water is $16$ km/h and the current flows at $2$ km/h. Find the boat's speed downstream and its speed upstream.
+\end{probbox}
+\probsol{
+Downstream: $16+2=18$ (km/h).\par Upstream: $16-2=14$ (km/h).
+\dapso{$18$ km/h downstream, $14$ km/h upstream.}}
+\gap
+\begin{probbox}{2}{\relax}
+At $7$:$15$ a boat leaves A and goes downstream, arriving at B at $9$:$45$. Its speed in still water is $21$ km/h and the current is $3$ km/h. How long is the river stretch AB?
+\end{probbox}
+\probsol{
+Travelling time: $9$ h $45$ min $-\,7$ h $15$ min $=2$ h $30$ min $=2.5$ h.\par
+Downstream speed: $21+3=24$ (km/h).\par AB: $24\times2.5=60$ (km).
+\dapso{$60$ km.}}
+\gap
+\begin{probbox}{3}{\relax}
+A canoe goes $45$ km downstream in $1$ hour $30$ minutes and comes back the same $45$ km upstream in $2$ hours $15$ minutes. Find the speed of the canoe in still water and the speed of the current.
+\end{probbox}
+\probsol{
+$1$ h $30$ min $=1.5$ h; $2$ h $15$ min $=2.25$ h.\par
+Downstream speed: $45:1.5=30$ (km/h); upstream speed: $45:2.25=20$ (km/h).\par
+Still water: $(30+20):2=25$ (km/h); current: $(30-20):2=5$ (km/h).
+\dapso{$25$ km/h and $5$ km/h.}}
+\gap
+\begin{probbox}{4}{\relax}
+A canoe goes downstream from A to B, a distance of $48$ km, in $3$ hours, and back upstream in $4$ hours. How long does a leaf take to float from A to B?
+\end{probbox}
+\probsol{
+Downstream speed: $48:3=16$ (km/h); upstream speed: $48:4=12$ (km/h).\par
+Current (= the leaf's speed): $(16-12):2=2$ (km/h).\par Time for the leaf: $48:2=24$ (h).
+\dapso{$24$ hours.}}
+\gap
+\begin{probbox}{5}{\relax}
+A ferry goes downstream at $22$ km/h and upstream at $16$ km/h. Find its speed in still water and the speed of the current.
+\end{probbox}
+\probsol{
+Still water: $(22+16):2=19$ (km/h).\par Current: $(22-16):2=3$ (km/h).
+\dapso{$19$ km/h and $3$ km/h.}}
+\gap
+\begin{probbox}{6}{\relax}
+A boat's speed in still water is $12$ km/h and the current flows at $2.5$ km/h. How long does the boat take to go $38$ km upstream?
+\end{probbox}
+\probsol{
+Upstream speed: $12-2.5=9.5$ (km/h).\par Time: $38:9.5=4$ (h).
+\dapso{$4$ hours.}}
+\gap
+\begin{probbox}{7}{\relax}
+A boat with speed $18$ km/h in still water goes downstream from A to B in $2$ hours. The current is $3$ km/h. How long does it take to come back from B to A?
+\end{probbox}
+\probsol{
+Downstream speed: $18+3=21$ (km/h); AB: $21\times2=42$ (km).\par
+Upstream speed: $18-3=15$ (km/h); time: $42:15=2.8$ (h) $=2$ h $48$ min.
+\dapso{$2$ hours $48$ minutes.}}
+\gap
+\begin{probbox}{8}{\relax}
+A raft drifts $7.5$ km in $2.5$ hours on a river. On the same river a boat whose speed in still water is $15$ km/h goes $36$ km upstream. How long does the boat take?
+\end{probbox}
+\probsol{
+Current: $7.5:2.5=3$ (km/h).\par Upstream speed of the boat: $15-3=12$ (km/h).\par Time: $36:12=3$ (h).
+\dapso{$3$ hours.}}
+\gap
+\begin{probbox}{9}{\relax}
+A motorboat with speed $20$ km/h in still water goes downstream from A to B and immediately comes back to A. AB is $48$ km and the current is $4$ km/h. How long is the whole trip?
+\end{probbox}
+\probsol{
+Downstream: $48:(20+4)=2$ (h).\par Upstream: $48:(20-4)=3$ (h).\par Whole trip: $2+3=5$ (h).
+\dapso{$5$ hours.}}
+\gap
+\begin{probbox}{10}{\relax}
+A boat's downstream speed is $1.5$ times its upstream speed. The current flows at $2$ km/h. Find the speed of the boat in still water.
+\end{probbox}
+\probsol{
+Downstream speed $-$ upstream speed $=2\times2=4$ (km/h).\par
+Upstream speed $1$ part, downstream speed $1.5$ parts; the difference $0.5$ part is $4$ km/h.\par
+Upstream speed: $4:0.5=8$ (km/h); downstream speed: $8\times1.5=12$ (km/h).\par
+Still water: $(12+8):2=10$ (km/h).
+\dapso{$10$ km/h.}}
+\gap
+\begin{probbox}{11}{\relax}
+A boat goes downstream from A to B in $3$ hours and back upstream in $4$ hours. The current is $2$ km/h. How long is AB?
+\end{probbox}
+\probsol{
+Same distance, so the speeds are in the inverse ratio of the times: downstream $:$ upstream $=4:3$.\par
+Their difference is $2\times2=4$ (km/h), matching $4-3=1$ part.\par
+Downstream speed: $4\times4=16$ (km/h); AB: $16\times3=48$ (km).
+\dapso{$48$ km.}}
+\gap
+\begin{probbox}{12}{\relax}
+A canoe goes downstream from C to D in $2$ hours and back upstream in $3$ hours. The current is $2.5$ km/h. Find the speed of the canoe in still water.
+\end{probbox}
+\probsol{
+Downstream $:$ upstream speed $=3:2$; the difference $2\times2.5=5$ (km/h) is $1$ part.\par
+Downstream speed: $15$ km/h; upstream speed: $10$ km/h.\par Still water: $(15+10):2=12.5$ (km/h).
+\dapso{$12.5$ km/h.}}
+\gap
+\begin{probbox}{13}{\relax}
+A barge takes $5$ hours to go downstream from A to B and $7$ hours to go back. How long does a log take to drift from A to B?
+\end{probbox}
+\probsol{
+In $1$ hour the barge covers $\dfrac15$ of AB downstream and $\dfrac17$ of AB upstream.\par
+In $1$ hour the current carries the log $\left(\dfrac15-\dfrac17\right):2=\dfrac2{35}:2=\dfrac1{35}$ of AB.\par So the log needs $35$ hours.
+\dapso{$35$ hours.}}
+\gap
+\begin{probbox}{14}{\relax}
+A boat with speed $15$ km/h in still water goes downstream from A to B and at once returns to A. The current is $3$ km/h and the whole trip takes $5$ hours. How long is AB?
+\end{probbox}
+\probsol{
+Downstream speed $18$ km/h, upstream speed $12$ km/h.\par
+Times are in the inverse ratio: downstream $:$ upstream $=12:18=2:3$; $5$ parts $=5$ h, so $1$ part $=1$ h.\par
+Downstream time $2$ h; AB: $18\times2=36$ (km). (\emph{Check:} $36:12=3$ h upstream.)
+\dapso{$36$ km.}}
+\gap
+\begin{probbox}{15}{\relax}
+Nam rows at $4$ km/h in still water. On a river with a current of $1$ km/h he rows $6$ km upstream and then rows back to the start. How long does he take altogether?
+\end{probbox}
+\probsol{
+Upstream: $6:(4-1)=2$ (h).\par Downstream: $6:(4+1)=1.2$ (h).\par Altogether: $3.2$ h $=3$ h $12$ min.
+\dapso{$3$ hours $12$ minutes.}}
+\gap
+\begin{probbox}{16}{\relax}
+A train travelling at $72$ km/h passes a pole in $9$ seconds. How long is the train?
+\end{probbox}
+\probsol{
+$72$ km/h $=72\,000$ m $:3\,600$ s $=20$ m/s.\par Train length: $20\times9=180$ (m).
+\dapso{$180$ m.}}
+\gap
+\begin{probbox}{17}{\relax}
+A train $240$ m long goes past a man standing beside the track in $16$ seconds. Find its speed in m/s and in km/h.
+\end{probbox}
+\probsol{
+Speed: $240:16=15$ (m/s).\par $15$ m/s $=15\times3.6=54$ km/h.
+\dapso{$15$ m/s $=54$ km/h.}}
+\gap
+\begin{probbox}{18}{\relax}
+A train $150$ m long runs at $15$ m/s. How long does it take to cross a bridge $300$ m long?
+\end{probbox}
+\probsol{
+Distance travelled by the head: $150+300=450$ (m).\par Time: $450:15=30$ (s).
+\dapso{$30$ seconds.}}
+\gap
+\begin{probbox}{19}{\relax}
+A train running at $54$ km/h crosses a bridge $0.6$ km long in $48$ seconds. How long is the train?
+\end{probbox}
+\probsol{
+$54$ km/h $=15$ m/s; $0.6$ km $=600$ m.\par Distance in $48$ s: $15\times48=720$ (m).\par Train length: $720-600=120$ (m).
+\dapso{$120$ m.}}
+\gap
+\begin{probbox}{20}{\relax}
+A train passes a pole in $10$ seconds and crosses a bridge $360$ m long in $34$ seconds. Find the speed and the length of the train.
+\end{probbox}
+\probsol{
+The extra $34-10=24$ (s) is the time to travel the bridge length $360$ m.\par
+Speed: $360:24=15$ (m/s).\par Length: $15\times10=150$ (m).
+\dapso{$15$ m/s and $150$ m.}}
+\gap
+\begin{probbox}{21}{\relax}
+A train $200$ m long runs at $20$ m/s through a tunnel $1$ km long.
+\begin{cols2}
+\pa{a} How long is it from the moment the head enters the tunnel until the tail leaves it? & \pa{b} For how long is the whole train inside the tunnel?
+\end{cols2}
+\end{probbox}
+\probsol{
+$1$ km $=1\,000$ m.\par
+\pa{a} The head travels $1\,000+200=1\,200$ (m): $1\,200:20=60$ (s).\par
+\pa{b} The whole train is inside from ``tail enters'' to ``head leaves''; the head travels $1\,000-200=800$ (m): $800:20=40$ (s).
+\dapso{\pa{a} $60$ s;\quad \pa{b} $40$ s.}}
+\gap
+\begin{probbox}{22}{\relax}
+A train $180$ m long passes a cyclist riding towards it at $18$ km/h in $9$ seconds. Find the speed of the train in km/h.
+\end{probbox}
+\probsol{
+$18$ km/h $=5$ m/s.\par Sum of the speeds: $180:9=20$ (m/s).\par
+Train: $20-5=15$ (m/s) $=54$ km/h.
+\dapso{$54$ km/h.}}
+\gap
+\begin{probbox}{23}{\relax}
+A train $200$ m long overtakes a jogger running at $2$ m/s in the same direction. It takes $25$ seconds. Find the speed of the train in km/h.
+\end{probbox}
+\probsol{
+Difference of the speeds: $200:25=8$ (m/s).\par Train: $8+2=10$ (m/s) $=36$ km/h.
+\dapso{$36$ km/h.}}
+\gap
+\begin{probbox}{24}{\relax}
+A train $120$ m long at $54$ km/h meets a train $180$ m long at $36$ km/h coming the other way on a parallel track. How long do they take to pass each other?
+\end{probbox}
+\probsol{
+$54$ km/h $=15$ m/s; $36$ km/h $=10$ m/s.\par Sum of lengths: $300$ m; sum of speeds: $25$ m/s.\par Time: $300:25=12$ (s).
+\dapso{$12$ seconds.}}
+\gap
+\begin{probbox}{25}{\relax}
+An express train $160$ m long at $20$ m/s overtakes a goods train $140$ m long at $15$ m/s on a parallel track. How long does the overtaking take?
+\end{probbox}
+\probsol{
+Sum of lengths: $160+140=300$ (m).\par Difference of speeds: $20-15=5$ (m/s).\par Time: $300:5=60$ (s) $=1$ min.
+\dapso{$1$ minute.}}
+\gap
+\begin{probbox}{26}{\relax}
+A car at $72$ km/h drives alongside a train going the same way at $54$ km/h. It takes the car $40$ seconds to get from the tail to the head of the train. How long is the train?
+\end{probbox}
+\probsol{
+$72$ km/h $=20$ m/s; $54$ km/h $=15$ m/s.\par The car gains $20-15=5$ m each second.\par Train length: $5\times40=200$ (m).
+\dapso{$200$ m.}}
+\gap
+\begin{probbox}{27}{\relax}
+Lan sits by the window of a train running at $15$ m/s. A train on the next track, running the other way at $10$ m/s, takes $9$ seconds to go past her window. How long is that train?
+\end{probbox}
+\probsol{
+Lan sees only the other train's length go by, at $15+10=25$ (m/s).\par Length: $25\times9=225$ (m).
+\dapso{$225$ m.}}
+\gap
+\begin{probbox}{28}{\relax}
+A train passes a signal post in $10$ seconds and passes along a platform $150$ m long in $16$ seconds. Find the length and the speed of the train.
+\end{probbox}
+\probsol{
+The platform needs $16-10=6$ (s) more, so the speed is $150:6=25$ (m/s).\par Length: $25\times10=250$ (m).
+\dapso{$250$ m and $25$ m/s.}}
+\gap
+\begin{probbox}{29}{\relax}
+A train $150$ m long runs at $15$ m/s and crosses a bridge in $40$ seconds. How long is the bridge?
+\end{probbox}
+\probsol{
+Distance travelled: $15\times40=600$ (m).\par Bridge: $600-150=450$ (m).
+\dapso{$450$ m.}}
+\gap
+\begin{probbox}{30}{\relax}
+A train crosses a bridge $240$ m long in $25$ seconds and a bridge $420$ m long in $37$ seconds, at the same speed. Find the speed and the length of the train.
+\end{probbox}
+\probsol{
+The second bridge is $420-240=180$ (m) longer and takes $37-25=12$ (s) longer.\par
+Speed: $180:12=15$ (m/s).\par Distance for the first bridge: $15\times25=375$ (m); train: $375-240=135$ (m).
+\dapso{$15$ m/s and $135$ m.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+A boat with speed $18$ km/h in still water goes downstream from A to B and at once comes back. The current is $2$ km/h and the round trip takes $4$ hours $30$ minutes. How long is AB?
+\end{probbox}
+\probsol{
+Downstream speed $20$ km/h, upstream speed $16$ km/h.\par
+Times: downstream $:$ upstream $=16:20=4:5$.\par $9$ parts $=4.5$ h, so $1$ part $=0.5$ h; downstream time $2$ h.\par
+AB: $20\times2=40$ (km).
+\dapso{$40$ km.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Ports A and B are $60$ km apart and the river flows from A to B at $3$ km/h. At the same moment a boat leaves A for B and another boat leaves B for A; both have speed $20$ km/h in still water. After how long do they meet, and how far from A?
+\end{probbox}
+\probsol{
+Speeds: $20+3=23$ (km/h) and $20-3=17$ (km/h).\par
+Sum: $23+17=40$ (km/h) (the current helps one boat as much as it slows the other).\par
+Time: $60:40=1.5$ (h); distance from A: $23\times1.5=34.5$ (km).
+\dapso{after $1$ h $30$ min, $34.5$ km from A.}}
+\gap
+\begin{probbox}{33}{\stars{2}}
+As a boat leaves A downstream, a raft is let go at A. The boat ($12$ km/h in still water, current $3$ km/h) reaches B, $30$ km from A, and immediately turns back. How long after leaving A does it meet the raft?
+\end{probbox}
+\probsol{
+Boat downstream: $30:15=2$ (h). Meanwhile the raft drifts $3\times2=6$ (km).\par
+Gap when the boat turns: $30-6=24$ (km). The boat goes up at $9$ km/h, the raft comes down at $3$ km/h: they close $12$ km each hour.\par
+They meet after $24:12=2$ (h) more, i.e.\ $2+2=4$ (h) after leaving A.
+\note{Seen from the water, the boat moves away from the raft for $2$ h and comes back for $2$ h: the current does not matter.}
+\dapso{$4$ hours.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Rowing upstream, Bình's hat falls into the water. He notices $20$ minutes later, turns round at once and picks up his hat $2$ km downstream of the place where it fell. Find the speed of the current.
+\end{probbox}
+\probsol{
+Relative to the water, the hat stays still and Bình rows away from it for $20$ minutes, so he also needs $20$ minutes to come back to it.\par
+So the hat drifted for $20+20=40$ (min) $=\dfrac23$ h, travelling $2$ km.\par
+Current: $2:\dfrac23=3$ (km/h).
+\dapso{$3$ km/h.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+A ferry goes downstream at $20$ km/h and upstream at $12$ km/h. It goes from A to B, rests $30$ minutes at B and comes back; the whole trip takes $4$ hours $30$ minutes. How long is AB?
+\end{probbox}
+\probsol{
+Moving time: $4$ h $30$ min $-\,30$ min $=4$ h.\par
+Times: downstream $:$ upstream $=12:20=3:5$; $8$ parts $=4$ h, $1$ part $=0.5$ h.\par
+Downstream time $1.5$ h; AB: $20\times1.5=30$ (km).
+\dapso{$30$ km.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+A boat's speed in still water is $4$ times the speed of the current. It goes downstream from A to B in $2$ hours. How long does it take to go back?
+\end{probbox}
+\probsol{
+Let the current be $1$ part: still water $4$ parts, downstream $5$ parts, upstream $3$ parts.\par
+Times are in the inverse ratio: upstream time $=2\times5:3=\dfrac{10}3$ (h) $=3$ h $20$ min.
+\dapso{$3$ hours $20$ minutes.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+A canoe goes downstream from A to B in $3$ hours and back in $4$ hours $30$ minutes. If its engine were switched off, how long would it take to drift from A to B?
+\end{probbox}
+\probsol{
+In $1$ hour: downstream $\dfrac13$ of AB, upstream $1:4.5=\dfrac29$ of AB.\par
+The current carries the canoe $\left(\dfrac13-\dfrac29\right):2=\dfrac1{18}$ of AB per hour.\par Drifting time: $18$ hours.
+\dapso{$18$ hours.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+At $7$:$00$ a boat leaves B upstream and reaches A at $10$:$00$. It rests, leaves A at $10$:$30$ and gets back to B at $12$:$30$. The current is $2$ km/h. How far is it from A to B?
+\end{probbox}
+\probsol{
+Upstream $3$ h, downstream $2$ h; speeds upstream $:$ downstream $=2:3$.\par
+The difference $2\times2=4$ (km/h) is $1$ part; upstream speed $8$ km/h.\par AB: $8\times3=24$ (km).
+\dapso{$24$ km.}}
+\gap
+\begin{probbox}{39}{\stars{2}}
+At $6$:$00$ a raft starts drifting from A. At $8$:$00$ a boat leaves A downstream ($9$ km/h in still water). The current is $3$ km/h. At what time does the boat catch the raft, and how far from A?
+\end{probbox}
+\probsol{
+At $8$:$00$ the raft is $3\times2=6$ (km) ahead.\par
+Boat downstream $12$ km/h, raft $3$ km/h: the boat gains $9$ km/h (its still-water speed).\par
+Time: $6:9=\dfrac23$ (h) $=40$ min, at $8$:$40$; distance from A: $12\times\dfrac23=8$ (km).
+\dapso{at $8$:$40$, $8$ km from A.}}
+\gap
+\begin{probbox}{40}{\stars{2}}
+A train overtakes a man walking in the same direction at $1$ m/s in $22$ seconds, and passes a man walking towards it at $1$ m/s in $18$ seconds. Find the speed and the length of the train.
+\end{probbox}
+\probsol{
+In both cases the train covers its own length: once at speed $v-1$ (in $22$ s), once at speed $v+1$ (in $18$ s).\par
+Same length, so $(v-1):(v+1)=18:22=9:11$; their difference $2$ m/s is $2$ parts, so $1$ part $=1$ m/s.\par
+$v-1=9$, so $v=10$ m/s; length: $9\times22=198$ (m).
+\dapso{$10$ m/s and $198$ m.}}
+\gap
+\begin{probbox}{41}{\stars{2}}
+A train goes through a tunnel $1.5$ km long. From the moment its head enters until its tail leaves takes $90$ seconds; the whole train is inside the tunnel for $60$ seconds. Find the speed and the length of the train.
+\end{probbox}
+\probsol{
+In $90$ s the head travels tunnel $+$ train; in $60$ s it travels tunnel $-$ train.\par
+Together: in $150$ s it travels $2$ tunnels $=3\,000$ m; speed: $3\,000:150=20$ (m/s).\par
+Tunnel $+$ train $=20\times90=1\,800$ (m); train: $1\,800-1\,500=300$ (m).
+\dapso{$20$ m/s and $300$ m.}}
+\gap
+\begin{probbox}{42}{\stars{2}}
+An express train $180$ m long runs at $24$ m/s. It takes $50$ seconds to overtake a slower train on a parallel track; if the two trains ran towards each other they would pass in $10$ seconds. Find the speed and the length of the slower train.
+\end{probbox}
+\probsol{
+The same distance (the two lengths) takes $50$ s with the difference of speeds and $10$ s with the sum, so sum $:$ difference $=5:1$.\par
+Sum $5$ parts, difference $1$ part: express $=3$ parts, slow $=2$ parts; $3$ parts $=24$ m/s.\par
+Slow train: $16$ m/s. Two lengths: $(24+16)\times10=400$ (m); slow train: $400-180=220$ (m).
+\dapso{$16$ m/s and $220$ m.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+A passenger on a train running at $54$ km/h sees a train $300$ m long, coming the other way, go past in $12$ seconds. Find the speed of that train in km/h.
+\end{probbox}
+\probsol{
+Sum of speeds: $300:12=25$ (m/s).\par Other train: $25-15=10$ (m/s) $=36$ km/h.
+\dapso{$36$ km/h.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+A bridge is $4$ times as long as a train. The train, at $20$ m/s, takes $25$ seconds from the moment its head reaches the bridge until its tail leaves it. Find the length of the train and of the bridge.
+\end{probbox}
+\probsol{
+Distance: $20\times25=500$ (m) $=$ bridge $+$ train $=5$ train lengths.\par
+Train: $500:5=100$ (m); bridge: $400$ m.
+\dapso{train $100$ m, bridge $400$ m.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Two trains, each $150$ m long, pass each other going in opposite directions in $10$ seconds. One train is $1.5$ times as fast as the other. Find their speeds.
+\end{probbox}
+\probsol{
+Sum of speeds: $300:10=30$ (m/s).\par Slower $1$ part, faster $1.5$ parts: $30:2.5=12$ (m/s).\par Faster: $18$ m/s.
+\dapso{$12$ m/s and $18$ m/s.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Train A, $240$ m long, at $72$ km/h overtakes train B going the same way at $54$ km/h. The overtaking takes $1$ minute $30$ seconds. How long is train B?
+\end{probbox}
+\probsol{
+Difference of speeds: $20-15=5$ (m/s); $1$ min $30$ s $=90$ s.\par Sum of lengths: $5\times90=450$ (m).\par Train B: $450-240=210$ (m).
+\dapso{$210$ m.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+On a river with a current of $1$ m/s, a cargo ship $80$ m long sails downstream ($6$ m/s in still water) and meets a ship $70$ m long sailing upstream ($4$ m/s in still water). How long do they take to pass each other?
+\end{probbox}
+\probsol{
+Speeds: $6+1=7$ (m/s) and $4-1=3$ (m/s); sum $10$ m/s (equal to the sum of the still-water speeds).\par
+Sum of lengths: $150$ m. Time: $150:10=15$ (s).
+\dapso{$15$ seconds.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+A line of pupils $300$ m long walks at $1.5$ m/s. A cyclist rides at $4.5$ m/s from the back of the line to the front and immediately back to the end. How long does this take?
+\end{probbox}
+\probsol{
+Back to front (same direction): he gains $4.5-1.5=3$ (m/s): $300:3=100$ (s).\par
+Front to back (towards the line): $4.5+1.5=6$ (m/s): $300:6=50$ (s).\par Total: $150$ s $=2$ min $30$ s.
+\dapso{$2$ minutes $30$ seconds.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+A train $250$ m long runs at $72$ km/h. Its head enters a tunnel at $9$:$00$:$00$ and its tail leaves at $9$:$01$:$40$. How long is the tunnel?
+\end{probbox}
+\probsol{
+Time: $1$ min $40$ s $=100$ s; speed $20$ m/s.\par Distance: $20\times100=2\,000$ (m).\par Tunnel: $2\,000-250=1\,750$ (m).
+\dapso{$1\,750$ m.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+A boat's upstream speed is $\dfrac23$ of its downstream speed. A raft drifts from A to B in $30$ hours. How long does the boat take from A to B downstream, and from B to A upstream?
+\end{probbox}
+\probsol{
+Downstream $3$ parts, upstream $2$ parts; difference $1$ part $=2\times$ current, so the current is $\dfrac12$ part.\par
+Downstream speed is $3:\dfrac12=6$ times the current: $30:6=5$ (h).\par
+Upstream speed is $4$ times the current: $30:4=7.5$ (h) $=7$ h $30$ min.
+\dapso{$5$ hours downstream, $7$ hours $30$ minutes upstream.}}

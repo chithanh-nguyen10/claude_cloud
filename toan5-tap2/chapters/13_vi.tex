@@ -1,0 +1,526 @@
+\shead{Ý tưởng của phương pháp giả thiết tạm}
+\begin{knowbox}
+Nhiều bài toán nói về \textbf{hai loại} đối tượng trộn lẫn với nhau: gà và thỏ, vé người lớn và vé trẻ em, tờ tiền hai loại mệnh giá, thuyền lớn và thuyền nhỏ,\ldots\ Đề bài cho biết
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{tổng số} đối tượng, và
+\item \textbf{tổng của một đại lượng khác} (số chân, số bánh xe, số tiền, số chỗ ngồi,\ldots), trong đó mỗi đối tượng loại thứ nhất có một giá trị, mỗi đối tượng loại thứ hai có một giá trị khác.
+\end{itemize}
+\textbf{Phương pháp giả thiết tạm} (``tạm giả sử''):
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item \emph{Giả sử} tất cả các đối tượng đều thuộc \textbf{cùng một loại}, tính tổng trong trường hợp đó.
+\item So sánh với tổng thực tế: tổng giả sử \textbf{ít hơn} (hay \textbf{nhiều hơn}) bao nhiêu?
+\item Thay \emph{một} đối tượng loại đó bằng \emph{một} đối tượng loại kia thì tổng thay đổi đúng bằng \textbf{hiệu hai giá trị}.
+\item Số lần thay $=$ (phần thiếu hoặc phần thừa) $:$ (phần thay đổi sau mỗi lần thay). Số lần thay chính là số đối tượng của \emph{loại kia}.
+\end{enumerate}
+Giả thiết đặt ra \emph{không} đúng với thực tế, nó chỉ là bước tạm thời giúp bài toán trở nên dễ giải. Đáp số không phụ thuộc vào việc ta giả sử loại nào, vì vậy bài toán có thể giải theo hai cách. Luôn \textbf{thử lại} đáp số với cả hai điều kiện của đề bài.
+\end{knowbox}
+
+\shead{Bài toán có tính điểm trừ}
+\begin{knowbox}
+Trong một bài kiểm tra hay một trò chơi, mỗi câu trả lời đúng \textbf{được} $a$ điểm, mỗi câu trả lời sai \textbf{bị trừ} $b$ điểm. Giả sử tất cả các câu đều đúng. Mỗi lần thay một câu đúng bằng một câu sai thì số điểm giảm đi
+\begin{center}
+$a+b$ \ điểm \quad (mất $a$ điểm lẽ ra được cộng \emph{và} bị trừ thêm $b$ điểm).
+\end{center}
+Một câu không trả lời (được $0$ điểm) chỉ làm số điểm giảm đi $a$. Cách nghĩ này cũng dùng cho bài toán tiền công có phạt, chở hàng bị vỡ phải bồi thường,\ldots
+\end{knowbox}
+
+\shead{Khi đề bài cho hiệu thay vì cho tổng}
+\begin{knowbox}
+Có bài toán cho biết \textbf{hiệu} giữa hai tổng của hai loại (chẳng hạn: \emph{số chân gà nhiều hơn số chân thỏ $6$ chân}). Giả sử tất cả đều thuộc loại thứ nhất, khi đó hiệu là lớn nhất. Thay một đối tượng loại thứ nhất bằng một đối tượng loại thứ hai thì tổng thứ nhất giảm $a$ \emph{và} tổng thứ hai tăng $b$, nên hiệu giảm đi
+\begin{center}
+$a+b$.
+\end{center}
+\end{knowbox}
+
+\shead{Ba loại đối tượng hoặc có thêm điều kiện}
+\begin{knowbox}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Nếu hai loại gắn với nhau (ví dụ: \emph{số xe đạp bằng số xe ba bánh}), ta ghép chúng thành \textbf{nhóm} và coi mỗi nhóm là một ``đối tượng''.
+\item Nếu có ba loại, ta dùng một điều kiện để tách một loại ra khỏi hai loại còn lại, rồi dùng phương pháp giả thiết tạm một lần nữa cho hai loại kia.
+\end{itemize}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Một trang trại nuôi gà và thỏ, đếm được tất cả $32$ cái đầu và $94$ cái chân. Hỏi có bao nhiêu con gà, bao nhiêu con thỏ?
+\guide
+\emph{Cách 1.} Giả sử cả $32$ con đều là gà thì có $32\times2=64$ chân.\par
+Số chân bị thiếu so với thực tế: $94-64=30$ chân.\par
+Thay một con gà bằng một con thỏ thì số chân tăng thêm $4-2=2$ chân.\par
+Số thỏ: $30:2=15$ con.\par Số gà: $32-15=17$ con.\par
+\emph{Cách 2.} Giả sử cả $32$ con đều là thỏ thì có $32\times4=128$ chân, thừa $128-94=34$ chân.\par
+Thay một con thỏ bằng một con gà thì số chân giảm $2$ chân, nên số gà: $34:2=17$ con; số thỏ: $32-17=15$ con.\par
+\emph{Thử lại:} $17\times2+15\times4=34+60=94$.
+\dapso{$17$ con gà, $15$ con thỏ.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Một trường mua $45$ vé xem xiếc hết $954\,000$ đồng. Giá vé người lớn là $30\,000$ đồng, giá vé trẻ em là $18\,000$ đồng. Hỏi trường đã mua bao nhiêu vé mỗi loại?
+\guide
+Giả sử cả $45$ vé đều là vé trẻ em thì số tiền là $18\,000\times45=810\,000$ đồng.\par
+Số tiền còn thiếu so với thực tế: $954\,000-810\,000=144\,000$ đồng.\par
+Thay một vé trẻ em bằng một vé người lớn thì số tiền tăng thêm $30\,000-18\,000=12\,000$ đồng.\par
+Số vé người lớn: $144\,000:12\,000=12$ vé.\par Số vé trẻ em: $45-12=33$ vé.
+\dapso{$12$ vé người lớn, $33$ vé trẻ em.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Một cuộc thi giải toán có $25$ câu hỏi. Mỗi câu trả lời đúng được $4$ điểm, mỗi câu trả lời sai bị trừ $2$ điểm. Bạn Phương trả lời tất cả các câu và được $64$ điểm. Hỏi bạn Phương trả lời đúng bao nhiêu câu?
+\guide
+Giả sử cả $25$ câu đều đúng thì được $4\times25=100$ điểm.\par
+Phương bị kém đi $100-64=36$ điểm.\par
+Mỗi câu sai (thay cho một câu đúng) làm mất $4+2=6$ điểm.\par
+Số câu sai: $36:6=6$ câu.\par Số câu đúng: $25-6=19$ câu.\par
+\emph{Thử lại:} $19\times4-6\times2=76-12=64$.
+\dapso{$19$ câu.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Vừa gà vừa thỏ có $30$ con. Biết số chân gà nhiều hơn số chân thỏ là $6$ chân. Hỏi có bao nhiêu con mỗi loại?
+\guide
+Giả sử cả $30$ con đều là gà thì số chân gà là $30\times2=60$ chân, số chân thỏ là $0$, hiệu là $60$ chân.\par
+Hiệu thực tế là $6$, nên hiệu phải giảm đi $60-6=54$ chân.\par
+Thay một con gà bằng một con thỏ: số chân gà giảm $2$, số chân thỏ tăng $4$, nên hiệu giảm $2+4=6$ chân.\par
+Số thỏ: $54:6=9$ con.\par Số gà: $30-9=21$ con.\par
+\emph{Thử lại:} $21\times2-9\times4=42-36=6$.
+\dapso{$21$ con gà, $9$ con thỏ.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Một bãi gửi xe có $36$ chiếc xe gồm xe đạp ($2$ bánh), xe ba bánh ($3$ bánh) và ô tô ($4$ bánh), tổng cộng $114$ bánh xe. Biết số xe đạp bằng số xe ba bánh. Hỏi mỗi loại có bao nhiêu xe?
+\guide
+Ghép một xe đạp với một xe ba bánh thành một \emph{nhóm}: mỗi nhóm có $2$ xe và $2+3=5$ bánh.\par
+Giả sử bãi không có ô tô nào thì có $36:2=18$ nhóm với $5\times18=90$ bánh.\par
+Số bánh còn thiếu: $114-90=24$ bánh.\par
+Thay một nhóm bằng $2$ ô tô thì số xe không đổi và số bánh tăng thêm $2\times4-5=3$ bánh.\par
+Số lần thay: $24:3=8$, nên có $2\times8=16$ ô tô.\par
+Số nhóm còn lại: $18-8=10$, tức là $10$ xe đạp và $10$ xe ba bánh.\par
+\emph{Thử lại:} $10+10+16=36$ xe; $20+30+64=114$ bánh.
+\dapso{$10$ xe đạp, $10$ xe ba bánh, $16$ ô tô.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Trong sân có gà và chó, đếm được $25$ cái đầu và $70$ cái chân. Hỏi có bao nhiêu con gà, bao nhiêu con chó?
+\end{probbox}
+\probsol{
+Giả sử tất cả là gà: $25\times2=50$ chân, thiếu $70-50=20$ chân.\par
+Mỗi con chó nhiều hơn con gà $4-2=2$ chân.\par Số chó: $20:2=10$ con; số gà: $25-10=15$ con.
+\dapso{$15$ con gà, $10$ con chó.}}
+\gap
+\begin{probbox}{2}{\relax}
+Một bãi đỗ xe có $40$ xe gồm xe máy ($2$ bánh) và ô tô ($4$ bánh), tổng cộng $104$ bánh xe. Hỏi có bao nhiêu ô tô?
+\end{probbox}
+\probsol{
+Giả sử tất cả là xe máy: $40\times2=80$ bánh, thiếu $104-80=24$ bánh.\par
+Mỗi ô tô nhiều hơn xe máy $2$ bánh.\par Số ô tô: $24:2=12$ xe; số xe máy: $40-12=28$ xe.
+\dapso{$12$ ô tô ($28$ xe máy).}}
+\gap
+\begin{probbox}{3}{\relax}
+Bà cho Khôi $18$ tờ tiền gồm loại $10\,000$ đồng và loại $20\,000$ đồng, tổng cộng $250\,000$ đồng. Hỏi mỗi loại có bao nhiêu tờ?
+\end{probbox}
+\probsol{
+Giả sử tất cả là tờ $10\,000$ đồng: $10\,000\times18=180\,000$ đồng.\par
+Còn thiếu $250\,000-180\,000=70\,000$ đồng.\par
+Mỗi tờ $20\,000$ đồng nhiều hơn tờ $10\,000$ đồng là $10\,000$ đồng.\par
+Số tờ $20\,000$ đồng: $70\,000:10\,000=7$ tờ; số tờ $10\,000$ đồng: $18-7=11$ tờ.
+\dapso{$11$ tờ $10\,000$ đồng, $7$ tờ $20\,000$ đồng.}}
+\gap
+\begin{probbox}{4}{\relax}
+$12$ chiếc thuyền chở $58$ người qua hồ, chiếc nào cũng đủ chỗ. Mỗi thuyền lớn chở $6$ người, mỗi thuyền nhỏ chở $4$ người. Hỏi mỗi loại có bao nhiêu thuyền?
+\end{probbox}
+\probsol{
+Giả sử tất cả là thuyền nhỏ: $4\times12=48$ người, thiếu $58-48=10$ người.\par
+Mỗi thuyền lớn chở nhiều hơn $2$ người.\par Thuyền lớn: $10:2=5$ chiếc; thuyền nhỏ: $12-5=7$ chiếc.
+\dapso{$5$ thuyền lớn, $7$ thuyền nhỏ.}}
+\gap
+\begin{probbox}{5}{\relax}
+Lớp 5A có $36$ học sinh trồng được $120$ cây. Mỗi bạn nam trồng $4$ cây, mỗi bạn nữ trồng $3$ cây. Hỏi lớp 5A có bao nhiêu bạn nam, bao nhiêu bạn nữ?
+\end{probbox}
+\probsol{
+Giả sử tất cả là bạn nữ: $3\times36=108$ cây, thiếu $120-108=12$ cây.\par
+Mỗi bạn nam trồng nhiều hơn $1$ cây.\par Số bạn nam: $12:1=12$; số bạn nữ: $36-12=24$.
+\dapso{$12$ bạn nam, $24$ bạn nữ.}}
+\gap
+\begin{probbox}{6}{\relax}
+$15$ xe tải chở được $59$ tấn gạo trong một chuyến, xe nào cũng chở đầy. Một số xe chở được $3$ tấn, các xe còn lại chở được $5$ tấn. Hỏi mỗi loại có bao nhiêu xe?
+\end{probbox}
+\probsol{
+Giả sử tất cả là xe $3$ tấn: $3\times15=45$ tấn, thiếu $59-45=14$ tấn.\par
+Mỗi xe $5$ tấn chở nhiều hơn $2$ tấn.\par Xe $5$ tấn: $14:2=7$ xe; xe $3$ tấn: $15-7=8$ xe.
+\dapso{$8$ xe loại $3$ tấn, $7$ xe loại $5$ tấn.}}
+\gap
+\begin{probbox}{7}{\relax}
+Vịt và dê có tất cả $48$ cái đầu và $136$ cái chân. Hỏi mỗi loại có bao nhiêu con?
+\end{probbox}
+\probsol{
+Giả sử tất cả là vịt: $48\times2=96$ chân, thiếu $136-96=40$ chân.\par
+Mỗi con dê nhiều hơn $2$ chân.\par Số dê: $40:2=20$ con; số vịt: $48-20=28$ con.
+\dapso{$28$ con vịt, $20$ con dê.}}
+\gap
+\begin{probbox}{8}{\relax}
+Một bài kiểm tra có $20$ câu hỏi: mỗi câu đúng được $5$ điểm, mỗi câu sai bị trừ $1$ điểm. Bạn Nga trả lời tất cả các câu và được $76$ điểm. Hỏi Nga trả lời đúng bao nhiêu câu?
+\end{probbox}
+\probsol{
+Nếu đúng tất cả: $5\times20=100$ điểm; Nga kém đi $100-76=24$ điểm.\par
+Mỗi câu sai làm mất $5+1=6$ điểm.\par Số câu sai: $24:6=4$; số câu đúng: $20-4=16$.
+\dapso{$16$ câu.}}
+\gap
+\begin{probbox}{9}{\relax}
+Một thùng có $30$ chai nước quả gồm loại $0{,}5$ lít và loại $1{,}5$ lít, tổng cộng $27$ lít. Hỏi mỗi loại có bao nhiêu chai?
+\end{probbox}
+\probsol{
+Giả sử tất cả là chai $0{,}5$ lít: $0{,}5\times30=15$ lít, thiếu $27-15=12$ lít.\par
+Mỗi chai lớn nhiều hơn chai nhỏ $1{,}5-0{,}5=1$ lít.\par
+Số chai $1{,}5$ lít: $12:1=12$ chai; số chai $0{,}5$ lít: $30-12=18$ chai.
+\dapso{$18$ chai $0{,}5$ lít, $12$ chai $1{,}5$ lít.}}
+\gap
+\begin{probbox}{10}{\relax}
+Tuấn mua $24$ con tem gồm loại $3\,000$ đồng và loại $5\,000$ đồng, hết $92\,000$ đồng. Hỏi Tuấn mua mỗi loại bao nhiêu con tem?
+\end{probbox}
+\probsol{
+Giả sử tất cả là tem $3\,000$ đồng: $3\,000\times24=72\,000$ đồng, thiếu $20\,000$ đồng.\par
+Mỗi tem $5\,000$ đồng đắt hơn $2\,000$ đồng.\par Tem $5\,000$ đồng: $20\,000:2\,000=10$ con; tem $3\,000$ đồng: $24-10=14$ con.
+\dapso{$14$ tem loại $3\,000$ đồng, $10$ tem loại $5\,000$ đồng.}}
+\gap
+\begin{probbox}{11}{\relax}
+Một phòng học có $21$ bộ bàn ghế, một số bộ ngồi được $2$ học sinh, số còn lại ngồi được $3$ học sinh. Khi $50$ học sinh vào ngồi thì vừa kín chỗ. Hỏi mỗi loại có bao nhiêu bộ?
+\end{probbox}
+\probsol{
+Giả sử tất cả là bộ $2$ chỗ: $2\times21=42$ học sinh, thiếu $50-42=8$ chỗ.\par
+Mỗi bộ $3$ chỗ nhiều hơn $1$ chỗ.\par Bộ $3$ chỗ: $8$ bộ; bộ $2$ chỗ: $21-8=13$ bộ.
+\dapso{$13$ bộ $2$ chỗ, $8$ bộ $3$ chỗ.}}
+\gap
+\begin{probbox}{12}{\relax}
+Trong hộp có $22$ con nhện ($8$ chân) và kiến ($6$ chân), tổng cộng $152$ chân. Hỏi có bao nhiêu con nhện?
+\end{probbox}
+\probsol{
+Giả sử tất cả là kiến: $6\times22=132$ chân, thiếu $152-132=20$ chân.\par
+Mỗi con nhện nhiều hơn $2$ chân.\par Số nhện: $20:2=10$ con (số kiến: $12$ con).
+\dapso{$10$ con nhện.}}
+\gap
+\begin{probbox}{13}{\relax}
+Trong ống tiết kiệm có $30$ đồng xu gồm loại $500$ đồng và loại $1\,000$ đồng, tổng cộng $21\,000$ đồng. Hỏi mỗi loại có bao nhiêu đồng xu?
+\end{probbox}
+\probsol{
+Giả sử tất cả là xu $500$ đồng: $500\times30=15\,000$ đồng, thiếu $6\,000$ đồng.\par
+Mỗi xu $1\,000$ đồng nhiều hơn $500$ đồng.\par Xu $1\,000$ đồng: $6\,000:500=12$ đồng xu; xu $500$ đồng: $30-12=18$ đồng xu.
+\dapso{$18$ xu loại $500$ đồng, $12$ xu loại $1\,000$ đồng.}}
+\gap
+\begin{probbox}{14}{\relax}
+Trong một trận bóng rổ, một đội ném vào rổ $26$ quả, gồm những quả được $2$ điểm và những quả được $3$ điểm, tổng cộng $60$ điểm. Hỏi đội đó ném được bao nhiêu quả $3$ điểm?
+\end{probbox}
+\probsol{
+Giả sử tất cả là quả $2$ điểm: $2\times26=52$ điểm, thiếu $8$ điểm.\par
+Mỗi quả $3$ điểm nhiều hơn $1$ điểm.\par Quả $3$ điểm: $8:1=8$ quả (quả $2$ điểm: $18$ quả).
+\dapso{$8$ quả.}}
+\gap
+\begin{probbox}{15}{\relax}
+Một người thợ được thuê làm trong $24$ ngày. Mỗi ngày làm việc được trả $250\,000$ đồng, mỗi ngày nghỉ bị phạt $50\,000$ đồng. Cuối đợt người đó nhận được $5\,100\,000$ đồng. Hỏi người đó đã nghỉ bao nhiêu ngày?
+\end{probbox}
+\probsol{
+Nếu làm đủ $24$ ngày: $250\,000\times24=6\,000\,000$ đồng.\par
+Số tiền bị hụt: $6\,000\,000-5\,100\,000=900\,000$ đồng.\par
+Mỗi ngày nghỉ làm hụt $250\,000+50\,000=300\,000$ đồng.\par Số ngày nghỉ: $900\,000:300\,000=3$ ngày.
+\dapso{$3$ ngày.}}
+\gap
+\begin{probbox}{16}{\relax}
+Vừa gà vừa thỏ có $40$ con. Số chân gà nhiều hơn số chân thỏ là $32$ chân. Hỏi mỗi loại có bao nhiêu con?
+\end{probbox}
+\probsol{
+Giả sử tất cả là gà thì hiệu số chân là $40\times2=80$ chân.\par
+Hiệu phải giảm đi $80-32=48$ chân.\par Mỗi lần thay một con gà bằng một con thỏ, hiệu giảm $2+4=6$ chân.\par
+Số thỏ: $48:6=8$ con; số gà: $40-8=32$ con.\par \emph{Thử lại:} $64-32=32$.
+\dapso{$32$ con gà, $8$ con thỏ.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một công ty vận chuyển $500$ chiếc cốc thủy tinh. Mỗi chiếc đến nơi an toàn được trả $2\,000$ đồng; mỗi chiếc bị vỡ không được trả tiền mà còn phải bồi thường $8\,000$ đồng. Công ty nhận được $940\,000$ đồng. Hỏi có bao nhiêu chiếc cốc bị vỡ?
+\end{probbox}
+\probsol{
+Nếu không vỡ chiếc nào: $2\,000\times500=1\,000\,000$ đồng.\par
+Số tiền bị hụt: $1\,000\,000-940\,000=60\,000$ đồng.\par
+Mỗi chiếc vỡ làm hụt $2\,000+8\,000=10\,000$ đồng.\par Số cốc vỡ: $60\,000:10\,000=6$ chiếc.
+\dapso{$6$ chiếc cốc.}}
+\gap
+\begin{probbox}{18}{\relax}
+Trong $15$ ngày, Linh đọc được $236$ trang sách. Có ngày Linh đọc $12$ trang, có ngày đọc $20$ trang. Hỏi có bao nhiêu ngày Linh đọc $20$ trang?
+\end{probbox}
+\probsol{
+Giả sử ngày nào cũng đọc $12$ trang: $12\times15=180$ trang, thiếu $56$ trang.\par
+Mỗi ngày đọc $20$ trang nhiều hơn $8$ trang.\par Số ngày đọc $20$ trang: $56:8=7$ ngày (ngày đọc $12$ trang: $8$ ngày).
+\dapso{$7$ ngày.}}
+\gap
+\begin{probbox}{19}{\relax}
+Minh đi trong $2{,}5$ giờ được $14$ km. Một phần thời gian Minh chạy với vận tốc $8$ km/giờ, thời gian còn lại Minh đi bộ với vận tốc $4$ km/giờ. Hỏi Minh đã chạy trong bao lâu?
+\end{probbox}
+\probsol{
+Giả sử Minh đi bộ suốt thời gian: $4\times2{,}5=10$ km, thiếu $14-10=4$ km.\par
+Mỗi giờ chạy thay cho đi bộ thì đi thêm được $8-4=4$ km.\par
+Thời gian chạy: $4:4=1$ giờ (đi bộ $1{,}5$ giờ).
+\dapso{$1$ giờ.}}
+\gap
+\begin{probbox}{20}{\relax}
+Mẹ mua $8$ kg táo và cam hết $315\,000$ đồng. Táo giá $45\,000$ đồng một ki-lô-gam, cam giá $30\,000$ đồng một ki-lô-gam. Hỏi mẹ mua mỗi loại bao nhiêu ki-lô-gam?
+\end{probbox}
+\probsol{
+Giả sử tất cả là cam: $30\,000\times8=240\,000$ đồng, thiếu $75\,000$ đồng.\par
+Mỗi ki-lô-gam táo đắt hơn $15\,000$ đồng.\par
+Táo: $75\,000:15\,000=5$ kg; cam: $8-5=3$ kg.
+\dapso{$5$ kg táo, $3$ kg cam.}}
+\gap
+\begin{probbox}{21}{\relax}
+Một đoàn du lịch $99$ người đi trên $9$ xe ô tô, xe nào cũng kín chỗ. Một số xe có $7$ chỗ, số còn lại có $16$ chỗ. Hỏi mỗi loại có bao nhiêu xe?
+\end{probbox}
+\probsol{
+Giả sử tất cả là xe $7$ chỗ: $7\times9=63$ người, thiếu $99-63=36$ chỗ.\par
+Mỗi xe $16$ chỗ nhiều hơn $9$ chỗ.\par Xe $16$ chỗ: $36:9=4$ xe; xe $7$ chỗ: $9-4=5$ xe.
+\dapso{$5$ xe $7$ chỗ, $4$ xe $16$ chỗ.}}
+\gap
+\begin{probbox}{22}{\relax}
+Một bài kiểm tra có $30$ câu: mỗi câu đúng được $4$ điểm, mỗi câu sai bị trừ $2$ điểm, câu không trả lời được $0$ điểm. Bạn Hà bỏ trống $4$ câu và được $74$ điểm. Hỏi Hà trả lời đúng bao nhiêu câu?
+\end{probbox}
+\probsol{
+Hà trả lời $30-4=26$ câu.\par Nếu cả $26$ câu đều đúng: $4\times26=104$ điểm; Hà kém đi $104-74=30$ điểm.\par
+Mỗi câu sai làm mất $4+2=6$ điểm.\par Số câu sai: $30:6=5$; số câu đúng: $26-5=21$.
+\dapso{$21$ câu.}}
+\gap
+\begin{probbox}{23}{\relax}
+Trong ngăn kéo có $34$ tờ tiền gồm loại $2\,000$ đồng và loại $5\,000$ đồng. Số tiền loại $2\,000$ đồng nhiều hơn số tiền loại $5\,000$ đồng là $12\,000$ đồng. Hỏi mỗi loại có bao nhiêu tờ?
+\end{probbox}
+\probsol{
+Giả sử tất cả là tờ $2\,000$ đồng thì hiệu là $2\,000\times34=68\,000$ đồng.\par
+Hiệu phải giảm $68\,000-12\,000=56\,000$ đồng.\par
+Mỗi lần thay, hiệu giảm $2\,000+5\,000=7\,000$ đồng.\par
+Số tờ $5\,000$ đồng: $56\,000:7\,000=8$ tờ; số tờ $2\,000$ đồng: $34-8=26$ tờ.\par \emph{Thử lại:} $52\,000-40\,000=12\,000$.
+\dapso{$26$ tờ $2\,000$ đồng, $8$ tờ $5\,000$ đồng.}}
+\gap
+\begin{probbox}{24}{\relax}
+Với $52$ que diêm, An xếp được $15$ hình rời nhau gồm hình tam giác và hình vuông (mỗi cạnh là một que diêm). Hỏi An xếp được bao nhiêu hình vuông?
+\end{probbox}
+\probsol{
+Giả sử tất cả là hình tam giác: $3\times15=45$ que, thiếu $7$ que.\par
+Mỗi hình vuông cần nhiều hơn $1$ que.\par Số hình vuông: $7$ (hình tam giác: $8$).
+\dapso{$7$ hình vuông.}}
+\gap
+\begin{probbox}{25}{\relax}
+Hoa mua $12$ chiếc bút chì và bút bi hết $64\,000$ đồng. Mỗi bút chì giá $3\,000$ đồng, mỗi bút bi giá $7\,000$ đồng. Hỏi Hoa mua bao nhiêu bút bi?
+\end{probbox}
+\probsol{
+Giả sử tất cả là bút chì: $3\,000\times12=36\,000$ đồng, thiếu $28\,000$ đồng.\par
+Mỗi bút bi đắt hơn $4\,000$ đồng.\par Số bút bi: $28\,000:4\,000=7$ chiếc (bút chì: $5$ chiếc).
+\dapso{$7$ bút bi.}}
+\gap
+\begin{probbox}{26}{\relax}
+Trong một giải bóng đá, mỗi trận thắng được $3$ điểm, hòa được $1$ điểm, thua được $0$ điểm. Một đội đá $12$ trận, không thua trận nào và được $28$ điểm. Hỏi đội đó hòa bao nhiêu trận?
+\end{probbox}
+\probsol{
+Nếu thắng cả $12$ trận: $3\times12=36$ điểm; thực tế kém $36-28=8$ điểm.\par
+Mỗi trận hòa thay cho trận thắng làm mất $3-1=2$ điểm.\par Số trận hòa: $8:2=4$ (thắng $8$ trận).
+\dapso{$4$ trận.}}
+\gap
+\begin{probbox}{27}{\relax}
+$20$ thùng đựng $196$ quả táo. Có thùng đựng $8$ quả, có thùng đựng $12$ quả. Hỏi mỗi loại có bao nhiêu thùng?
+\end{probbox}
+\probsol{
+Giả sử thùng nào cũng đựng $8$ quả: $8\times20=160$ quả, thiếu $36$ quả.\par
+Mỗi thùng $12$ quả nhiều hơn $4$ quả.\par Thùng $12$ quả: $36:4=9$ thùng; thùng $8$ quả: $20-9=11$ thùng.
+\dapso{$11$ thùng $8$ quả, $9$ thùng $12$ quả.}}
+\gap
+\begin{probbox}{28}{\relax}
+Một nhóm mua $50$ vé vào vườn thú hết $1\,520\,000$ đồng. Vé người lớn giá $40\,000$ đồng, vé trẻ em giá $25\,000$ đồng. Hỏi nhóm có bao nhiêu người lớn?
+\end{probbox}
+\probsol{
+Giả sử tất cả là trẻ em: $25\,000\times50=1\,250\,000$ đồng, thiếu $270\,000$ đồng.\par
+Mỗi vé người lớn đắt hơn $15\,000$ đồng.\par Số người lớn: $270\,000:15\,000=18$ người (trẻ em: $32$).
+\dapso{$18$ người lớn.}}
+\gap
+\begin{probbox}{29}{\relax}
+Trong một trò chơi bắn bóng, mỗi người bắn $30$ lần. Mỗi lần trúng được $6$ điểm, mỗi lần trượt bị trừ $3$ điểm. Bảo được $126$ điểm. Hỏi Bảo bắn trúng bao nhiêu lần?
+\end{probbox}
+\probsol{
+Nếu trúng cả $30$ lần: $6\times30=180$ điểm; Bảo kém đi $180-126=54$ điểm.\par
+Mỗi lần trượt làm mất $6+3=9$ điểm.\par Số lần trượt: $54:9=6$; số lần trúng: $30-6=24$.
+\dapso{$24$ lần.}}
+\gap
+\begin{probbox}{30}{\relax}
+Một bãi xe có $26$ chiếc ô tô và xe máy. Số bánh xe máy nhiều hơn số bánh ô tô là $4$ bánh. Hỏi mỗi loại có bao nhiêu xe?
+\end{probbox}
+\probsol{
+Giả sử tất cả là xe máy thì hiệu số bánh là $2\times26=52$ bánh.\par
+Hiệu phải giảm $52-4=48$ bánh; mỗi lần thay một xe máy bằng một ô tô, hiệu giảm $2+4=6$ bánh.\par
+Số ô tô: $48:6=8$ xe; số xe máy: $26-8=18$ xe.\par \emph{Thử lại:} $36-32=4$.
+\dapso{$8$ ô tô, $18$ xe máy.}}
+\dividerbar{Thử thách -- Nâng cao}
+\begin{probbox}{31}{\stars{1}}
+$24$ chiếc xe chở $133$ người, xe nào cũng kín chỗ, gồm: xe máy ($2$ bánh, $2$ chỗ), ô tô $7$ chỗ và ô tô $16$ chỗ (mỗi ô tô $4$ bánh). Tổng số bánh xe là $64$. Hỏi mỗi loại có bao nhiêu xe?
+\end{probbox}
+\probsol{
+\emph{Xét số bánh.} Giả sử tất cả là xe máy: $48$ bánh, thiếu $16$ bánh; mỗi ô tô nhiều hơn $2$ bánh.\par Số ô tô: $16:2=8$; số xe máy: $24-8=16$.\par
+\emph{Xét số chỗ.} Xe máy chở $2\times16=32$ người, nên ô tô chở $133-32=101$ người.\par
+Giả sử cả $8$ ô tô đều $7$ chỗ: $56$ người, thiếu $45$; mỗi xe $16$ chỗ nhiều hơn $9$ chỗ.\par
+Xe $16$ chỗ: $45:9=5$; xe $7$ chỗ: $8-5=3$.
+\dapso{$16$ xe máy, $3$ ô tô $7$ chỗ, $5$ ô tô $16$ chỗ.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Một công ty có $20$ xe tải gồm ba loại: loại A ($4$ bánh, chở $3$ tấn), loại B ($6$ bánh, chở $6$ tấn) và loại C ($10$ bánh, chở $6$ tấn). Cả $20$ xe chở được $96$ tấn trong một lượt và có tất cả $124$ bánh xe. Hỏi mỗi loại có bao nhiêu xe?
+\end{probbox}
+\probsol{
+\emph{Xét số tấn.} Loại B và C đều chở $6$ tấn. Giả sử cả $20$ xe chở $3$ tấn: $60$ tấn, thiếu $36$ tấn; mỗi xe B hoặc C chở nhiều hơn $3$ tấn.\par
+Số xe B và C: $36:3=12$; xe A: $20-12=8$.\par
+\emph{Xét số bánh.} Xe A có $4\times8=32$ bánh, nên xe B và C có $124-32=92$ bánh.\par
+Giả sử cả $12$ xe là loại B: $72$ bánh, thiếu $20$; mỗi xe C nhiều hơn $4$ bánh.\par Xe C: $20:4=5$; xe B: $12-5=7$.
+\dapso{$8$ xe loại A, $7$ xe loại B, $5$ xe loại C.}}
+\gap
+\begin{probbox}{33}{\stars{2}}
+Một cuộc thi có $40$ câu hỏi: câu đúng được $5$ điểm, câu sai bị trừ $2$ điểm, câu bỏ trống được $0$ điểm. Quang được $128$ điểm, biết số câu sai bằng số câu bỏ trống. Hỏi Quang trả lời đúng bao nhiêu câu?
+\end{probbox}
+\probsol{
+Ghép $1$ câu sai với $1$ câu bỏ trống thành một nhóm.\par Nếu đúng tất cả: $5\times40=200$ điểm; Quang kém đi $200-128=72$ điểm.\par
+Mỗi nhóm (thay cho $2$ câu đúng) làm mất $(5+2)+5=12$ điểm.\par
+Số nhóm: $72:12=6$, tức là $6$ câu sai và $6$ câu bỏ trống.\par Số câu đúng: $40-12=28$.
+\dapso{$28$ câu.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Lan mua $30$ quyển vở gồm loại $5\,000$ đồng và loại $8\,000$ đồng. Số tiền mua vở loại $8\,000$ đồng nhiều hơn số tiền mua vở loại $5\,000$ đồng là $45\,000$ đồng. Hỏi Lan mua mỗi loại bao nhiêu quyển?
+\end{probbox}
+\probsol{
+Giả sử tất cả là vở $8\,000$ đồng thì hiệu là $8\,000\times30=240\,000$ đồng.\par
+Hiệu phải giảm $240\,000-45\,000=195\,000$ đồng; mỗi lần thay, hiệu giảm $8\,000+5\,000=13\,000$ đồng.\par
+Vở $5\,000$ đồng: $195\,000:13\,000=15$ quyển; vở $8\,000$ đồng: $15$ quyển.\par \emph{Thử lại:} $120\,000-75\,000=45\,000$.
+\dapso{Mỗi loại $15$ quyển.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+Gà và thỏ có tất cả $100$ chân. Nếu mỗi con gà có $4$ chân và mỗi con thỏ có $2$ chân thì tổng số chân là $80$. Hỏi mỗi loại có bao nhiêu con?
+\end{probbox}
+\probsol{
+Cộng hai lần đếm: mỗi con được tính $2+4=6$ chân, nên $6\times(\text{số con})=180$.\par Số con: $180:6=30$.\par
+Giả sử cả $30$ con là gà: $60$ chân, thiếu $40$; mỗi con thỏ nhiều hơn $2$ chân.\par Số thỏ: $20$; số gà: $10$.
+\dapso{$10$ con gà, $20$ con thỏ.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+$100$ chiếc bánh chia cho $100$ người: mỗi người lớn được $3$ chiếc, cứ $3$ trẻ em được chung $1$ chiếc. Hỏi có bao nhiêu người lớn, bao nhiêu trẻ em?
+\end{probbox}
+\probsol{
+Ghép $1$ người lớn với $3$ trẻ em thành một nhóm: $4$ người ăn $3+1=4$ chiếc bánh.\par
+Số nhóm: $100:4=25$.\par Người lớn: $25$; trẻ em: $3\times25=75$.\par
+\emph{Giả thiết tạm:} nếu cả $100$ người là người lớn thì cần $300$ chiếc, thừa $200$ chiếc; thay một người lớn bằng một trẻ em thì bớt được $3-\dfrac13=\dfrac83$ chiếc, nên số trẻ em: $200:\dfrac83=75$.
+\dapso{$25$ người lớn, $75$ trẻ em.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Một ô tô đi trong $5$ giờ được $230$ km: trên đường cao tốc với vận tốc $50$ km/giờ và trên đường liên xã với vận tốc $30$ km/giờ. Hỏi ô tô đi trên đường cao tốc trong bao nhiêu giờ?
+\end{probbox}
+\probsol{
+Giả sử ô tô đi toàn bộ trên đường liên xã: $30\times5=150$ km, thiếu $80$ km.\par
+Mỗi giờ đi trên cao tốc thêm được $20$ km.\par Thời gian trên cao tốc: $80:20=4$ giờ (đường liên xã: $1$ giờ).
+\dapso{$4$ giờ.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Một cửa hàng chở $1\,200$ quả trứng ra chợ. Mỗi quả còn nguyên được trả $300$ đồng; mỗi quả bị vỡ không được trả tiền và bị phạt $2\,700$ đồng. Cửa hàng nhận được $330\,000$ đồng. Hỏi có bao nhiêu quả trứng bị vỡ?
+\end{probbox}
+\probsol{
+Nếu không vỡ quả nào: $300\times1\,200=360\,000$ đồng; bị hụt $30\,000$ đồng.\par
+Mỗi quả vỡ làm hụt $300+2\,700=3\,000$ đồng.\par Số quả vỡ: $30\,000:3\,000=10$ quả.
+\dapso{$10$ quả trứng.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Trong $30$ ngày, mỗi ngày Nam bỏ ống $2\,000$ đồng hoặc $5\,000$ đồng, được tất cả $117\,000$ đồng. Hỏi có bao nhiêu ngày Nam bỏ ống $5\,000$ đồng?
+\end{probbox}
+\probsol{
+Giả sử ngày nào cũng bỏ $2\,000$ đồng: $60\,000$ đồng, thiếu $57\,000$ đồng.\par
+Mỗi ngày bỏ $5\,000$ đồng nhiều hơn $3\,000$ đồng.\par Số ngày: $57\,000:3\,000=19$ ngày.
+\dapso{$19$ ngày.}}
+\gap
+\begin{probbox}{40}{\stars{2}}
+Sáu đội bóng thi đấu vòng tròn một lượt (hai đội bất kì gặp nhau đúng một trận). Thắng được $3$ điểm, hòa được $1$ điểm, thua được $0$ điểm. Tổng số điểm của sáu đội là $41$. Hỏi có bao nhiêu trận hòa?
+\end{probbox}
+\probsol{
+Mỗi đội gặp $5$ đội khác; số trận đấu là $6\times5:2=15$ trận.\par
+Trận có thắng thua cho tổng cộng $3+0=3$ điểm; trận hòa cho $1+1=2$ điểm.\par
+Nếu không có trận hòa nào: $3\times15=45$ điểm, thừa $4$ điểm.\par
+Mỗi trận hòa làm tổng điểm ít đi $1$ điểm, nên số trận hòa: $4:1=4$.
+\dapso{$4$ trận.}}
+\gap
+\begin{probbox}{41}{\stars{2}}
+Một bài kiểm tra có $25$ câu: câu đúng được $4$ điểm, câu sai bị trừ $1$ điểm, câu bỏ trống được $0$ điểm. An trả lời tất cả các câu và được $65$ điểm. Bình có số câu đúng bằng An, nhưng trong những câu An làm sai thì Bình bỏ trống $3$ câu, còn lại làm sai. Hỏi Bình được bao nhiêu điểm?
+\end{probbox}
+\probsol{
+An: nếu đúng hết được $100$ điểm; An kém $35$ điểm; mỗi câu sai làm mất $5$ điểm.\par Số câu An sai: $35:5=7$; số câu đúng: $18$.\par
+Bình: $18$ câu đúng, $3$ câu bỏ trống, $7-3=4$ câu sai.\par Điểm của Bình: $18\times4-4\times1=68$.
+\dapso{$68$ điểm.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Lớp 5C mua $25$ phần quà hết $380\,000$ đồng, gồm loại $12\,000$ đồng và loại $20\,000$ đồng. Nếu lớp mua số lượng hai loại đổi ngược lại thì phải trả bao nhiêu tiền?
+\end{probbox}
+\probsol{
+Giả sử tất cả là quà $12\,000$ đồng: $300\,000$ đồng, thiếu $80\,000$ đồng; mỗi quà loại đắt hơn $8\,000$ đồng.\par
+Quà $20\,000$ đồng: $80\,000:8\,000=10$; quà $12\,000$ đồng: $15$.\par
+Khi đổi ngược: $10\times12\,000+15\times20\,000=420\,000$ đồng.
+\dapso{$420\,000$ đồng.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Số gà nhiều hơn số thỏ $6$ con, và gà với thỏ có tất cả $84$ chân. Hỏi mỗi loại có bao nhiêu con?
+\end{probbox}
+\probsol{
+Bớt $6$ con gà thừa ra: còn $84-6\times2=72$ chân, khi đó số gà bằng số thỏ.\par
+Mỗi cặp (một gà, một thỏ) có $6$ chân, nên số cặp: $72:6=12$.\par Số thỏ: $12$; số gà: $12+6=18$.
+\dapso{$18$ con gà, $12$ con thỏ.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Một cửa hàng bán $40$ chiếc áo được $5\,520\,000$ đồng. Một số áo bán đúng giá $150\,000$ đồng, số còn lại bán giảm giá $20\%$. Hỏi có bao nhiêu chiếc áo được bán giảm giá?
+\end{probbox}
+\probsol{
+Giá sau khi giảm: $150\,000\times80\%=120\,000$ đồng.\par
+Nếu bán tất cả đúng giá: $6\,000\,000$ đồng, thừa $480\,000$ đồng.\par
+Mỗi áo giảm giá thu ít hơn $30\,000$ đồng.\par Số áo giảm giá: $480\,000:30\,000=16$ chiếc.
+\dapso{$16$ chiếc áo.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Ông Thành đi quãng đường $120$ km hết $4$ giờ, một phần đi xe đạp với vận tốc $15$ km/giờ, phần còn lại đi xe khách với vận tốc $45$ km/giờ. Hỏi ông Thành đi xe đạp quãng đường dài bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Giả sử ông đi xe đạp suốt $4$ giờ: $15\times4=60$ km, thiếu $60$ km; mỗi giờ đi xe khách thêm được $30$ km.\par
+Thời gian đi xe khách: $60:30=2$ giờ; đi xe đạp: $2$ giờ.\par Quãng đường đi xe đạp: $15\times2=30$ km.
+\dapso{$30$ km.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+Có $18$ con vật nhỏ gồm nhện ($8$ chân, không có cánh), chuồn chuồn ($6$ chân, $2$ đôi cánh) và ve sầu ($6$ chân, $1$ đôi cánh). Chúng có tất cả $118$ chân và $20$ đôi cánh. Hỏi mỗi loại có bao nhiêu con?
+\end{probbox}
+\probsol{
+\emph{Xét số chân.} Giả sử con nào cũng có $6$ chân: $108$ chân, thiếu $10$; mỗi con nhện nhiều hơn $2$ chân.\par Số nhện: $5$; số chuồn chuồn và ve sầu: $13$.\par
+\emph{Xét số cánh.} Giả sử cả $13$ con đều là ve sầu: $13$ đôi cánh, thiếu $7$ đôi; mỗi con chuồn chuồn nhiều hơn $1$ đôi.\par
+Số chuồn chuồn: $7$; số ve sầu: $13-7=6$.
+\dapso{$5$ con nhện, $7$ con chuồn chuồn, $6$ con ve sầu.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Trong trò chơi bắn cung, mỗi người bắn $20$ mũi tên: trúng đích được $10$ điểm, trượt bị trừ $5$ điểm. Đức được nhiều hơn Long $45$ điểm. Hỏi Đức bắn trúng nhiều hơn Long bao nhiêu mũi?
+\end{probbox}
+\probsol{
+Hai bạn cùng bắn $20$ mũi. Trúng thêm một mũi thì trượt bớt một mũi, nên điểm tăng $10+5=15$ điểm.\par
+Số mũi trúng nhiều hơn: $45:15=3$.
+\dapso{$3$ mũi.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Người ta đổ đầy một bể $300$ lít bằng $22$ thùng nước, gồm thùng $10$ lít và thùng $15$ lít. Hỏi có bao nhiêu thùng $15$ lít?
+\end{probbox}
+\probsol{
+Giả sử tất cả là thùng $10$ lít: $220$ lít, thiếu $80$ lít; mỗi thùng lớn nhiều hơn $5$ lít.\par
+Thùng $15$ lít: $80:5=16$ thùng (thùng $10$ lít: $6$ thùng).
+\dapso{$16$ thùng.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Một túi có $48$ viên bi xanh và đỏ. Biết $\dfrac13$ số bi xanh và $\dfrac14$ số bi đỏ có tất cả $14$ viên. Hỏi mỗi màu có bao nhiêu viên bi?
+\end{probbox}
+\probsol{
+Giả sử cả $48$ viên đều là bi xanh: $\dfrac13$ của $48$ là $16$ viên, thừa $2$ viên.\par
+Thay một viên bi xanh bằng một viên bi đỏ thì số đó giảm $\dfrac13-\dfrac14=\dfrac1{12}$.\par
+Số bi đỏ: $2:\dfrac1{12}=24$ viên; số bi xanh: $48-24=24$ viên.\par \emph{Thử lại:} $8+6=14$.
+\dapso{$24$ bi xanh, $24$ bi đỏ.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Trong ví có $23$ tờ tiền gồm loại $10\,000$ đồng, $20\,000$ đồng và $50\,000$ đồng, tổng cộng $600\,000$ đồng. Số tờ $10\,000$ đồng gấp đôi số tờ $20\,000$ đồng. Hỏi mỗi loại có bao nhiêu tờ?
+\end{probbox}
+\probsol{
+Ghép hai tờ $10\,000$ đồng với một tờ $20\,000$ đồng thành một nhóm: $3$ tờ, trị giá $40\,000$ đồng.\par
+Giả sử cả $23$ tờ đều là tờ $50\,000$ đồng: $1\,150\,000$ đồng, thừa $550\,000$ đồng.\par
+Thay $3$ tờ $50\,000$ đồng bằng một nhóm thì số tiền giảm $150\,000-40\,000=110\,000$ đồng.\par
+Số nhóm: $550\,000:110\,000=5$.\par
+Tờ $10\,000$ đồng: $10$; tờ $20\,000$ đồng: $5$; tờ $50\,000$ đồng: $23-15=8$.
+\dapso{$10$ tờ $10\,000$ đồng, $5$ tờ $20\,000$ đồng, $8$ tờ $50\,000$ đồng.}}

@@ -1,0 +1,511 @@
+\shead{Hai vật chuyển động ngược chiều}
+\begin{knowbox}
+Hai vật \emph{cùng xuất phát một lúc} từ $A$ và $B$ cách nhau quãng đường $s$, đi ngược chiều về phía nhau với vận tốc $v_1$ và $v_2$.
+\begin{barfigC}
+\draw[geo] (0,0)--(7,0);
+\draw[geo] (0,0.12)--(0,-0.12) (7,0.12)--(7,-0.12);
+\node[lbl,above] at (0,0.12){$A$}; \node[lbl,above] at (7,0.12){$B$};
+\draw[->,line width=1pt,tmOrange] (0.1,-0.35)--(1.5,-0.35); \node[dim,below] at (0.8,-0.4){$v_1$};
+\draw[->,line width=1pt,tmGreen] (6.9,-0.35)--(5.5,-0.35); \node[dim,below] at (6.2,-0.4){$v_2$};
+\fill[AnsRed] (4,0) circle (2.2pt); \node[lbl,above] at (4,0.12){$C$};
+\brcup{0}{7}{0.7}{$s$}
+\end{barfigC}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Sau mỗi giờ, khoảng cách giữa hai vật rút ngắn được $v_1+v_2$ (\emph{tổng hai vận tốc}).
+\item Thời gian để hai vật gặp nhau: $\ t=s:(v_1+v_2)$.
+\item Chỗ gặp nhau $C$ cách $A$ là $v_1\times t$, cách $B$ là $v_2\times t$.
+\item Thời điểm gặp nhau $=$ thời điểm xuất phát $+\ t$.
+\item Nếu một vật xuất phát trước, ta tính quãng đường vật đó đã đi được đến lúc vật kia xuất phát; \emph{quãng đường còn lại} được tính như trên.
+\end{itemize}
+\end{knowbox}
+\gap
+\shead{Hai vật chuyển động cùng chiều}
+\begin{knowbox}
+Hai vật \emph{cùng xuất phát một lúc} từ $A$ và $B$ (cách nhau $s$) và đi cùng chiều từ $A$ về phía $B$; vật đi sau nhanh hơn: $v_1>v_2$.
+\begin{barfigC}
+\draw[geo] (0,0)--(7.2,0);
+\draw[geo] (0,0.12)--(0,-0.12) (2.6,0.12)--(2.6,-0.12);
+\node[lbl,above] at (0,0.12){$A$}; \node[lbl,above] at (2.6,0.12){$B$};
+\draw[->,line width=1pt,tmOrange] (0.1,-0.35)--(1.7,-0.35); \node[dim,below] at (0.9,-0.4){$v_1$};
+\draw[->,line width=1pt,tmGreen] (2.7,-0.35)--(3.6,-0.35); \node[dim,below] at (3.15,-0.4){$v_2$};
+\fill[AnsRed] (6.4,0) circle (2.2pt); \node[lbl,above] at (6.4,0.12){$C$};
+\brcup{0}{2.6}{0.7}{$s$}
+\end{barfigC}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Sau mỗi giờ, vật đi nhanh gần vật đi chậm thêm $v_1-v_2$ (\emph{hiệu hai vận tốc}).
+\item Thời gian để đuổi kịp: $\ t=s:(v_1-v_2)$; chỗ đuổi kịp cách $A$ là $v_1\times t$.
+\item Nếu hai vật xuất phát từ \emph{cùng một chỗ} nhưng \emph{khác thời điểm} thì khoảng cách ban đầu là $s=v_2\times$ (khoảng thời gian xuất phát trước).
+\end{itemize}
+\textbf{Lưu ý:} các đại lượng phải cùng đơn vị đo (km, giờ, km/h hoặc m, phút, m/phút). Hai vật xuất phát từ cùng một chỗ, đi \emph{ngược chiều ra xa nhau} thì sau mỗi giờ cách xa nhau thêm $v_1+v_2$.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Hai thị xã $A$ và $B$ cách nhau $225$ km. Lúc 6 giờ 45 phút, một ô tô đi từ $A$ đến $B$ với vận tốc $48$ km/h; cùng lúc đó, một xe khách đi từ $B$ về $A$ với vận tốc $42$ km/h. Hỏi hai xe gặp nhau lúc mấy giờ và chỗ gặp nhau cách $A$ bao nhiêu ki-lô-mét?
+\guide
+\begin{barfigC}
+\draw[geo] (0,0)--(7,0);
+\draw[geo] (0,0.12)--(0,-0.12) (7,0.12)--(7,-0.12);
+\node[lbl,above] at (0,0.12){$A$}; \node[lbl,above] at (7,0.12){$B$};
+\draw[->,line width=1pt,tmOrange] (0.1,-0.35)--(1.5,-0.35); \node[dim,below] at (0.8,-0.4){$48$ km/h};
+\draw[->,line width=1pt,tmGreen] (6.9,-0.35)--(5.5,-0.35); \node[dim,below] at (6.2,-0.4){$42$ km/h};
+\fill[AnsRed] (3.73,0) circle (2.2pt); \node[lbl,above] at (3.73,0.12){$C$};
+\brcup{0}{7}{0.7}{$225$ km}
+\end{barfigC}
+Mỗi giờ hai xe rút ngắn được khoảng cách: $48+42=90$ (km).\par
+Thời gian để hai xe gặp nhau: $225:90=2{,}5$ (giờ) $=2$ giờ $30$ phút.\par
+Hai xe gặp nhau lúc: 6 giờ 45 phút $+\ 2$ giờ $30$ phút $=$ 9 giờ 15 phút.\par
+Chỗ gặp nhau cách $A$: $48\times2{,}5=120$ (km).
+\ans{9 giờ 15 phút; cách $A$ $120$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Lúc 7 giờ 10 phút, Lan đạp xe từ trường về với vận tốc $12$ km/h. Lúc 7 giờ 40 phút, anh trai Lan đi xe máy từ trường đuổi theo Lan trên cùng con đường với vận tốc $36$ km/h. Hỏi lúc mấy giờ anh đuổi kịp Lan và chỗ đuổi kịp cách trường bao xa?
+\guide
+Thời gian Lan đi trước: 7 giờ 40 phút $-$ 7 giờ 10 phút $=30$ phút $=0{,}5$ giờ.\par
+Quãng đường Lan đi được đến 7 giờ 40 phút: $12\times0{,}5=6$ (km).\par
+Mỗi giờ xe máy gần Lan thêm: $36-12=24$ (km).\par
+Thời gian để đuổi kịp: $6:24=0{,}25$ (giờ) $=15$ phút. \ Anh đuổi kịp Lan lúc 7 giờ 40 phút $+\ 15$ phút $=$ 7 giờ 55 phút.\par
+Chỗ đuổi kịp cách trường: $36\times0{,}25=9$ (km).
+\ans{7 giờ 55 phút; cách trường $9$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Hai địa điểm $A$ và $B$ cách nhau $18$ km. Lúc 6 giờ 30 phút, một xe máy đi từ $A$ với vận tốc $42$ km/h, cùng lúc đó một người đi xe đạp từ $B$ với vận tốc $15$ km/h; cả hai cùng đi theo chiều từ $A$ đến $B$. Hỏi lúc mấy giờ xe máy đuổi kịp xe đạp và chỗ đuổi kịp cách $A$ bao xa?
+\guide
+\begin{barfigC}
+\draw[geo] (0,0)--(7.2,0);
+\draw[geo] (0,0.12)--(0,-0.12) (2.4,0.12)--(2.4,-0.12);
+\node[lbl,above] at (0,0.12){$A$}; \node[lbl,above] at (2.4,0.12){$B$};
+\draw[->,line width=1pt,tmOrange] (0.1,-0.35)--(1.7,-0.35); \node[dim,below] at (0.9,-0.4){$42$ km/h};
+\draw[->,line width=1pt,tmGreen] (2.5,-0.35)--(3.4,-0.35); \node[dim,below] at (3.1,-0.4){$15$ km/h};
+\fill[AnsRed] (3.73,0) circle (2.2pt); \node[lbl,above] at (3.73,0.12){$C$};
+\brcup{0}{2.4}{0.7}{$18$ km}
+\end{barfigC}
+Mỗi giờ xe máy gần xe đạp thêm: $42-15=27$ (km).\par
+Thời gian để đuổi kịp: $18:27=\dfrac23$ (giờ) $=40$ phút. \ Xe máy đuổi kịp lúc 6 giờ 30 phút $+\ 40$ phút $=$ 7 giờ 10 phút.\par
+Chỗ đuổi kịp cách $A$: $42\times\dfrac23=28$ (km).
+\ans{7 giờ 10 phút; cách $A$ $28$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Hai thị trấn cách nhau $180$ km. Một ô tô và một xe máy cùng lúc khởi hành từ hai thị trấn, đi ngược chiều nhau và gặp nhau sau $2$ giờ. Vận tốc ô tô lớn hơn vận tốc xe máy $10$ km/h. Tính vận tốc của mỗi xe.
+\guide
+Tổng hai vận tốc: $180:2=90$ (km/h).
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Xe máy:}
+\blk{0}{3.2}{0.62}{0.42}{tmBlue}{}
+\rowlab{-0.15}{0}{Ô tô:}
+\blk{0}{3.2}{0}{0.42}{tmGreen}{}
+\blk{3.2}{3.9}{0}{0.42}{tmOrange}{}
+\brcdn{3.2}{3.9}{-0.32}{$10$ km/h}
+\vbrace{4.1}{0.85}{-0.22}{$90$ km/h}
+\end{barfigC}
+Vận tốc xe máy: $(90-10):2=40$ (km/h).\par
+Vận tốc ô tô: $40+10=50$ (km/h).
+\ans{ô tô $50$ km/h, xe máy $40$ km/h.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Hai địa điểm cách nhau $150$ km. Lúc 8 giờ, hai ô tô khởi hành từ hai địa điểm đó, đi ngược chiều về phía nhau với vận tốc $35$ km/h và $40$ km/h. Hỏi lúc mấy giờ hai xe cách nhau $30$ km?
+\guide
+Mỗi giờ hai xe rút ngắn được $35+40=75$ (km). Có \emph{hai} thời điểm hai xe cách nhau $30$ km.\par
+\textbf{Trước khi gặp nhau:} hai xe đã đi được tổng cộng $150-30=120$ (km); thời gian: $120:75=1{,}6$ (giờ) $=1$ giờ $36$ phút, tức là lúc 9 giờ 36 phút.\par
+\textbf{Sau khi gặp nhau:} hai xe đã đi được tổng cộng $150+30=180$ (km); thời gian: $180:75=2{,}4$ (giờ) $=2$ giờ $24$ phút, tức là lúc 10 giờ 24 phút.
+\ans{lúc 9 giờ 36 phút và lúc 10 giờ 24 phút.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Hai làng cách nhau $36$ km. Hai người đi xe đạp cùng lúc khởi hành từ hai làng, đi ngược chiều nhau với vận tốc $13$ km/h và $11$ km/h. Hỏi sau bao lâu hai người gặp nhau?
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $13+11=24$ (km/h).\par Thời gian: $36:24=1{,}5$ (giờ) $=1$ giờ $30$ phút.
+\dapso{$1$ giờ $30$ phút.}}
+\gap
+\begin{probbox}{2}{\relax}
+Quãng đường $AB$ dài $279$ km. Lúc 7 giờ 20 phút, một ô tô đi từ $A$ đến $B$ với vận tốc $68$ km/h; cùng lúc đó, một xe khách đi từ $B$ về $A$ với vận tốc $56$ km/h. Hỏi hai xe gặp nhau lúc mấy giờ?
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $68+56=124$ (km/h).\par Thời gian: $279:124=2{,}25$ (giờ) $=2$ giờ $15$ phút.\par Hai xe gặp nhau lúc 7 giờ 20 phút $+\ 2$ giờ $15$ phút $=$ 9 giờ 35 phút.
+\dapso{9 giờ 35 phút.}}
+\gap
+\begin{probbox}{3}{\relax}
+Hai thành phố $A$ và $B$ cách nhau $168$ km. Cùng một lúc, một xe máy đi từ $A$ với vận tốc $38$ km/h và một ô tô đi từ $B$ với vận tốc $46$ km/h, đi về phía nhau. Hỏi sau bao lâu hai xe gặp nhau và chỗ gặp nhau cách $A$ bao xa?
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $38+46=84$ (km/h).\par Thời gian: $168:84=2$ (giờ).\par Chỗ gặp nhau cách $A$: $38\times2=76$ (km).
+\dapso{sau $2$ giờ; cách $A$ $76$ km.}}
+\gap
+\begin{probbox}{4}{\relax}
+Hai thị xã $A$ và $B$ cách nhau $210$ km. Lúc 6 giờ 30 phút, hai ô tô khởi hành từ $A$ và $B$ đi về phía nhau, xe đi từ $A$ với vận tốc $45$ km/h, xe đi từ $B$ với vận tốc $39$ km/h. Hỏi hai xe gặp nhau lúc mấy giờ và chỗ gặp nhau cách $A$ bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $45+39=84$ (km/h).\par Thời gian: $210:84=2{,}5$ (giờ) $=2$ giờ $30$ phút; hai xe gặp nhau lúc 9 giờ.\par Chỗ gặp nhau cách $A$: $45\times2{,}5=112{,}5$ (km).
+\dapso{9 giờ; cách $A$ $112{,}5$ km.}}
+\gap
+\begin{probbox}{5}{\relax}
+Hai thị trấn cách nhau $196$ km. Một ô tô và một xe máy cùng lúc khởi hành từ hai thị trấn, đi về phía nhau và gặp nhau sau $2$ giờ $20$ phút. Vận tốc ô tô lớn hơn vận tốc xe máy $12$ km/h. Tính vận tốc của mỗi xe.
+\end{probbox}
+\probsol{
+$2$ giờ $20$ phút $=2\dfrac13$ giờ $=\dfrac73$ giờ.\par Tổng hai vận tốc: $196:\dfrac73=84$ (km/h).\par
+Xe máy: $(84-12):2=36$ (km/h); ô tô: $36+12=48$ (km/h).
+\dapso{ô tô $48$ km/h, xe máy $36$ km/h.}}
+\gap
+\begin{probbox}{6}{\relax}
+Hai thị xã $A$ và $B$ cách nhau $245$ km. Hai ô tô cùng lúc khởi hành từ $A$ và $B$, đi về phía nhau và gặp nhau sau $2{,}5$ giờ tại điểm $C$ cách $A$ $105$ km. Tính vận tốc của mỗi xe.
+\end{probbox}
+\probsol{
+Xe đi từ $A$: $105:2{,}5=42$ (km/h).\par Quãng đường $CB$: $245-105=140$ (km).\par Xe đi từ $B$: $140:2{,}5=56$ (km/h).
+\dapso{$42$ km/h và $56$ km/h.}}
+\gap
+\begin{probbox}{7}{\relax}
+Quãng đường $AB$ dài $288$ km. Một ô tô và một xe máy cùng lúc khởi hành từ $A$ và $B$, đi về phía nhau và gặp nhau sau $3$ giờ $12$ phút. Vận tốc ô tô gấp $1{,}5$ lần vận tốc xe máy. Tính vận tốc của mỗi xe.
+\end{probbox}
+\probsol{
+$3$ giờ $12$ phút $=3{,}2$ giờ. \ Tổng hai vận tốc: $288:3{,}2=90$ (km/h).\par
+$1{,}5=\dfrac32$: xe máy $2$ phần, ô tô $3$ phần; $5$ phần là $90$ km/h, một phần là $18$ km/h.\par
+Xe máy: $18\times2=36$ (km/h); ô tô: $18\times3=54$ (km/h).
+\dapso{ô tô $54$ km/h, xe máy $36$ km/h.}}
+\gap
+\begin{probbox}{8}{\relax}
+Quãng đường $AB$ dài $270$ km. Lúc 7 giờ, một xe tải đi từ $A$ đến $B$ với vận tốc $40$ km/h. Lúc 8 giờ 15 phút, một ô tô đi từ $B$ về $A$ với vận tốc $60$ km/h. Hỏi hai xe gặp nhau lúc mấy giờ và chỗ gặp nhau cách $A$ bao xa?
+\end{probbox}
+\probsol{
+Từ 7 giờ đến 8 giờ 15 phút là $1$ giờ $15$ phút $=1{,}25$ giờ; xe tải đã đi được $40\times1{,}25=50$ (km).\par
+Quãng đường còn lại: $270-50=220$ (km). \ Tổng hai vận tốc: $40+60=100$ (km/h).\par
+Thời gian: $220:100=2{,}2$ (giờ) $=2$ giờ $12$ phút; hai xe gặp nhau lúc 8 giờ 15 phút $+\ 2$ giờ $12$ phút $=$ 10 giờ 27 phút.\par
+Chỗ gặp nhau cách $A$: $50+40\times2{,}2=138$ (km).
+\dapso{10 giờ 27 phút; cách $A$ $138$ km.}}
+\gap
+\begin{probbox}{9}{\relax}
+Lúc 6 giờ 30 phút, một xe khách đi từ $A$ đến $B$ với vận tốc $50$ km/h. Sau đó nửa giờ, một xe khách khác đi từ $B$ về $A$ với vận tốc $45$ km/h. Hai xe gặp nhau lúc 9 giờ. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Xe thứ nhất đi từ 6 giờ 30 phút đến 9 giờ: $2{,}5$ giờ, được $50\times2{,}5=125$ (km).\par
+Xe thứ hai khởi hành lúc 7 giờ, đi $2$ giờ, được $45\times2=90$ (km).\par
+$AB=125+90=215$ (km).
+\dapso{$215$ km.}}
+\gap
+\begin{probbox}{10}{\relax}
+Hai địa điểm cách nhau $160$ km. Hai ô tô cùng lúc khởi hành từ hai địa điểm đó, đi về phía nhau với vận tốc $38$ km/h và $42$ km/h. Hỏi sau $1$ giờ $30$ phút hai xe còn cách nhau bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $38+42=80$ (km/h).\par Sau $1{,}5$ giờ hai xe rút ngắn được $80\times1{,}5=120$ (km).\par Hai xe còn cách nhau: $160-120=40$ (km).
+\dapso{$40$ km.}}
+\gap
+\begin{probbox}{11}{\relax}
+Hai ô tô cùng lúc khởi hành từ $A$ và $B$, đi về phía nhau. Xe thứ nhất đi cả quãng đường $AB$ hết $4$ giờ, xe thứ hai đi cả quãng đường đó hết $6$ giờ. Sau $2$ giờ, hai xe còn cách nhau $30$ km. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Mỗi giờ xe thứ nhất đi được $\dfrac14$ quãng đường $AB$, xe thứ hai đi được $\dfrac16$ quãng đường $AB$; cả hai xe đi được $\dfrac14+\dfrac16=\dfrac5{12}$ quãng đường.\par
+Sau $2$ giờ cả hai xe đi được: $\dfrac5{12}\times2=\dfrac56$ quãng đường. \ Còn lại: $1-\dfrac56=\dfrac16$ quãng đường, ứng với $30$ km.\par
+$AB=30\times6=180$ (km).
+\dapso{$180$ km.}}
+\gap
+\begin{probbox}{12}{\relax}
+Một xe máy đi từ $A$ đến $B$ hết $3$ giờ; một xe đạp đi từ $B$ đến $A$ hết $6$ giờ. Hai xe cùng lúc khởi hành, đi về phía nhau. Hỏi sau bao lâu hai xe gặp nhau?
+\end{probbox}
+\probsol{
+Mỗi giờ cả hai xe đi được $\dfrac13+\dfrac16=\dfrac12$ quãng đường $AB$.\par Thời gian để cùng đi hết quãng đường: $1:\dfrac12=2$ (giờ).
+\dapso{$2$ giờ.}}
+\gap
+\begin{probbox}{13}{\relax}
+Nhà Lan và nhà Mai cách nhau $2{,}4$ km. Lúc 16 giờ 40 phút, hai bạn cùng đi bộ từ nhà mình về phía nhau, Lan đi với vận tốc $4{,}5$ km/h, Mai đi với vận tốc $3{,}5$ km/h. Hỏi sau bao nhiêu phút hai bạn gặp nhau và gặp nhau lúc mấy giờ?
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $4{,}5+3{,}5=8$ (km/h).\par Thời gian: $2{,}4:8=0{,}3$ (giờ) $=18$ phút.\par Hai bạn gặp nhau lúc 16 giờ 40 phút $+\ 18$ phút $=$ 16 giờ 58 phút.
+\dapso{sau $18$ phút, lúc 16 giờ 58 phút.}}
+\gap
+\begin{probbox}{14}{\relax}
+$A$ và $B$ cách nhau $24$ km. Một người đi bộ từ $A$ với vận tốc $4$ km/h, cùng lúc đó một người đi xe đạp từ $B$ với vận tốc $12$ km/h; hai người đi về phía nhau. Hỏi chỗ gặp nhau cách $A$ bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $4+12=16$ (km/h).\par Thời gian: $24:16=1{,}5$ (giờ).\par Chỗ gặp nhau cách $A$: $4\times1{,}5=6$ (km).
+\dapso{$6$ km.}}
+\gap
+\begin{probbox}{15}{\relax}
+Quãng đường $AB$ dài $132$ km. Một ô tô đi từ $A$ với vận tốc $52$ km/h, cùng lúc đó một xe máy đi từ $B$; hai xe đi về phía nhau và gặp nhau sau $1$ giờ $30$ phút. Tính vận tốc xe máy.
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $132:1{,}5=88$ (km/h).\par Vận tốc xe máy: $88-52=36$ (km/h).
+\dapso{$36$ km/h.}}
+\gap
+\begin{probbox}{16}{\relax}
+$A$ và $B$ cách nhau $48$ km. Cùng một lúc, một ô tô đi từ $A$ với vận tốc $58$ km/h và một xe máy đi từ $B$ với vận tốc $42$ km/h, hai xe đi cùng chiều từ $A$ về phía $B$. Hỏi sau bao lâu ô tô đuổi kịp xe máy và chỗ đuổi kịp cách $A$ bao xa?
+\end{probbox}
+\probsol{
+Mỗi giờ ô tô gần xe máy thêm $58-42=16$ (km).\par Thời gian: $48:16=3$ (giờ).\par Chỗ đuổi kịp cách $A$: $58\times3=174$ (km).
+\dapso{sau $3$ giờ; cách $A$ $174$ km.}}
+\gap
+\begin{probbox}{17}{\relax}
+Lúc 6 giờ 40 phút, một người đi xe đạp rời thị trấn với vận tốc $14$ km/h. Lúc 7 giờ 10 phút, một xe máy cũng đi từ thị trấn đó với vận tốc $35$ km/h, đi cùng đường đuổi theo. Hỏi lúc mấy giờ xe máy đuổi kịp xe đạp?
+\end{probbox}
+\probsol{
+Thời gian xe đạp đi trước: $30$ phút $=0{,}5$ giờ; quãng đường xe đạp đi trước: $14\times0{,}5=7$ (km).\par
+Mỗi giờ xe máy gần xe đạp thêm $35-14=21$ (km).\par Thời gian: $7:21=\dfrac13$ (giờ) $=20$ phút; xe máy đuổi kịp lúc 7 giờ 30 phút.
+\dapso{7 giờ 30 phút.}}
+\gap
+\begin{probbox}{18}{\relax}
+Một ô tô đi từ $A$ và một xe đạp đi từ $B$ cùng lúc khởi hành, đi cùng chiều từ $A$ về phía $B$. Vận tốc ô tô là $52$ km/h, vận tốc xe đạp là $16$ km/h. Sau $1$ giờ $45$ phút ô tô đuổi kịp xe đạp. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Mỗi giờ ô tô gần xe đạp thêm $52-16=36$ (km).\par $1$ giờ $45$ phút $=1{,}75$ giờ. \ $AB=36\times1{,}75=63$ (km).
+\dapso{$63$ km.}}
+\gap
+\begin{probbox}{19}{\relax}
+Một người đi xe đạp với vận tốc $15$ km/h đã đi được $15$ km thì một xe máy bắt đầu đi từ cùng chỗ xuất phát đuổi theo với vận tốc $40$ km/h. Hỏi sau bao nhiêu phút xe máy đuổi kịp xe đạp?
+\end{probbox}
+\probsol{
+Mỗi giờ xe máy gần xe đạp thêm $40-15=25$ (km).\par Thời gian: $15:25=0{,}6$ (giờ) $=36$ phút.
+\dapso{$36$ phút.}}
+\gap
+\begin{probbox}{20}{\relax}
+Lúc 8 giờ, một xe tải đi từ $A$ với vận tốc $45$ km/h. Lúc 9 giờ 20 phút, một ô tô cũng đi từ $A$ với vận tốc $75$ km/h, đi cùng đường đuổi theo xe tải. Hỏi ô tô đuổi kịp xe tải lúc mấy giờ và chỗ đuổi kịp cách $A$ bao xa?
+\end{probbox}
+\probsol{
+Từ 8 giờ đến 9 giờ 20 phút là $1$ giờ $20$ phút $=\dfrac43$ giờ; xe tải đi trước $45\times\dfrac43=60$ (km).\par
+Mỗi giờ ô tô gần xe tải thêm $75-45=30$ (km). \ Thời gian: $60:30=2$ (giờ); ô tô đuổi kịp lúc 11 giờ 20 phút.\par
+Chỗ đuổi kịp cách $A$: $75\times2=150$ (km).
+\dapso{11 giờ 20 phút; cách $A$ $150$ km.}}
+\gap
+\begin{probbox}{21}{\relax}
+$A$ và $B$ cách nhau $36$ km. Hai ô tô cùng lúc khởi hành từ $A$ và $B$, đi cùng chiều từ $A$ về phía $B$. Sau $3$ giờ, xe đi từ $A$ đuổi kịp xe đi từ $B$. Tổng vận tốc của hai xe là $84$ km/h. Tính vận tốc của mỗi xe.
+\end{probbox}
+\probsol{
+Hiệu hai vận tốc: $36:3=12$ (km/h).\par
+Xe đi từ $A$: $(84+12):2=48$ (km/h); xe đi từ $B$: $48-12=36$ (km/h).
+\dapso{$48$ km/h và $36$ km/h.}}
+\gap
+\begin{probbox}{22}{\relax}
+Một xe máy đi sau một xe tải $30$ km; hai xe đi cùng chiều, xe máy với vận tốc $50$ km/h, xe tải với vận tốc $35$ km/h. Hỏi sau $1$ giờ $20$ phút hai xe còn cách nhau bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Mỗi giờ khoảng cách rút ngắn $50-35=15$ (km).\par Sau $1$ giờ $20$ phút $=\dfrac43$ giờ khoảng cách rút ngắn $15\times\dfrac43=20$ (km).\par Hai xe còn cách nhau: $30-20=10$ (km).
+\dapso{$10$ km.}}
+\gap
+\begin{probbox}{23}{\relax}
+Nam đạp xe từ nhà đi với vận tốc $250$ m/phút. Sau $6$ phút, mẹ Nam đi xe máy đuổi theo với vận tốc $550$ m/phút. Hỏi sau bao nhiêu phút mẹ đuổi kịp Nam và chỗ đuổi kịp cách nhà bao xa?
+\end{probbox}
+\probsol{
+Quãng đường Nam đi trước: $250\times6=1\,500$ (m).\par Mỗi phút mẹ gần Nam thêm $550-250=300$ (m).\par
+Thời gian: $1\,500:300=5$ (phút). \ Chỗ đuổi kịp cách nhà: $550\times5=2\,750$ (m) $=2{,}75$ km.
+\dapso{$5$ phút; $2{,}75$ km.}}
+\gap
+\begin{probbox}{24}{\relax}
+Hai ô tô cùng lúc khởi hành từ một ngã tư, đi ngược chiều ra xa nhau với vận tốc $45$ km/h và $55$ km/h. Hỏi sau bao lâu hai xe cách nhau $250$ km?
+\end{probbox}
+\probsol{
+Mỗi giờ hai xe cách xa nhau thêm $45+55=100$ (km).\par Thời gian: $250:100=2{,}5$ (giờ) $=2$ giờ $30$ phút.
+\dapso{$2$ giờ $30$ phút.}}
+\gap
+\begin{probbox}{25}{\relax}
+Lúc 7 giờ, hai ô tô cùng khởi hành từ một địa điểm, đi cùng chiều trên một con đường với vận tốc $42$ km/h và $54$ km/h. Hỏi lúc mấy giờ hai xe cách nhau $15$ km?
+\end{probbox}
+\probsol{
+Mỗi giờ xe đi nhanh cách xa xe đi chậm thêm $54-42=12$ (km).\par Thời gian: $15:12=1{,}25$ (giờ) $=1$ giờ $15$ phút; tức là lúc 8 giờ 15 phút.
+\dapso{8 giờ 15 phút.}}
+\gap
+\begin{probbox}{26}{\relax}
+Lúc 7 giờ, một người đi xe đạp từ $A$ với vận tốc $12$ km/h. Lúc 8 giờ, một xe máy đi từ $A$ trên cùng con đường và đuổi kịp người đi xe đạp lúc 8 giờ 30 phút. Tính vận tốc xe máy.
+\end{probbox}
+\probsol{
+Đến 8 giờ 30 phút, người đi xe đạp đã đi $1{,}5$ giờ: $12\times1{,}5=18$ (km).\par Xe máy đi $18$ km đó trong $30$ phút $=0{,}5$ giờ.\par Vận tốc xe máy: $18:0{,}5=36$ (km/h).
+\dapso{$36$ km/h.}}
+\gap
+\begin{probbox}{27}{\relax}
+Quãng đường $AB$ dài $150$ km. Lúc 7 giờ, một ô tô đi từ $A$ với vận tốc $50$ km/h và một xe máy đi từ $B$ với vận tốc $40$ km/h, đi về phía nhau. Trước khi gặp nhau, người đi xe máy dừng lại nghỉ $18$ phút. Hỏi hai xe gặp nhau lúc mấy giờ và chỗ gặp nhau cách $A$ bao xa?
+\end{probbox}
+\probsol{
+Trong $18$ phút $=0{,}3$ giờ xe máy nghỉ, chỉ có ô tô đi: $50\times0{,}3=15$ (km).\par
+Quãng đường còn lại $150-15=135$ (km) được rút ngắn với tổng vận tốc $50+40=90$ (km/h): $135:90=1{,}5$ (giờ).\par
+Thời gian tổng cộng: $1{,}5+0{,}3=1{,}8$ (giờ) $=1$ giờ $48$ phút; hai xe gặp nhau lúc 8 giờ 48 phút.\par Chỗ gặp nhau cách $A$: $50\times1{,}8=90$ (km).
+\dapso{8 giờ 48 phút; cách $A$ $90$ km.}}
+\gap
+\begin{probbox}{28}{\relax}
+Hai thị trấn cách nhau $120$ km. Lúc 7 giờ, một xe khách và một ô tô khởi hành từ hai thị trấn, đi về phía nhau với vận tốc $42$ km/h và $53$ km/h. Hỏi lúc mấy giờ, trước khi gặp nhau, hai xe cách nhau $25$ km?
+\end{probbox}
+\probsol{
+Hai xe phải rút ngắn $120-25=95$ (km) với tổng vận tốc $42+53=95$ (km/h).\par Thời gian: $95:95=1$ (giờ); tức là lúc 8 giờ.
+\dapso{8 giờ.}}
+\gap
+\begin{probbox}{29}{\relax}
+Lúc 6 giờ, một xe máy đi từ $A$ đến $B$ với vận tốc $40$ km/h. Lúc 7 giờ, một ô tô đi từ $A$ với vận tốc $60$ km/h trên cùng con đường và đuổi kịp xe máy đúng tại $B$. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Quãng đường xe máy đi trước: $40\times1=40$ (km).\par Mỗi giờ ô tô gần xe máy thêm $60-40=20$ (km); thời gian: $40:20=2$ (giờ).\par
+$AB=60\times2=120$ (km).
+\dapso{$120$ km.}}
+\gap
+\begin{probbox}{30}{\relax}
+Nhà Lan và nhà Hoa cách nhau $4{,}2$ km. Lúc 6 giờ 45 phút, Lan đi bộ từ nhà mình với vận tốc $80$ m/phút, Hoa đạp xe từ nhà mình với vận tốc $200$ m/phút, hai bạn đi về phía nhau. Hỏi hai bạn gặp nhau lúc mấy giờ và chỗ gặp nhau cách nhà Lan bao xa?
+\end{probbox}
+\probsol{
+$4{,}2$ km $=4\,200$ m. \ Tổng hai vận tốc: $80+200=280$ (m/phút).\par
+Thời gian: $4\,200:280=15$ (phút); hai bạn gặp nhau lúc 7 giờ.\par Chỗ gặp nhau cách nhà Lan: $80\times15=1\,200$ (m) $=1{,}2$ km.
+\dapso{7 giờ; cách nhà Lan $1{,}2$ km.}}
+\dividerbar{Thử thách -- Nâng cao}
+\begin{probbox}{31}{\stars{2}}
+Quãng đường $AB$ dài $240$ km. Lúc 7 giờ, một ô tô đi từ $A$ đến $B$ với vận tốc $80$ km/h; cùng lúc đó, một xe máy và một xe tải đi từ $B$ về $A$ với vận tốc lần lượt là $30$ km/h và $50$ km/h. Hỏi lúc mấy giờ ô tô ở chính giữa xe máy và xe tải?
+\end{probbox}
+\probsol{
+Tưởng tượng một điểm $M$ luôn ở chính giữa xe máy và xe tải. Điểm $M$ xuất phát từ $B$ và đi về phía $A$ với vận tốc bằng trung bình cộng $(30+50):2=40$ (km/h).\par
+Ô tô ở chính giữa hai xe khi ô tô gặp $M$: tổng vận tốc $80+40=120$ (km/h); thời gian $240:120=2$ (giờ); tức là lúc 9 giờ.\par
+\emph{Thử lại:} lúc 9 giờ ô tô cách $A$ $160$ km, xe máy cách $A$ $240-60=180$ km, xe tải cách $A$ $240-100=140$ km; $160$ ở chính giữa $140$ và $180$.
+\dapso{9 giờ.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Quãng đường $AB$ dài $150$ km. Hai ô tô cùng lúc khởi hành từ $A$ và $B$. Nếu đi ngược chiều thì hai xe gặp nhau sau $1$ giờ $15$ phút. Nếu đi cùng chiều (từ $A$ về phía $B$) thì xe đi từ $A$ đuổi kịp xe kia sau $7$ giờ $30$ phút. Tính vận tốc của mỗi xe.
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $150:1{,}25=120$ (km/h). \ Hiệu hai vận tốc: $150:7{,}5=20$ (km/h).\par
+Xe đi từ $A$: $(120+20):2=70$ (km/h); xe đi từ $B$: $70-20=50$ (km/h).
+\dapso{$70$ km/h và $50$ km/h.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+$A$ và $B$ cách nhau $90$ km. Hai người cùng lúc khởi hành từ $A$ và $B$. Nếu đi ngược chiều thì gặp nhau sau $1{,}5$ giờ; nếu đi cùng chiều thì người đi từ $A$ đuổi kịp người kia sau $4{,}5$ giờ. Tính vận tốc của mỗi người.
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $90:1{,}5=60$ (km/h). \ Hiệu hai vận tốc: $90:4{,}5=20$ (km/h).\par
+Người đi từ $A$: $(60+20):2=40$ (km/h); người đi từ $B$: $20$ km/h.
+\dapso{$40$ km/h và $20$ km/h.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Hai xe ở $A$ và $B$ cách nhau $60$ km cùng khởi hành một lúc và đi cùng chiều về phía $C$ ($B$ nằm giữa $A$ và $C$). Sau $2{,}5$ giờ thì xe đi từ $A$ đuổi kịp xe đi từ $B$. Tính vận tốc của mỗi xe, biết tổng hai vận tốc là $104$ km/h.
+\end{probbox}
+\probsol{
+Hiệu hai vận tốc: $60:2{,}5=24$ (km/h).\par
+Xe đi từ $A$: $(104+24):2=64$ (km/h); xe đi từ $B$: $64-24=40$ (km/h).
+\dapso{$64$ km/h và $40$ km/h.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Hai ô tô cùng lúc khởi hành từ $A$ và $B$, đi về phía nhau và gặp nhau lần thứ nhất tại điểm cách $A$ $40$ km. Mỗi xe đi tiếp đến đầu kia rồi lập tức quay lại, và hai xe gặp nhau lần thứ hai tại điểm cách $B$ $20$ km. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Đến lần gặp thứ nhất, cả hai xe đi được tổng cộng $1$ lần quãng đường $AB$; xe đi từ $A$ đi được $40$ km.\par
+Đến lần gặp thứ hai, cả hai xe đi được tổng cộng $3$ lần quãng đường $AB$, nên xe đi từ $A$ đi được $40\times3=120$ (km).\par
+Xe đó đã đi hết $AB$ rồi quay lại $20$ km: $AB=120-20=100$ (km).
+\dapso{$100$ km.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Quãng đường $AB$ dài $210$ km. Hai ô tô cùng lúc khởi hành từ $A$ và $B$, đi về phía nhau và gặp nhau sau $2$ giờ. Lúc gặp nhau, xe đi từ $A$ đã đi nhiều hơn xe đi từ $B$ $30$ km. Tính vận tốc của mỗi xe.
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $210:2=105$ (km/h). \ Hiệu hai vận tốc: $30:2=15$ (km/h).\par
+Xe đi từ $A$: $(105+15):2=60$ (km/h); xe đi từ $B$: $45$ km/h.
+\dapso{$60$ km/h và $45$ km/h.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Lúc 6 giờ, một người đi xe đạp từ $A$ với vận tốc $15$ km/h. Khi đến cột cây số thứ $15$, người đó dừng lại nghỉ $30$ phút rồi đi tiếp. Lúc 7 giờ, một xe máy đi từ $A$ với vận tốc $45$ km/h trên cùng con đường. Hỏi lúc mấy giờ xe máy đuổi kịp người đi xe đạp?
+\end{probbox}
+\probsol{
+Người đi xe đạp đến cột cây số thứ $15$ sau $15:15=1$ giờ, tức là lúc 7 giờ, và nghỉ ở đó đến 7 giờ 30 phút.\par
+Xe máy đến cột cây số đó sau $15:45=\dfrac13$ giờ $=20$ phút, tức là lúc 7 giờ 20 phút --- khi người đi xe đạp vẫn đang nghỉ.\par
+Vậy xe máy đuổi kịp lúc 7 giờ 20 phút (tại cột cây số thứ $15$).
+\dapso{7 giờ 20 phút.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Hai bạn cách nhau $6$ km, đi bộ về phía nhau với vận tốc $4$ km/h và $5$ km/h. Một chú chó xuất phát cùng bạn thứ nhất, chạy với vận tốc $15$ km/h đến chỗ bạn thứ hai, rồi quay lại chỗ bạn thứ nhất, cứ thế cho đến khi hai bạn gặp nhau. Hỏi chú chó đã chạy được bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Hai bạn gặp nhau sau $6:(4+5)=\dfrac23$ (giờ).\par Chú chó chạy suốt thời gian đó: $15\times\dfrac23=10$ (km).
+\dapso{$10$ km.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Lúc 7 giờ, một xe tải đi từ $A$ với vận tốc $40$ km/h. Lúc 8 giờ, một ô tô đi từ $A$ với vận tốc $60$ km/h trên cùng con đường. Sau khi ô tô khởi hành, vào những thời điểm nào hai xe cách nhau $10$ km?
+\end{probbox}
+\probsol{
+Lúc 8 giờ xe tải đi trước $40$ km; mỗi giờ ô tô gần xe tải thêm $60-40=20$ (km).\par
+Trước khi đuổi kịp: ô tô cần gần thêm $40-10=30$ km, thời gian $30:20=1{,}5$ giờ; tức là lúc 9 giờ 30 phút.\par
+Sau khi đuổi kịp: ô tô cần gần thêm $40+10=50$ km, thời gian $50:20=2{,}5$ giờ; tức là lúc 10 giờ 30 phút.
+\dapso{9 giờ 30 phút và 10 giờ 30 phút.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Lúc 8 giờ, một xe máy đi từ $A$ đến $B$ với vận tốc $36$ km/h; quãng đường $AB$ dài $108$ km. Một ô tô đi với vận tốc $54$ km/h. Hỏi ô tô phải khởi hành từ $A$ lúc mấy giờ để đuổi kịp xe máy đúng tại $B$?
+\end{probbox}
+\probsol{
+Xe máy đi hết $108:36=3$ (giờ); đến $B$ lúc 11 giờ.\par Ô tô đi hết $108:54=2$ (giờ), nên phải khởi hành lúc 9 giờ.
+\dapso{9 giờ.}}
+\gap
+\begin{probbox}{41}{\stars{2}}
+Một ô tô đi từ $A$ với vận tốc $45$ km/h. Sau đó nửa giờ, một ô tô khác đi từ $B$ về phía $A$ với vận tốc $60$ km/h. Hai xe gặp nhau đúng tại điểm chính giữa quãng đường $AB$. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Mỗi xe đi nửa quãng đường $AB$. Để đi $1$ km, xe thứ nhất cần $\dfrac1{45}$ giờ, xe thứ hai cần $\dfrac1{60}$ giờ; chênh lệch $\dfrac1{45}-\dfrac1{60}=\dfrac1{180}$ (giờ).\par
+Trên nửa quãng đường, chênh lệch là $0{,}5$ giờ, nên nửa quãng đường dài $0{,}5:\dfrac1{180}=90$ (km).\par
+$AB=90\times2=180$ (km). \ (\emph{Thử lại:} $90:45=2$ giờ, $90:60=1{,}5$ giờ.)
+\dapso{$180$ km.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Hai ô tô cùng lúc khởi hành từ $A$ và $B$, đi về phía nhau với vận tốc $50$ km/h và $62$ km/h. Hai xe gặp nhau tại điểm cách điểm chính giữa quãng đường $AB$ là $18$ km. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Lúc gặp nhau, xe nhanh đi nhiều hơn xe chậm $18\times2=36$ (km).\par
+Mỗi giờ xe nhanh đi nhiều hơn $62-50=12$ (km), nên hai xe gặp nhau sau $36:12=3$ (giờ).\par $AB=(50+62)\times3=336$ (km).
+\dapso{$336$ km.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Hai người đi xe đạp cùng lúc khởi hành từ $A$ và $B$, đi về phía nhau với vận tốc $15$ km/h và $10$ km/h. Sau khi gặp nhau, người đi nhanh còn phải đi thêm $40$ phút nữa mới đến $B$. Hỏi sau bao lâu thì hai người gặp nhau và quãng đường $AB$ dài bao nhiêu?
+\end{probbox}
+\probsol{
+Sau khi gặp nhau, người đi nhanh đi nốt đoạn đường mà người đi chậm đã đi trước lúc gặp: $15\times\dfrac23=10$ (km).\par
+Người đi chậm đi $10$ km đó hết $10:10=1$ (giờ), nên hai người gặp nhau sau $1$ giờ.\par $AB=(15+10)\times1=25$ (km).
+\dapso{sau $1$ giờ; $25$ km.}}
+\gap
+\begin{probbox}{44}{\stars{2}}
+$A$ và $B$ cách nhau $90$ km. Nếu một người đi xe đạp từ $A$ và một xe máy từ $B$ cùng lúc khởi hành đi về phía nhau thì gặp nhau sau $2$ giờ. Nếu người đi xe đạp khởi hành sớm hơn $1$ giờ thì hai người gặp nhau sau khi xe máy khởi hành $1$ giờ $36$ phút. Tính vận tốc của mỗi người.
+\end{probbox}
+\probsol{
+Tổng hai vận tốc: $90:2=45$ (km/h).\par
+Trường hợp thứ hai: trong $1$ giờ $36$ phút $=1{,}6$ giờ sau khi xe máy khởi hành, hai người rút ngắn được $45\times1{,}6=72$ (km).\par
+Vậy trong giờ đầu một mình người đi xe đạp đi được $90-72=18$ (km): vận tốc xe đạp là $18$ km/h.\par Vận tốc xe máy: $45-18=27$ (km/h).
+\dapso{xe đạp $18$ km/h, xe máy $27$ km/h.}}
+\gap
+\begin{probbox}{45}{\stars{2}}
+Đúng 3 giờ, kim phút của đồng hồ chỉ số $12$, kim giờ chỉ số $3$. Hỏi sau ít nhất bao nhiêu phút thì kim phút đuổi kịp kim giờ?
+\end{probbox}
+\probsol{
+Tính theo vạch phút: lúc 3 giờ kim giờ đi trước kim phút $15$ vạch.\par
+Mỗi phút kim phút đi $1$ vạch; kim giờ đi $5$ vạch mỗi giờ, tức là $\dfrac1{12}$ vạch mỗi phút.\par
+Mỗi phút kim phút gần kim giờ thêm: $1-\dfrac1{12}=\dfrac{11}{12}$ (vạch). \ Thời gian: $15:\dfrac{11}{12}=\dfrac{180}{11}=16\dfrac4{11}$ (phút).
+\dapso{$16\dfrac4{11}$ phút.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Quãng đường $AB$ dài $240$ km. Lúc 7 giờ, hai ô tô khởi hành từ $A$ và $B$ đi về phía nhau và gặp nhau lúc 9 giờ. Vận tốc xe đi từ $A$ bằng $\dfrac35$ vận tốc xe đi từ $B$. Tính vận tốc mỗi xe và khoảng cách từ $A$ đến chỗ gặp nhau.
+\end{probbox}
+\probsol{
+Thời gian: $2$ giờ; tổng hai vận tốc: $240:2=120$ (km/h).\par $3+5=8$ phần; một phần: $120:8=15$ (km/h).\par
+Xe đi từ $A$: $45$ km/h; xe đi từ $B$: $75$ km/h.\par Chỗ gặp nhau cách $A$: $45\times2=90$ (km).
+\dapso{$45$ km/h, $75$ km/h; cách $A$ $90$ km.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Lúc 7 giờ, xe $X$ đi sau xe $Y$ $40$ km trên cùng một con đường; hai xe cùng đi về phía trước, xe $X$ với vận tốc $60$ km/h, xe $Y$ với vận tốc $40$ km/h. Lúc 8 giờ, xe $Y$ tăng vận tốc lên $50$ km/h. Hỏi lúc mấy giờ xe $X$ đuổi kịp xe $Y$?
+\end{probbox}
+\probsol{
+Từ 7 giờ đến 8 giờ khoảng cách rút ngắn $60-40=20$ (km): lúc 8 giờ hai xe cách nhau $20$ km.\par
+Sau 8 giờ, mỗi giờ khoảng cách rút ngắn $60-50=10$ (km): $20:10=2$ (giờ). \ Xe $X$ đuổi kịp xe $Y$ lúc 10 giờ.
+\dapso{10 giờ.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+Lúc 6 giờ, một người đi bộ từ $A$ đến $B$ với vận tốc $5$ km/h. Lúc 7 giờ, một người đi xe đạp từ $A$ với vận tốc $15$ km/h trên cùng con đường. Người đi xe đạp vượt người đi bộ, đi tiếp và đến $B$ sớm hơn người đi bộ $1$ giờ. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Người đi bộ đi trước $5$ km; mỗi giờ xe đạp gần thêm $10$ km; xe đạp vượt người đi bộ sau $0{,}5$ giờ, lúc 7 giờ 30 phút, tại điểm cách $A$ $15\times0{,}5=7{,}5$ km.\par
+Từ đó, cứ đi $1$ km thì người đi bộ cần $\dfrac15$ giờ, người đi xe đạp cần $\dfrac1{15}$ giờ: chênh lệch $\dfrac15-\dfrac1{15}=\dfrac2{15}$ (giờ).\par
+Chênh lệch là $1$ giờ, nên quãng đường còn lại là $1:\dfrac2{15}=7{,}5$ (km).\par $AB=7{,}5+7{,}5=15$ (km).
+\dapso{$15$ km.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+Nhà Hoa và nhà Lan cách nhau $3{,}4$ km. Lúc 7 giờ, Hoa đi bộ về phía nhà Lan với vận tốc $80$ m/phút; lúc 7 giờ 5 phút, Lan đi bộ về phía nhà Hoa với vận tốc $70$ m/phút. Hỏi hai bạn gặp nhau lúc mấy giờ và chỗ gặp nhau cách nhà Hoa bao xa?
+\end{probbox}
+\probsol{
+Đến 7 giờ 5 phút Hoa đã đi được $80\times5=400$ (m); quãng đường còn lại $3\,400-400=3\,000$ (m).\par
+Tổng hai vận tốc $80+70=150$ (m/phút); thời gian $3\,000:150=20$ (phút); hai bạn gặp nhau lúc 7 giờ 25 phút.\par
+Chỗ gặp nhau cách nhà Hoa: $80\times25=2\,000$ (m) $=2$ km.
+\dapso{7 giờ 25 phút; cách nhà Hoa $2$ km.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Xe $X$ đi cả quãng đường $AB$ hết $6$ giờ; xe $Y$ đi cả quãng đường đó hết $4$ giờ. Xe $X$ đi từ $A$ đến $B$; sau đó $1$ giờ, xe $Y$ đi từ $B$ về $A$. Hỏi sau khi xe $Y$ khởi hành bao lâu thì hai xe gặp nhau?
+\end{probbox}
+\probsol{
+Trong giờ đầu xe $X$ đi được $\dfrac16$ quãng đường $AB$; còn lại $\dfrac56$ quãng đường.\par
+Mỗi giờ cả hai xe đi được $\dfrac16+\dfrac14=\dfrac5{12}$ quãng đường.\par Thời gian: $\dfrac56:\dfrac5{12}=2$ (giờ).
+\dapso{$2$ giờ.}}
