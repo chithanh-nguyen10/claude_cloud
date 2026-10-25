@@ -461,8 +461,9 @@ Trong mặt phẳng toạ độ $Oxy$, cho ba điểm $A(-2;\,3)$, $B(4;\,3)$ v�
   \draw[Line,line width=0.3pt] (-3.5,-2.5) grid (5.5,4.5);
   \draw[->,Navy,thick] (-3.7,0)--(5.8,0) node[right,text=Ink]{$x$};
   \draw[->,Navy,thick] (0,-2.7)--(0,4.8) node[above,text=Ink]{$y$};
-  \foreach \t in {-3,-2,-1,1,2,3,4,5}{\node[below=2pt,font=\scriptsize,fill=white,inner sep=1pt] at (\t,0){$\t$};}
-  \foreach \t in {-2,-1,1,2,3,4}{\node[left=2pt,font=\scriptsize,fill=white,inner sep=1pt] at (0,\t){$\t$};}
+  \foreach \t in {-3,-1,1,2,5}{\node[below=1pt,font=\scriptsize] at (\t,0){$\t$};}
+  \foreach \t in {-2,4}{\node[anchor=north east,font=\scriptsize,inner sep=1pt] at (\t-0.04,-0.06){$\t$};}
+  \foreach \t in {-2,1,4}{\node[left=1pt,font=\scriptsize] at (0,\t){$\t$};}
   \fill[tmBlue!20] (-2,3)--(4,3)--(4,-1)--cycle;
   \draw[tmBlue,thick] (-2,3)--(4,3)--(4,-1)--cycle;
   \draw[tmOrange,thick,dashed] (-2,3)--(-2,-1)--(4,-1);
@@ -495,7 +496,7 @@ Hình chữ nhật $ABCD$ có $D$ ``đối diện'' với $B$: $D$ phải thẳn
 
 \begin{exbox}{Ví dụ 2}
 Trong hình dưới, tam giác $ABC$ có $\widehat{A}=55^\circ$, $\widehat{C}=60^\circ$. Các cạnh $AB$ và $CB$ được kéo dài qua $B$; cạnh $BC$ được kéo dài qua $C$. Tính số đo $x$ và $y$.
-\begin{gmFig}[scale=0.75]
+\begin{gmFig}[scale=0.66]
   \coordinate (B) at (0,0); \coordinate (C) at (4,0); \coordinate (A) at (1.787,3.833);
   \coordinate (L) at (-1.6,0); \coordinate (D) at (-0.6,-1.287); \coordinate (E) at (5.6,0);
   \draw[Ink,thick] (L)--(E);
@@ -551,6 +552,7 @@ Tam giác cân có hai cạnh $4$ và $9$ thì cạnh thứ ba bằng $4$ hoặc
 \ans{a) $70^\circ$ và $70^\circ$, hoặc $40^\circ$ và $100^\circ$. \ b) $40^\circ$ và $40^\circ$. \ c) chỉ $(3;5;7)$; chu vi $22$ cm.}
 \end{exbox}
 
+\needspace{12\baselineskip}
 \begin{exbox}{Ví dụ 4}
 Tam giác $OAB$ với $O(0;\,0)$, $A(3;\,0)$, $B(3;\,2)$ được quay quanh gốc $O$ \emph{theo chiều kim đồng hồ} và trở thành tam giác $OA'B'$ với $A'(0;\,-3)$, $B'(2;\,-3)$. Hỏi góc quay bằng bao nhiêu độ? Nếu quay ngược chiều kim đồng hồ thì phải quay bao nhiêu độ để được cùng kết quả?
 \guide
@@ -763,6 +765,7 @@ Vậy chọn \textbf{(A)}.
 \ans{(A) $85^\circ$}
 }
 
+\needspace{14\baselineskip}
 \begin{probbox}{3}{\relax}
 Quay tứ giác tô màu quanh điểm $Z$ \emph{theo chiều kim đồng hồ} (chiều của mũi tên trong hình) thì được tứ giác không tô màu. Góc quay xấp xỉ bằng
 \begin{gmFig}[scale=0.85]
@@ -1077,6 +1080,7 @@ Vậy chọn \textbf{(B)}.
 \begin{tipbox}Với hình vuông, \emph{luôn} tìm cạnh trước. Bảng nhỏ nên nhớ: cạnh $5$ $\to$ chu vi $20$, diện tích $25$; cạnh $9$ $\to$ chu vi $36$, diện tích $81$; cạnh $10$ $\to$ chu vi $40$, diện tích $100$. Khi cạnh tăng gấp đôi, chu vi tăng gấp đôi nhưng diện tích tăng gấp \emph{bốn}.\end{tipbox}
 }
 
+\needspace{10\baselineskip}
 \begin{probbox}{12}{\relax}
 Hai tam giác cân, mỗi tam giác có ít nhất một góc bằng $70^\circ$. Ở tam giác thứ nhất, số đo (tính bằng độ) của mỗi góc trong hai góc còn lại là một số chẵn. Ở tam giác thứ hai, số đo của mỗi góc trong hai góc còn lại là một số lẻ. Gọi $S$ là tổng hai góc bằng nhau của tam giác thứ nhất, $T$ là tổng hai góc bằng nhau của tam giác thứ hai. Giá trị của $S+T$ là
 \choices{$280^\circ$}{$250^\circ$}{$220^\circ$}{$200^\circ$}{$300^\circ$}

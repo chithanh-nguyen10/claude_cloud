@@ -455,8 +455,9 @@ In the coordinate plane $Oxy$, consider the points $A(-2,\,3)$, $B(4,\,3)$ and $
   \draw[Line,line width=0.3pt] (-3.5,-2.5) grid (5.5,4.5);
   \draw[->,Navy,thick] (-3.7,0)--(5.8,0) node[right,text=Ink]{$x$};
   \draw[->,Navy,thick] (0,-2.7)--(0,4.8) node[above,text=Ink]{$y$};
-  \foreach \t in {-3,-2,-1,1,2,3,4,5}{\node[below=2pt,font=\scriptsize,fill=white,inner sep=1pt] at (\t,0){$\t$};}
-  \foreach \t in {-2,-1,1,2,3,4}{\node[left=2pt,font=\scriptsize,fill=white,inner sep=1pt] at (0,\t){$\t$};}
+  \foreach \t in {-3,-1,1,2,5}{\node[below=1pt,font=\scriptsize] at (\t,0){$\t$};}
+  \foreach \t in {-2,4}{\node[anchor=north east,font=\scriptsize,inner sep=1pt] at (\t-0.04,-0.06){$\t$};}
+  \foreach \t in {-2,1,4}{\node[left=1pt,font=\scriptsize] at (0,\t){$\t$};}
   \fill[tmBlue!20] (-2,3)--(4,3)--(4,-1)--cycle;
   \draw[tmBlue,thick] (-2,3)--(4,3)--(4,-1)--cycle;
   \draw[tmOrange,thick,dashed] (-2,3)--(-2,-1)--(4,-1);
@@ -489,7 +490,7 @@ In rectangle $ABCD$, $D$ is ``opposite'' $B$: $D$ must be vertically in line wit
 
 \begin{exbox}{Example 2}
 In the figure below, triangle $ABC$ has $\widehat{A}=55^\circ$, $\widehat{C}=60^\circ$. Sides $AB$ and $CB$ are extended beyond $B$; side $BC$ is extended beyond $C$. Find the measures $x$ and $y$.
-\begin{gmFig}[scale=0.75]
+\begin{gmFig}[scale=0.66]
   \coordinate (B) at (0,0); \coordinate (C) at (4,0); \coordinate (A) at (1.787,3.833);
   \coordinate (L) at (-1.6,0); \coordinate (D) at (-0.6,-1.287); \coordinate (E) at (5.6,0);
   \draw[Ink,thick] (L)--(E);
@@ -545,6 +546,7 @@ An isosceles triangle with two sides $4$ and $9$ has its third side equal to $4$
 \ans{a) $70^\circ$ and $70^\circ$, or $40^\circ$ and $100^\circ$. \ b) $40^\circ$ and $40^\circ$. \ c) only $(3,5,7)$; perimeter $22$ cm.}
 \end{exbox}
 
+\needspace{12\baselineskip}
 \begin{exbox}{Example 4}
 Triangle $OAB$ with $O(0,\,0)$, $A(3,\,0)$, $B(3,\,2)$ is rotated about the origin $O$ \emph{clockwise} and becomes triangle $OA'B'$ with $A'(0,\,-3)$, $B'(2,\,-3)$. What is the angle of rotation? If we rotate counterclockwise instead, through what angle must we turn to get the same result?
 \guide
@@ -757,6 +759,7 @@ So the answer is \textbf{(A)}.
 \ans{(A) $85^\circ$}
 }
 
+\needspace{14\baselineskip}
 \begin{probbox}{3}{\relax}
 Rotating the shaded quadrilateral about point $Z$ \emph{clockwise} (in the direction of the arrow in the figure) produces the unshaded quadrilateral. The angle of rotation is approximately
 \begin{gmFig}[scale=0.85]
@@ -1071,6 +1074,7 @@ So the answer is \textbf{(B)}.
 \begin{tipbox}For a square, \emph{always} find the side first. A small table worth remembering: side $5$ $\to$ perimeter $20$, area $25$; side $9$ $\to$ perimeter $36$, area $81$; side $10$ $\to$ perimeter $40$, area $100$. When the side doubles, the perimeter doubles but the area becomes \emph{four} times as large.\end{tipbox}
 }
 
+\needspace{10\baselineskip}
 \begin{probbox}{12}{\relax}
 Two isosceles triangles each have at least one angle of $70^\circ$. In the first triangle, each of the two remaining angles measures an even number of degrees. In the second triangle, each of the two remaining angles measures an odd number of degrees. Let $S$ be the sum of the two equal angles of the first triangle and $T$ the sum of the two equal angles of the second triangle. The value of $S+T$ is
 \choices{$280^\circ$}{$250^\circ$}{$220^\circ$}{$200^\circ$}{$300^\circ$}

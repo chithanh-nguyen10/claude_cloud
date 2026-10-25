@@ -6,16 +6,17 @@
   \draw[Navy,line width=0.8pt] (0,-0.32)--(0,0.32) (-0.66,0)--(0.66,0);
   \node[inner sep=0pt] at (-0.33,0.16){$#1$};\node[inner sep=0pt] at (0.33,0.16){$#2$};
   \node[inner sep=0pt] at (-0.33,-0.16){$#3$};\node[inner sep=0pt] at (0.33,-0.16){$#4$};\end{tikzpicture}}
-% \aeaScale{left}{right}: một chiếc cân thăng bằng, vật đặt trên hai đĩa
-\providecommand{\aeaScale}[2]{\begin{tikzpicture}[baseline=0pt,font=\small]
+% \rvaaScale{left}{right}: một chiếc cân thăng bằng; các vật đứng đúng trên hai đĩa cân
+\providecommand{\rvaaScale}[2]{\begin{tikzpicture}[baseline=0pt,font=\small]
   \draw[Ink,line width=1.1pt] (-1.7,0)--(1.7,0);
-  \fill[Slate] (0,0)--(-0.22,-0.38)--(0.22,-0.38)--cycle;
+  \fill[Slate] (0,-0.02)--(-0.22,-0.38)--(0.22,-0.38)--cycle;
   \draw[Slate,line width=1pt] (-0.4,-0.38)--(0.4,-0.38);
-  \node[above=1pt] at (-1.05,0){#1};\node[above=1pt] at (1.05,0){#2};\end{tikzpicture}}
-% ký hiệu hình có màu cho các bài toán cân
-\providecommand{\aeaTri}{\textcolor{tmOrange}{\scalebox{1.5}{$\blacktriangle$}}}
-\providecommand{\aeaSq}{\textcolor{tmBlue}{\scalebox{1.5}{$\blacksquare$}}}
-\providecommand{\aeaCir}{\textcolor{tmGreen}{\scalebox{2.6}{$\bullet$}}}
+  \node[anchor=south,inner sep=0pt] at (-1.05,0.04){#1};\node[anchor=south,inner sep=0pt] at (1.05,0.04){#2};\end{tikzpicture}}
+% các hình phẳng (không hiệu ứng 3D) cho bài toán cân, đứng trên dòng kẻ; \rvaaWt{3 kg}: quả cân
+\providecommand{\rvaaSq}{\tikz[baseline=0pt]{\draw[tmBlue!80!black,line width=0.8pt,fill=tmBlue!25] (0,0) rectangle (0.3,0.3);}}
+\providecommand{\rvaaTri}{\tikz[baseline=0pt]{\draw[tmOrange!85!black,line width=0.8pt,fill=tmOrange!25] (0,0)--(0.34,0)--(0.17,0.3)--cycle;}}
+\providecommand{\rvaaCir}{\tikz[baseline=0pt]{\draw[tmGreen!80!black,line width=0.8pt,fill=tmGreen!25] (0.15,0.15) circle (0.15);}}
+\providecommand{\rvaaWt}[1]{\tikz[baseline=0pt]{\node[draw=Ink,line width=0.6pt,anchor=south,inner sep=2pt,font=\footnotesize] at (0,0){#1};}}
 
 \begin{knowbox}
 \textbf{Ý tưởng lớn.} Đại số là \emph{ngôn ngữ của các con số chưa biết}. Thay vì nói dài dòng
@@ -182,7 +183,7 @@ Cân vẫn thăng bằng nếu ta:
 Hệ quả quen thuộc là \textbf{quy tắc chuyển vế}: chuyển một số hạng từ vế này sang vế kia thì phải \emph{đổi dấu} số hạng đó.
 
 \begin{center}
-\aeaScale{\aeaSq\,\aeaSq\ \ \fbox{\footnotesize 3 kg}}{\fbox{\footnotesize 11 kg}}
+\rvaaScale{\rvaaSq\,\rvaaSq\ \ \rvaaWt{3 kg}}{\rvaaWt{11 kg}}
 \end{center}
 \emph{Ví dụ:} hai hộp như nhau cùng quả cân $3$ kg cân bằng với $11$ kg: $2x+3=11$.
 Bỏ quả cân $3$ kg ở cả hai đĩa: $2x=11-3=8$. Chia đôi cả hai đĩa: $x=8:2=4$. Mỗi hộp nặng $4$ kg.
@@ -543,9 +544,9 @@ $\dfrac{2}{3}$ giờ $=\dfrac{2}{3}\cdot 60=40$ phút. Vậy $t=1$ giờ $40$ ph
 \begin{exbox}{Ví dụ 7 \ (Bài toán chiếc cân)}
 Cả hai chiếc cân dưới đây đều thăng bằng. Các hình giống nhau thì nặng bằng nhau.
 \begin{center}
-\aeaScale{\aeaSq}{\aeaTri\,\aeaCir}\hspace{1.2cm}\aeaScale{\aeaSq\,\aeaCir}{\aeaTri\,\aeaTri\,\aeaTri}
+\rvaaScale{\rvaaSq}{\rvaaTri\,\rvaaCir}\hspace{1.2cm}\rvaaScale{\rvaaSq\,\rvaaCir}{\rvaaTri\,\rvaaTri\,\rvaaTri}
 \end{center}
-Hỏi hai hình vuông \aeaSq\,\aeaSq\ cân bằng với bao nhiêu hình tròn \aeaCir?
+Hỏi hai hình vuông \rvaaSq\,\rvaaSq\ cân bằng với bao nhiêu hình tròn \rvaaCir?
 \guide
 \step{1}{Viết mỗi chiếc cân thành một đẳng thức}
 Kí hiệu $V$, $T$, $O$ là khối lượng hình vuông, tam giác, hình tròn. Cân 1: $V=T+O$. \ Cân 2: $V+O=3T$.

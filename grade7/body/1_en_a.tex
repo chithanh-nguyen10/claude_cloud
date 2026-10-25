@@ -6,16 +6,17 @@
   \draw[Navy,line width=0.8pt] (0,-0.32)--(0,0.32) (-0.66,0)--(0.66,0);
   \node[inner sep=0pt] at (-0.33,0.16){$#1$};\node[inner sep=0pt] at (0.33,0.16){$#2$};
   \node[inner sep=0pt] at (-0.33,-0.16){$#3$};\node[inner sep=0pt] at (0.33,-0.16){$#4$};\end{tikzpicture}}
-% \aeaScale{left}{right}: a balanced scale with objects on both pans
-\providecommand{\aeaScale}[2]{\begin{tikzpicture}[baseline=0pt,font=\small]
+% \rvaaScale{left}{right}: a balanced scale; the objects stand exactly on the two pans
+\providecommand{\rvaaScale}[2]{\begin{tikzpicture}[baseline=0pt,font=\small]
   \draw[Ink,line width=1.1pt] (-1.7,0)--(1.7,0);
-  \fill[Slate] (0,0)--(-0.22,-0.38)--(0.22,-0.38)--cycle;
+  \fill[Slate] (0,-0.02)--(-0.22,-0.38)--(0.22,-0.38)--cycle;
   \draw[Slate,line width=1pt] (-0.4,-0.38)--(0.4,-0.38);
-  \node[above=1pt] at (-1.05,0){#1};\node[above=1pt] at (1.05,0){#2};\end{tikzpicture}}
-% coloured shapes for the balance problems
-\providecommand{\aeaTri}{\textcolor{tmOrange}{\scalebox{1.5}{$\blacktriangle$}}}
-\providecommand{\aeaSq}{\textcolor{tmBlue}{\scalebox{1.5}{$\blacksquare$}}}
-\providecommand{\aeaCir}{\textcolor{tmGreen}{\scalebox{2.6}{$\bullet$}}}
+  \node[anchor=south,inner sep=0pt] at (-1.05,0.04){#1};\node[anchor=south,inner sep=0pt] at (1.05,0.04){#2};\end{tikzpicture}}
+% flat shapes (no 3D effects) for scale problems, standing on the baseline; \rvaaWt{3 kg}: a weight
+\providecommand{\rvaaSq}{\tikz[baseline=0pt]{\draw[tmBlue!80!black,line width=0.8pt,fill=tmBlue!25] (0,0) rectangle (0.3,0.3);}}
+\providecommand{\rvaaTri}{\tikz[baseline=0pt]{\draw[tmOrange!85!black,line width=0.8pt,fill=tmOrange!25] (0,0)--(0.34,0)--(0.17,0.3)--cycle;}}
+\providecommand{\rvaaCir}{\tikz[baseline=0pt]{\draw[tmGreen!80!black,line width=0.8pt,fill=tmGreen!25] (0.15,0.15) circle (0.15);}}
+\providecommand{\rvaaWt}[1]{\tikz[baseline=0pt]{\node[draw=Ink,line width=0.6pt,anchor=south,inner sep=2pt,font=\footnotesize] at (0,0){#1};}}
 
 \begin{knowbox}
 \textbf{The big idea.} Algebra is \emph{the language of unknown numbers}. Instead of saying at length
@@ -182,7 +183,7 @@ The scales stay balanced if we:
 A familiar consequence is the \textbf{rule for moving terms}: when a term moves from one side to the other, its \emph{sign changes}.
 
 \begin{center}
-\aeaScale{\aeaSq\,\aeaSq\ \ \fbox{\footnotesize 3 kg}}{\fbox{\footnotesize 11 kg}}
+\rvaaScale{\rvaaSq\,\rvaaSq\ \ \rvaaWt{3 kg}}{\rvaaWt{11 kg}}
 \end{center}
 \emph{Example:} two identical boxes plus a $3$ kg weight balance $11$ kg: $2x+3=11$.
 Remove the $3$ kg weight from both pans: $2x=11-3=8$. Halve both pans: $x=8\div 2=4$. Each box weighs $4$ kg.
@@ -543,9 +544,9 @@ $\dfrac{2}{3}$ hour $=\dfrac{2}{3}\cdot 60=40$ minutes. So $t=1$ hour $40$ minut
 \begin{exbox}{Example 7 \ (A balance-scale problem)}
 Both scales below are balanced. Identical shapes have equal weights.
 \begin{center}
-\aeaScale{\aeaSq}{\aeaTri\,\aeaCir}\hspace{1.2cm}\aeaScale{\aeaSq\,\aeaCir}{\aeaTri\,\aeaTri\,\aeaTri}
+\rvaaScale{\rvaaSq}{\rvaaTri\,\rvaaCir}\hspace{1.2cm}\rvaaScale{\rvaaSq\,\rvaaCir}{\rvaaTri\,\rvaaTri\,\rvaaTri}
 \end{center}
-How many circles \aeaCir\ balance two squares \aeaSq\,\aeaSq?
+How many circles \rvaaCir\ balance two squares \rvaaSq\,\rvaaSq?
 \guide
 \step{1}{Write each scale as an equation}
 Let $S$, $T$, $C$ be the weights of a square, a triangle and a circle. Scale 1: $S=T+C$. \ Scale 2: $S+C=3T$.
