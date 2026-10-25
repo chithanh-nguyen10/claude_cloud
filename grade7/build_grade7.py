@@ -104,8 +104,8 @@ def cover(lang, teacher, chapters):
      at ([xshift=2cm,yshift=-7.6cm]current page.north west) {%(ed)s};
   \node[anchor=south,text=Slate,font=\small] at ([yshift=1.6cm]current page.south)
      {ThinkAlgo --- From Math Thinking to Code \quad\textbullet\quad thinkalgo.com};
-\end{tikzpicture}
-\vspace*{7.7cm}
+\end{tikzpicture}\par
+\vspace*{7.0cm}
 {\Large\bfseries\color{Navy}%(toc)s}\par\vspace{2pt}
 {\color{tmBlue}\rule{\linewidth}{1.5pt}}\par\vspace{0.4cm}
 %(rows)s
