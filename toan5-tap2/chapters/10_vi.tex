@@ -1,0 +1,507 @@
+\shead{Chuyển động trên đường khép kín}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Vận động viên chạy trên đường đua, người đạp xe quanh bờ hồ, kim đồng hồ quay trên mặt đồng hồ\ldots\ đều chuyển động trên một đường khép kín. Sau mỗi vòng, vật chuyển động lại về đúng vị trí ban đầu, và có thể đi lặp lại nhiều vòng.
+\item Nếu chu vi một vòng là $C$ và quãng đường đã đi là $s$ thì $s:C$ cho biết số vòng trọn vẹn, còn số dư cho biết vật đã vượt quá điểm xuất phát bao xa.
+Với đường đua hình tròn: $C=\text{đường kính}\times3{,}14$.
+\item \textbf{Chú ý:} muốn biết còn phải đi tiếp bao xa nữa mới về điểm xuất phát thì lấy \emph{chu vi trừ đi số dư}, không phải chính số dư.
+\end{itemize}\end{knowbox}
+\gap
+\shead{Hai vật xuất phát cùng lúc, cùng một điểm}
+\begin{knowbox}
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\footnotesize]
+\begin{scope}
+\fill[tmGreen!15,even odd rule] (0,0) circle(1.35) (0,0) circle(1.0);
+\draw[geo] (0,0) circle(1.35) (0,0) circle(1.0);
+\fill[tmOrange] (0,-1.175) circle(0.09); \node[lbl,below] at (0,-1.4){xuất phát};
+\draw[->,tmBlue,line width=1.2pt] (-75:1.65) arc(-75:20:1.65); \node[lbl,text=tmBlue] at (5:2.1){$v_1$};
+\draw[->,tmPurple,line width=1.2pt] (-105:1.65) arc(-105:-200:1.65); \node[lbl,text=tmPurple] at (-185:2.1){$v_2$};
+\node[lbl,align=center] at (0,-2.35){\textbf{ngược chiều}\\ thời gian gặp nhau $=C:(v_1+v_2)$};
+\end{scope}
+\begin{scope}[xshift=6.2cm]
+\fill[tmGreen!15,even odd rule] (0,0) circle(1.35) (0,0) circle(1.0);
+\draw[geo] (0,0) circle(1.35) (0,0) circle(1.0);
+\fill[tmOrange] (0,-1.175) circle(0.09); \node[lbl,below] at (0,-1.4){xuất phát};
+\draw[->,tmBlue,line width=1.2pt] (-75:1.6) arc(-75:60:1.6); \node[lbl,text=tmBlue] at (40:2.05){$v_1$};
+\draw[->,tmPurple,line width=1.2pt] (-75:1.9) arc(-75:0:1.9); \node[lbl,text=tmPurple] at (-20:2.3){$v_2$};
+\node[lbl,align=center] at (0,-2.35){\textbf{cùng chiều} ($v_1>v_2$)\\ thời gian gặp nhau $=C:(v_1-v_2)$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Ngược chiều:} hai vật gặp nhau mỗi khi cả hai cùng đi được một vòng.
+\item \textbf{Cùng chiều:} hai vật gặp nhau mỗi khi vật nhanh đi hơn vật chậm đúng một vòng (vật nhanh ``bắt vòng'' vật chậm).
+\item Sau lần gặp thứ nhất, tình huống lặp lại: lần gặp thứ hai, thứ ba, \ldots\ xảy ra sau $2;\ 3;\ \ldots$ lần khoảng thời gian đó.
+\item Nếu hai vật không xuất phát cùng một điểm thì với lần gặp đầu tiên, ta thay $C$ bằng khoảng cách giữa hai vật.
+\end{itemize}
+\textbf{Kim đồng hồ} quay trên mặt đồng hồ có $60$ vạch chia phút: kim phút đi $1$ vạch mỗi phút, kim giờ đi $\dfrac1{12}$ vạch mỗi phút.
+\end{knowbox}
+\gap
+\shead{Đi đi lại lại trên một quãng đường}
+\begin{knowbox}
+Hai người cùng lúc xuất phát từ hai đầu A và B của một quãng đường, đi ngược chiều về phía nhau; mỗi người đến đầu kia thì quay lại ngay.
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\footnotesize]
+\draw[line width=1.2pt,Slate] (0,0)--(9,0);
+\foreach \x/\n in {0/A,9/B}{\fill[Ink] (\x,0) circle(0.06); \node[lbl,below] at (\x,-0.05){\n};}
+\fill[tmOrange] (3.6,0) circle(0.07); \node[lbl,below] at (3.6,-0.05){C};
+\fill[tmOrange] (7.2,0) circle(0.07); \node[lbl,below] at (7.2,-0.05){D};
+\draw[->,tmBlue,line width=1pt] (0,0.3)--(9,0.3)--(9,0.6)--(7.2,0.6);
+\draw[->,tmPurple,line width=1pt] (9,-0.6)--(0,-0.6)--(0,-0.9)--(7.2,-0.9);
+\node[lbl,text=tmBlue,anchor=east] at (-0.1,0.3){người thứ nhất};
+\node[lbl,text=tmPurple,anchor=west] at (9.1,-0.6){người thứ hai};
+\end{tikzpicture}
+\end{center}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Đến lần gặp thứ nhất (tại C), cả hai người đi được tổng cộng \emph{một} lần quãng đường AB.
+\item Đến lần gặp thứ hai (tại D, sau khi cả hai đã quay lại), cả hai đi được tổng cộng \emph{ba} lần quãng đường AB; do đó thời gian gấp $3$ lần, và mỗi người đi được quãng đường gấp $3$ lần quãng đường mình đã đi đến lần gặp thứ nhất.
+\end{itemize}
+\note{Điều này đúng khi người nhanh đi chưa đến gấp đôi người chậm, để không ai bị đuổi kịp từ phía sau trước lần gặp thứ hai.}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Minh và Hà đạp xe quanh bờ hồ có chu vi $1{,}5$ km. Minh đi với vận tốc $12$ km/giờ, Hà đi với vận tốc $15$ km/giờ. Hai bạn xuất phát cùng lúc, cùng một điểm và đi cùng chiều. Hỏi sau bao lâu hai bạn gặp nhau lần thứ nhất (không tính lần xuất phát)?
+\guide
+Để gặp lại nhau, Hà phải đi hơn Minh đúng một vòng hồ, tức là $1{,}5$ km.\par
+Hiệu vận tốc: $15-12=3$ (km/giờ).\par
+Thời gian: $1{,}5:3=0{,}5$ (giờ) $=30$ phút.
+\dapso{$30$ phút.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Trên đường chạy dài $400$ m, Tú chạy với vận tốc $3$ m/giây, Quân chạy với vận tốc $5$ m/giây. Hai bạn xuất phát cùng lúc, cùng một điểm và chạy ngược chiều nhau.
+\begin{cols3}
+\pa{a} Sau bao lâu hai bạn gặp nhau lần thứ nhất? & \pa{b} Chỗ gặp nhau cách điểm xuất phát bao xa theo chiều chạy của Tú? & \pa{c} Trong $10$ phút hai bạn gặp nhau bao nhiêu lần?
+\end{cols3}
+\guide
+\pa{a} Cả hai cùng chạy được một vòng: $400:(3+5)=50$ (giây).\par
+\pa{b} Trong $50$ giây Tú chạy được $3\times50=150$ (m): chỗ gặp nhau cách điểm xuất phát $150$ m theo chiều chạy của Tú (và $250$ m theo chiều chạy của Quân).\par
+\pa{c} $10$ phút $=600$ giây; cứ $50$ giây hai bạn gặp nhau một lần, nên số lần gặp: $600:50=12$ (lần).
+\dapso{\pa{a} $50$ giây;\quad \pa{b} $150$ m;\quad \pa{c} $12$ lần.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Dũng chạy bộ từ nhà mình quanh một khu phố có chu vi $1{,}8$ km với vận tốc $8$ km/giờ. Sau $45$ phút, Dũng phải chạy tiếp (theo chiều cũ) bao xa nữa mới về đến nhà?
+\guide
+$45$ phút $=0{,}75$ giờ; quãng đường đã chạy: $8\times0{,}75=6$ (km).\par
+$6:1{,}8=3$ vòng, dư $0{,}6$ km ($6=3\times1{,}8+0{,}6$): Dũng đã chạy qua nhà mình $0{,}6$ km.\par
+Muốn về đến nhà, Dũng còn phải chạy: $1{,}8-0{,}6=1{,}2$ (km).
+\note{Tránh nhầm lẫn khi trả lời ngay là $0{,}6$ km: đó là quãng đường Dũng đã chạy \emph{qua} nhà, không phải quãng đường còn phải chạy.}
+\dapso{$1{,}2$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Một đường chạy hình tròn có đường kính $100$ m. Hai bạn xuất phát cùng lúc, cùng một điểm và chạy cùng chiều với vận tốc $4{,}5$ m/giây và $2{,}5$ m/giây. Hỏi sau bao lâu bạn chạy nhanh đuổi kịp bạn chạy chậm lần thứ nhất?
+\guide
+Chu vi đường chạy: $100\times3{,}14=314$ (m).\par
+Hiệu vận tốc: $4{,}5-2{,}5=2$ (m/giây).\par
+Thời gian: $314:2=157$ (giây) $=2$ phút $37$ giây.
+\dapso{$2$ phút $37$ giây.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Cùng một lúc, một bạn đi từ A về phía B và một bạn đi từ B về phía A. Hai bạn gặp nhau lần thứ nhất tại C cách A $14$ km. Sau đó mỗi bạn đi tiếp đến đầu kia rồi quay lại ngay; hai bạn gặp nhau lần thứ hai tại D cách B $8$ km. Tính độ dài quãng đường AB.
+\guide
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\footnotesize]
+\draw[line width=1.2pt,Slate] (0,0)--(8.5,0);
+\foreach \x/\n in {0/A,8.5/B}{\fill[Ink] (\x,0) circle(0.06); \node[lbl,below] at (\x,-0.05){\n};}
+\fill[tmOrange] (3.5,0) circle(0.07); \node[lbl,below] at (3.5,-0.05){C};
+\fill[tmOrange] (6.5,0) circle(0.07); \node[lbl,below] at (6.5,-0.05){D};
+\draw[|<->|,Slate] (0,0.35)--node[above,dim]{$14$ km}(3.5,0.35);
+\draw[|<->|,Slate] (6.5,0.35)--node[above,dim]{$8$ km}(8.5,0.35);
+\end{tikzpicture}
+\end{center}
+Đến lần gặp thứ nhất, cả hai bạn đi được một lần quãng đường AB; bạn đi từ A đi được $14$ km.\par
+Đến lần gặp thứ hai, cả hai bạn đi được ba lần quãng đường AB, nên bạn đi từ A đi được $14\times3=42$ (km).\par
+Bạn đó đã đi từ A đến B rồi quay lại $8$ km: $42=\text{AB}+8$, nên $\text{AB}=42-8=34$ (km).
+\note{Thử lại: tỉ số vận tốc là $14:20$; bạn đi từ B đi được $20\times3=60=34+26$ km, tức là đến A rồi quay lại $26$ km, đúng tại chỗ cách B $8$ km.}
+\dapso{$34$ km.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Trên đường chạy dài $400$ m, hai vận động viên xuất phát cùng lúc, cùng một điểm và chạy ngược chiều nhau với vận tốc $4$ m/giây và $6$ m/giây. Hỏi sau bao lâu hai người gặp nhau lần thứ nhất?
+\end{probbox}
+\probsol{
+Hai người cùng chạy được một vòng.\par Tổng vận tốc: $4+6=10$ (m/giây).\par Thời gian: $400:10=40$ (giây).
+\dapso{$40$ giây.}}
+\gap
+\begin{probbox}{2}{\relax}
+Hai vận động viên ở Bài 1 (vận tốc $4$ m/giây và $6$ m/giây) xuất phát cùng lúc, cùng một điểm trên đường chạy $400$ m nhưng chạy cùng chiều. Hỏi sau bao lâu hai người gặp nhau lần thứ nhất?
+\end{probbox}
+\probsol{
+Người chạy nhanh phải chạy hơn người kia đúng một vòng.\par Hiệu vận tốc: $6-4=2$ (m/giây).\par Thời gian: $400:2=200$ (giây) $=3$ phút $20$ giây.
+\dapso{$3$ phút $20$ giây.}}
+\gap
+\begin{probbox}{3}{\relax}
+Một con đường quanh hồ có chu vi $3$ km. Hai người đi xe đạp xuất phát cùng lúc, cùng một điểm, đi ngược chiều nhau với vận tốc $12$ km/giờ và $18$ km/giờ. Hỏi sau bao nhiêu phút hai người gặp nhau?
+\end{probbox}
+\probsol{
+Tổng vận tốc: $12+18=30$ (km/giờ).\par Thời gian: $3:30=0{,}1$ (giờ) $=6$ phút.
+\dapso{$6$ phút.}}
+\gap
+\begin{probbox}{4}{\relax}
+Hai người đi xe đạp ở Bài 3 bây giờ đi cùng chiều quanh hồ có chu vi $3$ km. Hỏi sau bao lâu người đi nhanh đuổi kịp người kia lần thứ nhất?
+\end{probbox}
+\probsol{
+Hiệu vận tốc: $18-12=6$ (km/giờ).\par Thời gian: $3:6=0{,}5$ (giờ) $=30$ phút.
+\dapso{$30$ phút.}}
+\gap
+\begin{probbox}{5}{\relax}
+Đường đi bộ trong công viên là một vòng khép kín dài $900$ m. Lan đi với vận tốc $60$ m/phút, Mai đi với vận tốc $90$ m/phút; hai bạn xuất phát cùng lúc từ cổng và đi cùng chiều. Hỏi sau bao lâu Mai đuổi kịp Lan lần thứ nhất, và khi đó mỗi bạn đã đi được mấy vòng?
+\end{probbox}
+\probsol{
+Hiệu vận tốc: $90-60=30$ (m/phút).\par Thời gian: $900:30=30$ (phút).\par
+Lan: $60\times30=1\,800$ m $=2$ vòng; Mai: $90\times30=2\,700$ m $=3$ vòng.
+\dapso{sau $30$ phút; Lan $2$ vòng, Mai $3$ vòng.}}
+\gap
+\begin{probbox}{6}{\relax}
+An chạy quanh đường chạy dài $800$ m với vận tốc $150$ m/phút trong $14$ phút. Hỏi An đã chạy được mấy vòng trọn vẹn, và phải chạy thêm bao nhiêu mét nữa mới hết vòng đang chạy?
+\end{probbox}
+\probsol{
+Quãng đường: $150\times14=2\,100$ (m).\par $2\,100=2\times800+500$: $2$ vòng trọn vẹn và thêm $500$ m.\par
+Để hết vòng thứ ba: $800-500=300$ (m).
+\dapso{$2$ vòng trọn vẹn; còn $300$ m.}}
+\gap
+\begin{probbox}{7}{\relax}
+Một đường đua xe đạp hình tròn có đường kính $50$ m. Một bạn nhỏ đạp xe $5$ vòng. Hỏi bạn đó đi được bao nhiêu mét?
+\end{probbox}
+\probsol{
+Chu vi một vòng: $50\times3{,}14=157$ (m).\par $5$ vòng: $157\times5=785$ (m).
+\dapso{$785$ m.}}
+\gap
+\begin{probbox}{8}{\relax}
+Một đường chạy hình tròn có đường kính $100$ m. Hai bạn xuất phát cùng lúc, cùng một điểm và chạy ngược chiều nhau với vận tốc $3$ m/giây và $5$ m/giây. Hỏi sau bao lâu hai bạn gặp nhau?
+\end{probbox}
+\probsol{
+Chu vi: $100\times3{,}14=314$ (m).\par Tổng vận tốc: $3+5=8$ (m/giây).\par Thời gian: $314:8=39{,}25$ (giây).
+\dapso{$39{,}25$ giây.}}
+\gap
+\begin{probbox}{9}{\relax}
+Hai người đi xe đạp cùng chiều quanh một vòng đua dài $2$ km với vận tốc $20$ km/giờ và $25$ km/giờ, xuất phát cùng lúc, cùng một điểm. Trong $2$ giờ, người đi nhanh vượt người đi chậm bao nhiêu lần?
+\end{probbox}
+\probsol{
+Trong $2$ giờ, người đi nhanh đi hơn người kia $(25-20)\times2=10$ (km).\par Mỗi lần vượt ứng với đi hơn một vòng: $10:2=5$ (lần).
+\dapso{$5$ lần.}}
+\gap
+\begin{probbox}{10}{\relax}
+Hai người xuất phát cùng lúc, cùng một điểm trên đường chạy dài $500$ m và chạy ngược chiều nhau với vận tốc $3$ m/giây và $2$ m/giây. Trong $10$ phút, hai người gặp nhau bao nhiêu lần?
+\end{probbox}
+\probsol{
+Cứ $500:(3+2)=100$ (giây) hai người gặp nhau một lần.\par $10$ phút $=600$ giây; $600:100=6$ (lần).
+\dapso{$6$ lần.}}
+\gap
+\begin{probbox}{11}{\relax}
+Hai bạn chạy cùng chiều quanh một vòng dài $1$ km, xuất phát cùng lúc, cùng một điểm. Bạn chạy nhanh có vận tốc $250$ m/phút và đuổi kịp bạn kia lần thứ nhất sau $10$ phút. Tính vận tốc của bạn chạy chậm.
+\end{probbox}
+\probsol{
+Hiệu vận tốc: $1\,000:10=100$ (m/phút).\par Vận tốc bạn chạy chậm: $250-100=150$ (m/phút).
+\dapso{$150$ m/phút.}}
+\gap
+\begin{probbox}{12}{\relax}
+Hai bạn chạy ngược chiều quanh một vòng dài $600$ m, xuất phát cùng lúc, cùng một điểm và gặp nhau sau $2$ phút. Một bạn chạy với vận tốc $140$ m/phút. Tính vận tốc của bạn kia.
+\end{probbox}
+\probsol{
+Tổng vận tốc: $600:2=300$ (m/phút).\par Vận tốc bạn kia: $300-140=160$ (m/phút).
+\dapso{$160$ m/phút.}}
+\gap
+\begin{probbox}{13}{\relax}
+Trên đường chạy dài $400$ m, Bảo xuất phát ở phía trước Khoa $100$ m và hai bạn chạy cùng chiều. Khoa chạy với vận tốc $5$ m/giây, Bảo chạy với vận tốc $3$ m/giây. Hỏi sau bao lâu Khoa đuổi kịp Bảo?
+\end{probbox}
+\probsol{
+Khoa phải chạy hơn Bảo $100$ m.\par Hiệu vận tốc: $5-3=2$ (m/giây).\par Thời gian: $100:2=50$ (giây).
+\dapso{$50$ giây.}}
+\gap
+\begin{probbox}{14}{\relax}
+Hùng chạy một vòng sân hết $4$ phút, Việt chạy một vòng hết $6$ phút. Hai bạn xuất phát cùng lúc, cùng một điểm và chạy cùng chiều. Hỏi sau bao lâu Hùng đuổi kịp Việt lần thứ nhất?
+\end{probbox}
+\probsol{
+Mỗi phút Hùng chạy được $\dfrac14$ vòng, Việt chạy được $\dfrac16$ vòng; Hùng chạy hơn Việt $\dfrac14-\dfrac16=\dfrac1{12}$ vòng.\par
+Để chạy hơn một vòng: $1:\dfrac1{12}=12$ (phút).
+\dapso{$12$ phút.}}
+\gap
+\begin{probbox}{15}{\relax}
+Hùng và Việt (chạy một vòng hết $4$ phút và $6$ phút) bây giờ xuất phát cùng lúc và chạy ngược chiều nhau. Hỏi sau bao lâu hai bạn gặp nhau?
+\end{probbox}
+\probsol{
+Mỗi phút cả hai bạn chạy được $\dfrac14+\dfrac16=\dfrac5{12}$ vòng.\par
+Thời gian: $1:\dfrac5{12}=\dfrac{12}5=2{,}4$ (phút) $=2$ phút $24$ giây.
+\dapso{$2$ phút $24$ giây.}}
+\gap
+\begin{probbox}{16}{\relax}
+Một bạn chạy mỗi vòng hết $3$ phút, một bạn khác chạy mỗi vòng hết $5$ phút. Hai bạn xuất phát cùng lúc từ vạch xuất phát. Hỏi sau bao lâu thì lần đầu tiên cả hai bạn cùng có mặt ở vạch xuất phát?
+\end{probbox}
+\probsol{
+Bạn thứ nhất ở vạch xuất phát sau $3;\ 6;\ 9;\ 12;\ 15;\ldots$ phút; bạn thứ hai sau $5;\ 10;\ 15;\ldots$ phút.\par
+Số chung nhỏ nhất: $15$.
+\dapso{$15$ phút.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một vận động viên chạy $5$ vòng đường chạy dài $400$ m hết $10$ phút. Tính vận tốc của người đó theo m/phút và km/giờ.
+\end{probbox}
+\probsol{
+Quãng đường: $400\times5=2\,000$ (m).\par Vận tốc: $2\,000:10=200$ (m/phút).\par $200$ m/phút $=12\,000$ m/giờ $=12$ km/giờ.
+\dapso{$200$ m/phút $=12$ km/giờ.}}
+\gap
+\begin{probbox}{18}{\relax}
+Quãng đường AB dài $30$ km. Một người đi xe đạp từ A đến B với vận tốc $12$ km/giờ, cùng lúc một người đi xe máy từ B về A với vận tốc $18$ km/giờ. Mỗi người đến đầu kia thì quay lại ngay.
+\begin{cols2}
+\pa{a} Lần gặp thứ nhất cách A bao nhiêu ki-lô-mét? & \pa{b} Lần gặp thứ hai cách A bao nhiêu ki-lô-mét?
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} Thời gian: $30:(12+18)=1$ (giờ); chỗ gặp cách A: $12\times1=12$ (km).\par
+\pa{b} Đến lần gặp thứ hai, cả hai đi được $3\times30=90$ (km), hết $3$ giờ.\par
+Người đi xe đạp đi được $12\times3=36$ (km) $=30+6$: đến B rồi quay lại $6$ km, tức là cách A $30-6=24$ (km).
+\dapso{\pa{a} $12$ km;\quad \pa{b} $24$ km.}}
+\gap
+\begin{probbox}{19}{\relax}
+Cùng một lúc, hai người đi từ A và từ B ngược chiều về phía nhau và gặp nhau lần thứ nhất ở chỗ cách A $9$ km. Mỗi người đi tiếp đến đầu kia rồi quay lại ngay; hai người gặp nhau lần thứ hai ở chỗ cách B $5$ km. Tính quãng đường AB.
+\end{probbox}
+\probsol{
+Đến lần gặp thứ hai, người đi từ A đã đi được $9\times3=27$ (km).\par
+Đó là quãng đường AB cộng $5$ km quay lại từ B: $\text{AB}=27-5=22$ (km).
+\dapso{$22$ km.}}
+\gap
+\begin{probbox}{20}{\relax}
+Hoa đi từ A, Quế đi từ B ngược chiều về phía nhau rồi cứ đi đi lại lại giữa A và B không nghỉ. Tỉ số vận tốc của Hoa và Quế là $2:3$. Khoảng cách giữa hai chỗ gặp nhau đầu tiên là $24$ m. Tính quãng đường AB.
+\end{probbox}
+\probsol{
+Lần gặp thứ nhất: Hoa đi được $\dfrac25$ quãng đường AB.\par
+Lần gặp thứ hai: Hoa đi được $3\times\dfrac25=\dfrac65$ quãng đường AB, tức là đến B rồi quay lại $\dfrac15$ AB: chỗ gặp cách A $\dfrac45$ AB.\par
+Khoảng cách hai chỗ gặp: $\dfrac45-\dfrac25=\dfrac25$ AB $=24$ m; AB $=24:\dfrac25=60$ (m).
+\dapso{$60$ m.}}
+\gap
+\begin{probbox}{21}{\relax}
+Bánh xe đạp có đường kính $0{,}6$ m. Hỏi khi xe đi được $942$ m thì bánh xe quay được bao nhiêu vòng?
+\end{probbox}
+\probsol{
+Mỗi vòng bánh xe đi được: $0{,}6\times3{,}14=1{,}884$ (m).\par Số vòng: $942:1{,}884=500$ (vòng).
+\dapso{$500$ vòng.}}
+\gap
+\begin{probbox}{22}{\relax}
+Kim phút của một chiếc đồng hồ dài $10$ cm. Hỏi đầu kim phút đi được bao nhiêu xăng-ti-mét trong $1$ giờ? Trong $3$ giờ?
+\end{probbox}
+\probsol{
+Trong $1$ giờ đầu kim đi hết một vòng tròn bán kính $10$ cm: $10\times2\times3{,}14=62{,}8$ (cm).\par
+Trong $3$ giờ: $62{,}8\times3=188{,}4$ (cm).
+\dapso{$62{,}8$ cm; $188{,}4$ cm.}}
+\gap
+\begin{probbox}{23}{\relax}
+Trên đường chạy dài $400$ m, A chạy với vận tốc $6$ m/giây, B chạy với vận tốc $4$ m/giây, cùng chiều, xuất phát cùng lúc, cùng một điểm. Khi A bắt vòng B lần thứ nhất thì A đã chạy được bao nhiêu mét, bao nhiêu vòng?
+\end{probbox}
+\probsol{
+Thời gian: $400:(6-4)=200$ (giây).\par A chạy được $6\times200=1\,200$ (m) $=3$ vòng.
+\dapso{$1\,200$ m, $3$ vòng.}}
+\gap
+\begin{probbox}{24}{\relax}
+Phúc chạy một vòng sân hết $80$ giây, Long chạy một vòng hết $120$ giây. Hai bạn xuất phát cùng lúc, cùng một điểm và chạy ngược chiều nhau. Hỏi sau bao lâu hai bạn gặp nhau?
+\end{probbox}
+\probsol{
+Mỗi giây cả hai bạn chạy được $\dfrac1{80}+\dfrac1{120}=\dfrac3{240}+\dfrac2{240}=\dfrac1{48}$ vòng.\par Thời gian: $48$ giây.
+\dapso{$48$ giây.}}
+\gap
+\begin{probbox}{25}{\relax}
+Hai con ngựa phi cùng chiều quanh một trường đua dài $1{,}2$ km với vận tốc $15$ m/giây và $12$ m/giây, xuất phát cùng lúc, cùng một điểm. Hỏi sau bao lâu con ngựa nhanh đuổi kịp con kia lần thứ nhất?
+\end{probbox}
+\probsol{
+$1{,}2$ km $=1\,200$ m.\par Hiệu vận tốc: $3$ m/giây.\par Thời gian: $1\,200:3=400$ (giây) $=6$ phút $40$ giây.
+\dapso{$6$ phút $40$ giây.}}
+\gap
+\begin{probbox}{26}{\relax}
+Hai đoàn tàu đồ chơi chạy ngược chiều nhau trên một đường ray hình tròn dài $3$ m với vận tốc $0{,}25$ m/giây và $0{,}35$ m/giây, xuất phát từ cùng một điểm. Hỏi sau bao lâu hai tàu gặp nhau?
+\end{probbox}
+\probsol{
+Tổng vận tốc: $0{,}25+0{,}35=0{,}6$ (m/giây).\par Thời gian: $3:0{,}6=5$ (giây).
+\dapso{$5$ giây.}}
+\gap
+\begin{probbox}{27}{\relax}
+Hai bạn xuất phát cùng lúc, cùng một điểm và chạy ngược chiều nhau quanh một đường chạy với vận tốc $4$ m/giây và $6$ m/giây. Hai bạn gặp nhau sau $40$ giây. Tính chiều dài đường chạy.
+\end{probbox}
+\probsol{
+Trong $40$ giây cả hai chạy được một vòng: $(4+6)\times40=400$ (m).
+\dapso{$400$ m.}}
+\gap
+\begin{probbox}{28}{\relax}
+Hai người đi xe đạp xuất phát cùng lúc, cùng một điểm, đi cùng chiều quanh một vòng đường với vận tốc $260$ m/phút và $180$ m/phút. Người đi nhanh đuổi kịp người đi chậm lần thứ nhất sau $6$ phút. Tính chiều dài vòng đường.
+\end{probbox}
+\probsol{
+Trong $6$ phút người đi nhanh đi hơn người kia một vòng: $(260-180)\times6=480$ (m).
+\dapso{$480$ m.}}
+\gap
+\begin{probbox}{29}{\relax}
+Ngân chạy từ nhà quanh một vòng đường dài $2{,}5$ km với vận tốc $9$ km/giờ trong $1$ giờ. Hỏi Ngân còn phải chạy tiếp (theo chiều cũ) bao xa nữa mới về đến nhà?
+\end{probbox}
+\probsol{
+Quãng đường: $9$ km $=3\times2{,}5+1{,}5$: $3$ vòng và thêm $1{,}5$ km.\par
+Còn phải chạy: $2{,}5-1{,}5=1$ (km).
+\dapso{$1$ km.}}
+\gap
+\begin{probbox}{30}{\relax}
+Hai bạn cùng lúc bơi từ hai đầu một bể bơi dài $50$ m, bơi đi bơi lại với vận tốc $1$ m/giây và $1{,}5$ m/giây, đến thành bể thì quay lại ngay. Hỏi sau bao lâu hai bạn gặp nhau lần thứ nhất? Lần thứ hai?
+\end{probbox}
+\probsol{
+Lần thứ nhất: cả hai bơi được một chiều dài bể: $50:(1+1{,}5)=20$ (giây).\par
+Lần thứ hai: cả hai bơi được ba chiều dài bể: $20\times3=60$ (giây).
+\dapso{$20$ giây và $60$ giây.}}
+\dividerbar{Thử thách -- Nâng cao}
+\begin{probbox}{31}{\stars{1}}
+Ba bạn chạy cùng chiều quanh đường chạy dài $300$ m với vận tốc $3$ m/giây, $4$ m/giây và $5$ m/giây, xuất phát cùng lúc, cùng một điểm. Hỏi sau bao lâu cả ba bạn lần đầu tiên lại gặp nhau?
+\end{probbox}
+\probsol{
+Bạn $4$ m/giây và bạn $3$ m/giây gặp nhau sau mỗi $300:1=300$ (giây); bạn $5$ m/giây và bạn $4$ m/giây cũng sau mỗi $300$ giây; bạn $5$ m/giây và bạn $3$ m/giây sau mỗi $300:2=150$ (giây).\par
+Cả ba gặp nhau khi từng cặp đều gặp nhau: lần đầu sau $300$ giây $=5$ phút.\par
+(\emph{Thử lại:} ba bạn chạy được $900$ m, $1\,200$ m, $1\,500$ m, tức là $3$; $4$; $5$ vòng trọn vẹn.)
+\dapso{$5$ phút.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Trên đường chạy dài $400$ m, hai bạn xuất phát cùng lúc, cùng một điểm, chạy cùng chiều với vận tốc $4$ m/giây và $5$ m/giây. Hỏi sau bao lâu thì lần đầu tiên cả hai cùng có mặt ở vạch xuất phát? Đó có phải là lần đầu tiên hai bạn gặp nhau không?
+\end{probbox}
+\probsol{
+Thời gian chạy một vòng: $400:4=100$ (giây) và $400:5=80$ (giây). Cùng ở vạch xuất phát: bội chung nhỏ nhất của $100$ và $80$ là $400$ giây.\par
+Hai bạn gặp nhau lần đầu khi bạn nhanh chạy hơn một vòng: $400:(5-4)=400$ (giây), nên đúng vậy, lần gặp đầu tiên ở ngay vạch xuất phát.
+\dapso{$400$ giây $=6$ phút $40$ giây; có.}}
+\gap
+\begin{probbox}{33}{\stars{2}}
+Trên đường chạy dài $400$ m, hai bạn xuất phát cùng lúc từ điểm S và chạy ngược chiều nhau với vận tốc $3$ m/giây và $5$ m/giây. Hỏi đến lần gặp nhau thứ mấy thì lần đầu tiên hai bạn gặp lại nhau đúng tại S, và vào lúc nào?
+\end{probbox}
+\probsol{
+Cứ $400:8=50$ (giây) hai bạn gặp nhau một lần; giữa hai lần gặp, bạn chạy chậm chạy được $150$ m.\par
+Các chỗ gặp nhau, đo từ S theo chiều chạy của bạn chậm: $150;\ 300;\ 50;\ 200;\ 350;\ 100;\ 250;\ 0$ (m).\par
+Vậy lần gặp thứ $8$ ở đúng S, sau $8\times50=400$ (giây). (Khi đó bạn chạy chậm đã chạy $1\,200$ m $=3$ vòng.)
+\dapso{lần gặp thứ $8$, sau $400$ giây.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Lúc đúng $3$ giờ, hỏi sau bao nhiêu phút thì kim giờ và kim phút trùng nhau lần đầu tiên?
+\end{probbox}
+\probsol{
+Lúc $3$ giờ, kim phút ở sau kim giờ $15$ vạch chia phút.\par
+Mỗi phút kim phút đi hơn kim giờ $1-\dfrac1{12}=\dfrac{11}{12}$ vạch.\par
+Thời gian: $15:\dfrac{11}{12}=\dfrac{180}{11}=16\dfrac4{11}$ (phút).
+\dapso{$16\dfrac4{11}$ phút (khoảng $3$ giờ $16$ phút).}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Từ sau $12$ giờ trưa đến $12$ giờ đêm (tính cả lúc $12$ giờ đêm), kim giờ và kim phút trùng nhau bao nhiêu lần?
+\end{probbox}
+\probsol{
+Kim phút đi hơn kim giờ một vòng ($60$ vạch) sau mỗi $60:\dfrac{11}{12}=\dfrac{720}{11}$ phút $=\dfrac{12}{11}$ giờ.\par
+Trong $12$ giờ: $12:\dfrac{12}{11}=11$ (lần).
+\dapso{$11$ lần.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Trên đường chạy dài $600$ m, B xuất phát ở phía trước A $200$ m, hai bạn chạy cùng chiều; A chạy với vận tốc $5$ m/giây, B chạy với vận tốc $3$ m/giây. Hỏi A đuổi kịp B lần thứ nhất sau bao lâu? Lần thứ hai sau bao lâu?
+\end{probbox}
+\probsol{
+Lần thứ nhất: A phải chạy hơn B $200$ m: $200:2=100$ (giây).\par
+Sau đó A phải chạy hơn B thêm một vòng: $600:2=300$ (giây); lần thứ hai: $100+300=400$ (giây).
+\dapso{sau $100$ giây và sau $400$ giây.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Trên đường chạy dài $400$ m, hai bạn xuất phát cùng lúc, cùng một điểm. Nếu chạy ngược chiều thì sau $40$ giây gặp nhau, nếu chạy cùng chiều thì sau $200$ giây gặp nhau. Tính vận tốc mỗi bạn.
+\end{probbox}
+\probsol{
+Tổng vận tốc: $400:40=10$ (m/giây); hiệu vận tốc: $400:200=2$ (m/giây).\par
+Bạn chạy nhanh: $(10+2):2=6$ (m/giây); bạn chạy chậm: $10-6=4$ (m/giây).
+\dapso{$6$ m/giây và $4$ m/giây.}}
+\gap
+\begin{probbox}{38}{\stars{2}}
+Yến chạy một vòng sân hết $6$ phút. Yến và Xuân xuất phát cùng một điểm, chạy ngược chiều nhau thì cứ $2$ phút $24$ giây lại gặp nhau một lần. Hỏi Xuân chạy một vòng sân hết bao lâu?
+\end{probbox}
+\probsol{
+$2$ phút $24$ giây $=2{,}4$ phút; mỗi phút cả hai chạy được $1:2{,}4=\dfrac5{12}$ vòng.\par
+Xuân: $\dfrac5{12}-\dfrac16=\dfrac3{12}=\dfrac14$ vòng mỗi phút, nên một vòng hết $4$ phút.
+\dapso{$4$ phút.}}
+\gap
+\begin{probbox}{39}{\stars{2}}
+Hai người bạn ở cách nhau $6$ km, đi ngược chiều về phía nhau với vận tốc $3$ km/giờ và $5$ km/giờ. Một chú chó xuất phát cùng người thứ nhất, chạy với vận tốc $12$ km/giờ đi đi lại lại giữa hai người cho đến khi hai người gặp nhau. Hỏi chú chó đã chạy được bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Hai người gặp nhau sau $6:(3+5)=0{,}75$ (giờ).\par Chú chó chạy suốt thời gian đó: $12\times0{,}75=9$ (km).
+\dapso{$9$ km.}}
+\gap
+\begin{probbox}{40}{\stars{2}}
+Hà đi bộ từ A đến B rồi quay lại A, cứ đi đi lại lại như vậy; cùng lúc đó Tú đi từ B đến A rồi quay lại B, cũng đi đi lại lại như vậy. Vận tốc của Hà bằng $80\%$ vận tốc của Tú. Khoảng cách giữa hai chỗ gặp nhau đầu tiên là $40$ m. Tính quãng đường AB.
+\end{probbox}
+\probsol{
+Tỉ số vận tốc Hà $:$ Tú $=4:5$. Lần gặp thứ nhất: Hà đi được $\dfrac49$ quãng đường AB.\par
+Lần gặp thứ hai: Hà đi được $3\times\dfrac49=\dfrac{12}9$ quãng đường AB: đến B rồi quay lại $\dfrac39$ AB, nên chỗ gặp cách A $\dfrac69$ AB.\par
+Khoảng cách: $\dfrac69-\dfrac49=\dfrac29$ AB $=40$ m; AB $=40:\dfrac29=180$ (m).
+\dapso{$180$ m.}}
+\gap
+\begin{probbox}{41}{\stars{2}}
+Hai ô tô cùng lúc khởi hành từ A và B đi ngược chiều về phía nhau, gặp nhau lần thứ nhất ở chỗ cách A $40$ km. Mỗi xe đi tiếp đến đầu kia rồi quay lại ngay; hai xe gặp nhau lần thứ hai ở chỗ cách A $20$ km. Tính quãng đường AB.
+\end{probbox}
+\probsol{
+Đến lần gặp thứ hai, xe đi từ A đã đi được $40\times3=120$ (km).\par
+Xe đó đi từ A đến B rồi quay lại đến chỗ cách A $20$ km: $120=\text{AB}+(\text{AB}-20)$.\par
+Vậy $2\times\text{AB}=140$, $\text{AB}=70$ km.
+\dapso{$70$ km.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Trên đường chạy dài $500$ m, Kiên (vận tốc $3$ m/giây) và Lâm (vận tốc $2$ m/giây) xuất phát cùng lúc từ S và chạy ngược chiều nhau. Hỏi hai bạn gặp nhau lần thứ ba vào lúc nào, ở chỗ cách S bao xa theo chiều chạy của Kiên?
+\end{probbox}
+\probsol{
+Cứ $500:5=100$ (giây) hai bạn gặp nhau một lần; lần thứ ba sau $300$ giây.\par
+Kiên đã chạy $3\times300=900$ (m) $=500+400$: cách S $400$ m theo chiều chạy của Kiên.
+\dapso{sau $300$ giây ($5$ phút), cách S $400$ m.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Trên đường chạy dài $400$ m, A chạy với vận tốc $5$ m/giây, B chạy chậm hơn, cùng chiều, xuất phát cùng lúc, cùng một điểm. A bắt vòng B lần thứ nhất đúng lúc A chạy xong vòng thứ $5$. Tính vận tốc của B.
+\end{probbox}
+\probsol{
+A chạy $5\times400=2\,000$ (m) hết $2\,000:5=400$ (giây).\par
+B chạy ít hơn A một vòng: $1\,600$ m; vận tốc: $1\,600:400=4$ (m/giây).
+\dapso{$4$ m/giây.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Trên đường chạy dài $400$ m, hai bạn xuất phát cùng lúc từ S, chạy ngược chiều nhau và gặp nhau ở chỗ cách S $160$ m theo chiều chạy của bạn thứ nhất. Bạn thứ nhất chạy với vận tốc $4$ m/giây. Tính vận tốc của bạn thứ hai.
+\end{probbox}
+\probsol{
+Thời gian: $160:4=40$ (giây). Bạn thứ hai chạy phần còn lại của vòng: $400-160=240$ (m).\par Vận tốc: $240:40=6$ (m/giây).
+\dapso{$6$ m/giây.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Một vòng đu quay có đường kính $40$ m, cứ $8$ phút quay được một vòng. Hỏi mỗi cabin trên vành đu quay chuyển động với vận tốc bao nhiêu mét mỗi phút?
+\end{probbox}
+\probsol{
+Một vòng: $40\times3{,}14=125{,}6$ (m).\par Vận tốc: $125{,}6:8=15{,}7$ (m/phút).
+\dapso{$15{,}7$ m/phút.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Bánh xe đạp có đường kính $0{,}5$ m, mỗi phút quay được $200$ vòng. Tính vận tốc của xe đạp theo km/giờ.
+\end{probbox}
+\probsol{
+Mỗi vòng: $0{,}5\times3{,}14=1{,}57$ (m); mỗi phút: $1{,}57\times200=314$ (m).\par
+Mỗi giờ: $314\times60=18\,840$ (m) $=18{,}84$ km.
+\dapso{$18{,}84$ km/giờ.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Hai bạn cùng lúc xuất phát từ hai điểm đối diện nhau trên đường chạy dài $400$ m (cách nhau nửa vòng) và chạy cùng chiều với vận tốc $6$ m/giây và $4$ m/giây. Hỏi sau bao lâu bạn chạy nhanh đuổi kịp bạn chạy chậm?
+\end{probbox}
+\probsol{
+Bạn chạy nhanh ở phía sau bạn kia $400:2=200$ (m).\par Thời gian: $200:(6-4)=100$ (giây).
+\dapso{$100$ giây.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+Hai bạn cùng lúc xuất phát từ hai điểm đối diện nhau trên đường chạy dài $400$ m và chạy ngược chiều về phía nhau với vận tốc $3$ m/giây và $5$ m/giây. Hỏi hai bạn gặp nhau lần thứ ba vào lúc nào?
+\end{probbox}
+\probsol{
+Lần thứ nhất: hai bạn đi hết khoảng cách $200$ m: $200:8=25$ (giây).\par Sau đó cứ $400:8=50$ (giây) gặp nhau một lần.\par
+Lần thứ ba: $25+50\times2=125$ (giây).
+\dapso{sau $125$ giây $=2$ phút $5$ giây.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+Hai bạn đi từ hai đầu một con đường dài $1{,}2$ km về phía nhau với vận tốc $70$ m/phút và $50$ m/phút, rồi tiếp tục đi đi lại lại không nghỉ. Hỏi sau bao lâu kể từ lúc xuất phát hai bạn gặp nhau lần thứ hai?
+\end{probbox}
+\probsol{
+Đến lần gặp thứ hai, cả hai đi được $3\times1\,200=3\,600$ (m).\par Thời gian: $3\,600:(70+50)=30$ (phút).
+\dapso{$30$ phút.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Hai bạn xuất phát cùng lúc, cùng một điểm trên một đường chạy. Nếu chạy ngược chiều thì cứ $30$ giây gặp nhau một lần; nếu chạy cùng chiều thì cứ $2$ phút $30$ giây bạn nhanh lại bắt vòng bạn chậm một lần. Hỏi mỗi bạn chạy một vòng hết bao lâu?
+\end{probbox}
+\probsol{
+$2$ phút $30$ giây $=150$ giây. Mỗi giây: tổng phần vòng hai bạn chạy được $=\dfrac1{30}=\dfrac5{150}$, hiệu $=\dfrac1{150}$.\par
+Bạn nhanh: $\left(\dfrac5{150}+\dfrac1{150}\right):2=\dfrac3{150}=\dfrac1{50}$ vòng mỗi giây, nên một vòng hết $50$ giây.\par
+Bạn chậm: $\dfrac5{150}-\dfrac3{150}=\dfrac2{150}=\dfrac1{75}$ vòng mỗi giây, nên một vòng hết $75$ giây.
+\dapso{$50$ giây và $75$ giây.}}

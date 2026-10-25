@@ -1,0 +1,605 @@
+\shead{Thể tích và đơn vị đo thể tích}
+\gdef\cuboidVT#1#2#3#4{\coordinate (Q) at (0,0); \coordinate (P) at (#1,0); \coordinate (C) at (#1,#3); \coordinate (D) at (0,#3);
+ \coordinate (M) at ({0.5*#2},{0.38*#2}); \coordinate (N) at ($(P)+(M)$); \coordinate (B) at ($(C)+(M)$); \coordinate (A) at ($(D)+(M)$);
+ \fill[tmBlue!6] (Q)--(P)--(C)--(D)--cycle; \fill[tmBlue!3] (D)--(C)--(B)--(A)--cycle; \fill[tmBlue!13] (P)--(N)--(B)--(C)--cycle;
+ \ifdim #4pt>0pt \coordinate (wl) at (0,#4);
+  \fill[cyan!30] (Q)--(P)--($(P)+(wl)$)--($(Q)+(wl)$)--cycle; \fill[cyan!45] (P)--(N)--($(N)+(wl)$)--($(P)+(wl)$)--cycle;
+  \fill[cyan!16] ($(Q)+(wl)$)--($(P)+(wl)$)--($(N)+(wl)$)--($(M)+(wl)$)--cycle;
+  \draw[cyan!60!black,line width=0.5pt] ($(Q)+(wl)$)--($(P)+(wl)$)--($(N)+(wl)$);
+  \draw[cyan!60!black,line width=0.4pt,dashed] ($(N)+(wl)$)--($(M)+(wl)$)--($(Q)+(wl)$); \fi
+ \draw[geo,dashed,line width=0.6pt] (M)--(Q) (M)--(N) (M)--(A);
+ \draw[geo] (Q)--(P)--(C)--(D)--cycle (D)--(A)--(B)--(C) (P)--(N)--(B);}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+\textbf{Thể tích} của một hình là độ lớn phần không gian mà hình đó chiếm chỗ. Để đo thể tích, ta đếm xem hình đó chứa bao nhiêu \emph{hình lập phương đơn vị}.\par
+\smallskip
+\textbf{Xăng-ti-mét khối} (cm$^3$) là thể tích của hình lập phương có cạnh dài $1$ cm. Tương tự, $1$ dm$^3$ là thể tích hình lập phương cạnh $1$ dm, $1$ m$^3$ là thể tích hình lập phương cạnh $1$ m.
+\[1\text{ m}^3=1\,000\text{ dm}^3\qquad 1\text{ dm}^3=1\,000\text{ cm}^3\]
+Mỗi đơn vị đo thể tích gấp $1\,000$ lần đơn vị bé hơn tiếp liền, nên khi đổi đơn vị ta dời dấu phẩy \textbf{ba} chữ số.\par
+\smallskip
+Với chất lỏng: \quad $1$~l $=1$ dm$^3$, \quad $1$~ml $=1$ cm$^3$, \quad \mbox{$1$ m$^3=1\,000$~l}.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{6pt}\centering
+\begin{tikzpicture}[scale=0.62]
+\cuboidVT{3}{3}{3}{0}
+\foreach \i in {1,2}{\draw[tmBlue!60,line width=0.35pt] (\i,0)--(\i,3)--++(1.5,1.14) (0,\i)--(3,\i)--++(1.5,1.14)
+ ($(0,3)+\i*(0.5,0.38)$)--++(3,0)--++(0,-3);}
+\draw[geo] (Q)--(P)--(C)--(D)--cycle (D)--(A)--(B)--(C) (P)--(N)--(B);
+\node[dim,below] at ($(Q)!0.5!(P)$){$1$ dm $=10$ cm};
+\end{tikzpicture}\par\smallskip
+{\scriptsize\color{Slate} $1$ dm$^3$: $10$ lớp, mỗi lớp $10\times10$ hình lập phương $1$ cm$^3$, tức là $1\,000$ cm$^3$ (hình vẽ thu gọn)}
+\end{minipage}
+\end{knowbox}
+\shead{Thể tích hình hộp chữ nhật, hình lập phương}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+Hình hộp chữ nhật dài $5$ cm, rộng $3$ cm, cao $2$ cm xếp được $2$ lớp, mỗi lớp $5\times3=15$ hình lập phương $1$ cm$^3$, tức là $5\times3\times2=30$ cm$^3$.\par
+\smallskip
+Muốn tính \textbf{thể tích hình hộp chữ nhật}, ta lấy chiều dài nhân với chiều rộng rồi nhân với chiều cao (cùng một đơn vị đo):
+\[V=a\times b\times c=S_{\text{đáy}}\times c\]
+\textbf{Thể tích hình lập phương} cạnh $a$: \quad $V=a\times a\times a$.\par
+\smallskip
+Tính ngược lại: \quad $c=V:(a\times b)$, \quad $S_{\text{đáy}}=V:c$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{6pt}\centering
+\begin{tikzpicture}[scale=0.55]
+\cuboidVT{5}{3}{2}{0}
+\foreach \i in {1,...,4}{\draw[tmBlue!60,line width=0.35pt] (\i,0)--(\i,2)--++(1.5,1.14);}
+\draw[tmBlue!60,line width=0.35pt] (0,1)--(5,1)--++(1.5,1.14);
+\foreach \k in {1,2}{\draw[tmBlue!60,line width=0.35pt] ($(0,2)+\k*(0.5,0.38)$)--++(5,0)--++(0,-2);}
+\draw[geo] (Q)--(P)--(C)--(D)--cycle (D)--(A)--(B)--(C) (P)--(N)--(B);
+\node[dim,below] at ($(Q)!0.5!(P)$){$5$ cm}; \node[dim,right] at ($(P)!0.5!(N)$){$3$ cm}; \node[dim,left] at ($(Q)!0.5!(D)$){$2$ cm};
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\shead{Thể tích vật chìm trong nước}
+\begin{knowbox}
+Hòn đá, cây san hô có hình dạng không xác định nên không tính thể tích bằng công thức được. Thả vật vào bể nước sao cho vật \textbf{ngập hoàn toàn} trong nước: mực nước dâng lên vì vật đã chiếm một phần thể tích của bể.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \emph{Cách 1:} thể tích vật $=$ thể tích (nước $+$ vật) $-$ thể tích nước.
+\item \emph{Cách 2:} thể tích vật $=$ diện tích đáy bể $\times$ chiều cao phần nước dâng lên.
+\end{itemize}
+Nếu bể đã đầy nước thì thể tích nước \textbf{tràn ra} bằng thể tích của vật.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Viết số thích hợp vào chỗ chấm.
+\begin{cols2}
+\pa{a} $3{,}5$ m$^3=\ldots$ dm$^3$ & \pa{b} $2\,400$ cm$^3=\ldots$ dm$^3$\\
+\pa{c} $0{,}75$ dm$^3=\ldots$ cm$^3=\ldots$ ml & \pa{d} $1{,}2$ m$^3=\ldots$ l
+\end{cols2}
+\guide
+\pa{a} $1$ m$^3=1\,000$ dm$^3$ nên $3{,}5$ m$^3=3{,}5\times1\,000=3\,500$ dm$^3$.\par
+\pa{b} $2\,400$ cm$^3=2\,400:1\,000=2{,}4$ dm$^3$.\par
+\pa{c} $0{,}75$ dm$^3=750$ cm$^3=750$ ml.\par
+\pa{d} $1{,}2$ m$^3=1\,200$ dm$^3=1\,200$ l.
+\dapso{\pa{a} $3\,500$; \pa{b} $2{,}4$; \pa{c} $750$; $750$; \pa{d} $1\,200$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Tính thể tích của:\par
+\pa{a} hình hộp chữ nhật có chiều dài $1{,}2$ m, chiều rộng $5$ dm, chiều cao $8$ dm;\par
+\pa{b} hình lập phương có cạnh $2{,}5$ cm.
+\guide
+\pa{a} Đổi về cùng đơn vị đo: $1{,}2$ m $=12$ dm.\par $V=12\times5\times8=480$ dm$^3$.\par
+\pa{b} $V=2{,}5\times2{,}5\times2{,}5=15{,}625$ cm$^3$.
+\dapso{\pa{a} $480$ dm$^3$; \pa{b} $15{,}625$ cm$^3$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Một bể nước dạng hình hộp chữ nhật dài $1{,}5$ m, rộng $0{,}8$ m, cao $1$ m.\par
+\pa{a} Khi đầy, bể chứa được bao nhiêu lít nước?\par
+\pa{b} Hiện nay lượng nước trong bể bằng $\dfrac34$ thể tích bể. Trong bể có bao nhiêu lít nước?
+\guide
+\pa{a} $V=1{,}5\times0{,}8\times1=1{,}2$ m$^3=1\,200$ dm$^3=1\,200$ l.\par
+\pa{b} $1\,200\times\dfrac34=900$ l.
+\dapso{\pa{a} $1\,200$ l; \pa{b} $900$ l.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Một bể kính có đáy dài $25$ cm, rộng $16$ cm. Mực nước trong bể cao $10$ cm. Sau khi thả vào bể một hòn đá (ngập hoàn toàn trong nước), mực nước cao $12{,}5$ cm. Tính thể tích hòn đá.
+\begin{center}
+\begin{tikzpicture}[scale=0.12]
+\cuboidVT{25}{16}{16}{10}
+\node[dim,below] at ($(Q)!0.5!(P)$){$25$ cm}; \node[dim,right] at ($(P)!0.5!(N)$){$16$ cm}; \node[dim,left] at (0,5){$10$ cm};
+\begin{scope}[shift={(52,0)}]
+\cuboidVT{25}{16}{16}{12.5}
+\fill[Slate!75] (13,4.5) ellipse (4.5 and 2.6);
+\node[dim,below] at ($(Q)!0.5!(P)$){$25$ cm}; \node[dim,right] at ($(P)!0.5!(N)$){$16$ cm}; \node[dim,left] at (0,6.25){$12{,}5$ cm};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\guide
+\emph{Cách 1.} Thể tích nước: $25\times16\times10=4\,000$ cm$^3$.\par
+Thể tích nước và hòn đá: $25\times16\times12{,}5=5\,000$ cm$^3$.\par
+Thể tích hòn đá: $5\,000-4\,000=1\,000$ cm$^3$.\par
+\emph{Cách 2.} Chiều cao phần nước dâng lên: $12{,}5-10=2{,}5$ cm.\par
+Thể tích hòn đá: $25\times16\times2{,}5=1\,000$ cm$^3$.
+\dapso{$1\,000$ cm$^3$ ($=1$ dm$^3$).}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Một hình lập phương có diện tích toàn phần $864$ cm$^2$. Tính thể tích hình lập phương đó.
+\guide
+Diện tích một mặt: $864:6=144$ cm$^2$. Vì $144=12\times12$ nên cạnh dài $12$ cm.\par
+$V=12\times12\times12=1\,728$ cm$^3$.
+\dapso{$1\,728$ cm$^3$.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Viết số thích hợp vào chỗ chấm.
+\begin{cols3}
+\pa{a} $5$ m$^3=\ldots$ dm$^3$ & \pa{b} $3{,}2$ dm$^3=\ldots$ cm$^3$ & \pa{c} $4\,500$ cm$^3=\ldots$ dm$^3$\\
+\pa{d} $750$ dm$^3=\ldots$ m$^3$ & \pa{e} $2{,}05$ m$^3=\ldots$ dm$^3$ & \pa{f} $\dfrac14$ m$^3=\ldots$ dm$^3$
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $5\times1\,000=5\,000$.\quad \pa{b} $3{,}2\times1\,000=3\,200$.\quad \pa{c} $4\,500:1\,000=4{,}5$.\par
+\pa{d} $750:1\,000=0{,}75$.\quad \pa{e} $2{,}05\times1\,000=2\,050$.\quad \pa{f} $1\,000:4=250$.
+\dapso{$5\,000$;\ $3\,200$;\ $4{,}5$;\ $0{,}75$;\ $2\,050$;\ $250$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Viết số thích hợp vào chỗ chấm.
+\begin{cols2}
+\pa{a} $3{,}6$ m$^3=\ldots$ l & \pa{b} $450$ l $=\ldots$ m$^3$\\
+\pa{c} $2{,}5$ l $=\ldots$ cm$^3$ & \pa{d} $750$ ml $=\ldots$ dm$^3$
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $3{,}6$ m$^3=3\,600$ dm$^3=3\,600$ l.\par
+\pa{b} $450$ l $=450$ dm$^3=0{,}45$ m$^3$.\par
+\pa{c} $2{,}5$ l $=2{,}5$ dm$^3=2\,500$ cm$^3$.\par
+\pa{d} $750$ ml $=750$ cm$^3=0{,}75$ dm$^3$.
+\dapso{$3\,600$;\ $0{,}45$;\ $2\,500$;\ $0{,}75$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Điền dấu $>$, $<$, $=$ thích hợp vào chỗ chấm.
+\begin{cols3}
+\pa{a} $2{,}5$ m$^3\ \ldots\ 2\,500$ dm$^3$ & \pa{b} $3$ dm$^3$ $40$ cm$^3\ \ldots\ 3{,}4$ dm$^3$ & \pa{c} $0{,}9$ m$^3\ \ldots\ 90\,000$ cm$^3$
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $2{,}5$ m$^3=2\,500$ dm$^3$ nên hai số đo bằng nhau.\par
+\pa{b} $3$ dm$^3$ $40$ cm$^3=3\,040$ cm$^3$ và $3{,}4$ dm$^3=3\,400$ cm$^3$; $3\,040<3\,400$.\par
+\pa{c} $0{,}9$ m$^3=900$ dm$^3=900\,000$ cm$^3>90\,000$ cm$^3$.
+\dapso{\pa{a} $=$; \pa{b} $<$; \pa{c} $>$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Tính thể tích hình hộp chữ nhật có chiều dài $a$, chiều rộng $b$, chiều cao $c$:
+\begin{cols2}
+\pa{a} $a=8$ cm, $b=5$ cm, $c=4$ cm; & \pa{b} $a=1{,}5$ m, $b=0{,}8$ m, $c=1{,}2$ m;\\
+\pa{c} $a=\dfrac23$ m, $b=\dfrac35$ m, $c=\dfrac12$ m; & \pa{d} $a=2$ dm, $b=15$ cm, $c=8$ cm.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $8\times5\times4=160$ cm$^3$.\par
+\pa{b} $1{,}5\times0{,}8\times1{,}2=1{,}44$ m$^3$.\par
+\pa{c} $\dfrac23\times\dfrac35\times\dfrac12=\dfrac15$ m$^3$.\par
+\pa{d} $2$ dm $=20$ cm; $20\times15\times8=2\,400$ cm$^3$.
+\dapso{$160$ cm$^3$; $1{,}44$ m$^3$; $\dfrac15$ m$^3$; $2\,400$ cm$^3$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Tính thể tích hình lập phương có cạnh:
+\begin{cols3}
+\pa{a} $7$ cm; & \pa{b} $1{,}2$ m; & \pa{c} $\dfrac34$ dm.
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $7\times7\times7=343$ cm$^3$.\par
+\pa{b} $1{,}2\times1{,}2\times1{,}2=1{,}728$ m$^3$.\par
+\pa{c} $\dfrac34\times\dfrac34\times\dfrac34=\dfrac{27}{64}$ dm$^3$.
+\dapso{$343$ cm$^3$; $1{,}728$ m$^3$; $\dfrac{27}{64}$ dm$^3$.}}
+\gap
+\begin{probbox}{6}{\relax}
+\begin{minipage}[t]{0.58\linewidth}
+Hình hộp bên được xếp kín bởi các hình lập phương cạnh $1$ cm. Có bao nhiêu hình lập phương nhỏ? Thể tích của hình hộp là bao nhiêu?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.42]
+\cuboidVT{6}{4}{3}{0}
+\foreach \i in {1,...,5}{\draw[tmBlue!60,line width=0.35pt] (\i,0)--(\i,3)--++(2,1.52);}
+\foreach \j in {1,2}{\draw[tmBlue!60,line width=0.35pt] (0,\j)--(6,\j)--++(2,1.52);}
+\foreach \k in {1,2,3}{\draw[tmBlue!60,line width=0.35pt] ($(0,3)+\k*(0.5,0.38)$)--++(6,0)--++(0,-3);}
+\draw[geo] (Q)--(P)--(C)--(D)--cycle (D)--(A)--(B)--(C) (P)--(N)--(B);
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Mỗi lớp có $6\times4=24$ hình lập phương, có $3$ lớp.\par
+Số hình lập phương: $24\times3=72$.\par
+Thể tích: $72$ cm$^3$ (hoặc $6\times4\times3=72$ cm$^3$).
+\dapso{$72$ hình lập phương; $72$ cm$^3$.}}
+\gap
+\begin{probbox}{7}{\relax}
+Một hình hộp chữ nhật có thể tích $360$ cm$^3$, chiều dài $9$ cm, chiều rộng $8$ cm. Tính chiều cao của hình hộp.
+\end{probbox}
+\probsol{
+Diện tích đáy: $9\times8=72$ cm$^2$.\par
+Chiều cao: $360:72=5$ cm.
+\dapso{$5$ cm.}}
+\gap
+\begin{probbox}{8}{\relax}
+Một hình hộp chữ nhật có thể tích $1{,}8$ m$^3$, diện tích đáy $1{,}2$ m$^2$. Tính chiều cao của hình hộp.
+\end{probbox}
+\probsol{
+$c=V:S_{\text{đáy}}=1{,}8:1{,}2=1{,}5$ m.
+\dapso{$1{,}5$ m.}}
+\gap
+\begin{probbox}{9}{\relax}
+Một hình lập phương có thể tích $512$ cm$^3$. Tính độ dài cạnh của hình lập phương.
+\end{probbox}
+\probsol{
+Ta tìm số nhân với chính nó ba lần được $512$.\par
+$7\times7\times7=343$, $8\times8\times8=512$. Cạnh dài $8$ cm.
+\dapso{$8$ cm.}}
+\gap
+\begin{probbox}{10}{\relax}
+Một bể nước dạng hình hộp chữ nhật dài $2$ m, rộng $1{,}5$ m, cao $1{,}2$ m. Khi đầy, bể chứa được bao nhiêu lít nước?
+\end{probbox}
+\probsol{
+$V=2\times1{,}5\times1{,}2=3{,}6$ m$^3=3\,600$ dm$^3=3\,600$ l.
+\dapso{$3\,600$ l.}}
+\gap
+\begin{probbox}{11}{\relax}
+Một bể cá dài $60$ cm, rộng $30$ cm, cao $40$ cm. Mực nước bằng $\dfrac34$ chiều cao của bể. Trong bể có bao nhiêu lít nước?
+\end{probbox}
+\probsol{
+Chiều cao mực nước: $40\times\dfrac34=30$ cm.\par
+Thể tích nước: $60\times30\times30=54\,000$ cm$^3=54$ dm$^3=54$ l.
+\dapso{$54$ l.}}
+\gap
+\begin{probbox}{12}{\relax}
+Một bể nước dài $1{,}2$ m, rộng $0{,}9$ m, cao $1$ m. Lượng nước trong bể chiếm $60\%$ thể tích bể. Trong bể có bao nhiêu lít nước?
+\end{probbox}
+\probsol{
+Thể tích bể: $1{,}2\times0{,}9\times1=1{,}08$ m$^3=1\,080$ l.\par
+Lượng nước: $1\,080\times60:100=648$ l.
+\dapso{$648$ l.}}
+\gap
+\begin{probbox}{13}{\relax}
+Một bể có đáy dài $40$ cm, rộng $25$ cm. Thả vào bể một hòn đá ngập hoàn toàn trong nước thì mực nước dâng lên $3$ cm. Tính thể tích hòn đá theo đề-xi-mét khối.
+\end{probbox}
+\probsol{
+Thể tích hòn đá: $40\times25\times3=3\,000$ cm$^3=3$ dm$^3$.
+\dapso{$3$ dm$^3$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Một bể kính hình lập phương cạnh $5$ dm, mực nước trong bể cao $3$ dm. Sau khi thả vào bể một hòn đá (ngập hoàn toàn trong nước), mực nước cao $3{,}4$ dm. Tính thể tích hòn đá.
+\end{probbox}
+\probsol{
+Phần nước dâng lên: $3{,}4-3=0{,}4$ dm.\par
+Thể tích hòn đá: $5\times5\times0{,}4=10$ dm$^3$.
+\dapso{$10$ dm$^3$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Một bể có đáy dài $50$ cm, rộng $30$ cm, mực nước cao $20$ cm. Thả vào bể một hòn đá có thể tích $1{,}8$ dm$^3$, ngập hoàn toàn trong nước. Hỏi lúc này mực nước cao bao nhiêu?
+\end{probbox}
+\probsol{
+$1{,}8$ dm$^3=1\,800$ cm$^3$.\quad Diện tích đáy: $50\times30=1\,500$ cm$^2$.\par
+Nước dâng lên: $1\,800:1\,500=1{,}2$ cm.\par
+Mực nước lúc này: $20+1{,}2=21{,}2$ cm.
+\dapso{$21{,}2$ cm.}}
+\gap
+\begin{probbox}{16}{\relax}
+Một khối kim loại hình lập phương có cạnh $\dfrac15$ m. Mỗi xăng-ti-mét khối kim loại đó nặng $7{,}8$ g. Hỏi khối kim loại nặng bao nhiêu ki-lô-gam?
+\end{probbox}
+\probsol{
+$\dfrac15$ m $=20$ cm.\quad Thể tích: $20\times20\times20=8\,000$ cm$^3$.\par
+Khối lượng: $7{,}8\times8\,000=62\,400$ g $=62{,}4$ kg.
+\dapso{$62{,}4$ kg.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một hình hộp chữ nhật dài $10$ cm, rộng $8$ cm, cao $6$ cm. Một hình lập phương có cạnh bằng trung bình cộng ba kích thước của hình hộp chữ nhật. Hình nào có thể tích lớn hơn và lớn hơn bao nhiêu?
+\end{probbox}
+\probsol{
+Hình hộp chữ nhật: $10\times8\times6=480$ cm$^3$.\par
+Cạnh hình lập phương: $(10+8+6):3=8$ cm.\quad Hình lập phương: $8\times8\times8=512$ cm$^3$.\par
+$512-480=32$ cm$^3$.
+\dapso{Hình lập phương lớn hơn $32$ cm$^3$.}}
+\gap
+\begin{probbox}{18}{\relax}
+Hình lập phương B có cạnh gấp $2$ lần cạnh hình lập phương A. Hỏi thể tích hình lập phương B gấp bao nhiêu lần thể tích hình lập phương A?
+\end{probbox}
+\probsol{
+Gọi cạnh hình A là $a$ thì cạnh hình B là $a\times2$.\par
+$V_B=(a\times2)\times(a\times2)\times(a\times2)=a\times a\times a\times8=V_A\times8$.
+\dapso{$8$ lần.}}
+\gap
+\begin{probbox}{19}{\relax}
+Một bể không có nước dài $1{,}6$ m, rộng $1$ m, cao $1{,}2$ m. Một vòi chảy vào bể mỗi phút $40$ l nước. Hỏi sau bao lâu thì bể đầy?
+\end{probbox}
+\probsol{
+Thể tích bể: $1{,}6\times1\times1{,}2=1{,}92$ m$^3=1\,920$ l.\par
+Thời gian: $1\,920:40=48$ phút.
+\dapso{$48$ phút.}}
+\gap
+\begin{probbox}{20}{\relax}
+Một bể đầy nước dài $3$ m, rộng $2$ m, cao $1{,}5$ m. Mỗi ngày gia đình dùng hết $1\,800$ l nước. Hỏi lượng nước đó đủ dùng trong bao nhiêu ngày?
+\end{probbox}
+\probsol{
+Lượng nước: $3\times2\times1{,}5=9$ m$^3=9\,000$ l.\par
+Số ngày: $9\,000:1\,800=5$ ngày.
+\dapso{$5$ ngày.}}
+\gap
+\begin{probbox}{21}{\relax}
+Mỗi viên gạch dài $20$ cm, rộng $10$ cm, cao $5$ cm. Người ta xếp gạch khít nhau thành một khối dài $2$ m, rộng $1$ m, cao $0{,}5$ m. Hỏi khối đó có bao nhiêu viên gạch?
+\end{probbox}
+\probsol{
+Một viên gạch: $20\times10\times5=1\,000$ cm$^3=1$ dm$^3$.\par
+Khối gạch: $2\times1\times0{,}5=1$ m$^3=1\,000$ dm$^3$.\par
+Số viên gạch: $1\,000:1=1\,000$ viên.
+\dapso{$1\,000$ viên gạch.}}
+\gap
+\begin{probbox}{22}{\relax}
+Một thùng các-tông dài $20$ cm, rộng $12$ cm, cao $8$ cm. Người ta xếp kín thùng bằng các hộp phấn, mỗi hộp có kích thước $4$ cm $\times\,3$ cm $\times\,2$ cm. Hỏi xếp được bao nhiêu hộp phấn?
+\end{probbox}
+\probsol{
+Theo chiều dài: $20:4=5$; theo chiều rộng: $12:3=4$; theo chiều cao: $8:2=4$.\par
+Số hộp: $5\times4\times4=80$.\par
+\emph{Thử lại:} $20\times12\times8=1\,920$ cm$^3$, $4\times3\times2=24$ cm$^3$, $1\,920:24=80$.
+\dapso{$80$ hộp phấn.}}
+\gap
+\begin{probbox}{23}{\relax}
+Một hình hộp chữ nhật có diện tích xung quanh $480$ cm$^2$, chiều cao $8$ cm; chiều dài hơn chiều rộng $6$ cm. Tính thể tích của hình hộp.
+\end{probbox}
+\probsol{
+Chu vi đáy: $480:8=60$ cm.\quad Nửa chu vi: $30$ cm.\par
+Chiều dài: $(30+6):2=18$ cm.\quad Chiều rộng: $12$ cm.\par
+$V=18\times12\times8=1\,728$ cm$^3$.
+\dapso{$1\,728$ cm$^3$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Một bể nước có chu vi đáy $26$ dm, chiều cao $4$ dm; chiều dài hơn chiều rộng $3$ dm. Bể chứa được bao nhiêu lít nước?
+\end{probbox}
+\probsol{
+Nửa chu vi: $26:2=13$ dm.\quad Chiều dài: $(13+3):2=8$ dm.\quad Chiều rộng: $5$ dm.\par
+$V=8\times5\times4=160$ dm$^3=160$ l.
+\dapso{$160$ l.}}
+\gap
+\begin{probbox}{25}{\relax}
+Một bể kính hình lập phương cạnh $8$ dm, mực nước cao $5$ dm. Sau khi thả vào bể một cây san hô (ngập hoàn toàn trong nước), mực nước cao $5{,}5$ dm. Tính thể tích cây san hô.
+\end{probbox}
+\probsol{
+Phần nước dâng lên: $5{,}5-5=0{,}5$ dm.\par
+Thể tích cây san hô: $8\times8\times0{,}5=32$ dm$^3$.
+\dapso{$32$ dm$^3$.}}
+\gap
+\begin{probbox}{26}{\relax}
+Một bể nước dài $2{,}5$ m, rộng $1{,}6$ m, cao $1{,}2$ m. Mực nước trong bể cao $0{,}8$ m.\par
+\pa{a} Trong bể có bao nhiêu lít nước?\par
+\pa{b} Cần đổ thêm bao nhiêu lít nước nữa thì bể đầy?
+\end{probbox}
+\probsol{
+\pa{a} $2{,}5\times1{,}6\times0{,}8=3{,}2$ m$^3=3\,200$ l.\par
+\pa{b} Phần bể còn trống cao $1{,}2-0{,}8=0{,}4$ m; $2{,}5\times1{,}6\times0{,}4=1{,}6$ m$^3=1\,600$ l.
+\dapso{\pa{a} $3\,200$ l; \pa{b} $1\,600$ l.}}
+\gap
+\begin{probbox}{27}{\relax}
+Một bể nước dài $2$ m, rộng $1{,}5$ m, cao $1{,}4$ m. Lượng nước trong bể hiện chiếm $30\%$ thể tích bể. Hỏi phải đổ thêm bao nhiêu lít nước nữa để lượng nước trong bể chiếm $80\%$ thể tích bể?
+\end{probbox}
+\probsol{
+Thể tích bể: $2\times1{,}5\times1{,}4=4{,}2$ m$^3=4\,200$ l.\par
+Lượng nước cần đổ thêm bằng $80\%-30\%=50\%$ thể tích bể.\par
+$4\,200\times50:100=2\,100$ l.
+\dapso{$2\,100$ l.}}
+\gap
+\begin{probbox}{28}{\relax}
+Một bể cá có đáy dài $50$ cm, rộng $40$ cm. Thả vào bể bốn hòn đá giống nhau, ngập hoàn toàn trong nước, thì mực nước dâng lên $1{,}5$ cm. Tính thể tích một hòn đá.
+\end{probbox}
+\probsol{
+Bốn hòn đá: $50\times40\times1{,}5=3\,000$ cm$^3$.\par
+Một hòn đá: $3\,000:4=750$ cm$^3$.
+\dapso{$750$ cm$^3$.}}
+\gap
+\begin{probbox}{29}{\relax}
+Một bể đầy nước. Người ta thả vào bể ba khối sắt hình lập phương giống nhau thì thấy $24$ l nước tràn ra. Tìm độ dài cạnh một khối sắt.
+\end{probbox}
+\probsol{
+Ba khối sắt: $24$ l $=24$ dm$^3$.\quad Một khối: $24:3=8$ dm$^3$.\par
+$2\times2\times2=8$ nên cạnh khối sắt dài $2$ dm.
+\dapso{$2$ dm.}}
+\gap
+\begin{probbox}{30}{\relax}
+Một hộp sữa dạng hình hộp chữ nhật dài $6$ cm, rộng $4$ cm, cao $10$ cm, được rót đầy sữa. Hỏi $4{,}8$ l sữa rót được đầy bao nhiêu hộp như thế?
+\end{probbox}
+\probsol{
+Một hộp: $6\times4\times10=240$ cm$^3=240$ ml.\par
+$4{,}8$ l $=4\,800$ ml.\quad Số hộp: $4\,800:240=20$ hộp.
+\dapso{$20$ hộp.}}
+\dividerbar{Thử thách -- Nâng cao}
+\begin{probbox}{31}{\stars{1}}
+Một bể cá dài $60$ cm, rộng $40$ cm, cao $45$ cm. Lúc đầu mực nước bằng $\dfrac35$ chiều cao của bể. Sau khi thả vào bể một hòn đá (ngập hoàn toàn trong nước), mực nước bằng $\dfrac23$ chiều cao của bể. Tính thể tích hòn đá.
+\end{probbox}
+\probsol{
+Mực nước lúc đầu: $45\times\dfrac35=27$ cm.\quad Mực nước lúc sau: $45\times\dfrac23=30$ cm.\par
+Nước dâng lên: $30-27=3$ cm.\par
+Thể tích hòn đá: $60\times40\times3=7\,200$ cm$^3$.
+\dapso{$7\,200$ cm$^3$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Một bể cá bằng kính không có nắp dài $80$ cm, rộng $50$ cm, cao $50$ cm; mực nước cao $30$ cm.\par
+\pa{a} Tính diện tích kính dùng để làm bể.\par
+\pa{b} Thả vào bể một hòn đá có thể tích $16$ dm$^3$, ngập hoàn toàn trong nước. Hỏi lúc này mực nước cao bao nhiêu?
+\end{probbox}
+\probsol{
+\pa{a} Xung quanh: $(80+50)\times2\times50=13\,000$ cm$^2$; đáy: $80\times50=4\,000$ cm$^2$.\par
+Diện tích kính: $13\,000+4\,000=17\,000$ cm$^2$ $=170$ dm$^2$.\par
+\pa{b} $16$ dm$^3=16\,000$ cm$^3$.\quad Nước dâng: $16\,000:4\,000=4$ cm.\quad Mực nước: $30+4=34$ cm.
+\dapso{\pa{a} $170$ dm$^2$; \pa{b} $34$ cm.}}
+\gap
+\begin{probbox}{33}{\stars{2}}
+Một bể dài $60$ cm, rộng $40$ cm, cao $50$ cm; mực nước cao $45$ cm. Người ta thả vào bể một hòn đá có thể tích $15$ dm$^3$. Hỏi có bao nhiêu lít nước tràn ra ngoài?
+\end{probbox}
+\probsol{
+Phần bể còn trống phía trên mặt nước: $60\times40\times(50-45)=12\,000$ cm$^3=12$ dm$^3$.\par
+Hòn đá ($15$ dm$^3$) lớn hơn phần còn trống nên nước tràn ra.\par
+Nước tràn ra: $15-12=3$ dm$^3=3$ l.
+\dapso{$3$ l.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Bể A dài $1{,}5$ m, rộng $1$ m, cao $0{,}8$ m, đang đầy nước. Người ta tháo hết nước ở bể A sang bể B (chưa có nước) có đáy dài $2$ m, rộng $1{,}2$ m. Hỏi mực nước ở bể B cao bao nhiêu?
+\end{probbox}
+\probsol{
+Lượng nước: $1{,}5\times1\times0{,}8=1{,}2$ m$^3$.\par
+Diện tích đáy bể B: $2\times1{,}2=2{,}4$ m$^2$.\par
+Mực nước: $1{,}2:2{,}4=0{,}5$ m.
+\dapso{$0{,}5$ m.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+Diện tích toàn phần của một hình lập phương lớn hơn diện tích xung quanh của nó $72$ cm$^2$. Tính thể tích hình lập phương đó.
+\end{probbox}
+\probsol{
+Phần hơn là diện tích hai mặt đáy: một mặt là $72:2=36$ cm$^2=6\times6$.\par
+Cạnh $6$ cm; $V=6\times6\times6=216$ cm$^3$.
+\dapso{$216$ cm$^3$.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Một hình hộp chữ nhật có thể tích $120$ cm$^3$. Nếu gấp chiều dài lên $2$ lần, gấp chiều rộng lên $3$ lần và giảm chiều cao đi $2$ lần thì thể tích mới là bao nhiêu?
+\end{probbox}
+\probsol{
+Thể tích được nhân với $2\times3=6$ rồi chia cho $2$, tức là gấp lên $3$ lần.\par
+Thể tích mới: $120\times3=360$ cm$^3$.
+\dapso{$360$ cm$^3$.}}
+\gap
+\begin{probbox}{37}{\stars{2}}
+Cạnh của một hình lập phương dài $10$ cm được tăng thêm $20\%$. Hỏi thể tích tăng thêm bao nhiêu xăng-ti-mét khối và bao nhiêu phần trăm?
+\end{probbox}
+\probsol{
+Cạnh mới: $10+10\times20:100=12$ cm.\par
+Thể tích: $10\times10\times10=1\,000$ cm$^3$ và $12\times12\times12=1\,728$ cm$^3$.\par
+Tăng thêm: $1\,728-1\,000=728$ cm$^3$, tức là $728:1\,000=0{,}728=72{,}8\%$.
+\dapso{$728$ cm$^3$; $72{,}8\%$.}}
+\gap
+\begin{probbox}{38}{\stars{2}}
+Ba mặt khác nhau của một hình hộp chữ nhật có diện tích $24$ cm$^2$, $30$ cm$^2$ và $20$ cm$^2$; các cạnh có số đo là số tự nhiên (xăng-ti-mét). Tính thể tích hình hộp.
+\end{probbox}
+\probsol{
+Cạnh chung của hai mặt $24$ cm$^2$ và $30$ cm$^2$ chia hết cả $24$ và $30$: có thể là $1$; $2$; $3$ hoặc $6$.\par
+Thử $6$: hai cạnh còn lại là $24:6=4$ và $30:6=5$, và $4\times5=20$. \checkmark\par
+(Với $1$; $2$; $3$ thì mặt thứ ba là $720$; $180$; $80$, không bằng $20$.)\par
+$V=6\times4\times5=120$ cm$^3$.
+\dapso{$120$ cm$^3$.}}
+\gap
+\begin{probbox}{39}{\stars{2}}
+Một hình hộp chữ nhật có chiều dài gấp $3$ lần chiều cao, chiều rộng gấp $2$ lần chiều cao. Thể tích của hình hộp là $384$ cm$^3$. Tính các kích thước của hình hộp.
+\end{probbox}
+\probsol{
+Chia hình hộp thành các hình lập phương có cạnh bằng chiều cao: được $3\times2\times1=6$ hình.\par
+Một hình lập phương: $384:6=64$ cm$^3=4\times4\times4$, nên chiều cao là $4$ cm.\par
+Chiều dài: $12$ cm; chiều rộng: $8$ cm.
+\dapso{$12$ cm, $8$ cm, $4$ cm.}}
+\gap
+\begin{probbox}{40}{\stars{2}}
+Một bể chưa có nước dài $1{,}5$ m, rộng $1{,}2$ m, cao $1$ m. Vòi A chảy vào bể mỗi phút $30$ l, vòi B tháo nước ra mỗi phút $12$ l. Mở cả hai vòi cùng lúc thì sau bao lâu bể đầy?
+\end{probbox}
+\probsol{
+Thể tích bể: $1{,}5\times1{,}2\times1=1{,}8$ m$^3=1\,800$ l.\par
+Mỗi phút lượng nước trong bể tăng: $30-12=18$ l.\par
+Thời gian: $1\,800:18=100$ phút $=1$ giờ $40$ phút.
+\dapso{$1$ giờ $40$ phút.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Một bể bơi dài $20$ m, rộng $10$ m. Một máy bơm mỗi giờ bơm vào bể $60$ m$^3$ nước. Hỏi sau bao lâu thì mực nước trong bể (lúc đầu chưa có nước) cao $1{,}5$ m?
+\end{probbox}
+\probsol{
+Lượng nước cần bơm: $20\times10\times1{,}5=300$ m$^3$.\par
+Thời gian: $300:60=5$ giờ.
+\dapso{$5$ giờ.}}
+\gap
+\begin{probbox}{42}{\stars{2}}
+Trong một trận mưa, lượng mưa đo được là $15$ mm trên một mái nhà bằng dài $8$ m, rộng $6$ m. Toàn bộ nước mưa chảy vào một bể chứa. Hỏi bể nhận thêm bao nhiêu lít nước?
+\end{probbox}
+\probsol{
+$15$ mm $=0{,}015$ m.\par
+Nước mưa trên mái: $8\times6\times0{,}015=0{,}72$ m$^3=720$ l.
+\dapso{$720$ l.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+\begin{minipage}[t]{0.6\linewidth}
+Một khối gỗ hình lập phương cạnh $10$ cm. Người ta khoét một lỗ vuông $4$ cm $\times\,4$ cm xuyên thẳng từ mặt trên xuống mặt dưới. Tính thể tích phần gỗ còn lại.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.17]
+\cuboidVT{10}{10}{10}{0}
+\coordinate (h1) at ($(D)+(3,0)+(1.5,1.14)$);
+\fill[white,draw=tmBlue!75!black,line width=0.6pt] (h1)--++(4,0)--++(2,1.52)--++(-4,0)--cycle;
+\node[dim,below] at ($(Q)!0.5!(P)$){$10$ cm};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Khối lập phương: $10\times10\times10=1\,000$ cm$^3$.\par
+Lỗ khoét là hình hộp chữ nhật: $4\times4\times10=160$ cm$^3$.\par
+Phần gỗ còn lại: $1\,000-160=840$ cm$^3$.
+\dapso{$840$ cm$^3$.}}
+\gap
+\begin{probbox}{44}{\stars{2}}
+Khi nước đóng băng, thể tích tăng thêm $\dfrac1{11}$. Một khay làm đá chứa lượng nước dài $22$ cm, rộng $10$ cm, sâu $3$ cm. Tính thể tích khối đá sau khi nước đóng băng.
+\end{probbox}
+\probsol{
+Thể tích nước: $22\times10\times3=660$ cm$^3$.\par
+Phần tăng thêm: $660\times\dfrac1{11}=60$ cm$^3$.\par
+Thể tích khối đá: $660+60=720$ cm$^3$.
+\dapso{$720$ cm$^3$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Một bể nước có đáy dài $2$ m, rộng $1{,}2$ m. Buổi sáng mực nước cao $1$ m, đến chiều mực nước còn $0{,}65$ m. Hỏi trong ngày đã dùng bao nhiêu lít nước?
+\end{probbox}
+\probsol{
+Mực nước giảm: $1-0{,}65=0{,}35$ m.\par
+Lượng nước đã dùng: $2\times1{,}2\times0{,}35=0{,}84$ m$^3=840$ l.
+\dapso{$840$ l.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+Có thể xếp được nhiều nhất bao nhiêu hình lập phương cạnh $3$ cm vào một cái hộp dài $16$ cm, rộng $12$ cm, cao $9$ cm (các hình đặt ngay ngắn, sát nhau)? Phần thể tích còn trống của hộp là bao nhiêu?
+\end{probbox}
+\probsol{
+Theo chiều dài: $16:3=5$ (dư $1$) nên xếp được $5$ hình; theo chiều rộng: $12:3=4$; theo chiều cao: $9:3=3$.\par
+Số hình lập phương: $5\times4\times3=60$.\par
+Hộp: $16\times12\times9=1\,728$ cm$^3$; các hình lập phương: $60\times27=1\,620$ cm$^3$.\par
+Phần còn trống: $1\,728-1\,620=108$ cm$^3$.
+\dapso{$60$ hình; $108$ cm$^3$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Một hình hộp chữ nhật có thể tích $1{,}2$ m$^3$, diện tích đáy $0{,}8$ m$^2$, chiều dài $1$ m. Tính chiều cao và diện tích xung quanh của hình hộp.
+\end{probbox}
+\probsol{
+Chiều cao: $1{,}2:0{,}8=1{,}5$ m.\quad Chiều rộng: $0{,}8:1=0{,}8$ m.\par
+$S_{xq}=(1+0{,}8)\times2\times1{,}5=5{,}4$ m$^2$.
+\dapso{$1{,}5$ m; $5{,}4$ m$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Người ta tháo hết nước từ một bể hình lập phương cạnh $6$ dm đang đầy nước sang một bể chưa có nước có đáy dài $9$ dm, rộng $8$ dm. Hỏi mực nước trong bể sau cao bao nhiêu?
+\end{probbox}
+\probsol{
+Lượng nước: $6\times6\times6=216$ dm$^3$.\par
+Diện tích đáy: $9\times8=72$ dm$^2$.\par
+Mực nước: $216:72=3$ dm.
+\dapso{$3$ dm.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+\begin{minipage}[t]{0.6\linewidth}
+Một cầu thang bê tông có $3$ bậc, rộng $1{,}5$ m. Mỗi bậc sâu $30$ cm, cao $15$ cm (xem hình nhìn từ bên cạnh). Tính thể tích bê tông.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.032]
+\draw[geo,fill=tmBlue!10] (0,0)--(90,0)--(90,45)--(60,45)--(60,30)--(30,30)--(30,15)--(0,15)--cycle;
+\draw[tmBlue!60,line width=0.35pt] (30,0)--(30,15) (60,0)--(60,30) (30,15)--(90,15) (60,30)--(90,30);
+\node[dim,below] at (15,0){$30$ cm}; \node[dim,right] at (90,7.5){$15$ cm};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Chia khối bậc thang thành ba lớp, mỗi lớp cao $15$ cm $=0{,}15$ m:\par
+lớp dưới sâu $0{,}9$ m, lớp giữa sâu $0{,}6$ m, lớp trên sâu $0{,}3$ m.\par
+Thể tích: $1{,}5\times0{,}15\times(0{,}9+0{,}6+0{,}3)=1{,}5\times0{,}15\times1{,}8=0{,}405$ m$^3$.
+\dapso{$0{,}405$ m$^3$.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Một bể nước dài $1{,}5$ m, mực nước trong bể cao $60$ cm. Đổ thêm $240$ l nước thì mực nước cao $80$ cm. Tính chiều rộng của bể.
+\end{probbox}
+\probsol{
+$240$ l $=240$ dm$^3$; nước dâng thêm $80-60=20$ cm $=2$ dm.\par
+Diện tích đáy: $240:2=120$ dm$^2=1{,}2$ m$^2$.\par
+Chiều rộng: $1{,}2:1{,}5=0{,}8$ m.
+\dapso{$0{,}8$ m.}}

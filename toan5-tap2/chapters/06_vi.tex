@@ -1,0 +1,590 @@
+\shead{Vận tốc, quãng đường, thời gian}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+\textbf{Bài toán chuyển động} là bài toán về người hoặc vật di chuyển từ vị trí A đến vị trí B trong một khoảng thời gian nhất định.\par
+\smallskip
+-- Độ dài AB gọi là \textbf{quãng đường}, kí hiệu $s$ (thường tính bằng km).\par
+-- Thời gian đi từ A đến B gọi là \textbf{thời gian}, kí hiệu $t$ (thường tính bằng giờ).\par
+-- Quãng đường đi được trong một đơn vị thời gian gọi là \textbf{vận tốc}, kí hiệu $v$.\par
+\smallskip
+Chẳng hạn: An đạp xe $36$ km trong $3$ giờ thì vận tốc của An là $36:3=12$ (km/giờ).\par
+\smallskip
+Trong \textbf{chuyển động đều}:
+\[s=v\times t\qquad v=s:t\qquad t=s:v\]
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{18pt}\centering
+\begin{tikzpicture}[>=Stealth]
+\draw[geo] (0,0)--(3.6,0);
+\fill[tmBlue] (0,0) circle (2pt) (3.6,0) circle (2pt);
+\node[lbl,below] at (0,0){A}; \node[lbl,below] at (3.6,0){B};
+\draw[->,thick,tmOrange] (0.2,0.35)--node[above,font=\small]{vận tốc $v$}(3.4,0.35);
+\draw[|<->|,Slate] (0,-0.75)--node[fill=white,dim]{quãng đường $s$}(3.6,-0.75);
+\node[dim] at (1.8,-1.35){thời gian $t$};
+\end{tikzpicture}
+\end{minipage}\par
+\smallskip
+\emph{Đơn vị:} quãng đường tính bằng km, thời gian tính bằng giờ thì vận tốc tính bằng km/giờ; mét và phút cho m/phút; mét và giây cho m/giây. Trước khi tính phải đổi các đại lượng về đơn vị phù hợp.
+\end{knowbox}
+
+\shead{Đơn vị đo thời gian và đơn vị đo vận tốc}
+\begin{knowbox}
+$1$ ngày $=24$ giờ;\quad $1$ giờ $=60$ phút;\quad $1$ phút $=60$ giây;\quad $1$ giờ $=3\,600$ giây.\par
+\smallskip
+-- Đổi giờ ra phút: nhân với $60$. \quad $0{,}4$ giờ $=0{,}4\times60$ phút $=24$ phút.\par
+-- Đổi phút ra giờ: chia cho $60$. \quad $1$ giờ $15$ phút $=1\frac{15}{60}$ giờ $=1{,}25$ giờ.\par
+\smallskip
+\textbf{Đổi đơn vị đo vận tốc:}\par
+-- $54$ km/giờ: $1$ giờ đi được $54\,000$ m, nên $1$ giây đi được $54\,000:3\,600=15$ (m). Vậy $54$ km/giờ $=15$ m/giây.\par
+-- Ghi nhớ: km/giờ $\to$ m/giây: chia cho $3{,}6$;\quad m/giây $\to$ km/giờ: nhân với $3{,}6$.\par
+-- $600$ m/phút: $1$ giờ đi được $600\times60=36\,000$ (m) $=36$ km. Vậy $600$ m/phút $=36$ km/giờ.
+\end{knowbox}
+
+\shead{Tính với thời điểm và khoảng thời gian}
+\begin{knowbox}
+\begin{minipage}[t]{0.58\linewidth}
+Khi biết thời điểm xuất phát, thời điểm đến nơi và thời gian nghỉ:\par
+\smallskip
+thời gian đi $=$ thời điểm đến $-$ thời điểm xuất phát $-$ thời gian nghỉ;\par
+thời điểm đến $=$ thời điểm xuất phát $+$ thời gian đi $+$ thời gian nghỉ.\par
+\smallskip
+Khi cộng, trừ số đo thời gian, ta tính riêng giờ và phút; $60$ phút đổi thành $1$ giờ.\par
+\smallskip
+Để dùng công thức $s=v\times t$, ta viết thời gian đi dưới dạng số giờ (số thập phân hoặc phân số).
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[>=Stealth]
+\draw[geo] (0,0)--(4,0);
+\fill[tmBlue] (0,0) circle (2pt) (4,0) circle (2pt) (2.2,0) circle (1.6pt);
+\node[lbl,below] at (0,0){A}; \node[lbl,below] at (4,0){B};
+\node[dim,above] at (0,0.05){7 giờ}; \node[dim,above] at (4,0.05){9 giờ 20 phút};
+\node[dim,below] at (2.2,-0.05){nghỉ $20$ phút};
+\end{tikzpicture}\par\smallskip
+{\small thời gian đi $=9$ giờ $20$ phút $-7$ giờ $-20$ phút $=2$ giờ}
+\end{minipage}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Viết số thích hợp vào chỗ chấm.
+\begin{cols3}
+\pa{a} $0{,}75$ giờ $=\dots$ phút; & \pa{b} $2$ giờ $24$ phút $=\dots$ giờ; & \pa{c} $3$ phút $12$ giây $=\dots$ giây.
+\end{cols3}
+\guide
+\pa{a} $0{,}75$ giờ $=0{,}75\times60$ phút $=45$ phút.\par
+\pa{b} $24$ phút $=24:60$ giờ $=0{,}4$ giờ, nên $2$ giờ $24$ phút $=2{,}4$ giờ.\par
+\pa{c} $3$ phút $=3\times60=180$ giây, nên $3$ phút $12$ giây $=180+12=192$ giây.
+\dapso{\pa{a} $45$ phút;\par \pa{b} $2{,}4$ giờ;\par \pa{c} $192$ giây.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Viết số thích hợp vào chỗ chấm.
+\begin{cols3}
+\pa{a} $72$ km/giờ $=\dots$ m/giây; & \pa{b} $15$ m/giây $=\dots$ km/giờ; & \pa{c} $800$ m/phút $=\dots$ km/giờ.
+\end{cols3}
+\guide
+\pa{a} $72$ km $=72\,000$ m; $1$ giờ $=3\,600$ giây.\par $72\,000:3\,600=20$, vậy $72$ km/giờ $=20$ m/giây.\par
+\pa{b} Trong $1$ giờ đi được: $15\times3\,600=54\,000$ (m) $=54$ km. Vậy $15$ m/giây $=54$ km/giờ.\par
+\pa{c} Trong $1$ giờ đi được: $800\times60=48\,000$ (m) $=48$ km. Vậy $800$ m/phút $=48$ km/giờ.
+\dapso{\pa{a} $20$ m/giây;\par \pa{b} $54$ km/giờ;\par \pa{c} $48$ km/giờ.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Một xe khách khởi hành từ thị xã A lúc 6 giờ 45 phút và đến thị xã B cách A $110$ km lúc 9 giờ 15 phút. Dọc đường xe nghỉ $30$ phút. Tính vận tốc của xe khách.
+\guide
+Từ 6 giờ 45 phút đến 9 giờ 15 phút là: $9$ giờ $15$ phút $-6$ giờ $45$ phút $=2$ giờ $30$ phút.\par
+Thời gian xe đi trên đường là: $2$ giờ $30$ phút $-30$ phút $=2$ giờ.\par
+Vận tốc của xe khách là: $110:2=55$ (km/giờ).
+\dapso{$55$ km/giờ.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Hùng đạp xe từ nhà lúc 7 giờ 20 phút với vận tốc $14$ km/giờ và đến nhà ông bà lúc 9 giờ 5 phút, dọc đường không nghỉ. Tính quãng đường từ nhà Hùng đến nhà ông bà.
+\guide
+Thời gian Hùng đi là: $9$ giờ $5$ phút $-7$ giờ $20$ phút $=1$ giờ $45$ phút.\par
+Đổi: $1$ giờ $45$ phút $=1\frac{45}{60}$ giờ $=1{,}75$ giờ.\par
+Quãng đường từ nhà Hùng đến nhà ông bà là: $14\times1{,}75=24{,}5$ (km).
+\dapso{$24{,}5$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+\begin{minipage}[t]{0.56\linewidth}
+Lúc 6 giờ 30 phút, một xe tải đi từ A đến B cách A $135$ km với vận tốc $45$ km/giờ. Đến B, xe dừng $40$ phút để dỡ hàng rồi quay về A với vận tốc $54$ km/giờ. Hỏi xe về đến A lúc mấy giờ?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.4\linewidth}\vspace{2pt}\centering
+\begin{tikzpicture}[>=Stealth]
+\draw[geo] (0,0)--(4,0);
+\fill[tmBlue] (0,0) circle (2pt) (4,0) circle (2pt);
+\node[lbl,left] at (0,0){A}; \node[lbl,right] at (4,0){B};
+\draw[->,tmOrange,thick] (0.1,0.3)--node[above,dim]{$45$ km/giờ}(3.9,0.3);
+\draw[<-,tmGreen!80!black,thick] (0.1,-0.3)--node[below,dim]{$54$ km/giờ}(3.9,-0.3);
+\node[dim,above] at (2,0.75){$135$ km};
+\end{tikzpicture}
+\end{minipage}
+\guide
+Thời gian xe đi từ A đến B là: $135:45=3$ (giờ).\par
+Thời gian xe đi từ B về A là: $135:54=2{,}5$ (giờ) $=2$ giờ $30$ phút.\par
+Xe về đến A lúc: 6 giờ 30 phút $+\ 3$ giờ $+\ 40$ phút $+\ 2$ giờ $30$ phút $=$ 12 giờ 40 phút.
+\dapso{12 giờ 40 phút.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Viết số thích hợp vào chỗ chấm.
+\begin{cols2}
+\pa{a} $0{,}4$ giờ $=\dots$ phút; & \pa{b} $1{,}25$ giờ $=\dots$ phút;\\
+\pa{c} $2$ giờ $18$ phút $=\dots$ giờ; & \pa{d} $45$ phút $=\dots$ giờ.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $0{,}4\times60=24$ phút.\par \pa{b} $1{,}25\times60=75$ phút.\par \pa{c} $18:60=0{,}3$, nên được $2{,}3$ giờ.\par \pa{d} $45:60=0{,}75$ giờ.
+\dapso{$24$ phút; $75$ phút; $2{,}3$ giờ; $0{,}75$ giờ.}}
+\gap
+\begin{probbox}{2}{\relax}
+Viết số thích hợp vào chỗ chấm.
+\begin{cols2}
+\pa{a} $3{,}5$ phút $=\dots$ giây; & \pa{b} $2$ phút $15$ giây $=\dots$ giây;\\
+\pa{c} $1{,}5$ ngày $=\dots$ giờ; & \pa{d} $150$ giây $=\dots$ phút.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $3{,}5\times60=210$ giây.\par \pa{b} $2\times60+15=135$ giây.\par \pa{c} $1{,}5\times24=36$ giờ.\par \pa{d} $150:60=2{,}5$ phút.
+\dapso{$210$ giây; $135$ giây; $36$ giờ; $2{,}5$ phút.}}
+\gap
+\begin{probbox}{3}{\relax}
+Viết số thích hợp vào chỗ chấm.
+\begin{cols2}
+\pa{a} $36$ km/giờ $=\dots$ m/giây; & \pa{b} $25$ m/giây $=\dots$ km/giờ;\\
+\pa{c} $54$ km/giờ $=\dots$ m/phút; & \pa{d} $750$ m/phút $=\dots$ km/giờ.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $36\,000:3\,600=10$ m/giây.\par
+\pa{b} $25\times3\,600=90\,000$ m $=90$ km, nên được $90$ km/giờ.\par
+\pa{c} $54\,000:60=900$ m/phút.\par
+\pa{d} $750\times60=45\,000$ m $=45$ km, nên được $45$ km/giờ.
+\dapso{$10$ m/giây; $90$ km/giờ; $900$ m/phút; $45$ km/giờ.}}
+\gap
+\begin{probbox}{4}{\relax}
+Tính.
+\begin{cols2}
+\pa{a} $3$ giờ $45$ phút $+\ 2$ giờ $30$ phút; & \pa{b} $8$ giờ $10$ phút $-\ 5$ giờ $35$ phút;\\
+\pa{c} $1$ giờ $25$ phút $\times\ 3$; & \pa{d} $7$ giờ $30$ phút $:\ 6$.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $5$ giờ $75$ phút $=6$ giờ $15$ phút.\par
+\pa{b} $8$ giờ $10$ phút $=7$ giờ $70$ phút; $7$ giờ $70$ phút $-5$ giờ $35$ phút $=2$ giờ $35$ phút.\par
+\pa{c} $3$ giờ $75$ phút $=4$ giờ $15$ phút.\par
+\pa{d} $7$ giờ $30$ phút $=450$ phút; $450:6=75$ phút $=1$ giờ $15$ phút.
+\dapso{$6$ giờ $15$ phút; $2$ giờ $35$ phút; $4$ giờ $15$ phút; $1$ giờ $15$ phút.}}
+\gap
+\begin{probbox}{5}{\relax}
+Một ô tô đi quãng đường $150$ km hết $3$ giờ. Tính vận tốc của ô tô.
+\end{probbox}
+\probsol{
+Vận tốc của ô tô là: $150:3=50$ (km/giờ).
+\dapso{$50$ km/giờ.}}
+\gap
+\begin{probbox}{6}{\relax}
+Một người đi xe đạp được $31{,}5$ km trong $2$ giờ $15$ phút. Tính vận tốc của người đó.
+\end{probbox}
+\probsol{
+Đổi: $2$ giờ $15$ phút $=2{,}25$ giờ.\par
+Vận tốc của người đi xe đạp là: $31{,}5:2{,}25=14$ (km/giờ).
+\dapso{$14$ km/giờ.}}
+\gap
+\begin{probbox}{7}{\relax}
+Lan chạy một vòng sân dài $400$ m hết $50$ giây. Tính vận tốc chạy của Lan theo đơn vị m/giây.
+\end{probbox}
+\probsol{
+Vận tốc chạy của Lan là: $400:50=8$ (m/giây).
+\dapso{$8$ m/giây.}}
+\gap
+\begin{probbox}{8}{\relax}
+Một ô tô đi với vận tốc $48$ km/giờ trong $2{,}5$ giờ. Tính quãng đường ô tô đi được.
+\end{probbox}
+\probsol{
+Quãng đường ô tô đi được là: $48\times2{,}5=120$ (km).
+\dapso{$120$ km.}}
+\gap
+\begin{probbox}{9}{\relax}
+Bà đi bộ với vận tốc $4{,}5$ km/giờ trong $1$ giờ $20$ phút. Hỏi bà đi được bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Đổi: $1$ giờ $20$ phút $=1\frac{20}{60}$ giờ $=\frac43$ giờ.\par
+Quãng đường bà đi được là: $4{,}5\times\frac43=6$ (km).
+\dapso{$6$ km.}}
+\gap
+\begin{probbox}{10}{\relax}
+Một xe máy đi quãng đường $84$ km với vận tốc $35$ km/giờ. Hỏi xe máy đi hết bao nhiêu thời gian?
+\end{probbox}
+\probsol{
+Thời gian xe máy đi là: $84:35=2{,}4$ (giờ).\par
+$0{,}4$ giờ $=0{,}4\times60=24$ phút, nên $2{,}4$ giờ $=2$ giờ $24$ phút.
+\dapso{$2$ giờ $24$ phút.}}
+\gap
+\begin{probbox}{11}{\relax}
+Một con chim én bay với vận tốc $108$ km/giờ. Hỏi chim én bay $27$ km hết bao nhiêu phút?
+\end{probbox}
+\probsol{
+Thời gian chim én bay là: $27:108=0{,}25$ (giờ).\par
+$0{,}25$ giờ $=0{,}25\times60=15$ phút.
+\dapso{$15$ phút.}}
+\gap
+\begin{probbox}{12}{\relax}
+Một xe khách khởi hành lúc 7 giờ 15 phút và đến nơi lúc 9 giờ 45 phút, đi được $125$ km, dọc đường không nghỉ. Tính vận tốc của xe khách.
+\end{probbox}
+\probsol{
+Thời gian xe đi là: $9$ giờ $45$ phút $-7$ giờ $15$ phút $=2$ giờ $30$ phút $=2{,}5$ giờ.\par
+Vận tốc của xe khách là: $125:2{,}5=50$ (km/giờ).
+\dapso{$50$ km/giờ.}}
+\gap
+\begin{probbox}{13}{\relax}
+Một xe máy khởi hành lúc 13 giờ 40 phút và đến nơi lúc 15 giờ 10 phút với vận tốc $42$ km/giờ, dọc đường không nghỉ. Tính độ dài quãng đường.
+\end{probbox}
+\probsol{
+Thời gian xe đi là: $15$ giờ $10$ phút $-13$ giờ $40$ phút $=1$ giờ $30$ phút $=1{,}5$ giờ.\par
+Độ dài quãng đường là: $42\times1{,}5=63$ (km).
+\dapso{$63$ km.}}
+\gap
+\begin{probbox}{14}{\relax}
+Một xe chở hàng khởi hành lúc 6 giờ 50 phút, đi quãng đường $96$ km với vận tốc $40$ km/giờ, dọc đường không nghỉ. Hỏi xe đến nơi lúc mấy giờ?
+\end{probbox}
+\probsol{
+Thời gian xe đi là: $96:40=2{,}4$ (giờ) $=2$ giờ $24$ phút.\par
+Xe đến nơi lúc: 6 giờ 50 phút $+\ 2$ giờ $24$ phút $=8$ giờ $74$ phút $=$ 9 giờ 14 phút.
+\dapso{9 giờ 14 phút.}}
+\gap
+\begin{probbox}{15}{\relax}
+Chú Tâm phải đến một thành phố cách nhà $150$ km lúc 11 giờ. Ô tô của chú đi với vận tốc $60$ km/giờ và không nghỉ dọc đường. Hỏi chú phải khởi hành lúc mấy giờ?
+\end{probbox}
+\probsol{
+Thời gian đi là: $150:60=2{,}5$ (giờ) $=2$ giờ $30$ phút.\par
+Chú phải khởi hành lúc: $11$ giờ $-2$ giờ $30$ phút $=$ 8 giờ 30 phút.
+\dapso{8 giờ 30 phút.}}
+\gap
+\begin{probbox}{16}{\relax}
+Một ô tô khởi hành từ A lúc 7 giờ và đến B cách A $162$ km lúc 10 giờ 20 phút. Dọc đường xe nghỉ $20$ phút. Tính vận tốc của ô tô.
+\end{probbox}
+\probsol{
+Từ 7 giờ đến 10 giờ 20 phút là $3$ giờ $20$ phút.\par
+Thời gian xe đi trên đường là: $3$ giờ $20$ phút $-20$ phút $=3$ giờ.\par
+Vận tốc của ô tô là: $162:3=54$ (km/giờ).
+\dapso{$54$ km/giờ.}}
+\gap
+\begin{probbox}{17}{\relax}
+Một người đi xe máy khởi hành lúc 8 giờ 15 phút với vận tốc $36$ km/giờ và đến nơi lúc 11 giờ 30 phút. Dọc đường người đó nghỉ $45$ phút. Tính độ dài quãng đường.
+\end{probbox}
+\probsol{
+Từ 8 giờ 15 phút đến 11 giờ 30 phút là $3$ giờ $15$ phút.\par
+Thời gian đi trên đường là: $3$ giờ $15$ phút $-45$ phút $=2$ giờ $30$ phút $=2{,}5$ giờ.\par
+Độ dài quãng đường là: $36\times2{,}5=90$ (km).
+\dapso{$90$ km.}}
+\gap
+\begin{probbox}{18}{\relax}
+Một người đi xe máy được $37{,}5$ km trong $1$ giờ $15$ phút. Hỏi với vận tốc như vậy, người đó đi $51$ km hết bao lâu?
+\end{probbox}
+\probsol{
+Đổi: $1$ giờ $15$ phút $=1{,}25$ giờ.\par
+Vận tốc của xe máy là: $37{,}5:1{,}25=30$ (km/giờ).\par
+Thời gian đi $51$ km là: $51:30=1{,}7$ (giờ) $=1$ giờ $42$ phút.
+\dapso{$1$ giờ $42$ phút.}}
+\gap
+\begin{probbox}{19}{\relax}
+Một xe buýt đi với vận tốc $40$ km/giờ thì hết quãng đường trong $3$ giờ $30$ phút. Một ô tô đi với vận tốc $56$ km/giờ trên quãng đường đó thì mất bao lâu?
+\end{probbox}
+\probsol{
+Đổi: $3$ giờ $30$ phút $=3{,}5$ giờ.\par
+Độ dài quãng đường là: $40\times3{,}5=140$ (km).\par
+Thời gian ô tô đi là: $140:56=2{,}5$ (giờ) $=2$ giờ $30$ phút.
+\dapso{$2$ giờ $30$ phút.}}
+\gap
+\begin{probbox}{20}{\relax}
+Mai đi bộ $1{,}2$ km từ nhà đến trường hết $15$ phút. Tính vận tốc của Mai theo đơn vị km/giờ và m/phút.
+\end{probbox}
+\probsol{
+Đổi: $15$ phút $=0{,}25$ giờ.\par
+Vận tốc là: $1{,}2:0{,}25=4{,}8$ (km/giờ).\par
+$1{,}2$ km $=1\,200$ m; vận tốc là: $1\,200:15=80$ (m/phút).
+\dapso{$4{,}8$ km/giờ; $80$ m/phút.}}
+\gap
+\begin{probbox}{21}{\relax}
+Hà đi học bằng xe đạp với vận tốc $12$ km/giờ và đi hết $15$ phút. Hỏi trên con đường đó, muốn đi hết $10$ phút thì Hà phải đi với vận tốc bao nhiêu?
+\end{probbox}
+\probsol{
+Đổi: $15$ phút $=0{,}25$ giờ. Quãng đường là: $12\times0{,}25=3$ (km).\par
+Đổi: $10$ phút $=\frac{10}{60}$ giờ $=\frac16$ giờ.\par
+Vận tốc cần đi là: $3:\frac16=18$ (km/giờ).
+\dapso{$18$ km/giờ.}}
+\gap
+\begin{probbox}{22}{\relax}
+Âm thanh truyền trong không khí với vận tốc $340$ m/giây. Bình nghe thấy tiếng sấm $5$ giây sau khi nhìn thấy tia chớp. Hỏi chỗ có sấm sét cách Bình khoảng bao xa? (Ánh sáng truyền đến gần như ngay lập tức.)
+\end{probbox}
+\probsol{
+Khoảng cách là: $340\times5=1\,700$ (m) $=1{,}7$ km.
+\dapso{Khoảng $1{,}7$ km.}}
+\gap
+\begin{probbox}{23}{\relax}
+Một chuyến tàu đêm khởi hành lúc 21 giờ 30 phút, chạy $360$ km với vận tốc $72$ km/giờ, dọc đường không dừng. Hỏi tàu đến nơi lúc mấy giờ?
+\end{probbox}
+\probsol{
+Thời gian tàu chạy là: $360:72=5$ (giờ).\par
+$21$ giờ $30$ phút $+5$ giờ $=26$ giờ $30$ phút, tức là 2 giờ 30 phút sáng hôm sau.
+\dapso{2 giờ 30 phút sáng hôm sau.}}
+\gap
+\begin{probbox}{24}{\relax}
+Quân đạp xe $40$ phút với vận tốc $15$ km/giờ rồi đi bộ $18$ phút với vận tốc $5$ km/giờ. Hỏi Quân đi được tất cả bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Đạp xe: $40$ phút $=\frac23$ giờ; quãng đường: $15\times\frac23=10$ (km).\par
+Đi bộ: $18$ phút $=0{,}3$ giờ; quãng đường: $5\times0{,}3=1{,}5$ (km).\par
+Tất cả: $10+1{,}5=11{,}5$ (km).
+\dapso{$11{,}5$ km.}}
+\gap
+\begin{probbox}{25}{\relax}
+Lúc 7 giờ, một xe taxi đi từ A đến B cách A $90$ km với vận tốc $45$ km/giờ. Xe chờ ở B $30$ phút rồi quay về A với vận tốc $60$ km/giờ. Hỏi xe về đến A lúc mấy giờ?
+\end{probbox}
+\probsol{
+Thời gian đi từ A đến B là: $90:45=2$ (giờ). Thời gian đi từ B về A là: $90:60=1{,}5$ (giờ) $=1$ giờ $30$ phút.\par
+Xe về đến A lúc: 7 giờ $+\ 2$ giờ $+\ 30$ phút $+\ 1$ giờ $30$ phút $=$ 11 giờ.
+\dapso{11 giờ.}}
+\gap
+\begin{probbox}{26}{\relax}
+\begin{minipage}[t]{0.56\linewidth}
+Quãng đường AB dài $120$ km. Lúc 7 giờ 30 phút, một ô tô đi từ A với vận tốc $40$ km/giờ. Sau $2$ giờ, xe dừng $15$ phút để thay lốp rồi đi tiếp quãng đường còn lại với vận tốc $50$ km/giờ. Hỏi xe đến B lúc mấy giờ?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.4\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[>=Stealth]
+\draw[geo] (0,0)--(4,0);
+\fill[tmBlue] (0,0) circle (2pt) (4,0) circle (2pt) (2.67,0) circle (1.6pt);
+\node[lbl,below] at (0,0){A}; \node[lbl,below] at (4,0){B}; \node[lbl,below] at (2.67,0){C};
+\node[dim,above] at (1.33,0){$40$ km/giờ, $2$ giờ}; \node[dim,above] at (3.4,0){$50$ km/giờ};
+\draw[|<->|,Slate] (0,-0.75)--node[fill=white,dim]{$120$ km}(4,-0.75);
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Quãng đường xe đi trong $2$ giờ đầu là: $40\times2=80$ (km).\par
+Quãng đường còn lại là: $120-80=40$ (km).\par
+Thời gian đi quãng đường còn lại là: $40:50=0{,}8$ (giờ) $=48$ phút.\par
+Xe đến B lúc: 7 giờ 30 phút $+\ 2$ giờ $+\ 15$ phút $+\ 48$ phút $=$ 10 giờ 33 phút.
+\dapso{10 giờ 33 phút.}}
+\gap
+\begin{probbox}{27}{\relax}
+Lúc 6 giờ 30 phút, bác Phúc đi bộ từ nhà với vận tốc $5$ km/giờ. Đến 7 giờ 6 phút bác lên xe buýt, xe đi với vận tốc $40$ km/giờ và đến thị trấn lúc 7 giờ 51 phút. Hỏi thị trấn cách nhà bác Phúc bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Thời gian đi bộ là: $7$ giờ $6$ phút $-6$ giờ $30$ phút $=36$ phút $=0{,}6$ giờ; quãng đường đi bộ: $5\times0{,}6=3$ (km).\par
+Thời gian đi xe buýt là: $7$ giờ $51$ phút $-7$ giờ $6$ phút $=45$ phút $=0{,}75$ giờ; quãng đường đi xe buýt: $40\times0{,}75=30$ (km).\par
+Thị trấn cách nhà bác Phúc: $3+30=33$ (km).
+\dapso{$33$ km.}}
+\gap
+\begin{probbox}{28}{\relax}
+Một ô tô đi $180$ km hết $2$ giờ $30$ phút. Tính vận tốc của ô tô theo đơn vị km/giờ và m/giây.
+\end{probbox}
+\probsol{
+Đổi: $2$ giờ $30$ phút $=2{,}5$ giờ.\par
+Vận tốc của ô tô là: $180:2{,}5=72$ (km/giờ).\par
+$72$ km/giờ $=72\,000:3\,600=20$ m/giây.
+\dapso{$72$ km/giờ; $20$ m/giây.}}
+\gap
+\begin{probbox}{29}{\relax}
+Một con ốc sên bò với vận tốc $15$ cm/phút. Hỏi ốc sên bò qua lối đi rộng $1{,}2$ m hết bao nhiêu phút?
+\end{probbox}
+\probsol{
+Đổi: $1{,}2$ m $=120$ cm.\par
+Thời gian ốc sên bò là: $120:15=8$ (phút).
+\dapso{$8$ phút.}}
+\gap
+\begin{probbox}{30}{\relax}
+Một chiếc phà khởi hành lúc 22 giờ 45 phút và cập bến lúc 4 giờ 15 phút sáng hôm sau, dọc đường không dừng, đi được $132$ km. Tính vận tốc của phà.
+\end{probbox}
+\probsol{
+Từ 22 giờ 45 phút đến 24 giờ là $1$ giờ $15$ phút; từ 0 giờ đến 4 giờ 15 phút là $4$ giờ $15$ phút.\par
+Thời gian phà đi là: $1$ giờ $15$ phút $+\ 4$ giờ $15$ phút $=5$ giờ $30$ phút $=5{,}5$ giờ.\par
+Vận tốc của phà là: $132:5{,}5=24$ (km/giờ).
+\dapso{$24$ km/giờ.}}
+\dividerbar{Thử thách -- Nâng cao}
+\begin{probbox}{31}{\stars{1}}
+Quãng đường AB dài $150$ km. Lúc 7 giờ 30 phút, một ô tô đi từ A. Xe đi $\dfrac13$ quãng đường đầu với vận tốc $40$ km/giờ, quãng đường còn lại với vận tốc $50$ km/giờ. Hỏi xe đến B lúc mấy giờ?
+\end{probbox}
+\probsol{
+Quãng đường đầu dài: $150:3=50$ (km); thời gian: $50:40=1{,}25$ (giờ) $=1$ giờ $15$ phút.\par
+Quãng đường còn lại: $150-50=100$ (km); thời gian: $100:50=2$ (giờ).\par
+Xe đến B lúc: 7 giờ 30 phút $+\ 1$ giờ $15$ phút $+\ 2$ giờ $=$ 10 giờ 45 phút.
+\dapso{10 giờ 45 phút.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Một người đi xe đạp trong $2$ giờ $15$ phút với vận tốc $16$ km/giờ, sau đó trong $1$ giờ $45$ phút với vận tốc $12$ km/giờ. Hỏi người đó đi được tất cả bao nhiêu ki-lô-mét? Trung bình mỗi giờ đi được bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Đoạn đầu: $16\times2{,}25=36$ (km). Đoạn sau: $12\times1{,}75=21$ (km).\par
+Tất cả: $36+21=57$ (km) trong $2{,}25+1{,}75=4$ (giờ).\par
+Trung bình mỗi giờ đi được: $57:4=14{,}25$ (km).
+\dapso{$57$ km; $14{,}25$ km/giờ.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Một con đường gồm đoạn lên dốc dài $9$ km và đoạn xuống dốc dài $15$ km. Một người đi xe đạp lên dốc với vận tốc $12$ km/giờ, xuống dốc với vận tốc $30$ km/giờ. Hỏi người đó đi hết cả con đường trong bao lâu? Vận tốc trung bình trên cả con đường là bao nhiêu?
+\end{probbox}
+\probsol{
+Thời gian lên dốc: $9:12=0{,}75$ (giờ). Thời gian xuống dốc: $15:30=0{,}5$ (giờ).\par
+Cả con đường: $0{,}75+0{,}5=1{,}25$ (giờ) $=1$ giờ $15$ phút.\par
+Vận tốc trung bình là: $(9+15):1{,}25=19{,}2$ (km/giờ).
+\dapso{$1$ giờ $15$ phút; $19{,}2$ km/giờ.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Một đoàn tàu khởi hành lúc 23 giờ 40 phút, chạy $2$ giờ $50$ phút với vận tốc $60$ km/giờ. Tàu dừng ở một ga $20$ phút rồi chạy tiếp $75$ km với vận tốc $50$ km/giờ thì đến ga cuối. Hỏi tàu đến ga cuối lúc mấy giờ và cả tuyến đường dài bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Đoạn đầu: $2$ giờ $50$ phút $=2\frac56$ giờ; quãng đường: $60\times2\frac56=170$ (km).\par
+Đoạn sau: $75:50=1{,}5$ (giờ) $=1$ giờ $30$ phút.\par
+Tàu đến ga cuối lúc: 23 giờ 40 phút $+\ 2$ giờ $50$ phút $+\ 20$ phút $+\ 1$ giờ $30$ phút $=28$ giờ $20$ phút, tức là 4 giờ 20 phút sáng hôm sau.\par
+Cả tuyến đường dài: $170+75=245$ (km).
+\dapso{4 giờ 20 phút sáng hôm sau; $245$ km.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+Hoa chạy $3$ vòng quanh sân dài $400$ m hết $6$ phút. Tính vận tốc chạy của Hoa theo đơn vị m/phút và km/giờ.
+\end{probbox}
+\probsol{
+Quãng đường Hoa chạy là: $400\times3=1\,200$ (m).\par
+Vận tốc là: $1\,200:6=200$ (m/phút).\par
+Trong $1$ giờ chạy được: $200\times60=12\,000$ (m) $=12$ km, nên vận tốc là $12$ km/giờ.
+\dapso{$200$ m/phút; $12$ km/giờ.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Một ô tô đi với vận tốc $15$ m/giây. Hỏi trong $1$ giờ $20$ phút ô tô đi được bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+$15$ m/giây $=15\times3{,}6=54$ km/giờ.\par
+Đổi: $1$ giờ $20$ phút $=\frac43$ giờ.\par
+Quãng đường ô tô đi được là: $54\times\frac43=72$ (km).
+\dapso{$72$ km.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Lúc 8 giờ 15 phút, một người đi xe máy từ A với vận tốc $36$ km/giờ. Đến 9 giờ 35 phút, người đó tăng vận tốc thêm $9$ km/giờ và giữ nguyên vận tốc đó cho đến khi tới B lúc 10 giờ 55 phút. Tính quãng đường AB.
+\end{probbox}
+\probsol{
+Từ 8 giờ 15 phút đến 9 giờ 35 phút là $1$ giờ $20$ phút $=\frac43$ giờ; quãng đường: $36\times\frac43=48$ (km).\par
+Vận tốc mới: $36+9=45$ (km/giờ).\par
+Từ 9 giờ 35 phút đến 10 giờ 55 phút là $1$ giờ $20$ phút $=\frac43$ giờ; quãng đường: $45\times\frac43=60$ (km).\par
+Quãng đường AB là: $48+60=108$ (km).
+\dapso{$108$ km.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Quãng đường AB dài $108$ km. Một xe tải đi từ A lúc 7 giờ với vận tốc $36$ km/giờ. Một ô tô con đi từ A lúc 7 giờ 30 phút với vận tốc $54$ km/giờ. Hỏi xe nào đến B trước và trước bao nhiêu phút?
+\end{probbox}
+\probsol{
+Xe tải đi hết: $108:36=3$ (giờ), đến B lúc 10 giờ.\par
+Ô tô con đi hết: $108:54=2$ (giờ), đến B lúc 7 giờ 30 phút $+\ 2$ giờ $=$ 9 giờ 30 phút.\par
+Ô tô con đến trước xe tải $30$ phút.
+\dapso{Ô tô con, trước $30$ phút.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+An chạy $100$ m hết $16$ giây. Bình chạy $1$ km hết $3$ phút $20$ giây. Cường đạp xe với vận tốc $21{,}6$ km/giờ. Hãy sắp xếp ba bạn theo thứ tự từ nhanh nhất đến chậm nhất.
+\end{probbox}
+\probsol{
+Vận tốc của An: $100:16=6{,}25$ (m/giây).\par
+Bình: $3$ phút $20$ giây $=200$ giây; vận tốc: $1\,000:200=5$ (m/giây).\par
+Cường: $21{,}6$ km/giờ $=21{,}6:3{,}6=6$ m/giây.\par
+Vì $6{,}25>6>5$ nên thứ tự là: An, Cường, Bình.
+\dapso{An, Cường, Bình.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Nhà Tuấn cách trường $4$ km; trường vào học lúc 7 giờ 15 phút.\par
+\pa{a} Tuấn đi từ nhà lúc 6 giờ 40 phút bằng xe đạp với vận tốc $12$ km/giờ. Hỏi Tuấn đến sớm bao nhiêu phút?\par
+\pa{b} Một hôm Tuấn đi từ nhà lúc 6 giờ 59 phút. Tuấn phải đi với vận tốc bao nhiêu để đến trường đúng 7 giờ 15 phút?
+\end{probbox}
+\probsol{
+\pa{a} Thời gian đi: $4:12=\frac13$ (giờ) $=20$ phút; Tuấn đến trường lúc 7 giờ, tức là sớm $15$ phút.\par
+\pa{b} Tuấn có $16$ phút $=\frac{16}{60}$ giờ $=\frac4{15}$ giờ.\par
+Vận tốc cần đi là: $4:\frac4{15}=15$ (km/giờ).
+\dapso{\pa{a} $15$ phút;\par \pa{b} $15$ km/giờ.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Một ô tô khởi hành từ A lúc 7 giờ 5 phút và đến B lúc 9 giờ 41 phút. Dọc đường xe nghỉ $18$ phút. Vận tốc của ô tô là $45$ km/giờ. Tính quãng đường AB.
+\end{probbox}
+\probsol{
+Từ 7 giờ 5 phút đến 9 giờ 41 phút là $2$ giờ $36$ phút.\par
+Thời gian xe đi trên đường là: $2$ giờ $36$ phút $-18$ phút $=2$ giờ $18$ phút $=2{,}3$ giờ.\par
+Quãng đường AB là: $45\times2{,}3=103{,}5$ (km).
+\dapso{$103{,}5$ km.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Một máy bay bay với vận tốc $840$ km/giờ, cất cánh lúc 6 giờ 50 phút để bay đến một thành phố cách đó $1\,260$ km. Hỏi máy bay hạ cánh lúc mấy giờ?
+\end{probbox}
+\probsol{
+Thời gian bay là: $1\,260:840=1{,}5$ (giờ) $=1$ giờ $30$ phút.\par
+Máy bay hạ cánh lúc: 6 giờ 50 phút $+\ 1$ giờ $30$ phút $=$ 8 giờ 20 phút.
+\dapso{8 giờ 20 phút.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Một vận động viên chạy $3$ km hết $12$ phút $30$ giây. Tính vận tốc của vận động viên đó theo đơn vị m/giây và km/giờ.
+\end{probbox}
+\probsol{
+Đổi: $12$ phút $30$ giây $=750$ giây; $3$ km $=3\,000$ m.\par
+Vận tốc là: $3\,000:750=4$ (m/giây).\par
+$4$ m/giây $=4\times3{,}6=14{,}4$ km/giờ.
+\dapso{$4$ m/giây; $14{,}4$ km/giờ.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Bình đạp xe $45$ phút với vận tốc $16$ km/giờ thì xe hỏng; Bình dắt xe đi bộ nốt $2{,}4$ km còn lại hết $36$ phút. Hỏi cả quãng đường dài bao nhiêu ki-lô-mét và Bình đi bộ với vận tốc bao nhiêu?
+\end{probbox}
+\probsol{
+Đạp xe: $45$ phút $=0{,}75$ giờ; quãng đường: $16\times0{,}75=12$ (km).\par
+Cả quãng đường dài: $12+2{,}4=14{,}4$ (km).\par
+Đi bộ: $36$ phút $=0{,}6$ giờ; vận tốc: $2{,}4:0{,}6=4$ (km/giờ).
+\dapso{$14{,}4$ km; $4$ km/giờ.}}
+\gap
+\begin{probbox}{45}{\stars{2}}
+Quãng đường AB dài $60$ km. Một ô tô đi một nửa thời gian với vận tốc $40$ km/giờ và nửa thời gian còn lại với vận tốc $60$ km/giờ. Hỏi ô tô đi từ A đến B hết bao lâu?
+\end{probbox}
+\probsol{
+Mỗi giờ của nửa thời gian đầu xe đi $40$ km, mỗi giờ của nửa thời gian sau xe đi $60$ km.\par
+Một giờ của nửa đầu cùng một giờ của nửa sau đi được: $40+60=100$ (km).\par
+Vậy mỗi nửa thời gian kéo dài: $60:100=0{,}6$ (giờ).\par
+Thời gian đi từ A đến B là: $0{,}6\times2=1{,}2$ (giờ) $=1$ giờ $12$ phút.\par
+\emph{Thử lại:} $40\times0{,}6+60\times0{,}6=24+36=60$ (km).
+\dapso{$1$ giờ $12$ phút.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+Quãng đường AB dài $60$ km. Một ô tô đi nửa quãng đường đầu với vận tốc $30$ km/giờ và nửa quãng đường sau với vận tốc $60$ km/giờ. Tính tổng thời gian đi và vận tốc trung bình. Vận tốc trung bình có phải là $45$ km/giờ không?
+\end{probbox}
+\probsol{
+Mỗi nửa quãng đường dài $30$ km.\par
+Nửa đầu: $30:30=1$ (giờ); nửa sau: $30:60=0{,}5$ (giờ).\par
+Tổng thời gian: $1{,}5$ giờ.\par
+Vận tốc trung bình: $60:1{,}5=40$ (km/giờ), không phải $45$ km/giờ (vì xe đi với vận tốc chậm lâu hơn).
+\dapso{$1{,}5$ giờ; $40$ km/giờ (không phải $45$ km/giờ).}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Trên đường cao tốc, cứ $48$ giây ô tô của bố lại đi qua một cột cây số. Tính vận tốc của ô tô theo đơn vị km/giờ.
+\end{probbox}
+\probsol{
+$1$ giờ $=3\,600$ giây. Trong $1$ giờ xe đi qua: $3\,600:48=75$ (cột cây số).\par
+Vận tốc của ô tô là $75$ km/giờ.
+\dapso{$75$ km/giờ.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+Rùa và Thỏ thi chạy $120$ m. Rùa bò đều với vận tốc $0{,}2$ m/giây. Thỏ chạy với vận tốc $6$ m/giây, chạy được $90$ m thì dừng lại ngủ, khi tỉnh dậy lại chạy $30$ m cuối với vận tốc cũ. Hỏi Thỏ ngủ lâu nhất bao nhiêu thời gian thì không bị thua?
+\end{probbox}
+\probsol{
+Thời gian Rùa bò là: $120:0{,}2=600$ (giây).\par
+Tổng thời gian Thỏ chạy là: $120:6=20$ (giây).\par
+Thỏ ngủ lâu nhất: $600-20=580$ (giây) $=9$ phút $40$ giây.
+\dapso{$9$ phút $40$ giây.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Một đoàn tàu rời ga A lúc 19 giờ 20 phút và đến ga B cách A $570$ km lúc 6 giờ 5 phút sáng hôm sau. Tổng thời gian tàu dừng ở các ga là $1$ giờ $15$ phút. Tính vận tốc của tàu khi chạy.
+\end{probbox}
+\probsol{
+Từ 19 giờ 20 phút đến 6 giờ 5 phút hôm sau là: $4$ giờ $40$ phút $+\ 6$ giờ $5$ phút $=10$ giờ $45$ phút.\par
+Thời gian tàu chạy là: $10$ giờ $45$ phút $-1$ giờ $15$ phút $=9$ giờ $30$ phút $=9{,}5$ giờ.\par
+Vận tốc của tàu là: $570:9{,}5=60$ (km/giờ).
+\dapso{$60$ km/giờ.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Quãng đường AB dài $115$ km. Một ô tô đi từ A lúc 7 giờ và phải đến B lúc 9 giờ 30 phút. Trong $1$ giờ $15$ phút đầu, xe đi với vận tốc $40$ km/giờ. Hỏi trên quãng đường còn lại xe phải đi với vận tốc bao nhiêu?
+\end{probbox}
+\probsol{
+Quãng đường đã đi: $40\times1{,}25=50$ (km); quãng đường còn lại: $115-50=65$ (km).\par
+Thời gian còn lại: $9$ giờ $30$ phút $-7$ giờ $-1$ giờ $15$ phút $=1$ giờ $15$ phút $=1{,}25$ giờ.\par
+Vận tốc cần đi là: $65:1{,}25=52$ (km/giờ).
+\dapso{$52$ km/giờ.}}

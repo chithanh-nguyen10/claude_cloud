@@ -69,7 +69,7 @@ check("P30", (2 * F(5, 4) - 2) * 60, 30)
 check("C31", 5 / (F(1, 4) + F(1, 6)), 12)
 up, dn = 4, 8; check("C32", (F(up) / 4 + F(dn) / 6, F(up) / 6 + F(dn) / 4, up + dn), (hm(2, 20), hm(2, 40), 12))
 check("C33", avg((240, 40), (240, 60)), 48)
-check("C34", 60 * F(60, 60) - F(30) / 30, 0)       # time left for the second half = 0
+check("C34", F(60) / 60 - F(30) / 30, 0)       # time left for the second half = 0
 check("C35", (F(18) / F(3, 2), F(18) / hm(1, 15)), (12, F(72, 5)))
 d = 135; check("C36", (F(d) / 45 - F(d) / 60, hm(9, 15) - F(d) / 60), (F(3, 4), 7))
 check("C37", (3 - (1 + F(80) / 50)) * 60, 24)
