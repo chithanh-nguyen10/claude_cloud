@@ -1,0 +1,590 @@
+\shead{Speed, distance and time}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+A \textbf{motion problem} is about a person or a vehicle moving from a place A to a place B in a certain amount of time.\par
+\smallskip
+-- The length AB is the \textbf{distance}, written $s$ (usually in km).\par
+-- The time taken to go from A to B is the \textbf{time}, written $t$ (usually in hours).\par
+-- The distance covered in one unit of time is the \textbf{speed}, written $v$.\par
+\smallskip
+For example, An cycles $36$ km in $3$ hours, so his speed is $36:3=12$ km/h.\par
+\smallskip
+In \textbf{uniform motion} (steady speed):
+\[s=v\times t\qquad v=s:t\qquad t=s:v\]
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{18pt}\centering
+\begin{tikzpicture}[>=Stealth]
+\draw[geo] (0,0)--(3.6,0);
+\fill[tmBlue] (0,0) circle (2pt) (3.6,0) circle (2pt);
+\node[lbl,below] at (0,0){A}; \node[lbl,below] at (3.6,0){B};
+\draw[->,thick,tmOrange] (0.2,0.35)--node[above,font=\small]{speed $v$}(3.4,0.35);
+\draw[|<->|,Slate] (0,-0.75)--node[fill=white,dim]{distance $s$}(3.6,-0.75);
+\node[dim] at (1.8,-1.35){time $t$};
+\end{tikzpicture}
+\end{minipage}\par
+\smallskip
+\emph{Units:} distance in km and time in hours give speed in km/h; metres and minutes give m/min; metres and seconds give m/s. Always put the quantities in matching units before calculating.
+\end{knowbox}
+
+\shead{Units of time and of speed}
+\begin{knowbox}
+$1$ day $=24$ h;\quad $1$ h $=60$ min;\quad $1$ min $=60$ s;\quad $1$ h $=3\,600$ s.\par
+\smallskip
+-- Hours to minutes: multiply by $60$. \quad $0.4$ h $=0.4\times60$ min $=24$ min.\par
+-- Minutes to hours: divide by $60$. \quad $1$ h $15$ min $=1\frac{15}{60}$ h $=1.25$ h.\par
+\smallskip
+\textbf{Changing units of speed:}\par
+-- $54$ km/h: in $1$ hour $54\,000$ m, so in $1$ second $54\,000:3\,600=15$ m. So $54$ km/h $=15$ m/s.\par
+-- In short: km/h $\to$ m/s: divide by $3.6$;\quad m/s $\to$ km/h: multiply by $3.6$.\par
+-- $600$ m/min: in $1$ hour $600\times60=36\,000$ m $=36$ km. So $600$ m/min $=36$ km/h.
+\end{knowbox}
+
+\shead{Working with times of day}
+\begin{knowbox}
+\begin{minipage}[t]{0.58\linewidth}
+When a journey has a departure time, an arrival time and a stop:\par
+\smallskip
+travel time $=$ arrival time $-$ departure time $-$ stopping time;\par
+arrival time $=$ departure time $+$ travel time $+$ stopping time.\par
+\smallskip
+When adding or subtracting times, work with hours and minutes separately; $60$ min make $1$ h.\par
+\smallskip
+To use $s=v\times t$, write the travel time in hours (as a decimal or a fraction).
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[>=Stealth]
+\draw[geo] (0,0)--(4,0);
+\fill[tmBlue] (0,0) circle (2pt) (4,0) circle (2pt) (2.2,0) circle (1.6pt);
+\node[lbl,below] at (0,0){A}; \node[lbl,below] at (4,0){B};
+\node[dim,above] at (0,0.05){7:00}; \node[dim,above] at (4,0.05){9:20};
+\node[dim,below] at (2.2,-0.05){stop $20$ min};
+\end{tikzpicture}\par\smallskip
+{\small travel time $=9$ h $20$ min $-7$ h $-20$ min $=2$ h}
+\end{minipage}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Fill in the blanks.
+\begin{cols3}
+\pa{a} $0.75$ h $=\dots$ min; & \pa{b} $2$ h $24$ min $=\dots$ h; & \pa{c} $3$ min $12$ s $=\dots$ s.
+\end{cols3}
+\guide
+\pa{a} $0.75$ h $=0.75\times60$ min $=45$ min.\par
+\pa{b} $24$ min $=24:60$ h $=0.4$ h, so $2$ h $24$ min $=2.4$ h.\par
+\pa{c} $3$ min $=3\times60=180$ s, so $3$ min $12$ s $=180+12=192$ s.
+\dapso{\pa{a} $45$ min;\par \pa{b} $2.4$ h;\par \pa{c} $192$ s.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Fill in the blanks.
+\begin{cols3}
+\pa{a} $72$ km/h $=\dots$ m/s; & \pa{b} $15$ m/s $=\dots$ km/h; & \pa{c} $800$ m/min $=\dots$ km/h.
+\end{cols3}
+\guide
+\pa{a} $72$ km $=72\,000$ m; $1$ h $=3\,600$ s.\par $72\,000:3\,600=20$, so $72$ km/h $=20$ m/s.\par
+\pa{b} In $1$ hour: $15\times3\,600=54\,000$ m $=54$ km. So $15$ m/s $=54$ km/h.\par
+\pa{c} In $1$ hour: $800\times60=48\,000$ m $=48$ km. So $800$ m/min $=48$ km/h.
+\dapso{\pa{a} $20$ m/s;\par \pa{b} $54$ km/h;\par \pa{c} $48$ km/h.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+A coach leaves town A at 6:45 and reaches town B, $110$ km away, at 9:15. On the way it stops for $30$ min. Find the speed of the coach.
+\guide
+From 6:45 to 9:15: $9$ h $15$ min $-6$ h $45$ min $=2$ h $30$ min.\par
+Travel time: $2$ h $30$ min $-30$ min $=2$ h.\par
+Speed: $110:2=55$ km/h.
+\dapso{$55$ km/h.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Hùng cycles from home at 7:20 at $14$ km/h and arrives at his grandparents' house at 9:05 without stopping. How far is it from his home to his grandparents' house?
+\guide
+Travel time: $9$ h $5$ min $-7$ h $20$ min $=1$ h $45$ min.\par
+$1$ h $45$ min $=1\frac{45}{60}$ h $=1.75$ h.\par
+Distance: $14\times1.75=24.5$ km.
+\dapso{$24.5$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+\begin{minipage}[t]{0.56\linewidth}
+At 6:30 a lorry leaves A for B, $135$ km away, at $45$ km/h. At B it stops for $40$ min to unload, then drives back to A at $54$ km/h. At what time does it get back to A?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.4\linewidth}\vspace{2pt}\centering
+\begin{tikzpicture}[>=Stealth]
+\draw[geo] (0,0)--(4,0);
+\fill[tmBlue] (0,0) circle (2pt) (4,0) circle (2pt);
+\node[lbl,left] at (0,0){A}; \node[lbl,right] at (4,0){B};
+\draw[->,tmOrange,thick] (0.1,0.3)--node[above,dim]{$45$ km/h}(3.9,0.3);
+\draw[<-,tmGreen!80!black,thick] (0.1,-0.3)--node[below,dim]{$54$ km/h}(3.9,-0.3);
+\node[dim,above] at (2,0.75){$135$ km};
+\end{tikzpicture}
+\end{minipage}
+\guide
+Time from A to B: $135:45=3$ h.\par
+Time from B back to A: $135:54=2.5$ h $=2$ h $30$ min.\par
+Back at A: 6:30 $+\ 3$ h $+\ 40$ min $+\ 2$ h $30$ min $=$ 12:40.
+\dapso{12:40.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+Fill in the blanks.
+\begin{cols2}
+\pa{a} $0.4$ h $=\dots$ min; & \pa{b} $1.25$ h $=\dots$ min;\\
+\pa{c} $2$ h $18$ min $=\dots$ h; & \pa{d} $45$ min $=\dots$ h.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $0.4\times60=24$ min.\par \pa{b} $1.25\times60=75$ min.\par \pa{c} $18:60=0.3$, so $2.3$ h.\par \pa{d} $45:60=0.75$ h.
+\dapso{$24$ min; $75$ min; $2.3$ h; $0.75$ h.}}
+\gap
+\begin{probbox}{2}{\relax}
+Fill in the blanks.
+\begin{cols2}
+\pa{a} $3.5$ min $=\dots$ s; & \pa{b} $2$ min $15$ s $=\dots$ s;\\
+\pa{c} $1.5$ days $=\dots$ h; & \pa{d} $150$ s $=\dots$ min.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $3.5\times60=210$ s.\par \pa{b} $2\times60+15=135$ s.\par \pa{c} $1.5\times24=36$ h.\par \pa{d} $150:60=2.5$ min.
+\dapso{$210$ s; $135$ s; $36$ h; $2.5$ min.}}
+\gap
+\begin{probbox}{3}{\relax}
+Fill in the blanks.
+\begin{cols2}
+\pa{a} $36$ km/h $=\dots$ m/s; & \pa{b} $25$ m/s $=\dots$ km/h;\\
+\pa{c} $54$ km/h $=\dots$ m/min; & \pa{d} $750$ m/min $=\dots$ km/h.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $36\,000:3\,600=10$ m/s.\par
+\pa{b} $25\times3\,600=90\,000$ m $=90$ km, so $90$ km/h.\par
+\pa{c} $54\,000:60=900$ m/min.\par
+\pa{d} $750\times60=45\,000$ m $=45$ km, so $45$ km/h.
+\dapso{$10$ m/s; $90$ km/h; $900$ m/min; $45$ km/h.}}
+\gap
+\begin{probbox}{4}{\relax}
+Work out.
+\begin{cols2}
+\pa{a} $3$ h $45$ min $+\ 2$ h $30$ min; & \pa{b} $8$ h $10$ min $-\ 5$ h $35$ min;\\
+\pa{c} $1$ h $25$ min $\times\ 3$; & \pa{d} $7$ h $30$ min $:\ 6$.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $5$ h $75$ min $=6$ h $15$ min.\par
+\pa{b} $8$ h $10$ min $=7$ h $70$ min; $7$ h $70$ min $-5$ h $35$ min $=2$ h $35$ min.\par
+\pa{c} $3$ h $75$ min $=4$ h $15$ min.\par
+\pa{d} $7$ h $30$ min $=450$ min; $450:6=75$ min $=1$ h $15$ min.
+\dapso{$6$ h $15$ min; $2$ h $35$ min; $4$ h $15$ min; $1$ h $15$ min.}}
+\gap
+\begin{probbox}{5}{\relax}
+A car travels $150$ km in $3$ hours. Find its speed.
+\end{probbox}
+\probsol{
+Speed: $150:3=50$ km/h.
+\dapso{$50$ km/h.}}
+\gap
+\begin{probbox}{6}{\relax}
+A cyclist rides $31.5$ km in $2$ h $15$ min. Find the cyclist's speed.
+\end{probbox}
+\probsol{
+$2$ h $15$ min $=2.25$ h.\par
+Speed: $31.5:2.25=14$ km/h.
+\dapso{$14$ km/h.}}
+\gap
+\begin{probbox}{7}{\relax}
+Lan runs one lap of a $400$ m track in $50$ seconds. Find her speed in m/s.
+\end{probbox}
+\probsol{
+Speed: $400:50=8$ m/s.
+\dapso{$8$ m/s.}}
+\gap
+\begin{probbox}{8}{\relax}
+A car travels at $48$ km/h for $2.5$ hours. How far does it go?
+\end{probbox}
+\probsol{
+Distance: $48\times2.5=120$ km.
+\dapso{$120$ km.}}
+\gap
+\begin{probbox}{9}{\relax}
+Grandma walks at $4.5$ km/h for $1$ h $20$ min. How far does she walk?
+\end{probbox}
+\probsol{
+$1$ h $20$ min $=1\frac{20}{60}$ h $=\frac43$ h.\par
+Distance: $4.5\times\frac43=6$ km.
+\dapso{$6$ km.}}
+\gap
+\begin{probbox}{10}{\relax}
+A motorbike travels $84$ km at $35$ km/h. How long does the journey take?
+\end{probbox}
+\probsol{
+Time: $84:35=2.4$ h.\par
+$0.4$ h $=0.4\times60=24$ min, so $2.4$ h $=2$ h $24$ min.
+\dapso{$2$ h $24$ min.}}
+\gap
+\begin{probbox}{11}{\relax}
+A swallow flies at $108$ km/h. How many minutes does it need to fly $27$ km?
+\end{probbox}
+\probsol{
+Time: $27:108=0.25$ h.\par
+$0.25$ h $=0.25\times60=15$ min.
+\dapso{$15$ min.}}
+\gap
+\begin{probbox}{12}{\relax}
+A coach leaves at 7:15 and arrives at 9:45 after travelling $125$ km without stopping. Find its speed.
+\end{probbox}
+\probsol{
+Travel time: $9$ h $45$ min $-7$ h $15$ min $=2$ h $30$ min $=2.5$ h.\par
+Speed: $125:2.5=50$ km/h.
+\dapso{$50$ km/h.}}
+\gap
+\begin{probbox}{13}{\relax}
+A motorbike leaves at 13:40 and arrives at 15:10, riding at $42$ km/h without stopping. How long is the journey?
+\end{probbox}
+\probsol{
+Travel time: $15$ h $10$ min $-13$ h $40$ min $=1$ h $30$ min $=1.5$ h.\par
+Distance: $42\times1.5=63$ km.
+\dapso{$63$ km.}}
+\gap
+\begin{probbox}{14}{\relax}
+A van leaves at 6:50 to travel $96$ km at $40$ km/h without stopping. At what time does it arrive?
+\end{probbox}
+\probsol{
+Travel time: $96:40=2.4$ h $=2$ h $24$ min.\par
+Arrival: 6:50 $+\ 2$ h $24$ min $=8$ h $74$ min $=$ 9:14.
+\dapso{9:14.}}
+\gap
+\begin{probbox}{15}{\relax}
+Mr Tâm must reach a city $150$ km away at 11:00. His car goes at $60$ km/h and he will not stop. At what time must he set off?
+\end{probbox}
+\probsol{
+Travel time: $150:60=2.5$ h $=2$ h $30$ min.\par
+Departure: $11$ h $-2$ h $30$ min $=$ 8:30.
+\dapso{8:30.}}
+\gap
+\begin{probbox}{16}{\relax}
+A car leaves A at 7:00 and arrives at B, $162$ km away, at 10:20. On the way it stops for $20$ min. Find its speed.
+\end{probbox}
+\probsol{
+From 7:00 to 10:20: $3$ h $20$ min.\par
+Travel time: $3$ h $20$ min $-20$ min $=3$ h.\par
+Speed: $162:3=54$ km/h.
+\dapso{$54$ km/h.}}
+\gap
+\begin{probbox}{17}{\relax}
+A motorbike leaves at 8:15 at $36$ km/h and arrives at 11:30. On the way the rider stops for $45$ min. How long is the journey?
+\end{probbox}
+\probsol{
+From 8:15 to 11:30: $3$ h $15$ min.\par
+Travel time: $3$ h $15$ min $-45$ min $=2$ h $30$ min $=2.5$ h.\par
+Distance: $36\times2.5=90$ km.
+\dapso{$90$ km.}}
+\gap
+\begin{probbox}{18}{\relax}
+A motorcyclist rides $37.5$ km in $1$ h $15$ min. At the same speed, how long will $51$ km take?
+\end{probbox}
+\probsol{
+$1$ h $15$ min $=1.25$ h.\par
+Speed: $37.5:1.25=30$ km/h.\par
+Time for $51$ km: $51:30=1.7$ h $=1$ h $42$ min.
+\dapso{$1$ h $42$ min.}}
+\gap
+\begin{probbox}{19}{\relax}
+A bus at $40$ km/h covers a road in $3$ h $30$ min. How long does a car at $56$ km/h take on the same road?
+\end{probbox}
+\probsol{
+$3$ h $30$ min $=3.5$ h.\par
+Length of the road: $40\times3.5=140$ km.\par
+Time for the car: $140:56=2.5$ h $=2$ h $30$ min.
+\dapso{$2$ h $30$ min.}}
+\gap
+\begin{probbox}{20}{\relax}
+Mai walks $1.2$ km from home to school in $15$ min. Find her speed in km/h and in m/min.
+\end{probbox}
+\probsol{
+$15$ min $=0.25$ h.\par
+Speed: $1.2:0.25=4.8$ km/h.\par
+$1.2$ km $=1\,200$ m; speed: $1\,200:15=80$ m/min.
+\dapso{$4.8$ km/h; $80$ m/min.}}
+\gap
+\begin{probbox}{21}{\relax}
+Hà cycles to school at $12$ km/h and needs $15$ min. On the same road, what speed would get her there in $10$ min?
+\end{probbox}
+\probsol{
+$15$ min $=0.25$ h. Distance: $12\times0.25=3$ km.\par
+$10$ min $=\frac{10}{60}$ h $=\frac16$ h.\par
+Speed needed: $3:\frac16=18$ km/h.
+\dapso{$18$ km/h.}}
+\gap
+\begin{probbox}{22}{\relax}
+Sound travels through air at $340$ m/s. Bình hears the thunder $5$ seconds after he sees the lightning. About how far away is the storm? (Light arrives almost at once.)
+\end{probbox}
+\probsol{
+Distance: $340\times5=1\,700$ m $=1.7$ km.
+\dapso{About $1.7$ km.}}
+\gap
+\begin{probbox}{23}{\relax}
+A night train leaves at 21:30 and runs $360$ km at $72$ km/h without stopping. At what time does it arrive?
+\end{probbox}
+\probsol{
+Travel time: $360:72=5$ h.\par
+$21$ h $30$ min $+5$ h $=26$ h $30$ min, that is 2:30 the next morning.
+\dapso{2:30 the next day.}}
+\gap
+\begin{probbox}{24}{\relax}
+Quân cycles for $40$ min at $15$ km/h, then walks for $18$ min at $5$ km/h. How far does he go altogether?
+\end{probbox}
+\probsol{
+Cycling: $40$ min $=\frac23$ h; $15\times\frac23=10$ km.\par
+Walking: $18$ min $=0.3$ h; $5\times0.3=1.5$ km.\par
+Altogether: $10+1.5=11.5$ km.
+\dapso{$11.5$ km.}}
+\gap
+\begin{probbox}{25}{\relax}
+A taxi leaves A at 7:00 for B, $90$ km away, at $45$ km/h. It waits at B for $30$ min, then returns to A at $60$ km/h. At what time is it back at A?
+\end{probbox}
+\probsol{
+A to B: $90:45=2$ h. B to A: $90:60=1.5$ h $=1$ h $30$ min.\par
+Back at A: 7:00 $+\ 2$ h $+\ 30$ min $+\ 1$ h $30$ min $=$ 11:00.
+\dapso{11:00.}}
+\gap
+\begin{probbox}{26}{\relax}
+\begin{minipage}[t]{0.56\linewidth}
+The road AB is $120$ km long. At 7:30 a car leaves A at $40$ km/h. After $2$ hours it stops for $15$ min to change a tyre, then covers the rest of the road at $50$ km/h. At what time does it reach B?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.4\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[>=Stealth]
+\draw[geo] (0,0)--(4,0);
+\fill[tmBlue] (0,0) circle (2pt) (4,0) circle (2pt) (2.67,0) circle (1.6pt);
+\node[lbl,below] at (0,0){A}; \node[lbl,below] at (4,0){B}; \node[lbl,below] at (2.67,0){C};
+\node[dim,above] at (1.33,0){$40$ km/h, $2$ h}; \node[dim,above] at (3.33,0){$50$ km/h};
+\draw[|<->|,Slate] (0,-0.75)--node[fill=white,dim]{$120$ km}(4,-0.75);
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Distance in the first $2$ h: $40\times2=80$ km.\par
+Rest of the road: $120-80=40$ km.\par
+Time for it: $40:50=0.8$ h $=48$ min.\par
+Arrival: 7:30 $+\ 2$ h $+\ 15$ min $+\ 48$ min $=$ 10:33.
+\dapso{10:33.}}
+\gap
+\begin{probbox}{27}{\relax}
+At 6:30 Mr Phúc walks from his house at $5$ km/h. At 7:06 he gets on a bus, which goes at $40$ km/h and arrives at the market town at 7:51. How far is the market town from his house?
+\end{probbox}
+\probsol{
+Walking time: $7$ h $6$ min $-6$ h $30$ min $=36$ min $=0.6$ h; walking: $5\times0.6=3$ km.\par
+Bus time: $7$ h $51$ min $-7$ h $6$ min $=45$ min $=0.75$ h; bus: $40\times0.75=30$ km.\par
+Distance: $3+30=33$ km.
+\dapso{$33$ km.}}
+\gap
+\begin{probbox}{28}{\relax}
+A car covers $180$ km in $2$ h $30$ min. Find its speed in km/h and in m/s.
+\end{probbox}
+\probsol{
+$2$ h $30$ min $=2.5$ h.\par
+Speed: $180:2.5=72$ km/h.\par
+$72$ km/h $=72\,000:3\,600=20$ m/s.
+\dapso{$72$ km/h; $20$ m/s.}}
+\gap
+\begin{probbox}{29}{\relax}
+A snail crawls at $15$ cm/min. How many minutes does it need to cross a path $1.2$ m wide?
+\end{probbox}
+\probsol{
+$1.2$ m $=120$ cm.\par
+Time: $120:15=8$ min.
+\dapso{$8$ min.}}
+\gap
+\begin{probbox}{30}{\relax}
+A ferry leaves at 22:45 and arrives at 4:15 the next morning without stopping, after sailing $132$ km. Find its speed.
+\end{probbox}
+\probsol{
+From 22:45 to 24:00: $1$ h $15$ min; from 0:00 to 4:15: $4$ h $15$ min.\par
+Travel time: $1$ h $15$ min $+\ 4$ h $15$ min $=5$ h $30$ min $=5.5$ h.\par
+Speed: $132:5.5=24$ km/h.
+\dapso{$24$ km/h.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+The road AB is $150$ km long. At 7:30 a car leaves A. It covers the first $\dfrac13$ of the road at $40$ km/h and the rest at $50$ km/h. At what time does it reach B?
+\end{probbox}
+\probsol{
+First part: $150:3=50$ km; time $50:40=1.25$ h $=1$ h $15$ min.\par
+Rest: $150-50=100$ km; time $100:50=2$ h.\par
+Arrival: 7:30 $+\ 1$ h $15$ min $+\ 2$ h $=$ 10:45.
+\dapso{10:45.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+A cyclist rides for $2$ h $15$ min at $16$ km/h, then for $1$ h $45$ min at $12$ km/h. How far does she ride in all? On average, how many kilometres does she ride per hour?
+\end{probbox}
+\probsol{
+First part: $16\times2.25=36$ km. Second part: $12\times1.75=21$ km.\par
+In all: $36+21=57$ km in $2.25+1.75=4$ h.\par
+On average: $57:4=14.25$ km per hour.
+\dapso{$57$ km; $14.25$ km/h.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+A road has an uphill part of $9$ km and a downhill part of $15$ km. A cyclist goes uphill at $12$ km/h and downhill at $30$ km/h. How long does the whole road take? What is the average speed over the whole road?
+\end{probbox}
+\probsol{
+Uphill: $9:12=0.75$ h. Downhill: $15:30=0.5$ h.\par
+Whole road: $0.75+0.5=1.25$ h $=1$ h $15$ min.\par
+Average speed: $(9+15):1.25=19.2$ km/h.
+\dapso{$1$ h $15$ min; $19.2$ km/h.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+A train leaves at 23:40 and runs for $2$ h $50$ min at $60$ km/h. It stops at a station for $20$ min, then runs another $75$ km at $50$ km/h to the last station. At what time does it arrive, and how long is the whole route?
+\end{probbox}
+\probsol{
+First part: $2$ h $50$ min $=2\frac56$ h; $60\times2\frac56=170$ km.\par
+Second part: $75:50=1.5$ h $=1$ h $30$ min.\par
+Arrival: 23:40 $+\ 2$ h $50$ min $+\ 20$ min $+\ 1$ h $30$ min $=28$ h $20$ min, that is 4:20 the next day.\par
+Whole route: $170+75=245$ km.
+\dapso{4:20 the next day; $245$ km.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+Hoa jogs $3$ laps of a $400$ m track in $6$ min. Find her speed in m/min and in km/h.
+\end{probbox}
+\probsol{
+Distance: $400\times3=1\,200$ m.\par
+Speed: $1\,200:6=200$ m/min.\par
+In $1$ hour: $200\times60=12\,000$ m $=12$ km, so $12$ km/h.
+\dapso{$200$ m/min; $12$ km/h.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+A car moves at $15$ m/s. How many kilometres does it cover in $1$ h $20$ min?
+\end{probbox}
+\probsol{
+$15$ m/s $=15\times3.6=54$ km/h.\par
+$1$ h $20$ min $=\frac43$ h.\par
+Distance: $54\times\frac43=72$ km.
+\dapso{$72$ km.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+At 8:15 a motorbike leaves A at $36$ km/h. At 9:35 the rider speeds up by $9$ km/h and keeps that speed until reaching B at 10:55. How far is it from A to B?
+\end{probbox}
+\probsol{
+From 8:15 to 9:35: $1$ h $20$ min $=\frac43$ h; distance $36\times\frac43=48$ km.\par
+New speed: $36+9=45$ km/h.\par
+From 9:35 to 10:55: $1$ h $20$ min $=\frac43$ h; distance $45\times\frac43=60$ km.\par
+AB: $48+60=108$ km.
+\dapso{$108$ km.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+The road AB is $108$ km long. A lorry leaves A for B at 7:00 at $36$ km/h. A car leaves A at 7:30 at $54$ km/h. Which arrives at B first, and by how many minutes?
+\end{probbox}
+\probsol{
+Lorry: $108:36=3$ h, arriving at 10:00.\par
+Car: $108:54=2$ h, arriving at 7:30 $+\ 2$ h $=$ 9:30.\par
+The car arrives first, $30$ min before the lorry.
+\dapso{The car, $30$ min earlier.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+An runs $100$ m in $16$ s. Bình runs $1$ km in $3$ min $20$ s. Cường cycles at $21.6$ km/h. Order the three boys from fastest to slowest.
+\end{probbox}
+\probsol{
+An: $100:16=6.25$ m/s.\par
+Bình: $3$ min $20$ s $=200$ s; $1\,000:200=5$ m/s.\par
+Cường: $21.6$ km/h $=21.6:3.6=6$ m/s.\par
+$6.25>6>5$.
+\dapso{An, Cường, Bình.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Tuấn's school is $4$ km from home and lessons start at 7:15.\par
+\pa{a} He leaves at 6:40 and cycles at $12$ km/h. How many minutes early is he?\par
+\pa{b} One day he leaves at 6:59. What speed must he ride at to arrive exactly at 7:15?
+\end{probbox}
+\probsol{
+\pa{a} Time: $4:12=\frac13$ h $=20$ min; he arrives at 7:00, that is $15$ min early.\par
+\pa{b} He has $16$ min $=\frac{16}{60}$ h $=\frac4{15}$ h.\par
+Speed: $4:\frac4{15}=15$ km/h.
+\dapso{\pa{a} $15$ min;\par \pa{b} $15$ km/h.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+A car leaves A at 7:05 and reaches B at 9:41. On the way it stops for $18$ min. Its speed is $45$ km/h. Find the distance AB.
+\end{probbox}
+\probsol{
+From 7:05 to 9:41: $2$ h $36$ min.\par
+Travel time: $2$ h $36$ min $-18$ min $=2$ h $18$ min $=2.3$ h.\par
+AB: $45\times2.3=103.5$ km.
+\dapso{$103.5$ km.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+A plane flies at $840$ km/h. It takes off at 6:50 for a city $1\,260$ km away. At what time does it land?
+\end{probbox}
+\probsol{
+Flying time: $1\,260:840=1.5$ h $=1$ h $30$ min.\par
+Landing: 6:50 $+\ 1$ h $30$ min $=$ 8:20.
+\dapso{8:20.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+A runner covers $3$ km in $12$ min $30$ s. Find the speed in m/s and in km/h.
+\end{probbox}
+\probsol{
+$12$ min $30$ s $=750$ s; $3$ km $=3\,000$ m.\par
+Speed: $3\,000:750=4$ m/s.\par
+$4$ m/s $=4\times3.6=14.4$ km/h.
+\dapso{$4$ m/s; $14.4$ km/h.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Bình cycles for $45$ min at $16$ km/h; then his bike breaks and he walks the remaining $2.4$ km in $36$ min. How long is the whole road, and how fast did he walk?
+\end{probbox}
+\probsol{
+Cycling: $45$ min $=0.75$ h; $16\times0.75=12$ km.\par
+Whole road: $12+2.4=14.4$ km.\par
+Walking: $36$ min $=0.6$ h; speed $2.4:0.6=4$ km/h.
+\dapso{$14.4$ km; $4$ km/h.}}
+\gap
+\begin{probbox}{45}{\stars{2}}
+The road AB is $60$ km long. A car spends half of its travel time at $40$ km/h and the other half at $60$ km/h. How long does it take from A to B?
+\end{probbox}
+\probsol{
+In each hour of the first half it covers $40$ km, in each hour of the second half $60$ km.\par
+One hour of the first half together with one hour of the second half covers $40+60=100$ km.\par
+So each half lasts $60:100=0.6$ h.\par
+Total time: $0.6\times2=1.2$ h $=1$ h $12$ min.\par
+\emph{Check:} $40\times0.6+60\times0.6=24+36=60$ km.
+\dapso{$1$ h $12$ min.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+The road AB is $60$ km long. A car covers the first half of the road at $30$ km/h and the second half at $60$ km/h. Find the total time and the average speed. Is the average speed $45$ km/h?
+\end{probbox}
+\probsol{
+Each half: $30$ km.\par
+First half: $30:30=1$ h; second half: $30:60=0.5$ h.\par
+Total time: $1.5$ h.\par
+Average speed: $60:1.5=40$ km/h, not $45$ km/h (the car spends longer at the slower speed).
+\dapso{$1.5$ h; $40$ km/h (no).}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+On a motorway, Dad's car passes one kilometre post every $48$ seconds. What is its speed in km/h?
+\end{probbox}
+\probsol{
+$1$ h $=3\,600$ s. In $1$ hour it passes $3\,600:48=75$ posts.\par
+Speed: $75$ km/h.
+\dapso{$75$ km/h.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+A tortoise and a hare race over $120$ m. The tortoise crawls steadily at $0.2$ m/s. The hare runs at $6$ m/s, stops after $90$ m to sleep, then wakes up and runs the last $30$ m at the same speed. At most how long can the hare sleep and still not lose?
+\end{probbox}
+\probsol{
+Tortoise: $120:0.2=600$ s.\par
+Hare running: $120:6=20$ s in all.\par
+Longest sleep: $600-20=580$ s $=9$ min $40$ s.
+\dapso{$9$ min $40$ s.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+A train leaves station A at 19:20 and reaches station B, $570$ km away, at 6:05 the next day. Its stops at stations add up to $1$ h $15$ min. Find the speed of the train while it is moving.
+\end{probbox}
+\probsol{
+From 19:20 to 6:05 the next day: $4$ h $40$ min $+\ 6$ h $5$ min $=10$ h $45$ min.\par
+Moving time: $10$ h $45$ min $-1$ h $15$ min $=9$ h $30$ min $=9.5$ h.\par
+Speed: $570:9.5=60$ km/h.
+\dapso{$60$ km/h.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+The road AB is $115$ km long. A car leaves A at 7:00 and must reach B at 9:30. For the first $1$ h $15$ min it goes at $40$ km/h. At what speed must it cover the rest of the road?
+\end{probbox}
+\probsol{
+Distance so far: $40\times1.25=50$ km; still to go: $115-50=65$ km.\par
+Time left: $9$ h $30$ min $-7$ h $-1$ h $15$ min $=1$ h $15$ min $=1.25$ h.\par
+Speed needed: $65:1.25=52$ km/h.
+\dapso{$52$ km/h.}}

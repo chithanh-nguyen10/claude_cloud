@@ -714,13 +714,12 @@ Tất cả có: $27+8+1=36$ (hình).
 Một khối xếp đặt trên đáy gồm $3\times2$ ô vuông, ô nào cũng có ít nhất một hình lập phương. Hình bên là hình nhìn từ phía trước và hình nhìn từ bên phải của khối. Khối đó có nhiều nhất bao nhiêu hình lập phương? Ít nhất bao nhiêu hình?
 \end{minipage}\hfill
 \begin{minipage}[t]{0.4\linewidth}\vspace{0pt}\centering
-\begin{tikzpicture}[scale=0.42]
+\begin{tikzpicture}[scale=0.55]
 \foreach \x/\y in {0/0,0/1,0/2,1/0,2/0,2/1}{\draw[xhf,fill=tmBlue!20] (\x,\y) rectangle ++(1,1);}
 \node[dim,below] at (1.5,0){từ phía trước};
-\begin{scope}[xshift=4.5cm]
+\begin{scope}[shift={(5,0)}]
 \foreach \x/\y in {0/0,0/1,1/0,1/1,1/2}{\draw[xhf,fill=tmBlue!20] (\x,\y) rectangle ++(1,1);}
-\node[dim,below] at (1,0){từ bên phải};
-\node[dim] at (0.4,-1.3){trước}; \node[dim] at (1.6,-1.3){sau};
+\node[dim,below,align=center] at (1,0){từ bên phải\\(trước\,|\,sau)};
 \end{scope}
 \end{tikzpicture}
 \end{minipage}

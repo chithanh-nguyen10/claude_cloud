@@ -1,0 +1,488 @@
+\shead{Mối quan hệ giữa vận tốc, quãng đường, thời gian}
+\begin{knowbox}
+\[ s=v\times t;\qquad v=s:t;\qquad t=s:v. \]
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Cùng một quãng đường:} xe đi nhanh hơn (vận tốc lớn hơn) thì mất ít thời gian hơn. Vận tốc gấp lên bao nhiêu lần thì thời gian giảm đi bấy nhiêu lần. Ta nói vận tốc \emph{tỉ lệ nghịch} với thời gian: tỉ số hai thời gian bằng tỉ số hai vận tốc viết đảo ngược.
+\item \textbf{Cùng vận tốc:} quãng đường dài hơn thì cần thời gian lâu hơn; quãng đường \emph{tỉ lệ thuận} với thời gian.
+\item \textbf{Cùng thời gian:} vật đi nhanh hơn thì đi được quãng đường xa hơn; quãng đường \emph{tỉ lệ thuận} với vận tốc.
+\end{itemize}
+\end{knowbox}
+\gap
+\shead{Giải bằng tỉ số và sơ đồ đoạn thẳng}
+\begin{knowbox}
+Trên cùng một quãng đường, nếu tỉ số vận tốc dự định và vận tốc thực tế là $\dfrac ab$ thì tỉ số thời gian dự định và thời gian thực tế là $\dfrac ba$. Vẽ hai thời gian bằng các đoạn thẳng gồm những phần bằng nhau: \emph{thời gian chênh lệch} (muộn, sớm, lâu hơn, ít hơn) ứng với \emph{hiệu số phần}. Từ giá trị một phần ta tìm được thời gian, rồi tìm quãng đường.
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Thời gian dự kiến:}
+\foreach \i in {0,...,3}{\blk{\i*0.8}{\i*0.8+0.8}{0.62}{0.42}{tmBlue}{}}
+\rowlab{-0.15}{0}{Thời gian thực tế:}
+\foreach \i in {0,...,3}{\blk{\i*0.8}{\i*0.8+0.8}{0}{0.42}{tmGreen}{}}
+\blk{3.2}{4.0}{0}{0.42}{tmOrange}{}
+\brcdn{3.2}{4.0}{-0.32}{muộn \dots}
+\end{barfigC}
+\end{knowbox}
+\gap
+\shead{Vận tốc trung bình}
+\begin{knowbox}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Vận tốc trung bình $=$ tổng quãng đường $:$ tổng thời gian.}
+\item Nói chung, vận tốc trung bình \emph{không} bằng trung bình cộng các vận tốc. Chẳng hạn, đi nửa quãng đường với vận tốc $12$ km/h và nửa quãng đường với vận tốc $4$ km/h thì vận tốc trung bình \emph{không} phải là $8$ km/h.
+\item Khi đề bài không cho độ dài quãng đường (``nửa quãng đường'', ``cả đi và về''), ta chọn độ dài thích hợp, thường là một số chia hết cho tất cả các vận tốc (\emph{giải bằng rút về đơn vị}), rồi tính thời gian.
+\end{itemize}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Huy đạp xe được $18$ km trong $1$ giờ $30$ phút. Nếu vẫn đi với vận tốc đó thì Huy đi $30$ km hết bao nhiêu thời gian?
+\guide
+Vận tốc không đổi nên quãng đường gấp lên bao nhiêu lần thì thời gian cũng gấp lên bấy nhiêu lần.\par
+$30:18=\dfrac53$, nên quãng đường gấp $\dfrac53$ lần.\par
+Thời gian: $1{,}5\times\dfrac53=2{,}5$ (giờ) $=2$ giờ $30$ phút.\par
+\note{Cách khác: vận tốc $18:1{,}5=12$ (km/h); thời gian $30:12=2{,}5$ (giờ).}
+\ans{$2$ giờ $30$ phút.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Một ô tô dự kiến đi từ $A$ đến $B$ với vận tốc $60$ km/h. Nhưng do đường đang sửa nên xe chỉ đi được với vận tốc $48$ km/h và đến $B$ chậm $30$ phút so với dự kiến. Tính quãng đường $AB$.
+\guide
+Tỉ số vận tốc dự kiến và vận tốc thực tế: $\dfrac{60}{48}=\dfrac54$.\par
+Trên cùng quãng đường, vận tốc tỉ lệ nghịch với thời gian nên tỉ số thời gian dự kiến và thời gian thực tế là $\dfrac45$.
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Thời gian dự kiến:}
+\foreach \i in {0,...,3}{\blk{\i*0.8}{\i*0.8+0.8}{0.62}{0.42}{tmBlue}{}}
+\rowlab{-0.15}{0}{Thời gian thực tế:}
+\foreach \i in {0,...,3}{\blk{\i*0.8}{\i*0.8+0.8}{0}{0.42}{tmGreen}{}}
+\blk{3.2}{4.0}{0}{0.42}{tmOrange}{}
+\brcdn{3.2}{4.0}{-0.32}{$30$ phút}
+\end{barfigC}
+Hiệu số phần: $5-4=1$ phần $=30$ phút. \ Thời gian thực tế: $30\times5=150$ (phút) $=2{,}5$ giờ.\par
+$AB=48\times2{,}5=120$ (km).
+\ans{$120$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Trên quãng đường $AB$, ô tô đi hết $4$ giờ, xe máy đi hết $6$ giờ. Vận tốc ô tô hơn vận tốc xe máy $15$ km/h. Tính vận tốc mỗi xe và quãng đường $AB$.
+\guide
+Tỉ số thời gian ô tô và xe máy: $\dfrac46=\dfrac23$; nên tỉ số vận tốc ô tô và xe máy là $\dfrac32$.
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Ô tô:}
+\foreach \i in {0,1,2}{\blk{\i*0.9}{\i*0.9+0.9}{0.62}{0.42}{tmGreen}{}}
+\rowlab{-0.15}{0}{Xe máy:}
+\foreach \i in {0,1}{\blk{\i*0.9}{\i*0.9+0.9}{0}{0.42}{tmBlue}{}}
+\brcup{1.8}{2.7}{0.9}{$15$ km/h}
+\end{barfigC}
+Hiệu số phần: $3-2=1$ phần $=15$ km/h.\par
+Vận tốc ô tô: $15\times3=45$ (km/h); vận tốc xe máy: $45-15=30$ (km/h).\par $AB=45\times4=180$ (km).
+\ans{ô tô $45$ km/h, xe máy $30$ km/h; $AB=180$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Thu đạp xe từ $A$ đến $B$ với vận tốc $12$ km/h. Lúc từ $B$ trở về $A$, Thu đi $6$ km đầu với vận tốc $12$ km/h, sau đó gió to nên Thu chỉ đi được với vận tốc $10$ km/h trên quãng đường còn lại. Vì vậy thời gian về nhiều hơn thời gian đi $12$ phút. Tính quãng đường $AB$.
+\guide
+Gọi $C$ là điểm cách $B$ $6$ km. Trên đoạn $BC$, thời gian đi và về như nhau; $12$ phút chênh lệch là do đoạn $CA$.
+\begin{barfigC}
+\draw[geo] (0,0)--(6,0);
+\foreach \x/\n in {0/A,4/C,6/B}{\draw[geo](\x,0.12)--(\x,-0.12); \node[lbl,above] at (\x,0.12){$\n$};}
+\brcdn{4}{6}{-0.3}{$6$ km}
+\draw[<-,line width=1pt,tmOrange] (0.1,0.6)--(3.9,0.6); \node[dim,above] at (2,0.62){$10$ km/h};
+\draw[<-,line width=1pt,tmGreen] (4.1,0.6)--(5.9,0.6); \node[dim,above] at (5,0.62){$12$ km/h};
+\end{barfigC}
+Trên đoạn $CA$: tỉ số vận tốc dự kiến và thực tế là $\dfrac{12}{10}=\dfrac65$, nên tỉ số thời gian dự kiến và thực tế là $\dfrac56$.\par
+$6-5=1$ phần $=12$ phút; thời gian thực tế trên đoạn $CA$: $12\times6=72$ (phút) $=1{,}2$ giờ.\par
+$CA=10\times1{,}2=12$ (km); \ $AB=12+6=18$ (km).
+\ans{$18$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+\pa{a} Một xe máy đi $2$ giờ với vận tốc $45$ km/h, sau đó đi $1$ giờ với vận tốc $60$ km/h. Tính vận tốc trung bình của xe máy.\par
+\pa{b} Khoa đạp xe nửa quãng đường đầu với vận tốc $12$ km/h, sau đó xe hỏng nên Khoa đi bộ nửa quãng đường sau với vận tốc $4$ km/h. Tính vận tốc trung bình của Khoa trên cả quãng đường.
+\guide
+\pa{a} Tổng quãng đường: $45\times2+60\times1=150$ (km); tổng thời gian: $2+1=3$ (giờ).\par
+Vận tốc trung bình: $150:3=50$ (km/h).\par
+\pa{b} Nhận thấy $12$ chia hết cho cả $12$ và $4$; giả sử nửa quãng đường dài $12$ km (chọn làm đơn vị cho thuận tiện).\par
+Nửa đầu: $12:12=1$ (đơn vị thời gian); nửa sau: $12:4=3$ (đơn vị thời gian).\par
+Cả quãng đường: $24$ km trong $1+3=4$ đơn vị thời gian; vận tốc trung bình: $24:4=6$ (km/h).\par
+\note{Không phải $(12+4):2=8$ km/h: thời gian Khoa đi bộ dài hơn nhiều so với thời gian đạp xe.}
+\ans{a) $50$ km/h; \ b) $6$ km/h.}
+\end{exbox}
+\dividerbar{Luyện tập}
+\begin{probbox}{1}{\relax}
+Một xe máy đi được $96$ km trong $2$ giờ $40$ phút. Nếu vẫn đi với vận tốc đó thì trong $4$ giờ xe máy đi được bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+$2$ giờ $40$ phút $=\dfrac83$ giờ. \ Vận tốc: $96:\dfrac83=36$ (km/h).\par Quãng đường đi trong $4$ giờ: $36\times4=144$ (km).
+\dapso{$144$ km.}}
+\gap
+\begin{probbox}{2}{\relax}
+Một ô tô đi $150$ km hết $2{,}5$ giờ. Nếu vẫn đi với vận tốc đó thì ô tô đi $210$ km hết bao lâu?
+\end{probbox}
+\probsol{
+Vận tốc: $150:2{,}5=60$ (km/h).\par Thời gian: $210:60=3{,}5$ (giờ) $=3$ giờ $30$ phút.
+\dapso{$3$ giờ $30$ phút.}}
+\gap
+\begin{probbox}{3}{\relax}
+Một người đi xe đạp và một xe máy cùng lúc rời thị trấn. Vận tốc xe máy gấp $2{,}5$ lần vận tốc xe đạp. Khi người đi xe đạp đi được $14$ km thì xe máy đi được bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Trong cùng thời gian, quãng đường tỉ lệ thuận với vận tốc.\par Xe máy đi được: $14\times2{,}5=35$ (km).
+\dapso{$35$ km.}}
+\gap
+\begin{probbox}{4}{\relax}
+Hai thị xã $X$ và $Y$ cách nhau $150$ km. Một ô tô đi từ $X$ đến $Y$ với vận tốc $60$ km/h; cùng lúc đó một xe máy đi từ $Y$ về $X$ với vận tốc $40$ km/h. Hỏi khi ô tô đến $Y$ thì xe máy còn cách $X$ bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Ô tô đi hết $150:60=2{,}5$ (giờ).\par Trong $2{,}5$ giờ xe máy đi được $40\times2{,}5=100$ (km).\par Xe máy còn cách $X$: $150-100=50$ (km).
+\dapso{$50$ km.}}
+\gap
+\begin{probbox}{5}{\relax}
+Một ô tô đi quãng đường $AB$ dài $96$ km với vận tốc $48$ km/h. Cũng trong thời gian đó, một xe máy xuất phát từ $A$ đi trên cùng con đường với vận tốc bằng $\dfrac34$ vận tốc ô tô. Hỏi khi ô tô đến $B$ thì xe máy còn cách $B$ bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Trong cùng thời gian, xe máy đi được $\dfrac34$ quãng đường ô tô đi: $96\times\dfrac34=72$ (km).\par Xe máy còn cách $B$: $96-72=24$ (km).
+\dapso{$24$ km.}}
+\gap
+\begin{probbox}{6}{\relax}
+Một xe máy đi với vận tốc $40$ km/h thì hết $3$ giờ trên một quãng đường. Một ô tô đi với vận tốc gấp $1{,}5$ lần vận tốc xe máy. Hỏi ô tô đi quãng đường đó hết bao lâu?
+\end{probbox}
+\probsol{
+Cùng quãng đường: vận tốc gấp $1{,}5$ lần thì thời gian giảm $1{,}5$ lần.\par Thời gian: $3:1{,}5=2$ (giờ).
+\dapso{$2$ giờ.}}
+\gap
+\begin{probbox}{7}{\relax}
+Một xe máy đi với vận tốc $42$ km/h thì đi hết một quãng đường trong $2$ giờ $30$ phút. Một ô tô đi quãng đường đó với vận tốc $60$ km/h, xuất phát lúc 6 giờ 50 phút. Hỏi ô tô đến nơi lúc mấy giờ?
+\end{probbox}
+\probsol{
+Độ dài quãng đường: $42\times2{,}5=105$ (km).\par Thời gian ô tô đi: $105:60=1{,}75$ (giờ) $=1$ giờ $45$ phút.\par Ô tô đến nơi lúc: 6 giờ 50 phút $+\ 1$ giờ $45$ phút $=$ 8 giờ 35 phút.
+\dapso{8 giờ 35 phút.}}
+\gap
+\begin{probbox}{8}{\relax}
+Một xe máy dự định đi từ $A$ đến $B$ trong $4$ giờ, nhưng thực tế chỉ đi hết $3$ giờ $12$ phút vì vận tốc đã tăng thêm $10$ km/h. Tính vận tốc thực tế của xe máy.
+\end{probbox}
+\probsol{
+$3$ giờ $12$ phút $=3{,}2$ giờ. \ Tỉ số thời gian dự định và thực tế: $4:3{,}2=\dfrac54$.\par
+Nên tỉ số vận tốc dự định và thực tế là $\dfrac45$; hiệu $1$ phần $=10$ km/h.\par Vận tốc thực tế: $10\times5=50$ (km/h).
+\dapso{$50$ km/h.}}
+\gap
+\begin{probbox}{9}{\relax}
+Một xe khách dự định đi với vận tốc $50$ km/h, nhưng do đường đông xe nên chỉ đi được với vận tốc $40$ km/h và đến nơi chậm $36$ phút. Tính độ dài quãng đường.
+\end{probbox}
+\probsol{
+Tỉ số vận tốc dự định và thực tế: $\dfrac{50}{40}=\dfrac54$; tỉ số thời gian dự định và thực tế: $\dfrac45$.\par
+$1$ phần $=36$ phút; thời gian thực tế: $36\times5=180$ (phút) $=3$ giờ.\par Quãng đường: $40\times3=120$ (km).
+\dapso{$120$ km.}}
+\gap
+\begin{probbox}{10}{\relax}
+Một ô tô dự định đi với vận tốc $45$ km/h nhưng thực tế đi với vận tốc $54$ km/h nên đến nơi sớm hơn dự định $20$ phút. Tính độ dài quãng đường.
+\end{probbox}
+\probsol{
+Tỉ số vận tốc dự định và thực tế: $\dfrac{45}{54}=\dfrac56$; tỉ số thời gian dự định và thực tế: $\dfrac65$.\par
+$1$ phần $=20$ phút; thời gian thực tế: $20\times5=100$ (phút) $=\dfrac53$ giờ.\par Quãng đường: $54\times\dfrac53=90$ (km).
+\dapso{$90$ km.}}
+\gap
+\begin{probbox}{11}{\relax}
+Bình đạp xe từ trường về nhà với vận tốc $15$ km/h. Đi được nửa đường thì xe bị thủng lốp nên Bình phải đi bộ nửa đường còn lại với vận tốc $5$ km/h. Bình về đến nhà mất $40$ phút. Tính quãng đường từ trường về nhà Bình.
+\end{probbox}
+\probsol{
+Cứ $1$ km của nửa quãng đường: đạp xe mất $\dfrac1{15}$ giờ, đi bộ mất $\dfrac15$ giờ; cộng lại $\dfrac1{15}+\dfrac15=\dfrac4{15}$ (giờ).\par
+$40$ phút $=\dfrac23$ giờ. \ Nửa quãng đường: $\dfrac23:\dfrac4{15}=2{,}5$ (km).\par Cả quãng đường: $2{,}5\times2=5$ (km).
+\dapso{$5$ km.}}
+\gap
+\begin{probbox}{12}{\relax}
+Một xe khách đi nửa quãng đường đầu với vận tốc $60$ km/h; sau đó trời mưa nên xe giảm vận tốc còn $40$ km/h trên nửa quãng đường sau. Tổng thời gian xe đi là $5$ giờ. Tính độ dài quãng đường.
+\end{probbox}
+\probsol{
+Cứ $1$ km của nửa quãng đường, xe đi hết $\dfrac1{60}+\dfrac1{40}=\dfrac1{24}$ (giờ).\par
+Nửa quãng đường: $5:\dfrac1{24}=120$ (km); cả quãng đường: $240$ km.\par
+\emph{Thử lại:} $120:60+120:40=2+3=5$ (giờ).
+\dapso{$240$ km.}}
+\gap
+\begin{probbox}{13}{\relax}
+Một xe chở hàng xuất phát từ $A$ lúc 7 giờ 15 phút, đi đến $B$ với vận tốc $40$ km/h, dỡ hàng trong $45$ phút, rồi quay về $A$ ngay với vận tốc $60$ km/h và về đến $A$ lúc 11 giờ 30 phút. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Từ 7 giờ 15 phút đến 11 giờ 30 phút: $4$ giờ $15$ phút; thời gian xe chạy: $4$ giờ $15$ phút $-\ 45$ phút $=3{,}5$ giờ.\par
+Cứ $1$ km của quãng đường $AB$, cả đi và về xe chạy hết $\dfrac1{40}+\dfrac1{60}=\dfrac1{24}$ (giờ).\par $AB=3{,}5:\dfrac1{24}=84$ (km).
+\dapso{$84$ km.}}
+\gap
+\begin{probbox}{14}{\relax}
+Chú Tâm đi xe máy từ $A$ đến $B$ hết $2$ giờ. Lúc về, vận tốc của chú giảm $12$ km/h nên thời gian về nhiều hơn thời gian đi $30$ phút. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Tỉ số thời gian đi và về: $2:2{,}5=\dfrac45$; nên tỉ số vận tốc đi và về là $\dfrac54$.\par
+$1$ phần $=12$ km/h; vận tốc lúc đi: $12\times5=60$ (km/h).\par $AB=60\times2=120$ (km).
+\dapso{$120$ km.}}
+\gap
+\begin{probbox}{15}{\relax}
+Một người lái xe tính rằng nếu đi với vận tốc $50$ km/h thì sẽ đến nơi lúc 10 giờ 12 phút, còn nếu đi với vận tốc $60$ km/h thì sẽ đến nơi lúc 9 giờ 42 phút. Tính độ dài quãng đường.
+\end{probbox}
+\probsol{
+Hai thời điểm đến nơi chênh lệch $30$ phút.\par Tỉ số vận tốc $\dfrac{50}{60}=\dfrac56$, nên tỉ số thời gian $\dfrac65$; $1$ phần $=30$ phút.\par
+Thời gian đi với vận tốc $60$ km/h: $30\times5=150$ (phút) $=2{,}5$ giờ. \ Quãng đường: $60\times2{,}5=150$ (km).
+\dapso{$150$ km.}}
+\gap
+\begin{probbox}{16}{\relax}
+Một ô tô phải đi từ $A$ đến $B$ trong thời gian quy định. Nếu đi với vận tốc $40$ km/h thì xe đến $B$ chậm $20$ phút; nếu đi với vận tốc $50$ km/h thì xe đến $B$ sớm $16$ phút. Tính quãng đường $AB$ và thời gian quy định.
+\end{probbox}
+\probsol{
+Hai thời gian chênh lệch nhau $20+16=36$ (phút).\par Tỉ số vận tốc $\dfrac45$, nên tỉ số thời gian $\dfrac54$; $1$ phần $=36$ phút.\par
+Thời gian đi với vận tốc $50$ km/h: $36\times4=144$ (phút) $=2{,}4$ giờ; $AB=50\times2{,}4=120$ (km).\par
+Thời gian quy định: $144+16=160$ (phút) $=2$ giờ $40$ phút.
+\dapso{$120$ km; $2$ giờ $40$ phút.}}
+\gap
+\begin{probbox}{17}{\relax}
+Hai anh em Quân và Khoa cùng đi từ nhà đến nhà bà ngoại. Quân đi với vận tốc $45$ km/h. Khoa xuất phát sau Quân $9$ phút, đi với vận tốc $54$ km/h và đến nơi trước Quân $3$ phút. Tính quãng đường từ nhà đến nhà bà ngoại.
+\end{probbox}
+\probsol{
+Thời gian Khoa đi ít hơn Quân $9+3=12$ (phút).\par Tỉ số vận tốc $\dfrac{45}{54}=\dfrac56$, nên tỉ số thời gian $\dfrac65$; $1$ phần $=12$ phút.\par
+Thời gian Quân đi: $12\times6=72$ (phút) $=1{,}2$ giờ. \ Quãng đường: $45\times1{,}2=54$ (km).
+\dapso{$54$ km.}}
+\gap
+\begin{probbox}{18}{\relax}
+Minh đạp xe từ nhà đến trường với vận tốc $12$ km/h. Lúc về, Minh đi $2$ km đầu với vận tốc $12$ km/h, sau đó tăng vận tốc lên $16$ km/h. Vì vậy thời gian về ít hơn thời gian đi $5$ phút. Tính quãng đường từ nhà Minh đến trường.
+\end{probbox}
+\probsol{
+Chỉ cần xét đoạn đường sau $2$ km đầu.\par Trên đoạn đó, tỉ số vận tốc $\dfrac{12}{16}=\dfrac34$, nên tỉ số thời gian $\dfrac43$; $1$ phần $=5$ phút.\par
+Thời gian đi với vận tốc $16$ km/h: $5\times3=15$ (phút) $=0{,}25$ giờ; độ dài đoạn đó: $16\times0{,}25=4$ (km).\par Quãng đường từ nhà đến trường: $2+4=6$ (km).
+\dapso{$6$ km.}}
+\gap
+\begin{probbox}{19}{\relax}
+Lúc 7 giờ, một xe khách đi từ thành phố đến một thị trấn cách đó $150$ km, dự định đi cả quãng đường với vận tốc $50$ km/h. Trên đường đi, xe dừng nghỉ $12$ phút; sau đó xe đi tiếp với vận tốc $60$ km/h nên đến nơi sớm hơn dự định $3$ phút. Hỏi chỗ dừng nghỉ cách thành phố bao nhiêu ki-lô-mét?
+\end{probbox}
+\probsol{
+Trên đoạn đường sau chỗ nghỉ, xe đi nhanh hơn dự định $12+3=15$ (phút).\par Tỉ số vận tốc $\dfrac{50}{60}=\dfrac56$, nên tỉ số thời gian $\dfrac65$; $1$ phần $=15$ phút.\par
+Thời gian dự định trên đoạn đó: $15\times6=90$ (phút) $=1{,}5$ giờ; độ dài đoạn đó: $50\times1{,}5=75$ (km).\par
+Chỗ dừng nghỉ cách thành phố: $150-75=75$ (km).
+\dapso{$75$ km.}}
+\gap
+\begin{probbox}{20}{\relax}
+Hai ô tô cùng lúc khởi hành. Trong cùng một thời gian, xe $X$ đi được $150$ km, xe $Y$ đi được $120$ km. Vận tốc xe $X$ lớn hơn vận tốc xe $Y$ $12$ km/h. Tính vận tốc mỗi xe.
+\end{probbox}
+\probsol{
+Cùng thời gian: tỉ số vận tốc bằng tỉ số quãng đường, $\dfrac{150}{120}=\dfrac54$.\par $1$ phần $=12$ km/h.\par Xe $X$: $60$ km/h; xe $Y$: $48$ km/h.
+\dapso{$60$ km/h và $48$ km/h.}}
+\gap
+\begin{probbox}{21}{\relax}
+Trên quãng đường $AB$, ô tô đi hết $3$ giờ, xe máy đi hết $5$ giờ. Vận tốc ô tô lớn hơn vận tốc xe máy $24$ km/h. Tính vận tốc mỗi xe và quãng đường $AB$.
+\end{probbox}
+\probsol{
+Tỉ số thời gian $\dfrac35$, nên tỉ số vận tốc $\dfrac53$; hiệu $2$ phần $=24$ km/h, $1$ phần $=12$ km/h.\par
+Ô tô: $60$ km/h; xe máy: $36$ km/h. \ $AB=60\times3=180$ (km).
+\dapso{$60$ km/h, $36$ km/h; $180$ km.}}
+\gap
+\begin{probbox}{22}{\relax}
+Một xe tải đi $1{,}5$ giờ với vận tốc $40$ km/h, sau đó đi $0{,}5$ giờ với vận tốc $60$ km/h. Tính vận tốc trung bình của xe tải.
+\end{probbox}
+\probsol{
+Quãng đường: $40\times1{,}5+60\times0{,}5=90$ (km); thời gian: $2$ giờ.\par Vận tốc trung bình: $90:2=45$ (km/h).
+\dapso{$45$ km/h.}}
+\gap
+\begin{probbox}{23}{\relax}
+Ông đi bộ $2$ km trong $30$ phút, sau đó đi tiếp $3$ km trong $45$ phút. Tính vận tốc trung bình của ông theo km/h.
+\end{probbox}
+\probsol{
+Quãng đường: $5$ km; thời gian: $75$ phút $=1{,}25$ giờ.\par Vận tốc trung bình: $5:1{,}25=4$ (km/h).
+\dapso{$4$ km/h.}}
+\gap
+\begin{probbox}{24}{\relax}
+Một ô tô đi quãng đường dài $160$ km: nửa quãng đường đầu với vận tốc $60$ km/h, nửa quãng đường sau với vận tốc $40$ km/h. Tính vận tốc trung bình của ô tô.
+\end{probbox}
+\probsol{
+Thời gian: $80:60=\dfrac43$ (giờ) và $80:40=2$ (giờ); tổng $\dfrac{10}3$ giờ.\par Vận tốc trung bình: $160:\dfrac{10}3=48$ (km/h).
+\dapso{$48$ km/h.}}
+\gap
+\begin{probbox}{25}{\relax}
+Một xe máy đi từ $A$ đến $B$ với vận tốc $30$ km/h rồi quay về $A$ trên cùng con đường với vận tốc $20$ km/h. Tính vận tốc trung bình cả đi và về.
+\end{probbox}
+\probsol{
+Chọn $AB=60$ km (chia hết cho $30$ và $20$).\par Thời gian: $60:30=2$ và $60:20=3$ (đơn vị); tổng $5$.\par
+Vận tốc trung bình: $120:5=24$ (km/h).
+\dapso{$24$ km/h.}}
+\gap
+\begin{probbox}{26}{\relax}
+Một ô tô đi trong $3$ giờ với vận tốc trung bình $50$ km/h. Trong $2$ giờ đầu xe đi với vận tốc $45$ km/h. Hỏi trong giờ thứ ba xe đi với vận tốc bao nhiêu?
+\end{probbox}
+\probsol{
+Tổng quãng đường: $50\times3=150$ (km).\par Hai giờ đầu: $45\times2=90$ (km).\par Giờ thứ ba: $150-90=60$ (km), tức là $60$ km/h.
+\dapso{$60$ km/h.}}
+\gap
+\begin{probbox}{27}{\relax}
+Một người leo lên đồi với vận tốc $3$ km/h rồi xuống đồi theo đúng con đường đó với vận tốc $6$ km/h. Tính vận tốc trung bình trên cả quãng đường lên và xuống.
+\end{probbox}
+\probsol{
+Chọn con đường dài $6$ km.\par Lên: $6:3=2$ (giờ); xuống: $6:6=1$ (giờ).\par Vận tốc trung bình: $12:3=4$ (km/h).
+\dapso{$4$ km/h.}}
+\gap
+\begin{probbox}{28}{\relax}
+Một quãng đường được chia thành ba đoạn bằng nhau. Một người đi xe đạp đi ba đoạn đó lần lượt với vận tốc $30$ km/h, $20$ km/h và $60$ km/h. Tính vận tốc trung bình trên cả quãng đường.
+\end{probbox}
+\probsol{
+Chọn mỗi đoạn dài $60$ km.\par Thời gian: $2$ giờ, $3$ giờ, $1$ giờ; tổng $6$ giờ cho $180$ km.\par Vận tốc trung bình: $180:6=30$ (km/h).
+\dapso{$30$ km/h.}}
+\gap
+\begin{probbox}{29}{\relax}
+Trong thời gian Lan đi bộ được $600$ m thì Mai đạp xe được $1{,}5$ km. Lan đi bộ với vận tốc $4$ km/h. Tính vận tốc của Mai.
+\end{probbox}
+\probsol{
+Cùng thời gian: vận tốc tỉ lệ thuận với quãng đường; $1\,500:600=2{,}5$.\par Vận tốc của Mai: $4\times2{,}5=10$ (km/h).
+\dapso{$10$ km/h.}}
+\gap
+\begin{probbox}{30}{\relax}
+Một ô tô thường đi một quãng đường hết $2$ giờ. Hôm nay xe chỉ đi với vận tốc bằng $\dfrac45$ vận tốc thường ngày. Hỏi xe đến muộn bao nhiêu phút?
+\end{probbox}
+\probsol{
+Vận tốc nhân $\dfrac45$ thì thời gian nhân $\dfrac54$: $2\times\dfrac54=2{,}5$ (giờ).\par Xe đến muộn $0{,}5$ giờ $=30$ phút.
+\dapso{$30$ phút.}}
+\dividerbar{Thử thách -- Nâng cao}
+\begin{probbox}{31}{\stars{1}}
+Quãng đường $AB$ gồm một đoạn lên dốc và một đoạn xuống dốc. Vy đi bộ từ $A$ đến $B$ rồi quay về $A$; Vy lên dốc với vận tốc $4$ km/h và xuống dốc với vận tốc $6$ km/h. Thời gian cả đi và về là $5$ giờ. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Cả đi và về, mỗi ki-lô-mét đường được đi một lần lên dốc và một lần xuống dốc: $\dfrac14+\dfrac16=\dfrac5{12}$ (giờ) cho mỗi ki-lô-mét.\par
+$AB=5:\dfrac5{12}=12$ (km).
+\dapso{$12$ km.}}
+\gap
+\begin{probbox}{32}{\stars{2}}
+Quãng đường $AB$ gồm một đoạn lên dốc rồi một đoạn xuống dốc. Vận tốc lên dốc là $4$ km/h, vận tốc xuống dốc là $6$ km/h. Đi từ $A$ đến $B$ hết $2$ giờ $20$ phút; đi từ $B$ về $A$ hết $2$ giờ $40$ phút. Tính quãng đường $AB$ và độ dài đoạn lên dốc khi đi từ $A$.
+\end{probbox}
+\probsol{
+Cả đi và về: $5$ giờ; như Bài 31, $AB=5:\dfrac5{12}=12$ (km).\par
+Nếu cả $12$ km từ $A$ đều là xuống dốc thì đi hết $12:6=2$ giờ; thực tế đi lâu hơn $\dfrac13$ giờ.\par
+Mỗi ki-lô-mét lên dốc đi lâu hơn $\dfrac14-\dfrac16=\dfrac1{12}$ giờ, nên đoạn lên dốc dài $\dfrac13:\dfrac1{12}=4$ (km).
+\dapso{$AB=12$ km; đoạn lên dốc $4$ km.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Một ô tô đi nửa quãng đường đầu với vận tốc $40$ km/h. Hỏi trên nửa quãng đường sau ô tô phải đi với vận tốc bao nhiêu để vận tốc trung bình trên cả quãng đường là $48$ km/h?
+\end{probbox}
+\probsol{
+Chọn nửa quãng đường dài $240$ km. Cả quãng đường $480$ km với vận tốc $48$ km/h: $10$ giờ.\par
+Nửa đầu: $240:40=6$ (giờ); nửa sau phải đi hết $10-6=4$ (giờ).\par Vận tốc: $240:4=60$ (km/h).
+\dapso{$60$ km/h.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Lâm đạp xe nửa quãng đường đầu với vận tốc $30$ km/h. Hỏi Lâm có thể đi nửa quãng đường sau đủ nhanh để vận tốc trung bình trên cả quãng đường là $60$ km/h không?
+\end{probbox}
+\probsol{
+Chọn nửa quãng đường dài $30$ km. Muốn vận tốc trung bình $60$ km/h trên $60$ km thì tổng thời gian phải là $1$ giờ.\par
+Nhưng riêng nửa đầu đã mất $30:30=1$ giờ, không còn thời gian cho nửa sau.\par Vậy không thể được.
+\dapso{Không thể được.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+Một người đi xe đạp khởi hành lúc 7 giờ và đến nơi lúc 8 giờ 30 phút, quãng đường dài $18$ km; trên đường người đó nghỉ $15$ phút. Tính: \pa{a} vận tốc trung bình trên cả chuyến đi; \pa{b} vận tốc lúc đạp xe.
+\end{probbox}
+\probsol{
+\pa{a} Tổng thời gian $1{,}5$ giờ: $18:1{,}5=12$ (km/h).\par
+\pa{b} Thời gian đạp xe $1{,}5-0{,}25=1{,}25$ (giờ): $18:1{,}25=14{,}4$ (km/h).
+\dapso{a) $12$ km/h; \ b) $14{,}4$ km/h.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Một người lái xe tính rằng nếu đi với vận tốc $45$ km/h thì đến nơi lúc 10 giờ, còn nếu đi với vận tốc $60$ km/h thì đến nơi lúc 9 giờ 15 phút. Tính độ dài quãng đường và thời điểm xuất phát.
+\end{probbox}
+\probsol{
+Chênh lệch: $45$ phút. \ Tỉ số vận tốc $\dfrac34$, nên tỉ số thời gian $\dfrac43$; $1$ phần $=45$ phút.\par
+Thời gian đi với vận tốc $60$ km/h: $45\times3=135$ (phút) $=2{,}25$ giờ; quãng đường $60\times2{,}25=135$ (km).\par
+Thời điểm xuất phát: 9 giờ 15 phút $-\ 2$ giờ $15$ phút $=$ 7 giờ.
+\dapso{$135$ km; 7 giờ.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Quãng đường $AB$ dài $120$ km. Một ô tô dự định đi với vận tốc $40$ km/h. Sau $1$ giờ, xe tăng vận tốc thêm $10$ km/h. Hỏi xe đến $B$ sớm hơn dự định bao nhiêu phút?
+\end{probbox}
+\probsol{
+Thời gian dự định: $120:40=3$ (giờ).\par Thực tế: $1$ giờ đi $40$ km, sau đó $80:50=1{,}6$ (giờ); tổng $2{,}6$ giờ.\par Sớm hơn $0{,}4$ giờ $=24$ phút.
+\dapso{$24$ phút.}}
+\gap
+\begin{probbox}{38}{\stars{2}}
+Một ô tô dự định đi với vận tốc $50$ km/h. Sau $1$ giờ, xe phải giảm vận tốc còn $40$ km/h nên đến nơi chậm $24$ phút. Tính độ dài quãng đường.
+\end{probbox}
+\probsol{
+Chỉ cần xét đoạn đường sau giờ đầu. Tỉ số vận tốc $\dfrac54$, nên tỉ số thời gian $\dfrac45$; $1$ phần $=24$ phút.\par
+Thời gian thực tế trên đoạn đó: $24\times5=120$ (phút) $=2$ giờ; độ dài đoạn đó $40\times2=80$ (km).\par
+Quãng đường: $50\times1+80=130$ (km).
+\dapso{$130$ km.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Một ô tô đi từ $A$ đến $B$ hết $2$ giờ với vận tốc $45$ km/h và quay về trên cùng con đường hết $3$ giờ. Tính vận tốc trung bình cả đi và về.
+\end{probbox}
+\probsol{
+$AB=45\times2=90$ (km). \ Cả đi và về: $180$ km trong $5$ giờ.\par Vận tốc trung bình: $180:5=36$ (km/h).
+\dapso{$36$ km/h.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+\pa{a} Một ô tô đi nửa \emph{thời gian} với vận tốc $40$ km/h và nửa thời gian còn lại với vận tốc $60$ km/h. \pa{b} Một ô tô khác đi nửa \emph{quãng đường} với vận tốc $40$ km/h và nửa quãng đường còn lại với vận tốc $60$ km/h. Tính vận tốc trung bình của mỗi xe.
+\end{probbox}
+\probsol{
+\pa{a} Lấy tổng thời gian $2$ giờ: $40+60=100$ km trong $2$ giờ: $50$ km/h.\par
+\pa{b} Chọn mỗi nửa quãng đường dài $120$ km: thời gian $3$ giờ và $2$ giờ; $240$ km trong $5$ giờ: $48$ km/h.
+\dapso{a) $50$ km/h; \ b) $48$ km/h.}}
+\gap
+\begin{probbox}{41}{\stars{2}}
+Nếu một ô tô tăng vận tốc thêm một phần tư thì đến nơi sớm hơn $30$ phút. Hỏi với vận tốc thường ngày, xe đi quãng đường đó hết bao lâu?
+\end{probbox}
+\probsol{
+Vận tốc mới bằng $\dfrac54$ vận tốc thường ngày, nên thời gian mới bằng $\dfrac45$ thời gian thường ngày.\par
+Thời gian bớt đi: $\dfrac15$ thời gian thường ngày $=30$ phút. \ Thời gian thường ngày: $30\times5=150$ (phút) $=2$ giờ $30$ phút.
+\dapso{$2$ giờ $30$ phút.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Hai người đi xe đạp cùng lúc xuất phát từ một chỗ, đi cùng chiều. Sau $1{,}5$ giờ, người thứ nhất đi trước người thứ hai $6$ km. Vận tốc người thứ nhất bằng $\dfrac54$ vận tốc người thứ hai. Tính vận tốc mỗi người.
+\end{probbox}
+\probsol{
+Hiệu hai vận tốc: $6:1{,}5=4$ (km/h) $=1$ phần.\par Người thứ hai: $4\times4=16$ (km/h); người thứ nhất: $4\times5=20$ (km/h).
+\dapso{$20$ km/h và $16$ km/h.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Phong đạp xe từ $A$ đến $B$ với vận tốc $18$ km/h. Lúc về, Phong đi $6$ km đầu với vận tốc $18$ km/h, sau đó đi với vận tốc $15$ km/h, nên thời gian về nhiều hơn thời gian đi $8$ phút. Tính quãng đường $AB$.
+\end{probbox}
+\probsol{
+Trên đoạn đường sau $6$ km đầu: tỉ số vận tốc $\dfrac{18}{15}=\dfrac65$, nên tỉ số thời gian $\dfrac56$; $1$ phần $=8$ phút.\par
+Thời gian đi với vận tốc $15$ km/h: $8\times6=48$ (phút) $=0{,}8$ giờ; độ dài đoạn đó $15\times0{,}8=12$ (km).\par $AB=6+12=18$ (km).
+\dapso{$18$ km.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Một ô tô đi từ $A$ đến $B$ với vận tốc $36$ km/h và quay về với vận tốc $45$ km/h. Tính vận tốc trung bình cả đi và về.
+\end{probbox}
+\probsol{
+Chọn $AB=180$ km (chia hết cho $36$ và $45$).\par Thời gian: $5$ giờ và $4$ giờ; $360$ km trong $9$ giờ.\par Vận tốc trung bình: $40$ km/h.
+\dapso{$40$ km/h.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Ngân đi bộ đến trường với vận tốc $5$ km/h và đi bộ về nhà trên cùng con đường với vận tốc $3$ km/h. Tổng thời gian đi và về là $48$ phút. Tính quãng đường từ nhà Ngân đến trường.
+\end{probbox}
+\probsol{
+Cứ $1$ km, cả đi và về mất $\dfrac15+\dfrac13=\dfrac8{15}$ (giờ).\par $48$ phút $=0{,}8$ giờ. \ Quãng đường: $0{,}8:\dfrac8{15}=1{,}5$ (km).
+\dapso{$1{,}5$ km.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+Một xe máy đi từ $A$ lúc 7 giờ, một ô tô đi từ $A$ lúc 8 giờ trên cùng con đường; hai xe đến $B$ cùng một lúc. Vận tốc ô tô gấp $1{,}5$ lần vận tốc xe máy, quãng đường $AB$ dài $120$ km. Hỏi hai xe đến $B$ lúc mấy giờ và vận tốc mỗi xe là bao nhiêu?
+\end{probbox}
+\probsol{
+Tỉ số vận tốc ô tô và xe máy $\dfrac32$, nên tỉ số thời gian $\dfrac23$; hiệu $1$ phần $=1$ giờ.\par
+Thời gian xe máy đi: $3$ giờ, nên hai xe đến $B$ lúc 10 giờ.\par Xe máy: $120:3=40$ (km/h); ô tô: $120:2=60$ (km/h).
+\dapso{10 giờ; xe máy $40$ km/h, ô tô $60$ km/h.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Trong $2$ giờ, xe $X$ đi được nhiều hơn xe $Y$ $30$ km. Tỉ số vận tốc của hai xe là $7:5$. Tính vận tốc mỗi xe.
+\end{probbox}
+\probsol{
+Hiệu hai vận tốc: $30:2=15$ (km/h), ứng với $7-5=2$ phần; $1$ phần $=7{,}5$ km/h.\par Xe $X$: $52{,}5$ km/h; xe $Y$: $37{,}5$ km/h.
+\dapso{$52{,}5$ km/h và $37{,}5$ km/h.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Hà phải đi $32$ km trong $2$ giờ. Trong $1$ giờ $20$ phút đầu Hà đạp xe với vận tốc $15$ km/h. Hỏi trên quãng đường còn lại Hà phải đi với vận tốc bao nhiêu?
+\end{probbox}
+\probsol{
+Đoạn đầu: $15\times\dfrac43=20$ (km). \ Còn lại: $12$ km trong $40$ phút $=\dfrac23$ giờ.\par Vận tốc: $12:\dfrac23=18$ (km/h).
+\dapso{$18$ km/h.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+Anh đi bộ $2{,}4$ km hết $30$ phút; Bảo đi bộ $3$ km hết $40$ phút. Mỗi bạn đi $6$ km. Hỏi bạn đi chậm hơn mất nhiều hơn bao nhiêu phút?
+\end{probbox}
+\probsol{
+Anh: $2{,}4:0{,}5=4{,}8$ (km/h); Bảo: $3:\dfrac23=4{,}5$ (km/h). Bảo đi chậm hơn.\par
+Thời gian đi $6$ km: Anh $6:4{,}8=1{,}25$ giờ $=75$ phút; Bảo $6:4{,}5=\dfrac43$ giờ $=80$ phút.\par Chênh lệch: $5$ phút.
+\dapso{Bảo, nhiều hơn $5$ phút.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Một ô tô đi $2$ giờ với vận tốc $60$ km/h, sau đó đi tiếp một thời gian với vận tốc $40$ km/h. Vận tốc trung bình trên cả chuyến đi là $48$ km/h. Hỏi ô tô đã đi với vận tốc $40$ km/h trong bao lâu?
+\end{probbox}
+\probsol{
+Trong $2$ giờ đầu, ô tô đi \emph{vượt} một xe đi đều với vận tốc $48$ km/h là $(60-48)\times2=24$ (km).\par
+Khi đi với vận tốc $40$ km/h, mỗi giờ ô tô bị xe kia rút ngắn $48-40=8$ (km).\par Để mất hết $24$ km đó: $24:8=3$ (giờ).
+\dapso{$3$ giờ.}}

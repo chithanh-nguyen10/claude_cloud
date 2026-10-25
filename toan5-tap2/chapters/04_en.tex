@@ -1,0 +1,605 @@
+\shead{Volume and units of volume}
+\gdef\cuboidVT#1#2#3#4{\coordinate (Q) at (0,0); \coordinate (P) at (#1,0); \coordinate (C) at (#1,#3); \coordinate (D) at (0,#3);
+ \coordinate (M) at ({0.5*#2},{0.38*#2}); \coordinate (N) at ($(P)+(M)$); \coordinate (B) at ($(C)+(M)$); \coordinate (A) at ($(D)+(M)$);
+ \fill[tmBlue!6] (Q)--(P)--(C)--(D)--cycle; \fill[tmBlue!3] (D)--(C)--(B)--(A)--cycle; \fill[tmBlue!13] (P)--(N)--(B)--(C)--cycle;
+ \ifdim #4pt>0pt \coordinate (wl) at (0,#4);
+  \fill[cyan!30] (Q)--(P)--($(P)+(wl)$)--($(Q)+(wl)$)--cycle; \fill[cyan!45] (P)--(N)--($(N)+(wl)$)--($(P)+(wl)$)--cycle;
+  \fill[cyan!16] ($(Q)+(wl)$)--($(P)+(wl)$)--($(N)+(wl)$)--($(M)+(wl)$)--cycle;
+  \draw[cyan!60!black,line width=0.5pt] ($(Q)+(wl)$)--($(P)+(wl)$)--($(N)+(wl)$);
+  \draw[cyan!60!black,line width=0.4pt,dashed] ($(N)+(wl)$)--($(M)+(wl)$)--($(Q)+(wl)$); \fi
+ \draw[geo,dashed,line width=0.6pt] (M)--(Q) (M)--(N) (M)--(A);
+ \draw[geo] (Q)--(P)--(C)--(D)--cycle (D)--(A)--(B)--(C) (P)--(N)--(B);}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+The \textbf{volume} of a solid is the amount of space it takes up. To measure volume we count how many \emph{unit cubes} fit into the solid.\par
+\smallskip
+A \textbf{cubic centimetre} (cm$^3$) is the volume of a cube with edge $1$ cm. Likewise, $1$ dm$^3$ is a cube with edge $1$ dm and $1$ m$^3$ is a cube with edge $1$ m.
+\[1\text{ m}^3=1\,000\text{ dm}^3\qquad 1\text{ dm}^3=1\,000\text{ cm}^3\]
+Each unit of volume is $1\,000$ times the next smaller unit, so when converting we move the decimal point \textbf{three} places.\par
+\smallskip
+For liquids: \quad $1$~l $=1$ dm$^3$, \quad $1$~ml $=1$ cm$^3$, \quad \mbox{$1$ m$^3=1\,000$~l}.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{6pt}\centering
+\begin{tikzpicture}[scale=0.62]
+\cuboidVT{3}{3}{3}{0}
+\foreach \i in {1,2}{\draw[tmBlue!60,line width=0.35pt] (\i,0)--(\i,3)--++(1.5,1.14) (0,\i)--(3,\i)--++(1.5,1.14)
+ ($(0,3)+\i*(0.5,0.38)$)--++(3,0)--++(0,-3);}
+\draw[geo] (Q)--(P)--(C)--(D)--cycle (D)--(A)--(B)--(C) (P)--(N)--(B);
+\node[dim,below] at ($(Q)!0.5!(P)$){$1$ dm $=10$ cm};
+\end{tikzpicture}\par\smallskip
+{\scriptsize\color{Slate} $1$ dm$^3$: $10$ layers of $10\times10$ cubes $=1\,000$ cm$^3$ (drawn coarser)}
+\end{minipage}
+\end{knowbox}
+\shead{Volume of a cuboid and of a cube}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+A cuboid $5$ cm long, $3$ cm wide and $2$ cm high holds $2$ layers of $5\times3=15$ unit cubes, i.e.\ $5\times3\times2=30$ cm$^3$.\par
+\smallskip
+The \textbf{volume of a cuboid} is length $\times$ width $\times$ height (same unit):
+\[V=a\times b\times c=S_{\text{base}}\times c\]
+The \textbf{volume of a cube} with edge $a$: \quad $V=a\times a\times a$.\par
+\smallskip
+Working backwards: \quad $c=V:(a\times b)$, \quad $S_{\text{base}}=V:c$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{6pt}\centering
+\begin{tikzpicture}[scale=0.55]
+\cuboidVT{5}{3}{2}{0}
+\foreach \i in {1,...,4}{\draw[tmBlue!60,line width=0.35pt] (\i,0)--(\i,2)--++(1.5,1.14);}
+\draw[tmBlue!60,line width=0.35pt] (0,1)--(5,1)--++(1.5,1.14);
+\foreach \k in {1,2}{\draw[tmBlue!60,line width=0.35pt] ($(0,2)+\k*(0.5,0.38)$)--++(5,0)--++(0,-2);}
+\draw[geo] (Q)--(P)--(C)--(D)--cycle (D)--(A)--(B)--(C) (P)--(N)--(B);
+\node[dim,below] at ($(Q)!0.5!(P)$){$5$ cm}; \node[dim,right] at ($(P)!0.5!(N)$){$3$ cm}; \node[dim,left] at ($(Q)!0.5!(D)$){$2$ cm};
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\shead{Volume of an object in water}
+\begin{knowbox}
+A stone or a piece of coral has no simple shape, so we cannot use a formula for it. Put it into a tank of water so that it is \textbf{completely under water}: the water rises because the stone takes up space.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \emph{Method 1:} volume of the stone $=$ volume of (water $+$ stone) $-$ volume of the water.
+\item \emph{Method 2:} volume of the stone $=$ base area of the tank $\times$ the rise in water level.
+\end{itemize}
+If the tank is already full, the volume of water that \textbf{overflows} equals the volume of the object.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Fill in the blanks.
+\begin{cols2}
+\pa{a} $3.5$ m$^3=\ldots$ dm$^3$ & \pa{b} $2\,400$ cm$^3=\ldots$ dm$^3$\\
+\pa{c} $0.75$ dm$^3=\ldots$ cm$^3=\ldots$ ml & \pa{d} $1.2$ m$^3=\ldots$ l
+\end{cols2}
+\guide
+\pa{a} $1$ m$^3=1\,000$ dm$^3$, so $3.5$ m$^3=3.5\times1\,000=3\,500$ dm$^3$.\par
+\pa{b} $2\,400$ cm$^3=2\,400:1\,000=2.4$ dm$^3$.\par
+\pa{c} $0.75$ dm$^3=750$ cm$^3=750$ ml.\par
+\pa{d} $1.2$ m$^3=1\,200$ dm$^3=1\,200$ l.
+\dapso{\pa{a} $3\,500$; \pa{b} $2.4$; \pa{c} $750$, $750$; \pa{d} $1\,200$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Find the volume of:\par
+\pa{a} a cuboid $1.2$ m long, $5$ dm wide and $8$ dm high;\par
+\pa{b} a cube with edge $2.5$ cm.
+\guide
+\pa{a} Change to the same unit: $1.2$ m $=12$ dm.\par $V=12\times5\times8=480$ dm$^3$.\par
+\pa{b} $V=2.5\times2.5\times2.5=15.625$ cm$^3$.
+\dapso{\pa{a} $480$ dm$^3$; \pa{b} $15.625$ cm$^3$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+A water tank is $1.5$ m long, $0.8$ m wide and $1$ m high.\par
+\pa{a} How many litres does it hold when full?\par
+\pa{b} At the moment the tank is $\dfrac34$ full. How many litres of water are in it?
+\guide
+\pa{a} $V=1.5\times0.8\times1=1.2$ m$^3=1\,200$ dm$^3=1\,200$ l.\par
+\pa{b} $1\,200\times\dfrac34=900$ l.
+\dapso{\pa{a} $1\,200$ l; \pa{b} $900$ l.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+A glass tank has a base $25$ cm long and $16$ cm wide. The water is $10$ cm deep. After a stone is dropped in (and is completely under water), the water is $12.5$ cm deep. Find the volume of the stone.
+\begin{center}
+\begin{tikzpicture}[scale=0.12]
+\cuboidVT{25}{16}{16}{10}
+\node[dim,below] at ($(Q)!0.5!(P)$){$25$ cm}; \node[dim,right] at ($(P)!0.5!(N)$){$16$ cm}; \node[dim,left] at (0,5){$10$ cm};
+\begin{scope}[shift={(52,0)}]
+\cuboidVT{25}{16}{16}{12.5}
+\fill[Slate!75] (13,4.5) ellipse (4.5 and 2.6);
+\node[dim,below] at ($(Q)!0.5!(P)$){$25$ cm}; \node[dim,right] at ($(P)!0.5!(N)$){$16$ cm}; \node[dim,left] at (0,6.25){$12.5$ cm};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\guide
+\emph{Method 1.} Water: $25\times16\times10=4\,000$ cm$^3$.\par
+Water and stone: $25\times16\times12.5=5\,000$ cm$^3$.\par
+Stone: $5\,000-4\,000=1\,000$ cm$^3$.\par
+\emph{Method 2.} The water rises $12.5-10=2.5$ cm.\par
+Stone: $25\times16\times2.5=1\,000$ cm$^3$.
+\dapso{$1\,000$ cm$^3$ ($=1$ dm$^3$).}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+A cube has a total surface area of $864$ cm$^2$. Find its volume.
+\guide
+One face: $864:6=144$ cm$^2$. Since $144=12\times12$, the edge is $12$ cm.\par
+$V=12\times12\times12=1\,728$ cm$^3$.
+\dapso{$1\,728$ cm$^3$.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+Fill in the blanks.
+\begin{cols3}
+\pa{a} $5$ m$^3=\ldots$ dm$^3$ & \pa{b} $3.2$ dm$^3=\ldots$ cm$^3$ & \pa{c} $4\,500$ cm$^3=\ldots$ dm$^3$\\
+\pa{d} $750$ dm$^3=\ldots$ m$^3$ & \pa{e} $2.05$ m$^3=\ldots$ dm$^3$ & \pa{f} $\dfrac14$ m$^3=\ldots$ dm$^3$
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $5\times1\,000=5\,000$.\quad \pa{b} $3.2\times1\,000=3\,200$.\quad \pa{c} $4\,500:1\,000=4.5$.\par
+\pa{d} $750:1\,000=0.75$.\quad \pa{e} $2.05\times1\,000=2\,050$.\quad \pa{f} $1\,000:4=250$.
+\dapso{$5\,000$; $3\,200$; $4.5$; $0.75$; $2\,050$; $250$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Fill in the blanks.
+\begin{cols2}
+\pa{a} $3.6$ m$^3=\ldots$ l & \pa{b} $450$ l $=\ldots$ m$^3$\\
+\pa{c} $2.5$ l $=\ldots$ cm$^3$ & \pa{d} $750$ ml $=\ldots$ dm$^3$
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $3.6$ m$^3=3\,600$ dm$^3=3\,600$ l.\par
+\pa{b} $450$ l $=450$ dm$^3=0.45$ m$^3$.\par
+\pa{c} $2.5$ l $=2.5$ dm$^3=2\,500$ cm$^3$.\par
+\pa{d} $750$ ml $=750$ cm$^3=0.75$ dm$^3$.
+\dapso{$3\,600$; $0.45$; $2\,500$; $0.75$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Compare (write $>$, $<$ or $=$).
+\begin{cols3}
+\pa{a} $2.5$ m$^3\ \ldots\ 2\,500$ dm$^3$ & \pa{b} $3$ dm$^3$ $40$ cm$^3\ \ldots\ 3.4$ dm$^3$ & \pa{c} $0.9$ m$^3\ \ldots\ 90\,000$ cm$^3$
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $2.5$ m$^3=2\,500$ dm$^3$, so they are equal.\par
+\pa{b} $3$ dm$^3$ $40$ cm$^3=3\,040$ cm$^3$ and $3.4$ dm$^3=3\,400$ cm$^3$; $3\,040<3\,400$.\par
+\pa{c} $0.9$ m$^3=900$ dm$^3=900\,000$ cm$^3>90\,000$ cm$^3$.
+\dapso{\pa{a} $=$; \pa{b} $<$; \pa{c} $>$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Find the volume of a cuboid with length $a$, width $b$ and height $c$:
+\begin{cols2}
+\pa{a} $a=8$ cm, $b=5$ cm, $c=4$ cm; & \pa{b} $a=1.5$ m, $b=0.8$ m, $c=1.2$ m;\\
+\pa{c} $a=\dfrac23$ m, $b=\dfrac35$ m, $c=\dfrac12$ m; & \pa{d} $a=2$ dm, $b=15$ cm, $c=8$ cm.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $8\times5\times4=160$ cm$^3$.\par
+\pa{b} $1.5\times0.8\times1.2=1.44$ m$^3$.\par
+\pa{c} $\dfrac23\times\dfrac35\times\dfrac12=\dfrac15$ m$^3$.\par
+\pa{d} $2$ dm $=20$ cm; $20\times15\times8=2\,400$ cm$^3$.
+\dapso{$160$ cm$^3$; $1.44$ m$^3$; $\dfrac15$ m$^3$; $2\,400$ cm$^3$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Find the volume of a cube with edge:
+\begin{cols3}
+\pa{a} $7$ cm; & \pa{b} $1.2$ m; & \pa{c} $\dfrac34$ dm.
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $7\times7\times7=343$ cm$^3$.\par
+\pa{b} $1.2\times1.2\times1.2=1.728$ m$^3$.\par
+\pa{c} $\dfrac34\times\dfrac34\times\dfrac34=\dfrac{27}{64}$ dm$^3$.
+\dapso{$343$ cm$^3$; $1.728$ m$^3$; $\dfrac{27}{64}$ dm$^3$.}}
+\gap
+\begin{probbox}{6}{\relax}
+\begin{minipage}[t]{0.58\linewidth}
+The box on the right is built from cubes of edge $1$ cm, with no gaps. How many small cubes are there? What is the volume of the box?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.42]
+\cuboidVT{6}{4}{3}{0}
+\foreach \i in {1,...,5}{\draw[tmBlue!60,line width=0.35pt] (\i,0)--(\i,3)--++(2,1.52);}
+\foreach \j in {1,2}{\draw[tmBlue!60,line width=0.35pt] (0,\j)--(6,\j)--++(2,1.52);}
+\foreach \k in {1,2,3}{\draw[tmBlue!60,line width=0.35pt] ($(0,3)+\k*(0.5,0.38)$)--++(6,0)--++(0,-3);}
+\draw[geo] (Q)--(P)--(C)--(D)--cycle (D)--(A)--(B)--(C) (P)--(N)--(B);
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+One layer has $6\times4=24$ cubes, and there are $3$ layers.\par
+Number of cubes: $24\times3=72$.\par
+Volume: $72$ cm$^3$ (also $6\times4\times3=72$ cm$^3$).
+\dapso{$72$ cubes; $72$ cm$^3$.}}
+\gap
+\begin{probbox}{7}{\relax}
+A cuboid has a volume of $360$ cm$^3$, a length of $9$ cm and a width of $8$ cm. Find its height.
+\end{probbox}
+\probsol{
+Base area: $9\times8=72$ cm$^2$.\par
+Height: $360:72=5$ cm.
+\dapso{$5$ cm.}}
+\gap
+\begin{probbox}{8}{\relax}
+A cuboid has a volume of $1.8$ m$^3$ and a base area of $1.2$ m$^2$. Find its height.
+\end{probbox}
+\probsol{
+$c=V:S_{\text{base}}=1.8:1.2=1.5$ m.
+\dapso{$1.5$ m.}}
+\gap
+\begin{probbox}{9}{\relax}
+A cube has a volume of $512$ cm$^3$. Find its edge.
+\end{probbox}
+\probsol{
+We need a number that multiplied by itself three times gives $512$.\par
+$7\times7\times7=343$, $8\times8\times8=512$. The edge is $8$ cm.
+\dapso{$8$ cm.}}
+\gap
+\begin{probbox}{10}{\relax}
+A water tank is $2$ m long, $1.5$ m wide and $1.2$ m high. How many litres of water does it hold when full?
+\end{probbox}
+\probsol{
+$V=2\times1.5\times1.2=3.6$ m$^3=3\,600$ dm$^3=3\,600$ l.
+\dapso{$3\,600$ l.}}
+\gap
+\begin{probbox}{11}{\relax}
+An aquarium is $60$ cm long, $30$ cm wide and $40$ cm high. The water reaches $\dfrac34$ of its height. How many litres of water are in it?
+\end{probbox}
+\probsol{
+Water depth: $40\times\dfrac34=30$ cm.\par
+Water: $60\times30\times30=54\,000$ cm$^3=54$ dm$^3=54$ l.
+\dapso{$54$ l.}}
+\gap
+\begin{probbox}{12}{\relax}
+A tank is $1.2$ m long, $0.9$ m wide and $1$ m high. The water in it fills $60\%$ of the tank. How many litres of water are in the tank?
+\end{probbox}
+\probsol{
+Tank: $1.2\times0.9\times1=1.08$ m$^3=1\,080$ l.\par
+Water: $1\,080\times60:100=648$ l.
+\dapso{$648$ l.}}
+\gap
+\begin{probbox}{13}{\relax}
+A tank has a base $40$ cm long and $25$ cm wide. When a stone is put in, completely under water, the water rises by $3$ cm. Find the volume of the stone in cubic decimetres.
+\end{probbox}
+\probsol{
+Stone: $40\times25\times3=3\,000$ cm$^3=3$ dm$^3$.
+\dapso{$3$ dm$^3$.}}
+\gap
+\begin{probbox}{14}{\relax}
+A cube-shaped glass tank has edge $5$ dm; the water in it is $3$ dm deep. After a stone is put in (completely under water), the water is $3.4$ dm deep. Find the volume of the stone.
+\end{probbox}
+\probsol{
+Rise: $3.4-3=0.4$ dm.\par
+Stone: $5\times5\times0.4=10$ dm$^3$.
+\dapso{$10$ dm$^3$.}}
+\gap
+\begin{probbox}{15}{\relax}
+A tank has a base $50$ cm long and $30$ cm wide; the water is $20$ cm deep. A stone of volume $1.8$ dm$^3$ is put in and is completely under water. How deep is the water now?
+\end{probbox}
+\probsol{
+$1.8$ dm$^3=1\,800$ cm$^3$.\quad Base area: $50\times30=1\,500$ cm$^2$.\par
+Rise: $1\,800:1\,500=1.2$ cm.\par
+New depth: $20+1.2=21.2$ cm.
+\dapso{$21.2$ cm.}}
+\gap
+\begin{probbox}{16}{\relax}
+A metal block in the shape of a cube has edge $\dfrac15$ m. Each cubic centimetre of the metal weighs $7.8$ g. How many kilograms does the block weigh?
+\end{probbox}
+\probsol{
+$\dfrac15$ m $=20$ cm.\quad Volume: $20\times20\times20=8\,000$ cm$^3$.\par
+Mass: $7.8\times8\,000=62\,400$ g $=62.4$ kg.
+\dapso{$62.4$ kg.}}
+\gap
+\begin{probbox}{17}{\relax}
+A cuboid is $10$ cm long, $8$ cm wide and $6$ cm high. A cube has an edge equal to the average of the three dimensions of the cuboid. Which has the larger volume, and by how much?
+\end{probbox}
+\probsol{
+Cuboid: $10\times8\times6=480$ cm$^3$.\par
+Edge of the cube: $(10+8+6):3=8$ cm.\quad Cube: $8\times8\times8=512$ cm$^3$.\par
+$512-480=32$ cm$^3$.
+\dapso{The cube, by $32$ cm$^3$.}}
+\gap
+\begin{probbox}{18}{\relax}
+The edge of cube B is $2$ times the edge of cube A. How many times the volume of cube A is the volume of cube B?
+\end{probbox}
+\probsol{
+Let the edge of A be $a$; the edge of B is $a\times2$.\par
+$V_B=(a\times2)\times(a\times2)\times(a\times2)=a\times a\times a\times8=V_A\times8$.
+\dapso{$8$ times.}}
+\gap
+\begin{probbox}{19}{\relax}
+An empty tank is $1.6$ m long, $1$ m wide and $1.2$ m high. A tap pours in $40$ l of water per minute. How long does it take to fill the tank?
+\end{probbox}
+\probsol{
+Tank: $1.6\times1\times1.2=1.92$ m$^3=1\,920$ l.\par
+Time: $1\,920:40=48$ minutes.
+\dapso{$48$ minutes.}}
+\gap
+\begin{probbox}{20}{\relax}
+A full water tank is $3$ m long, $2$ m wide and $1.5$ m high. A family uses $1\,800$ l of water a day. How many days does the water last?
+\end{probbox}
+\probsol{
+Water: $3\times2\times1.5=9$ m$^3=9\,000$ l.\par
+Days: $9\,000:1\,800=5$ days.
+\dapso{$5$ days.}}
+\gap
+\begin{probbox}{21}{\relax}
+Each brick is $20$ cm long, $10$ cm wide and $5$ cm high. Bricks are stacked tightly into a block $2$ m long, $1$ m wide and $0.5$ m high. How many bricks are in the block?
+\end{probbox}
+\probsol{
+One brick: $20\times10\times5=1\,000$ cm$^3=1$ dm$^3$.\par
+Block: $2\times1\times0.5=1$ m$^3=1\,000$ dm$^3$.\par
+Bricks: $1\,000:1=1\,000$ bricks.
+\dapso{$1\,000$ bricks.}}
+\gap
+\begin{probbox}{22}{\relax}
+A carton is $20$ cm long, $12$ cm wide and $8$ cm high. Small boxes of chalk, each $4$ cm $\times\,3$ cm $\times\,2$ cm, are packed into it to fill it exactly. How many boxes of chalk fit?
+\end{probbox}
+\probsol{
+Along the length: $20:4=5$; along the width: $12:3=4$; up the height: $8:2=4$.\par
+Boxes: $5\times4\times4=80$.\par
+\emph{Check:} $20\times12\times8=1\,920$ cm$^3$, $4\times3\times2=24$ cm$^3$, $1\,920:24=80$.
+\dapso{$80$ boxes.}}
+\gap
+\begin{probbox}{23}{\relax}
+A cuboid has a lateral area of $480$ cm$^2$ and a height of $8$ cm; its length is $6$ cm more than its width. Find its volume.
+\end{probbox}
+\probsol{
+Perimeter of base: $480:8=60$ cm.\quad Length $+$ width: $30$ cm.\par
+Length: $(30+6):2=18$ cm.\quad Width: $12$ cm.\par
+$V=18\times12\times8=1\,728$ cm$^3$.
+\dapso{$1\,728$ cm$^3$.}}
+\gap
+\begin{probbox}{24}{\relax}
+A tank has a base perimeter of $26$ dm and a height of $4$ dm. Its length is $3$ dm more than its width. How many litres does it hold?
+\end{probbox}
+\probsol{
+Length $+$ width: $26:2=13$ dm.\quad Length: $(13+3):2=8$ dm.\quad Width: $5$ dm.\par
+$V=8\times5\times4=160$ dm$^3=160$ l.
+\dapso{$160$ l.}}
+\gap
+\begin{probbox}{25}{\relax}
+A cube-shaped glass tank has edge $8$ dm; the water is $5$ dm deep. After a piece of coral is put in (completely under water), the water is $5.5$ dm deep. Find the volume of the coral.
+\end{probbox}
+\probsol{
+Rise: $5.5-5=0.5$ dm.\par
+Coral: $8\times8\times0.5=32$ dm$^3$.
+\dapso{$32$ dm$^3$.}}
+\gap
+\begin{probbox}{26}{\relax}
+A tank is $2.5$ m long, $1.6$ m wide and $1.2$ m high. The water in it is $0.8$ m deep.\par
+\pa{a} How many litres of water are in the tank?\par
+\pa{b} How many more litres are needed to fill it?
+\end{probbox}
+\probsol{
+\pa{a} $2.5\times1.6\times0.8=3.2$ m$^3=3\,200$ l.\par
+\pa{b} Empty part: $1.2-0.8=0.4$ m high; $2.5\times1.6\times0.4=1.6$ m$^3=1\,600$ l.
+\dapso{\pa{a} $3\,200$ l; \pa{b} $1\,600$ l.}}
+\gap
+\begin{probbox}{27}{\relax}
+A tank is $2$ m long, $1.5$ m wide and $1.4$ m high. The water now fills $30\%$ of the tank. How many litres must be added so that the water fills $80\%$ of the tank?
+\end{probbox}
+\probsol{
+Tank: $2\times1.5\times1.4=4.2$ m$^3=4\,200$ l.\par
+Water to add: $80\%-30\%=50\%$ of the tank.\par
+$4\,200\times50:100=2\,100$ l.
+\dapso{$2\,100$ l.}}
+\gap
+\begin{probbox}{28}{\relax}
+A fish tank has a base $50$ cm long and $40$ cm wide. Four identical stones are put in, completely under water, and the water rises by $1.5$ cm. Find the volume of one stone.
+\end{probbox}
+\probsol{
+Four stones: $50\times40\times1.5=3\,000$ cm$^3$.\par
+One stone: $3\,000:4=750$ cm$^3$.
+\dapso{$750$ cm$^3$.}}
+\gap
+\begin{probbox}{29}{\relax}
+A tank is full of water. Three identical iron cubes are lowered into it and $24$ l of water overflow. Find the edge of one iron cube.
+\end{probbox}
+\probsol{
+Three cubes: $24$ l $=24$ dm$^3$.\quad One cube: $24:3=8$ dm$^3$.\par
+$2\times2\times2=8$, so the edge is $2$ dm.
+\dapso{$2$ dm.}}
+\gap
+\begin{probbox}{30}{\relax}
+A milk carton is $6$ cm long, $4$ cm wide and $10$ cm high and is filled exactly. How many such cartons can be filled from $4.8$ l of milk?
+\end{probbox}
+\probsol{
+One carton: $6\times4\times10=240$ cm$^3=240$ ml.\par
+$4.8$ l $=4\,800$ ml.\quad Cartons: $4\,800:240=20$.
+\dapso{$20$ cartons.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+A fish tank is $60$ cm long, $40$ cm wide and $45$ cm high. At first the water reaches $\dfrac35$ of the height. After a stone is put in (completely under water), the water reaches $\dfrac23$ of the height. Find the volume of the stone.
+\end{probbox}
+\probsol{
+Depth before: $45\times\dfrac35=27$ cm.\quad Depth after: $45\times\dfrac23=30$ cm.\par
+Rise: $30-27=3$ cm.\par
+Stone: $60\times40\times3=7\,200$ cm$^3$.
+\dapso{$7\,200$ cm$^3$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+A glass fish tank without a lid is $80$ cm long, $50$ cm wide and $50$ cm high; the water is $30$ cm deep.\par
+\pa{a} Find the area of glass used to make the tank.\par
+\pa{b} A stone of volume $16$ dm$^3$ is put in, completely under water. How deep is the water now?
+\end{probbox}
+\probsol{
+\pa{a} Walls: $(80+50)\times2\times50=13\,000$ cm$^2$; bottom: $80\times50=4\,000$ cm$^2$.\par
+Glass: $13\,000+4\,000=17\,000$ cm$^2$ $=170$ dm$^2$.\par
+\pa{b} $16$ dm$^3=16\,000$ cm$^3$.\quad Rise: $16\,000:4\,000=4$ cm.\quad Depth: $30+4=34$ cm.
+\dapso{\pa{a} $170$ dm$^2$; \pa{b} $34$ cm.}}
+\gap
+\begin{probbox}{33}{\stars{2}}
+A tank is $60$ cm long, $40$ cm wide and $50$ cm high; the water is $45$ cm deep. A stone of volume $15$ dm$^3$ is lowered into it. How many litres of water overflow?
+\end{probbox}
+\probsol{
+Space left above the water: $60\times40\times(50-45)=12\,000$ cm$^3=12$ dm$^3$.\par
+The stone ($15$ dm$^3$) is larger than the space left, so water overflows.\par
+Overflow: $15-12=3$ dm$^3=3$ l.
+\dapso{$3$ l.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Tank A is $1.5$ m long, $1$ m wide and $0.8$ m high and is full of water. All of its water is poured into empty tank B, whose base is $2$ m long and $1.2$ m wide. How deep is the water in tank B?
+\end{probbox}
+\probsol{
+Water: $1.5\times1\times0.8=1.2$ m$^3$.\par
+Base of B: $2\times1.2=2.4$ m$^2$.\par
+Depth: $1.2:2.4=0.5$ m.
+\dapso{$0.5$ m.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+The total surface area of a cube is $72$ cm$^2$ more than its lateral area. Find its volume.
+\end{probbox}
+\probsol{
+The difference is the two bases: one face is $72:2=36$ cm$^2=6\times6$.\par
+Edge $6$ cm; $V=6\times6\times6=216$ cm$^3$.
+\dapso{$216$ cm$^3$.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+A cuboid has a volume of $120$ cm$^3$. Its length is doubled, its width is tripled and its height is halved. Find the new volume.
+\end{probbox}
+\probsol{
+The volume is multiplied by $2\times3=6$ and then divided by $2$, i.e.\ multiplied by $3$.\par
+New volume: $120\times3=360$ cm$^3$.
+\dapso{$360$ cm$^3$.}}
+\gap
+\begin{probbox}{37}{\stars{2}}
+The edge of a $10$ cm cube is increased by $20\%$. By how many cubic centimetres, and by what percentage, does its volume increase?
+\end{probbox}
+\probsol{
+New edge: $10+10\times20:100=12$ cm.\par
+Volumes: $10\times10\times10=1\,000$ cm$^3$ and $12\times12\times12=1\,728$ cm$^3$.\par
+Increase: $1\,728-1\,000=728$ cm$^3$, i.e.\ $728:1\,000=0.728=72.8\%$.
+\dapso{$728$ cm$^3$; $72.8\%$.}}
+\gap
+\begin{probbox}{38}{\stars{2}}
+Three different faces of a cuboid have areas $24$ cm$^2$, $30$ cm$^2$ and $20$ cm$^2$, and its edges are whole numbers of centimetres. Find its volume.
+\end{probbox}
+\probsol{
+The edge shared by the faces $24$ and $30$ divides both: it can be $1$, $2$, $3$ or $6$.\par
+Try $6$: the other edges are $24:6=4$ and $30:6=5$, and $4\times5=20$. \checkmark\par
+(With $1$, $2$ or $3$ the third face would be $720$, $180$ or $80$, not $20$.)\par
+$V=6\times4\times5=120$ cm$^3$.
+\dapso{$120$ cm$^3$.}}
+\gap
+\begin{probbox}{39}{\stars{2}}
+A cuboid's length is $3$ times its height and its width is $2$ times its height. Its volume is $384$ cm$^3$. Find its dimensions.
+\end{probbox}
+\probsol{
+Cut the cuboid into cubes with edge equal to the height: there are $3\times2\times1=6$ such cubes.\par
+One cube: $384:6=64$ cm$^3=4\times4\times4$, so the height is $4$ cm.\par
+Length: $12$ cm; width: $8$ cm.
+\dapso{$12$ cm, $8$ cm, $4$ cm.}}
+\gap
+\begin{probbox}{40}{\stars{2}}
+An empty tank is $1.5$ m long, $1.2$ m wide and $1$ m high. Tap A pours in $30$ l per minute while tap B lets out $12$ l per minute. Both are opened at the same time. How long does it take to fill the tank?
+\end{probbox}
+\probsol{
+Tank: $1.5\times1.2\times1=1.8$ m$^3=1\,800$ l.\par
+Each minute the water increases by $30-12=18$ l.\par
+Time: $1\,800:18=100$ minutes $=1$ hour $40$ minutes.
+\dapso{$1$ hour $40$ minutes.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+A swimming pool is $20$ m long and $10$ m wide. A pump puts in $60$ m$^3$ of water per hour. How long does it take to fill the empty pool to a depth of $1.5$ m?
+\end{probbox}
+\probsol{
+Water needed: $20\times10\times1.5=300$ m$^3$.\par
+Time: $300:60=5$ hours.
+\dapso{$5$ hours.}}
+\gap
+\begin{probbox}{42}{\stars{2}}
+In one storm, $15$ mm of rain fell on a flat roof $8$ m long and $6$ m wide. All of the rain ran into a tank. How many litres of water went into the tank?
+\end{probbox}
+\probsol{
+$15$ mm $=0.015$ m.\par
+Rain on the roof: $8\times6\times0.015=0.72$ m$^3=720$ l.
+\dapso{$720$ l.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+\begin{minipage}[t]{0.6\linewidth}
+A wooden cube has edge $10$ cm. A square hole $4$ cm by $4$ cm is cut straight through it, from the top face to the bottom face. Find the volume of the wood that is left.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.17]
+\cuboidVT{10}{10}{10}{0}
+\coordinate (h1) at ($(D)+(3,0)+(1.5,1.14)$);
+\fill[white,draw=tmBlue!75!black,line width=0.6pt] (h1)--++(4,0)--++(2,1.52)--++(-4,0)--cycle;
+\node[dim,below] at ($(Q)!0.5!(P)$){$10$ cm};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Cube: $10\times10\times10=1\,000$ cm$^3$.\par
+The hole is a cuboid $4\times4\times10=160$ cm$^3$.\par
+Wood left: $1\,000-160=840$ cm$^3$.
+\dapso{$840$ cm$^3$.}}
+\gap
+\begin{probbox}{44}{\stars{2}}
+When water freezes, its volume increases by $\dfrac1{11}$. An ice tray holds water $22$ cm long, $10$ cm wide and $3$ cm deep. What is the volume of the ice after the water freezes?
+\end{probbox}
+\probsol{
+Water: $22\times10\times3=660$ cm$^3$.\par
+Increase: $660\times\dfrac1{11}=60$ cm$^3$.\par
+Ice: $660+60=720$ cm$^3$.
+\dapso{$720$ cm$^3$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+A tank has a base $2$ m long and $1.2$ m wide. In the morning the water is $1$ m deep; by evening it is $0.65$ m deep. How many litres of water were used during the day?
+\end{probbox}
+\probsol{
+The level fell by $1-0.65=0.35$ m.\par
+Water used: $2\times1.2\times0.35=0.84$ m$^3=840$ l.
+\dapso{$840$ l.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+How many cubes of edge $3$ cm can be packed into a box $16$ cm long, $12$ cm wide and $9$ cm high (the cubes sit upright, side by side)? What volume of the box is left empty?
+\end{probbox}
+\probsol{
+Along the length: $16:3=5$ (remainder $1$), so $5$ cubes; along the width: $12:3=4$; up the height: $9:3=3$.\par
+Cubes: $5\times4\times3=60$.\par
+Box: $16\times12\times9=1\,728$ cm$^3$; cubes: $60\times27=1\,620$ cm$^3$.\par
+Empty: $1\,728-1\,620=108$ cm$^3$.
+\dapso{$60$ cubes; $108$ cm$^3$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+A cuboid has a volume of $1.2$ m$^3$ and a base area of $0.8$ m$^2$. Its length is $1$ m. Find its height and its lateral area.
+\end{probbox}
+\probsol{
+Height: $1.2:0.8=1.5$ m.\quad Width: $0.8:1=0.8$ m.\par
+$S_{\text{lat}}=(1+0.8)\times2\times1.5=5.4$ m$^2$.
+\dapso{$1.5$ m; $5.4$ m$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+All the water from a full cube-shaped tank of edge $6$ dm is poured into an empty tank whose base is $9$ dm long and $8$ dm wide. How deep is the water?
+\end{probbox}
+\probsol{
+Water: $6\times6\times6=216$ dm$^3$.\par
+Base: $9\times8=72$ dm$^2$.\par
+Depth: $216:72=3$ dm.
+\dapso{$3$ dm.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+\begin{minipage}[t]{0.6\linewidth}
+A flight of $3$ concrete steps is $1.5$ m wide. Each step is $30$ cm deep and $15$ cm high (see the side view). Find the volume of concrete.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.032]
+\draw[geo,fill=tmBlue!10] (0,0)--(90,0)--(90,45)--(60,45)--(60,30)--(30,30)--(30,15)--(0,15)--cycle;
+\draw[tmBlue!60,line width=0.35pt] (30,0)--(30,15) (60,0)--(60,30) (30,15)--(90,15) (60,30)--(90,30);
+\node[dim,below] at (15,0){$30$ cm}; \node[dim,right] at (90,7.5){$15$ cm};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Cut the steps into three layers, each $15$ cm $=0.15$ m high:\par
+bottom layer $0.9$ m deep, middle layer $0.6$ m deep, top layer $0.3$ m deep.\par
+Volume: $1.5\times0.15\times(0.9+0.6+0.3)=1.5\times0.15\times1.8=0.405$ m$^3$.
+\dapso{$0.405$ m$^3$.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+A tank is $1.5$ m long. The water in it is $60$ cm deep. After $240$ l of water are added, it is $80$ cm deep. Find the width of the tank.
+\end{probbox}
+\probsol{
+$240$ l $=240$ dm$^3$; the rise is $80-60=20$ cm $=2$ dm.\par
+Base area: $240:2=120$ dm$^2=1.2$ m$^2$.\par
+Width: $1.2:1.5=0.8$ m.
+\dapso{$0.8$ m.}}

@@ -1,0 +1,488 @@
+\shead{Speed, distance and time depend on each other}
+\begin{knowbox}
+\[ s=v\times t;\qquad v=s:t;\qquad t=s:v. \]
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Same distance:} the faster you go, the less time you need. If the speed becomes $k$ times as big, the time becomes $k$ times as small. We say speed and time are \emph{inversely proportional}: the ratio of the times is the ratio of the speeds turned upside down.
+\item \textbf{Same speed:} a longer distance needs a longer time; distance and time are \emph{directly proportional}.
+\item \textbf{Same time:} the faster object goes further; distance and speed are \emph{directly proportional}.
+\end{itemize}
+\end{knowbox}
+\gap
+\shead{Using ratios with bar models}
+\begin{knowbox}
+On the same road, if the planned speed and the actual speed are in the ratio $\dfrac ab$, then the planned time and the actual time are in the ratio $\dfrac ba$. Draw the two times as bars made of equal parts: the \emph{difference in time} (late, early, longer, shorter) matches the \emph{difference in parts}. From one part we get the time, then the distance.
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Planned time:}
+\foreach \i in {0,...,3}{\blk{\i*0.8}{\i*0.8+0.8}{0.62}{0.42}{tmBlue}{}}
+\rowlab{-0.15}{0}{Actual time:}
+\foreach \i in {0,...,3}{\blk{\i*0.8}{\i*0.8+0.8}{0}{0.42}{tmGreen}{}}
+\blk{3.2}{4.0}{0}{0.42}{tmOrange}{}
+\brcdn{3.2}{4.0}{-0.32}{late by \dots}
+\end{barfigC}
+\end{knowbox}
+\gap
+\shead{Average speed}
+\begin{knowbox}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Average speed $=$ total distance $:$ total time.}
+\item In general the average speed is \emph{not} the average of the speeds. For example, going half the way at $12$ km/h and half the way at $4$ km/h does \emph{not} give $8$ km/h.
+\item When the distance is not given (``half the way'', ``there and back''), choose a convenient length for it, usually a number divisible by all the speeds (\emph{reducing to a unit}), and work out the times.
+\end{itemize}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Huy cycles $18$ km in $1$ h $30$ min. At the same speed, how long does he need to cycle $30$ km?
+\guide
+The speed is the same, so the time grows in the same ratio as the distance.\par
+$30:18=\dfrac53$, so the distance is $\dfrac53$ times as long.\par
+Time: $1.5\times\dfrac53=2.5$ (h) $=2$ h $30$ min.\par
+\note{Another way: speed $18:1.5=12$ (km/h); time $30:12=2.5$ (h).}
+\ans{$2$ h $30$ min.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+A car planned to drive from $A$ to $B$ at $60$ km/h. Because of road works it could only drive at $48$ km/h and arrived $30$ minutes late. How long is road $AB$?
+\guide
+Ratio of planned speed to actual speed: $\dfrac{60}{48}=\dfrac54$.\par
+On the same road speed and time are inversely proportional, so planned time : actual time $=\dfrac45$.
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Planned time:}
+\foreach \i in {0,...,3}{\blk{\i*0.8}{\i*0.8+0.8}{0.62}{0.42}{tmBlue}{}}
+\rowlab{-0.15}{0}{Actual time:}
+\foreach \i in {0,...,3}{\blk{\i*0.8}{\i*0.8+0.8}{0}{0.42}{tmGreen}{}}
+\blk{3.2}{4.0}{0}{0.42}{tmOrange}{}
+\brcdn{3.2}{4.0}{-0.32}{$30$ min}
+\end{barfigC}
+Difference: $5-4=1$ part $=30$ min. \ Actual time: $30\times5=150$ (min) $=2.5$ h.\par
+$AB=48\times2.5=120$ (km).
+\ans{$120$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+A car drives road $AB$ in $4$ h; a motorbike drives the same road in $6$ h. The car is $15$ km/h faster than the motorbike. Find both speeds and the length of $AB$.
+\guide
+Time of car : time of motorbike $=\dfrac46=\dfrac23$; so speed of car : speed of motorbike $=\dfrac32$.
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Car:}
+\foreach \i in {0,1,2}{\blk{\i*0.9}{\i*0.9+0.9}{0.62}{0.42}{tmGreen}{}}
+\rowlab{-0.15}{0}{Motorbike:}
+\foreach \i in {0,1}{\blk{\i*0.9}{\i*0.9+0.9}{0}{0.42}{tmBlue}{}}
+\brcup{1.8}{2.7}{0.9}{$15$ km/h}
+\end{barfigC}
+Difference: $3-2=1$ part $=15$ km/h.\par
+Car: $15\times3=45$ (km/h); motorbike: $45-15=30$ (km/h).\par $AB=45\times4=180$ (km).
+\ans{car $45$ km/h, motorbike $30$ km/h; $AB=180$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Thu cycles from $A$ to $B$ at $12$ km/h. On the way back, she rides the first $6$ km at $12$ km/h, then a strong wind slows her to $10$ km/h for the rest of the way. So the way back takes $12$ minutes longer than the way there. How long is $AB$?
+\guide
+Let $C$ be the point $6$ km from $B$. Both trips take the same time on $BC$; the extra $12$ min comes from the part $CA$.
+\begin{barfigC}
+\draw[geo] (0,0)--(6,0);
+\foreach \x/\n in {0/A,4/C,6/B}{\draw[geo](\x,0.12)--(\x,-0.12); \node[lbl,above] at (\x,0.12){$\n$};}
+\brcdn{4}{6}{-0.3}{$6$ km}
+\draw[<-,line width=1pt,tmOrange] (0.1,0.6)--(3.9,0.6); \node[dim,above] at (2,0.62){$10$ km/h};
+\draw[<-,line width=1pt,tmGreen] (4.1,0.6)--(5.9,0.6); \node[dim,above] at (5,0.62){$12$ km/h};
+\end{barfigC}
+On $CA$: planned speed : actual speed $=\dfrac{12}{10}=\dfrac65$, so planned time : actual time $=\dfrac56$.\par
+$6-5=1$ part $=12$ min; actual time on $CA$: $12\times6=72$ (min) $=1.2$ h.\par
+$CA=10\times1.2=12$ (km); \ $AB=12+6=18$ (km).
+\ans{$18$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+\pa{a} A motorbike rides for $2$ h at $45$ km/h and then for $1$ h at $60$ km/h. Find its average speed.\par
+\pa{b} Khoa cycles the first half of a road at $12$ km/h, then his bike breaks and he walks the second half at $4$ km/h. Find his average speed over the whole road.
+\guide
+\pa{a} Total distance: $45\times2+60\times1=150$ (km); total time: $2+1=3$ (h).\par
+Average speed: $150:3=50$ (km/h).\par
+\pa{b} $12$ is divisible by both $12$ and $4$; suppose half the road is $12$ km (a unit chosen for convenience).\par
+First half: $12:12=1$ (unit of time); second half: $12:4=3$ (units).\par
+Whole road: $24$ km in $1+3=4$ units; average speed: $24:4=6$ (km/h).\par
+\note{It is not $(12+4):2=8$ km/h: Khoa spends much longer walking than cycling.}
+\ans{a) $50$ km/h; \ b) $6$ km/h.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+A motorbike rides $96$ km in $2$ h $40$ min. At the same speed, how far does it ride in $4$ h?
+\end{probbox}
+\probsol{
+$2$ h $40$ min $=\dfrac83$ h. \ Speed: $96:\dfrac83=36$ (km/h).\par Distance in $4$ h: $36\times4=144$ (km).
+\dapso{$144$ km.}}
+\gap
+\begin{probbox}{2}{\relax}
+A car drives $150$ km in $2.5$ h. At the same speed, how long does it need for $210$ km?
+\end{probbox}
+\probsol{
+Speed: $150:2.5=60$ (km/h).\par Time: $210:60=3.5$ (h) $=3$ h $30$ min.
+\dapso{$3$ h $30$ min.}}
+\gap
+\begin{probbox}{3}{\relax}
+A cyclist and a motorbike leave a town at the same time. The motorbike's speed is $2.5$ times the cyclist's. When the cyclist has ridden $14$ km, how far has the motorbike gone?
+\end{probbox}
+\probsol{
+In the same time the distance is proportional to the speed.\par Motorbike: $14\times2.5=35$ (km).
+\dapso{$35$ km.}}
+\gap
+\begin{probbox}{4}{\relax}
+Towns $X$ and $Y$ are $150$ km apart. A car drives from $X$ to $Y$ at $60$ km/h; at the same time a motorbike rides from $Y$ to $X$ at $40$ km/h. When the car reaches $Y$, how far is the motorbike from $X$?
+\end{probbox}
+\probsol{
+The car needs $150:60=2.5$ (h).\par In $2.5$ h the motorbike rides $40\times2.5=100$ (km).\par Distance to $X$: $150-100=50$ (km).
+\dapso{$50$ km.}}
+\gap
+\begin{probbox}{5}{\relax}
+A car drives the $96$ km from $A$ to $B$ at $48$ km/h. During the same time a motorbike leaves $A$ along the same road at a speed equal to $\dfrac34$ of the car's speed. When the car reaches $B$, how far is the motorbike from $B$?
+\end{probbox}
+\probsol{
+In the same time the motorbike covers $\dfrac34$ of the car's distance: $96\times\dfrac34=72$ (km).\par Distance to $B$: $96-72=24$ (km).
+\dapso{$24$ km.}}
+\gap
+\begin{probbox}{6}{\relax}
+A motorbike at $40$ km/h needs $3$ h for a road. A car drives $1.5$ times as fast. How long does the car need for the same road?
+\end{probbox}
+\probsol{
+Same road: the speed is $1.5$ times as big, so the time is $1.5$ times as small.\par Time: $3:1.5=2$ (h).
+\dapso{$2$ h.}}
+\gap
+\begin{probbox}{7}{\relax}
+A motorbike at $42$ km/h covers a road in $2$ h $30$ min. A car drives the same road at $60$ km/h and leaves at 6:50. At what time does the car arrive?
+\end{probbox}
+\probsol{
+Length of the road: $42\times2.5=105$ (km).\par Car's time: $105:60=1.75$ (h) $=1$ h $45$ min.\par Arrival: 6:50 $+\ 1$ h $45$ min $=$ 8:35.
+\dapso{8:35.}}
+\gap
+\begin{probbox}{8}{\relax}
+A motorbike planned to ride from $A$ to $B$ in $4$ h, but it actually took $3$ h $12$ min because it rode $10$ km/h faster. Find its actual speed.
+\end{probbox}
+\probsol{
+$3$ h $12$ min $=3.2$ h. \ Planned time : actual time $=4:3.2=\dfrac54$.\par
+So planned speed : actual speed $=\dfrac45$; the difference $1$ part $=10$ km/h.\par Actual speed: $10\times5=50$ (km/h).
+\dapso{$50$ km/h.}}
+\gap
+\begin{probbox}{9}{\relax}
+A coach planned to drive at $50$ km/h but, because of heavy traffic, could only drive at $40$ km/h and arrived $36$ minutes late. How long was the journey?
+\end{probbox}
+\probsol{
+Planned speed : actual speed $=\dfrac{50}{40}=\dfrac54$; planned time : actual time $=\dfrac45$.\par
+$1$ part $=36$ min; actual time: $36\times5=180$ (min) $=3$ h.\par Distance: $40\times3=120$ (km).
+\dapso{$120$ km.}}
+\gap
+\begin{probbox}{10}{\relax}
+A car planned to drive at $45$ km/h but actually drove at $54$ km/h and arrived $20$ minutes early. How long was the road?
+\end{probbox}
+\probsol{
+Planned speed : actual speed $=\dfrac{45}{54}=\dfrac56$; planned time : actual time $=\dfrac65$.\par
+$1$ part $=20$ min; actual time: $20\times5=100$ (min) $=\dfrac53$ h.\par Road: $54\times\dfrac53=90$ (km).
+\dapso{$90$ km.}}
+\gap
+\begin{probbox}{11}{\relax}
+Bình cycles home from school at $15$ km/h. Halfway, his tyre goes flat and he walks the rest of the way at $5$ km/h. The whole trip takes $40$ minutes. How far is Bình's home from school?
+\end{probbox}
+\probsol{
+For each km of half the road: cycling takes $\dfrac1{15}$ h, walking $\dfrac15$ h; together $\dfrac1{15}+\dfrac15=\dfrac4{15}$ (h).\par
+$40$ min $=\dfrac23$ h. \ Half the road: $\dfrac23:\dfrac4{15}=2.5$ (km).\par Whole road: $2.5\times2=5$ (km).
+\dapso{$5$ km.}}
+\gap
+\begin{probbox}{12}{\relax}
+A coach drives the first half of a road at $60$ km/h; then rain slows it to $40$ km/h for the second half. The whole trip takes $5$ h. How long is the road?
+\end{probbox}
+\probsol{
+For each km of half the road the coach needs $\dfrac1{60}+\dfrac1{40}=\dfrac1{24}$ (h).\par
+Half the road: $5:\dfrac1{24}=120$ (km); whole road: $240$ km.\par
+\emph{Check:} $120:60+120:40=2+3=5$ (h).
+\dapso{$240$ km.}}
+\gap
+\begin{probbox}{13}{\relax}
+A delivery van leaves $A$ at 7:15, drives to $B$ at $40$ km/h, spends $45$ minutes unloading, then drives straight back at $60$ km/h and arrives at $A$ at 11:30. How long is road $AB$?
+\end{probbox}
+\probsol{
+From 7:15 to 11:30: $4$ h $15$ min; driving time: $4$ h $15$ min $-\ 45$ min $=3.5$ h.\par
+For each km of $AB$ the van needs $\dfrac1{40}+\dfrac1{60}=\dfrac1{24}$ (h) there and back.\par $AB=3.5:\dfrac1{24}=84$ (km).
+\dapso{$84$ km.}}
+\gap
+\begin{probbox}{14}{\relax}
+Mr Tâm rides from $A$ to $B$ in $2$ h. On the way back he rides $12$ km/h slower, and the trip takes $30$ minutes longer. How long is $AB$?
+\end{probbox}
+\probsol{
+Time there : time back $=2:2.5=\dfrac45$; so speed there : speed back $=\dfrac54$.\par
+$1$ part $=12$ km/h; speed there: $12\times5=60$ (km/h).\par $AB=60\times2=120$ (km).
+\dapso{$120$ km.}}
+\gap
+\begin{probbox}{15}{\relax}
+A driver works out that at $50$ km/h he will arrive at 10:12, and at $60$ km/h he will arrive at 9:42. How long is the journey?
+\end{probbox}
+\probsol{
+The difference in arrival times is $30$ min.\par Speeds $\dfrac{50}{60}=\dfrac56$, so times $\dfrac65$; $1$ part $=30$ min.\par
+Time at $60$ km/h: $30\times5=150$ (min) $=2.5$ h. \ Distance: $60\times2.5=150$ (km).
+\dapso{$150$ km.}}
+\gap
+\begin{probbox}{16}{\relax}
+A car must get from $A$ to $B$ in a fixed time. At $40$ km/h it would be $20$ min late; at $50$ km/h it would be $16$ min early. Find the length of $AB$ and the fixed time.
+\end{probbox}
+\probsol{
+The two times differ by $20+16=36$ (min).\par Speeds $\dfrac45$, so times $\dfrac54$; $1$ part $=36$ min.\par
+Time at $50$ km/h: $36\times4=144$ (min) $=2.4$ h; $AB=50\times2.4=120$ (km).\par
+Fixed time: $144+16=160$ (min) $=2$ h $40$ min.
+\dapso{$120$ km; $2$ h $40$ min.}}
+\gap
+\begin{probbox}{17}{\relax}
+Brothers Quân and Khoa ride from home to their grandmother's house. Quân rides at $45$ km/h. Khoa leaves $9$ minutes after Quân, rides at $54$ km/h and arrives $3$ minutes before him. How far is it to Grandma's house?
+\end{probbox}
+\probsol{
+Khoa's time is $9+3=12$ (min) shorter.\par Speeds $\dfrac{45}{54}=\dfrac56$, so times $\dfrac65$; $1$ part $=12$ min.\par
+Quân's time: $12\times6=72$ (min) $=1.2$ h. \ Distance: $45\times1.2=54$ (km).
+\dapso{$54$ km.}}
+\gap
+\begin{probbox}{18}{\relax}
+Minh cycles from home to school at $12$ km/h. On the way back he rides the first $2$ km at $12$ km/h, then speeds up to $16$ km/h. The way back takes $5$ minutes less. How far is school from home?
+\end{probbox}
+\probsol{
+Only the part after the first $2$ km matters.\par Speeds there $\dfrac{12}{16}=\dfrac34$, so times $\dfrac43$; $1$ part $=5$ min.\par
+Time at $16$ km/h: $5\times3=15$ (min) $=0.25$ h; length $16\times0.25=4$ (km).\par Home to school: $2+4=6$ (km).
+\dapso{$6$ km.}}
+\gap
+\begin{probbox}{19}{\relax}
+A coach leaves the city at 7:00 for a town $150$ km away, planning to drive the whole way at $50$ km/h. On the way it stops for $12$ minutes; then it drives on at $60$ km/h and arrives $3$ minutes earlier than planned. How far from the city did it stop?
+\end{probbox}
+\probsol{
+On the part after the stop the coach saved $12+3=15$ (min).\par Speeds $\dfrac{50}{60}=\dfrac56$, so times $\dfrac65$; $1$ part $=15$ min.\par
+Planned time for that part: $15\times6=90$ (min) $=1.5$ h; its length: $50\times1.5=75$ (km).\par
+Stop: $150-75=75$ (km) from the city.
+\dapso{$75$ km.}}
+\gap
+\begin{probbox}{20}{\relax}
+Two cars leave at the same time. In the same time car $X$ goes $150$ km and car $Y$ goes $120$ km. Car $X$ is $12$ km/h faster. Find both speeds.
+\end{probbox}
+\probsol{
+Same time: speeds are in the ratio of the distances, $\dfrac{150}{120}=\dfrac54$.\par $1$ part $=12$ km/h.\par $X$: $60$ km/h; $Y$: $48$ km/h.
+\dapso{$60$ km/h and $48$ km/h.}}
+\gap
+\begin{probbox}{21}{\relax}
+A car drives road $AB$ in $3$ h; a motorbike needs $5$ h. The car is $24$ km/h faster. Find both speeds and the length of $AB$.
+\end{probbox}
+\probsol{
+Times $\dfrac35$, so speeds $\dfrac53$; difference $2$ parts $=24$ km/h, $1$ part $=12$ km/h.\par
+Car: $60$ km/h; motorbike: $36$ km/h. \ $AB=60\times3=180$ (km).
+\dapso{$60$ km/h, $36$ km/h; $180$ km.}}
+\gap
+\begin{probbox}{22}{\relax}
+A lorry drives for $1.5$ h at $40$ km/h and then for $0.5$ h at $60$ km/h. Find its average speed.
+\end{probbox}
+\probsol{
+Distance: $40\times1.5+60\times0.5=90$ (km); time: $2$ h.\par Average speed: $90:2=45$ (km/h).
+\dapso{$45$ km/h.}}
+\gap
+\begin{probbox}{23}{\relax}
+Grandpa walks $2$ km in $30$ min, then $3$ km in $45$ min. Find his average speed in km/h.
+\end{probbox}
+\probsol{
+Distance: $5$ km; time: $75$ min $=1.25$ h.\par Average speed: $5:1.25=4$ (km/h).
+\dapso{$4$ km/h.}}
+\gap
+\begin{probbox}{24}{\relax}
+A car drives a road of $160$ km: the first half at $60$ km/h and the second half at $40$ km/h. Find its average speed.
+\end{probbox}
+\probsol{
+Times: $80:60=\dfrac43$ (h) and $80:40=2$ (h); total $\dfrac{10}3$ h.\par Average speed: $160:\dfrac{10}3=48$ (km/h).
+\dapso{$48$ km/h.}}
+\gap
+\begin{probbox}{25}{\relax}
+A motorbike rides from $A$ to $B$ at $30$ km/h and returns along the same road at $20$ km/h. Find its average speed for the round trip.
+\end{probbox}
+\probsol{
+Choose $AB=60$ km (divisible by $30$ and $20$).\par Times: $60:30=2$ and $60:20=3$ (units); total $5$.\par
+Average speed: $120:5=24$ (km/h).
+\dapso{$24$ km/h.}}
+\gap
+\begin{probbox}{26}{\relax}
+A car drives for $3$ h at an average speed of $50$ km/h. In the first $2$ h it drove at $45$ km/h. What was its speed in the third hour?
+\end{probbox}
+\probsol{
+Total distance: $50\times3=150$ (km).\par First $2$ h: $45\times2=90$ (km).\par Third hour: $150-90=60$ (km), so $60$ km/h.
+\dapso{$60$ km/h.}}
+\gap
+\begin{probbox}{27}{\relax}
+A hiker climbs a hill at $3$ km/h and comes down the same path at $6$ km/h. Find the average speed for the whole walk.
+\end{probbox}
+\probsol{
+Choose the path to be $6$ km.\par Up: $6:3=2$ (h); down: $6:6=1$ (h).\par Average: $12:3=4$ (km/h).
+\dapso{$4$ km/h.}}
+\gap
+\begin{probbox}{28}{\relax}
+A road is divided into three equal parts. A cyclist rides them at $30$ km/h, $20$ km/h and $60$ km/h. Find the average speed over the whole road.
+\end{probbox}
+\probsol{
+Choose each part to be $60$ km.\par Times: $2$ h, $3$ h, $1$ h; total $6$ h for $180$ km.\par Average: $180:6=30$ (km/h).
+\dapso{$30$ km/h.}}
+\gap
+\begin{probbox}{29}{\relax}
+In the time Lan walks $600$ m, Mai cycles $1.5$ km. Lan walks at $4$ km/h. Find Mai's speed.
+\end{probbox}
+\probsol{
+Same time: speeds are proportional to distances; $1\,500:600=2.5$.\par Mai: $4\times2.5=10$ (km/h).
+\dapso{$10$ km/h.}}
+\gap
+\begin{probbox}{30}{\relax}
+A car usually needs $2$ h for a road. Today it drives at $\dfrac45$ of its usual speed. How many minutes late is it?
+\end{probbox}
+\probsol{
+Speed $\times\dfrac45$, so time $\times\dfrac54$: $2\times\dfrac54=2.5$ (h).\par Late by $0.5$ h $=30$ min.
+\dapso{$30$ min.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+Road $AB$ consists of an uphill part and a downhill part. Vy walks from $A$ to $B$ and back, going uphill at $4$ km/h and downhill at $6$ km/h. The round trip takes $5$ h. How long is $AB$?
+\end{probbox}
+\probsol{
+Over the round trip each km of the road is walked once uphill and once downhill: $\dfrac14+\dfrac16=\dfrac5{12}$ (h) per km.\par
+$AB=5:\dfrac5{12}=12$ (km).
+\dapso{$12$ km.}}
+\gap
+\begin{probbox}{32}{\stars{2}}
+Road $AB$ has an uphill part followed by a downhill part. Uphill speed $4$ km/h, downhill speed $6$ km/h. Going from $A$ to $B$ takes $2$ h $20$ min; returning takes $2$ h $40$ min. How long is $AB$, and how long is the uphill part on the way from $A$?
+\end{probbox}
+\probsol{
+Round trip: $5$ h; as in Problem 31, $AB=5:\dfrac5{12}=12$ (km).\par
+If all $12$ km from $A$ were downhill, the trip would take $12:6=2$ h; it takes $\dfrac13$ h more.\par
+Each uphill km takes $\dfrac14-\dfrac16=\dfrac1{12}$ h longer, so the uphill part is $\dfrac13:\dfrac1{12}=4$ (km).
+\dapso{$AB=12$ km; uphill $4$ km.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+A car drives the first half of a road at $40$ km/h. How fast must it go on the second half for the average speed to be $48$ km/h?
+\end{probbox}
+\probsol{
+Choose half the road $=240$ km. Whole road $480$ km at $48$ km/h: $10$ h.\par
+First half: $240:40=6$ (h); second half must take $10-6=4$ (h).\par Speed: $240:4=60$ (km/h).
+\dapso{$60$ km/h.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Lâm cycles the first half of a road at $30$ km/h. Can he ride the second half fast enough to make his average speed $60$ km/h?
+\end{probbox}
+\probsol{
+Choose half the road $=30$ km. Average $60$ km/h on $60$ km needs $1$ h in total.\par
+But the first half alone already takes $30:30=1$ h, leaving no time for the second half.\par So it is impossible.
+\dapso{No, it is impossible.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+A cyclist leaves at 7:00 and arrives at 8:30, $18$ km away, after a $15$-minute rest on the way. Find \pa{a} the average speed for the whole trip; \pa{b} the speed while riding.
+\end{probbox}
+\probsol{
+\pa{a} Total time $1.5$ h: $18:1.5=12$ (km/h).\par
+\pa{b} Riding time $1.5-0.25=1.25$ (h): $18:1.25=14.4$ (km/h).
+\dapso{a) $12$ km/h; \ b) $14.4$ km/h.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+A driver works out that at $45$ km/h he arrives at 10:00, and at $60$ km/h at 9:15. How long is the journey, and at what time does he set off?
+\end{probbox}
+\probsol{
+Difference: $45$ min. \ Speeds $\dfrac34$, so times $\dfrac43$; $1$ part $=45$ min.\par
+Time at $60$ km/h: $45\times3=135$ (min) $=2.25$ h; distance $60\times2.25=135$ (km).\par
+Departure: 9:15 $-\ 2$ h $15$ min $=$ 7:00.
+\dapso{$135$ km; 7:00.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Road $AB$ is $120$ km. A car plans to drive at $40$ km/h. After $1$ h it speeds up by $10$ km/h. How many minutes early does it arrive?
+\end{probbox}
+\probsol{
+Planned time: $120:40=3$ (h).\par Actual: $1$ h for $40$ km, then $80:50=1.6$ (h); total $2.6$ h.\par Early by $0.4$ h $=24$ min.
+\dapso{$24$ min.}}
+\gap
+\begin{probbox}{38}{\stars{2}}
+A car planned to drive at $50$ km/h. After $1$ h it had to slow down to $40$ km/h, and it arrived $24$ minutes late. How long was the road?
+\end{probbox}
+\probsol{
+Only the part after the first hour matters. Speeds $\dfrac54$, so times $\dfrac45$; $1$ part $=24$ min.\par
+Actual time on that part: $24\times5=120$ (min) $=2$ h; its length $40\times2=80$ (km).\par
+Road: $50\times1+80=130$ (km).
+\dapso{$130$ km.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+A car drives from $A$ to $B$ in $2$ h at $45$ km/h and returns along the same road in $3$ h. Find the average speed for the round trip.
+\end{probbox}
+\probsol{
+$AB=45\times2=90$ (km). \ Round trip: $180$ km in $5$ h.\par Average: $180:5=36$ (km/h).
+\dapso{$36$ km/h.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+\pa{a} A car drives half of the \emph{time} at $40$ km/h and the other half of the time at $60$ km/h. \pa{b} Another car drives half of the \emph{distance} at $40$ km/h and the other half at $60$ km/h. Find each average speed.
+\end{probbox}
+\probsol{
+\pa{a} Take $2$ h: $40+60=100$ km in $2$ h: $50$ km/h.\par
+\pa{b} Take each half $=120$ km: times $3$ h and $2$ h; $240$ km in $5$ h: $48$ km/h.
+\dapso{a) $50$ km/h; \ b) $48$ km/h.}}
+\gap
+\begin{probbox}{41}{\stars{2}}
+If a car increases its speed by a quarter, it arrives $30$ minutes earlier. How long does the trip take at the usual speed?
+\end{probbox}
+\probsol{
+New speed $=\dfrac54$ of the usual, so new time $=\dfrac45$ of the usual.\par
+Saved: $\dfrac15$ of the usual time $=30$ min. \ Usual time: $30\times5=150$ (min) $=2$ h $30$ min.
+\dapso{$2$ h $30$ min.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Two cyclists leave the same place at the same time in the same direction. After $1.5$ h the first is $6$ km ahead of the second. The first rides at $\dfrac54$ of the second's speed. Find their speeds.
+\end{probbox}
+\probsol{
+Difference of the speeds: $6:1.5=4$ (km/h) $=1$ part.\par Second: $4\times4=16$ (km/h); first: $4\times5=20$ (km/h).
+\dapso{$20$ km/h and $16$ km/h.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Phong cycles from $A$ to $B$ at $18$ km/h. Coming back he rides the first $6$ km at $18$ km/h, then $15$ km/h, and the way back takes $8$ minutes longer. How long is $AB$?
+\end{probbox}
+\probsol{
+On the part after the first $6$ km: speeds $\dfrac{18}{15}=\dfrac65$, so times $\dfrac56$; $1$ part $=8$ min.\par
+Time at $15$ km/h: $8\times6=48$ (min) $=0.8$ h; length $15\times0.8=12$ (km).\par $AB=6+12=18$ (km).
+\dapso{$18$ km.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+A car drives from $A$ to $B$ at $36$ km/h and back at $45$ km/h. Find the average speed for the round trip.
+\end{probbox}
+\probsol{
+Choose $AB=180$ km (divisible by $36$ and $45$).\par Times: $5$ h and $4$ h; $360$ km in $9$ h.\par Average: $40$ km/h.
+\dapso{$40$ km/h.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Ngân walks to school at $5$ km/h and walks home along the same road at $3$ km/h. Altogether she walks for $48$ minutes. How far is school?
+\end{probbox}
+\probsol{
+Per km: $\dfrac15+\dfrac13=\dfrac8{15}$ (h) there and back.\par $48$ min $=0.8$ h. \ Distance: $0.8:\dfrac8{15}=1.5$ (km).
+\dapso{$1.5$ km.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+A motorbike leaves $A$ at 7:00 and a car leaves $A$ at 8:00 on the same road; they both reach $B$ at the same moment. The car is $1.5$ times as fast as the motorbike, and $AB=120$ km. At what time do they reach $B$, and what are their speeds?
+\end{probbox}
+\probsol{
+Speeds $\dfrac32$ (car : motorbike), so times $\dfrac23$; the difference $1$ part $=1$ h.\par
+Motorbike's time: $3$ h, so they reach $B$ at 10:00.\par Motorbike: $120:3=40$ (km/h); car: $120:2=60$ (km/h).
+\dapso{10:00; motorbike $40$ km/h, car $60$ km/h.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+In $2$ h car $X$ goes $30$ km further than car $Y$. Their speeds are in the ratio $7:5$. Find both speeds.
+\end{probbox}
+\probsol{
+Difference of speeds: $30:2=15$ (km/h) $=7-5=2$ parts; $1$ part $=7.5$ km/h.\par $X$: $52.5$ km/h; $Y$: $37.5$ km/h.
+\dapso{$52.5$ km/h and $37.5$ km/h.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Hà must cover $32$ km in $2$ h. She rides the first $1$ h $20$ min at $15$ km/h. At what speed must she ride the rest?
+\end{probbox}
+\probsol{
+First part: $15\times\dfrac43=20$ (km). \ Left: $12$ km in $40$ min $=\dfrac23$ h.\par Speed: $12:\dfrac23=18$ (km/h).
+\dapso{$18$ km/h.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+Anh walks $2.4$ km in $30$ min; Bảo walks $3$ km in $40$ min. Each walks $6$ km. How many minutes longer does the slower one take?
+\end{probbox}
+\probsol{
+Anh: $2.4:0.5=4.8$ (km/h); Bảo: $3:\dfrac23=4.5$ (km/h). Bảo is slower.\par
+Times for $6$ km: Anh $6:4.8=1.25$ h $=75$ min; Bảo $6:4.5=\dfrac43$ h $=80$ min.\par Difference: $5$ min.
+\dapso{Bảo, $5$ min longer.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+A car drives for $2$ h at $60$ km/h and then for a while at $40$ km/h. Its average speed for the whole trip is $48$ km/h. How long did it drive at $40$ km/h?
+\end{probbox}
+\probsol{
+In the first $2$ h the car is $(60-48)\times2=24$ (km) \emph{ahead} of a car going steadily at $48$ km/h.\par
+At $40$ km/h it loses $48-40=8$ (km) every hour against that car.\par To lose the $24$ km: $24:8=3$ (h).
+\dapso{$3$ h.}}

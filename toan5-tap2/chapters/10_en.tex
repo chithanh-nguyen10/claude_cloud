@@ -1,0 +1,507 @@
+\shead{Moving round a closed track}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Runners on a running track, cyclists round a lake, the hands of a clock\ldots\ all move round a closed path. After each full lap the mover is back exactly where it started, and it can go round as many times as it likes.
+\item If one lap is $C$ and the distance travelled is $s$, then $s:C$ gives the number of whole laps, and the remainder tells us how far past the start the mover is.
+For a circular track, $C=\text{diameter}\times3.14$.
+\item \textbf{Careful:} ``how far from the start'' along the way ahead is \emph{one lap minus the remainder}, not the remainder itself.
+\end{itemize}\end{knowbox}
+\gap
+\shead{Two movers starting together from the same point}
+\begin{knowbox}
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\footnotesize]
+\begin{scope}
+\fill[tmGreen!15,even odd rule] (0,0) circle(1.35) (0,0) circle(1.0);
+\draw[geo] (0,0) circle(1.35) (0,0) circle(1.0);
+\fill[tmOrange] (0,-1.175) circle(0.09); \node[lbl,below] at (0,-1.4){start};
+\draw[->,tmBlue,line width=1.2pt] (-75:1.65) arc(-75:20:1.65); \node[lbl,text=tmBlue] at (5:2.1){$v_1$};
+\draw[->,tmPurple,line width=1.2pt] (-105:1.65) arc(-105:-200:1.65); \node[lbl,text=tmPurple] at (-185:2.1){$v_2$};
+\node[lbl,align=center] at (0,-2.35){\textbf{opposite directions}\\ time to meet $=C:(v_1+v_2)$};
+\end{scope}
+\begin{scope}[xshift=6.2cm]
+\fill[tmGreen!15,even odd rule] (0,0) circle(1.35) (0,0) circle(1.0);
+\draw[geo] (0,0) circle(1.35) (0,0) circle(1.0);
+\fill[tmOrange] (0,-1.175) circle(0.09); \node[lbl,below] at (0,-1.4){start};
+\draw[->,tmBlue,line width=1.2pt] (-75:1.6) arc(-75:60:1.6); \node[lbl,text=tmBlue] at (40:2.05){$v_1$};
+\draw[->,tmPurple,line width=1.2pt] (-75:1.9) arc(-75:0:1.9); \node[lbl,text=tmPurple] at (-20:2.3){$v_2$};
+\node[lbl,align=center] at (0,-2.35){\textbf{same direction} ($v_1>v_2$)\\ time to meet $=C:(v_1-v_2)$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Opposite directions:} they meet each time that together they have covered one lap.
+\item \textbf{Same direction:} they meet each time the faster one has gained one whole lap on the slower one (it ``laps'' the slower one).
+\item After the first meeting the situation repeats: the 2nd, 3rd, \ldots\ meetings come after $2,\ 3,\ \ldots$ times that time.
+\item If they do not start together, use the gap between them in place of $C$ for the first meeting.
+\end{itemize}
+\textbf{Clock hands} move round the clock face, which has $60$ minute-divisions: the minute hand moves $1$ division per minute and the hour hand $\dfrac1{12}$ division per minute.
+\end{knowbox}
+\gap
+\shead{Going back and forth on a road}
+\begin{knowbox}
+Two people start at the same time from the two ends A and B of a road, walk towards each other, and each turns back at once on reaching the other end.
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\footnotesize]
+\draw[line width=1.2pt,Slate] (0,0)--(9,0);
+\foreach \x/\n in {0/A,9/B}{\fill[Ink] (\x,0) circle(0.06); \node[lbl,below] at (\x,-0.05){\n};}
+\fill[tmOrange] (3.6,0) circle(0.07); \node[lbl,below] at (3.6,-0.05){C};
+\fill[tmOrange] (7.2,0) circle(0.07); \node[lbl,below] at (7.2,-0.05){D};
+\draw[->,tmBlue,line width=1pt] (0,0.3)--(9,0.3)--(9,0.6)--(7.2,0.6);
+\draw[->,tmPurple,line width=1pt] (9,-0.6)--(0,-0.6)--(0,-0.9)--(7.2,-0.9);
+\node[lbl,text=tmBlue,anchor=east] at (-0.1,0.3){1st person};
+\node[lbl,text=tmPurple,anchor=west] at (9.1,-0.6){2nd person};
+\end{tikzpicture}
+\end{center}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item By the first meeting (at C) together they have covered \emph{one} length AB.
+\item By the second meeting (at D, after both have turned back) together they have covered \emph{three} lengths AB, so it takes $3$ times as long, and each person has walked $3$ times as far as before the first meeting.
+\end{itemize}
+\note{This holds when the faster person is less than twice as fast as the slower one, so that nobody is caught from behind before the second meeting.}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Minh and Hà cycle round a lake whose shore path is $1.5$ km long. Minh rides at $12$ km/h and Hà at $15$ km/h. They start together from the same point and go the same way. After how long do they meet for the first time (not counting the start)?
+\guide
+To meet again, Hà must gain one whole lap, $1.5$ km, on Minh.\par
+Difference of speeds: $15-12=3$ (km/h).\par
+Time: $1.5:3=0.5$ (h) $=30$ min.
+\dapso{$30$ minutes.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+On a $400$ m running track, Tú runs at $3$ m/s and Quân at $5$ m/s. They start together from the same point and run in opposite directions.
+\begin{cols3}
+\pa{a} After how long do they first meet? & \pa{b} How far from the start is that, along Tú's way? & \pa{c} How many times do they meet in $10$ minutes?
+\end{cols3}
+\guide
+\pa{a} Together they cover one lap: $400:(3+5)=50$ (s).\par
+\pa{b} In $50$ s Tú runs $3\times50=150$ (m): they meet $150$ m from the start along Tú's way (and $250$ m along Quân's way).\par
+\pa{c} $10$ min $=600$ s; they meet every $50$ s, so $600:50=12$ times.
+\dapso{\pa{a} $50$ s;\quad \pa{b} $150$ m;\quad \pa{c} $12$ times.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Dũng jogs from his house round a block whose loop is $1.8$ km long, at $8$ km/h. After $45$ minutes, how much farther must he run, keeping the same way, to get back home?
+\guide
+$45$ min $=0.75$ h; distance run: $8\times0.75=6$ (km).\par
+$6:1.8=3$ laps, remainder $0.6$ km ($6=3\times1.8+0.6$): Dũng is $0.6$ km past his house.\par
+To get home going forward he still needs $1.8-0.6=1.2$ (km).
+\note{Do not answer $0.6$ km: that is how far he has gone \emph{past} the house, not how far he still has to go.}
+\dapso{$1.2$ km.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+A circular running track has diameter $100$ m. Two pupils start together from the same point and run the same way at $4.5$ m/s and $2.5$ m/s. After how long does the faster one first catch the slower one?
+\guide
+Length of one lap: $100\times3.14=314$ (m).\par
+Difference of speeds: $4.5-2.5=2$ (m/s).\par
+Time: $314:2=157$ (s) $=2$ min $37$ s.
+\dapso{$2$ minutes $37$ seconds.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Two friends set off at the same time, one from A towards B and one from B towards A. They meet first at C, $14$ km from A. Each goes on to the other end and turns back at once; they meet a second time at D, $8$ km from B. How long is the road AB?
+\guide
+\begin{center}
+\begin{tikzpicture}[>=Stealth,font=\footnotesize]
+\draw[line width=1.2pt,Slate] (0,0)--(8.5,0);
+\foreach \x/\n in {0/A,8.5/B}{\fill[Ink] (\x,0) circle(0.06); \node[lbl,below] at (\x,-0.05){\n};}
+\fill[tmOrange] (3.5,0) circle(0.07); \node[lbl,below] at (3.5,-0.05){C};
+\fill[tmOrange] (6.5,0) circle(0.07); \node[lbl,below] at (6.5,-0.05){D};
+\draw[|<->|,Slate] (0,0.35)--node[above,dim]{$14$ km}(3.5,0.35);
+\draw[|<->|,Slate] (6.5,0.35)--node[above,dim]{$8$ km}(8.5,0.35);
+\end{tikzpicture}
+\end{center}
+By the first meeting the two together have covered one AB; the friend from A has walked $14$ km.\par
+By the second meeting they together have covered three AB, so the friend from A has walked $14\times3=42$ (km).\par
+He walked from A to B and then $8$ km back: $42=\text{AB}+8$, so $\text{AB}=42-8=34$ (km).
+\note{Check: the speeds are in the ratio $14:20$; the friend from B walks $20\times3=60=34+26$ km, i.e.\ to A and $26$ km back, which is $8$ km from B.}
+\dapso{$34$ km.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+On a $400$ m track two runners start together from the same point and run in opposite directions at $4$ m/s and $6$ m/s. After how long do they first meet?
+\end{probbox}
+\probsol{
+Together they cover one lap.\par Sum of speeds: $4+6=10$ (m/s).\par Time: $400:10=40$ (s).
+\dapso{$40$ seconds.}}
+\gap
+\begin{probbox}{2}{\relax}
+The same two runners (at $4$ m/s and $6$ m/s) start together from the same point on the $400$ m track but run the same way. After how long do they first meet?
+\end{probbox}
+\probsol{
+The faster runner must gain one lap.\par Difference of speeds: $6-4=2$ (m/s).\par Time: $400:2=200$ (s) $=3$ min $20$ s.
+\dapso{$3$ minutes $20$ seconds.}}
+\gap
+\begin{probbox}{3}{\relax}
+A lake path is $3$ km round. Two cyclists start together from the same point in opposite directions at $12$ km/h and $18$ km/h. After how many minutes do they meet?
+\end{probbox}
+\probsol{
+Sum of speeds: $12+18=30$ (km/h).\par Time: $3:30=0.1$ (h) $=6$ min.
+\dapso{$6$ minutes.}}
+\gap
+\begin{probbox}{4}{\relax}
+The two cyclists of Problem 3 now ride the same way round the $3$ km lake. After how long does the faster one first catch up with the other?
+\end{probbox}
+\probsol{
+Difference of speeds: $18-12=6$ (km/h).\par Time: $3:6=0.5$ (h) $=30$ min.
+\dapso{$30$ minutes.}}
+\gap
+\begin{probbox}{5}{\relax}
+A park path is a loop of $900$ m. Lan walks at $60$ m/min and Mai at $90$ m/min; they start together from the gate and walk the same way. After how long does Mai first catch up with Lan, and how many laps has each walked by then?
+\end{probbox}
+\probsol{
+Difference of speeds: $90-60=30$ (m/min).\par Time: $900:30=30$ (min).\par
+Lan: $60\times30=1\,800$ m $=2$ laps; Mai: $90\times30=2\,700$ m $=3$ laps.
+\dapso{after $30$ minutes; Lan $2$ laps, Mai $3$ laps.}}
+\gap
+\begin{probbox}{6}{\relax}
+An runs round an $800$ m track at $150$ m/min for $14$ minutes. How many full laps has he run, and how many more metres must he run to finish the lap he is on?
+\end{probbox}
+\probsol{
+Distance: $150\times14=2\,100$ (m).\par $2\,100=2\times800+500$: $2$ full laps and $500$ m more.\par
+To finish the third lap: $800-500=300$ (m).
+\dapso{$2$ full laps; $300$ m more.}}
+\gap
+\begin{probbox}{7}{\relax}
+A circular cycle track has diameter $50$ m. A child rides $5$ laps. How far does the child ride?
+\end{probbox}
+\probsol{
+One lap: $50\times3.14=157$ (m).\par $5$ laps: $157\times5=785$ (m).
+\dapso{$785$ m.}}
+\gap
+\begin{probbox}{8}{\relax}
+A circular track has diameter $100$ m. Two pupils start together from the same point and run in opposite directions at $3$ m/s and $5$ m/s. After how long do they meet?
+\end{probbox}
+\probsol{
+One lap: $100\times3.14=314$ (m).\par Sum of speeds: $3+5=8$ (m/s).\par Time: $314:8=39.25$ (s).
+\dapso{$39.25$ seconds.}}
+\gap
+\begin{probbox}{9}{\relax}
+Two cyclists ride the same way round a $2$ km circuit at $20$ km/h and $25$ km/h, starting together. How many times does the faster one overtake the slower one in $2$ hours?
+\end{probbox}
+\probsol{
+In $2$ hours the faster one gains $(25-20)\times2=10$ (km).\par Each overtaking is a gain of one lap: $10:2=5$ (times).
+\dapso{$5$ times.}}
+\gap
+\begin{probbox}{10}{\relax}
+Two runners start together from the same point of a $500$ m track and run in opposite directions at $3$ m/s and $2$ m/s. How many times do they meet in $10$ minutes?
+\end{probbox}
+\probsol{
+They meet every $500:(3+2)=100$ (s).\par $10$ min $=600$ s; $600:100=6$ (times).
+\dapso{$6$ times.}}
+\gap
+\begin{probbox}{11}{\relax}
+Two friends run the same way round a $1$ km loop, starting together. The faster one runs at $250$ m/min and catches the other for the first time after $10$ minutes. Find the speed of the slower one.
+\end{probbox}
+\probsol{
+Difference of speeds: $1\,000:10=100$ (m/min).\par Slower one: $250-100=150$ (m/min).
+\dapso{$150$ m/min.}}
+\gap
+\begin{probbox}{12}{\relax}
+Two friends run in opposite directions round a $600$ m loop, starting together, and meet after $2$ minutes. One runs at $140$ m/min. Find the speed of the other.
+\end{probbox}
+\probsol{
+Sum of speeds: $600:2=300$ (m/min).\par The other: $300-140=160$ (m/min).
+\dapso{$160$ m/min.}}
+\gap
+\begin{probbox}{13}{\relax}
+On a $400$ m track, Bảo starts $100$ m ahead of Khoa, and both run the same way. Khoa runs at $5$ m/s, Bảo at $3$ m/s. After how long does Khoa catch Bảo?
+\end{probbox}
+\probsol{
+Khoa must gain $100$ m.\par Difference of speeds: $5-3=2$ (m/s).\par Time: $100:2=50$ (s).
+\dapso{$50$ seconds.}}
+\gap
+\begin{probbox}{14}{\relax}
+Hùng runs one lap of a track in $4$ minutes, Việt in $6$ minutes. They start together from the same point and run the same way. After how long does Hùng first catch Việt?
+\end{probbox}
+\probsol{
+Each minute Hùng runs $\dfrac14$ lap and Việt $\dfrac16$ lap; Hùng gains $\dfrac14-\dfrac16=\dfrac1{12}$ lap.\par
+To gain one lap: $1:\dfrac1{12}=12$ (min).
+\dapso{$12$ minutes.}}
+\gap
+\begin{probbox}{15}{\relax}
+Hùng and Việt (one lap in $4$ min and in $6$ min) now start together and run in opposite directions. After how long do they meet?
+\end{probbox}
+\probsol{
+Each minute together they run $\dfrac14+\dfrac16=\dfrac5{12}$ lap.\par
+Time: $1:\dfrac5{12}=\dfrac{12}5=2.4$ (min) $=2$ min $24$ s.
+\dapso{$2$ minutes $24$ seconds.}}
+\gap
+\begin{probbox}{16}{\relax}
+One runner takes $3$ minutes per lap and another $5$ minutes per lap. They start together from the start line. After how long are both at the start line together again for the first time?
+\end{probbox}
+\probsol{
+The first runner is at the start line after $3,\ 6,\ 9,\ 12,\ 15,\ldots$ minutes; the second after $5,\ 10,\ 15,\ldots$ minutes.\par
+The smallest common number: $15$.
+\dapso{$15$ minutes.}}
+\gap
+\begin{probbox}{17}{\relax}
+A runner runs $5$ laps of a $400$ m track in $10$ minutes. Find the speed in m/min and in km/h.
+\end{probbox}
+\probsol{
+Distance: $400\times5=2\,000$ (m).\par Speed: $2\,000:10=200$ (m/min).\par $200$ m/min $=12\,000$ m/h $=12$ km/h.
+\dapso{$200$ m/min $=12$ km/h.}}
+\gap
+\begin{probbox}{18}{\relax}
+A road AB is $30$ km long. A cyclist leaves A for B at $12$ km/h, and at the same time a motorcyclist leaves B for A at $18$ km/h. Each turns back at once on reaching the other end.
+\begin{cols2}
+\pa{a} How far from A do they meet the first time? & \pa{b} How far from A do they meet the second time?
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} Time: $30:(12+18)=1$ (h); distance from A: $12\times1=12$ (km).\par
+\pa{b} By the second meeting they together cover $3\times30=90$ (km), which takes $3$ h.\par
+The cyclist rides $12\times3=36$ (km) $=30+6$: to B and $6$ km back, which is $30-6=24$ (km) from A.
+\dapso{\pa{a} $12$ km;\quad \pa{b} $24$ km.}}
+\gap
+\begin{probbox}{19}{\relax}
+Two people set off at the same time from A and from B towards each other. They meet first $9$ km from A. Each goes on to the other end and turns back at once; they meet again $5$ km from B. How long is AB?
+\end{probbox}
+\probsol{
+By the second meeting the person from A has walked $9\times3=27$ (km).\par
+That is AB plus $5$ km back from B: $\text{AB}=27-5=22$ (km).
+\dapso{$22$ km.}}
+\gap
+\begin{probbox}{20}{\relax}
+Hoa walks from A and Quế from B towards each other, then back and forth between A and B without stopping. Their speeds are in the ratio $2:3$. The first two meeting points are $24$ m apart. How long is AB?
+\end{probbox}
+\probsol{
+First meeting: Hoa has walked $\dfrac25$ of AB.\par
+Second meeting: Hoa has walked $3\times\dfrac25=\dfrac65$ of AB, i.e.\ to B and $\dfrac15$ AB back: she is $\dfrac45$ of AB from A.\par
+Distance between the meeting points: $\dfrac45-\dfrac25=\dfrac25$ of AB $=24$ m; AB $=24:\dfrac25=60$ (m).
+\dapso{$60$ m.}}
+\gap
+\begin{probbox}{21}{\relax}
+A bicycle wheel has diameter $0.6$ m. How many turns does it make while the bicycle travels $942$ m?
+\end{probbox}
+\probsol{
+One turn: $0.6\times3.14=1.884$ (m).\par Turns: $942:1.884=500$.
+\dapso{$500$ turns.}}
+\gap
+\begin{probbox}{22}{\relax}
+The minute hand of a clock is $10$ cm long. How far does its tip travel in $1$ hour? In $3$ hours?
+\end{probbox}
+\probsol{
+In $1$ hour the tip goes once round a circle of radius $10$ cm: $10\times2\times3.14=62.8$ (cm).\par
+In $3$ hours: $62.8\times3=188.4$ (cm).
+\dapso{$62.8$ cm; $188.4$ cm.}}
+\gap
+\begin{probbox}{23}{\relax}
+On a $400$ m track, A runs at $6$ m/s and B at $4$ m/s, the same way, starting together. When A first laps B, how many metres and how many laps has A run?
+\end{probbox}
+\probsol{
+Time: $400:(6-4)=200$ (s).\par A runs $6\times200=1\,200$ (m) $=3$ laps.
+\dapso{$1\,200$ m, $3$ laps.}}
+\gap
+\begin{probbox}{24}{\relax}
+Phúc runs one lap of a track in $80$ seconds and Long in $120$ seconds. They start together and run in opposite directions. After how long do they meet?
+\end{probbox}
+\probsol{
+Each second together they run $\dfrac1{80}+\dfrac1{120}=\dfrac3{240}+\dfrac2{240}=\dfrac1{48}$ lap.\par Time: $48$ s.
+\dapso{$48$ seconds.}}
+\gap
+\begin{probbox}{25}{\relax}
+Two horses gallop the same way round a $1.2$ km racecourse at $15$ m/s and $12$ m/s, starting together. After how long does the faster one first catch the other?
+\end{probbox}
+\probsol{
+$1.2$ km $=1\,200$ m.\par Difference: $3$ m/s.\par Time: $1\,200:3=400$ (s) $=6$ min $40$ s.
+\dapso{$6$ minutes $40$ seconds.}}
+\gap
+\begin{probbox}{26}{\relax}
+Two toy trains run in opposite directions round a circular track $3$ m long, at $0.25$ m/s and $0.35$ m/s, starting from the same point. After how long do they meet?
+\end{probbox}
+\probsol{
+Sum of speeds: $0.25+0.35=0.6$ (m/s).\par Time: $3:0.6=5$ (s).
+\dapso{$5$ seconds.}}
+\gap
+\begin{probbox}{27}{\relax}
+Two runners start together and run in opposite directions at $4$ m/s and $6$ m/s round a track. They meet after $40$ seconds. How long is the track?
+\end{probbox}
+\probsol{
+In $40$ s together they run one lap: $(4+6)\times40=400$ (m).
+\dapso{$400$ m.}}
+\gap
+\begin{probbox}{28}{\relax}
+Two cyclists start together and ride the same way at $260$ m/min and $180$ m/min round a loop. The faster first catches the slower after $6$ minutes. How long is the loop?
+\end{probbox}
+\probsol{
+In $6$ min the faster gains one lap: $(260-180)\times6=480$ (m).
+\dapso{$480$ m.}}
+\gap
+\begin{probbox}{29}{\relax}
+Ngân starts from home and runs round a $2.5$ km loop at $9$ km/h for $1$ hour. How much farther must she run, keeping the same way, to get back home?
+\end{probbox}
+\probsol{
+Distance: $9$ km $=3\times2.5+1.5$: $3$ laps and $1.5$ km more.\par
+Still to run: $2.5-1.5=1$ (km).
+\dapso{$1$ km.}}
+\gap
+\begin{probbox}{30}{\relax}
+Two swimmers start at the same time from the two ends of a $50$ m pool and swim back and forth at $1$ m/s and $1.5$ m/s, turning at once at each end. After how long do they meet the first time? The second time?
+\end{probbox}
+\probsol{
+First meeting: together one length: $50:(1+1.5)=20$ (s).\par
+Second meeting: together three lengths: $20\times3=60$ (s).
+\dapso{$20$ s and $60$ s.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+Three children run the same way round a $300$ m track at $3$ m/s, $4$ m/s and $5$ m/s, starting together from the same point. After how long are all three together again for the first time?
+\end{probbox}
+\probsol{
+The $4$ m/s and $3$ m/s runners meet every $300:1=300$ (s); the $5$ m/s and $4$ m/s runners also every $300$ s; the $5$ and $3$ m/s runners every $300:2=150$ (s).\par
+All three are together when every pair is together: first at $300$ s $=5$ min.\par
+(\emph{Check:} they have run $900$, $1\,200$, $1\,500$ m, i.e.\ $3$, $4$, $5$ whole laps.)
+\dapso{$5$ minutes.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+On a $400$ m track two runners start together the same way at $4$ m/s and $5$ m/s. After how long are they both at the start line together for the first time? Is that also the first time they meet?
+\end{probbox}
+\probsol{
+Lap times: $400:4=100$ (s) and $400:5=80$ (s). Both at the start: smallest common multiple of $100$ and $80$, i.e.\ $400$ s.\par
+They first meet when the faster gains a lap: $400:(5-4)=400$ (s), so yes, the first meeting happens at the start line.
+\dapso{$400$ s $=6$ min $40$ s; yes.}}
+\gap
+\begin{probbox}{33}{\stars{2}}
+On a $400$ m track two runners start together from point S and run in opposite directions at $3$ m/s and $5$ m/s. At which meeting do they meet at S again for the first time, and when?
+\end{probbox}
+\probsol{
+They meet every $400:8=50$ (s); between meetings the slower one runs $150$ m.\par
+Meeting points, measured from S along the slower runner's way: $150,\ 300,\ 50,\ 200,\ 350,\ 100,\ 250,\ 0$ (m).\par
+So the $8$th meeting is at S, after $8\times50=400$ (s). (The slower runner has then run $1\,200$ m $=3$ laps.)
+\dapso{the $8$th meeting, after $400$ s.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+At exactly $3$ o'clock, after how many minutes are the hour hand and the minute hand of a clock on top of each other for the first time?
+\end{probbox}
+\probsol{
+At $3$:$00$ the minute hand is $15$ divisions behind the hour hand.\par
+Each minute the minute hand gains $1-\dfrac1{12}=\dfrac{11}{12}$ division.\par
+Time: $15:\dfrac{11}{12}=\dfrac{180}{11}=16\dfrac4{11}$ (min).
+\dapso{$16\dfrac4{11}$ minutes (at about $3$:$16$).}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+How many times are the two hands of a clock on top of each other from just after $12$ noon until $12$ midnight (including midnight)?
+\end{probbox}
+\probsol{
+The minute hand gains one full turn ($60$ divisions) on the hour hand every $60:\dfrac{11}{12}=\dfrac{720}{11}$ min $=\dfrac{12}{11}$ h.\par
+In $12$ hours: $12:\dfrac{12}{11}=11$ (times).
+\dapso{$11$ times.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+On a $600$ m track, B starts $200$ m ahead of A and both run the same way, A at $5$ m/s and B at $3$ m/s. When does A catch B the first time? The second time?
+\end{probbox}
+\probsol{
+First: A gains $200$ m: $200:2=100$ (s).\par
+Then A must gain a whole lap more: $600:2=300$ (s); second time: $100+300=400$ (s).
+\dapso{after $100$ s and after $400$ s.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+On a $400$ m track, two runners starting together meet after $40$ s if they run in opposite directions, and after $200$ s if they run the same way. Find their speeds.
+\end{probbox}
+\probsol{
+Sum of speeds: $400:40=10$ (m/s); difference: $400:200=2$ (m/s).\par
+Faster: $(10+2):2=6$ (m/s); slower: $10-6=4$ (m/s).
+\dapso{$6$ m/s and $4$ m/s.}}
+\gap
+\begin{probbox}{38}{\stars{2}}
+Yến runs one lap of a track in $6$ minutes. Running in opposite directions from the same start, she and Xuân meet every $2$ minutes $24$ seconds. How long does Xuân take for one lap?
+\end{probbox}
+\probsol{
+$2$ min $24$ s $=2.4$ min; together they run $1:2.4=\dfrac5{12}$ lap per minute.\par
+Xuân: $\dfrac5{12}-\dfrac16=\dfrac3{12}=\dfrac14$ lap per minute, so one lap takes $4$ min.
+\dapso{$4$ minutes.}}
+\gap
+\begin{probbox}{39}{\stars{2}}
+Two friends $6$ km apart walk towards each other at $3$ km/h and $5$ km/h. A dog starts with the first friend and runs at $12$ km/h back and forth between them until they meet. How far does the dog run?
+\end{probbox}
+\probsol{
+The friends meet after $6:(3+5)=0.75$ (h).\par The dog runs the whole time: $12\times0.75=9$ (km).
+\dapso{$9$ km.}}
+\gap
+\begin{probbox}{40}{\stars{2}}
+Hà walks back and forth between A and B, starting from A; Tú does the same starting from B at the same moment. Hà's speed is $80\%$ of Tú's. The first two meeting points are $40$ m apart. How long is AB?
+\end{probbox}
+\probsol{
+Speeds Hà $:$ Tú $=4:5$. First meeting: Hà has walked $\dfrac49$ of AB.\par
+Second meeting: Hà has walked $3\times\dfrac49=\dfrac{12}9$ of AB: to B and $\dfrac39$ back, so she is $\dfrac69$ of AB from A.\par
+Gap: $\dfrac69-\dfrac49=\dfrac29$ of AB $=40$ m; AB $=40:\dfrac29=180$ (m).
+\dapso{$180$ m.}}
+\gap
+\begin{probbox}{41}{\stars{2}}
+Two cars leave A and B at the same time towards each other. They meet first $40$ km from A. Each drives on to the other end and turns back at once; they meet the second time $20$ km from A. How long is AB?
+\end{probbox}
+\probsol{
+By the second meeting the car from A has driven $40\times3=120$ (km).\par
+It drove A to B and then back to $20$ km from A: $120=\text{AB}+(\text{AB}-20)$.\par
+So $2\times\text{AB}=140$, $\text{AB}=70$ km.
+\dapso{$70$ km.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+On a $500$ m track, Kiên (at $3$ m/s) and Lâm (at $2$ m/s) start together from S and run in opposite directions. When do they meet the third time, and how far from S is that along Kiên's way?
+\end{probbox}
+\probsol{
+They meet every $500:5=100$ (s); third time after $300$ s.\par
+Kiên has run $3\times300=900$ (m) $=500+400$: $400$ m from S along his way.
+\dapso{after $300$ s ($5$ min), $400$ m from S.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+On a $400$ m track, A runs at $5$ m/s and B more slowly, the same way, starting together. A first laps B at the moment A finishes his $5$th lap. Find B's speed.
+\end{probbox}
+\probsol{
+A runs $5\times400=2\,000$ (m) in $2\,000:5=400$ (s).\par
+B has run one lap less: $1\,600$ m; speed $1\,600:400=4$ (m/s).
+\dapso{$4$ m/s.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+On a $400$ m track, two runners start together from S in opposite directions and meet at a point $160$ m from S along the first runner's way. The first runner runs at $4$ m/s. Find the speed of the second.
+\end{probbox}
+\probsol{
+Time: $160:4=40$ (s). The second runner covers the rest of the lap: $400-160=240$ (m).\par Speed: $240:40=6$ (m/s).
+\dapso{$6$ m/s.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+A Ferris wheel has diameter $40$ m and turns once every $8$ minutes. How fast does a cabin on its rim move (in m/min)?
+\end{probbox}
+\probsol{
+One turn: $40\times3.14=125.6$ (m).\par Speed: $125.6:8=15.7$ (m/min).
+\dapso{$15.7$ m/min.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+A bicycle wheel of diameter $0.5$ m turns $200$ times a minute. Find the speed of the bicycle in km/h.
+\end{probbox}
+\probsol{
+One turn: $0.5\times3.14=1.57$ (m); per minute: $1.57\times200=314$ (m).\par
+Per hour: $314\times60=18\,840$ (m) $=18.84$ km.
+\dapso{$18.84$ km/h.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Two runners start at the same moment from two opposite points of a $400$ m track (half a lap apart) and run the same way at $6$ m/s and $4$ m/s. After how long does the faster one catch the slower one?
+\end{probbox}
+\probsol{
+The faster one is $400:2=200$ (m) behind.\par Time: $200:(6-4)=100$ (s).
+\dapso{$100$ seconds.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+Two runners start at the same moment from two opposite points of a $400$ m track and run towards each other at $3$ m/s and $5$ m/s. When do they meet the third time?
+\end{probbox}
+\probsol{
+First meeting: they close the $200$ m gap: $200:8=25$ (s).\par After that they meet every $400:8=50$ (s).\par
+Third time: $25+50\times2=125$ (s).
+\dapso{after $125$ s $=2$ min $5$ s.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+Two friends walk from the two ends of a $1.2$ km path towards each other at $70$ m/min and $50$ m/min, then go on back and forth without stopping. How long after the start do they meet the second time?
+\end{probbox}
+\probsol{
+By the second meeting together they walk $3\times1\,200=3\,600$ (m).\par Time: $3\,600:(70+50)=30$ (min).
+\dapso{$30$ minutes.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Two runners start together from the same point of a track. Running in opposite directions they meet every $30$ s; running the same way, the faster one laps the slower every $2$ min $30$ s. How long does each take for one lap?
+\end{probbox}
+\probsol{
+$2$ min $30$ s $=150$ s. Per second: sum of their parts of a lap $=\dfrac1{30}=\dfrac5{150}$, difference $=\dfrac1{150}$.\par
+Faster: $\left(\dfrac5{150}+\dfrac1{150}\right):2=\dfrac3{150}=\dfrac1{50}$ lap per second, so $50$ s per lap.\par
+Slower: $\dfrac5{150}-\dfrac3{150}=\dfrac2{150}=\dfrac1{75}$ lap per second, so $75$ s per lap.
+\dapso{$50$ s and $75$ s.}}

@@ -1,4 +1,4 @@
-\shead{Collecting and presenting data}
+\shead{Thu thập và biểu diễn số liệu}
 % ---- chapter 11 helpers: bar chart, pie chart with legend, pictograph icons ----
 \newcommand{\stpBars}[6]{% #1 cm per unit, #2 ymax, #3 ystep, #4 list name/height/shown, #5 y caption, #6 x caption
 \begin{tikzpicture}[font=\footnotesize,y=#1cm,x=1cm,>=stealth]
@@ -32,112 +32,112 @@
 \end{tikzpicture}}
 \newcommand{\stpIcons}[1]{\foreach \k in {1,...,#1}{\textcolor{tmBlue}{\faBook}\ }}
 \begin{knowbox}
-To compare, judge and decide, people \textbf{collect information} (data) and then \textbf{organise} it. Sometimes we ask everybody; sometimes we ask only a typical group.\par\smallskip
-Data are usually shown as:
+Để so sánh, đánh giá và đưa ra quyết định, người ta \textbf{thu thập thông tin} (số liệu) rồi \textbf{sắp xếp, xử lí} các số liệu đó. Có khi ta thu thập toàn bộ, có khi chỉ thu thập ở một nhóm có lựa chọn mang tính điển hình.\par\smallskip
+Các hình thức biểu diễn số liệu thường dùng:
 \begin{itemize}[leftmargin=1.4em,itemsep=3pt]
-\item a \textbf{table} -- each value is written in its own cell;
-\item a \textbf{pictograph} -- each picture stands for the same number of things;
-\item a \textbf{bar chart} -- the height of each bar, read on the vertical scale, gives the value;
-\item a \textbf{pie chart} -- the whole circle is the whole total ($100\%$); each slice is a percentage of the total. Half the circle is $50\%$, a quarter is $25\%$.
+\item \textbf{bảng số liệu} -- mỗi số liệu được ghi vào một ô;
+\item \textbf{biểu đồ tranh} -- mỗi hình vẽ biểu thị cùng một số lượng;
+\item \textbf{biểu đồ cột} -- chiều cao mỗi cột, đọc theo vạch chia trên trục đứng, cho biết số liệu;
+\item \textbf{biểu đồ hình quạt tròn} -- cả hình tròn biểu thị toàn bộ ($100\%$); mỗi hình quạt biểu thị một tỉ số phần trăm của toàn bộ. Nửa hình tròn là $50\%$, một phần tư hình tròn là $25\%$.
 \end{itemize}
-From a pie chart: \quad \textbf{part $=$ total $:100\times$ percentage}; \quad \textbf{total $=$ part $:$ percentage $\times100$}.
+Với biểu đồ hình quạt: \quad \textbf{số phần $=$ tổng số $:100\times$ số phần trăm}; \quad \textbf{tổng số $=$ số phần $:$ số phần trăm $\times100$}.
 \end{knowbox}
-\shead{The mean (average)}
+\shead{Số trung bình cộng}
 \begin{knowbox}
-\textbf{Mean} $=$ (sum of the values) $:$ (number of values). \qquad \textbf{Sum} $=$ mean $\times$ number of values.
+\textbf{Số trung bình cộng} $=$ (tổng các số liệu) $:$ (số các số liệu). \qquad \textbf{Tổng} $=$ số trung bình cộng $\times$ số các số liệu.
 \begin{itemize}[leftmargin=1.4em,itemsep=3pt]
-\item The mean always lies between the smallest and the largest value.
-\item To find a \emph{missing value}: work out the sum from the mean, then subtract the values you know.
-\item If one value grows by some amount, the sum grows by that amount and the mean grows by (that amount) $:$ (number of values).
+\item Số trung bình cộng luôn nằm giữa số liệu bé nhất và số liệu lớn nhất.
+\item Muốn tìm \emph{một số liệu chưa biết}: tính tổng từ số trung bình cộng, rồi trừ đi các số liệu đã biết.
+\item Nếu một số liệu tăng thêm bao nhiêu thì tổng tăng thêm bấy nhiêu, còn số trung bình cộng tăng thêm (số đó) $:$ (số các số liệu).
 \end{itemize}
 \end{knowbox}
-\shead{Chance and counting outcomes}
+\shead{Khả năng xảy ra và đếm các kết quả}
 \begin{knowbox}
-When we repeat an experiment (tossing a coin, rolling a dice, spinning a spinner, picking a ball without looking), we record how many times each outcome happens.
+Khi thực hiện lặp lại một hoạt động (tung đồng xu, gieo xúc xắc, quay vòng quay, lấy bóng mà không nhìn), ta ghi lại số lần xuất hiện của mỗi khả năng.
 \begin{center}
-\textbf{ratio describing how often an outcome happened} $=$ $\dfrac{\text{number of times it happened}}{\text{total number of trials}}$
+\textbf{tỉ số mô tả số lần lặp lại của một khả năng} $=$ $\dfrac{\text{số lần khả năng đó xảy ra}}{\text{tổng số lần thực hiện}}$
 \end{center}
-For example, a dice is rolled $20$ times and the face with $6$ dots comes up $3$ times: the ratio is $\dfrac{3}{20}$. If we roll more times, this ratio may change.\par\smallskip
-\textbf{Counting outcomes.} List every possible result in an orderly way (a list, a table or a tree). A coin has $2$ outcomes, a dice has $6$; a coin \emph{and} a dice together have $2\times6=12$.\par
-When all outcomes are \emph{equally likely}, the \textbf{chance} of an event $=$ (number of outcomes that give the event) $:$ (number of all outcomes). An event that always happens is \emph{certain}; one that can never happen is \emph{impossible}.
+Ví dụ: gieo xúc xắc $20$ lần, mặt $6$ chấm xuất hiện $3$ lần thì tỉ số đó là $\dfrac{3}{20}$. Nếu gieo thêm nhiều lần, tỉ số này có thể thay đổi.\par\smallskip
+\textbf{Đếm các kết quả.} Liệt kê có thứ tự mọi kết quả có thể (bằng danh sách, bảng hoặc sơ đồ cây). Đồng xu có $2$ kết quả, xúc xắc có $6$ kết quả; tung một đồng xu \emph{và} gieo một xúc xắc thì có $2\times6=12$ kết quả.\par
+Khi các kết quả có \emph{khả năng như nhau}, \textbf{khả năng xảy ra} của một sự kiện $=$ (số kết quả làm sự kiện xảy ra) $:$ (số tất cả các kết quả). Sự kiện luôn xảy ra là \emph{chắc chắn}; sự kiện không bao giờ xảy ra là \emph{không thể}.
 \end{knowbox}
 \gap
 \begin{exbox}{\ExWord\ 1}
-Lan writes down how many pages she reads each day of one week:
+Lan ghi lại số trang sách mình đọc mỗi ngày trong một tuần:
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
 \hline
-\textbf{Day} & Mon & Tue & Wed & Thu & Fri & Sat & Sun\\\hline
-\textbf{Pages} & $18$ & $25$ & $20$ & $32$ & $15$ & $30$ & $28$\\\hline
+\textbf{Thứ} & Hai & Ba & Tư & Năm & Sáu & Bảy & CN\\\hline
+\textbf{Số trang} & $18$ & $25$ & $20$ & $32$ & $15$ & $30$ & $28$\\\hline
 \end{tabular}
 \end{center}
 \begin{cols2}
-\pa{a} On which day did she read most? Least? & \pa{b} How many pages did she read per day on average?\\
-\multicolumn{2}{@{}l@{}}{\pa{c} On how many days did she read more than her average?}
+\pa{a} Ngày nào Lan đọc nhiều nhất? Ít nhất? & \pa{b} Trung bình mỗi ngày Lan đọc bao nhiêu trang?\\
+\multicolumn{2}{@{}l@{}}{\pa{c} Có bao nhiêu ngày Lan đọc nhiều hơn số trang trung bình?}
 \end{cols2}
 \guide
-\pa{a} Most on Thursday ($32$ pages); least on Friday ($15$ pages).\par
-\pa{b} Pages in the week: $18+25+20+32+15+30+28=168$.\par Mean per day: $168:7=24$ pages.\par
-\pa{c} More than $24$: Tuesday, Thursday, Saturday and Sunday, i.e.\ $4$ days.
-\dapso{\pa{a} Thursday; Friday. \pa{b} $24$ pages. \pa{c} $4$ days.}
+\pa{a} Nhiều nhất vào thứ Năm ($32$ trang); ít nhất vào thứ Sáu ($15$ trang).\par
+\pa{b} Số trang đọc trong tuần: $18+25+20+32+15+30+28=168$ (trang).\par Trung bình mỗi ngày: $168:7=24$ (trang).\par
+\pa{c} Nhiều hơn $24$ trang: thứ Ba, thứ Năm, thứ Bảy và Chủ nhật, tức là $4$ ngày.
+\dapso{\pa{a} Thứ Năm; thứ Sáu. \pa{b} $24$ trang. \pa{c} $4$ ngày.}
 \end{exbox}
 \gap
 \begin{exbox}{\ExWord\ 2}
-The bar chart shows how many books five classes gave to the school library.
+Biểu đồ cột dưới đây cho biết số sách năm lớp quyên góp cho thư viện trường.
 \begin{center}
-\stpBars{0.05}{80}{10}{5A/45/45,5B/60/60,5C/35/35,5D/70/70,5E/40/40}{(books)}{(class)}
+\stpBars{0.05}{80}{10}{5A/45/45,5B/60/60,5C/35/35,5D/70/70,5E/40/40}{(quyển)}{(lớp)}
 \end{center}
 \begin{cols2}
-\pa{a} How many books did the five classes give? & \pa{b} How many books did a class give on average?\\
-\multicolumn{2}{@{}l@{}}{\pa{c} How many more books did the class that gave most give than the class that gave least?}
+\pa{a} Cả năm lớp quyên góp được bao nhiêu quyển sách? & \pa{b} Trung bình mỗi lớp quyên góp bao nhiêu quyển?\\
+\multicolumn{2}{@{}l@{}}{\pa{c} Lớp góp nhiều nhất hơn lớp góp ít nhất bao nhiêu quyển sách?}
 \end{cols2}
 \guide
-\pa{a} $45+60+35+70+40=250$ books.\par
-\pa{b} $250:5=50$ books.\par
-\pa{c} Most: 5D ($70$); least: 5C ($35$).\par Difference: $70-35=35$ books.
-\dapso{\pa{a} $250$ books. \pa{b} $50$ books. \pa{c} $35$ books.}
+\pa{a} $45+60+35+70+40=250$ (quyển).\par
+\pa{b} $250:5=50$ (quyển).\par
+\pa{c} Nhiều nhất: lớp 5D ($70$ quyển); ít nhất: lớp 5C ($35$ quyển).\par Hơn nhau: $70-35=35$ (quyển).
+\dapso{\pa{a} $250$ quyển. \pa{b} $50$ quyển. \pa{c} $35$ quyển.}
 \end{exbox}
 \gap
 \begin{exbox}{\ExWord\ 3}
-$400$ pupils were asked about their favourite fruit. The results are shown in the pie chart.
+Khảo sát $400$ học sinh về loại quả yêu thích nhất, kết quả được cho trong biểu đồ hình quạt tròn.
 \begin{center}
-\stpPie{35/35\%/tmBlue!55/Mango,20/20\%/tmOrange!60/Banana,25/25\%/tmGreen!50/Watermelon,20/?/tmPurple!40/Orange}
+\stpPie{35/35\%/tmBlue!55/Xoài,20/20\%/tmOrange!60/Chuối,25/25\%/tmGreen!50/Dưa hấu,20/?/tmPurple!40/Cam}
 \end{center}
-\pa{a} What percentage of the pupils chose oranges?\par
-\pa{b} How many pupils chose mangoes?\par
-\pa{c} How many more pupils chose mangoes than bananas?
+\pa{a} Có bao nhiêu phần trăm học sinh chọn cam?\par
+\pa{b} Có bao nhiêu học sinh chọn xoài?\par
+\pa{c} Số học sinh chọn xoài nhiều hơn số học sinh chọn chuối bao nhiêu bạn?
 \guide
-\pa{a} The whole circle is $100\%$: $100\%-35\%-20\%-25\%=20\%$.\par
-\pa{b} $400:100\times35=140$ pupils.\par
-\pa{c} \emph{Method 1.} Bananas: $400:100\times20=80$ pupils; \ $140-80=60$ pupils.\par
-\emph{Method 2.} Mangoes are $35\%-20\%=15\%$ more; \ $400:100\times15=60$ pupils.
-\dapso{\pa{a} $20\%$. \pa{b} $140$ pupils. \pa{c} $60$ pupils.}
+\pa{a} Cả hình tròn là $100\%$: $100\%-35\%-20\%-25\%=20\%$.\par
+\pa{b} $400:100\times35=140$ (học sinh).\par
+\pa{c} \emph{Cách 1.} Số học sinh chọn chuối: $400:100\times20=80$ (học sinh); \ $140-80=60$ (học sinh).\par
+\emph{Cách 2.} Chọn xoài nhiều hơn chọn chuối $35\%-20\%=15\%$; \ $400:100\times15=60$ (học sinh).
+\dapso{\pa{a} $20\%$. \pa{b} $140$ học sinh. \pa{c} $60$ học sinh.}
 \end{exbox}
 \gap
 \begin{exbox}{\ExWord\ 4}
-Minh rolls a dice $40$ times and records the results.
+Minh gieo một con xúc xắc $40$ lần và ghi lại kết quả.
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|c|}
 \hline
-\textbf{Outcome} & $1$ dot & $2$ dots & $3$ dots & $4$ dots & $5$ dots & $6$ dots\\\hline
-\textbf{Times} & $6$ & $8$ & $5$ & $7$ & $9$ & $5$\\\hline
+\textbf{Khả năng} & $1$ chấm & $2$ chấm & $3$ chấm & $4$ chấm & $5$ chấm & $6$ chấm\\\hline
+\textbf{Số lần} & $6$ & $8$ & $5$ & $7$ & $9$ & $5$\\\hline
 \end{tabular}
 \end{center}
-Write the ratio describing how often each event happened, compared with the number of rolls:\par
-\pa{a} $6$ dots; \quad \pa{b} an even number of dots; \quad \pa{c} at least $5$ dots.
+Viết tỉ số mô tả số lần lặp lại của mỗi khả năng sau so với tổng số lần gieo:\par
+\pa{a} mặt $6$ chấm; \quad \pa{b} mặt có số chấm chẵn; \quad \pa{c} mặt có ít nhất $5$ chấm.
 \guide
-\pa{a} $6$ dots came up $5$ times: $\dfrac{5}{40}=\dfrac{1}{8}$.\par
-\pa{b} Even ($2$, $4$, $6$ dots): $8+7+5=20$ times; \ $\dfrac{20}{40}=\dfrac12$.\par
-\pa{c} At least $5$ dots ($5$ or $6$ dots): $9+5=14$ times; \ $\dfrac{14}{40}=\dfrac{7}{20}$.
-\note{This does not mean the same thing will happen next time: with more rolls the ratios change.}
+\pa{a} Mặt $6$ chấm xuất hiện $5$ lần: $\dfrac{5}{40}=\dfrac{1}{8}$.\par
+\pa{b} Số chấm chẵn ($2$, $4$, $6$ chấm): $8+7+5=20$ (lần); \ $\dfrac{20}{40}=\dfrac12$.\par
+\pa{c} Ít nhất $5$ chấm ($5$ hoặc $6$ chấm): $9+5=14$ (lần); \ $\dfrac{14}{40}=\dfrac{7}{20}$.
+\note{Điều này không có nghĩa là lần sau cũng xảy ra như vậy: gieo càng nhiều lần thì các tỉ số này càng thay đổi.}
 \dapso{\pa{a} $\dfrac18$. \pa{b} $\dfrac12$. \pa{c} $\dfrac{7}{20}$.}
 \end{exbox}
 \gap
 \begin{exbox}{\ExWord\ 5}
-Box I holds three cards numbered $1$, $2$, $3$; box II holds two cards numbered $4$, $5$. Without looking, Hoa takes one card from each box and adds the two numbers.\par
-\pa{a} List all possible outcomes. \quad \pa{b} What is the chance that the sum is $7$?
+Hộp I có ba tấm thẻ ghi số $1$, $2$, $3$; hộp II có hai tấm thẻ ghi số $4$, $5$. Không nhìn vào hộp, Hoa lấy ở mỗi hộp một tấm thẻ rồi cộng hai số trên thẻ.\par
+\pa{a} Liệt kê tất cả các kết quả có thể. \quad \pa{b} Khả năng tổng bằng $7$ là bao nhiêu?
 \guide
-\pa{a} Make a table (row: box I, column: box II):
+\pa{a} Lập bảng (hàng: thẻ hộp I, cột: thẻ hộp II):
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -147,439 +147,439 @@ $2$ & $6$ & $7$\\\hline
 $3$ & $7$ & $8$\\\hline
 \end{tabular}
 \end{center}
-There are $3\times2=6$ equally likely outcomes: $1+4,\ 1+5,\ 2+4,\ 2+5,\ 3+4,\ 3+5$.\par
-\pa{b} The sum is $7$ in $2$ outcomes ($2+5$ and $3+4$).\par Chance: $\dfrac26=\dfrac13$.
-\dapso{\pa{a} $6$ outcomes. \pa{b} $\dfrac13$.}
+Có $3\times2=6$ kết quả có khả năng như nhau: $1+4;\ 1+5;\ 2+4;\ 2+5;\ 3+4;\ 3+5$.\par
+\pa{b} Tổng bằng $7$ ở $2$ kết quả ($2+5$ và $3+4$).\par Khả năng: $\dfrac26=\dfrac13$.
+\dapso{\pa{a} $6$ kết quả. \pa{b} $\dfrac13$.}
 \end{exbox}
-\dividerbar{Practice}
+\dividerbar{Luyện tập}
 \begin{probbox}{1}{\relax}
-The noon temperature in a town on five days was:
+Nhiệt độ lúc giữa trưa ở một thị trấn trong năm ngày như sau:
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|}
 \hline
-\textbf{Day} & Mon & Tue & Wed & Thu & Fri\\\hline
-\textbf{Temperature ($^\circ$C)} & $31$ & $29$ & $33$ & $30$ & $32$\\\hline
+\textbf{Thứ} & Hai & Ba & Tư & Năm & Sáu\\\hline
+\textbf{Nhiệt độ ($^\circ$C)} & $31$ & $29$ & $33$ & $30$ & $32$\\\hline
 \end{tabular}
 \end{center}
-\pa{a} Which day was hottest, which coolest? \quad \pa{b} Find the mean noon temperature.
+\pa{a} Ngày nào nóng nhất, ngày nào mát nhất? \quad \pa{b} Tính nhiệt độ trung bình lúc giữa trưa.
 \end{probbox}
 \probsol{
-\pa{a} Hottest: Wednesday ($33^\circ$C); coolest: Tuesday ($29^\circ$C).\par
-\pa{b} $(31+29+33+30+32):5=155:5=31^\circ$C.
-\dapso{\pa{a} Wednesday; Tuesday. \pa{b} $31^\circ$C.}}
+\pa{a} Nóng nhất: thứ Tư ($33^\circ$C); mát nhất: thứ Ba ($29^\circ$C).\par
+\pa{b} $(31+29+33+30+32):5=155:5=31\ (^\circ\text{C})$.
+\dapso{\pa{a} Thứ Tư; thứ Ba. \pa{b} $31^\circ$C.}}
 \gap
 \begin{probbox}{2}{\relax}
-Nam's marks in six maths tests were $7,\ 9,\ 8,\ 10,\ 6,\ 8$. What is his mean mark?
+Điểm sáu bài kiểm tra Toán của Nam là $7;\ 9;\ 8;\ 10;\ 6;\ 8$. Tính điểm trung bình của Nam.
 \end{probbox}
 \probsol{
-Sum: $7+9+8+10+6+8=48$.\par Mean: $48:6=8$.
-\dapso{$8$.}}
+Tổng điểm: $7+9+8+10+6+8=48$.\par Điểm trung bình: $48:6=8$.
+\dapso{$8$ điểm.}}
 \gap
 \begin{probbox}{3}{\relax}
-Four friends are $135$ cm, $142$ cm, $138$ cm and $145$ cm tall. Find their mean height.
+Bốn bạn cao $135$ cm, $142$ cm, $138$ cm và $145$ cm. Tính chiều cao trung bình của bốn bạn.
 \end{probbox}
 \probsol{
-$(135+142+138+145):4=560:4=140$ cm.
+$(135+142+138+145):4=560:4=140$ (cm).
 \dapso{$140$ cm.}}
 \gap
 \begin{probbox}{4}{\relax}
-The pictograph shows how many books four groups read in May.
+Biểu đồ tranh dưới đây cho biết số sách bốn tổ đã đọc trong tháng Năm.
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
-Group 1 & \stpIcons{5}\\\hline
-Group 2 & \stpIcons{3}\\\hline
-Group 3 & \stpIcons{6}\\\hline
-Group 4 & \stpIcons{4}\\\hline
+Tổ 1 & \stpIcons{5}\\\hline
+Tổ 2 & \stpIcons{3}\\\hline
+Tổ 3 & \stpIcons{6}\\\hline
+Tổ 4 & \stpIcons{4}\\\hline
 \end{tabular}\par\smallskip
-Each \textcolor{tmBlue}{\faBook} stands for $4$ books.
+Mỗi \textcolor{tmBlue}{\faBook} chỉ $4$ quyển sách.
 \end{center}
-\pa{a} How many books did the four groups read? \quad \pa{b} How many books did a group read on average?
+\pa{a} Cả bốn tổ đọc được bao nhiêu quyển sách? \quad \pa{b} Trung bình mỗi tổ đọc bao nhiêu quyển?
 \end{probbox}
 \probsol{
-Number of pictures: $5+3+6+4=18$.\par
-\pa{a} Books: $4\times18=72$.\par
-\pa{b} Mean: $72:4=18$ books.
-\dapso{\pa{a} $72$ books. \pa{b} $18$ books.}}
+Số hình vẽ: $5+3+6+4=18$ (hình).\par
+\pa{a} Số sách: $4\times18=72$ (quyển).\par
+\pa{b} Trung bình: $72:4=18$ (quyển).
+\dapso{\pa{a} $72$ quyển. \pa{b} $18$ quyển.}}
 \gap
 \begin{probbox}{5}{\relax}
-A shop sold $24$ bicycles in January, $30$ in February, $27$ in March and $39$ in April.\par
-\pa{a} How many bicycles were sold in the four months? \quad \pa{b} How many a month on average?\par
-\pa{c} In how many months did the shop sell more than its average?
+Một cửa hàng bán được $24$ chiếc xe đạp trong tháng Một, $30$ chiếc trong tháng Hai, $27$ chiếc trong tháng Ba và $39$ chiếc trong tháng Tư.\par
+\pa{a} Bốn tháng cửa hàng bán được bao nhiêu chiếc xe đạp? \quad \pa{b} Trung bình mỗi tháng bán được bao nhiêu chiếc?\par
+\pa{c} Có mấy tháng cửa hàng bán được nhiều hơn mức trung bình?
 \end{probbox}
 \probsol{
-\pa{a} $24+30+27+39=120$ bicycles.\par
-\pa{b} $120:4=30$ bicycles.\par
-\pa{c} Only April ($39>30$; February's $30$ is equal to the mean, not more): $1$ month.
-\dapso{\pa{a} $120$. \pa{b} $30$. \pa{c} $1$ month.}}
+\pa{a} $24+30+27+39=120$ (chiếc).\par
+\pa{b} $120:4=30$ (chiếc).\par
+\pa{c} Chỉ có tháng Tư ($39>30$; tháng Hai bán $30$ chiếc, bằng mức trung bình chứ không nhiều hơn): $1$ tháng.
+\dapso{\pa{a} $120$ chiếc. \pa{b} $30$ chiếc. \pa{c} $1$ tháng.}}
 \gap
 \begin{probbox}{6}{\relax}
-The chart shows the number of pupils in each grade of a primary school.
+Biểu đồ cho biết số học sinh mỗi khối của một trường tiểu học.
 \begin{center}
-\stpBars{0.025}{150}{25}{Grade 1/120/120,Grade 2/135/135,Grade 3/110/110,Grade 4/140/140,Grade 5/125/125}{(pupils)}{}
+\stpBars{0.025}{150}{25}{Khối 1/120/120,Khối 2/135/135,Khối 3/110/110,Khối 4/140/140,Khối 5/125/125}{(học sinh)}{}
 \end{center}
-\pa{a} Which grade has the most pupils? The fewest?\par
-\pa{b} How many pupils does the school have?\par
-\pa{c} How many more pupils does Grade 4 have than Grade 3?
+\pa{a} Khối nào có nhiều học sinh nhất? Ít học sinh nhất?\par
+\pa{b} Trường có tất cả bao nhiêu học sinh?\par
+\pa{c} Khối 4 nhiều hơn khối 3 bao nhiêu học sinh?
 \end{probbox}
 \probsol{
-\pa{a} Most: Grade 4 ($140$); fewest: Grade 3 ($110$).\par
-\pa{b} $120+135+110+140+125=630$ pupils.\par
-\pa{c} $140-110=30$ pupils.
-\dapso{\pa{a} Grade 4; Grade 3. \pa{b} $630$ pupils. \pa{c} $30$ pupils.}}
+\pa{a} Nhiều nhất: khối 4 ($140$ học sinh); ít nhất: khối 3 ($110$ học sinh).\par
+\pa{b} $120+135+110+140+125=630$ (học sinh).\par
+\pa{c} $140-110=30$ (học sinh).
+\dapso{\pa{a} Khối 4; khối 3. \pa{b} $630$ học sinh. \pa{c} $30$ học sinh.}}
 \gap
 \begin{probbox}{7}{\relax}
-The chart shows the rainfall in a town from May to August.
+Biểu đồ cho biết lượng mưa ở một thị trấn từ tháng Năm đến tháng Tám.
 \begin{center}
-\stpBars{0.014}{250}{50}{May/80/80,June/150/150,July/210/210,August/120/120}{(mm)}{(month)}
+\stpBars{0.014}{250}{50}{Tháng 5/80/80,Tháng 6/150/150,Tháng 7/210/210,Tháng 8/120/120}{(mm)}{}
 \end{center}
-Find the total rainfall and the mean rainfall per month.
+Tính tổng lượng mưa và lượng mưa trung bình mỗi tháng.
 \end{probbox}
 \probsol{
-Total: $80+150+210+120=560$ mm.\par Mean: $560:4=140$ mm.
+Tổng lượng mưa: $80+150+210+120=560$ (mm).\par Trung bình mỗi tháng: $560:4=140$ (mm).
 \dapso{$560$ mm; $140$ mm.}}
 \gap
 \begin{probbox}{8}{\relax}
-Class 5B has $40$ pupils. The pie chart shows how they come to school.
+Lớp 5B có $40$ học sinh. Biểu đồ hình quạt tròn cho biết cách các bạn đến trường.
 \begin{center}
-\stpPie{30/30\%/tmBlue!55/On foot,45/45\%/tmOrange!60/By bicycle,25/25\%/tmGreen!50/By motorbike with parents}
+\stpPie{30/30\%/tmBlue!55/Đi bộ,45/45\%/tmOrange!60/Đi xe đạp,25/25\%/tmGreen!50/Bố mẹ đưa bằng xe máy}
 \end{center}
-\pa{a} How many pupils walk to school?\par
-\pa{b} How many more pupils come by bicycle than by motorbike?
+\pa{a} Có bao nhiêu học sinh đi bộ đến trường?\par
+\pa{b} Số học sinh đi xe đạp nhiều hơn số học sinh được đưa bằng xe máy bao nhiêu bạn?
 \end{probbox}
 \probsol{
-\pa{a} $40:100\times30=12$ pupils.\par
-\pa{b} By bicycle: $40:100\times45=18$; by motorbike: $40:100\times25=10$.\par Difference: $18-10=8$ pupils.
-\dapso{\pa{a} $12$ pupils. \pa{b} $8$ pupils.}}
+\pa{a} $40:100\times30=12$ (học sinh).\par
+\pa{b} Đi xe đạp: $40:100\times45=18$ (học sinh); đi xe máy: $40:100\times25=10$ (học sinh).\par Nhiều hơn: $18-10=8$ (học sinh).
+\dapso{\pa{a} $12$ học sinh. \pa{b} $8$ học sinh.}}
 \gap
 \begin{probbox}{9}{\relax}
-$200$ pupils chose their favourite sport.
+$200$ học sinh chọn môn thể thao yêu thích nhất của mình.
 \begin{center}
-\stpPie{40/40\%/tmBlue!55/Football,25/25\%/tmOrange!60/Badminton,20/20\%/tmGreen!50/Swimming,15/15\%/tmPurple!40/Chess}
+\stpPie{40/40\%/tmBlue!55/Bóng đá,25/25\%/tmOrange!60/Cầu lông,20/20\%/tmGreen!50/Bơi,15/15\%/tmPurple!40/Cờ vua}
 \end{center}
-\pa{a} How many pupils chose football? \quad \pa{b} chess?\par
-\pa{c} How many pupils chose football or swimming?
+\pa{a} Có bao nhiêu học sinh chọn bóng đá? \quad \pa{b} chọn cờ vua?\par
+\pa{c} Có bao nhiêu học sinh chọn bóng đá hoặc bơi?
 \end{probbox}
 \probsol{
-\pa{a} $200:100\times40=80$ pupils.\par
-\pa{b} $200:100\times15=30$ pupils.\par
-\pa{c} $40\%+20\%=60\%$; \ $200:100\times60=120$ pupils.
-\dapso{\pa{a} $80$. \pa{b} $30$. \pa{c} $120$ pupils.}}
+\pa{a} $200:100\times40=80$ (học sinh).\par
+\pa{b} $200:100\times15=30$ (học sinh).\par
+\pa{c} $40\%+20\%=60\%$; \ $200:100\times60=120$ (học sinh).
+\dapso{\pa{a} $80$. \pa{b} $30$. \pa{c} $120$ học sinh.}}
 \gap
 \begin{probbox}{10}{\relax}
-$300$ pupils each joined one after-school club.
+$300$ học sinh, mỗi bạn tham gia một câu lạc bộ sau giờ học.
 \begin{center}
-\stpPie{30/30\%/tmBlue!55/Art,25/25\%/tmOrange!60/Music,25/?/tmGreen!50/Science,20/20\%/tmPurple!40/Sport}
+\stpPie{30/30\%/tmBlue!55/Mĩ thuật,25/25\%/tmOrange!60/Âm nhạc,25/?/tmGreen!50/Khoa học,20/20\%/tmPurple!40/Thể thao}
 \end{center}
-What percentage of the pupils joined the Science club, and how many pupils is that?
+Có bao nhiêu phần trăm học sinh tham gia câu lạc bộ Khoa học và đó là bao nhiêu học sinh?
 \end{probbox}
 \probsol{
-Science: $100\%-30\%-25\%-20\%=25\%$.\par Pupils: $300:100\times25=75$.
-\dapso{$25\%$; $75$ pupils.}}
+Khoa học: $100\%-30\%-25\%-20\%=25\%$.\par Số học sinh: $300:100\times25=75$ (học sinh).
+\dapso{$25\%$; $75$ học sinh.}}
 \gap
 \begin{probbox}{11}{\relax}
-A family spends $12\,000\,000$ dong a month as the chart shows.
+Một gia đình chi tiêu $12\,000\,000$ đồng mỗi tháng như biểu đồ dưới đây.
 \begin{center}
-\stpPie{50/50\%/tmBlue!55/Food,25/25\%/tmOrange!60/School,15/15\%/tmGreen!50/Savings,10/10\%/tmPurple!40/Other}
+\stpPie{50/50\%/tmBlue!55/Ăn uống,25/25\%/tmOrange!60/Học tập,15/15\%/tmGreen!50/Tiết kiệm,10/10\%/tmPurple!40/Việc khác}
 \end{center}
-How much money goes on food? How much is saved?
+Gia đình chi cho ăn uống bao nhiêu tiền? Để tiết kiệm bao nhiêu tiền?
 \end{probbox}
 \probsol{
-Food is half: $12\,000\,000:2=6\,000\,000$ dong.\par
-Savings: $12\,000\,000:100\times15=1\,800\,000$ dong.
-\dapso{Food $6\,000\,000$ dong; savings $1\,800\,000$ dong.}}
+Ăn uống chiếm một nửa: $12\,000\,000:2=6\,000\,000$ (đồng).\par
+Tiết kiệm: $12\,000\,000:100\times15=1\,800\,000$ (đồng).
+\dapso{Ăn uống $6\,000\,000$ đồng; tiết kiệm $1\,800\,000$ đồng.}}
 \gap
 \begin{probbox}{12}{\relax}
-In a survey, $36$ pupils chose mango as their favourite fruit. They are $30\%$ of all the pupils asked. How many pupils were asked?
+Trong một cuộc khảo sát, có $36$ học sinh chọn xoài là loại quả yêu thích nhất. Số học sinh này chiếm $30\%$ số học sinh được khảo sát. Hỏi có bao nhiêu học sinh được khảo sát?
 \end{probbox}
 \probsol{
-$30\%$ of the pupils are $36$ pupils, so all the pupils ($100\%$): $36:30\times100=120$.
-\dapso{$120$ pupils.}}
+$30\%$ số học sinh là $36$ học sinh, nên toàn bộ ($100\%$) số học sinh là: $36:30\times100=120$ (học sinh).
+\dapso{$120$ học sinh.}}
 \gap
 \begin{probbox}{13}{\relax}
-The mean of five numbers is $18$. Four of them are $15$, $20$, $17$ and $22$. Find the fifth number.
+Trung bình cộng của năm số là $18$. Bốn trong năm số đó là $15;\ 20;\ 17;\ 22$. Tìm số thứ năm.
 \end{probbox}
 \probsol{
-Sum of the five numbers: $18\times5=90$.\par Sum of the four: $15+20+17+22=74$.\par Fifth number: $90-74=16$.
+Tổng năm số: $18\times5=90$.\par Tổng bốn số: $15+20+17+22=74$.\par Số thứ năm: $90-74=16$.
 \dapso{$16$.}}
 \gap
 \begin{probbox}{14}{\relax}
-An's mean mark in three tests is $8$. After a fourth test his mean mark is $8.5$. What did he get in the fourth test?
+Điểm trung bình ba bài kiểm tra của An là $8$. Sau bài kiểm tra thứ tư, điểm trung bình của An là $8{,}5$. Hỏi bài thứ tư An được mấy điểm?
 \end{probbox}
 \probsol{
-Sum of three marks: $8\times3=24$.\par Sum of four marks: $8.5\times4=34$.\par Fourth mark: $34-24=10$.
-\dapso{$10$.}}
+Tổng điểm ba bài: $8\times3=24$.\par Tổng điểm bốn bài: $8{,}5\times4=34$.\par Bài thứ tư: $34-24=10$ (điểm).
+\dapso{$10$ điểm.}}
 \gap
 \begin{probbox}{15}{\relax}
-Three bags of rice weigh $25$ kg on average. A fourth bag of $33$ kg is added. What is the mean weight of the four bags?
+Ba bao gạo nặng trung bình $25$ kg. Người ta để thêm một bao thứ tư nặng $33$ kg. Hỏi trung bình mỗi bao trong bốn bao nặng bao nhiêu ki-lô-gam?
 \end{probbox}
 \probsol{
-Three bags: $25\times3=75$ kg.\par Four bags: $75+33=108$ kg.\par Mean: $108:4=27$ kg.
+Ba bao nặng: $25\times3=75$ (kg).\par Bốn bao nặng: $75+33=108$ (kg).\par Trung bình: $108:4=27$ (kg).
 \dapso{$27$ kg.}}
 \gap
 \begin{probbox}{16}{\relax}
-Tú tosses a coin $50$ times; it lands heads up $28$ times. Write the ratio describing how often it landed heads, and how often tails, compared with the number of tosses.
+Tú tung một đồng xu $50$ lần, có $28$ lần xuất hiện mặt sấp. Viết tỉ số mô tả số lần xuất hiện mặt sấp, mặt ngửa so với tổng số lần tung.
 \end{probbox}
 \probsol{
-Heads: $\dfrac{28}{50}=\dfrac{14}{25}$.\par Tails: $50-28=22$ times, $\dfrac{22}{50}=\dfrac{11}{25}$.
-\dapso{Heads $\dfrac{14}{25}$; tails $\dfrac{11}{25}$.}}
+Mặt sấp: $\dfrac{28}{50}=\dfrac{14}{25}$.\par Mặt ngửa: $50-28=22$ (lần), $\dfrac{22}{50}=\dfrac{11}{25}$.
+\dapso{Mặt sấp $\dfrac{14}{25}$; mặt ngửa $\dfrac{11}{25}$.}}
 \gap
 \begin{probbox}{17}{\relax}
-A spinner with red, blue and yellow parts is spun $60$ times: red $21$ times, blue $15$ times, yellow $24$ times.\par
-\pa{a} Write the ratio for each colour. \quad \pa{b} Write the ratio for ``not red''.
+Một vòng quay có các phần màu đỏ, xanh và vàng được quay $60$ lần: kim dừng ở màu đỏ $21$ lần, màu xanh $15$ lần, màu vàng $24$ lần.\par
+\pa{a} Viết tỉ số cho mỗi màu. \quad \pa{b} Viết tỉ số cho khả năng ``không phải màu đỏ''.
 \end{probbox}
 \probsol{
-\pa{a} Red: $\dfrac{21}{60}=\dfrac{7}{20}$; \ blue: $\dfrac{15}{60}=\dfrac14$; \ yellow: $\dfrac{24}{60}=\dfrac25$.\par
-\pa{b} Not red: $15+24=39$ times; \ $\dfrac{39}{60}=\dfrac{13}{20}$.
+\pa{a} Đỏ: $\dfrac{21}{60}=\dfrac{7}{20}$; \ xanh: $\dfrac{15}{60}=\dfrac14$; \ vàng: $\dfrac{24}{60}=\dfrac25$.\par
+\pa{b} Không phải màu đỏ: $15+24=39$ (lần); \ $\dfrac{39}{60}=\dfrac{13}{20}$.
 \dapso{\pa{a} $\dfrac{7}{20}$; $\dfrac14$; $\dfrac25$. \pa{b} $\dfrac{13}{20}$.}}
 \gap
 \begin{probbox}{18}{\relax}
-A dice is rolled $30$ times:
+Gieo một con xúc xắc $30$ lần, được kết quả:
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|c|}
 \hline
-\textbf{Outcome} & $1$ dot & $2$ dots & $3$ dots & $4$ dots & $5$ dots & $6$ dots\\\hline
-\textbf{Times} & $4$ & $6$ & $5$ & $3$ & $7$ & $5$\\\hline
+\textbf{Khả năng} & $1$ chấm & $2$ chấm & $3$ chấm & $4$ chấm & $5$ chấm & $6$ chấm\\\hline
+\textbf{Số lần} & $4$ & $6$ & $5$ & $3$ & $7$ & $5$\\\hline
 \end{tabular}
 \end{center}
-Write the ratio for: \pa{a} an odd number of dots; \quad \pa{b} more than $4$ dots.
+Viết tỉ số cho khả năng: \pa{a} mặt có số chấm lẻ; \quad \pa{b} mặt có nhiều hơn $4$ chấm.
 \end{probbox}
 \probsol{
-\pa{a} Odd ($1$, $3$, $5$): $4+5+7=16$ times; \ $\dfrac{16}{30}=\dfrac{8}{15}$.\par
-\pa{b} More than $4$ ($5$, $6$): $7+5=12$ times; \ $\dfrac{12}{30}=\dfrac25$.
+\pa{a} Số chấm lẻ ($1$, $3$, $5$): $4+5+7=16$ (lần); \ $\dfrac{16}{30}=\dfrac{8}{15}$.\par
+\pa{b} Nhiều hơn $4$ chấm ($5$, $6$): $7+5=12$ (lần); \ $\dfrac{12}{30}=\dfrac25$.
 \dapso{\pa{a} $\dfrac{8}{15}$. \pa{b} $\dfrac25$.}}
 \gap
 \begin{probbox}{19}{\relax}
-Bình rolls a dice many times. The face with $6$ dots comes up $9$ times, and the ratio for $6$ dots is $\dfrac{3}{20}$. How many times did Bình roll the dice? How many rolls did not show $6$ dots?
+Bình gieo một con xúc xắc nhiều lần. Mặt $6$ chấm xuất hiện $9$ lần và tỉ số mô tả số lần xuất hiện mặt $6$ chấm so với tổng số lần gieo là $\dfrac{3}{20}$. Hỏi Bình đã gieo xúc xắc bao nhiêu lần? Có bao nhiêu lần không ra mặt $6$ chấm?
 \end{probbox}
 \probsol{
-$9$ times is $3$ parts out of $20$, so one part is $9:3=3$ rolls.\par Rolls: $3\times20=60$.\par Not $6$ dots: $60-9=51$.
-\dapso{$60$ rolls; $51$ rolls.}}
+$9$ lần ứng với $3$ phần trong $20$ phần bằng nhau, nên một phần là $9:3=3$ (lần).\par Số lần gieo: $3\times20=60$ (lần).\par Không ra mặt $6$ chấm: $60-9=51$ (lần).
+\dapso{$60$ lần; $51$ lần.}}
 \gap
 \begin{probbox}{20}{\relax}
-A bag holds red and blue balls. Mai takes a ball without looking, writes its colour and puts it back. She does this $25$ times, and the ratio for red is $\dfrac25$. How many times did she get red, and how many times blue?
+Một túi đựng các quả bóng đỏ và xanh. Mai lấy ra một quả bóng mà không nhìn, ghi lại màu rồi trả bóng vào túi. Mai làm như vậy $25$ lần và tỉ số cho màu đỏ là $\dfrac25$. Hỏi Mai lấy được bóng đỏ bao nhiêu lần, bóng xanh bao nhiêu lần?
 \end{probbox}
 \probsol{
-Red: $25\times\dfrac25=10$ times.\par Blue: $25-10=15$ times.
-\dapso{Red $10$ times, blue $15$ times.}}
+Bóng đỏ: $25\times\dfrac25=10$ (lần).\par Bóng xanh: $25-10=15$ (lần).
+\dapso{Bóng đỏ $10$ lần, bóng xanh $15$ lần.}}
 \gap
 \begin{probbox}{21}{\relax}
-Two coins are tossed at the same time.\par
-\pa{a} List all possible outcomes. \quad \pa{b} In how many outcomes is there one head and one tail?
+Tung cùng lúc hai đồng xu.\par
+\pa{a} Liệt kê tất cả các kết quả có thể. \quad \pa{b} Có bao nhiêu kết quả gồm một mặt sấp và một mặt ngửa?
 \end{probbox}
 \probsol{
-Write H for heads and T for tails (first coin, then second coin).\par
-\pa{a} HH, HT, TH, TT: $4$ outcomes.\par
-\pa{b} HT and TH: $2$ outcomes.
-\dapso{\pa{a} $4$ outcomes. \pa{b} $2$ outcomes.}}
+Kí hiệu S là mặt sấp, N là mặt ngửa (đồng xu thứ nhất viết trước).\par
+\pa{a} SS, SN, NS, NN: $4$ kết quả.\par
+\pa{b} SN và NS: $2$ kết quả.
+\dapso{\pa{a} $4$ kết quả. \pa{b} $2$ kết quả.}}
 \gap
 \begin{probbox}{22}{\relax}
-A school canteen offers $3$ main dishes (rice, noodles, bread) and $2$ drinks (milk, juice). A lunch is one main dish and one drink. How many different lunches are there? List them.
+Căng tin trường có $3$ món chính (cơm, mì, bánh mì) và $2$ loại đồ uống (sữa, nước cam). Mỗi suất trưa gồm một món chính và một đồ uống. Hỏi có bao nhiêu suất trưa khác nhau? Hãy liệt kê.
 \end{probbox}
 \probsol{
-Each dish goes with $2$ drinks: $3\times2=6$ lunches.\par
-Rice--milk, rice--juice, noodles--milk, noodles--juice, bread--milk, bread--juice.
-\dapso{$6$ lunches.}}
+Mỗi món chính đi với $2$ loại đồ uống: $3\times2=6$ (suất).\par
+Cơm -- sữa, cơm -- nước cam, mì -- sữa, mì -- nước cam, bánh mì -- sữa, bánh mì -- nước cam.
+\dapso{$6$ suất.}}
 \gap
 \begin{probbox}{23}{\relax}
-Using the digits $1$, $4$, $7$, how many two-digit numbers with two different digits can be written? How many of them are even?
+Từ các chữ số $1;\ 4;\ 7$ có thể viết được bao nhiêu số có hai chữ số khác nhau? Trong đó có bao nhiêu số chẵn?
 \end{probbox}
 \probsol{
-Numbers: $14,\ 17,\ 41,\ 47,\ 71,\ 74$: $6$ numbers ($3$ choices for the tens digit, then $2$ for the ones).\par
-Even numbers end in $4$: $14$ and $74$, i.e.\ $2$ numbers.
-\dapso{$6$ numbers; $2$ even.}}
+Các số: $14;\ 17;\ 41;\ 47;\ 71;\ 74$: $6$ số ($3$ cách chọn chữ số hàng chục, rồi $2$ cách chọn chữ số hàng đơn vị).\par
+Số chẵn có tận cùng là $4$: $14$ và $74$, tức là $2$ số.
+\dapso{$6$ số; $2$ số chẵn.}}
 \gap
 \begin{probbox}{24}{\relax}
-A bag holds $3$ red, $5$ blue and $2$ yellow balls of the same size. One ball is taken without looking.\par
-\pa{a} Which colour is most likely? \quad \pa{b} What is the chance of a blue ball?\par
-\pa{c} Is a green ball certain, possible or impossible?
+Một túi có $3$ quả bóng đỏ, $5$ quả bóng xanh và $2$ quả bóng vàng có cùng kích thước. Lấy ra một quả bóng mà không nhìn.\par
+\pa{a} Màu nào có khả năng được lấy ra nhiều nhất? \quad \pa{b} Khả năng lấy được bóng xanh là bao nhiêu?\par
+\pa{c} Lấy được bóng màu lục là chắc chắn, có thể hay không thể?
 \end{probbox}
 \probsol{
-\pa{a} Blue: there are most blue balls ($5$).\par
-\pa{b} $10$ balls, $5$ blue: $\dfrac{5}{10}=\dfrac12$.\par
-\pa{c} There are no green balls: impossible.
-\dapso{\pa{a} Blue. \pa{b} $\dfrac12$. \pa{c} Impossible.}}
+\pa{a} Màu xanh, vì bóng xanh nhiều nhất ($5$ quả).\par
+\pa{b} Có $10$ quả, trong đó $5$ quả xanh: $\dfrac{5}{10}=\dfrac12$.\par
+\pa{c} Túi không có bóng lục: không thể.
+\dapso{\pa{a} Màu xanh. \pa{b} $\dfrac12$. \pa{c} Không thể.}}
 \gap
 \begin{probbox}{25}{\relax}
-A football team scored $2,\ 0,\ 3,\ 1,\ 4,\ 2,\ 1,\ 3$ goals in eight matches. Find the mean number of goals per match. In how many matches did the team score more than the mean?
+Một đội bóng ghi được $2;\ 0;\ 3;\ 1;\ 4;\ 2;\ 1;\ 3$ bàn thắng trong tám trận. Tính số bàn thắng trung bình mỗi trận. Có bao nhiêu trận đội ghi nhiều bàn hơn mức trung bình?
 \end{probbox}
 \probsol{
-Goals: $2+0+3+1+4+2+1+3=16$.\par Mean: $16:8=2$ goals.\par More than $2$: the matches with $3,\ 4,\ 3$ goals, i.e.\ $3$ matches.
-\dapso{$2$ goals; $3$ matches.}}
+Số bàn thắng: $2+0+3+1+4+2+1+3=16$ (bàn).\par Trung bình: $16:8=2$ (bàn).\par Nhiều hơn $2$ bàn: các trận ghi $3;\ 4;\ 3$ bàn, tức là $3$ trận.
+\dapso{$2$ bàn; $3$ trận.}}
 \gap
 \begin{probbox}{26}{\relax}
-The chart shows the rice harvest of a farm (in tonnes).
+Biểu đồ cho biết sản lượng lúa của một trang trại (đơn vị: tấn).
 \begin{center}
-\stpBars{0.06}{60}{10}{2021/42/42,2022/45/45,2023/48/48,2024/50/50,2025/55/55}{(tonnes)}{(year)}
+\stpBars{0.06}{60}{10}{2021/42/42,2022/45/45,2023/48/48,2024/50/50,2025/55/55}{(tấn)}{(năm)}
 \end{center}
-\pa{a} Find the mean harvest per year. \quad \pa{b} How much more was harvested in 2025 than in 2021?
+\pa{a} Tính sản lượng lúa trung bình mỗi năm. \quad \pa{b} Năm 2025 thu hoạch nhiều hơn năm 2021 bao nhiêu tấn?
 \end{probbox}
 \probsol{
-\pa{a} $(42+45+48+50+55):5=240:5=48$ tonnes.\par
-\pa{b} $55-42=13$ tonnes.
-\dapso{\pa{a} $48$ tonnes. \pa{b} $13$ tonnes.}}
+\pa{a} $(42+45+48+50+55):5=240:5=48$ (tấn).\par
+\pa{b} $55-42=13$ (tấn).
+\dapso{\pa{a} $48$ tấn. \pa{b} $13$ tấn.}}
 \gap
 \begin{probbox}{27}{\relax}
-A library has $1\,200$ books.
+Một thư viện có $1\,200$ quyển sách.
 \begin{center}
-\stpPie{35/35\%/tmBlue!55/Comics,25/25\%/tmOrange!60/Science,30/30\%/tmGreen!50/Stories,10/10\%/tmPurple!40/Other}
+\stpPie{35/35\%/tmBlue!55/Truyện tranh,25/25\%/tmOrange!60/Khoa học,30/30\%/tmGreen!50/Truyện chữ,10/10\%/tmPurple!40/Loại khác}
 \end{center}
-\pa{a} How many science books are there? \quad \pa{b} How many more story books than ``other'' books?
+\pa{a} Có bao nhiêu quyển sách khoa học? \quad \pa{b} Truyện chữ nhiều hơn sách loại khác bao nhiêu quyển?
 \end{probbox}
 \probsol{
-\pa{a} $1\,200:100\times25=300$ books.\par
-\pa{b} Stories are $30\%-10\%=20\%$ more: $1\,200:100\times20=240$ books.
-\dapso{\pa{a} $300$ books. \pa{b} $240$ books.}}
+\pa{a} $1\,200:100\times25=300$ (quyển).\par
+\pa{b} Truyện chữ nhiều hơn $30\%-10\%=20\%$: $1\,200:100\times20=240$ (quyển).
+\dapso{\pa{a} $300$ quyển. \pa{b} $240$ quyển.}}
 \gap
 \begin{probbox}{28}{\relax}
-Hoa spent her $160\,000$ dong of pocket money as shown.
+Hoa sử dụng $160\,000$ đồng tiền tiêu vặt như biểu đồ dưới đây.
 \begin{center}
-\stpPie{50/50\%/tmBlue!55/Books,25/25\%/tmOrange!60/Savings,15/15\%/tmGreen!50/Snacks,10/10\%/tmPurple!40/Gifts}
+\stpPie{50/50\%/tmBlue!55/Mua sách,25/25\%/tmOrange!60/Tiết kiệm,15/15\%/tmGreen!50/Ăn vặt,10/10\%/tmPurple!40/Mua quà}
 \end{center}
-\pa{a} How much did she save? \quad \pa{b} How much more did she spend on books than on snacks?
+\pa{a} Hoa tiết kiệm được bao nhiêu tiền? \quad \pa{b} Tiền mua sách nhiều hơn tiền ăn vặt bao nhiêu?
 \end{probbox}
 \probsol{
-\pa{a} A quarter: $160\,000:4=40\,000$ dong.\par
-\pa{b} Books: $80\,000$ dong; snacks: $160\,000:100\times15=24\,000$ dong.\par Difference: $80\,000-24\,000=56\,000$ dong.
-\dapso{\pa{a} $40\,000$ dong. \pa{b} $56\,000$ dong.}}
+\pa{a} Một phần tư số tiền: $160\,000:4=40\,000$ (đồng).\par
+\pa{b} Mua sách: $80\,000$ đồng; ăn vặt: $160\,000:100\times15=24\,000$ (đồng).\par Nhiều hơn: $80\,000-24\,000=56\,000$ (đồng).
+\dapso{\pa{a} $40\,000$ đồng. \pa{b} $56\,000$ đồng.}}
 \gap
 \begin{probbox}{29}{\relax}
-Five girls weigh $32$ kg on average and three boys weigh $36$ kg on average. Find the mean weight of all eight children.
+Năm bạn nữ nặng trung bình $32$ kg, ba bạn nam nặng trung bình $36$ kg. Tính cân nặng trung bình của cả tám bạn.
 \end{probbox}
 \probsol{
-Girls: $32\times5=160$ kg.\par Boys: $36\times3=108$ kg.\par Mean: $(160+108):8=268:8=33.5$ kg.
-\dapso{$33.5$ kg.}}
+Năm bạn nữ: $32\times5=160$ (kg).\par Ba bạn nam: $36\times3=108$ (kg).\par Trung bình: $(160+108):8=268:8=33{,}5$ (kg).
+\dapso{$33{,}5$ kg.}}
 \gap
 \begin{probbox}{30}{\relax}
-Lan tosses a coin several times. It lands tails up $14$ times, and the ratio for heads is $\dfrac35$. How many times did she toss the coin, and how many heads were there?
+Lan tung một đồng xu nhiều lần. Có $14$ lần xuất hiện mặt ngửa và tỉ số cho mặt sấp là $\dfrac35$. Hỏi Lan đã tung đồng xu bao nhiêu lần và có bao nhiêu lần ra mặt sấp?
 \end{probbox}
 \probsol{
-Ratio for tails: $1-\dfrac35=\dfrac25$.\par So $14$ times is $2$ parts out of $5$: one part is $7$ tosses.\par Tosses: $7\times5=35$; heads: $35-14=21$.
-\dapso{$35$ tosses; $21$ heads.}}
-\dividerbar{Challenge -- Extension}
+Tỉ số cho mặt ngửa: $1-\dfrac35=\dfrac25$.\par Vậy $14$ lần ứng với $2$ phần trong $5$ phần bằng nhau: một phần là $7$ lần.\par Số lần tung: $7\times5=35$ (lần); mặt sấp: $35-14=21$ (lần).
+\dapso{$35$ lần; $21$ lần mặt sấp.}}
+\dividerbar{Thử thách -- Nâng cao}
 \begin{probbox}{31}{\stars{1}}
-The mean of six numbers is $15$. When one number is removed, the mean of the other five is $14$. Which number was removed?
+Trung bình cộng của sáu số là $15$. Bỏ đi một số thì trung bình cộng của năm số còn lại là $14$. Số bị bỏ đi là số nào?
 \end{probbox}
 \probsol{
-Six numbers: $15\times6=90$.\par Five numbers: $14\times5=70$.\par Removed: $90-70=20$.
+Tổng sáu số: $15\times6=90$.\par Tổng năm số: $14\times5=70$.\par Số bị bỏ đi: $90-70=20$.
 \dapso{$20$.}}
 \gap
 \begin{probbox}{32}{\stars{1}}
-The mean age of $10$ players in a team is $30$. When the coach is counted too, the mean age is $31$. How old is the coach?
+Tuổi trung bình của $10$ cầu thủ trong một đội là $30$. Nếu tính cả huấn luyện viên thì tuổi trung bình là $31$. Hỏi huấn luyện viên bao nhiêu tuổi?
 \end{probbox}
 \probsol{
-Players: $30\times10=300$ years.\par With the coach ($11$ people): $31\times11=341$ years.\par Coach: $341-300=41$.
-\dapso{$41$ years old.}}
+Tổng số tuổi của các cầu thủ: $30\times10=300$ (tuổi).\par Tính cả huấn luyện viên ($11$ người): $31\times11=341$ (tuổi).\par Huấn luyện viên: $341-300=41$ (tuổi).
+\dapso{$41$ tuổi.}}
 \gap
 \begin{probbox}{33}{\stars{1}}
-Hùng's mean mark in four tests is $7.5$. What must he get in the fifth test so that his mean mark becomes $8$?
+Điểm trung bình bốn bài kiểm tra của Hùng là $7{,}5$. Bài thứ năm Hùng phải được mấy điểm để điểm trung bình là $8$?
 \end{probbox}
 \probsol{
-Four tests: $7.5\times4=30$.\par Five tests: $8\times5=40$.\par Fifth test: $40-30=10$.
-\dapso{$10$.}}
+Tổng điểm bốn bài: $7{,}5\times4=30$.\par Tổng điểm năm bài: $8\times5=40$.\par Bài thứ năm: $40-30=10$ (điểm).
+\dapso{$10$ điểm.}}
 \gap
 \begin{probbox}{34}{\stars{1}}
-The mean of three numbers is $35$. The first is twice the second, and the second is twice the third. Find the three numbers.
+Trung bình cộng của ba số là $35$. Số thứ nhất gấp đôi số thứ hai, số thứ hai gấp đôi số thứ ba. Tìm ba số đó.
 \end{probbox}
 \probsol{
-Sum: $35\times3=105$.\par If the third number is $1$ part, the second is $2$ parts and the first is $4$ parts: $7$ parts.\par
-One part: $105:7=15$.\par Numbers: $60$, $30$, $15$.
-\dapso{$60$, $30$, $15$.}}
+Tổng ba số: $35\times3=105$.\par Coi số thứ ba là $1$ phần thì số thứ hai là $2$ phần, số thứ nhất là $4$ phần: tất cả $7$ phần.\par
+Một phần: $105:7=15$.\par Ba số là: $60;\ 30;\ 15$.
+\dapso{$60;\ 30;\ 15$.}}
 \gap
 \begin{probbox}{35}{\stars{1}}
-The mean of five consecutive even numbers is $36$. Find the largest of them.
+Trung bình cộng của năm số chẵn liên tiếp là $36$. Tìm số lớn nhất trong năm số đó.
 \end{probbox}
 \probsol{
-For equally spaced numbers the mean is the middle number: $36$.\par The numbers are $32,\ 34,\ 36,\ 38,\ 40$.
+Với các số cách đều, trung bình cộng bằng số ở giữa: $36$.\par Năm số đó là $32;\ 34;\ 36;\ 38;\ 40$.
 \dapso{$40$.}}
 \gap
 \begin{probbox}{36}{\stars{1}}
-The mean of four marks was worked out as $8.25$, but one mark was copied as $6$ instead of $9$. What is the correct mean?
+Điểm trung bình của bốn bài được tính ra là $8{,}25$, nhưng có một điểm bị chép nhầm thành $6$ thay vì $9$. Tính điểm trung bình đúng.
 \end{probbox}
 \probsol{
-Wrong sum: $8.25\times4=33$.\par Correct sum: $33-6+9=36$.\par Correct mean: $36:4=9$.
-\dapso{$9$.}}
+Tổng điểm đã tính: $8{,}25\times4=33$.\par Tổng điểm đúng: $33-6+9=36$.\par Điểm trung bình đúng: $36:4=9$.
+\dapso{$9$ điểm.}}
 \gap
 \begin{probbox}{37}{\stars{1}}
-The chart shows tickets sold at a museum from Monday to Friday; the bar for Wednesday is missing. The mean is $160$ tickets a day. How many tickets were sold on Wednesday?
+Biểu đồ cho biết số vé bán được ở một bảo tàng từ thứ Hai đến thứ Sáu, trong đó cột của thứ Tư bị mất. Trung bình mỗi ngày bán được $160$ vé. Hỏi thứ Tư bán được bao nhiêu vé?
 \begin{center}
-\stpBars{0.016}{250}{50}{Mon/120/120,Tue/150/150,Wed/0/?,Thu/180/180,Fri/210/210}{(tickets)}{(day)}
+\stpBars{0.016}{250}{50}{Thứ Hai/120/120,Thứ Ba/150/150,Thứ Tư/0/?,Thứ Năm/180/180,Thứ Sáu/210/210}{(vé)}{}
 \end{center}
 \end{probbox}
 \probsol{
-Five days: $160\times5=800$ tickets.\par The other four days: $120+150+180+210=660$.\par Wednesday: $800-660=140$ tickets.
-\dapso{$140$ tickets.}}
+Năm ngày bán được: $160\times5=800$ (vé).\par Bốn ngày còn lại: $120+150+180+210=660$ (vé).\par Thứ Tư: $800-660=140$ (vé).
+\dapso{$140$ vé.}}
 \gap
 \begin{probbox}{38}{\stars{1}}
-Each pupil of class 5A chose one sport. $12$ pupils chose basketball.
+Mỗi học sinh lớp 5A chọn một môn thể thao. Có $12$ học sinh chọn bóng rổ.
 \begin{center}
-\stpPie{40/40\%/tmBlue!55/Football,30/30\%/tmOrange!60/Basketball,20/20\%/tmGreen!50/Swimming,10/10\%/tmPurple!40/Chess}
+\stpPie{40/40\%/tmBlue!55/Bóng đá,30/30\%/tmOrange!60/Bóng rổ,20/20\%/tmGreen!50/Bơi,10/10\%/tmPurple!40/Cờ vua}
 \end{center}
-\pa{a} How many pupils are there in class 5A? \quad \pa{b} How many chose football? Chess?
+\pa{a} Lớp 5A có bao nhiêu học sinh? \quad \pa{b} Có bao nhiêu bạn chọn bóng đá? Chọn cờ vua?
 \end{probbox}
 \probsol{
-\pa{a} $12$ pupils are $30\%$: $12:30\times100=40$ pupils.\par
-\pa{b} Football: $40:100\times40=16$; \ chess: $40:100\times10=4$.
-\dapso{\pa{a} $40$ pupils. \pa{b} $16$; $4$.}}
+\pa{a} $12$ học sinh chiếm $30\%$: $12:30\times100=40$ (học sinh).\par
+\pa{b} Bóng đá: $40:100\times40=16$ (bạn); \ cờ vua: $40:100\times10=4$ (bạn).
+\dapso{\pa{a} $40$ học sinh. \pa{b} $16$ bạn; $4$ bạn.}}
 \gap
 \begin{probbox}{39}{\stars{2}}
-$160$ pupils named their favourite pet: dog $40\%$, rabbit $15\%$, and the rest chose cat or fish. Twice as many pupils chose cats as chose fish. How many pupils chose cats?
+$160$ học sinh chọn con vật nuôi yêu thích: chó $40\%$, thỏ $15\%$, số còn lại chọn mèo hoặc cá. Số bạn chọn mèo gấp đôi số bạn chọn cá. Hỏi có bao nhiêu bạn chọn mèo?
 \end{probbox}
 \probsol{
-Cat and fish: $100\%-40\%-15\%=45\%$.\par Fish $1$ part, cat $2$ parts: one part is $45\%:3=15\%$.\par Cat: $30\%$, i.e.\ $160:100\times30=48$ pupils.
-\dapso{$48$ pupils.}}
+Mèo và cá: $100\%-40\%-15\%=45\%$.\par Cá $1$ phần, mèo $2$ phần: một phần là $45\%:3=15\%$.\par Mèo: $30\%$, tức là $160:100\times30=48$ (bạn).
+\dapso{$48$ bạn.}}
 \gap
 \begin{probbox}{40}{\stars{1}}
-In class 5A ($40$ pupils), $35\%$ like reading best. In class 5B ($36$ pupils), $50\%$ like reading best. Which class has more pupils who like reading best, and by how many?
+Lớp 5A ($40$ học sinh) có $35\%$ số bạn thích đọc sách nhất. Lớp 5B ($36$ học sinh) có $50\%$ số bạn thích đọc sách nhất. Lớp nào có nhiều bạn thích đọc sách nhất hơn và nhiều hơn bao nhiêu bạn?
 \end{probbox}
 \probsol{
-5A: $40:100\times35=14$ pupils.\par 5B: $36:2=18$ pupils.\par 5B has $18-14=4$ more.
-\dapso{Class 5B, by $4$ pupils.}}
+Lớp 5A: $40:100\times35=14$ (bạn).\par Lớp 5B: $36:2=18$ (bạn).\par Lớp 5B nhiều hơn $18-14=4$ (bạn).
+\dapso{Lớp 5B, nhiều hơn $4$ bạn.}}
 \gap
 \begin{probbox}{41}{\stars{1}}
-Using the digits $0,\ 3,\ 5,\ 8$, how many two-digit numbers with different digits can be written? How many of them are divisible by $5$?
+Từ các chữ số $0;\ 3;\ 5;\ 8$ có thể viết được bao nhiêu số có hai chữ số khác nhau? Trong đó có bao nhiêu số chia hết cho $5$?
 \end{probbox}
 \probsol{
-Tens digit: $3$ choices ($3$, $5$, $8$; not $0$); ones digit: $3$ choices (any other digit).\par Numbers: $3\times3=9$.\par
-Divisible by $5$ means ending in $0$ or $5$: $30,\ 50,\ 80,\ 35,\ 85$: $5$ numbers.
-\dapso{$9$ numbers; $5$ of them.}}
+Chữ số hàng chục: $3$ cách chọn ($3$, $5$, $8$; không chọn $0$); chữ số hàng đơn vị: $3$ cách chọn (ba chữ số còn lại).\par Số các số: $3\times3=9$ (số).\par
+Chia hết cho $5$ là các số tận cùng bằng $0$ hoặc $5$: $30;\ 50;\ 80;\ 35;\ 85$: $5$ số.
+\dapso{$9$ số; $5$ số.}}
 \gap
 \begin{probbox}{42}{\stars{1}}
-Six friends meet, and every two of them shake hands once. How many handshakes are there?
+Sáu bạn gặp nhau, cứ hai bạn thì bắt tay nhau một lần. Hỏi có tất cả bao nhiêu cái bắt tay?
 \end{probbox}
 \probsol{
-Each person shakes $5$ hands: $6\times5=30$, but each handshake is counted twice.\par Handshakes: $30:2=15$.
-\dapso{$15$ handshakes.}}
+Mỗi bạn bắt tay $5$ bạn: $6\times5=30$, nhưng mỗi cái bắt tay được tính hai lần.\par Số cái bắt tay: $30:2=15$.
+\dapso{$15$ cái bắt tay.}}
 \gap
 \begin{probbox}{43}{\stars{2}}
-Two dice are rolled together and the dots are added.\par
-\pa{a} How many outcomes are there? \quad \pa{b} In how many outcomes is the sum $7$? What is the chance of a sum of $7$?\par
-\pa{c} What is the chance of a sum of $12$?
+Gieo cùng lúc hai con xúc xắc rồi cộng số chấm.\par
+\pa{a} Có tất cả bao nhiêu kết quả? \quad \pa{b} Có bao nhiêu kết quả có tổng bằng $7$? Khả năng tổng bằng $7$ là bao nhiêu?\par
+\pa{c} Khả năng tổng bằng $12$ là bao nhiêu?
 \end{probbox}
 \probsol{
-\pa{a} Each of the $6$ faces of the first dice goes with $6$ faces of the second: $6\times6=36$ outcomes.\par
-\pa{b} Sum $7$: $1+6,\ 2+5,\ 3+4,\ 4+3,\ 5+2,\ 6+1$: $6$ outcomes. Chance: $\dfrac{6}{36}=\dfrac16$.\par
-\pa{c} Only $6+6$: chance $\dfrac{1}{36}$.
+\pa{a} Mỗi mặt trong $6$ mặt của xúc xắc thứ nhất đi với $6$ mặt của xúc xắc thứ hai: $6\times6=36$ (kết quả).\par
+\pa{b} Tổng bằng $7$: $1+6;\ 2+5;\ 3+4;\ 4+3;\ 5+2;\ 6+1$: $6$ kết quả. Khả năng: $\dfrac{6}{36}=\dfrac16$.\par
+\pa{c} Chỉ có $6+6$: khả năng $\dfrac{1}{36}$.
 \dapso{\pa{a} $36$. \pa{b} $6$; $\dfrac16$. \pa{c} $\dfrac{1}{36}$.}}
 \gap
 \begin{probbox}{44}{\stars{1}}
-A box holds $4$ red and $6$ blue balls. \pa{a} What is the chance of taking a red ball without looking?\par
-\pa{b} How many red balls must be added so that the chance of red becomes $\dfrac12$?
+Một hộp có $4$ quả bóng đỏ và $6$ quả bóng xanh. \pa{a} Khả năng lấy được bóng đỏ (không nhìn) là bao nhiêu?\par
+\pa{b} Phải bỏ thêm bao nhiêu quả bóng đỏ vào hộp để khả năng lấy được bóng đỏ là $\dfrac12$?
 \end{probbox}
 \probsol{
 \pa{a} $\dfrac{4}{10}=\dfrac25$.\par
-\pa{b} The chance is $\dfrac12$ when there are as many red as blue balls: $6$ red.\par Add $6-4=2$ red balls.
-\dapso{\pa{a} $\dfrac25$. \pa{b} $2$ red balls.}}
+\pa{b} Khả năng là $\dfrac12$ khi số bóng đỏ bằng số bóng xanh: $6$ quả đỏ.\par Phải thêm $6-4=2$ (quả bóng đỏ).
+\dapso{\pa{a} $\dfrac25$. \pa{b} $2$ quả bóng đỏ.}}
 \gap
 \begin{probbox}{45}{\stars{1}}
-A bag holds $20$ red, blue and green balls. The chance of a red ball is $\dfrac14$ and the chance of a blue ball is $\dfrac25$. How many balls of each colour are there?
+Một túi có $20$ quả bóng màu đỏ, xanh và lục. Khả năng lấy được bóng đỏ là $\dfrac14$, khả năng lấy được bóng xanh là $\dfrac25$. Hỏi mỗi màu có bao nhiêu quả bóng?
 \end{probbox}
 \probsol{
-Red: $20\times\dfrac14=5$.\par Blue: $20\times\dfrac25=8$.\par Green: $20-5-8=7$.
-\dapso{$5$ red, $8$ blue, $7$ green.}}
+Bóng đỏ: $20\times\dfrac14=5$ (quả).\par Bóng xanh: $20\times\dfrac25=8$ (quả).\par Bóng lục: $20-5-8=7$ (quả).
+\dapso{$5$ quả đỏ, $8$ quả xanh, $7$ quả lục.}}
 \gap
 \begin{probbox}{46}{\stars{1}}
-A spinner is divided into $8$ equal parts: $3$ red, $4$ blue and $1$ yellow.
+Một vòng quay được chia thành $8$ phần bằng nhau: $3$ phần màu đỏ, $4$ phần màu xanh và $1$ phần màu vàng.
 \begin{center}
 \begin{tikzpicture}[font=\footnotesize]
 \foreach \c [count=\i from 0] in {tmPink!45,tmBlue!50,tmPink!45,tmBlue!50,StarGold,tmBlue!50,tmPink!45,tmBlue!50}{
@@ -588,45 +588,45 @@ A spinner is divided into $8$ equal parts: $3$ red, $4$ blue and $1$ yellow.
 \draw[Slate,line width=0.8pt] (0,0) circle (1.3);
 \draw[-{Stealth},line width=1.4pt,Ink] (0,0) -- (25:1.0);
 \fill[Ink] (0,0) circle (2.5pt);
-\foreach \c/\n [count=\i] in {tmPink!45/Red,tmBlue!50/Blue,StarGold/Yellow}{
+\foreach \c/\n [count=\i] in {tmPink!45/Đỏ,tmBlue!50/Xanh,StarGold/Vàng}{
   \fill[\c] (2.0,1.0-0.55*\i) rectangle ++(0.32,0.32);
   \node[anchor=west,font=\small] at (2.4,1.16-0.55*\i) {\n};}
 \end{tikzpicture}
 \end{center}
-\pa{a} What is the chance that the arrow stops on blue? \quad \pa{b} About how many times would you expect blue in $80$ spins?
+\pa{a} Khả năng kim dừng ở màu xanh là bao nhiêu? \quad \pa{b} Nếu quay $80$ lần, em dự đoán kim dừng ở màu xanh khoảng bao nhiêu lần?
 \end{probbox}
 \probsol{
-\pa{a} $4$ of the $8$ equal parts are blue: $\dfrac48=\dfrac12$.\par
-\pa{b} About half of the spins: $80\times\dfrac12=40$ times.
-\dapso{\pa{a} $\dfrac12$. \pa{b} About $40$ times.}}
+\pa{a} $4$ trong $8$ phần bằng nhau là màu xanh: $\dfrac48=\dfrac12$.\par
+\pa{b} Khoảng một nửa số lần quay: $80\times\dfrac12=40$ (lần).
+\dapso{\pa{a} $\dfrac12$. \pa{b} Khoảng $40$ lần.}}
 \gap
 \begin{probbox}{47}{\stars{1}}
-The mean age of a family of four is $24$ years now. What was their mean age $4$ years ago (all four were already born then)?
+Hiện nay tuổi trung bình của một gia đình bốn người là $24$ tuổi. Hỏi $4$ năm trước tuổi trung bình của gia đình đó là bao nhiêu (khi đó cả bốn người đều đã ra đời)?
 \end{probbox}
 \probsol{
-Total age now: $24\times4=96$ years.\par $4$ years ago each person was $4$ years younger: $96-4\times4=80$ years.\par Mean: $80:4=20$ years.
-\dapso{$20$ years.}}
+Tổng số tuổi hiện nay: $24\times4=96$ (tuổi).\par $4$ năm trước mỗi người kém hiện nay $4$ tuổi: $96-4\times4=80$ (tuổi).\par Tuổi trung bình: $80:4=20$ (tuổi).
+\dapso{$20$ tuổi.}}
 \gap
 \begin{probbox}{48}{\stars{2}}
-In a test, the $32$ pupils of a class have a mean mark of $8$. The $20$ girls have a mean mark of $8.3$. Find the mean mark of the boys.
+Trong một bài kiểm tra, điểm trung bình của $32$ học sinh một lớp là $8$. Điểm trung bình của $20$ bạn nữ là $8{,}3$. Tính điểm trung bình của các bạn nam.
 \end{probbox}
 \probsol{
-Whole class: $8\times32=256$.\par Girls: $8.3\times20=166$.\par Boys: $32-20=12$ pupils with $256-166=90$ marks.\par Mean: $90:12=7.5$.
-\dapso{$7.5$.}}
+Tổng điểm cả lớp: $8\times32=256$.\par Tổng điểm các bạn nữ: $8{,}3\times20=166$.\par Các bạn nam: $32-20=12$ (bạn), tổng điểm $256-166=90$.\par Điểm trung bình: $90:12=7{,}5$.
+\dapso{$7{,}5$ điểm.}}
 \gap
 \begin{probbox}{49}{\stars{1}}
-A box holds $12$ balls, some red and some white. Nam takes a ball, notes its colour and puts it back, $60$ times; red comes up $45$ times. About how many red balls are there in the box?
+Một hộp có $12$ quả bóng, gồm bóng đỏ và bóng trắng. Nam lấy một quả bóng, ghi màu rồi trả lại hộp, làm như vậy $60$ lần; có $45$ lần lấy được bóng đỏ. Hãy ước lượng trong hộp có khoảng bao nhiêu quả bóng đỏ.
 \end{probbox}
 \probsol{
-Ratio for red: $\dfrac{45}{60}=\dfrac34$.\par So about $\dfrac34$ of the balls are red: $12\times\dfrac34=9$ balls.
-\dapso{About $9$ red balls.}}
+Tỉ số cho bóng đỏ: $\dfrac{45}{60}=\dfrac34$.\par Vậy khoảng $\dfrac34$ số bóng là bóng đỏ: $12\times\dfrac34=9$ (quả).
+\dapso{Khoảng $9$ quả bóng đỏ.}}
 \gap
 \begin{probbox}{50}{\stars{1}}
-An, Bình and Chi stand in a row for a photo.\par
-\pa{a} In how many different orders can they stand? \quad \pa{b} In how many of them is An in the middle?
+An, Bình và Chi đứng thành một hàng để chụp ảnh.\par
+\pa{a} Có bao nhiêu cách đứng khác nhau? \quad \pa{b} Có bao nhiêu cách mà An đứng ở giữa?
 \end{probbox}
 \probsol{
-\pa{a} First place: $3$ choices, second: $2$, third: $1$; \ $3\times2\times1=6$ orders:\par
-ABC, ACB, BAC, BCA, CAB, CBA (A $=$ An, B $=$ Bình, C $=$ Chi).\par
-\pa{b} An in the middle: BAC and CAB, i.e.\ $2$ orders.
-\dapso{\pa{a} $6$. \pa{b} $2$.}}
+\pa{a} Vị trí thứ nhất: $3$ cách chọn, thứ hai: $2$ cách, thứ ba: $1$ cách; \ $3\times2\times1=6$ (cách):\par
+ABC, ACB, BAC, BCA, CAB, CBA (A là An, B là Bình, C là Chi).\par
+\pa{b} An đứng giữa: BAC và CAB, tức là $2$ cách.
+\dapso{\pa{a} $6$ cách. \pa{b} $2$ cách.}}
