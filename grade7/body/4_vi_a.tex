@@ -1,0 +1,904 @@
+% =====================================================================
+% Chủ đề 4 — Số học và Tư duy số — phần a: lý thuyết, ví dụ, bài 1–15
+% =====================================================================
+\begin{knowbox}
+\textbf{Ý tưởng lớn.} ``Tư duy số'' (cảm nhận về số) là khả năng \emph{hiểu} con số chứ không chỉ \emph{tính} con số:
+biết số nào lớn hơn, một kết quả có hợp lý không, nên làm tròn thế nào để ước lượng nhanh, và nhìn ra cấu trúc ẩn
+bên trong một số (các chữ số, các ước, các bội). Trong chủ đề này, em sẽ ôn lại và nối kết các mảng kiến thức:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item \textbf{số thập phân và số nguyên âm}: so sánh, sắp xếp trên trục số;
+  \item \textbf{thứ tự thực hiện phép tính} và \textbf{ước lượng} kết quả;
+  \item \textbf{phân số, tỉ số, tỉ số phần trăm}: ``một phần của một số'', phân số bằng nhau, giảm giá;
+  \item \textbf{tốc độ} -- quãng đường -- thời gian và đổi đơn vị (km/h, m/s);
+  \item \textbf{chia hết, ước chung, chữ số tận cùng, cấu tạo số} (giải các phép tính đố chữ);
+  \item \textbf{trung bình cộng, trung vị} và các \textbf{dãy số có quy luật} (Fibonacci, cấp số cộng).
+\end{itemize}
+Bí quyết chung: \emph{trước khi tính, hãy ước lượng; sau khi tính, hãy thử lại}. Một học sinh có tư duy số tốt
+thường loại được ngay vài phương án vô lý trong câu trắc nghiệm mà chưa cần tính chính xác.
+\end{knowbox}
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------
+\shead{Số thập phân: đọc, so sánh, sắp xếp, cộng trừ}
+\begin{knowbox}
+\textbf{1. Giá trị theo hàng.} Trong số thập phân, mỗi chữ số đứng ở một \emph{hàng}. Sau dấu phẩy lần lượt là
+hàng phần mười, hàng phần trăm, hàng phần nghìn, \ldots
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Chục & Đơn vị & , & Phần mười & Phần trăm & Phần nghìn\\ \hline
+ & $2$ & , & $2$ & $3$ & \\ \hline
+ & $2$ & , & $3$ & $0$ & \\ \hline
+\end{tabular}
+\end{center}
+Ví dụ: $2{,}23 = 2 + \dfrac{2}{10} + \dfrac{3}{100}$, còn $2{,}3 = 2 + \dfrac{3}{10} = 2{,}30$.
+
+\textbf{2. Thêm hoặc bớt chữ số $0$ ở tận cùng phần thập phân không làm thay đổi giá trị:}
+$2{,}3 = 2{,}30 = 2{,}300$. Lý do: $\dfrac{3}{10} = \dfrac{30}{100} = \dfrac{300}{1000}$ (nhân cả tử và mẫu với $10$).
+
+\textbf{3. Quy tắc so sánh hai số thập phân dương.}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item So sánh \emph{phần nguyên} trước: số nào có phần nguyên lớn hơn thì lớn hơn.
+  \item Nếu phần nguyên bằng nhau, \emph{viết thêm chữ số $0$} để hai phần thập phân có cùng số chữ số, rồi so sánh
+  từng hàng từ trái sang phải: hàng phần mười, rồi hàng phần trăm, \ldots
+\end{itemize}
+Ví dụ: so sánh $0{,}304$ và $0{,}34$. Viết $0{,}34 = 0{,}340$. Hàng phần mười: $3 = 3$; hàng phần trăm: $0 < 4$.
+Vậy $0{,}304 < 0{,}340 = 0{,}34$.
+
+\textbf{4. Cộng, trừ số thập phân:} đặt tính sao cho \emph{các dấu phẩy thẳng cột} (hàng thẳng hàng), rồi cộng/trừ
+như số tự nhiên.
+
+\textbf{5. Làm tròn số thập phân.} Muốn làm tròn đến hàng phần trăm (hai chữ số sau dấu phẩy), ta nhìn chữ số ngay
+bên phải hàng đó (hàng phần nghìn): nếu chữ số này nhỏ hơn $5$ thì giữ nguyên, nếu lớn hơn hoặc bằng $5$ thì cộng thêm
+$1$ vào hàng phần trăm; sau đó bỏ các chữ số phía sau. Ví dụ: $4{,}6875 \approx 4{,}69$ (vì chữ số hàng phần nghìn là
+$7 \ge 5$), còn $3{,}1416 \approx 3{,}14$ (vì $1 < 5$). Kí hiệu ``$\approx$'' đọc là ``xấp xỉ''.
+\end{knowbox}
+\begin{proofbox}
+Vì sao không được so sánh ``theo độ dài'' (số nào nhiều chữ số hơn thì lớn hơn)? Hãy viết theo phần nghìn:
+$0{,}304 = \dfrac{304}{1000}$ và $0{,}34 = \dfrac{340}{1000}$. Hai phân số cùng mẫu, tử $304 < 340$ nên
+$0{,}304 < 0{,}34$, dù $0{,}304$ ``trông dài hơn''. Việc thêm chữ số $0$ chính là đưa về cùng mẫu số.
+\end{proofbox}
+\begin{warnbox}
+Nhiều bạn nghĩ $2{,}23 > 2{,}3$ vì ``$23 > 3$''. Sai! Phải so sánh từng hàng: $2{,}23$ có $2$ phần mười,
+còn $2{,}3$ có $3$ phần mười, nên $2{,}23 < 2{,}3$.
+\end{warnbox}
+\begin{tipbox}
+Muốn tìm số nhỏ nhất (lớn nhất) trong một tập hợp số thập phân, hãy viết tất cả các số thành \emph{một cột}, dấu phẩy
+thẳng nhau, thêm chữ số $0$ cho đủ dài. Khi đó em chỉ việc so sánh như các số tự nhiên.
+\end{tipbox}
+
+% ---------------------------------------------------------------------
+\shead{Số nguyên âm và trục số}
+\begin{knowbox}
+\textbf{1. Trục số.} Các số nguyên được xếp trên một đường thẳng: số $0$ ở giữa, các số dương ở bên phải, các số âm
+ở bên trái.
+\numlinex{8}{0/$-4$,1/$-3$,2/$-2$,3/$-1$,4/$0$,5/$1$,6/$2$,7/$3$,8/$4$}{}{4}
+\textbf{2. Quy tắc so sánh.} Trên trục số (nằm ngang), \emph{số bên trái nhỏ hơn số bên phải}. Do đó:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item mọi số âm đều nhỏ hơn $0$, và $0$ nhỏ hơn mọi số dương;
+  \item mọi số âm nhỏ hơn mọi số dương;
+  \item với hai số âm, số nào \emph{xa số $0$ hơn} thì \emph{nhỏ hơn}: $-8 < -2$ vì $8 > 2$.
+\end{itemize}
+\textbf{3. Hình ảnh đời thường.} Nhiệt độ $-8^\circ$C lạnh hơn $-2^\circ$C; nợ $8$ nghìn đồng thì ``nghèo hơn'' nợ
+$2$ nghìn đồng.
+
+\textbf{4. Mặt phẳng tọa độ.} Một điểm được xác định bởi cặp số $(x;y)$: $x$ là hoành độ (đi sang phải/trái),
+$y$ là tung độ (đi lên/xuống). Di chuyển ngang chỉ làm thay đổi $x$, di chuyển dọc chỉ làm thay đổi $y$.
+\end{knowbox}
+\begin{proofbox}
+Vì sao $-8 < -2$? Ta có $-2 = -8 + 6$: muốn đi từ $-8$ đến $-2$ trên trục số ta phải đi \emph{sang phải} $6$ đơn vị.
+Đi sang phải nghĩa là tăng lên, nên $-2$ lớn hơn $-8$.
+\end{proofbox}
+\begin{warnbox}
+Đừng so sánh số âm ``theo cảm giác của số dương''. $-8$ \emph{nhỏ hơn} $-2$, dù $8$ lớn hơn $2$. Hãy luôn vẽ
+nhanh một trục số khi phân vân.
+\end{warnbox}
+\begin{tipbox}
+\textbf{Tính chẵn -- lẻ} là một công cụ ``tư duy số'' rất mạnh: chẵn $+$ chẵn $=$ chẵn, lẻ $+$ lẻ $=$ chẵn, chẵn $+$ lẻ $=$ lẻ;
+tích của các số lẻ luôn là số lẻ. Chẳng hạn, tổng của $5$ số lẻ là số lẻ, tổng của $4$ số lẻ là số chẵn. Khi một điểm
+di chuyển trên lưới tọa độ, xét tính chẵn -- lẻ của tọa độ thường cho biết ngay một vị trí có thể đến được hay không.
+\end{tipbox}
+
+% ---------------------------------------------------------------------
+\shead{Thứ tự thực hiện phép tính và ước lượng}
+\begin{knowbox}
+\textbf{1. Thứ tự thực hiện phép tính.}
+\begin{enumerate}[leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Trong \emph{ngoặc} trước: $(\;)$, rồi $[\;]$, rồi $\{\;\}$.
+  \item Tiếp theo là \emph{lũy thừa}.
+  \item Rồi đến \emph{nhân và chia}, làm lần lượt từ trái sang phải.
+  \item Cuối cùng là \emph{cộng và trừ}, làm lần lượt từ trái sang phải.
+\end{enumerate}
+Ví dụ: $6\times 2 - 3 = 12 - 3 = 9$ (nhân trước, trừ sau), còn $6\times(2-3) = 6\times(-1) = -6$.
+
+\textbf{2. Làm tròn để ước lượng.} Để biết nhanh một kết quả ``khoảng bao nhiêu'', ta làm tròn các thừa số đến số
+tròn chục, tròn trăm gần nhất rồi tính nhẩm. Ví dụ: $99 \times 9 \approx 100 \times 9 = 900$.
+
+\textbf{3. Mẹo tính nhanh:} $99 \times 9 = (100-1)\times 9 = 900 - 9 = 891$ (tính chất phân phối của phép nhân
+đối với phép trừ).
+\end{knowbox}
+\begin{proofbox}
+Vì sao $(100-1)\times 9 = 100\times 9 - 1\times 9$? Hãy tưởng tượng $9$ hàng, mỗi hàng $100$ chiếc kẹo,
+nhưng mỗi hàng bị lấy đi $1$ chiếc. Số kẹo còn lại là $9$ hàng $\times$ $99$ chiếc, cũng bằng
+($9\times 100$ chiếc) trừ đi ($9$ chiếc bị lấy). Đó là \emph{tính chất phân phối}: $a\times(b-c) = a\times b - a\times c$.
+\end{proofbox}
+\begin{warnbox}
+Tính ``từ trái sang phải bất kể phép tính gì'' là sai: $2 + 3\times 4 \ne 5\times 4$. Đúng là
+$2 + 3\times 4 = 2 + 12 = 14$.
+\end{warnbox}
+\begin{tipbox}
+Trong câu trắc nghiệm hỏi ``số nào gần nhất với\ldots'', các phương án thường cách nhau gấp $10$ lần
+($10$; $100$; $1000$; \ldots). Khi đó chỉ cần ước lượng thô là đủ chọn đúng.
+\end{tipbox}
+
+% ---------------------------------------------------------------------
+\shead{Phân số: một phần của một số, phân số bằng nhau}
+\begin{knowbox}
+\textbf{1. Phân số là một phần của cái toàn thể.} $\dfrac{a}{b}$ nghĩa là chia toàn thể thành $b$ phần bằng nhau
+và lấy $a$ phần.
+
+\textbf{2. Tìm giá trị phân số của một số:} muốn tìm $\dfrac{m}{n}$ của $a$, ta tính $a \times \dfrac{m}{n}$
+(chia $a$ thành $n$ phần rồi lấy $m$ phần). Ví dụ: $\dfrac{1}{3}$ của $396$ là $396 : 3 = 132$.
+
+\textbf{3. Phần còn lại.} Nếu đã làm được $\dfrac{m}{n}$ công việc thì phần còn lại là $1 - \dfrac{m}{n} = \dfrac{n-m}{n}$.
+
+\textbf{4. Phân số bằng nhau (tính chất cơ bản).} Nhân (hoặc chia) cả tử và mẫu với cùng một số khác $0$ thì được
+phân số bằng nó:
+\[ \frac{3}{7} = \frac{3\times 9}{7\times 9} = \frac{27}{63}, \qquad \frac{12}{36} = \frac{12:12}{36:12} = \frac{1}{3}. \]
+\textbf{5. Rút gọn phân số:} chia cả tử và mẫu cho ước chung lớn nhất của chúng để được phân số tối giản.
+
+\textbf{6. Bài toán ``tổng và tỉ''.} Nếu hai số có tỉ số $\dfrac{5}{8}$ thì có thể coi số thứ nhất gồm $5$ phần,
+số thứ hai gồm $8$ phần bằng nhau. Biết tổng (hoặc hiệu) thì tìm được giá trị một phần.
+
+\textbf{7. Phân số của một phân số.} ``Một nửa của một phần tư'' là $\dfrac12\times\dfrac14 = \dfrac18$: nhân tử với tử,
+mẫu với mẫu. Điều này hay gặp khi một hình được chia đôi nhiều lần liên tiếp: mỗi lần chia đôi, phần diện tích nhân thêm
+với $\dfrac12$.
+
+\textbf{8. So sánh phân số.} Quy đồng mẫu số rồi so sánh tử số, hoặc đổi ra số thập phân. Ví dụ:
+$\dfrac23 = \dfrac{8}{12} > \dfrac{7}{12}$; \ $\dfrac35 = 0{,}6 < \dfrac34 = 0{,}75$.
+\end{knowbox}
+\begin{barfigC}
+  \rowlab{-0.2}{0}{Số thứ nhất}
+  \foreach \i in {0,...,4}{\blk{\i*0.9}{\i*0.9+0.9}{0}{0.55}{tmBlue}{}}
+  \rowlab{-0.2}{-0.8}{Số thứ hai}
+  \foreach \i in {0,...,7}{\blk{\i*0.9}{\i*0.9+0.9}{-0.8}{0.55}{tmOrange}{}}
+  \vbrace{7.35}{0.3}{-1.1}{tổng $= 13$ phần}
+\end{barfigC}
+\begin{proofbox}
+Vì sao nhân cả tử và mẫu với cùng một số thì phân số không đổi? $\dfrac{3}{7}$ là ``chia cái bánh thành $7$ phần,
+lấy $3$ phần''. Nếu cắt \emph{mỗi} phần thành $9$ miếng nhỏ hơn, cái bánh có $7\times 9 = 63$ miếng, còn phần ta lấy
+có $3\times 9 = 27$ miếng. Lượng bánh không đổi, nên $\dfrac{3}{7} = \dfrac{27}{63}$.
+\end{proofbox}
+\begin{warnbox}
+Đọc kỹ câu hỏi: đề hỏi phần \emph{đã làm} hay phần \emph{còn lại}? Nhiều bạn tính đúng $\dfrac13$ của $396$ là $132$
+rồi khoanh luôn, trong khi đề hỏi số trang \emph{còn lại} là $396 - 132 = 264$.
+\end{warnbox}
+\begin{parentbox}
+Với phân số, hình vẽ luôn thắng lời giảng. Hãy vẽ một đoạn thẳng (thanh sô-cô-la) chia đều thành các phần và tô
+màu phần đã dùng; con sẽ tự thấy phần còn lại. Đây cũng là ``sơ đồ đoạn thẳng'' quen thuộc ở tiểu học.
+\end{parentbox}
+
+% ---------------------------------------------------------------------
+\shead{Tỉ số phần trăm, đơn giá và giảm giá}
+\begin{knowbox}
+\textbf{1. Phần trăm nghĩa là ``trên một trăm''.} $80\% = \dfrac{80}{100} = 0{,}8$.
+
+\textbf{2. Tìm $p\%$ của một số $a$:} tính $a \times \dfrac{p}{100}$. Ví dụ: $80\%$ của $50$ là
+$50 \times \dfrac{80}{100} = 40$.
+
+\textbf{3. Tìm tỉ số phần trăm của $a$ so với $b$:} tính $\dfrac{a}{b}\times 100\%$. Ví dụ: đúng $32$ câu trên $40$ câu
+là $\dfrac{32}{40}\times 100\% = 80\%$.
+
+\textbf{4. Đơn giá.} Đơn giá là giá của \emph{một} đơn vị (một ki-lô-gam, một quyển, \ldots):
+\[ \text{Thành tiền} = \text{đơn giá} \times \text{số lượng}, \qquad \text{đơn giá} = \text{thành tiền} : \text{số lượng}. \]
+\textbf{5. Giảm giá $p\%$.} Giá mới $= $ giá cũ $\times \left(1 - \dfrac{p}{100}\right)$. Giảm $10\%$ tức là còn
+$90\%$: nhân với $0{,}9$.
+
+\textbf{6. Giảm giá nhiều lần liên tiếp.} Mỗi lần giảm $10\%$ \emph{của giá hiện tại} thì ta nhân thêm một lần với
+$0{,}9$. Ví dụ, giá $100$ nghìn đồng sau hai lần giảm: $100 \to 90 \to 81$ (nghìn đồng), \emph{không phải} $80$.
+\end{knowbox}
+\begin{proofbox}
+Vì sao hai lần giảm $10\%$ không bằng một lần giảm $20\%$? Lần thứ hai giảm $10\%$ của $90$ (là $9$), chứ không phải
+$10\%$ của $100$ (là $10$). Vì giá đã nhỏ đi nên số tiền được giảm lần sau cũng nhỏ đi: tổng cộng chỉ giảm
+$10 + 9 = 19$ nghìn đồng, tức $19\%$.
+\end{proofbox}
+\begin{tipbox}
+Tìm $10\%$ thật nhanh: chỉ cần chia cho $10$ (dời dấu phẩy sang trái một chữ số). Từ $10\%$ suy ra
+$5\%$ (chia đôi), $20\%$ (gấp đôi), $80\% = 100\% - 20\%$, \ldots
+\end{tipbox}
+
+% ---------------------------------------------------------------------
+\shead{Tốc độ, quãng đường, thời gian và đổi đơn vị}
+\begin{knowbox}
+\textbf{1. Ba công thức gắn với nhau.} Với chuyển động đều:
+\[ s = v \times t, \qquad v = s : t, \qquad t = s : v, \]
+trong đó $s$ là quãng đường, $v$ là vận tốc (tốc độ), $t$ là thời gian.
+
+\textbf{2. Ai nhanh hơn?} Người nhanh hơn là người đi được quãng đường \emph{dài hơn} trong \emph{cùng một khoảng thời
+gian}. Cách chắc chắn nhất: tính vận tốc của từng người theo cùng một đơn vị (ví dụ m/s) rồi so sánh.
+
+\textbf{3. Chạy nhiều vòng.} Chạy $n$ vòng quanh đường dài $L$ mét thì quãng đường là $n \times L$ mét.
+
+\textbf{4. Đổi km/h sang m/s.} $1$ km $= 1000$ m, $1$ giờ $= 3600$ giây, nên
+\[ 1 \text{ km/h} = \frac{1000 \text{ m}}{3600 \text{ s}} = \frac{5}{18} \text{ m/s}, \qquad
+   18 \text{ km/h} = 18\times\frac{5}{18} = 5 \text{ m/s}, \qquad 1 \text{ m/s} = 3{,}6 \text{ km/h}. \]
+\end{knowbox}
+\begin{figC}
+  \draw[tmBlue,line width=1.2pt,rounded corners=8pt] (0,0) rectangle (3.6,1.6);
+  \node[draw=tmOrange,fill=tmOrange!15,rounded corners=3pt,minimum width=1.6cm] at (1.8,0.8) {$s = v\times t$};
+  \node[text=Ink,align=left,anchor=west] at (4.2,0.8) {Che đại lượng cần tìm:\\ $v = s : t$ \quad và \quad $t = s : v$};
+\end{figC}
+\begin{warnbox}
+Hai đại lượng phải \emph{cùng hệ đơn vị}: nếu quãng đường tính bằng mét và thời gian bằng giây thì vận tốc ra m/s;
+đừng chia mét cho giờ. Trước khi so sánh hai vận tốc, hãy đưa về cùng đơn vị.
+\end{warnbox}
+
+% ---------------------------------------------------------------------
+\shead{Chia hết, ước chung, chữ số tận cùng và cấu tạo số}
+\begin{knowbox}
+\textbf{1. Bội và ước.} $a$ là \emph{bội} của $b$ (hay $b$ là \emph{ước} của $a$) nếu $a = b\times k$ với $k$ là số
+tự nhiên. Ví dụ: $45 = 9\times 5$ nên $45$ là bội của $9$.
+
+\textbf{2. Dấu hiệu chia hết.}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item cho $2$: chữ số tận cùng là $0, 2, 4, 6, 8$; \quad cho $5$: tận cùng là $0$ hoặc $5$; \quad cho $10$: tận cùng là $0$;
+  \item cho $3$: tổng các chữ số chia hết cho $3$; \quad cho $9$: \emph{tổng các chữ số chia hết cho $9$}.
+\end{itemize}
+\textbf{3. Ước chung.} Số chia hết cả $a$ lẫn $b$ gọi là ước chung của $a$ và $b$. Mọi ước chung đều là ước của
+\emph{ước chung lớn nhất} ƯCLN$(a,b)$. Ví dụ: ƯCLN$(40,72)=8$, nên các ước chung của $40$ và $72$ là
+$1, 2, 4, 8$.
+
+\textbf{4. Chữ số tận cùng của một tích} chỉ phụ thuộc vào chữ số tận cùng của các thừa số:
+$\ldots 3 \times \ldots 7$ tận cùng bằng chữ số tận cùng của $3\times 7 = 21$, tức là $1$.
+
+\textbf{5. Cấu tạo số.} Một số viết bằng các chữ số được phân tích theo hàng:
+\[ \nd{abc} = 100a + 10b + c, \qquad \nd{PQQ} = 100P + 10Q + Q = 100P + 11Q. \]
+(Dấu gạch ngang trên đầu cho biết đây là số có các chữ số $a, b, c$, không phải tích $a\times b\times c$.)
+\end{knowbox}
+\begin{proofbox}
+Vì sao dấu hiệu chia hết cho $9$ đúng? Xét số $\nd{abc} = 100a + 10b + c$. Ta tách:
+\[ 100a + 10b + c = (99a + 9b) + (a + b + c) = 9\times(11a + b) + (a+b+c). \]
+Phần $9\times(11a+b)$ luôn chia hết cho $9$. Vậy $\nd{abc}$ chia hết cho $9$ khi và chỉ khi phần còn lại
+$a+b+c$ (tổng các chữ số) chia hết cho $9$. Với số có nhiều chữ số hơn, lập luận y hệt vì
+$10 = 9+1$, $100 = 99+1$, $1000 = 999+1$, \ldots
+\end{proofbox}
+\begin{tipbox}
+Gặp bài ``đố chữ'' (mỗi chữ cái là một chữ số) như $\nd{PQQ}+\nd{PPQ}+\nd{QQQ}=876$, hãy làm \emph{từ hàng đơn vị
+sang trái}, nhớ để ý các số nhớ. Hàng đơn vị thường có ít khả năng nhất, nên tìm được chữ số đầu tiên rất nhanh.
+Cũng có thể dùng cấu tạo số để đưa về một phương trình. Khi phải đếm hoặc tìm hết các khả năng (các bộ chữ số,
+các kết quả khi tung đồng xu, \ldots), hãy \emph{liệt kê có hệ thống} (theo thứ tự tăng dần, hoặc bằng bảng/sơ đồ
+cây) để không sót, không trùng.
+\end{tipbox}
+\begin{knowbox}
+\textbf{Liệt kê có hệ thống và khả năng xảy ra.}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item Muốn đếm các số có ba chữ số mà \emph{tích} các chữ số bằng một số cho trước, ta tìm các bộ ba chữ số (viết theo
+  thứ tự tăng dần để không trùng), rồi đếm số cách sắp xếp mỗi bộ: ba chữ số khác nhau có $3\times 2\times 1 = 6$ cách xếp;
+  hai chữ số giống nhau có $3$ cách xếp. Ví dụ: tích bằng $12$ với bộ $\{1;3;4\}$ cho $6$ số $134, 143, 314, 341, 413, 431$;
+  bộ $\{2;2;3\}$ cho $3$ số $223, 232, 322$.
+  \item Khi mọi kết quả đều \emph{có khả năng như nhau}, xác suất của một sự kiện bằng
+  \[ \frac{\text{số kết quả thuận lợi}}{\text{tổng số kết quả có thể}}. \]
+  Ví dụ: tung $2$ đồng xu có $4$ kết quả đồng khả năng: SS, SN, NS, NN (S: sấp, N: ngửa). Xác suất cả hai đồng xu cùng
+  một mặt là $\dfrac{2}{4} = \dfrac12$. Dùng sơ đồ cây để liệt kê:
+\end{itemize}
+\begin{figC}
+  \node[draw=Navy,circle,inner sep=1.5pt] (r) at (0,0) {\scriptsize bắt đầu};
+  \node[draw=tmBlue,fill=tmBlue!10,circle,inner sep=2pt] (a) at (2,0.8) {S};
+  \node[draw=tmOrange,fill=tmOrange!10,circle,inner sep=2pt] (b) at (2,-0.8) {N};
+  \foreach \n/\y/\l/\c in {aa/1.2/S/tmBlue,ab/0.4/N/tmOrange}{\node[draw=\c,fill=\c!10,circle,inner sep=2pt] (\n) at (4,\y) {\l};}
+  \foreach \n/\y/\l/\c in {ba/-0.4/S/tmBlue,bb/-1.2/N/tmOrange}{\node[draw=\c,fill=\c!10,circle,inner sep=2pt] (\n) at (4,\y) {\l};}
+  \draw[Slate] (r)--(a) (r)--(b) (a)--(aa) (a)--(ab) (b)--(ba) (b)--(bb);
+  \node[right,font=\scriptsize] at (4.3,1.2) {SS \ (cùng mặt)};
+  \node[right,font=\scriptsize] at (4.3,0.4) {SN};
+  \node[right,font=\scriptsize] at (4.3,-0.4) {NS};
+  \node[right,font=\scriptsize] at (4.3,-1.2) {NN \ (cùng mặt)};
+\end{figC}
+\end{knowbox}
+\begin{warnbox}
+``Tổng các chữ số chia hết cho $9$'' là dấu hiệu của $9$, \emph{không} dùng cho $4$, $6$ hay $8$. Và một số chia hết
+cho $3$ chưa chắc chia hết cho $9$: $12$ chia hết cho $3$ nhưng không chia hết cho $9$.
+\end{warnbox}
+
+% ---------------------------------------------------------------------
+\shead{Dãy số có quy luật, trung bình cộng và trung vị}
+\begin{knowbox}
+\textbf{1. Dãy Fibonacci.} $1, 1, 2, 3, 5, 8, 13, 21, 34, 55, \ldots$ Mỗi số (kể từ số thứ ba) bằng \emph{tổng hai
+số đứng ngay trước nó}: $2 = 1+1$, $3 = 1+2$, $5 = 2+3$, \ldots
+
+\textbf{2. Cấp số cộng (dãy cách đều).} Mỗi số (kể từ số thứ hai) bằng số liền trước cộng với một số không đổi $d$
+(công sai). Ví dụ: $1, 4, 7, 10$ (với $d = 3$). Số thứ $n$ bằng $a_1 + (n-1)\times d$.
+
+\textbf{3. Trung bình cộng.} Trung bình cộng của $n$ số $=$ (tổng các số) $: n$. Suy ra
+\[ \text{Tổng} = \text{trung bình cộng} \times \text{số các số}. \]
+\textbf{4. Phương pháp ``độ lệch''.} Tổng các độ lệch so với trung bình cộng luôn bằng $0$: phần ``thừa'' của các số
+lớn hơn trung bình đúng bằng phần ``thiếu'' của các số nhỏ hơn trung bình.
+
+\textbf{5. Trung vị.} Sắp xếp các số theo thứ tự tăng dần; số đứng chính giữa là trung vị (nếu có một số lẻ các số).
+Ví dụ: trung vị của $42, 43, 46, 49, 50$ là $46$. Nếu có một số chẵn các số thì trung vị là trung bình cộng của
+hai số đứng giữa: trung vị của $6, 7, 9, 10$ là $(7+9):2 = 8$. Lưu ý: khi thêm hoặc thay đổi một số, vị trí ``ở giữa''
+có thể thay đổi, nên phải sắp xếp lại.
+
+\textbf{6. Các số nguyên liên tiếp.} Với một số lẻ các số nguyên liên tiếp, trung bình cộng chính là số đứng giữa:
+trung bình của $19, 20, 21, 22, 23$ là $21$.
+\end{knowbox}
+\begin{proofbox}
+Vì sao tổng các độ lệch bằng $0$? Giả sử $4$ số có trung bình $80$, tức tổng là $4\times 80 = 320$. Viết mỗi số thành
+$80 + $ (độ lệch). Cộng lại: $320 + $ (tổng các độ lệch) $= 320$, nên tổng các độ lệch phải bằng $0$.
+\end{proofbox}
+\begin{figC}
+  \draw[Slate!60] (-0.3,0)--(5.3,0);
+  \node[left,font=\scriptsize,text=Slate] at (-0.3,0) {TB $=40$};
+  \foreach \x/\v/\c in {0/38/tmOrange,1.5/43/tmGreen,3/41/tmGreen,4.5/38/tmOrange}{
+    \pgfmathsetmacro\h{(\v-40)*0.3}
+    \fill[\c!70] (\x,0) rectangle (\x+0.7,\h);
+    \node[font=\scriptsize] at (\x+0.35,{\h+0.25*sign(\h+0.001)}) {$\v$};}
+\end{figC}
+\begin{center}\small Bốn số $38, 43, 41, 38$ có trung bình cộng $40$. Độ lệch so với $40$: $-2,\ +3,\ +1,\ -2$; tổng $= 0$.\end{center}
+\begin{parentbox}
+Có thể minh họa trung bình cộng bằng các chồng xu: ``san bằng'' các chồng cao xuống chồng thấp cho đến khi các chồng
+cao bằng nhau. Chiều cao chung đó là trung bình cộng. Số xu chuyển đi từ chồng cao đúng bằng số xu thêm vào chồng thấp
+-- đó chính là ý ``tổng độ lệch bằng $0$''.
+\end{parentbox}
+
+% =====================================================================
+% VÍ DỤ MẪU
+% =====================================================================
+\par\vspace{0.7em}\noindent{\large\bfseries\color{tmOrange!90!black}\faPencil*\ \ Ví dụ mẫu}\par\vspace{0.3em}
+
+\begin{exbox}{Ví dụ 1}
+Cho tập hợp $\{0{,}5;\ 0{,}45;\ 0{,}405;\ 0{,}054;\ 0{,}54\}$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Sắp xếp các số theo thứ tự tăng dần.
+  \item Tính tổng của số lớn nhất và số nhỏ nhất.
+\end{enumerate}
+\guide
+\step{1}{Viết các số thành một cột, thêm chữ số $0$ cho đủ ba chữ số sau dấu phẩy}
+Thêm chữ số $0$ vào tận cùng phần thập phân không làm thay đổi giá trị, nên ta có:
+\[ 0{,}5 = 0{,}500;\quad 0{,}45 = 0{,}450;\quad 0{,}405;\quad 0{,}054;\quad 0{,}54 = 0{,}540. \]
+\step{2}{So sánh như các số tự nhiên}
+Bỏ ``$0{,}$'' đi, ta so sánh các số $500;\ 450;\ 405;\ 54;\ 540$:
+\[ 54 < 405 < 450 < 500 < 540. \]
+Vậy thứ tự tăng dần là: $0{,}054 < 0{,}405 < 0{,}45 < 0{,}5 < 0{,}54$.
+\step{3}{Cộng số lớn nhất với số nhỏ nhất (đặt dấu phẩy thẳng cột)}
+\[ \begin{array}{r} 0{,}540\\ +\ 0{,}054\\ \hline 0{,}594 \end{array} \]
+\verify{$0{,}594 - 0{,}54 = 0{,}054$. Đúng.}
+\ans{a) $0{,}054 < 0{,}405 < 0{,}45 < 0{,}5 < 0{,}54$;\quad b) $0{,}594$}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 2}
+Chị Hoa đạp xe trên quãng đường dài $45$ km. Buổi sáng chị đi được $\dfrac{2}{5}$ quãng đường. Hỏi buổi chiều chị còn
+phải đi bao nhiêu ki-lô-mét nữa, và quãng đường đó bằng mấy phần của cả quãng đường?
+\guide
+\step{1}{Vẽ sơ đồ đoạn thẳng}
+Chia quãng đường thành $5$ phần bằng nhau; buổi sáng đi $2$ phần, buổi chiều còn $3$ phần.
+\begin{barfigC}
+  \foreach \i in {0,1}{\blk{\i*1.6}{\i*1.6+1.6}{0}{0.6}{tmBlue}{$9$ km}}
+  \foreach \i in {2,3,4}{\blk{\i*1.6}{\i*1.6+1.6}{0}{0.6}{tmOrange}{$9$ km}}
+  \brcup{0}{3.2}{0.5}{buổi sáng}
+  \brcup{3.2}{8}{0.5}{buổi chiều}
+  \brcdn{0}{8}{-0.5}{$45$ km}
+\end{barfigC}
+\step{2}{Tìm giá trị một phần}
+Một phần dài $45 : 5 = 9$ (km).
+\step{3}{Tính quãng đường buổi sáng và buổi chiều}
+Buổi sáng: $2\times 9 = 18$ (km). Buổi chiều: $45 - 18 = 27$ (km), cũng chính là $3\times 9 = 27$ (km).
+\step{4}{Phần quãng đường còn lại}
+$1 - \dfrac{2}{5} = \dfrac{5}{5} - \dfrac{2}{5} = \dfrac{3}{5}$. Kiểm tra: $\dfrac{27}{45} = \dfrac{27:9}{45:9} = \dfrac{3}{5}$.
+\ans{$27$ km, bằng $\dfrac{3}{5}$ quãng đường}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 3}
+a) Tính $20 - 4\times 3 + 8 : 2$ \quad và \quad $(20-4)\times(3+8) : 2$.\\
+b) Không tính chính xác, hãy cho biết $101 \times 49$ gần nhất với số nào: $50$; $500$; $5000$; $50\,000$? Sau đó
+tính chính xác bằng cách nhanh.
+\guide
+\step{1}{Biểu thức không có ngoặc: nhân, chia trước; cộng, trừ sau}
+\[ 20 - \underbrace{4\times 3}_{12} + \underbrace{8 : 2}_{4} = 20 - 12 + 4 = 8 + 4 = 12. \]
+(Phép trừ và phép cộng làm lần lượt từ trái sang phải: $20 - 12 = 8$, rồi $8 + 4 = 12$.)
+\step{2}{Biểu thức có ngoặc: làm trong ngoặc trước}
+\[ (20 - 4)\times(3+8) : 2 = 16 \times 11 : 2 = 176 : 2 = 88. \]
+\step{3}{Ước lượng}
+$101 \approx 100$ và $49 \approx 50$, nên $101 \times 49 \approx 100\times 50 = 5000$. Chọn $5000$.
+\step{4}{Tính chính xác bằng tính chất phân phối}
+$101 \times 49 = (100 + 1)\times 49 = 4900 + 49 = 4949$, quả thật rất gần $5000$.
+\ans{a) $12$ và $88$;\quad b) gần $5000$ nhất; $101\times 49 = 4949$}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 4}
+a) Gạo giá $18$ nghìn đồng một ki-lô-gam. Mẹ mua $15$ kg và được giảm $10\%$ trên tổng hóa đơn. Mẹ phải trả bao nhiêu tiền?\\
+b) Một chiếc áo giá $400$ nghìn đồng. Cứ sau mỗi tuần, cửa hàng lại giảm $10\%$ \emph{giá hiện tại}. Sau ít nhất bao
+nhiêu tuần thì giá áo thấp hơn $300$ nghìn đồng?
+\guide
+\step{1}{Thành tiền khi chưa giảm}
+Thành tiền $=$ đơn giá $\times$ số lượng $= 18 \times 15 = 270$ (nghìn đồng).
+\step{2}{Trừ đi $10\%$}
+$10\%$ của $270$ là $270 : 10 = 27$ (nghìn đồng). Mẹ trả $270 - 27 = 243$ (nghìn đồng) $= 243\,000$ đồng.
+(Hoặc: còn $90\%$, tức $270 \times 0{,}9 = 243$.)
+\step{3}{Giảm giá liên tiếp: mỗi tuần nhân với $0{,}9$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Thời điểm & Ban đầu & Sau 1 tuần & Sau 2 tuần & Sau 3 tuần\\ \hline
+Giá (nghìn đồng) & $400$ & $360$ & $324$ & $291{,}6$\\ \hline
+Được giảm & -- & $40$ & $36$ & $32{,}4$\\ \hline
+\end{tabular}
+\end{center}
+Sau $2$ tuần giá là $324 > 300$; sau $3$ tuần giá là $291{,}6 < 300$.
+\begin{warnbox}
+Không được nghĩ ``mỗi tuần giảm $40$ nghìn'' (vì $10\%$ của $400$). Mỗi tuần giảm $10\%$ của \emph{giá lúc đó}, nên số
+tiền được giảm ngày càng ít: $40$, rồi $36$, rồi $32{,}4$, \ldots
+\end{warnbox}
+\ans{a) $243\,000$ đồng;\quad b) $3$ tuần}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 5}
+a) Bình đạp xe $3$ vòng quanh một sân vận động có chu vi $400$ m hết $4$ phút. An chạy xe đạp với vận tốc $15$ km/h.
+Ai đi nhanh hơn?\\
+b) Một ô tô chạy với vận tốc $72$ km/h. Trong $3$ giây, ô tô đi được bao nhiêu mét?
+\guide
+\step{1}{Vận tốc của Bình (m/s)}
+Quãng đường: $3 \times 400 = 1200$ (m). Thời gian: $4$ phút $= 4\times 60 = 240$ (giây).
+\[ v_{\text{Bình}} = 1200 : 240 = 5 \text{ (m/s)}. \]
+\step{2}{Đổi vận tốc của An sang m/s}
+\begin{recallbox}$1$ km/h $= \dfrac{1000 \text{ m}}{3600 \text{ s}} = \dfrac{5}{18}$ m/s.\end{recallbox}
+$v_{\text{An}} = 15 \times \dfrac{5}{18} = \dfrac{75}{18} \approx 4{,}17$ (m/s). Vì $5 > 4{,}17$ nên \textbf{Bình nhanh hơn}.
+(Cách khác: $5$ m/s $= 5\times 3{,}6 = 18$ km/h $> 15$ km/h.)
+\step{3}{Ô tô}
+$72$ km/h $= 72 \times \dfrac{5}{18} = 20$ m/s. Trong $3$ giây đi được $20 \times 3 = 60$ (m).
+\ans{a) Bình nhanh hơn ($5$ m/s so với khoảng $4{,}17$ m/s);\quad b) $60$ m}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 6}
+a) Trong các số $72;\ 84;\ 117;\ 135$, số nào chia hết cho $9$?\\
+b) Tìm chữ số $x$ để số $\nd{3x5}$ chia hết cho $9$.\\
+c) Có bao nhiêu số tự nhiên là ước của cả $24$ và $36$?
+\guide
+\step{1}{Dùng dấu hiệu chia hết cho $9$: tính tổng các chữ số}
+$72$: $7+2 = 9$ (chia hết cho $9$). \quad $84$: $8 + 4 = 12$ (không chia hết cho $9$).\\
+$117$: $1+1+7 = 9$ (chia hết). \quad $135$: $1+3+5 = 9$ (chia hết).\\
+Vậy $72$, $117$, $135$ chia hết cho $9$; $84$ thì không ($84 = 9\times 9 + 3$).
+\step{2}{Tìm chữ số $x$}
+Tổng các chữ số của $\nd{3x5}$ là $3 + x + 5 = 8 + x$. Vì $x$ là chữ số nên $8 \le 8 + x \le 17$. Trong khoảng này chỉ có
+$9$ chia hết cho $9$, nên $8 + x = 9$, tức $x = 1$. Số cần tìm là $315 = 9 \times 35$.
+\step{3}{Ước chung của $24$ và $36$}
+Liệt kê ước của $24$: $1, 2, 3, 4, 6, 8, 12, 24$. Ước của $36$: $1, 2, 3, 4, 6, 9, 12, 18, 36$.\\
+Các số có mặt ở cả hai danh sách: $1, 2, 3, 4, 6, 12$ -- đó cũng chính là các ước của ƯCLN$(24,36) = 12$.
+\ans{a) $72;\ 117;\ 135$;\quad b) $x = 1$;\quad c) $6$ số}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 7}
+Trong phép tính $\nd{AB} + \nd{AB} + \nd{AB} = \nd{1AB}$, mỗi chữ cái đại diện cho một chữ số. Tìm $A$ và $B$.
+\guide
+\textbf{Cách 1 -- Dùng cấu tạo số.} Ta có $\nd{1AB} = 100 + \nd{AB}$. Vậy
+\[ 3\times\nd{AB} = 100 + \nd{AB} \;\Rightarrow\; 2\times\nd{AB} = 100 \;\Rightarrow\; \nd{AB} = 50. \]
+Vậy $A = 5$, $B = 0$.
+
+\textbf{Cách 2 -- Xét từng hàng.} Hàng đơn vị: $B + B + B = 3B$ có chữ số tận cùng là $B$, tức $3B - B = 2B$ tận cùng
+bằng $0$, nên $B = 0$ hoặc $B = 5$.
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+  \item Nếu $B = 5$: $3\times 5 = 15$, viết $5$ nhớ $1$. Hàng chục: $3A + 1 = \nd{1A} = 10 + A$, suy ra $2A = 9$ -- không có
+  chữ số nào thỏa mãn. Loại.
+  \item Nếu $B = 0$: không có nhớ. Hàng chục: $3A = 10 + A$, suy ra $2A = 10$, $A = 5$.
+\end{itemize}
+\verify{$50 + 50 + 50 = 150 = \nd{1AB}$ với $A = 5$, $B = 0$. Đúng.}
+\ans{$A = 5$, $B = 0$}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 8}
+a) Bốn bài kiểm tra của Nam được $6$; $9$; $10$ và $x$ điểm. Điểm trung bình của bốn bài là $8$. Tìm $x$.\\
+b) Trung bình cộng của năm số tự nhiên liên tiếp là $30$. Tìm số nhỏ nhất.
+\guide
+\step{1}{Cách tính tổng}
+\begin{recallbox}Tổng $=$ trung bình cộng $\times$ số các số.\end{recallbox}
+Tổng điểm bốn bài là $8 \times 4 = 32$. Vậy $x = 32 - 6 - 9 - 10 = 7$.
+\step{2}{Cách dùng độ lệch (nhanh hơn)}
+So với $8$: bài $6$ thiếu $2$, bài $9$ thừa $1$, bài $10$ thừa $2$. Tổng độ lệch: $-2 + 1 + 2 = +1$. Để tổng các độ lệch
+bằng $0$, bài thứ tư phải thiếu $1$: $x = 8 - 1 = 7$.
+\step{3}{Năm số liên tiếp}
+Với năm số liên tiếp, trung bình cộng là số đứng giữa. Số giữa là $30$, nên năm số là $28, 29, 30, 31, 32$. Số nhỏ nhất là $28$.
+\verify{$28 + 29 + 30 + 31 + 32 = 150 = 5\times 30$. Đúng.}
+\ans{a) $x = 7$;\quad b) $28$}
+\end{exbox}
+
+% =====================================================================
+\clearpage
+\dividerbar{Luyện tập cơ bản}
+
+% ---------------------------------------------------------------- Bài 1
+\begin{probbox}{1}{\relax}
+Số nhỏ nhất trong tập hợp $\{3{,}2;\ 2{,}3;\ 3;\ 2{,}23;\ 3{,}22\}$ là
+\choices{$3{,}2$}{$2{,}3$}{$3$}{$2{,}23$}{$3{,}22$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Có $5$ số thập phân. Ta cần tìm số \emph{nhỏ nhất}.
+\begin{recallbox}So sánh số thập phân: so sánh phần nguyên trước; nếu phần nguyên bằng nhau thì so sánh lần lượt hàng
+phần mười, hàng phần trăm, \ldots\ Có thể thêm chữ số $0$ vào cuối phần thập phân mà giá trị không đổi.\end{recallbox}
+\step{1}{So sánh phần nguyên}
+Phần nguyên của các số: $3{,}2 \to 3$; \ $2{,}3 \to 2$; \ $3 \to 3$; \ $2{,}23 \to 2$; \ $3{,}22 \to 3$.\\
+Số nhỏ nhất phải có phần nguyên nhỏ nhất, tức là bằng $2$. Chỉ còn hai ứng viên: $2{,}3$ và $2{,}23$.
+\step{2}{Viết cùng số chữ số thập phân và so sánh}
+$2{,}3 = 2{,}30$ \ và \ $2{,}23$. Hàng phần mười: $3$ so với $2$; vì $2 < 3$ nên $2{,}23 < 2{,}30$.
+\step{3}{Kết luận}
+Sắp xếp toàn bộ cho chắc chắn: $2{,}23 < 2{,}3 < 3 < 3{,}2 < 3{,}22$. Số nhỏ nhất là $2{,}23$.
+\begin{warnbox}Đừng chọn $2{,}3$ chỉ vì ``$3$ nhỏ hơn $23$''. Chữ số $3$ trong $2{,}3$ là $3$ phần mười, còn trong
+$2{,}23$ chỉ có $2$ phần mười.\end{warnbox}
+\verify{$2{,}23 = \dfrac{223}{100}$ và $2{,}3 = \dfrac{230}{100}$; $223 < 230$.}
+Số $2{,}23$ là phương án \textbf{(D)}.
+\ans{(D) $2{,}23$}
+}
+
+% ---------------------------------------------------------------- Bài 2
+\begin{probbox}{2}{\relax}
+Bạn Minh tham gia một chuyến chèo thuyền kayak dài $36$ km. Trước bữa trưa, Minh đã chèo được $12$ km đầu tiên. Hỏi
+sau bữa trưa, Minh còn phải chèo bao nhiêu phần của cả chuyến đi?
+\choices{$\dfrac{1}{2}$}{$\dfrac{5}{6}$}{$\dfrac{3}{4}$}{$\dfrac{2}{3}$}{$\dfrac{3}{5}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cả chuyến dài $36$ km, đã chèo $12$ km. Đề hỏi phần \emph{còn lại} (chưa chèo), viết dưới dạng phân số.
+\step{1}{Tính quãng đường còn lại}
+$36 - 12 = 24$ (km).
+\step{2}{Lập phân số ``phần còn lại trên toàn bộ''}
+\begin{recallbox}Phân số chỉ ``bao nhiêu phần của toàn thể'' $=\dfrac{\text{phần đang xét}}{\text{toàn thể}}$. Rút gọn bằng cách
+chia cả tử và mẫu cho ước chung lớn nhất.\end{recallbox}
+\[ \frac{24}{36} = \frac{24 : 12}{36 : 12} = \frac{2}{3}. \]
+\step{3}{Minh họa bằng sơ đồ}
+Chia $36$ km thành $3$ đoạn, mỗi đoạn $12$ km: Minh đã chèo $1$ đoạn, còn $2$ đoạn.
+\begin{barfigC}
+  \blk{0}{2.4}{0}{0.6}{tmBlue}{$12$ km}
+  \blk{2.4}{4.8}{0}{0.6}{tmOrange}{$12$ km}
+  \blk{4.8}{7.2}{0}{0.6}{tmOrange}{$12$ km}
+  \brcup{0}{2.4}{0.5}{trước bữa trưa}
+  \brcup{2.4}{7.2}{0.5}{sau bữa trưa: $\frac{2}{3}$}
+\end{barfigC}
+\begin{warnbox}Phân số $\dfrac{12}{36} = \dfrac{1}{3}$ là phần \emph{đã chèo}. Đề hỏi phần \emph{còn lại}, nên đáp án là
+$1 - \dfrac13 = \dfrac23$.\end{warnbox}
+\verify{$\dfrac{2}{3}\times 36 = 24$ km; $24 + 12 = 36$ km. Đúng.}
+\begin{parentbox}Hãy hỏi con hai câu: ``Đã làm được bao nhiêu phần?'' và ``Còn lại bao nhiêu phần?''. Tập thói quen
+trả lời cả hai câu giúp con tránh được bẫy chọn nhầm $\dfrac13$.\end{parentbox}
+Phân số $\dfrac{2}{3}$ là phương án \textbf{(D)}.
+\ans{(D) $\dfrac{2}{3}$}
+}
+
+% ---------------------------------------------------------------- Bài 3
+\begin{probbox}{3}{\relax}
+Khẳng định nào sau đây là \textbf{đúng}?
+\choicesII{$0$ nhỏ hơn $-5$}{$7$ nhỏ hơn $-1$}{$10$ nhỏ hơn $\dfrac{1}{4}$}{$-1$ nhỏ hơn $-3$}{$-8$ nhỏ hơn $-2$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi phương án là một phép so sánh. Ta kiểm tra từng phương án, tìm phương án đúng.
+\begin{recallbox}Trên trục số nằm ngang, số bên trái nhỏ hơn số bên phải. Mọi số âm nhỏ hơn $0$ và nhỏ hơn mọi số dương.
+Trong hai số âm, số nào xa $0$ hơn thì nhỏ hơn.\end{recallbox}
+\step{1}{Đặt các số lên trục số}
+\begin{figC}
+  \draw[->,thick,Navy] (-9.4*0.6,0)--(10.6*0.6,0);
+  \foreach \x in {-9,...,10}{\draw[Navy] (\x*0.6,0.08)--(\x*0.6,-0.08);}
+  \foreach \x in {-8,-5,-3,-2,-1,0,7,10}{\node[below,font=\scriptsize] at (\x*0.6,-0.1) {$\x$};}
+  \foreach \x in {-8,-2}{\fill[tmOrange] (\x*0.6,0) circle (3pt);}
+  \draw[->,tmGreen!70!black,thick] (-8*0.6,0.35) to[bend left=30] node[above,font=\scriptsize]{sang phải $6$ đơn vị} (-2*0.6,0.35);
+\end{figC}
+\step{2}{Kiểm tra từng phương án}
+(A) $0$ nhỏ hơn $-5$? Sai: $-5$ nằm bên trái $0$, nên $-5 < 0$.\\
+(B) $7$ nhỏ hơn $-1$? Sai: số dương luôn lớn hơn số âm.\\
+(C) $10$ nhỏ hơn $\dfrac14$? Sai: $\dfrac14 = 0{,}25 < 10$.\\
+(D) $-1$ nhỏ hơn $-3$? Sai: $-3$ xa $0$ hơn nên $-3 < -1$.\\
+(E) $-8$ nhỏ hơn $-2$? \textbf{Đúng}: $-8$ nằm bên trái $-2$ (xa $0$ hơn).
+\begin{warnbox}Nhiều bạn chọn (D) vì nghĩ ``$1 < 3$ nên $-1 < -3$''. Với số âm thì ngược lại: $-1 > -3$
+(nhiệt độ $-1^\circ$C ấm hơn $-3^\circ$C).\end{warnbox}
+\verify{$-2 - (-8) = 6 > 0$, nghĩa là $-2$ lớn hơn $-8$.}
+Khẳng định đúng duy nhất là \textbf{(E)}.
+\ans{(E) $-8$ nhỏ hơn $-2$}
+}
+
+% ---------------------------------------------------------------- Bài 4
+\begin{probbox}{4}{\relax}
+Giá trị của biểu thức $6 \times 2 - 3$ là
+\choices{$9$}{$-6$}{$12$}{$15$}{$10$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Biểu thức có hai phép tính: nhân và trừ, không có ngoặc.
+\begin{recallbox}Trong biểu thức không có ngoặc: nhân, chia trước; cộng, trừ sau.\end{recallbox}
+\step{1}{Thực hiện phép nhân trước}
+$6\times 2 = 12$.
+\step{2}{Rồi thực hiện phép trừ}
+$12 - 3 = 9$.
+\begin{warnbox}Nếu làm phép trừ trước, ta sẽ được $6\times(2-3) = 6\times(-1) = -6$ -- đó là phương án (B), một ``bẫy''
+dành cho bạn quên thứ tự thực hiện phép tính. Biểu thức đề bài \emph{không có ngoặc}, nên phải nhân trước.\end{warnbox}
+\verify{Đọc biểu thức như một câu chuyện: ``$6$ hộp, mỗi hộp $2$ cái bánh, ăn mất $3$ cái'' thì còn $12 - 3 = 9$ cái.}
+Giá trị $9$ là phương án \textbf{(A)}.
+\ans{(A) $9$}
+}
+
+% ---------------------------------------------------------------- Bài 5
+\begin{probbox}{5}{\relax}
+Bài kiểm tra có tổng điểm là $50$. Bạn Mai đạt $80\%$ số điểm. Mai được bao nhiêu điểm?
+\choices{$40$}{$62{,}5$}{$10$}{$45$}{$35$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Tổng điểm tối đa là $50$; Mai đạt $80\%$ của $50$. Cần tìm số điểm của Mai.
+\begin{recallbox}Muốn tìm $p\%$ của số $a$ ta tính $a \times \dfrac{p}{100}$.\end{recallbox}
+\step{1}{Viết phép tính}
+$80\%$ của $50$ là $50 \times \dfrac{80}{100}$.
+\step{2}{Tính}
+$50 \times \dfrac{80}{100} = \dfrac{50\times 80}{100} = \dfrac{4000}{100} = 40$.
+\step{3}{Cách nhẩm nhanh}
+$10\%$ của $50$ là $5$; vậy $80\% = 8\times 10\%$ là $8\times 5 = 40$.
+\begin{warnbox}Phương án (B) $62{,}5$ là kết quả của phép chia $50 : 0{,}8$ -- sai, vì $62{,}5$ còn lớn hơn cả điểm tối đa $50$!
+Phương án (C) $10$ là số điểm Mai \emph{bị mất} ($20\%$ của $50$).\end{warnbox}
+\verify{$\dfrac{40}{50} = \dfrac{80}{100} = 80\%$. Đúng.}
+Số điểm $40$ là phương án \textbf{(A)}.
+\ans{(A) $40$}
+}
+
+% ---------------------------------------------------------------- Bài 6
+\begin{probbox}{6}{\relax}
+Thịt bò xay được bán với giá $120\,000$ đồng một ki-lô-gam. Mua $12$ kg thịt bò xay thì hết bao nhiêu tiền?
+\choicesII{$120\,000$ đồng}{$12\,000$ đồng}{$1\,440\,000$ đồng}{$132\,000$ đồng}{$10\,000$ đồng}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Đơn giá (giá của $1$ kg) là $120\,000$ đồng; số lượng là $12$ kg. Cần tìm thành tiền.
+\begin{recallbox}Thành tiền $=$ đơn giá $\times$ số lượng.\end{recallbox}
+\step{1}{Viết phép tính}
+Thành tiền $= 120\,000 \times 12$ (đồng).
+\step{2}{Tính (tách $12 = 10 + 2$)}
+$120\,000\times 10 = 1\,200\,000$; \quad $120\,000 \times 2 = 240\,000$.\\
+$120\,000 \times 12 = 1\,200\,000 + 240\,000 = 1\,440\,000$ (đồng).
+\step{3}{Ước lượng để kiểm tra}
+$12$ kg, mỗi kg hơn $100$ nghìn đồng, nên phải trả hơn $1\,200\,000$ đồng. Chỉ có phương án (C) thỏa mãn.
+\begin{warnbox}Các phương án sai đến từ việc dùng nhầm phép tính: (A) là giá $1$ kg; (D) là $120\,000 + 12\,000$ (cộng thay vì
+nhân); (E) là $120\,000 : 12$ (chia thay vì nhân).\end{warnbox}
+\verify{$1\,440\,000 : 12 = 120\,000$ đồng mỗi kg. Đúng.}
+Số tiền $1\,440\,000$ đồng là phương án \textbf{(C)}.
+\ans{(C) $1\,440\,000$ đồng}
+}
+
+% ---------------------------------------------------------------- Bài 7
+\begin{probbox}{7}{\relax}
+Giá trị của biểu thức $(8 \times 4) + 3$ là
+\choices{$96$}{$15$}{$56$}{$35$}{$28$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Biểu thức có ngoặc chứa phép nhân, sau đó cộng thêm $3$.
+\begin{recallbox}Biểu thức có ngoặc: làm phép tính trong ngoặc trước.\end{recallbox}
+\step{1}{Tính trong ngoặc}
+$8\times 4 = 32$.
+\step{2}{Cộng thêm $3$}
+$32 + 3 = 35$.
+\begin{warnbox}Đọc nhầm thành $8 \times (4 + 3) = 8\times 7 = 56$ sẽ dẫn đến phương án (C). Ngoặc trong đề bao quanh
+$8\times 4$, không phải $4 + 3$. Phương án (A) $96 = 8\times 4\times 3$ là do nhầm dấu cộng thành dấu nhân.\end{warnbox}
+\verify{Không có ngoặc thì kết quả vẫn là $8\times 4 + 3 = 35$, vì nhân luôn được làm trước cộng; ngoặc ở đây chỉ để nhấn mạnh.}
+Giá trị $35$ là phương án \textbf{(D)}.
+\ans{(D) $35$}
+}
+
+% ---------------------------------------------------------------- Bài 8
+\begin{probbox}{8}{\relax}
+Số nguyên nào sau đây gần với $99 \times 9$ nhất?
+\choices{$10\,000$}{$100$}{$100\,000$}{$1000$}{$10$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Các phương án là $10$; $100$; $1000$; $10\,000$; $100\,000$ -- cách nhau gấp $10$ lần. Chỉ cần ước
+lượng $99\times 9$ là đủ, nhưng ta cũng tính chính xác để chắc chắn.
+\step{1}{Ước lượng}
+$99 \approx 100$ nên $99 \times 9 \approx 100\times 9 = 900$.
+\step{2}{Tính chính xác bằng tính chất phân phối}
+\begin{recallbox}Tính chất phân phối: $(a - b)\times c = a\times c - b\times c$.\end{recallbox}
+$99\times 9 = (100 - 1)\times 9 = 900 - 9 = 891$.
+\step{3}{So sánh khoảng cách đến các phương án gần nhất}
+Khoảng cách từ $891$ đến $1000$ là $1000 - 891 = 109$.\\
+Khoảng cách từ $891$ đến $100$ là $891 - 100 = 791$.\\
+Các phương án còn lại ($10$; $10\,000$; $100\,000$) còn xa hơn nhiều. Vậy $1000$ là gần nhất.
+\begin{figC}
+  \draw[->,thick,Navy] (-0.3,0)--(10.6,0);
+  \foreach \x/\l in {0/0,1/100,10/1000}{\draw[Navy] (\x,0.1)--(\x,-0.1); \node[below,font=\scriptsize] at (\x,-0.1) {$\l$};}
+  \fill[tmOrange] (8.91,0) circle (3pt); \node[above,font=\scriptsize] at (8.91,0.1) {$891$};
+  \draw[<->,tmGreen!70!black] (8.91,-0.55)--(10,-0.55) node[midway,below,font=\scriptsize]{$109$};
+  \draw[<->,AnsRed!70] (1,-0.55)--(8.91,-0.55) node[midway,below,font=\scriptsize]{$791$};
+\end{figC}
+\verify{$891 : 9 = 99$. Đúng.}
+Số $1000$ là phương án \textbf{(D)}.
+\ans{(D) $1000$}
+}
+
+% ---------------------------------------------------------------- Bài 9
+\begin{probbox}{9}{\relax}
+Bạn Huy đang đọc một cuốn sách dày $396$ trang. Huy mới chỉ đọc xong $\dfrac{1}{3}$ đầu tiên của cuốn sách. Hỏi Huy còn
+phải đọc bao nhiêu trang nữa để hết cuốn sách?
+\choices{$264$}{$124$}{$250$}{$199$}{$244$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cả cuốn sách: $396$ trang. Đã đọc: $\dfrac13$ cuốn. Hỏi: số trang \emph{còn lại}.
+\begin{recallbox}Muốn tìm $\dfrac{m}{n}$ của một số, ta chia số đó cho $n$ rồi nhân với $m$.\end{recallbox}
+\step{1}{Tính số trang đã đọc}
+$\dfrac13$ của $396$ là $396 : 3 = 132$ (trang).
+\step{2}{Tính số trang còn lại}
+$396 - 132 = 264$ (trang).
+\step{3}{Cách khác: tính trực tiếp phần còn lại}
+Phần còn lại là $1 - \dfrac13 = \dfrac23$ cuốn sách, tức $396 : 3 \times 2 = 132\times 2 = 264$ (trang).
+\begin{barfigC}
+  \blk{0}{2.6}{0}{0.6}{tmBlue}{$132$ trang}
+  \blk{2.6}{5.2}{0}{0.6}{tmOrange}{$132$ trang}
+  \blk{5.2}{7.8}{0}{0.6}{tmOrange}{$132$ trang}
+  \brcup{0}{2.6}{0.5}{đã đọc}
+  \brcup{2.6}{7.8}{0.5}{còn phải đọc}
+  \brcdn{0}{7.8}{-0.5}{$396$ trang}
+\end{barfigC}
+\begin{warnbox}Dừng lại ở $132$ là trả lời nhầm câu hỏi (đó là số trang \emph{đã đọc}; và $132$ cũng không có trong các
+phương án). Luôn đọc lại câu hỏi trước khi chọn đáp án.\end{warnbox}
+\verify{$264 + 132 = 396$, và $132\times 3 = 396$. Đúng.}
+Số $264$ là phương án \textbf{(A)}.
+\ans{(A) $264$}
+}
+
+% ---------------------------------------------------------------- Bài 10
+\begin{probbox}{10}{\relax}
+Số nào sau đây là bội của $9$?
+\choices{$50$}{$40$}{$35$}{$45$}{$55$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cần tìm số chia hết cho $9$ (là bội của $9$) trong năm số đã cho.
+\begin{recallbox}Một số chia hết cho $9$ khi và chỉ khi tổng các chữ số của nó chia hết cho $9$.\end{recallbox}
+\step{1}{Tính tổng các chữ số của từng số}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Số & $50$ & $40$ & $35$ & $45$ & $55$\\ \hline
+Tổng các chữ số & $5$ & $4$ & $8$ & $9$ & $10$\\ \hline
+Chia hết cho $9$? & không & không & không & \textbf{có} & không\\ \hline
+\end{tabular}
+\end{center}
+\step{2}{Kiểm tra bằng bảng nhân $9$}
+Các bội của $9$ gần đó: $36,\ 45,\ 54$. Chỉ có $45 = 9\times 5$ xuất hiện trong các phương án.
+\begin{proofbox}Vì sao dấu hiệu đúng với số có hai chữ số $\nd{ab}$? Ta có $\nd{ab} = 10a + b = 9a + (a + b)$. Phần $9a$
+chia hết cho $9$, nên $\nd{ab}$ chia hết cho $9$ đúng khi $a + b$ chia hết cho $9$. Với $45$: $45 = 9\times 4 + 9$.\end{proofbox}
+\verify{$45 : 9 = 5$, không dư.}
+Số $45$ là phương án \textbf{(D)}.
+\ans{(D) $45$}
+}
+
+% ---------------------------------------------------------------- Bài 11
+\begin{probbox}{11}{\relax}
+Cho tập hợp $\{0{,}34;\ 0{,}304;\ 0{,}034;\ 0{,}43\}$. Tổng của số nhỏ nhất và số lớn nhất trong tập hợp là
+\choices{$0{,}77$}{$0{,}734$}{$0{,}077$}{$0{,}464$}{$0{,}338$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Bước 1: tìm số nhỏ nhất và số lớn nhất. Bước 2: cộng hai số đó.
+\begin{recallbox}Để so sánh số thập phân, thêm chữ số $0$ cho các phần thập phân dài bằng nhau rồi so sánh từng hàng
+từ trái sang phải.\end{recallbox}
+\step{1}{Viết các số với ba chữ số thập phân}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Số ban đầu & Viết lại & Phần mười & Phần trăm \\ \hline
+$0{,}34$ & $0{,}340$ & $3$ & $4$ \\ \hline
+$0{,}304$ & $0{,}304$ & $3$ & $0$ \\ \hline
+$0{,}034$ & $0{,}034$ & $0$ & $3$ \\ \hline
+$0{,}43$ & $0{,}430$ & $4$ & $3$ \\ \hline
+\end{tabular}
+\end{center}
+\step{2}{Tìm số nhỏ nhất và lớn nhất}
+So sánh như số tự nhiên: $34 < 304 < 340 < 430$, nên $0{,}034 < 0{,}304 < 0{,}34 < 0{,}43$.\\
+Số nhỏ nhất: $0{,}034$ (hàng phần mười là $0$). Số lớn nhất: $0{,}43$ (hàng phần mười là $4$).
+\step{3}{Cộng, đặt dấu phẩy thẳng cột}
+\[ \begin{array}{r} 0{,}430\\ +\ 0{,}034\\ \hline 0{,}464 \end{array} \]
+\begin{warnbox}Đặt tính lệch hàng (cộng $43$ với $34$ ``theo hàng cuối'') sẽ cho $0{,}77$ hoặc $0{,}077$ -- phương án (A)
+và (C). Phải để dấu phẩy thẳng cột: $4$ phần mười cộng $0$ phần mười, $3$ phần trăm cộng $3$ phần trăm, \ldots\end{warnbox}
+\verify{$0{,}464 - 0{,}43 = 0{,}034$. Đúng.}
+Tổng $0{,}464$ là phương án \textbf{(D)}.
+\ans{(D) $0{,}464$}
+}
+
+% ---------------------------------------------------------------- Bài 12
+\begin{probbox}{12}{\relax}
+Lan và Hà chạy trên một đường chạy vòng tròn dài $150$ m. Lan chạy $3$ vòng hết $120$ giây, còn Hà chạy $5$ vòng hết
+$160$ giây. Bạn nào chạy nhanh hơn, và vận tốc của bạn đó xấp xỉ bao nhiêu?
+\choicesII{Lan, $3{,}75$ m/s}{Lan, $2{,}4$ m/s}{Hà, $3{,}3$ m/s}{Hà, $4{,}69$ m/s}{Hà, $3{,}75$ m/s}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Một vòng dài $150$ m. Lan: $3$ vòng trong $120$ s. Hà: $5$ vòng trong $160$ s. Cần tính vận tốc
+(m/s) của mỗi bạn, so sánh, rồi chọn phương án.
+\begin{recallbox}Vận tốc $=$ quãng đường $:$ thời gian. Quãng đường chạy $n$ vòng $= n\times$ độ dài một vòng.\end{recallbox}
+\step{1}{Quãng đường mỗi bạn chạy}
+Lan: $3\times 150 = 450$ (m). \quad Hà: $5\times 150 = 750$ (m).
+\step{2}{Vận tốc của Lan}
+$v_{\text{Lan}} = 450 : 120 = 3{,}75$ (m/s).
+\step{3}{Vận tốc của Hà}
+$v_{\text{Hà}} = 750 : 160 = 4{,}6875 \approx 4{,}69$ (m/s).
+\step{4}{So sánh}
+$4{,}69 > 3{,}75$ nên \textbf{Hà chạy nhanh hơn}, với vận tốc khoảng $4{,}69$ m/s.
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} & Quãng đường & Thời gian & Vận tốc\\ \hline
+Lan & $450$ m & $120$ s & $3{,}75$ m/s\\ \hline
+Hà & $750$ m & $160$ s & $\approx 4{,}69$ m/s\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Phương án (E) ``Hà, $3{,}75$ m/s'' ghép đúng tên người nhanh hơn với vận tốc của người chậm hơn. Phương án (B)
+$2{,}4$ m/s là kết quả của phép tính ngược $120 : 50$ (chia thời gian cho quãng đường). Hãy luôn viết rõ đơn vị:
+m $:$ s $=$ m/s.\end{warnbox}
+\verify{$4{,}6875 \times 160 = 750$ m $= 5$ vòng; $3{,}75\times 120 = 450$ m $= 3$ vòng. Đúng.}
+Kết luận ``Hà, $4{,}69$ m/s'' là phương án \textbf{(D)}.
+\ans{(D) Hà, $4{,}69$ m/s}
+}
+
+% ---------------------------------------------------------------- Bài 13
+\begin{probbox}{13}{\relax}
+Trong phép cộng dưới đây, $P$ và $Q$ là hai chữ số. Giá trị của $P + Q$ là
+\[ \begin{array}{r@{\;}c@{\;}c@{\;}c} & P & Q & Q\\ & P & P & Q\\ + & Q & Q & Q\\ \hline & 8 & 7 & 6 \end{array} \]
+\choices{$3$}{$5$}{$7$}{$6$}{$4$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ba số $\nd{PQQ}$, $\nd{PPQ}$, $\nd{QQQ}$ có tổng là $876$. Cần tìm hai chữ số $P$, $Q$ rồi tính $P + Q$.
+Ta xét từng hàng, bắt đầu từ hàng đơn vị.
+\step{1}{Hàng đơn vị: $Q + Q + Q = 3Q$ có chữ số tận cùng là $6$}
+$Q$ là chữ số nên $3Q$ có thể là $0, 3, 6, \ldots, 27$. Các số tận cùng bằng $6$ trong đó: chỉ có $6$ (vì $16$ và $26$
+không chia hết cho $3$). Vậy $3Q = 6$, $Q = 2$, và \emph{không có nhớ} sang hàng chục.
+\step{2}{Hàng chục: $Q + P + Q = P + 4$ có chữ số tận cùng là $7$}
+$P + 4$ nằm trong khoảng $4$ đến $13$; tận cùng bằng $7$ thì $P + 4 = 7$, tức $P = 3$. Không có nhớ sang hàng trăm.
+\step{3}{Hàng trăm: kiểm tra $P + P + Q = 8$}
+$3 + 3 + 2 = 8$. Khớp với chữ số hàng trăm của $876$.
+\begin{recallbox}Cấu tạo số: $\nd{PQQ} = 100P + 11Q$, \ $\nd{PPQ} = 110P + Q$, \ $\nd{QQQ} = 111Q$.\end{recallbox}
+\step{4}{Cách khác bằng cấu tạo số}
+Cộng lại: $(100P + 11Q) + (110P + Q) + 111Q = 210P + 123Q = 876$. Thử $Q = 2$: $210P = 876 - 246 = 630$, nên $P = 3$.
+(Các giá trị khác của $Q$ không cho $P$ là chữ số.)
+\verify{$322 + 332 + 222 = 876$. Đúng.}
+\begin{parentbox}Bài đố chữ giống một trò chơi trinh thám: mỗi hàng là một ``manh mối''. Hãy cho con viết riêng từng
+hàng thành một câu (``ba lần $Q$ tận cùng bằng $6$'') rồi thử các chữ số từ $0$ đến $9$. Đừng quên kiểm tra số nhớ.\end{parentbox}
+Vậy $P + Q = 3 + 2 = 5$, là phương án \textbf{(B)}.
+\ans{(B) $5$}
+}
+
+% ---------------------------------------------------------------- Bài 14
+\begin{probbox}{14}{\relax}
+Trung bình cộng của bốn số nguyên $78$; $83$; $82$ và $x$ là $80$. Khẳng định nào sau đây đúng?
+\choicesL{$x$ lớn hơn số trung bình cộng $2$ đơn vị}{$x$ nhỏ hơn số trung bình cộng $1$ đơn vị}{$x$ nhỏ hơn số trung bình cộng $2$ đơn vị}{$x$ nhỏ hơn số trung bình cộng $3$ đơn vị}{$x$ bằng số trung bình cộng}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Biết trung bình cộng của bốn số là $80$ và ba trong bốn số. Tìm $x$ rồi so sánh với $80$.
+\begin{recallbox}Tổng các số $=$ trung bình cộng $\times$ số các số.\end{recallbox}
+\step{1}{Tổng của bốn số}
+$80\times 4 = 320$.
+\step{2}{Tìm $x$}
+$78 + 83 + 82 = 243$, nên $x = 320 - 243 = 77$.
+\step{3}{So sánh với trung bình cộng}
+$80 - 77 = 3$: $x$ nhỏ hơn trung bình cộng $3$ đơn vị.
+\step{4}{Cách nhanh -- phương pháp độ lệch}
+So với $80$: $78$ thiếu $2$; $83$ thừa $3$; $82$ thừa $2$. Tổng độ lệch của ba số: $-2 + 3 + 2 = +3$.
+Vì tổng tất cả các độ lệch phải bằng $0$, nên $x$ phải ``thiếu'' $3$: $x = 80 - 3 = 77$.
+\begin{proofbox}Mỗi số viết được thành $80 + $(độ lệch). Tổng bốn số là $4\times 80 + $(tổng độ lệch). Mà tổng bốn số đúng bằng
+$4\times 80$, nên tổng độ lệch bằng $0$.\end{proofbox}
+\verify{$(78 + 83 + 82 + 77) : 4 = 320 : 4 = 80$. Đúng.}
+\begin{parentbox}Cách ``độ lệch'' rất hợp để tính nhẩm điểm trung bình trong đời sống. Có thể đố con: ``Ba bài
+được $7$, $9$, $8$; muốn trung bình $8$ thì bài thứ tư cần mấy điểm?'' (Đáp: $8$, vì $-1 + 1 + 0 = 0$.)\end{parentbox}
+Khẳng định ``$x$ nhỏ hơn số trung bình cộng $3$ đơn vị'' là phương án \textbf{(D)}.
+\ans{(D)}
+}
+
+% ---------------------------------------------------------------- Bài 15
+\begin{probbox}{15}{\relax}
+Trong dãy Fibonacci $1, 1, 2, 3, 5, \ldots$, mỗi số kể từ số $2$ trở đi bằng tổng của hai số đứng ngay trước nó. Chẳng hạn,
+số tiếp theo của dãy là $3 + 5 = 8$. Số nào sau đây có mặt trong dãy?
+\choices{$20$}{$21$}{$22$}{$23$}{$24$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Quy luật: số sau $=$ tổng hai số liền trước. Ta viết tiếp dãy cho đến khi vượt quá $24$ (số lớn
+nhất trong các phương án), rồi xem phương án nào xuất hiện.
+\step{1}{Viết tiếp dãy}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Thứ tự & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\ \hline
+Số & $1$ & $1$ & $2$ & $3$ & $5$ & $8$ & $13$ & $\mathbf{21}$ & $34$\\ \hline
+\end{tabular}
+\end{center}
+Cụ thể: $5 + 8 = 13$; \ $8 + 13 = 21$; \ $13 + 21 = 34$.
+\step{2}{Đối chiếu với các phương án}
+Số $34$ đã lớn hơn $24$, nên các số tiếp theo đều lớn hơn $24$. Giữa $13$ và $34$ chỉ có đúng một số của dãy là $21$.
+Vậy $20$, $22$, $23$, $24$ không thuộc dãy; chỉ có $21$ thuộc dãy.
+\begin{tipbox}Dãy Fibonacci luôn tăng (từ số thứ hai trở đi) vì ta cộng thêm số dương. Nhờ vậy, khi đã vượt qua một số,
+ta biết chắc số đó không thể xuất hiện về sau nữa.\end{tipbox}
+\verify{$8 + 13 = 21$. Đúng.}
+Số $21$ là phương án \textbf{(B)}.
+\ans{(B) $21$}
+}

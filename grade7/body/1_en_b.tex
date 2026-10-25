@@ -1,0 +1,244 @@
+% ===== Topic 1, part b (EN): problems 16-30 =====
+% helper shapes for the balance-scale problems (topic-specific prefix \ae...)
+% \aeShp{code}{x}{y}: draw shape (T triangle, C circle, S square, D diamond, Q question mark) with lower-left corner at (x,y)
+\providecommand{\aeShp}[3]{%
+  \if#1T\draw[tmBlue!80!black,line width=0.8pt,fill=tmBlue!18] (#2,#3)--(#2+0.34,#3)--(#2+0.17,#3+0.3)--cycle;\fi
+  \if#1C\draw[tmOrange!85!black,line width=0.8pt,fill=tmOrange!22] (#2+0.15,#3+0.15) circle (0.15);\fi
+  \if#1S\draw[tmGreen!80!black,line width=0.8pt,fill=tmGreen!18] (#2,#3) rectangle (#2+0.3,#3+0.3);\fi
+  \if#1D\draw[tmPurple!85!black,line width=0.8pt,fill=tmPurple!18] (#2+0.13,#3)--(#2+0.26,#3+0.16)--(#2+0.13,#3+0.32)--(#2,#3+0.16)--cycle;\fi
+  \if#1Q\node[font=\Large\bfseries,text=Ink,inner sep=0pt,anchor=south] at (#2+0.15,#3) {?};\fi}
+\providecommand{\aeTri}{\tikz[baseline=0pt]{\aeShp{T}{0}{0}}}
+\providecommand{\aeCir}{\tikz[baseline=0pt]{\aeShp{C}{0}{0}}}
+\providecommand{\aeSq}{\tikz[baseline=0pt]{\aeShp{S}{0}{0}}}
+\providecommand{\aeDia}{\tikz[baseline=0pt]{\aeShp{D}{0}{0}}}
+% \aeRow{list}{xcentre}{y}: a row of shapes (e.g. {T,C}) centred at xcentre, standing on height y
+\providecommand{\aeRow}[3]{%
+  \foreach \aeS [count=\aeI] in {#1}{\xdef\aeN{\aeI}}%
+  \foreach \aeS [count=\aeI] in {#1}{\aeShp{\aeS}{#2-0.19*\aeN+0.38*\aeI-0.36}{#3+0.03}}}
+% \aeScale{x}{y}{left list}{right list}: a balanced scale centred at (x,y)
+\providecommand{\aeScale}[4]{\begin{scope}[shift={(#1,#2)}]
+  \draw[Ink,line width=1pt] (-1.9,0.55)--(-0.5,0.55) (-1.2,0.55)--(-1.2,0.25)--(1.2,0.25)--(1.2,0.55) (0.5,0.55)--(1.9,0.55);
+  \draw[Ink,line width=0.9pt,fill=Ink!12] (-0.2,-0.12)--(0,0.25)--(0.2,-0.12)--cycle;
+  \aeRow{#3}{-1.2}{0.55}\aeRow{#4}{1.2}{0.55}
+\end{scope}}
+
+% ------------------------------------------------------------------ 16
+\begin{probbox}{16}{\relax}
+Hồng is learning to save money. Today she has $120$ thousand dong in her savings account. From now on, every time she makes a deposit she will add exactly $30$ thousand dong. If Hồng makes $m$ such deposits, which expression correctly gives the amount of money (in thousands of dong) in her account?
+\choices{$120+m$}{$30m$}{$30+120m$}{$150m$}{$120+30m$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} Given: at the start there are $120$ thousand dong; each deposit adds $30$ thousand dong; there are $m$ deposits. Find: an algebraic expression for the total after $m$ deposits.
+
+\step{1}{Try a few concrete values of $m$ to see the pattern}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}\textbf{Deposits} & \textbf{Money added} & \textbf{Total (thousand dong)}\\ \hline
+$0$ & $0$ & $120$\\ \hline
+$1$ & $30$ & $120+30=150$\\ \hline
+$2$ & $30+30=30\cdot 2=60$ & $120+60=180$\\ \hline
+$3$ & $30\cdot 3=90$ & $120+90=210$\\ \hline
+$m$ & $30\cdot m=30m$ & $120+30m$\\ \hline
+\end{tabular}
+\end{center}
+
+\step{2}{Write the expression}
+The money \emph{added} after $m$ deposits is $m$ times $30$, that is $30m$. Adding the $120$ already in the account gives
+\[ \text{Total} = 120 + 30m \ \text{(thousand dong)}. \]
+\begin{recallbox}$30m$ means $30\cdot m$ (we may leave out the multiplication sign between a number and a letter). Adding a number $a$ to itself $m$ times gives $a\cdot m$.\end{recallbox}
+
+\step{3}{Rule out the wrong options}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item (A) $120+m$: adds only $1$ thousand each time -- wrong.
+\item (B) $30m$: forgets the $120$ thousand already there. For $m=0$ it gives $0$ -- wrong.
+\item (C) $30+120m$: swaps the roles of the two numbers. For $m=1$ it gives $150$ (the same!), but for $m=2$ it gives $270\ne 180$ -- wrong.
+\item (D) $150m$: for $m=2$ it gives $300\ne 180$ -- wrong.
+\end{itemize}
+\begin{warnbox}Testing only \emph{one} value, $m=1$, is not enough: (C), (D) and (E) all give $150$. Also try $m=0$ or $m=2$ to tell them apart.\end{warnbox}
+\verify{For $m=3$: $120+30\cdot 3=210$, exactly as in the table of Step 1.}
+So the answer is \textbf{(E)}.
+\ans{(E) $120+30m$}
+}
+
+% ------------------------------------------------------------------ 17
+\begin{probbox}{17}{\relax}
+All four scales below are balanced. Identical shapes have equal masses. One possible replacement for the ``?'' that keeps the fourth scale balanced is
+\begin{figC}
+\aeScale{0}{1.6}{T,C}{S}
+\aeScale{4.6}{1.6}{T}{D,C}
+\aeScale{0}{0}{D,T}{C,S}
+\aeScale{4.6}{0}{C,D,T}{Q}
+\node[font=\footnotesize\bfseries,text=Slate] at (-2.25,2.45) {1};
+\node[font=\footnotesize\bfseries,text=Slate] at (2.35,2.45) {2};
+\node[font=\footnotesize\bfseries,text=Slate] at (-2.25,0.85) {3};
+\node[font=\footnotesize\bfseries,text=Slate] at (2.35,0.85) {4};
+\end{figC}
+\choices{\aeTri\,\aeSq}{\aeDia\,\aeTri}{\aeCir\,\aeSq}{\aeSq\,\aeDia}{\aeTri\,\aeCir}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} Each balanced scale gives an \emph{equation}: the total mass on the left pan equals the total mass on the right pan. We write the shapes straight into the equations (each shape stands for its mass):
+\[
+\text{Scale 1: } \aeTri+\aeCir=\aeSq,\qquad
+\text{Scale 2: } \aeTri=\aeDia+\aeCir,\qquad
+\text{Scale 3: } \aeDia+\aeTri=\aeCir+\aeSq.
+\]
+Find: the right pan of scale 4 must weigh the same as $\aeCir+\aeDia+\aeTri$. Idea: convert every shape into one common ``unit'', namely \aeCir.
+\begin{recallbox}If a scale is balanced, then \emph{replacing} an object by objects of the same mass, or \emph{removing} identical objects from both pans, keeps it balanced. This is exactly the property of equations: $a=b \Rightarrow a+c=b+c$ and $a-c=b-c$.\end{recallbox}
+
+\step{1}{Use scale 2 to replace \aeTri\ in scale 1}
+By scale 2, $\aeTri=\aeDia+\aeCir$. Substituting into scale 1:
+\[ \aeSq=\aeTri+\aeCir=(\aeDia+\aeCir)+\aeCir=\aeDia+2\,\aeCir. \]
+
+\step{2}{Substitute into scale 3 to find \aeDia}
+Left pan of scale 3: $\aeDia+\aeTri=\aeDia+(\aeDia+\aeCir)=2\,\aeDia+\aeCir$.\par
+Right pan of scale 3: $\aeCir+\aeSq=\aeCir+(\aeDia+2\,\aeCir)=\aeDia+3\,\aeCir$.\par
+So $2\,\aeDia+\aeCir=\aeDia+3\,\aeCir$. Remove one \aeDia\ and one \aeCir\ from both pans:
+\[ \aeDia = 2\,\aeCir. \]
+
+\step{3}{Express every shape in units of \aeCir}
+\[ \aeDia=2\,\aeCir,\qquad \aeTri=\aeDia+\aeCir=3\,\aeCir,\qquad \aeSq=\aeDia+2\,\aeCir=4\,\aeCir. \]
+Left pan of scale 4: $\aeCir+\aeDia+\aeTri=1+2+3=6$ (\aeCir).
+
+\step{4}{Work out each option (in units of \aeCir)}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} & (A) \aeTri\,\aeSq & (B) \aeDia\,\aeTri & (C) \aeCir\,\aeSq & (D) \aeSq\,\aeDia & (E) \aeTri\,\aeCir\\ \hline
+Mass & $3+4=7$ & $2+3=5$ & $1+4=5$ & $4+2=\mathbf{6}$ & $3+1=4$\\ \hline
+\end{tabular}
+\end{center}
+Only (D) weighs exactly $6$ \aeCir.
+\verify{Let \aeCir\ weigh $1$ kg; then \aeDia, \aeTri, \aeSq\ weigh $2$, $3$, $4$ kg. Scale 1: $3+1=4$ \checkmark; scale 2: $3=2+1$ \checkmark; scale 3: $2+3=1+4$ \checkmark; scale 4: $1+2+3=6=4+2$ \checkmark.}
+\begin{tipbox}When there are several unknowns, choose \emph{one} shape as the unit of measurement and express all the others in terms of it -- just like changing all amounts of money into the same kind of banknote.\end{tipbox}
+So the answer is \textbf{(D)}.
+\ans{(D) \aeSq\,\aeDia}
+}
+
+% ------------------------------------------------------------------ 18
+\begin{probbox}{18}{\relax}
+The number that goes in the box to make $\dfrac{3}{7}=\dfrac{\square}{63}$ true is
+\choices{$27$}{$9$}{$59$}{$63$}{$3$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} Two fractions are equal and the denominator of the second one is $63$. Find its numerator.
+\begin{recallbox}\textbf{Basic property of fractions:} multiplying both the numerator and the denominator of a fraction by the same non-zero number gives an equal fraction: $\dfrac{a}{b}=\dfrac{a\cdot k}{b\cdot k}$ $(k\ne 0)$.\end{recallbox}
+
+\step{1}{What was the denominator multiplied by?}
+From $7$ to $63$: $63\div 7=9$. So the denominator was multiplied by $9$.
+
+\step{2}{Multiply the numerator by the same number}
+To keep the fraction unchanged, the numerator must also be multiplied by $9$: $3\cdot 9=27$.
+\[ \frac{3}{7}=\frac{3\cdot 9}{7\cdot 9}=\frac{27}{63}. \]
+
+\step{3}{Another way: ``cross-multiplication''}
+$\dfrac{a}{b}=\dfrac{c}{d}$ exactly when $a\cdot d=b\cdot c$. Call the missing number $x$: $3\cdot 63=7\cdot x$, so $189=7x$ and $x=189\div 7=27$.
+\begin{warnbox}Some students see $63-7=56$ and then compute $3+56=59$ (option C). A fraction does \emph{not} stay the same when we \emph{add} the same number to its numerator and denominator! We must \emph{multiply} (or divide).\end{warnbox}
+\verify{Dividing $27$ and $63$ by $9$ gives $3$ and $7$, so $\dfrac{27}{63}=\dfrac{3}{7}$ \checkmark.}
+So the answer is \textbf{(A)}.
+\ans{(A) $27$}
+}
+
+% ------------------------------------------------------------------ 19
+\begin{probbox}{19}{\relax}
+The sum of four numbers is $T$. Each of the four numbers is increased by $1$. The four new numbers are added together, and the sum is then multiplied by $3$. The final result is
+\choices{$3T+3$}{$3T+4$}{$3T+12$}{$T+12$}{$12T$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} There are four unknown numbers and we only know their sum is $T$. We do not need each number -- only how the \emph{sum} changes.
+
+\step{1}{Name the numbers}
+Call the four numbers $a$, $b$, $c$, $d$. We are told $a+b+c+d=T$.
+
+\step{2}{Increase each number by 1 and add}
+The new numbers are $a+1$, $b+1$, $c+1$, $d+1$. Their sum is
+\[ (a+1)+(b+1)+(c+1)+(d+1)=(a+b+c+d)+(1+1+1+1)=T+4. \]
+\begin{recallbox}Addition is commutative and associative, so we may group the letters together and the numbers together.\end{recallbox}
+
+\step{3}{Multiply by 3}
+\[ 3\cdot(T+4)=3\cdot T+3\cdot 4=3T+12. \]
+\begin{recallbox}\textbf{Distributive property:} $k\cdot(x+y)=k\cdot x+k\cdot y$. The $3$ must multiply \emph{each} term in the brackets.\end{recallbox}
+\begin{warnbox}Two common mistakes: (1) adding only $1$ to the sum (instead of $4$, since there are four numbers), which gives $3T+3$; (2) forgetting to multiply the $4$ by $3$, which gives $3T+4$.\end{warnbox}
+\verify{Take the numbers $1,2,3,4$: $T=10$. The new numbers $2,3,4,5$ add to $14$; times $3$ gives $42$. And $3T+12=30+12=42$ \checkmark. The other options give $33$, $34$, $22$, $120$ -- all wrong.}
+So the answer is \textbf{(C)}.
+\ans{(C) $3T+12$}
+}
+
+% ------------------------------------------------------------------ 20
+\begin{probbox}{20}{\relax}
+Two isosceles triangles each have at least one angle measuring $70^\circ$. In the first triangle, the measure (in degrees) of each of the other two angles is even. In the second triangle, the measure of each of the other two angles is odd. Let $S$ be the sum of the two equal angles of the first triangle and $T$ the sum of the two equal angles of the second triangle. The value of $S+T$ is
+\choices{$280^\circ$}{$250^\circ$}{$220^\circ$}{$200^\circ$}{$300^\circ$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} An isosceles triangle has two equal base angles. The $70^\circ$ angle could be the \emph{apex angle} or a \emph{base angle}. We look at both possibilities and see which one gives ``the other two angles even'' and which one gives ``the other two angles odd''.
+\begin{recallbox}The three angles of a triangle add up to $180^\circ$. In an isosceles triangle the two base angles are equal.\end{recallbox}
+
+\step{1}{Possibility 1: the $70^\circ$ angle is a base angle}
+Then the other base angle is also $70^\circ$. The apex angle is $180^\circ-70^\circ-70^\circ=40^\circ$.\par
+The angles are $70^\circ,\ 70^\circ,\ 40^\circ$. The other two angles (apart from one $70^\circ$ angle) are $70^\circ$ and $40^\circ$ -- \textbf{both even}.
+
+\step{2}{Possibility 2: the $70^\circ$ angle is the apex angle}
+The two base angles are equal and add up to $180^\circ-70^\circ=110^\circ$, so each is $110^\circ\div 2=55^\circ$.\par
+The angles are $70^\circ,\ 55^\circ,\ 55^\circ$. The other two angles are $55^\circ$ and $55^\circ$ -- \textbf{both odd}.
+\begin{figC}
+\begin{scope}
+\draw[tmBlue,line width=1.1pt,fill=tmBlue!8] (0,0)--(1.6,0)--(0.8,2.2)--cycle;
+\node[font=\scriptsize] at (0.33,0.2) {$70^\circ$};
+\node[font=\scriptsize] at (1.27,0.2) {$70^\circ$};
+\node[font=\scriptsize] at (0.8,1.65) {$40^\circ$};
+\node[font=\footnotesize\bfseries,text=tmBlue] at (0.8,-0.35) {First triangle};
+\end{scope}
+\begin{scope}[xshift=3.6cm]
+\draw[tmOrange,line width=1.1pt,fill=tmOrange!8] (0,0)--(2.4,0)--(1.2,1.71)--cycle;
+\node[font=\scriptsize] at (0.45,0.18) {$55^\circ$};
+\node[font=\scriptsize] at (1.95,0.18) {$55^\circ$};
+\node[font=\scriptsize] at (1.2,1.25) {$70^\circ$};
+\node[font=\footnotesize\bfseries,text=tmOrange!85!black] at (1.2,-0.35) {Second triangle};
+\end{scope}
+\end{figC}
+
+\step{3}{Find $S$ and $T$}
+The first triangle (other two angles even) is possibility 1. Its two \emph{equal} angles are the two $70^\circ$ angles: $S=70^\circ+70^\circ=140^\circ$.\par
+The second triangle (other two angles odd) is possibility 2. Its two equal angles are the $55^\circ$ angles: $T=55^\circ+55^\circ=110^\circ$.
+
+\step{4}{Compute $S+T$}
+$S+T=140^\circ+110^\circ=250^\circ$.
+\begin{warnbox}``The sum of the equal angles'' is the sum of the two \emph{base} angles, not the sum of the two ``other'' angles. In the first triangle the other two angles are $70^\circ$ and $40^\circ$ (sum $110^\circ$), but the equal angles are $70^\circ$ and $70^\circ$ (sum $140^\circ$). Mixing these up gives $110^\circ+110^\circ=220^\circ$ (option C).\end{warnbox}
+\verify{$70+70+40=180$ and $70+55+55=180$ \checkmark.}
+So the answer is \textbf{(B)}.
+\ans{(B) $250^\circ$}
+}
+
+% ------------------------------------------------------------------ 21
+\begin{probbox}{21}{\relax}
+Ánh is on a $6$-day kayak trip with a total distance of $168$ km. At the end of the third day she has covered $\frac{3}{7}$ of the total distance. How many kilometres per day must she average for the rest of the trip?
+\choices{$29$}{$24$}{$27$}{$32$}{$26$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} Given: total distance $168$ km; the trip lasts $6$ days; after $3$ days $\frac{3}{7}$ of the distance is done. Find: the average number of km per day for the remaining days.
+\begin{recallbox}To find $\frac{m}{n}$ of a number, multiply the number by $\frac{m}{n}$ (divide by $n$, then multiply by $m$).\end{recallbox}
+
+\step{1}{Draw a bar model: split the distance into 7 equal parts}
+\begin{barfigC}
+\foreach \i in {0,1,2}{\blk{\i*1.3}{\i*1.3+1.3}{0}{0.6}{tmGreen}{}}
+\foreach \i in {3,4,5,6}{\blk{\i*1.3}{\i*1.3+1.3}{0}{0.6}{tmOrange}{}}
+\brcup{0}{3.9}{0.55}{done: $3$ parts (3 days)}
+\brcup{3.9}{9.1}{0.55}{left: $4$ parts (3 days)}
+\brcdn{0}{9.1}{-0.55}{$168$ km}
+\end{barfigC}
+Each part is $168\div 7=24$ km long.
+
+\step{2}{Distance done and distance left}
+Done: $3$ parts $=3\cdot 24=72$ km.\par
+Left: $168-72=96$ km (or $4$ parts $=4\cdot 24=96$ km).
+
+\step{3}{Days left}
+The trip lasts $6$ days and $3$ are over, so $6-3=3$ days remain.
+
+\step{4}{Average per day}
+$96\div 3=32$ km per day.
+\begin{warnbox}Do not confuse ``the fraction of the distance left'' ($\frac{4}{7}$) with ``the number of days left'' ($3$ days). Option (B), $24$ km, is just the length of \emph{one seventh} of the distance.\end{warnbox}
+\verify{$72+3\cdot 32=72+96=168$ km \checkmark.}
+So the answer is \textbf{(D)}.
+\ans{(D) $32$ km per day}
+}

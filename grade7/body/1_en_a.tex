@@ -1,0 +1,575 @@
+% ===================== Topic 1 -- Algebra and Equations -- part a (EN) =====================
+% helper macros (topic prefix \aea..., guarded)
+% \aeaBox{a}{b}{c}{d}: a 2x2 box holding four numbers (Problems 14, 33)
+\providecommand{\aeaBox}[4]{\begin{tikzpicture}[baseline=-0.7ex,font=\small]
+  \draw[Navy,line width=0.8pt,fill=tmBlue!6] (-0.66,-0.32) rectangle (0.66,0.32);
+  \draw[Navy,line width=0.8pt] (0,-0.32)--(0,0.32) (-0.66,0)--(0.66,0);
+  \node[inner sep=0pt] at (-0.33,0.16){$#1$};\node[inner sep=0pt] at (0.33,0.16){$#2$};
+  \node[inner sep=0pt] at (-0.33,-0.16){$#3$};\node[inner sep=0pt] at (0.33,-0.16){$#4$};\end{tikzpicture}}
+% \aeaScale{left}{right}: a balanced scale with objects on both pans
+\providecommand{\aeaScale}[2]{\begin{tikzpicture}[baseline=0pt,font=\small]
+  \draw[Ink,line width=1.1pt] (-1.7,0)--(1.7,0);
+  \fill[Slate] (0,0)--(-0.22,-0.38)--(0.22,-0.38)--cycle;
+  \draw[Slate,line width=1pt] (-0.4,-0.38)--(0.4,-0.38);
+  \node[above=1pt] at (-1.05,0){#1};\node[above=1pt] at (1.05,0){#2};\end{tikzpicture}}
+% coloured shapes for the balance problems
+\providecommand{\aeaTri}{\textcolor{tmOrange}{\scalebox{1.5}{$\blacktriangle$}}}
+\providecommand{\aeaSq}{\textcolor{tmBlue}{\scalebox{1.5}{$\blacksquare$}}}
+\providecommand{\aeaCir}{\textcolor{tmGreen}{\scalebox{2.6}{$\bullet$}}}
+
+\begin{knowbox}
+\textbf{The big idea.} Algebra is \emph{the language of unknown numbers}. Instead of saying at length
+``some number, add $5$, then double it'', we simply write $2(x+5)$. The letter $x$ (called a
+\textbf{variable} or an \textbf{unknown}) holds the place of a number that we do not know yet or that may change.
+
+In this topic you will practise four core skills:
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item \textbf{Translate} words into expressions and formulas (``more than'', ``times'', ``sum'', ``difference''...).
+\item \textbf{Substitute} numbers to evaluate an expression, or to check whether an equation is true or false.
+\item \textbf{Solve equations} with the \emph{balance principle}: whatever you do to one side, do exactly the same to the other side.
+\item \textbf{Spot patterns}: sequences, tables of values, ratios, and the order of numbers.
+\end{enumerate}
+Every word problem follows the same route: \emph{read carefully $\to$ choose an unknown $\to$ write an expression
+or an equation $\to$ solve $\to$ check $\to$ answer}.
+\end{knowbox}
+\vspace{0.3cm}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Variables, algebraic expressions and formulas}
+\begin{knowbox}
+\textbf{1. Variables and expressions.} An \textbf{algebraic expression} is built from numbers, letters
+(variables) and the operations $+,\ -,\ \times,\ \div$, powers and brackets. Examples: $3x-1$;\quad $2(n-1)$;\quad $120+30m$;\quad $xy$.
+
+\textbf{Short-hand.} Between a number and a letter, or between two letters, we leave out the multiplication sign:
+$3x$ means $3\cdot x$;\ \ $xy$ means $x\cdot y$;\ \ $2(n-1)$ means $2\cdot(n-1)$. The number is written before the letter.
+
+\textbf{2. Value of an expression.} To evaluate an expression for given values of the variables, we
+\emph{replace} each letter by its number (best put in brackets), then calculate in the correct order of operations.
+
+\emph{Example:} for $x=3$, $3x-1=3\cdot 3-1=9-1=8$;\quad $2x^2=2\cdot 3^2=2\cdot 9=18$.
+
+\textbf{3. Translating words into expressions.}
+
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+\rowcolor{tmBlue!10}\textbf{Words} & \textbf{Expression}\\ \hline
+$5$ more than $x$;\ \ $x$ increased by $5$ & $x+5$\\ \hline
+$5$ less than $x$;\ \ $x$ decreased by $5$ & $x-5$\\ \hline
+$3$ times $x$;\ \ triple $x$ & $3x$\\ \hline
+half of $x$;\ \ $x$ divided by $2$ & $\dfrac{x}{2}$ or $x\div 2$\\ \hline
+start with $120$, add $30$ each time, $m$ times & $120+30m$\\ \hline
+three consecutive whole numbers, the smallest is $n$ & $n,\ n+1,\ n+2$\\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{4. A formula} is an equation that tells us how to calculate one quantity from other quantities.
+Useful geometry formulas (side lengths $a$, $b$, $c$):
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item Perimeter of a triangle: $P=a+b+c$ (the sum of the three sides).
+\item Rectangle with length $a$ and width $b$: perimeter $P=2(a+b)$, area $A=a\cdot b$.
+\item Triangle with base $a$ and height $h$: area $A=\dfrac{a\cdot h}{2}$.
+\item Rectangular prism $a\times b\times c$: total surface area $S=2(ab+bc+ca)$, volume $V=abc$.
+\end{itemize}
+\end{knowbox}
+
+\begin{proofbox}
+\textbf{Why is the area of a triangle half of (base $\times$ height)?} Draw a rectangle with one side equal to the base $a$
+of the triangle and the other side equal to the height $h$. The height splits the triangle into two right triangles; each right
+triangle is exactly half of a smaller rectangle (in the picture, the shaded and white parts match in pairs).
+So the triangle covers exactly half of the big rectangle: $A=\dfrac{a\cdot h}{2}$.
+\begin{figC}
+\draw[Navy,line width=0.9pt] (0,0) rectangle (4,2);
+\fill[tmOrange!25] (0,0)--(4,0)--(1.4,2)--cycle;
+\draw[tmOrange!80!black,line width=1pt] (0,0)--(4,0)--(1.4,2)--cycle;
+\draw[dashed,Slate] (1.4,2)--(1.4,0);
+\draw[Slate] (1.4,0.2)--(1.6,0.2)--(1.6,0);
+\node[below] at (2,0){$a$};
+\node[right] at (4,1){$h$};
+\node[left,font=\footnotesize] at (1.4,1){$h$};
+\end{figC}
+Similarly, the perimeter of a rectangle is $a+b+a+b=2a+2b=2(a+b)$ because a rectangle has two equal long sides and two equal short sides.
+\end{proofbox}
+
+\begin{tipbox}
+When substituting, \emph{always put the number in brackets}, especially a negative number: for $x=-2$,
+$x^2=(-2)^2=4$, while $3x=3\cdot(-2)=-6$. Brackets protect you from sign mistakes.
+\end{tipbox}
+
+\begin{warnbox}
+$3x$ with $x=4$ is $3\cdot 4=12$, \emph{not} ``$34$''. And $x^2$ (which is $x\cdot x$) is different from $2x$ (which is $x+x$):
+for $x=5$, $x^2=25$ but $2x=10$.
+\end{warnbox}
+
+\begin{tipbox}
+\textbf{Write everything in terms of a few letters.} Consider a list in which every number (from the third on) is the sum of the two before it.
+If the first two numbers are $a$ and $b$, the next ones are
+\[a,\quad b,\quad a+b,\quad b+(a+b)=a+2b,\quad (a+b)+(a+2b)=2a+3b,\ \dots\]
+For instance, with $a=11$, $b=20$ the fifth number is $2\cdot 11+3\cdot 20=22+60=82$, just as in the list $11,20,31,51,82$.
+Writing the numbers in terms of $a$ and $b$ turns a question about the list into an equation.
+\end{tipbox}
+
+\begin{parentbox}
+Play the ``number machine'' game with your child: you say a rule (``multiply by $3$, then subtract $1$''),
+your child writes it as the expression $3x-1$, and then you take turns feeding numbers into the machine. This game makes
+the letter $x$ feel friendly instead of scary.
+\end{parentbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Integers, order of operations and the distributive law}
+\begin{knowbox}
+\textbf{1. Integers.} The numbers $\dots,-3,-2,-1,0,1,2,3,\dots$ are called integers. On the number line, a number further to the
+left is smaller. The opposite of $a$ is $-a$; we have $a+(-a)=0$.
+\begin{center}\begin{tikzpicture}[x=0.85cm,>=stealth]
+\draw[->,thick,Navy] (-5.5,0)--(5.5,0);
+\foreach \i in {-5,...,5}{\draw[Navy] (\i,0.08)--(\i,-0.08); \node[below,font=\small] at (\i,-0.1){$\i$};}
+\draw[->,tmOrange,line width=1pt] (2,0.25) to[bend left=35] node[above,font=\footnotesize]{$-5$} (-3,0.25);
+\fill[tmGreen] (2,0) circle (2.2pt); \fill[AnsRed] (-3,0) circle (2.2pt);
+\end{tikzpicture}\end{center}
+\emph{Example:} $2+(-5)=-3$: starting at $2$, move $5$ steps to the left and arrive at $-3$.
+
+\textbf{2. Adding and subtracting integers.}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item Two numbers with the same sign: add the sizes and keep the common sign: $(-11)+(-26)=-37$.
+\item Two numbers with different signs: subtract the smaller size from the larger one and take the sign of the number with the larger size: $11+(-37)=-26$.
+\item Subtracting means adding the opposite: $a-b=a+(-b)$. Example: $-26-11=-26+(-11)=-37$.
+\end{itemize}
+
+\textbf{3. Order of operations.} Brackets first $\to$ powers $\to$ multiplication and division (left to right)
+$\to$ addition and subtraction (left to right). Example: $6+2\cdot 3=6+6=12$ (not $8\cdot 3$).
+
+\textbf{4. The distributive law.} $a(b+c)=ab+ac$ and $a(b-c)=ab-ac$.
+\emph{Examples:} $3(T+4)=3T+12$;\quad $20\cdot 9\,000-20\cdot 6\,750=20\cdot(9\,000-6\,750)$.
+
+\textbf{5. Simplifying expressions.} Add ``like terms'': $3x+5x=8x$; \
+$(a+1)+(b+1)+(c+1)+(d+1)=(a+b+c+d)+4$.
+
+\textbf{6. Points in the coordinate plane.} The point $(x,y)$ has $x$-coordinate $x$ and $y$-coordinate $y$. Moving $k$ units
+to the right increases $x$ by $k$; moving $k$ units up increases $y$ by $k$ (moving left or down decreases them).
+\end{knowbox}
+
+\begin{proofbox}
+\textbf{Why is $a(b+c)=ab+ac$?} Take a rectangle with width $a$ and length $b+c$. Its area is
+$a(b+c)$. But we can also cut it into two smaller rectangles with areas $ab$ and $ac$. It is the same
+area, so $a(b+c)=ab+ac$.
+\begin{figC}
+\fill[tmBlue!18] (0,0) rectangle (3,1.2); \fill[tmGreen!20] (3,0) rectangle (5,1.2);
+\draw[Navy,line width=0.9pt] (0,0) rectangle (5,1.2); \draw[Navy,line width=0.9pt] (3,0)--(3,1.2);
+\node at (1.5,0.6){$ab$}; \node at (4,0.6){$ac$};
+\node[left] at (0,0.6){$a$}; \node[below] at (1.5,0){$b$}; \node[below] at (4,0){$c$};
+\end{figC}
+\end{proofbox}
+
+\begin{warnbox}
+$3(T+4)$ is \emph{not} equal to $3T+4$: you must multiply $3$ by \emph{each} term inside the brackets, $3(T+4)=3T+3\cdot 4=3T+12$.
+Likewise $-(a-b)=-a+b$ (change the sign of \emph{every} term in the brackets).
+\end{warnbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Equations and the balance principle}
+\begin{knowbox}
+\textbf{1. Equations.} A statement of equality containing an unknown, such as $2(x+8)=38$, is called an \textbf{equation}.
+A number that makes both sides equal when it replaces the unknown is called a \textbf{solution}. To \emph{solve an equation} means to find its solutions.
+
+\textbf{2. The balance principle.} Imagine the equation as a pair of scales in balance.
+The scales stay balanced if we:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item add (or subtract) \emph{the same number} on both sides;
+\item multiply (or divide) both sides by \emph{the same non-zero number}.
+\end{itemize}
+A familiar consequence is the \textbf{rule for moving terms}: when a term moves from one side to the other, its \emph{sign changes}.
+
+\begin{center}
+\aeaScale{\aeaSq\,\aeaSq\ \ \fbox{\footnotesize 3 kg}}{\fbox{\footnotesize 11 kg}}
+\end{center}
+\emph{Example:} two identical boxes plus a $3$ kg weight balance $11$ kg: $2x+3=11$.
+Remove the $3$ kg weight from both pans: $2x=11-3=8$. Halve both pans: $x=8\div 2=4$. Each box weighs $4$ kg.
+
+\textbf{3. Substitution on scales.} If $A$ on one pan balances $B$, then on any other pair of scales we may
+replace $A$ by $B$ and the scales stay balanced (just like replacing an expression by an equal expression).
+
+\textbf{4. Always check.} After solving, substitute the solution into the original equation to make sure both sides are equal.
+\end{knowbox}
+
+\begin{proofbox}
+\textbf{Why does a term change sign when it moves across?} From $2x+3=11$, subtract $3$ from both sides (the scales stay balanced):
+$2x+3-3=11-3$, that is, $2x=11-3$. Looking at the result, the term $+3$ on the left seems to have ``jumped'' to the right and become $-3$.
+In fact nothing ``jumps'': we only subtracted the same number from both sides.
+\end{proofbox}
+
+\begin{warnbox}
+Forgetting to change the sign: from $x+11=-26$, writing $x=-26+11$ is \textbf{wrong}. The correct step is $x=-26-11=-37$.
+\end{warnbox}
+
+\begin{tipbox}
+In a multiple-choice question with an equation, you can \emph{substitute each option in turn} into the equation. It is slower
+but very safe, and it is also the best way to check.
+\end{tipbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Solving word problems with equations}
+\begin{knowbox}
+\textbf{Four steps for a word problem.}
+\begin{enumerate}[leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item \textbf{Choose an unknown}: call the quantity you want (or a related one) $x$; write its unit and any condition (for example $x>0$, $x$ is a whole number).
+\item \textbf{Express} the other quantities in terms of $x$.
+\item \textbf{Write an equation} from the conditions of the problem and \textbf{solve} it.
+\item \textbf{Compare} with the conditions, \textbf{check}, and \textbf{answer} the actual question.
+\end{enumerate}
+
+\textbf{Common types.}
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt,topsep=2pt]
+\item \textbf{Consecutive integers:} $n,\ n+1,\ n+2$ (or, more neatly, $n-1,\ n,\ n+1$). Consecutive even (odd) numbers differ by $2$: $n,\ n+2,\ n+4$.
+\item \textbf{Sums in pairs:} three objects $a,b,c$ weighed two at a time give $a+b$, $b+c$, $c+a$. Adding the three results:
+$(a+b)+(b+c)+(c+a)=2(a+b+c)$, so \emph{the total of the three objects is half of the sum of the results}. To find one object, subtract the pair formed by the other two from the total.
+\item \textbf{Angles in a triangle:} the three angles of a triangle add up to $180^\circ$; an isosceles triangle has two equal base angles.
+\item \textbf{Average:} average $=$ sum of the values $\div$ number of values; average price $=$ total cost $\div$ total mass.
+\end{itemize}
+\end{knowbox}
+
+\textbf{Two small examples.}
+
+\emph{a) An isosceles triangle with a $70^\circ$ angle.} The $70^\circ$ angle may be a \emph{base angle} or the \emph{apex angle}, so we must look at two cases:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item If $70^\circ$ is a base angle: the base angles are $70^\circ$ and $70^\circ$, and the apex angle is $180^\circ-70^\circ-70^\circ=40^\circ$.
+\item If $70^\circ$ is the apex angle: the two base angles are equal and add up to $180^\circ-70^\circ=110^\circ$, so each is $55^\circ$.
+\end{itemize}
+\begin{figC}
+\draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,0)--(2.4,0)--(1.2,3.3)--cycle;
+\node[font=\footnotesize] at (0.45,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.95,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.2,2.6){$40^\circ$};
+\draw[tmOrange!85!black,line width=1pt,fill=tmOrange!10] (4,0)--(7.4,0)--(5.7,2.43)--cycle;
+\node[font=\footnotesize] at (4.55,0.22){$55^\circ$}; \node[font=\footnotesize] at (6.85,0.22){$55^\circ$}; \node[font=\footnotesize] at (5.7,1.85){$70^\circ$};
+\end{figC}
+
+\emph{b) Average price.} You buy $300$ g of type I candy for $15\,000$ dong and $200$ g of type II candy for $20\,000$ dong. The average price
+of $100$ g of candy is $(15\,000+20\,000)\div(300+200)\cdot 100=35\,000\div 500\cdot 100=7\,000$ dong.
+You must \emph{not} average the two prices $5\,000$ and $10\,000$ dong per $100$ g (that gives $7\,500$ dong, which is wrong), because different amounts of the two candies were bought.
+
+\begin{proofbox}
+\textbf{Three consecutive integers: the middle one equals the sum divided by $3$.} Call the three numbers $n-1$, $n$, $n+1$. Their sum is
+$(n-1)+n+(n+1)=3n$ (the $-1$ and $+1$ cancel). So the middle number is $n=\text{sum}\div 3$. For example, if the sum is $153$, the middle number is $51$ and the three numbers are $50,51,52$.
+\end{proofbox}
+
+\begin{tipbox}
+Choosing the \emph{middle number} as the unknown usually gives the neatest equation. For ``sums in pairs'' problems, do not rush to use three unknowns:
+\emph{add everything up} first.
+\end{tipbox}
+
+\begin{warnbox}
+Solving the equation is not the end of the problem! Re-read the question: does it ask for the \emph{largest} number, the \emph{lightest} object, or the \emph{total}...?
+Many students find the correct $x$ but choose the wrong option because they answer a different question.
+\end{warnbox}
+
+\begin{parentbox}
+When your child is stuck, ask: ``What don't we know yet? Let's call it $x$. Now, what does the problem tell us about $x$?''
+Let your child say it in words first, and only then write it as an equation.
+\end{parentbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Patterns, tables of values and arithmetic sequences}
+\begin{knowbox}
+\textbf{1. Arithmetic sequences.} A list of numbers in which neighbouring numbers always differ by the same number $d$ (called the
+\textbf{common difference}) is called an arithmetic sequence. If the first term is $a$, then
+\[\text{the } n\text{-th term} \;=\; a+(n-1)\cdot d .\]
+\emph{Example:} the sequence $7,10,13,16,\dots$ has $a=7$, $d=3$; its $n$-th term is $7+3(n-1)=3n+4$.
+
+\textbf{2. From a table of values to an expression.} If each time $n$ increases by $1$ the value increases by $d$, the expression has the form
+$d\cdot n+\text{(some number)}$. Find ``some number'' by substituting $n=1$.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} $n$ & $1$ & $2$ & $3$ & $4$ & $5$\\ \hline
+value & $4$ & $7$ & $10$ & $13$ & $16$\\ \hline
+\end{tabular}
+\end{center}
+Each time $n$ increases by $1$, the value increases by $3$, so the expression has the form $3n+b$. Substituting $n=1$: $3+b=4$, so $b=1$. Hence value $=3n+1$.
+
+\textbf{3. Is a number in the sequence?} The number $N$ belongs to the sequence $a,\ a+d,\ a+2d,\dots$ exactly when
+$N-a$ is divisible by $d$ (and $N\ge a$). For a sequence counting down, $a,\ a-d,\ a-2d,\dots$, look at $a-N$ instead.
+
+\textbf{4. Common terms of two sequences; repeating events.} If two arithmetic sequences with differences $d_1$ and $d_2$ have a common term, then
+their common terms are exactly $\text{lcm}(d_1,d_2)$ apart. Similarly, events that repeat every $p$ minutes and every $q$ minutes
+happen together again every $\text{lcm}(p,q)$ minutes.
+\end{knowbox}
+
+\begin{tipbox}
+\emph{An example of repetition.} The first bus returns to the station every $12$ minutes, the second bus every $20$ minutes. At 7:00 a.m. both are at the station.
+The first bus returns after $12, 24, 36, 48, \mathbf{60},\dots$ minutes; the second after $20, 40, \mathbf{60},\dots$ minutes.
+The two buses meet at the station again every $\text{lcm}(12,20)=60$ minutes, that is, at 8:00 a.m., 9:00 a.m., \dots
+
+Similarly, if the two sequences $7,10,13,\dots$ (difference $3$) and $2011,2006,2001,\dots$ (difference $5$) have a common term, then their common terms are $\text{lcm}(3,5)=15$ apart.
+\end{tipbox}
+
+\begin{proofbox}
+\textbf{Why is the $n$-th term $a+(n-1)d$?} Going from the $1$st term to the $n$-th term, we cross $n-1$ ``gaps'',
+and each gap adds $d$. It is like walking from the $1$st lamp post to the $5$th: you only pass $4$ gaps.
+\begin{figC}
+\foreach \i/\v in {0/a,1/a+d,2/a+2d,3/a+3d}{\fill[tmBlue] (2.2*\i,0) circle (2.5pt); \node[below,font=\footnotesize] at (2.2*\i,-0.1){$\v$};}
+\foreach \i in {0,1,2}{\draw[->,tmOrange,line width=0.9pt] (2.2*\i+0.15,0.15) to[bend left=30] node[above,font=\footnotesize]{$+d$} (2.2*\i+2.05,0.15);}
+\node[font=\footnotesize,text=Slate] at (0,0.7){1st}; \node[font=\footnotesize,text=Slate] at (6.6,0.7){4th};
+\end{figC}
+From the $1$st term to the $4$th term there are $3$ steps of $+d$, so the $4$th term is $a+3d$.
+\end{proofbox}
+
+\begin{warnbox}
+Checking a formula against only \emph{one} column of the table is not enough. For example, for the table $1,3,5,7,9$, both $3n-2$ and $2n-1$
+give the value $1$ when $n=1$, but for $n=2$ we get $3n-2=4\neq 3$. Test \emph{at least two or three columns}.
+\end{warnbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Ratios, units of measurement and uniform motion}
+\begin{knowbox}
+\textbf{1. Directly proportional quantities.} If one scoop of food feeds $8$ fish, then $2$ scoops feed $16$ fish and $4$ scoops feed $32$ fish:
+when the number of scoops is multiplied by some number, the number of fish is multiplied by the same number. We say $y$ is \textbf{directly proportional} to $x$ with constant $k$ if $y=k\cdot x$.
+The usual method is the \textbf{unit method} (work out the value for $1$ part first, then multiply).
+
+\textbf{2. Uniform motion.} With $s$ the distance, $v$ the speed and $t$ the time:
+\[ s=v\cdot t,\qquad t=\frac{s}{v},\qquad v=\frac{s}{t}.\]
+Use matching units: if $v$ is in km/h, then $s$ is in km and $t$ is in hours.
+
+Two people moving \emph{for the same length of time}: whoever is $k$ times as fast covers $k$ times the distance.
+
+\emph{Running in opposite directions around a circle:} from one meeting to the next, the \emph{total} distance run by the two people is exactly one lap.
+If the first person is $k$ times as fast as the second, then during each such stretch the first runs $\dfrac{k}{k+1}$ of a lap and the second runs $\dfrac{1}{k+1}$ of a lap.
+
+\textbf{3. Converting units of time.}
+$1$ minute $=60$ seconds;\ \ $1$ hour $=60$ minutes $=60\times 60=3\,600$ seconds;\ \ $1$ day $=24$ hours;\ \ $1$ week $=7$ days.
+Therefore $1$ week $=7\times 24$ hours $=7\times 24\times 60$ minutes $=7\times 24\times 60\times 60$ seconds.
+
+\textbf{4. Money.} Number of notes $=$ total amount $\div$ value of one note. \ Difference after $n$ times
+$=n\times(\text{higher price}-\text{lower price})$.
+\end{knowbox}
+
+\begin{tipbox}
+Read a product such as $60\times 60\times 24\times 7$ as a \emph{chain of unit conversions}, from right to left:
+$7$ (days in a week) $\times 24$ (hours in a day) $\times 60$ (minutes in an hour) $\times 60$ (seconds in a minute).
+The result is the number of seconds in one week.
+\end{tipbox}
+
+\begin{proofbox}
+\textbf{Why can we work out the difference ``per time'' and then multiply?} By the distributive law:
+$20\times 9\,000-20\times 6\,750=20\times(9\,000-6\,750)=20\times 2\,250$. Both ways always give the same result,
+but the second is much quicker to do in your head.
+\end{proofbox}
+
+\begin{warnbox}
+In motion problems, read carefully ``how much has been travelled'' and ``how much is left''. After half of a $510$ km trip,
+the distance left is $510\div 2=255$ km, not $510$ km.
+\end{warnbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Equivalent fractions and a fraction of a quantity}
+\begin{knowbox}
+\textbf{1. The basic property.} Multiplying (or dividing) the numerator and the denominator of a fraction by the same non-zero number
+gives an equal fraction: $\dfrac{3}{7}=\dfrac{3\cdot 9}{7\cdot 9}=\dfrac{27}{63}$.
+
+\textbf{2. Recognising equal fractions.} For $b\neq 0$, $d\neq 0$:\quad
+$\dfrac{a}{b}=\dfrac{c}{d}$ exactly when $a\cdot d=b\cdot c$ (``cross-multiplying'').
+
+\textbf{3. Fractions with the same numerator.} If $\dfrac{1}{p}=\dfrac{1}{q}$ (or $\dfrac{m}{p}=\dfrac{m}{q}$ with $m\neq 0$), then $p=q$.
+Two equal fractions with equal numerators also have equal denominators.
+
+\textbf{4. A fraction of a quantity.} To find $\dfrac{m}{n}$ of a number $A$, calculate $A\cdot\dfrac{m}{n}=A\div n\cdot m$.
+\emph{Example:} $\dfrac{3}{7}$ of $168$ km is $168\div 7\cdot 3=24\cdot 3=72$ km. The rest corresponds to $1-\dfrac{3}{7}=\dfrac{4}{7}$.
+\end{knowbox}
+
+\begin{proofbox}
+\textbf{Why does $\dfrac{1}{p}=\dfrac{1}{q}$ imply $p=q$?} Cross-multiply: $1\cdot q=p\cdot 1$, that is, $q=p$.
+In other words: if a cake is cut into $p$ pieces and another identical cake into $q$ pieces, and the pieces are the same size, then the numbers of pieces must be the same.
+\end{proofbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Comparing and reasoning about order}
+\begin{knowbox}
+\textbf{1. The transitive property.} If $a<b$ and $b<c$, then $a<c$. This lets us line up several numbers: $a<b<c<d$.
+
+\textbf{2. The ``set it equal to $k$'' technique.} When several expressions are equal, for example $a-2=b+2=c+1=d-3$, call the common value $k$:
+\[a=k+2,\qquad b=k-2,\qquad c=k-1,\qquad d=k+3.\]
+Now every number is compared with the same reference point $k$; ordering the ``extras'' $-2<-1<+2<+3$ we get $b<c<a<d$.
+\begin{center}\begin{tikzpicture}[x=1cm,>=stealth]
+\draw[->,thick,Navy] (-2.8,0)--(3.8,0);
+\foreach \i in {-2,...,3}{\draw[Navy] (\i,0.08)--(\i,-0.08);}
+\node[below,font=\small] at (0,-0.1){$k$};
+\foreach \i/\l/\c in {-2/b/tmOrange,-1/c/tmGreen,2/a/tmBlue,3/d/tmPurple}{\fill[\c] (\i,0) circle (3pt); \node[above,font=\small\bfseries,text=\c] at (\i,0.1){$\l$};}
+\node[below,font=\footnotesize] at (-2,-0.1){$k-2$}; \node[below,font=\footnotesize] at (-1,-0.1){$k-1$};
+\node[below,font=\footnotesize] at (2,-0.1){$k+2$}; \node[below,font=\footnotesize] at (3,-0.1){$k+3$};
+\end{tikzpicture}\end{center}
+
+\textbf{3. Logical reasoning about order.} For sentences like ``An owns more cats than Bình'', translate them into symbols ($A>B$),
+write down all the conditions and link them with the transitive property. A statement that ``\emph{must be true}'' has to be true in
+\emph{every} situation that fits the problem; a single counter-example is enough to reject it.
+\end{knowbox}
+
+\begin{tipbox}
+\emph{A reasoning example.} An is taller than Bình; Chi is shorter than Bình; Dũng is taller than Chi. Who is the shortest?
+In symbols: $A>B$, \ $B>C$, \ $D>C$. From $A>B>C$ and $D>C$ we see that $A$, $B$ and $D$ are all taller than $C$: \textbf{Chi is the shortest}.
+But we do \emph{not} know whether Dũng is taller or shorter than An (for instance, if An is $1.6$ m, Bình $1.5$ m and Chi $1.2$ m, then Dũng being $1.7$ m or $1.3$ m both fit all the conditions), so the statement ``Dũng is the tallest'' is \emph{not necessarily} true.
+\end{tipbox}
+
+\begin{warnbox}
+Seeing that $a-2$ and $b+2$ are equal, many students conclude too quickly that ``$a$ is smaller because something is subtracted''. The opposite is true:
+$a$ must \emph{lose} $2$ to equal $b$ \emph{plus} $2$, so $a$ is exactly $4$ more than $b$.
+\end{warnbox}
+
+\begin{parentbox}
+Use real objects: ``If your bag loses $2$ marbles, it has the same number as my bag plus $2$ marbles. Which bag has more?''
+Let your child check with marbles. A concrete picture keeps the child from being fooled by plus and minus signs.
+\end{parentbox}
+
+% ==========================================================================================
+\needspace{6\baselineskip}\shead{Worked examples}
+
+\begin{exbox}{Example 1 \ (Translating words and evaluating an expression)}
+\textbf{a)} Evaluate the expression $A=2x^2-3x+1$ for $x=-2$.
+
+\textbf{b)} Hoa has $50\,000$ dong in her piggy bank. Every week she puts in another $20\,000$ dong.
+Write an expression for the amount in the piggy bank after $t$ weeks, then work out that amount after $6$ weeks.
+\guide
+\step{1}{Part a: substitute $x=-2$, remembering the brackets}
+\[A=2\cdot(-2)^2-3\cdot(-2)+1.\]
+\step{2}{Calculate in order: powers $\to$ multiplication $\to$ addition and subtraction}
+$(-2)^2=(-2)\cdot(-2)=4$, so $2\cdot 4=8$. \ $3\cdot(-2)=-6$, so $-3\cdot(-2)=+6$. Hence $A=8+6+1=15$.
+\step{3}{Part b: find the pattern with a small table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Weeks & $0$ & $1$ & $2$ & $t$\\ \hline
+Amount (dong) & $50\,000$ & $50\,000+20\,000$ & $50\,000+2\cdot 20\,000$ & $50\,000+20\,000t$\\ \hline
+\end{tabular}
+\end{center}
+The starting amount stays the same; the added part is $20\,000$ times the number of weeks. Expression: $50\,000+20\,000t$ (dong).
+\step{4}{Substitute $t=6$}
+$50\,000+20\,000\cdot 6=50\,000+120\,000=170\,000$ (dong).
+\begin{warnbox}Do not write $(50\,000+20\,000)\cdot t$: the starting amount is there only \emph{once}; it must not be multiplied by the number of weeks.\end{warnbox}
+\ans{a) $A=15$;\ \ b) $50\,000+20\,000t$ dong; after $6$ weeks there are $170\,000$ dong.}
+\end{exbox}
+
+\begin{exbox}{Example 2 \ (Solving equations with the balance principle)}
+Solve the equations:\quad \textbf{a)} $5x-7=2x+11$;\qquad \textbf{b)} $\dfrac{x}{12}=\dfrac{5}{4}$.
+\guide
+\step{1}{Part a: collect the terms with $x$ on the left}
+Subtract $2x$ from both sides: $5x-2x-7=11$, that is, $3x-7=11$.
+\step{2}{Collect the numbers on the right}
+Add $7$ to both sides: $3x=11+7=18$.
+\step{3}{Divide both sides by $3$}
+$x=18\div 3=6$.
+\verify{Left side: $5\cdot 6-7=30-7=23$. Right side: $2\cdot 6+11=12+11=23$. Both sides are equal.}
+\step{4}{Part b: use a common denominator (or cross-multiply)}
+We have $\dfrac{5}{4}=\dfrac{5\cdot 3}{4\cdot 3}=\dfrac{15}{12}$. The fractions $\dfrac{x}{12}$ and $\dfrac{15}{12}$ have the same denominator
+and are equal, so $x=15$. (Cross-multiplying also works: $4x=12\cdot 5=60$, $x=60\div 4=15$.)
+\begin{recallbox}$\dfrac{a}{b}=\dfrac{c}{d}$ exactly when $ad=bc$ ($b,d\neq 0$).\end{recallbox}
+\ans{a) $x=6$;\ \ b) $x=15$.}
+\end{exbox}
+
+\begin{exbox}{Example 3 \ (Consecutive even numbers)}
+The sum of four consecutive even numbers is $116$. Find the largest of the four numbers.
+\guide
+\step{1}{Choose an unknown}
+Let the smallest even number be $n$ ($n$ is even). Consecutive even numbers differ by $2$, so the four numbers are
+$n,\ n+2,\ n+4,\ n+6$.
+\step{2}{Write an equation}
+$n+(n+2)+(n+4)+(n+6)=116$, that is, $4n+12=116$.
+\step{3}{Solve}
+$4n=116-12=104$, \ $n=104\div 4=26$. The four numbers are $26,\ 28,\ 30,\ 32$.
+\verify{$26+28+30+32=116$. Correct.}
+\step{4}{Answer the actual question}
+The question asks for the \emph{largest} number: it is $32$.
+\begin{tipbox}Mental shortcut: the four numbers are equally spaced, so their average $116\div 4=29$ lies exactly halfway between the two middle numbers $28$ and $30$. The four numbers follow at once.\end{tipbox}
+\ans{$32$}
+\end{exbox}
+
+\begin{exbox}{Example 4 \ (Weighing in pairs)}
+Three friends, Mai, Lan and Hoa, step on a scale two at a time. Mai and Lan weigh $72$ kg; Mai and Hoa weigh $78$ kg;
+Lan and Hoa weigh $80$ kg. How many kilograms does each girl weigh?
+\guide
+\step{1}{Add all three weighings}
+In the three weighings, each girl is weighed exactly \emph{twice}:
+$(M+L)+(M+H)+(L+H)=72+78+80=230$, that is, $2(M+L+H)=230$.
+\step{2}{Total mass of the three girls}
+$M+L+H=230\div 2=115$ (kg).
+\step{3}{Find each girl: subtract the pair that does not contain her from the total}
+Hoa $=115-(M+L)=115-72=43$ kg;\quad Lan $=115-(M+H)=115-78=37$ kg;\quad Mai $=115-(L+H)=115-80=35$ kg.
+\begin{figC}
+\foreach \y/\a/\b/\ca/\cb/\s in {0/Mai/Lan/tmBlue/tmOrange/72,-0.8/Mai/Hoa/tmBlue/tmGreen/78,-1.6/Lan/Hoa/tmOrange/tmGreen/80}{
+  \node[draw=\ca!80!black,fill=\ca!15,rounded corners=2pt,minimum width=1.4cm] at (0,\y){\a};
+  \node at (0.95,\y){$+$};
+  \node[draw=\cb!80!black,fill=\cb!15,rounded corners=2pt,minimum width=1.4cm] at (1.9,\y){\b};
+  \node[anchor=west] at (2.7,\y){$=\s$ kg};}
+\end{figC}
+\verify{$35+37=72$, \ $35+43=78$, \ $37+43=80$. All three weighings match.}
+\ans{Mai $35$ kg, Lan $37$ kg, Hoa $43$ kg.}
+\end{exbox}
+
+\begin{exbox}{Example 5 \ (Arithmetic sequences)}
+Consider the sequence $4,\ 7,\ 10,\ 13,\ \dots$ (each number is $3$ more than the one before).
+\textbf{a)} Write an expression for the $n$-th term.\quad \textbf{b)} Find the $50$th term.\quad
+\textbf{c)} Is $2026$ in the sequence? If so, which term is it?
+\guide
+\step{1}{The $n$-th term}
+First term $a=4$, common difference $d=3$: the $n$-th term is $4+3(n-1)=4+3n-3=3n+1$.
+\begin{recallbox}The $n$-th term of an arithmetic sequence $=a+(n-1)d$.\end{recallbox}
+\step{2}{The $50$th term}
+$3\cdot 50+1=151$.
+\step{3}{Test the number $2026$}
+We need a whole number $n$ with $3n+1=2026$, that is, $3n=2025$. Since $2025\div 3=675$ exactly, $n=675$.
+\verify{$3\cdot 675+1=2025+1=2026$. Correct.}
+\begin{warnbox}Do not forget to check that the division is exact. For instance, $2027$ is \emph{not} in the sequence because $2026$ is not divisible by $3$.\end{warnbox}
+\ans{a) $3n+1$;\ \ b) $151$;\ \ c) yes, it is the $675$th term.}
+\end{exbox}
+
+\begin{exbox}{Example 6 \ (Motion, fractions and unit conversion)}
+A train travels at a constant speed of $72$ km/h on a $360$ km route. It has already covered $\dfrac{2}{3}$ of the route.
+How much longer (in hours and minutes) does the train need to reach its destination?
+\guide
+\step{1}{Distance already covered}
+$\dfrac{2}{3}$ of $360$ km is $360\div 3\cdot 2=120\cdot 2=240$ km.
+\step{2}{Distance left}
+$360-240=120$ km. (Or: the remaining part is $1-\dfrac{2}{3}=\dfrac{1}{3}$ of the route, $360\div 3=120$ km.)
+\begin{barfigC}
+\blk{0}{5}{0}{0.55}{tmBlue}{covered 240 km}
+\blk{5}{7.5}{0}{0.55}{tmOrange}{left 120 km}
+\brcup{0}{7.5}{0.55}{360 km}
+\end{barfigC}
+\step{3}{Time left}
+\begin{recallbox}$t=\dfrac{s}{v}$ (time $=$ distance $\div$ speed).\end{recallbox}
+$t=120\div 72=\dfrac{120}{72}=\dfrac{5}{3}$ hours $=1\dfrac{2}{3}$ hours.
+\step{4}{Convert to hours and minutes}
+$\dfrac{2}{3}$ hour $=\dfrac{2}{3}\cdot 60=40$ minutes. So $t=1$ hour $40$ minutes.
+\verify{In $1$ hour $40$ minutes $=\dfrac{5}{3}$ hours, the train covers $72\cdot\dfrac{5}{3}=24\cdot 5=120$ km, exactly the distance left.}
+\ans{$1$ hour $40$ minutes.}
+\end{exbox}
+
+\begin{exbox}{Example 7 \ (A balance-scale problem)}
+Both scales below are balanced. Identical shapes have equal weights.
+\begin{center}
+\aeaScale{\aeaSq}{\aeaTri\,\aeaCir}\hspace{1.2cm}\aeaScale{\aeaSq\,\aeaCir}{\aeaTri\,\aeaTri\,\aeaTri}
+\end{center}
+How many circles \aeaCir\ balance two squares \aeaSq\,\aeaSq?
+\guide
+\step{1}{Write each scale as an equation}
+Let $S$, $T$, $C$ be the weights of a square, a triangle and a circle. Scale 1: $S=T+C$. \ Scale 2: $S+C=3T$.
+\step{2}{Substitute scale 1 into scale 2}
+On scale 2, replace the square by ``one triangle and one circle'' (allowed by scale 1):
+$T+C+C=3T$.
+\step{3}{Remove identical things from both pans}
+Remove one triangle from each pan: $C+C=T+T$, that is, $2C=2T$, so $C=T$: a circle weighs the same as a triangle.
+\step{4}{Answer}
+$S=T+C=C+C=2C$, so $2S=4C$: two squares balance $4$ circles.
+\verify{Try $C=T=1$, $S=2$: scale 1: $2=1+1$; scale 2: $2+1=3$. Both are correct.}
+\ans{$4$ circles.}
+\end{exbox}
+
+\begin{exbox}{Example 8 \ (Ordering with the ``set it equal to $k$'' technique)}
+The positive integers $a$, $b$, $c$ (all greater than $5$) satisfy\quad
+$\dfrac{2}{a+3}=\dfrac{2}{b-1}=\dfrac{2}{c+5}$. Arrange $a$, $b$, $c$ in increasing order.
+\guide
+\step{1}{Equal fractions with the same numerator have equal denominators}
+The three fractions all have numerator $2$ and are equal, so their denominators are equal: $a+3=b-1=c+5$.
+\begin{recallbox}If $\dfrac{m}{p}=\dfrac{m}{q}$ with $m\neq 0$, then $p=q$.\end{recallbox}
+\step{2}{Call the common value $k$}
+$a+3=k\Rightarrow a=k-3$;\quad $b-1=k\Rightarrow b=k+1$;\quad $c+5=k\Rightarrow c=k-5$.
+\step{3}{Compare with the reference point $k$}
+$k-5<k-3<k+1$, so $c<a<b$.
+\verify{Take $k=12$: $a=9$, $b=13$, $c=7$. Then $\dfrac{2}{12}=\dfrac{2}{12}=\dfrac{2}{12}$ and indeed $7<9<13$.}
+\ans{$c<a<b$.}
+\end{exbox}

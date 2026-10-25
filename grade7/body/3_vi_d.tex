@@ -1,0 +1,536 @@
+% ================= Topic 3 (VI) -- part d: problems 41--50 (nâng cao) =================
+\begin{probbox}{41}{\stars{1}}
+Trên một lưới điểm vuông, bạn Lan đứng ở điểm $A$. Lan tung một đồng xu cân đối $6$ lần; mỗi lần ra mặt sấp thì Lan đi
+\emph{lên} một điểm, ra mặt ngửa thì Lan đi \emph{sang phải} một điểm (như bài 16). Các điểm $M$, $N$, $B$ được đánh dấu
+trên hình.
+\begin{figC}\begin{scope}[scale=0.85]
+  \foreach \x in {0,...,3}{\foreach \y in {0,...,3}{\fill[Navy] (\x,\y) circle (2.4pt);}}
+  \fill[tmOrange] (0,0) circle (3.4pt);\node[below left] at (0,0) {$A$};
+  \fill[tmGreen!80!black] (1,1) circle (3.4pt);\node[above left] at (1,1) {$M$};
+  \fill[AnsRed] (2,1) circle (3.4pt);\node[below right] at (2,1) {$N$};
+  \fill[tmPurple] (3,3) circle (3.4pt);\node[above right] at (3,3) {$B$};
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Tính xác suất để sau $6$ lần tung, Lan dừng ở điểm $B$.
+\item Tính xác suất để Lan đi qua điểm $M$ \emph{và} dừng ở $B$.
+\item Tính xác suất để Lan dừng ở $B$ mà \emph{không} đi qua điểm $N$.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi dãy $6$ lần tung là một dãy gồm $6$ kí hiệu $\uparrow$ (lên) hoặc $\rightarrow$ (sang phải).
+Có $2^6=2\times2\times2\times2\times2\times2=64$ dãy, đồng khả năng. Mỗi dãy là một \emph{đường đi} trên lưới.
+Ta đánh dấu vị trí bằng cặp (số bước sang phải, số bước lên): $A=(0,0)$, $M=(1,1)$, $N=(2,1)$, $B=(3,3)$.
+
+\step{1}{Đếm số đường đi từ $A$ tới mỗi điểm (câu a)}
+\begin{recallbox}Một điểm chỉ có thể tới được từ điểm ngay bên trái hoặc ngay bên dưới nó. Vì vậy:
+số đường tới một điểm $=$ số đường tới điểm bên trái $+$ số đường tới điểm bên dưới (quy tắc cộng).\end{recallbox}
+Ghi số đường đi vào từng điểm, bắt đầu từ $A$ (ghi $1$); hàng dưới cùng và cột trái cùng đều là $1$:
+\begin{figC}\begin{scope}[scale=0.85]
+  \foreach \x/\y/\n in {0/0/1,1/0/1,2/0/1,3/0/1,0/1/1,1/1/2,2/1/3,3/1/4,0/2/1,1/2/3,2/2/6,3/2/10,0/3/1,1/3/4,2/3/10,3/3/20}{
+    \fill[tmBlue!12] (\x,\y) circle (9pt);\node[font=\small\bfseries,text=Navy] at (\x,\y) {\n};}
+  \draw[tmPurple,thick] (3,3) circle (10pt);\node[right=9pt,text=tmPurple] at (3,3) {$B$};
+\end{scope}\end{figC}
+Có $20$ đường đi từ $A$ tới $B$. (Cách khác: đi tới $B$ cần đúng $3$ bước lên trong $6$ bước; số cách chọn $3$ lượt
+trong $6$ lượt là $\dfrac{6\times5\times4}{3\times2\times1}=20$.)
+\[P(a)=\frac{20}{64}=\frac{5}{16}.\]
+
+\step{2}{Câu b: đi qua $M$ rồi tới $B$ -- quy tắc nhân}
+Một đường qua $M$ gồm hai chặng: chặng $A\to M$ ($1$ bước lên, $1$ bước phải) và chặng $M\to B$ ($2$ bước lên, $2$ bước phải).
+Chặng $A\to M$ có $2$ cách ($\uparrow\rightarrow$ hoặc $\rightarrow\uparrow$); chặng $M\to B$ có $6$ cách (giống bài 16:
+chọn $2$ lượt lên trong $4$ lượt). Mỗi cách đi chặng đầu ghép với mỗi cách đi chặng sau cho một đường khác nhau:
+$2\times6=12$ đường.
+\[P(b)=\frac{12}{64}=\frac{3}{16}.\]
+
+\step{3}{Câu c: không đi qua $N$ -- dùng phần bù}
+Số đường từ $A$ qua $N$ tới $B$: chặng $A\to N$ ($2$ bước phải, $1$ bước lên) có $3$ cách; chặng $N\to B$ ($1$ bước phải,
+$2$ bước lên) có $3$ cách; tổng $3\times3=9$ đường. Vậy số đường từ $A$ tới $B$ \emph{không} qua $N$ là $20-9=11$.
+\[P(c)=\frac{11}{64}.\]
+\begin{proofbox}\emph{Kiểm tra bằng cách ``chặn'' điểm $N$.} Ghi lại số đường đi nhưng đặt số $0$ tại $N$ (coi như không được đi qua).
+Hàng $1$: $1,\ 2,\ \mathbf{0},\ 0+1=1$. Hàng $2$: $1,\ 3,\ 3+0=3,\ 3+1=4$. Hàng $3$: $1,\ 4,\ 4+3=7,\ 7+4=11$.
+Tại $B$ được $11$, khớp với phần bù.\end{proofbox}
+\begin{warnbox}Câu b và c hỏi về xác suất trong \emph{toàn bộ} $64$ dãy tung, không phải trong $20$ đường tới $B$. Nếu chia cho $20$
+là trả lời một câu hỏi khác (xác suất có điều kiện, chưa học).\end{warnbox}
+\verify{Ở câu a, các điểm cuối có thể là $(6,0),(5,1),\dots,(0,6)$ với số đường $1,6,15,20,15,6,1$; tổng $=64$. Điểm $B=(3,3)$ ứng với số $20$.}
+\ans{a) $\dfrac5{16}$;\quad b) $\dfrac3{16}$;\quad c) $\dfrac{11}{64}$}
+}
+
+\begin{probbox}{42}{\stars{2}}
+Ta xếp các lưới ô vuông bằng que tăm như ở bài 17. Một lưới ``$m\times n$'' có $m$ hàng, mỗi hàng $n$ ô vuông.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Lập công thức tính số que tăm cần dùng cho lưới $m\times n$.
+\item Một lưới hình vuông $k\times k$ dùng hết đúng $760$ que tăm. Tìm $k$.
+\item Bạn Nam có đúng $2026$ que tăm và muốn xếp một lưới $m\times n$ (với $1\le m\le n$) dùng \emph{hết} số que này.
+Tìm tất cả các lưới Nam có thể xếp.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Giống bài 17, ta đếm riêng que nằm ngang và que thẳng đứng. Câu c dẫn tới một phương trình với hai ẩn
+là số tự nhiên; mẹo ``nhân $2$ rồi cộng $1$'' giúp biến nó thành bài toán tìm ước.
+
+\step{1}{Câu a: công thức}
+Lưới $m\times n$ có $m+1$ đường kẻ ngang, mỗi đường $n$ que: $(m+1)\times n$ que nằm ngang. Có $n+1$ đường kẻ dọc, mỗi đường
+$m$ que: $(n+1)\times m$ que thẳng đứng. Tổng:
+\[T=(m+1)n+(n+1)m=mn+n+mn+m=2mn+m+n.\]
+Thử lại với lưới $1\times10$: $2\times1\times10+1+10=31$. Đúng như bài 17.
+
+\step{2}{Câu b: lưới vuông $k\times k$}
+Thay $m=n=k$: $T=2k^2+2k=2k(k+1)$. Ta cần $2k(k+1)=760$, tức $k(k+1)=380$.
+$k(k+1)$ là tích hai số tự nhiên liên tiếp. Vì $19\times20=380$, nên $k=19$. (Khi $k$ tăng thì $k(k+1)$ tăng, nên chỉ có một
+giá trị: $18\times19=342<380<420=20\times21$.)
+
+\step{3}{Câu c: lập phương trình}
+Cần tìm các số tự nhiên $1\le m\le n$ với $2mn+m+n=2026$.
+\begin{tipbox}Nhân hai vế với $2$ rồi cộng $1$: $4mn+2m+2n+1=4053$. Vế trái phân tích được thành tích:
+$(2m+1)(2n+1)=4mn+2m+2n+1$ (nhân phân phối để kiểm tra). Vậy
+\[(2m+1)(2n+1)=4053.\]\end{tipbox}
+
+\step{4}{Phân tích $4053$ ra thừa số nguyên tố}
+$4053$ có tổng chữ số $4+0+5+3=12$ chia hết cho $3$: $4053=3\times1351$. Tiếp theo $1351=7\times193$.
+Số $193$ là số nguyên tố: nó không chia hết cho $2,3,5,7,11,13$, và $13\times13=169<193<196=14\times14$, nên không cần thử thêm.
+\begin{recallbox}Để kiểm tra $N$ có là số nguyên tố không, chỉ cần thử chia cho các số nguyên tố $p$ với $p\times p\le N$.\end{recallbox}
+Vậy $4053=3\times7\times193$. Các ước của $4053$ là: $1,\ 3,\ 7,\ 21,\ 193,\ 579,\ 1351,\ 4053$.
+
+\step{5}{Tìm các cặp $(m,n)$}
+Vì $m\ge1$ nên $2m+1\ge3$; vì $m\le n$ nên $2m+1\le2n+1$. Các cách viết $4053$ thành tích hai ước thỏa mãn:
+\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+$2m+1$ & $2n+1$ & $m$ & $n$ & Thử lại $2mn+m+n$\\\hline
+$3$ & $1351$ & $1$ & $675$ & $1350+1+675=2026$\\\hline
+$7$ & $579$ & $3$ & $289$ & $1734+3+289=2026$\\\hline
+$21$ & $193$ & $10$ & $96$ & $1920+10+96=2026$\\\hline
+\end{tabular}\end{center}
+(Cặp $1\times4053$ bị loại vì cho $m=0$.)
+\begin{warnbox}Thử từng giá trị $m=1,2,3,\dots$ cũng làm được nhưng rất dài, dễ sót. Mẹo nhân $2$ cộng $1$ biến bài toán thành
+``tìm ước'' và đảm bảo \emph{không bỏ sót} nghiệm nào.\end{warnbox}
+\verify{Ở các giá trị $m$ khác, $2m+1$ không phải là ước của $4053$ nên $n$ không là số tự nhiên. Ví dụ $m=2$: $5(2n+1)=4053$ không
+được vì $4053$ không chia hết cho $5$.}
+\ans{a) $2mn+m+n$;\quad b) $k=19$;\quad c) ba lưới: $1\times675$, $3\times289$, $10\times96$}
+}
+
+\begin{probbox}{43}{\stars{1}}
+Gieo cùng lúc ba con xúc xắc cân đối có màu đỏ, xanh và vàng (mỗi con ghi số từ $1$ đến $6$). Tính xác suất của các biến cố:
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item ba số xuất hiện đôi một khác nhau;
+\item số trên con đỏ nhỏ hơn số trên con xanh, và số trên con xanh nhỏ hơn số trên con vàng;
+\item có ít nhất một con xúc xắc ra số $6$;
+\item số lớn nhất trong ba số xuất hiện bằng đúng $4$.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi kết quả là bộ ba (đỏ, xanh, vàng). Theo quy tắc nhân có $6\times6\times6=216$ kết quả đồng khả năng.
+
+\step{1}{Câu a: ba số khác nhau}
+Con đỏ: $6$ cách; con xanh khác con đỏ: $5$ cách; con vàng khác hai con kia: $4$ cách. Có $6\times5\times4=120$ kết quả.
+\[P(a)=\frac{120}{216}=\frac{5}{9}.\]
+
+\step{2}{Câu b: đỏ $<$ xanh $<$ vàng -- dùng tính đối xứng}
+Xét một bộ ba số khác nhau, chẳng hạn $\{2,3,5\}$. Có $3\times2\times1=6$ cách xếp ba số này cho ba con xúc xắc
+($235$, $253$, $325$, $352$, $523$, $532$), và \emph{chỉ đúng một} cách là tăng dần ($2<3<5$).
+Như vậy $120$ kết quả ở câu a chia thành các nhóm $6$, mỗi nhóm có $1$ kết quả thuận lợi: số kết quả thuận lợi là $120:6=20$.
+\[P(b)=\frac{20}{216}=\frac{5}{54}.\]
+\begin{recallbox}Số cách xếp $3$ vật khác nhau vào $3$ chỗ là $3\times2\times1=6$.\end{recallbox}
+
+\step{3}{Câu c: ít nhất một số $6$ -- phần bù}
+Biến cố đối là ``không con nào ra $6$'': mỗi con chỉ có $5$ kết quả ($1$ đến $5$), tổng $5\times5\times5=125$.
+Vậy số kết quả có ít nhất một số $6$ là $216-125=91$.
+\[P(c)=\frac{91}{216}.\]
+\begin{warnbox}Không được tính ``mỗi con có xác suất $\frac16$ ra số $6$, ba con là $\frac36=\frac12$''. Cách cộng đó đếm trùng các kết quả
+có hai hoặc ba số $6$ (như $(6,6,1)$ bị đếm hai lần).\end{warnbox}
+
+\step{4}{Câu d: số lớn nhất bằng đúng $4$}
+``Số lớn nhất $\le4$'' nghĩa là cả ba số đều thuộc $\{1,2,3,4\}$: $4\times4\times4=64$ kết quả.
+``Số lớn nhất $\le3$'': $3\times3\times3=27$ kết quả. Số lớn nhất bằng đúng $4$ khi nó $\le4$ nhưng không $\le3$:
+$64-27=37$ kết quả.
+\[P(d)=\frac{37}{216}.\]
+\begin{proofbox}Mọi kết quả có số lớn nhất $\le3$ đều nằm trong nhóm có số lớn nhất $\le4$. Bớt đi nhóm nhỏ còn lại đúng các kết
+quả mà số lớn nhất không vượt quá $4$ nhưng vượt quá $3$, tức là bằng $4$.\end{proofbox}
+\verify{Cách nghĩ của câu d áp dụng cho câu c: số lớn nhất bằng $6$ có $6^3-5^3=216-125=91$ kết quả, khớp. Tổng số kết quả theo
+số lớn nhất $1,2,\dots,6$: $1+7+19+37+61+91=216$.}
+\ans{a) $\dfrac59$;\quad b) $\dfrac5{54}$;\quad c) $\dfrac{91}{216}$;\quad d) $\dfrac{37}{216}$}
+}
+
+\begin{probbox}{44}{\stars{2}}
+Người ta làm các con xúc xắc đặc biệt có $6$ mặt, mỗi mặt ghi một số trong các số $1,2,3,4,5,6$ (được phép ghi trùng), sao cho
+giống bài 19: xác suất gieo được số chia hết cho $3$ là $\frac12$ và xác suất gieo được số chẵn là $\frac13$.
+Hai con xúc xắc được coi là như nhau nếu chúng có cùng bộ sáu số (không kể thứ tự các mặt).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Tổng sáu số trên một con xúc xắc như vậy lớn nhất là bao nhiêu? Nhỏ nhất là bao nhiêu?
+\item Có tất cả bao nhiêu con xúc xắc khác nhau như vậy?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Như bài 19, điều kiện nghĩa là: \textbf{đúng $3$ mặt chia hết cho $3$} và \textbf{đúng $2$ mặt chẵn}.
+Mấu chốt là số $6$ thuộc cả hai nhóm, nên ta phân loại các số $1$--$6$ thành bốn loại:
+\begin{center}\begin{tabular}{|c|c|c|}\hline
+Loại & Các số & Tính chất\\\hline
+I & $6$ & chẵn và chia hết cho $3$\\\hline
+II & $3$ & lẻ, chia hết cho $3$\\\hline
+III & $2,\ 4$ & chẵn, không chia hết cho $3$\\\hline
+IV & $1,\ 5$ & lẻ, không chia hết cho $3$\\\hline
+\end{tabular}\end{center}
+
+\step{1}{Biểu diễn số mặt mỗi loại theo số mặt ghi số $6$}
+Gọi $a$ là số mặt ghi số $6$. Khi đó:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item số mặt chia hết cho $3$ là (loại I) $+$ (loại II) $=3$, nên loại II có $3-a$ mặt;
+\item số mặt chẵn là (loại I) $+$ (loại III) $=2$, nên loại III có $2-a$ mặt;
+\item loại IV có $6-a-(3-a)-(2-a)=1+a$ mặt.
+\end{itemize}
+Số mặt không thể âm nên $2-a\ge0$, tức $a\in\{0,1,2\}$.
+\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+$a$ & loại I (số $6$) & loại II (số $3$) & loại III ($2$ hoặc $4$) & loại IV ($1$ hoặc $5$)\\\hline
+$0$ & $0$ & $3$ & $2$ & $1$\\\hline
+$1$ & $1$ & $2$ & $1$ & $2$\\\hline
+$2$ & $2$ & $1$ & $0$ & $3$\\\hline
+\end{tabular}\end{center}
+
+\step{2}{Câu a: tổng lớn nhất và nhỏ nhất}
+Muốn tổng lớn nhất, ở loại III ta chọn toàn số $4$, ở loại IV chọn toàn số $5$. Tổng là
+\[6a+3(3-a)+4(2-a)+5(1+a)=22+4a,\]
+lớn nhất khi $a=2$: tổng $30$ (con xúc xắc $3,5,5,5,6,6$).
+Muốn tổng nhỏ nhất, chọn toàn số $2$ ở loại III và toàn số $1$ ở loại IV. Tổng là
+\[6a+3(3-a)+2(2-a)+1\cdot(1+a)=14+2a,\]
+nhỏ nhất khi $a=0$: tổng $14$ (con xúc xắc $1,2,2,3,3,3$).
+\begin{recallbox}Thu gọn: $6a-3a-4a+5a=4a$ và $9+8+5=22$; tương tự $6a-3a-2a+a=2a$ và $9+4+1=14$.\end{recallbox}
+
+\step{3}{Câu b: đếm số con xúc xắc}
+Khi đã biết $a$, ta chỉ còn phải quyết định: trong các mặt loại III có bao nhiêu mặt là số $4$ (còn lại là số $2$), và trong các mặt loại IV
+có bao nhiêu mặt là số $5$ (còn lại là số $1$).
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item $a=0$: loại III có $2$ mặt, số mặt ghi $4$ có thể là $0,1,2$: $3$ cách; loại IV có $1$ mặt: $2$ cách. Được $3\times2=6$ con.
+\item $a=1$: loại III có $1$ mặt: $2$ cách; loại IV có $2$ mặt: $3$ cách. Được $2\times3=6$ con.
+\item $a=2$: loại III có $0$ mặt: $1$ cách; loại IV có $3$ mặt (số mặt ghi $5$ là $0,1,2,3$): $4$ cách. Được $1\times4=4$ con.
+\end{itemize}
+Tổng: $6+6+4=16$ con xúc xắc.
+\begin{warnbox}Vì không kể thứ tự các mặt, hai mặt loại III là ``$2,4$'' hay ``$4,2$'' chỉ là \emph{một} trường hợp. Đếm số
+\emph{lượng} số $4$ (là $0$, $1$ hay $2$) thay vì xếp chỗ sẽ tránh đếm trùng.\end{warnbox}
+\verify{Hai con trong danh sách: với $a=1$, chọn một số $4$ và hai số $1$: con xúc xắc $1,1,3,3,4,6$ có $3$ mặt chia hết cho $3$
+($3,3,6$) và $2$ mặt chẵn ($4,6$). Đúng. Con $1,2,2,3,3,3$ (tổng $14$) cũng có $3$ mặt chia hết cho $3$ và $2$ mặt chẵn.}
+\ans{a) Lớn nhất $30$, nhỏ nhất $14$;\quad b) $16$ con xúc xắc}
+}
+
+\begin{probbox}{45}{\stars{1}}
+Ba ngọn đèn nhấp nháy: đèn thứ nhất cứ $4$ giây nháy một lần, đèn thứ hai cứ $6$ giây, đèn thứ ba cứ $10$ giây. Lúc bắt đầu
+($0$ giây) cả ba đèn cùng nháy. Xét $10$ phút tiếp theo (từ giây thứ $1$ đến hết giây thứ $600$).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Có bao nhiêu lần cả ba đèn cùng nháy?
+\item Có bao nhiêu thời điểm có \emph{đúng hai} đèn cùng nháy?
+\item Có bao nhiêu thời điểm có ít nhất một đèn nháy?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Đèn thứ nhất nháy ở các giây là bội của $4$; đèn thứ hai ở các bội của $6$; đèn thứ ba ở các bội của $10$
+(giống bài 20, nhưng ở đây là mọi bội, không chỉ bội lẻ). Ta đếm các bội trong khoảng từ $1$ đến $600$.
+
+\step{1}{Đếm số lần mỗi đèn nháy}
+\begin{recallbox}Số bội của $d$ trong các số từ $1$ đến $N$ là phần nguyên của $N:d$ (thương trong phép chia có dư).\end{recallbox}
+Đèn 1: $600:4=150$ lần. Đèn 2: $600:6=100$ lần. Đèn 3: $600:10=60$ lần.
+
+\step{2}{Hai đèn và ba đèn cùng nháy -- dùng BCNN}
+Hai đèn cùng nháy khi số giây là bội chung của hai chu kì, tức là bội của BCNN.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item $\text{BCNN}(4,6)=12$: $600:12=50$ lần đèn 1 và đèn 2 cùng nháy.
+\item $\text{BCNN}(4,10)=20$: $600:20=30$ lần.
+\item $\text{BCNN}(6,10)=30$: $600:30=20$ lần.
+\item $\text{BCNN}(4,6,10)=60$: $600:60=10$ lần cả ba đèn cùng nháy. Đó là đáp số câu a.
+\end{itemize}
+\begin{warnbox}$\text{BCNN}(4,6)$ là $12$, không phải $4\times6=24$ (vì $4$ và $6$ có ước chung $2$). Tương tự
+$\text{BCNN}(4,6,10)=60$ chứ không phải $240$.\end{warnbox}
+
+\step{3}{Câu b: đúng hai đèn}
+Trong $50$ lần đèn 1 và đèn 2 cùng nháy có $10$ lần đèn 3 cũng nháy (ba đèn), nên chỉ có hai đèn 1, 2: $50-10=40$ lần.
+Tương tự: chỉ đèn 1 và đèn 3: $30-10=20$; chỉ đèn 2 và đèn 3: $20-10=10$. Tổng số thời điểm đúng hai đèn:
+$40+20+10=70$.
+
+\step{4}{Câu c: vẽ sơ đồ Ven và điền số từ trong ra ngoài}
+Chỉ đèn 1: $150-40-20-10=80$; chỉ đèn 2: $100-40-10-10=40$; chỉ đèn 3: $60-20-10-10=20$.
+\begin{figC}
+  \fill[tmBlue,opacity=0.12] (0,0) circle (1.3);\fill[tmOrange,opacity=0.12] (1.6,0) circle (1.3);
+  \fill[tmGreen,opacity=0.12] (0.8,-1.3) circle (1.3);
+  \draw[tmBlue,thick] (0,0) circle (1.3);\draw[tmOrange,thick] (1.6,0) circle (1.3);\draw[tmGreen!80!black,thick] (0.8,-1.3) circle (1.3);
+  \node[text=tmBlue] at (-0.9,1.25) {đèn 1};\node[text=tmOrange!80!black] at (2.6,1.25) {đèn 2};
+  \node[text=tmGreen!70!black] at (0.8,-2.85) {đèn 3};
+  \node at (-0.45,0.25) {$80$};\node at (2.05,0.25) {$40$};\node at (0.8,-1.95) {$20$};
+  \node at (0.8,0.5) {$40$};\node at (0.05,-0.95) {$20$};\node at (1.55,-0.95) {$10$};
+  \node[text=AnsRed,font=\bfseries\small] at (0.8,-0.45) {$10$};
+\end{figC}
+Số thời điểm có ít nhất một đèn nháy là tổng bảy số trong sơ đồ:
+\[80+40+20+40+20+10+10=220.\]
+\begin{recallbox}\emph{Nguyên lí bù trừ} cho ba nhóm: số phần tử thuộc ít nhất một nhóm $=$ (tổng số phần tử của ba nhóm) $-$ (tổng số phần tử chung của từng cặp hai nhóm) $+$ (số phần tử chung của cả ba nhóm). Phần chung của cả ba nhóm bị cộng $3$ lần, bị trừ $3$ lần, nên phải cộng lại $1$ lần.\end{recallbox}
+\verify{Theo nguyên lí bù trừ: $150+100+60-50-30-20+10=220$. Khớp với sơ đồ Ven.}
+\ans{a) $10$ lần;\quad b) $70$ thời điểm;\quad c) $220$ thời điểm}
+}
+
+
+\begin{probbox}{46}{\stars{2}}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=2pt,topsep=2pt]
+\item Một hình chóp tứ giác đều có $5$ mặt: một mặt đáy hình vuông và bốn mặt bên hình tam giác. Cần ít nhất bao nhiêu màu để sơn
+$5$ mặt (mỗi mặt một màu) sao cho hai mặt có chung một cạnh luôn khác màu?
+\item Có $6$ màu khác nhau. Ta sơn sáu mặt của một hình lập phương, mỗi mặt một màu, dùng đủ cả $6$ màu. Hai hình lập phương được
+coi là giống nhau nếu có thể xoay hình này để được hình kia (màu ở các vị trí trùng khớp). Có bao nhiêu hình lập phương khác nhau?
+\end{enumerate}
+\begin{figC}
+  \begin{scope}
+    \coordinate (A) at (0,0);\coordinate (B) at (2,0);\coordinate (C) at (2.7,0.6);\coordinate (D) at (0.7,0.6);\coordinate (S) at (1.35,2.1);
+    \draw[Ink,thick,dashed] (A)--(D)--(C);\draw[Ink,thick,dashed] (D)--(S);
+    \fill[tmBlue!30] (A)--(B)--(S)--cycle;\fill[tmOrange!35] (B)--(C)--(S)--cycle;
+    \draw[Ink,thick] (A)--(B)--(C)--(S)--cycle;\draw[Ink,thick] (B)--(S);
+    \node[font=\scriptsize] at (1.35,-0.3) {hình chóp tứ giác};
+  \end{scope}
+  \begin{scope}[shift={(4.2,0)}]
+    \fill[tmGreen!35,draw=Ink,thick] (0,0)--(1.4,0)--(1.4,1.4)--(0,1.4)--cycle;
+    \fill[tmPurple!30,draw=Ink,thick] (0,1.4)--(1.4,1.4)--(2.0,1.95)--(0.6,1.95)--cycle;
+    \fill[tmTeal!30,draw=Ink,thick] (1.4,0)--(2.0,0.55)--(2.0,1.95)--(1.4,1.4)--cycle;
+    \node[font=\scriptsize] at (1,-0.3) {hình lập phương $6$ màu};
+  \end{scope}
+\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Câu a giống bài 21: tìm một cách tô và chứng minh không thể ít màu hơn. Câu b là bài toán đếm ``không kể
+cách xoay'': phải cẩn thận vì một hình lập phương có thể đặt theo nhiều tư thế.
+
+\step{1}{Câu a: cần ít nhất $3$ màu}
+\begin{proofbox}Mặt đáy có chung cạnh với cả bốn mặt bên, nên màu của đáy khác màu của mọi mặt bên. Hai mặt bên kề nhau cũng có chung
+một cạnh (cạnh bên đi lên đỉnh chóp), nên cũng phải khác màu. Lấy mặt đáy và hai mặt bên kề nhau: ba mặt này đôi một chung cạnh,
+nên cần ít nhất $3$ màu.\end{proofbox}
+\emph{Ba màu là đủ:} sơn đáy màu $1$; bốn mặt bên đi vòng quanh sơn xen kẽ màu $2$, màu $3$, màu $2$, màu $3$. Mặt bên thứ tư (màu $3$)
+kề với mặt bên thứ nhất (màu $2$): khác màu. Vậy câu a cần ít nhất $3$ màu.
+\begin{tipbox}Nếu đáy là ngũ giác (hình chóp có $5$ mặt bên) thì $5$ mặt bên xếp thành vòng lẻ, không thể tô xen kẽ hai màu,
+nên cần $4$ màu. Số mặt bên chẵn hay lẻ quyết định đáp số!\end{tipbox}
+
+\step{2}{Câu b: đặt hình lập phương về một ``tư thế chuẩn''}
+Gọi các màu là $1,2,3,4,5,6$. Với mỗi hình lập phương, ta xoay nó theo hai bước:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item xoay sao cho mặt màu $1$ nằm \emph{dưới đáy};
+\item giữ nguyên đáy, xoay quanh trục thẳng đứng sao cho, trong bốn mặt bên, mặt có \emph{số màu nhỏ nhất} nằm ở phía trước.
+\end{itemize}
+Sau khi đặt như vậy, không còn phép xoay nào giữ nguyên cả mặt đáy lẫn mặt trước. Do đó hai hình lập phương là giống nhau khi và
+chỉ khi ở tư thế chuẩn chúng có cùng màu ở mọi vị trí.
+
+\step{3}{Đếm số tư thế chuẩn}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Mặt trên (đối diện màu $1$): chọn một trong $5$ màu còn lại: $5$ cách.
+\item Bốn màu còn lại nằm ở bốn mặt bên; màu nhỏ nhất trong bốn màu đó đã được đặt ở mặt trước (không phải chọn).
+\item Ba màu còn lại xếp vào ba mặt: trái, sau, phải: $3\times2\times1=6$ cách.
+\end{itemize}
+Theo quy tắc nhân: $5\times6=30$ hình lập phương khác nhau.
+
+\step{4}{Kiểm tra bằng cách thứ hai}
+Nếu \emph{không} cho phép xoay (sáu vị trí trên, dưới, trước, sau, trái, phải là cố định), số cách sơn là
+$6\times5\times4\times3\times2\times1=720$. Mỗi hình lập phương có thể đặt theo $6\times4=24$ tư thế ($6$ cách chọn mặt nằm dưới
+đáy, rồi $4$ cách xoay quanh trục thẳng đứng), và với $6$ màu khác nhau thì $24$ tư thế này cho $24$ cách sơn cố định khác nhau.
+Vậy số hình lập phương khác nhau là $720:24=30$.
+\begin{warnbox}Trả lời $720$ là quên rằng các hình xoay được thành nhau thì giống nhau. Trả lời $6\times5=30$ ``cho có'' mà không giải thích
+cũng chưa đủ: cần lập luận vì sao mỗi hình lập phương được đếm đúng một lần.\end{warnbox}
+\verify{Hai cách đếm (tư thế chuẩn và chia cho $24$) cho cùng kết quả $30$.}
+\ans{a) $3$ màu;\quad b) $30$ hình lập phương}
+}
+
+\begin{probbox}{47}{\stars{2}}
+Xét các số nguyên $1,2,3,\dots,20$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Có bao nhiêu cặp $(m,n)$ với $m<n$ sao cho $m+n$ chia hết cho $3$?
+\item Có bao nhiêu cặp $(m,n)$ với $m<n$ sao cho $m+n$ chia hết cho $4$?
+\item Có bao nhiêu bộ ba $(m,n,p)$ với $m<n<p$ sao cho $m+n+p$ chia hết cho $3$?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ở bài 22, ta chia các số theo tính chẵn lẻ (số dư khi chia cho $2$). Ở đây ta chia theo \emph{số dư khi chia
+cho $3$} (hoặc cho $4$). Vì $m<n$ (và $m<n<p$) nên mỗi cặp/bộ ba được đếm một lần, không kể thứ tự.
+\begin{recallbox}Số dư của một tổng khi chia cho $3$ bằng số dư của tổng các số dư. Ví dụ $7+11=18$: $7$ dư $1$, $11$ dư $2$, $1+2=3$
+chia hết cho $3$, nên $18$ chia hết cho $3$.\end{recallbox}
+
+\step{1}{Chia $20$ số theo số dư khi chia cho $3$}
+\begin{center}\begin{tabular}{|c|l|c|}\hline
+Số dư & Các số & Số lượng\\\hline
+$0$ & $3,6,9,12,15,18$ & $6$\\\hline
+$1$ & $1,4,7,10,13,16,19$ & $7$\\\hline
+$2$ & $2,5,8,11,14,17,20$ & $7$\\\hline
+\end{tabular}\end{center}
+
+\step{2}{Câu a}
+Tổng hai số dư chia hết cho $3$ chỉ trong hai trường hợp: $0+0$ hoặc $1+2$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Hai số cùng dư $0$: chọn $2$ trong $6$ số: $\dfrac{6\times5}{2}=15$ cặp.
+\item Một số dư $1$, một số dư $2$: $7\times7=49$ cặp (hai số khác nhóm nên tự động khác nhau; số nhỏ hơn là $m$).
+\end{itemize}
+(Hai số cùng dư $1$ có tổng dư $2$; hai số cùng dư $2$ có tổng $4$, dư $1$: không thỏa mãn.) Tổng: $15+49=64$ cặp.
+
+\step{3}{Câu b: chia theo số dư khi chia cho $4$}
+Mỗi số dư $0,1,2,3$ có đúng $5$ số (vì $20=4\times5$). Tổng hai số dư chia hết cho $4$ khi: $0+0$, $2+2$ hoặc $1+3$.
+\[\frac{5\times4}{2}+\frac{5\times4}{2}+5\times5=10+10+25=45 \text{ cặp.}\]
+
+\step{4}{Câu c: các kiểu số dư của bộ ba}
+Liệt kê mọi kiểu số dư (không kể thứ tự) của ba số và tổng của chúng:
+\begin{center}\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+Kiểu & $000$ & $111$ & $222$ & $012$ & $001$ & $002$ & $011$ & $022$ & $112$ & $122$\\\hline
+Tổng & $0$ & $3$ & $6$ & $3$ & $1$ & $2$ & $2$ & $4$ & $4$ & $5$\\\hline
+Chia hết cho $3$? & có & có & có & có & không & không & không & không & không & không\\\hline
+\end{tabular}\end{center}
+Đếm bốn kiểu thỏa mãn:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Kiểu $000$: chọn $3$ trong $6$ số: $\dfrac{6\times5\times4}{3\times2\times1}=20$.
+\item Kiểu $111$: chọn $3$ trong $7$ số: $\dfrac{7\times6\times5}{3\times2\times1}=35$. Kiểu $222$: cũng $35$.
+\item Kiểu $012$: mỗi nhóm một số: $6\times7\times7=294$.
+\end{itemize}
+Tổng: $20+35+35+294=384$ bộ ba.
+\begin{recallbox}Số cách chọn $3$ vật (không kể thứ tự) từ $k$ vật là $\dfrac{k\times(k-1)\times(k-2)}{6}$: chọn có thứ tự được
+$k(k-1)(k-2)$ cách, mỗi bộ ba bị đếm $3\times2\times1=6$ lần.\end{recallbox}
+\begin{warnbox}Ở kiểu $012$, ta \emph{không} chia cho $6$: ba số thuộc ba nhóm khác nhau, mỗi cách chọn (một số dư $0$, một số dư $1$,
+một số dư $2$) cho đúng một bộ ba, sau đó xếp tăng dần là xong.\end{warnbox}
+\verify{Tổng số bộ ba là $\dfrac{20\times19\times18}{6}=1140$. Có $384$ bộ có tổng chia hết cho $3$, gần bằng $\dfrac13$ của $1140$ ($380$),
+hợp lý vì tổng ba số ``khá đều'' giữa ba số dư.}
+\ans{a) $64$ cặp;\quad b) $45$ cặp;\quad c) $384$ bộ ba}
+}
+
+\begin{probbox}{48}{\stars{1}}
+Với một số có hai chữ số $n=\nd{ab}$, gọi $\nd{ba}$ là \emph{số đảo} của $n$ (như bài 23).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Tìm tất cả các số có hai chữ số $n$ sao cho $n$ cộng với số đảo của nó là một số chính phương.
+\item Tìm tất cả các số có hai chữ số, cả hai chữ số đều khác $0$, sao cho $n$ trừ số đảo của nó là một số chính phương dương.
+\item Chứng minh rằng mọi số có bốn chữ số dạng $\nd{abba}$ (số đối xứng) đều chia hết cho $11$.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Viết số theo các chữ số: $\nd{ab}=10a+b$ và $\nd{ba}=10b+a$, với $a$ là chữ số hàng chục ($1\le a\le9$),
+$b$ là chữ số hàng đơn vị. Số chính phương là bình phương của một số tự nhiên: $1,4,9,16,25,\dots$
+
+\step{1}{Câu a: tính tổng}
+$\nd{ab}+\nd{ba}=(10a+b)+(10b+a)=11a+11b=11(a+b)$.
+\begin{proofbox}Nếu $11(a+b)=s\times s$ thì $s\times s$ chia hết cho số nguyên tố $11$, nên $s$ chia hết cho $11$ (một tích hai số
+chia hết cho số nguyên tố $p$ thì một trong hai số chia hết cho $p$). Khi đó $s\times s$ chia hết cho $121$, tức $11(a+b)$ chia hết
+cho $121$, nên $a+b$ chia hết cho $11$.\end{proofbox}
+Đối với số có hai chữ số (đảo có thể bắt đầu bằng $0$, như $\nd{ba}=b$ khi $b=0$) ta có $1\le a+b\le18$, nên $a+b=11$, và khi đó
+tổng là $11\times11=121=11^2$, đúng là số chính phương. Các số cần tìm: $a+b=11$ với $a$ từ $2$ đến $9$:
+\[29,\ 38,\ 47,\ 56,\ 65,\ 74,\ 83,\ 92 \quad(8 \text{ số}).\]
+
+\step{2}{Câu b: tính hiệu}
+$\nd{ab}-\nd{ba}=(10a+b)-(10b+a)=9a-9b=9(a-b)$. Hiệu dương nên $a>b\ge1$.
+Vì $9=3\times3$ là số chính phương, $9(a-b)$ là số chính phương khi và chỉ khi $a-b$ là số chính phương.
+\begin{proofbox}Nếu $a-b=t\times t$ thì $9(a-b)=(3t)\times(3t)$. Ngược lại, nếu $9(a-b)=s\times s$ thì $s\times s$ chia hết cho $3$, nên
+$s$ chia hết cho $3$; viết $s=3t$ ta được $9(a-b)=9t\times t$, tức $a-b=t\times t$.\end{proofbox}
+Do $1\le b<a\le9$ nên $1\le a-b\le8$; các số chính phương trong khoảng này là $1$ và $4$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item $a-b=1$: $21, 32, 43, 54, 65, 76, 87, 98$ ($8$ số).
+\item $a-b=4$: $51, 62, 73, 84, 95$ ($5$ số).
+\end{itemize}
+Tất cả có $13$ số.
+
+\step{3}{Câu c: tách theo hàng}
+\[\nd{abba}=1000a+100b+10b+a=1001a+110b=11\times91\times a+11\times10\times b=11\times(91a+10b).\]
+Vậy $\nd{abba}$ luôn chia hết cho $11$.
+\begin{warnbox}$\nd{ab}$ là cách viết số có chữ số $a$ và $b$, \emph{không phải} tích $a\times b$. Luôn đổi $\nd{ab}$ thành $10a+b$ trước khi tính.\end{warnbox}
+\verify{a) $47+74=121=11^2$. b) $73-37=36=6^2$, $98-89=9=3^2$. c) $2332=11\times212$, $7007=11\times637$.}
+\ans{a) $29, 38, 47, 56, 65, 74, 83, 92$;\quad b) $13$ số: $21,32,43,54,65,76,87,98,51,62,73,84,95$;\quad c) xem chứng minh.}
+}
+
+\begin{probbox}{49}{\stars{2}}
+Cho một lưới ô vuông gồm $3$ hàng và $5$ cột ($15$ ô vuông nhỏ) như hình vẽ; ô ở chính giữa được tô màu.
+\begin{figC}\begin{scope}[scale=0.6]
+  \fill[tmOrange!45] (2,1) rectangle (3,2);
+  \draw[Ink,thick] (0,0) grid (5,3);
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Trong hình có bao nhiêu hình chữ nhật (kể cả hình vuông) có các cạnh nằm trên các đường kẻ của lưới?
+\item Trong số đó có bao nhiêu hình vuông?
+\item Chọn ngẫu nhiên một trong các hình chữ nhật ở câu a. Tính xác suất để hình chữ nhật đó chứa ô được tô màu.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Giống bài 24, mỗi hình chữ nhật được xác định bởi hai đường kẻ ngang (cạnh trên, cạnh dưới) và hai đường kẻ dọc
+(cạnh trái, cạnh phải). Lưới $3$ hàng có $4$ đường ngang, đánh số $0,1,2,3$ từ trên xuống; lưới $5$ cột có $6$ đường dọc, đánh số
+$0,1,\dots,5$ từ trái sang.
+
+\step{1}{Câu a: đếm hình chữ nhật}
+Chọn $2$ trong $4$ đường ngang: $\dfrac{4\times3}{2}=6$ cách. Chọn $2$ trong $6$ đường dọc: $\dfrac{6\times5}{2}=15$ cách.
+Theo quy tắc nhân: $6\times15=90$ hình chữ nhật.
+
+\step{2}{Câu b: đếm hình vuông theo kích thước}
+\begin{recallbox}Trong một lưới $3\times5$, hình vuông cạnh $k$ có $(3-k+1)$ vị trí theo chiều dọc và $(5-k+1)$ vị trí theo chiều ngang.\end{recallbox}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item cạnh $1$: $3\times5=15$ hình;
+\item cạnh $2$: $2\times4=8$ hình;
+\item cạnh $3$: $1\times3=3$ hình;
+\item cạnh $4$ trở lên: không có (lưới chỉ cao $3$).
+\end{itemize}
+Tổng: $15+8+3=26$ hình vuông.
+\begin{warnbox}Không được dùng công thức ``chọn $2$ đường ngang và $2$ đường dọc'' để đếm hình vuông: phần lớn các cách chọn đó cho hình chữ
+nhật không vuông. Hình vuông phải đếm theo cạnh.\end{warnbox}
+
+\step{3}{Câu c: hình chữ nhật chứa ô ở giữa}
+Ô ở giữa nằm giữa đường ngang $1$ và $2$, giữa đường dọc $2$ và $3$. Một hình chữ nhật chứa ô này khi và chỉ khi:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item cạnh trên là đường ngang $0$ hoặc $1$ (ở trên ô): $2$ cách; cạnh dưới là đường ngang $2$ hoặc $3$: $2$ cách;
+\item cạnh trái là đường dọc $0$, $1$ hoặc $2$: $3$ cách; cạnh phải là đường dọc $3$, $4$ hoặc $5$: $3$ cách.
+\end{itemize}
+\begin{figC}\begin{scope}[scale=0.6]
+  \fill[tmGreen!25] (1,0) rectangle (4,2);
+  \fill[tmOrange!55] (2,1) rectangle (3,2);
+  \draw[Ink,thick] (0,0) grid (5,3);
+  \draw[tmGreen!70!black,line width=2pt] (1,0) rectangle (4,2);
+  \foreach \i in {0,...,5}{\node[font=\scriptsize,text=Slate] at (\i,3.35) {\i};}
+  \foreach \j/\l in {3/0,2/1,1/2,0/3}{\node[font=\scriptsize,text=Slate] at (-0.35,\j) {\l};}
+\end{scope}\end{figC}
+(Ví dụ hình tô xanh lá: cạnh trên là đường ngang $1$, cạnh dưới là đường ngang $3$, cạnh trái là đường dọc $1$, cạnh phải là đường dọc $4$.)
+Số hình chữ nhật chứa ô giữa: $2\times2\times3\times3=36$.
+\[P=\frac{36}{90}=\frac{2}{5}.\]
+\begin{proofbox}Vì sao điều kiện trên là đúng? Hình chữ nhật chứa ô giữa khi và chỉ khi nó ``trùm'' ô đó theo cả hai chiều: cạnh trên phải
+ở trên (hoặc trùng) cạnh trên của ô, cạnh dưới ở dưới (hoặc trùng) cạnh dưới của ô; tương tự với cạnh trái, cạnh phải. Bốn lựa chọn này
+độc lập với nhau nên ta nhân.\end{proofbox}
+\verify{Tách theo từng chiều: trong $15$ cách chọn hai đường dọc, có $3\times3=9$ cách ``trùm'' cột giữa; trong $6$ cách chọn hai đường
+ngang, có $2\times2=4$ cách trùm hàng giữa. Xác suất $=\dfrac{9}{15}\times\dfrac{4}{6}=\dfrac35\times\dfrac23=\dfrac25$. Khớp.}
+\ans{a) $90$;\quad b) $26$;\quad c) $\dfrac25$}
+}
+
+\begin{probbox}{50}{\stars{2}}
+Trong một cái hộp có $2026$ viên bi đỏ và $2027$ viên bi xanh. Bên ngoài hộp có một đống bi xanh rất lớn. Bạn Phong lặp lại thao tác
+sau: lấy ngẫu nhiên $2$ viên bi trong hộp ra.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Nếu hai viên \emph{cùng màu} (cùng đỏ hoặc cùng xanh): bỏ cả hai viên ra ngoài, rồi lấy $1$ viên bi xanh từ đống bên ngoài bỏ vào hộp.
+\item Nếu hai viên \emph{khác màu}: bỏ viên xanh ra ngoài và trả viên đỏ vào hộp.
+\end{itemize}
+Phong dừng lại khi trong hộp chỉ còn $1$ viên bi.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Phong đã thực hiện bao nhiêu lần thao tác?
+\item Tính xác suất để viên bi cuối cùng là bi đỏ.
+\item Nếu lúc đầu hộp có $2025$ viên bi đỏ và $2027$ viên bi xanh thì xác suất ở câu b bằng bao nhiêu?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Có hàng nghìn viên bi, không thể vẽ cây xác suất như bài 25. Ta tìm một đại lượng \emph{không thay đổi} (gọi là
+\emph{bất biến}) trong mỗi thao tác. Ở bài 25, bất biến là ``luôn còn bi xanh''; ở đây ta xét \emph{tính chẵn lẻ của số bi đỏ}.
+
+\step{1}{Câu a: mỗi thao tác làm giảm số bi đi đúng $1$}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Cùng màu: lấy ra $2$, bỏ vào $1$ $\Rightarrow$ số bi trong hộp giảm $1$.
+\item Khác màu: lấy ra $2$, trả lại $1$ $\Rightarrow$ số bi giảm $1$.
+\end{itemize}
+Lúc đầu có $2026+2027=4053$ viên, cuối cùng còn $1$ viên. Số thao tác là $4053-1=4052$.
+
+\step{2}{Theo dõi số bi đỏ trong mỗi trường hợp}
+\begin{center}\begin{tabular}{|c|c|c|}\hline
+Lấy được & Số bi đỏ thay đổi & Số bi xanh thay đổi\\\hline
+đỏ, đỏ & giảm $2$ & tăng $1$\\\hline
+xanh, xanh & không đổi & giảm $2$, tăng $1$: giảm $1$\\\hline
+đỏ, xanh & không đổi (trả viên đỏ lại) & giảm $1$\\\hline
+\end{tabular}\end{center}
+\begin{proofbox}Số bi đỏ hoặc giữ nguyên, hoặc giảm đúng $2$. Bớt đi $2$ không làm thay đổi tính chẵn lẻ (số chẵn trừ $2$ vẫn chẵn,
+số lẻ trừ $2$ vẫn lẻ). Vậy \textbf{tính chẵn lẻ của số bi đỏ không bao giờ thay đổi}, dù Phong lấy được những viên nào.\end{proofbox}
+
+\step{3}{Câu b: lúc đầu có $2026$ bi đỏ (số chẵn)}
+Số bi đỏ luôn là số chẵn. Khi hộp chỉ còn $1$ viên: nếu viên đó đỏ thì số bi đỏ là $1$ (số lẻ) -- vô lí. Vậy viên cuối cùng chắc chắn
+là bi xanh. Biến cố ``viên cuối là bi đỏ'' là biến cố không thể:
+\[P(\text{viên cuối đỏ})=0.\]
+
+\step{4}{Câu c: lúc đầu có $2025$ bi đỏ (số lẻ)}
+Số bi đỏ luôn là số lẻ, nên không bao giờ bằng $0$. Khi còn $1$ viên, số bi đỏ là số lẻ không vượt quá $1$, tức bằng $1$: viên cuối chắc
+chắn là bi đỏ. Biến cố này là biến cố chắc chắn:
+\[P(\text{viên cuối đỏ})=1.\]
+\begin{tipbox}Số bi xanh ban đầu không ảnh hưởng gì tới kết quả! Chỉ tính chẵn lẻ của số bi đỏ quyết định màu viên bi cuối cùng.\end{tipbox}
+\begin{parentbox}Hãy cùng con chơi thử với ít bi (ví dụ $2$ đỏ, $3$ xanh, hoặc $3$ đỏ, $2$ xanh) bằng các đồng xu hai màu. Lần nào cũng thấy
+kết quả giống nhau, con sẽ tò mò ``vì sao''; khi đó hãy gợi ý: ``Con thử đếm số bi đỏ sau mỗi lượt xem nó chẵn hay lẻ?''\end{parentbox}
+\begin{warnbox}Thấy chữ ``ngẫu nhiên'' rồi nghĩ đáp số phải là một phân số ``đẹp'' như $\frac12$ là sai lầm. Có những quá trình ngẫu nhiên mà kết quả cuối
+cùng lại hoàn toàn xác định.\end{warnbox}
+\verify{Thử với $2$ đỏ, $1$ xanh: lấy đỏ--đỏ $\to(0\text{ đỏ},2\text{ xanh})\to(0,1)$: xanh; lấy đỏ--xanh $\to(2,0)\to$ lấy đỏ--đỏ $\to(0,1)$: xanh.
+Mọi cách đều kết thúc bằng bi xanh, đúng với số bi đỏ ban đầu chẵn.}
+\ans{a) $4052$ lần;\quad b) $0$;\quad c) $1$}
+}

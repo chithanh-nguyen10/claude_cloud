@@ -1,0 +1,914 @@
+% =====================================================================
+% Topic 4 — Number Sense — part a: theory, worked examples, problems 1–15
+% =====================================================================
+\begin{knowbox}
+\textbf{Big idea.} ``Number sense'' is the ability to \emph{understand} numbers, not just to \emph{compute} with them:
+knowing which number is larger, whether a result is reasonable, how to round for a quick estimate, and seeing the
+hidden structure inside a number (its digits, its divisors, its multiples). In this topic you will review and connect:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item \textbf{decimals and negative numbers}: comparing and ordering them on the number line;
+  \item the \textbf{order of operations} and \textbf{estimating} results;
+  \item \textbf{fractions, ratios, percentages}: ``a fraction of a number'', equivalent fractions, discounts;
+  \item \textbf{speed} -- distance -- time and unit conversion (km/h, m/s);
+  \item \textbf{divisibility, common divisors, last digits, place value} (solving digit puzzles);
+  \item the \textbf{mean, the median} and \textbf{number patterns} (Fibonacci, arithmetic sequences).
+\end{itemize}
+The general secret: \emph{estimate before you calculate; check after you calculate}. A student with good number
+sense can often eliminate several unreasonable options in a multiple-choice question without any exact calculation.
+\end{knowbox}
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------
+\shead{Decimals: reading, comparing, ordering, adding and subtracting}
+\begin{knowbox}
+\textbf{1. Place value.} In a decimal, each digit sits in a \emph{place}. After the decimal point come the tenths,
+the hundredths, the thousandths, \ldots
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Tens & Ones & . & Tenths & Hundredths & Thousandths\\ \hline
+ & $2$ & . & $2$ & $3$ & \\ \hline
+ & $2$ & . & $3$ & $0$ & \\ \hline
+\end{tabular}
+\end{center}
+Example: $2.23 = 2 + \dfrac{2}{10} + \dfrac{3}{100}$, while $2.3 = 2 + \dfrac{3}{10} = 2.30$.
+
+\textbf{2. Adding or removing zeros at the end of the decimal part does not change the value:}
+$2.3 = 2.30 = 2.300$. Reason: $\dfrac{3}{10} = \dfrac{30}{100} = \dfrac{300}{1000}$ (multiply numerator and denominator by $10$).
+
+\textbf{3. Rule for comparing two positive decimals.}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item Compare the \emph{whole-number parts} first: the one with the larger whole part is larger.
+  \item If the whole parts are equal, \emph{add zeros} so that both decimal parts have the same number of digits,
+  then compare place by place from left to right: tenths, then hundredths, \ldots
+\end{itemize}
+Example: compare $0.304$ and $0.34$. Write $0.34 = 0.340$. Tenths: $3 = 3$; hundredths: $0 < 4$.
+So $0.304 < 0.340 = 0.34$.
+
+\textbf{4. Adding and subtracting decimals:} write the numbers in a column \emph{with the decimal points lined up}
+(places lined up), then add/subtract as with whole numbers.
+
+\textbf{5. Rounding decimals.} To round to the nearest hundredth (two digits after the point), look at the digit just
+to the right of that place (the thousandths digit): if it is less than $5$, keep the hundredths digit; if it is $5$ or more,
+add $1$ to the hundredths digit; then drop all digits after it. Example: $4.6875 \approx 4.69$ (the thousandths digit is
+$7 \ge 5$), while $3.1416 \approx 3.14$ (because $1 < 5$). The sign ``$\approx$'' reads ``is approximately''.
+\end{knowbox}
+\begin{proofbox}
+Why can't we compare ``by length'' (the number with more digits is larger)? Write both in thousandths:
+$0.304 = \dfrac{304}{1000}$ and $0.34 = \dfrac{340}{1000}$. The fractions have the same denominator and $304 < 340$, so
+$0.304 < 0.34$, even though $0.304$ ``looks longer''. Adding zeros is exactly bringing both to the same denominator.
+\end{proofbox}
+\begin{warnbox}
+Many students think $2.23 > 2.3$ because ``$23 > 3$''. Wrong! Compare place by place: $2.23$ has $2$ tenths,
+while $2.3$ has $3$ tenths, so $2.23 < 2.3$.
+\end{warnbox}
+\begin{tipbox}
+To find the smallest (largest) number in a set of decimals, write all of them in \emph{one column} with the decimal
+points lined up, adding zeros to make them equally long. Then you just compare them like whole numbers.
+\end{tipbox}
+
+% ---------------------------------------------------------------------
+\shead{Negative numbers and the number line}
+\begin{knowbox}
+\textbf{1. The number line.} The integers are placed on a straight line: $0$ in the middle, positive numbers to the
+right, negative numbers to the left.
+\numlinex{8}{0/$-4$,1/$-3$,2/$-2$,3/$-1$,4/$0$,5/$1$,6/$2$,7/$3$,8/$4$}{}{4}
+\textbf{2. Comparison rule.} On a (horizontal) number line, \emph{a number to the left is smaller than a number to the
+right}. Therefore:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item every negative number is less than $0$, and $0$ is less than every positive number;
+  \item every negative number is less than every positive number;
+  \item of two negative numbers, the one \emph{farther from $0$} is \emph{smaller}: $-8 < -2$ because $8 > 2$.
+\end{itemize}
+\textbf{3. Everyday pictures.} A temperature of $-8^\circ$C is colder than $-2^\circ$C; owing $8$ thousand dong
+leaves you ``poorer'' than owing $2$ thousand dong.
+
+\textbf{4. The coordinate plane.} A point is given by a pair of numbers $(x;y)$: $x$ is the horizontal coordinate
+(moving right/left), $y$ is the vertical coordinate (moving up/down). A horizontal move changes only $x$; a vertical
+move changes only $y$.
+\end{knowbox}
+\begin{proofbox}
+Why is $-8 < -2$? We have $-2 = -8 + 6$: to go from $-8$ to $-2$ on the number line we must move $6$ units \emph{to the
+right}. Moving right means increasing, so $-2$ is larger than $-8$.
+\end{proofbox}
+\begin{warnbox}
+Do not compare negative numbers ``by the feel of positive numbers''. $-8$ is \emph{less} than $-2$, even though $8$ is
+greater than $2$. When in doubt, sketch a quick number line.
+\end{warnbox}
+\begin{tipbox}
+\textbf{Parity (even -- odd)} is a powerful ``number sense'' tool: even $+$ even $=$ even, odd $+$ odd $=$ even,
+even $+$ odd $=$ odd; a product of odd numbers is always odd. For instance, the sum of $5$ odd numbers is odd, and the sum
+of $4$ odd numbers is even. When a point moves on a coordinate grid, looking at the parity of its coordinates often tells
+you at once whether a position can be reached.
+\end{tipbox}
+
+% ---------------------------------------------------------------------
+\shead{Order of operations and estimation}
+\begin{knowbox}
+\textbf{1. Order of operations.}
+\begin{enumerate}[leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item \emph{Brackets} first: $(\;)$, then $[\;]$, then $\{\;\}$.
+  \item Next, \emph{powers}.
+  \item Then \emph{multiplication and division}, from left to right.
+  \item Finally \emph{addition and subtraction}, from left to right.
+\end{enumerate}
+Example: $6\times 2 - 3 = 12 - 3 = 9$ (multiply first, then subtract), whereas $6\times(2-3) = 6\times(-1) = -6$.
+
+\textbf{2. Rounding to estimate.} To know quickly ``roughly how much'' a result is, round the factors to the nearest
+ten or hundred and compute mentally. Example: $99 \times 9 \approx 100 \times 9 = 900$.
+
+\textbf{3. A quick-calculation trick:} $99 \times 9 = (100-1)\times 9 = 900 - 9 = 891$ (multiplication distributes
+over subtraction).
+\end{knowbox}
+\begin{proofbox}
+Why is $(100-1)\times 9 = 100\times 9 - 1\times 9$? Imagine $9$ rows of $100$ sweets each, but $1$ sweet is taken from
+every row. The sweets left are $9$ rows $\times$ $99$ sweets, which also equals ($9\times 100$ sweets) minus (the $9$
+sweets taken). This is the \emph{distributive property}: $a\times(b-c) = a\times b - a\times c$.
+\end{proofbox}
+\begin{warnbox}
+Working ``from left to right regardless of the operation'' is wrong: $2 + 3\times 4 \ne 5\times 4$. The correct
+value is $2 + 3\times 4 = 2 + 12 = 14$.
+\end{warnbox}
+\begin{tipbox}
+In a multiple-choice question asking ``which number is closest to\ldots'', the options often differ by factors of $10$
+($10$; $100$; $1000$; \ldots). Then a rough estimate is enough to choose correctly.
+\end{tipbox}
+
+% ---------------------------------------------------------------------
+\shead{Fractions: a fraction of a number, equivalent fractions}
+\begin{knowbox}
+\textbf{1. A fraction is a part of a whole.} $\dfrac{a}{b}$ means: split the whole into $b$ equal parts and take $a$ of them.
+
+\textbf{2. Finding a fraction of a number:} to find $\dfrac{m}{n}$ of $a$, compute $a \times \dfrac{m}{n}$
+(split $a$ into $n$ parts and take $m$ of them). Example: $\dfrac{1}{3}$ of $396$ is $396 \div 3 = 132$.
+
+\textbf{3. The part that is left.} If $\dfrac{m}{n}$ of a job is done, the part left is $1 - \dfrac{m}{n} = \dfrac{n-m}{n}$.
+
+\textbf{4. Equivalent fractions (the basic property).} Multiplying (or dividing) the numerator and the denominator by the
+same non-zero number gives an equal fraction:
+\[ \frac{3}{7} = \frac{3\times 9}{7\times 9} = \frac{27}{63}, \qquad \frac{12}{36} = \frac{12\div 12}{36\div 12} = \frac{1}{3}. \]
+\textbf{5. Simplifying a fraction:} divide the numerator and the denominator by their greatest common divisor to get a
+fraction in lowest terms.
+
+\textbf{6. ``Sum and ratio'' problems.} If two numbers are in the ratio $\dfrac{5}{8}$, we can think of the first number as
+$5$ equal parts and the second as $8$ such parts. Knowing the sum (or the difference) gives the value of one part.
+
+\textbf{7. A fraction of a fraction.} ``Half of a quarter'' is $\dfrac12\times\dfrac14 = \dfrac18$: multiply numerator by
+numerator, denominator by denominator. This happens often when a shape is halved several times in a row: each halving
+multiplies the area fraction by $\dfrac12$ again.
+
+\textbf{8. Comparing fractions.} Bring them to a common denominator and compare numerators, or convert them to
+decimals. Examples: $\dfrac23 = \dfrac{8}{12} > \dfrac{7}{12}$; \ $\dfrac35 = 0.6 < \dfrac34 = 0.75$.
+\end{knowbox}
+\begin{barfigC}
+  \rowlab{-0.2}{0}{First number}
+  \foreach \i in {0,...,4}{\blk{\i*0.9}{\i*0.9+0.9}{0}{0.55}{tmBlue}{}}
+  \rowlab{-0.2}{-0.8}{Second number}
+  \foreach \i in {0,...,7}{\blk{\i*0.9}{\i*0.9+0.9}{-0.8}{0.55}{tmOrange}{}}
+  \vbrace{7.35}{0.3}{-1.1}{sum $= 13$ parts}
+\end{barfigC}
+\begin{proofbox}
+Why does multiplying the numerator and denominator by the same number leave the fraction unchanged? $\dfrac{3}{7}$ is
+``cut the cake into $7$ parts, take $3$''. If we cut \emph{each} part into $9$ smaller pieces, the cake has
+$7\times 9 = 63$ pieces and our share has $3\times 9 = 27$ pieces. The amount of cake has not changed, so
+$\dfrac{3}{7} = \dfrac{27}{63}$.
+\end{proofbox}
+\begin{warnbox}
+Read the question carefully: does it ask for the part \emph{done} or the part \emph{left}? Many students correctly find
+$\dfrac13$ of $396$ to be $132$ and circle it straight away, while the question asks for the pages \emph{left},
+$396 - 132 = 264$.
+\end{warnbox}
+\begin{parentbox}
+With fractions, a picture beats any explanation. Draw a strip (a chocolate bar) split into equal parts and shade the
+part used; your child will see the part left by themselves. This is the familiar ``bar model'' from primary school.
+\end{parentbox}
+
+% ---------------------------------------------------------------------
+\shead{Percentages, unit price and discounts}
+\begin{knowbox}
+\textbf{1. Percent means ``out of one hundred''.} $80\% = \dfrac{80}{100} = 0.8$.
+
+\textbf{2. Finding $p\%$ of a number $a$:} compute $a \times \dfrac{p}{100}$. Example: $80\%$ of $50$ is
+$50 \times \dfrac{80}{100} = 40$.
+
+\textbf{3. Expressing $a$ as a percentage of $b$:} compute $\dfrac{a}{b}\times 100\%$. Example: $32$ correct answers out of
+$40$ questions is $\dfrac{32}{40}\times 100\% = 80\%$.
+
+\textbf{4. Unit price.} The unit price is the price of \emph{one} unit (one kilogram, one book, \ldots):
+\[ \text{Total cost} = \text{unit price} \times \text{quantity}, \qquad \text{unit price} = \text{total cost} \div \text{quantity}. \]
+\textbf{5. A discount of $p\%$.} New price $=$ old price $\times \left(1 - \dfrac{p}{100}\right)$. A $10\%$ discount
+leaves $90\%$: multiply by $0.9$.
+
+\textbf{6. Successive discounts.} Each time the price is reduced by $10\%$ \emph{of the current price}, we multiply by
+$0.9$ once more. Example: a price of $100$ thousand dong after two reductions: $100 \to 90 \to 81$ (thousand dong),
+\emph{not} $80$.
+\end{knowbox}
+\begin{proofbox}
+Why are two $10\%$ reductions not the same as one $20\%$ reduction? The second reduction is $10\%$ of $90$ (that is $9$),
+not $10\%$ of $100$ (that is $10$). Since the price has already dropped, the next reduction is smaller too: in total the
+price drops by only $10 + 9 = 19$ thousand dong, i.e.\ $19\%$.
+\end{proofbox}
+\begin{tipbox}
+Finding $10\%$ very fast: just divide by $10$ (move the decimal point one place to the left). From $10\%$ you get
+$5\%$ (halve it), $20\%$ (double it), $80\% = 100\% - 20\%$, \ldots
+\end{tipbox}
+
+% ---------------------------------------------------------------------
+\shead{Speed, distance, time and unit conversion}
+\begin{knowbox}
+\textbf{1. Three linked formulas.} For motion at a constant speed:
+\[ s = v \times t, \qquad v = s \div t, \qquad t = s \div v, \]
+where $s$ is the distance, $v$ the speed and $t$ the time.
+
+\textbf{2. Who is faster?} The faster person covers a \emph{longer} distance in the \emph{same amount of time}. The
+safest way: compute each person's speed in the same unit (for example m/s) and compare.
+
+\textbf{3. Running laps.} Running $n$ laps of a track $L$ metres long means a distance of $n \times L$ metres.
+
+\textbf{4. Converting km/h to m/s.} $1$ km $= 1000$ m and $1$ hour $= 3600$ seconds, so
+\[ 1 \text{ km/h} = \frac{1000 \text{ m}}{3600 \text{ s}} = \frac{5}{18} \text{ m/s}, \qquad
+   18 \text{ km/h} = 18\times\frac{5}{18} = 5 \text{ m/s}, \qquad 1 \text{ m/s} = 3.6 \text{ km/h}. \]
+\end{knowbox}
+\begin{figC}
+  \draw[tmBlue,line width=1.2pt,rounded corners=8pt] (0,0) rectangle (3.6,1.6);
+  \node[draw=tmOrange,fill=tmOrange!15,rounded corners=3pt,minimum width=1.6cm] at (1.8,0.8) {$s = v\times t$};
+  \node[text=Ink,align=left,anchor=west] at (4.2,0.8) {Cover the quantity you want:\\ $v = s \div t$ \quad and \quad $t = s \div v$};
+\end{figC}
+\begin{warnbox}
+The quantities must use \emph{matching units}: if the distance is in metres and the time in seconds, the speed comes
+out in m/s; do not divide metres by hours. Before comparing two speeds, convert them to the same unit.
+\end{warnbox}
+
+% ---------------------------------------------------------------------
+\shead{Divisibility, common divisors, last digits and place value}
+\begin{knowbox}
+\textbf{1. Multiples and divisors.} $a$ is a \emph{multiple} of $b$ (or $b$ is a \emph{divisor} of $a$) if
+$a = b\times k$ for some whole number $k$. Example: $45 = 9\times 5$, so $45$ is a multiple of $9$.
+
+\textbf{2. Divisibility rules.}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item by $2$: the last digit is $0, 2, 4, 6, 8$; \quad by $5$: the last digit is $0$ or $5$; \quad by $10$: the last digit is $0$;
+  \item by $3$: the digit sum is divisible by $3$; \quad by $9$: \emph{the digit sum is divisible by $9$}.
+\end{itemize}
+\textbf{3. Common divisors.} A number that divides both $a$ and $b$ is a common divisor of $a$ and $b$. Every common divisor
+is a divisor of the \emph{greatest common divisor} $\gcd(a,b)$. Example: $\gcd(40,72)=8$, so the common divisors of $40$
+and $72$ are $1, 2, 4, 8$.
+
+\textbf{4. The last digit of a product} depends only on the last digits of the factors:
+$\ldots 3 \times \ldots 7$ ends in the same digit as $3\times 7 = 21$, namely $1$.
+
+\textbf{5. Place value.} A number written with digits can be expanded by place:
+\[ \nd{abc} = 100a + 10b + c, \qquad \nd{PQQ} = 100P + 10Q + Q = 100P + 11Q. \]
+(The bar on top shows that this is the number with digits $a, b, c$, not the product $a\times b\times c$.)
+\end{knowbox}
+\begin{proofbox}
+Why does the divisibility rule for $9$ work? Take the number $\nd{abc} = 100a + 10b + c$ and split it:
+\[ 100a + 10b + c = (99a + 9b) + (a + b + c) = 9\times(11a + b) + (a+b+c). \]
+The part $9\times(11a+b)$ is always divisible by $9$. So $\nd{abc}$ is divisible by $9$ exactly when the remaining part
+$a+b+c$ (the digit sum) is divisible by $9$. For numbers with more digits the argument is the same, because
+$10 = 9+1$, $100 = 99+1$, $1000 = 999+1$, \ldots
+\end{proofbox}
+\begin{tipbox}
+For a ``digit puzzle'' (each letter stands for a digit) such as $\nd{PQQ}+\nd{PPQ}+\nd{QQQ}=876$, work \emph{from the ones
+column to the left}, watching out for carries. The ones column usually has the fewest possibilities, so the first digit
+is found very quickly. You can also use place value to turn the puzzle into one equation. When you have to count or find
+all possibilities (sets of digits, outcomes of tossing coins, \ldots), \emph{list them systematically} (in increasing order,
+or with a table/tree diagram) so that nothing is missed or repeated.
+\end{tipbox}
+\begin{knowbox}
+\textbf{Systematic listing and chance.}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item To count the three-digit numbers whose digits have a given \emph{product}, find the sets of three digits (written in
+  increasing order so as not to repeat), then count the arrangements of each set: three different digits can be arranged in
+  $3\times 2\times 1 = 6$ ways; two equal digits and one other in $3$ ways. Example: product $12$ with the set $\{1;3;4\}$
+  gives $6$ numbers $134, 143, 314, 341, 413, 431$; the set $\{2;2;3\}$ gives $3$ numbers $223, 232, 322$.
+  \item When all outcomes are \emph{equally likely}, the probability of an event is
+  \[ \frac{\text{number of favourable outcomes}}{\text{total number of possible outcomes}}. \]
+  Example: tossing $2$ coins has $4$ equally likely outcomes: HH, HT, TH, TT (H: heads, T: tails). The probability that both
+  coins show the same face is $\dfrac{2}{4} = \dfrac12$. Use a tree diagram to list them:
+\end{itemize}
+\begin{figC}
+  \node[draw=Navy,circle,inner sep=1.5pt] (r) at (0,0) {\scriptsize start};
+  \node[draw=tmBlue,fill=tmBlue!10,circle,inner sep=2pt] (a) at (2,0.8) {H};
+  \node[draw=tmOrange,fill=tmOrange!10,circle,inner sep=2pt] (b) at (2,-0.8) {T};
+  \foreach \n/\y/\l/\c in {aa/1.2/H/tmBlue,ab/0.4/T/tmOrange}{\node[draw=\c,fill=\c!10,circle,inner sep=2pt] (\n) at (4,\y) {\l};}
+  \foreach \n/\y/\l/\c in {ba/-0.4/H/tmBlue,bb/-1.2/T/tmOrange}{\node[draw=\c,fill=\c!10,circle,inner sep=2pt] (\n) at (4,\y) {\l};}
+  \draw[Slate] (r)--(a) (r)--(b) (a)--(aa) (a)--(ab) (b)--(ba) (b)--(bb);
+  \node[right,font=\scriptsize] at (4.3,1.2) {HH \ (same face)};
+  \node[right,font=\scriptsize] at (4.3,0.4) {HT};
+  \node[right,font=\scriptsize] at (4.3,-0.4) {TH};
+  \node[right,font=\scriptsize] at (4.3,-1.2) {TT \ (same face)};
+\end{figC}
+\end{knowbox}
+\begin{warnbox}
+``The digit sum is divisible by $9$'' is the rule for $9$; it does \emph{not} work for $4$, $6$ or $8$. And a number
+divisible by $3$ is not necessarily divisible by $9$: $12$ is divisible by $3$ but not by $9$.
+\end{warnbox}
+
+% ---------------------------------------------------------------------
+\shead{Number patterns, the mean and the median}
+\begin{knowbox}
+\textbf{1. The Fibonacci sequence.} $1, 1, 2, 3, 5, 8, 13, 21, 34, 55, \ldots$ Each number (from the third on) is
+\emph{the sum of the two numbers just before it}: $2 = 1+1$, $3 = 1+2$, $5 = 2+3$, \ldots
+
+\textbf{2. Arithmetic sequences (equally spaced).} Each number (from the second on) equals the previous number plus a fixed
+number $d$ (the common difference). Example: $1, 4, 7, 10$ (with $d = 3$). The $n$-th number is $a_1 + (n-1)\times d$.
+
+\textbf{3. The mean (average).} The mean of $n$ numbers $=$ (their sum) $\div n$. Hence
+\[ \text{Sum} = \text{mean} \times \text{how many numbers}. \]
+\textbf{4. The ``deviation'' method.} The deviations from the mean always add up to $0$: the ``excess'' of the numbers
+above the mean exactly equals the ``shortfall'' of the numbers below the mean.
+
+\textbf{5. The median.} Arrange the numbers in increasing order; the number in the middle is the median (when there is
+an odd number of numbers). Example: the median of $42, 43, 46, 49, 50$ is $46$. With an even number of numbers, the median
+is the mean of the two middle numbers: the median of $6, 7, 9, 10$ is $(7+9)\div 2 = 8$. Note: when a number is added or
+changed, the ``middle'' position can move, so re-order the list.
+
+\textbf{6. Consecutive integers.} For an odd number of consecutive integers, the mean is the middle number:
+the mean of $19, 20, 21, 22, 23$ is $21$.
+\end{knowbox}
+\begin{proofbox}
+Why do the deviations add up to $0$? Suppose $4$ numbers have mean $80$, so their sum is $4\times 80 = 320$. Write
+each number as $80 + $ (its deviation). Adding up: $320 + $ (sum of deviations) $= 320$, so the sum of the deviations
+must be $0$.
+\end{proofbox}
+\begin{figC}
+  \draw[Slate!60] (-0.3,0)--(5.3,0);
+  \node[left,font=\scriptsize,text=Slate] at (-0.3,0) {mean $=40$};
+  \foreach \x/\v/\c in {0/38/tmOrange,1.5/43/tmGreen,3/41/tmGreen,4.5/38/tmOrange}{
+    \pgfmathsetmacro\h{(\v-40)*0.3}
+    \fill[\c!70] (\x,0) rectangle (\x+0.7,\h);
+    \node[font=\scriptsize] at (\x+0.35,{\h+0.25*sign(\h+0.001)}) {$\v$};}
+\end{figC}
+\begin{center}\small The four numbers $38, 43, 41, 38$ have mean $40$. Deviations from $40$: $-2,\ +3,\ +1,\ -2$; sum $= 0$.\end{center}
+\begin{parentbox}
+You can illustrate the mean with stacks of coins: ``level out'' the tall stacks into the short ones until all stacks are
+the same height. That common height is the mean. The coins moved out of the tall stacks exactly equal the coins added to
+the short ones -- this is the idea ``the deviations add up to $0$''.
+\end{parentbox}
+
+% =====================================================================
+% WORKED EXAMPLES
+% =====================================================================
+\par\vspace{0.7em}\noindent{\large\bfseries\color{tmOrange!90!black}\faPencil*\ \ Worked examples}\par\vspace{0.3em}
+
+\begin{exbox}{Example 1}
+Consider the set $\{0.5;\ 0.45;\ 0.405;\ 0.054;\ 0.54\}$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Arrange the numbers in increasing order.
+  \item Find the sum of the largest and the smallest number.
+\end{enumerate}
+\guide
+\step{1}{Write the numbers in a column, adding zeros to get three digits after the point}
+Adding zeros at the end of the decimal part does not change the value, so:
+\[ 0.5 = 0.500;\quad 0.45 = 0.450;\quad 0.405;\quad 0.054;\quad 0.54 = 0.540. \]
+\step{2}{Compare them like whole numbers}
+Dropping ``$0.$'', we compare $500;\ 450;\ 405;\ 54;\ 540$:
+\[ 54 < 405 < 450 < 500 < 540. \]
+So the increasing order is: $0.054 < 0.405 < 0.45 < 0.5 < 0.54$.
+\step{3}{Add the largest and the smallest (decimal points lined up)}
+\[ \begin{array}{r} 0.540\\ +\ 0.054\\ \hline 0.594 \end{array} \]
+\verify{$0.594 - 0.54 = 0.054$. Correct.}
+\ans{a) $0.054 < 0.405 < 0.45 < 0.5 < 0.54$;\quad b) $0.594$}
+\end{exbox}
+
+\begin{exbox}{Example 2}
+Hoa cycles along a $45$ km route. In the morning she covers $\dfrac{2}{5}$ of the route. How many kilometres does she
+still have to ride in the afternoon, and what fraction of the whole route is that?
+\guide
+\step{1}{Draw a bar model}
+Split the route into $5$ equal parts; the morning covers $2$ parts, the afternoon $3$ parts.
+\begin{barfigC}
+  \foreach \i in {0,1}{\blk{\i*1.6}{\i*1.6+1.6}{0}{0.6}{tmBlue}{$9$ km}}
+  \foreach \i in {2,3,4}{\blk{\i*1.6}{\i*1.6+1.6}{0}{0.6}{tmOrange}{$9$ km}}
+  \brcup{0}{3.2}{0.5}{morning}
+  \brcup{3.2}{8}{0.5}{afternoon}
+  \brcdn{0}{8}{-0.5}{$45$ km}
+\end{barfigC}
+\step{2}{Find the value of one part}
+One part is $45 \div 5 = 9$ (km).
+\step{3}{Morning and afternoon distances}
+Morning: $2\times 9 = 18$ (km). Afternoon: $45 - 18 = 27$ (km), which is also $3\times 9 = 27$ (km).
+\step{4}{The fraction left}
+$1 - \dfrac{2}{5} = \dfrac{5}{5} - \dfrac{2}{5} = \dfrac{3}{5}$. Check: $\dfrac{27}{45} = \dfrac{27\div 9}{45\div 9} = \dfrac{3}{5}$.
+\ans{$27$ km, which is $\dfrac{3}{5}$ of the route}
+\end{exbox}
+
+\begin{exbox}{Example 3}
+a) Evaluate $20 - 4\times 3 + 8 \div 2$ \quad and \quad $(20-4)\times(3+8) \div 2$.\\
+b) Without calculating exactly, decide which number $101 \times 49$ is closest to: $50$; $500$; $5000$; $50\,000$? Then
+compute it exactly with a quick method.
+\guide
+\step{1}{No brackets: multiply and divide first; add and subtract after}
+\[ 20 - \underbrace{4\times 3}_{12} + \underbrace{8 \div 2}_{4} = 20 - 12 + 4 = 8 + 4 = 12. \]
+(Subtraction and addition are done from left to right: $20 - 12 = 8$, then $8 + 4 = 12$.)
+\step{2}{With brackets: brackets first}
+\[ (20 - 4)\times(3+8) \div 2 = 16 \times 11 \div 2 = 176 \div 2 = 88. \]
+\step{3}{Estimate}
+$101 \approx 100$ and $49 \approx 50$, so $101 \times 49 \approx 100\times 50 = 5000$. Choose $5000$.
+\step{4}{Exact value using the distributive property}
+$101 \times 49 = (100 + 1)\times 49 = 4900 + 49 = 4949$, indeed very close to $5000$.
+\ans{a) $12$ and $88$;\quad b) closest to $5000$; $101\times 49 = 4949$}
+\end{exbox}
+
+\begin{exbox}{Example 4}
+a) Rice costs $18$ thousand dong per kilogram. Mum buys $15$ kg and gets a $10\%$ discount on the whole bill. How much does she pay?\\
+b) A shirt costs $400$ thousand dong. After every week the shop reduces the \emph{current price} by $10\%$. After at least how
+many weeks is the price of the shirt below $300$ thousand dong?
+\guide
+\step{1}{Total before the discount}
+Total cost $=$ unit price $\times$ quantity $= 18 \times 15 = 270$ (thousand dong).
+\step{2}{Subtract $10\%$}
+$10\%$ of $270$ is $270 \div 10 = 27$ (thousand dong). Mum pays $270 - 27 = 243$ (thousand dong) $= 243\,000$ dong.
+(Or: $90\%$ remains, i.e.\ $270 \times 0.9 = 243$.)
+\step{3}{Successive discounts: multiply by $0.9$ every week}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Time & Start & After 1 week & After 2 weeks & After 3 weeks\\ \hline
+Price (thousand dong) & $400$ & $360$ & $324$ & $291.6$\\ \hline
+Reduction & -- & $40$ & $36$ & $32.4$\\ \hline
+\end{tabular}
+\end{center}
+After $2$ weeks the price is $324 > 300$; after $3$ weeks it is $291.6 < 300$.
+\begin{warnbox}
+Do not think ``the price drops by $40$ thousand every week'' (because $10\%$ of $400$ is $40$). Each week the reduction is
+$10\%$ of \emph{the price at that time}, so the reductions get smaller and smaller: $40$, then $36$, then $32.4$, \ldots
+\end{warnbox}
+\ans{a) $243\,000$ dong;\quad b) $3$ weeks}
+\end{exbox}
+
+\begin{exbox}{Example 5}
+a) Bình cycles $3$ laps around a stadium with a perimeter of $400$ m in $4$ minutes. An cycles at $15$ km/h. Who is faster?\\
+b) A car travels at $72$ km/h. How many metres does it travel in $3$ seconds?
+\guide
+\step{1}{Bình's speed (m/s)}
+Distance: $3 \times 400 = 1200$ (m). Time: $4$ minutes $= 4\times 60 = 240$ (seconds).
+\[ v_{\text{Bình}} = 1200 \div 240 = 5 \text{ (m/s)}. \]
+\step{2}{Convert An's speed to m/s}
+\begin{recallbox}$1$ km/h $= \dfrac{1000 \text{ m}}{3600 \text{ s}} = \dfrac{5}{18}$ m/s.\end{recallbox}
+$v_{\text{An}} = 15 \times \dfrac{5}{18} = \dfrac{75}{18} \approx 4.17$ (m/s). Since $5 > 4.17$, \textbf{Bình is faster}.
+(Another way: $5$ m/s $= 5\times 3.6 = 18$ km/h $> 15$ km/h.)
+\step{3}{The car}
+$72$ km/h $= 72 \times \dfrac{5}{18} = 20$ m/s. In $3$ seconds it travels $20 \times 3 = 60$ (m).
+\ans{a) Bình is faster ($5$ m/s against about $4.17$ m/s);\quad b) $60$ m}
+\end{exbox}
+
+\begin{exbox}{Example 6}
+a) Which of the numbers $72;\ 84;\ 117;\ 135$ are divisible by $9$?\\
+b) Find the digit $x$ such that the number $\nd{3x5}$ is divisible by $9$.\\
+c) How many whole numbers are divisors of both $24$ and $36$?
+\guide
+\step{1}{Use the rule for $9$: compute the digit sum}
+$72$: $7+2 = 9$ (divisible by $9$). \quad $84$: $8 + 4 = 12$ (not divisible by $9$).\\
+$117$: $1+1+7 = 9$ (divisible). \quad $135$: $1+3+5 = 9$ (divisible).\\
+So $72$, $117$, $135$ are divisible by $9$; $84$ is not ($84 = 9\times 9 + 3$).
+\step{2}{Find the digit $x$}
+The digit sum of $\nd{3x5}$ is $3 + x + 5 = 8 + x$. Since $x$ is a digit, $8 \le 8 + x \le 17$. In this range only $9$ is
+divisible by $9$, so $8 + x = 9$, i.e.\ $x = 1$. The number is $315 = 9 \times 35$.
+\step{3}{Common divisors of $24$ and $36$}
+Divisors of $24$: $1, 2, 3, 4, 6, 8, 12, 24$. Divisors of $36$: $1, 2, 3, 4, 6, 9, 12, 18, 36$.\\
+The numbers in both lists: $1, 2, 3, 4, 6, 12$ -- these are exactly the divisors of $\gcd(24,36) = 12$.
+\ans{a) $72;\ 117;\ 135$;\quad b) $x = 1$;\quad c) $6$ numbers}
+\end{exbox}
+
+\begin{exbox}{Example 7}
+In the calculation $\nd{AB} + \nd{AB} + \nd{AB} = \nd{1AB}$, each letter stands for a digit. Find $A$ and $B$.
+\guide
+\textbf{Method 1 -- Place value.} We have $\nd{1AB} = 100 + \nd{AB}$. So
+\[ 3\times\nd{AB} = 100 + \nd{AB} \;\Rightarrow\; 2\times\nd{AB} = 100 \;\Rightarrow\; \nd{AB} = 50. \]
+So $A = 5$, $B = 0$.
+
+\textbf{Method 2 -- Column by column.} Ones column: $B + B + B = 3B$ ends in the digit $B$, so $3B - B = 2B$ ends in $0$,
+hence $B = 0$ or $B = 5$.
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+  \item If $B = 5$: $3\times 5 = 15$, write $5$ carry $1$. Tens column: $3A + 1 = \nd{1A} = 10 + A$, so $2A = 9$ -- no digit
+  works. Rejected.
+  \item If $B = 0$: no carry. Tens column: $3A = 10 + A$, so $2A = 10$, $A = 5$.
+\end{itemize}
+\verify{$50 + 50 + 50 = 150 = \nd{1AB}$ with $A = 5$, $B = 0$. Correct.}
+\ans{$A = 5$, $B = 0$}
+\end{exbox}
+
+\begin{exbox}{Example 8}
+a) Nam's four test scores are $6$; $9$; $10$ and $x$. The mean of the four scores is $8$. Find $x$.\\
+b) The mean of five consecutive whole numbers is $30$. Find the smallest of them.
+\guide
+\step{1}{Using the sum}
+\begin{recallbox}Sum $=$ mean $\times$ how many numbers.\end{recallbox}
+The four scores add up to $8 \times 4 = 32$. So $x = 32 - 6 - 9 - 10 = 7$.
+\step{2}{Using deviations (faster)}
+Compared with $8$: the $6$ is $2$ short, the $9$ is $1$ over, the $10$ is $2$ over. Sum of deviations: $-2 + 1 + 2 = +1$.
+For all deviations to add up to $0$, the fourth score must be $1$ short: $x = 8 - 1 = 7$.
+\step{3}{Five consecutive numbers}
+For five consecutive numbers, the mean is the middle number. The middle number is $30$, so the five numbers are
+$28, 29, 30, 31, 32$. The smallest is $28$.
+\verify{$28 + 29 + 30 + 31 + 32 = 150 = 5\times 30$. Correct.}
+\ans{a) $x = 7$;\quad b) $28$}
+\end{exbox}
+
+% =====================================================================
+\clearpage
+\dividerbar{Core practice}
+
+% ---------------------------------------------------------------- Problem 1
+\begin{probbox}{1}{\relax}
+The smallest number in the set $\{3.2;\ 2.3;\ 3;\ 2.23;\ 3.22\}$ is
+\choices{$3.2$}{$2.3$}{$3$}{$2.23$}{$3.22$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} There are $5$ decimals. We need the \emph{smallest} one.
+\begin{recallbox}Comparing decimals: compare the whole parts first; if they are equal, compare the tenths, then the
+hundredths, \ldots\ You may add zeros at the end of the decimal part without changing the value.\end{recallbox}
+\step{1}{Compare the whole parts}
+Whole parts: $3.2 \to 3$; \ $2.3 \to 2$; \ $3 \to 3$; \ $2.23 \to 2$; \ $3.22 \to 3$.\\
+The smallest number must have the smallest whole part, namely $2$. Only two candidates remain: $2.3$ and $2.23$.
+\step{2}{Use the same number of decimal places and compare}
+$2.3 = 2.30$ \ and \ $2.23$. Tenths: $3$ against $2$; since $2 < 3$, we get $2.23 < 2.30$.
+\step{3}{Conclusion}
+Ordering everything to be sure: $2.23 < 2.3 < 3 < 3.2 < 3.22$. The smallest number is $2.23$.
+\begin{warnbox}Do not choose $2.3$ just because ``$3$ is less than $23$''. The digit $3$ in $2.3$ means $3$ tenths, while
+$2.23$ has only $2$ tenths.\end{warnbox}
+\verify{$2.23 = \dfrac{223}{100}$ and $2.3 = \dfrac{230}{100}$; $223 < 230$.}
+The number $2.23$ is option \textbf{(D)}.
+\ans{(D) $2.23$}
+}
+
+% ---------------------------------------------------------------- Problem 2
+\begin{probbox}{2}{\relax}
+Minh goes on a $36$ km kayak trip. Before lunch he paddles the first $12$ km. After lunch, what fraction of the whole
+trip does Minh still have to paddle?
+\choices{$\dfrac{1}{2}$}{$\dfrac{5}{6}$}{$\dfrac{3}{4}$}{$\dfrac{2}{3}$}{$\dfrac{3}{5}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The whole trip is $36$ km and $12$ km are done. We are asked for the part \emph{left}
+(not yet paddled), as a fraction.
+\step{1}{Distance left}
+$36 - 12 = 24$ (km).
+\step{2}{Form the fraction ``part left over the whole''}
+\begin{recallbox}The fraction ``what part of the whole'' $=\dfrac{\text{the part}}{\text{the whole}}$. Simplify by dividing
+numerator and denominator by their greatest common divisor.\end{recallbox}
+\[ \frac{24}{36} = \frac{24 \div 12}{36 \div 12} = \frac{2}{3}. \]
+\step{3}{Picture it}
+Split the $36$ km into $3$ sections of $12$ km: Minh has done $1$ section, $2$ sections are left.
+\begin{barfigC}
+  \blk{0}{2.4}{0}{0.6}{tmBlue}{$12$ km}
+  \blk{2.4}{4.8}{0}{0.6}{tmOrange}{$12$ km}
+  \blk{4.8}{7.2}{0}{0.6}{tmOrange}{$12$ km}
+  \brcup{0}{2.4}{0.5}{before lunch}
+  \brcup{2.4}{7.2}{0.5}{after lunch: $\frac{2}{3}$}
+\end{barfigC}
+\begin{warnbox}The fraction $\dfrac{12}{36} = \dfrac{1}{3}$ is the part \emph{done}. The question asks for the part
+\emph{left}, so the answer is $1 - \dfrac13 = \dfrac23$.\end{warnbox}
+\verify{$\dfrac{2}{3}\times 36 = 24$ km; $24 + 12 = 36$ km. Correct.}
+\begin{parentbox}Ask your child two questions: ``What part is done?'' and ``What part is left?''. Getting into the habit of
+answering both helps avoid the trap of choosing $\dfrac13$.\end{parentbox}
+The fraction $\dfrac{2}{3}$ is option \textbf{(D)}.
+\ans{(D) $\dfrac{2}{3}$}
+}
+
+% ---------------------------------------------------------------- Problem 3
+\begin{probbox}{3}{\relax}
+Which of the following statements is \textbf{true}?
+\choicesII{$0$ is less than $-5$}{$7$ is less than $-1$}{$10$ is less than $\dfrac{1}{4}$}{$-1$ is less than $-3$}{$-8$ is less than $-2$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each option is a comparison. We check them one by one to find the true one.
+\begin{recallbox}On a horizontal number line, a number to the left is smaller than a number to the right. Every negative
+number is less than $0$ and less than every positive number. Of two negative numbers, the one farther from $0$ is smaller.\end{recallbox}
+\step{1}{Place the numbers on a number line}
+\begin{figC}
+  \draw[->,thick,Navy] (-9.4*0.6,0)--(10.6*0.6,0);
+  \foreach \x in {-9,...,10}{\draw[Navy] (\x*0.6,0.08)--(\x*0.6,-0.08);}
+  \foreach \x in {-8,-5,-3,-2,-1,0,7,10}{\node[below,font=\scriptsize] at (\x*0.6,-0.1) {$\x$};}
+  \foreach \x in {-8,-2}{\fill[tmOrange] (\x*0.6,0) circle (3pt);}
+  \draw[->,tmGreen!70!black,thick] (-8*0.6,0.35) to[bend left=30] node[above,font=\scriptsize]{$6$ units to the right} (-2*0.6,0.35);
+\end{figC}
+\step{2}{Check each option}
+(A) $0$ is less than $-5$? False: $-5$ is to the left of $0$, so $-5 < 0$.\\
+(B) $7$ is less than $-1$? False: a positive number is always greater than a negative number.\\
+(C) $10$ is less than $\dfrac14$? False: $\dfrac14 = 0.25 < 10$.\\
+(D) $-1$ is less than $-3$? False: $-3$ is farther from $0$, so $-3 < -1$.\\
+(E) $-8$ is less than $-2$? \textbf{True}: $-8$ is to the left of $-2$ (farther from $0$).
+\begin{warnbox}Many students choose (D), thinking ``$1 < 3$ so $-1 < -3$''. For negative numbers it is the other way round:
+$-1 > -3$ (a temperature of $-1^\circ$C is warmer than $-3^\circ$C).\end{warnbox}
+\verify{$-2 - (-8) = 6 > 0$, which means $-2$ is greater than $-8$.}
+The only true statement is \textbf{(E)}.
+\ans{(E) $-8$ is less than $-2$}
+}
+
+% ---------------------------------------------------------------- Problem 4
+\begin{probbox}{4}{\relax}
+The value of $6 \times 2 - 3$ is
+\choices{$9$}{$-6$}{$12$}{$15$}{$10$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The expression has two operations, multiplication and subtraction, and no brackets.
+\begin{recallbox}In an expression without brackets: multiply and divide first; add and subtract after.\end{recallbox}
+\step{1}{Do the multiplication first}
+$6\times 2 = 12$.
+\step{2}{Then the subtraction}
+$12 - 3 = 9$.
+\begin{warnbox}Subtracting first would give $6\times(2-3) = 6\times(-1) = -6$ -- option (B), a ``trap'' for anyone who
+forgets the order of operations. The expression has \emph{no brackets}, so we must multiply first.\end{warnbox}
+\verify{Read the expression as a story: ``$6$ boxes with $2$ cakes each, $3$ cakes eaten'' leaves $12 - 3 = 9$ cakes.}
+The value $9$ is option \textbf{(A)}.
+\ans{(A) $9$}
+}
+
+% ---------------------------------------------------------------- Problem 5
+\begin{probbox}{5}{\relax}
+A test is marked out of $50$. Mai scores $80\%$. How many marks does Mai get?
+\choices{$40$}{$62.5$}{$10$}{$45$}{$35$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The maximum is $50$ marks; Mai gets $80\%$ of $50$. We need Mai's marks.
+\begin{recallbox}To find $p\%$ of a number $a$, compute $a \times \dfrac{p}{100}$.\end{recallbox}
+\step{1}{Write the calculation}
+$80\%$ of $50$ is $50 \times \dfrac{80}{100}$.
+\step{2}{Calculate}
+$50 \times \dfrac{80}{100} = \dfrac{50\times 80}{100} = \dfrac{4000}{100} = 40$.
+\step{3}{A quick mental method}
+$10\%$ of $50$ is $5$; so $80\% = 8\times 10\%$ is $8\times 5 = 40$.
+\begin{warnbox}Option (B) $62.5$ comes from dividing $50 \div 0.8$ -- wrong, since $62.5$ is even more than the maximum $50$!
+Option (C) $10$ is the number of marks Mai \emph{lost} ($20\%$ of $50$).\end{warnbox}
+\verify{$\dfrac{40}{50} = \dfrac{80}{100} = 80\%$. Correct.}
+The value $40$ is option \textbf{(A)}.
+\ans{(A) $40$}
+}
+
+% ---------------------------------------------------------------- Problem 6
+\begin{probbox}{6}{\relax}
+Minced beef sells for $120\,000$ dong per kilogram. How much do $12$ kg of minced beef cost?
+\choicesII{$120\,000$ dong}{$12\,000$ dong}{$1\,440\,000$ dong}{$132\,000$ dong}{$10\,000$ dong}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The unit price (price of $1$ kg) is $120\,000$ dong; the quantity is $12$ kg. We need the total cost.
+\begin{recallbox}Total cost $=$ unit price $\times$ quantity.\end{recallbox}
+\step{1}{Write the calculation}
+Total cost $= 120\,000 \times 12$ (dong).
+\step{2}{Calculate (split $12 = 10 + 2$)}
+$120\,000\times 10 = 1\,200\,000$; \quad $120\,000 \times 2 = 240\,000$.\\
+$120\,000 \times 12 = 1\,200\,000 + 240\,000 = 1\,440\,000$ (dong).
+\step{3}{Estimate to check}
+$12$ kg at more than $100$ thousand dong per kg must cost more than $1\,200\,000$ dong. Only option (C) fits.
+\begin{warnbox}The wrong options come from using the wrong operation: (A) is the price of $1$ kg; (D) is $120\,000 + 12\,000$
+(adding instead of multiplying); (E) is $120\,000 \div 12$ (dividing instead of multiplying).\end{warnbox}
+\verify{$1\,440\,000 \div 12 = 120\,000$ dong per kg. Correct.}
+The amount $1\,440\,000$ dong is option \textbf{(C)}.
+\ans{(C) $1\,440\,000$ dong}
+}
+
+% ---------------------------------------------------------------- Problem 7
+\begin{probbox}{7}{\relax}
+The value of $(8 \times 4) + 3$ is
+\choices{$96$}{$15$}{$56$}{$35$}{$28$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The brackets contain a multiplication; then $3$ is added.
+\begin{recallbox}Expressions with brackets: work out the brackets first.\end{recallbox}
+\step{1}{Work out the brackets}
+$8\times 4 = 32$.
+\step{2}{Add $3$}
+$32 + 3 = 35$.
+\begin{warnbox}Misreading it as $8 \times (4 + 3) = 8\times 7 = 56$ leads to option (C). The brackets surround $8\times 4$,
+not $4 + 3$. Option (A) $96 = 8\times 4\times 3$ comes from mistaking the plus sign for a times sign.\end{warnbox}
+\verify{Without brackets the result is still $8\times 4 + 3 = 35$, because multiplication always comes before addition; here the
+brackets only add emphasis.}
+The value $35$ is option \textbf{(D)}.
+\ans{(D) $35$}
+}
+
+% ---------------------------------------------------------------- Problem 8
+\begin{probbox}{8}{\relax}
+Which of the following integers is closest to $99 \times 9$?
+\choices{$10\,000$}{$100$}{$100\,000$}{$1000$}{$10$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The options are $10$; $100$; $1000$; $10\,000$; $100\,000$ -- each $10$ times the
+previous. An estimate of $99\times 9$ is enough, but we also compute it exactly to be sure.
+\step{1}{Estimate}
+$99 \approx 100$, so $99 \times 9 \approx 100\times 9 = 900$.
+\step{2}{Exact value using the distributive property}
+\begin{recallbox}Distributive property: $(a - b)\times c = a\times c - b\times c$.\end{recallbox}
+$99\times 9 = (100 - 1)\times 9 = 900 - 9 = 891$.
+\step{3}{Compare the distances to the nearest options}
+The distance from $891$ to $1000$ is $1000 - 891 = 109$.\\
+The distance from $891$ to $100$ is $891 - 100 = 791$.\\
+The other options ($10$; $10\,000$; $100\,000$) are much farther away. So $1000$ is the closest.
+\begin{figC}
+  \draw[->,thick,Navy] (-0.3,0)--(10.6,0);
+  \foreach \x/\l in {0/0,1/100,10/1000}{\draw[Navy] (\x,0.1)--(\x,-0.1); \node[below,font=\scriptsize] at (\x,-0.1) {$\l$};}
+  \fill[tmOrange] (8.91,0) circle (3pt); \node[above,font=\scriptsize] at (8.91,0.1) {$891$};
+  \draw[<->,tmGreen!70!black] (8.91,-0.55)--(10,-0.55) node[midway,below,font=\scriptsize]{$109$};
+  \draw[<->,AnsRed!70] (1,-0.55)--(8.91,-0.55) node[midway,below,font=\scriptsize]{$791$};
+\end{figC}
+\verify{$891 \div 9 = 99$. Correct.}
+The number $1000$ is option \textbf{(D)}.
+\ans{(D) $1000$}
+}
+
+% ---------------------------------------------------------------- Problem 9
+\begin{probbox}{9}{\relax}
+Huy is reading a $396$-page book. He has read only the first $\dfrac{1}{3}$ of the book. How many pages does he still
+have to read to finish the book?
+\choices{$264$}{$124$}{$250$}{$199$}{$244$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The whole book: $396$ pages. Read so far: $\dfrac13$ of the book. Asked: the number of
+pages \emph{left}.
+\begin{recallbox}To find $\dfrac{m}{n}$ of a number, divide it by $n$ and multiply by $m$.\end{recallbox}
+\step{1}{Pages read}
+$\dfrac13$ of $396$ is $396 \div 3 = 132$ (pages).
+\step{2}{Pages left}
+$396 - 132 = 264$ (pages).
+\step{3}{Another way: compute the part left directly}
+The part left is $1 - \dfrac13 = \dfrac23$ of the book, i.e.\ $396 \div 3 \times 2 = 132\times 2 = 264$ (pages).
+\begin{barfigC}
+  \blk{0}{2.6}{0}{0.6}{tmBlue}{$132$ pages}
+  \blk{2.6}{5.2}{0}{0.6}{tmOrange}{$132$ pages}
+  \blk{5.2}{7.8}{0}{0.6}{tmOrange}{$132$ pages}
+  \brcup{0}{2.6}{0.5}{read}
+  \brcup{2.6}{7.8}{0.5}{still to read}
+  \brcdn{0}{7.8}{-0.5}{$396$ pages}
+\end{barfigC}
+\begin{warnbox}Stopping at $132$ answers the wrong question (that is the number of pages \emph{read}; and $132$ is not even
+among the options). Always re-read the question before choosing an answer.\end{warnbox}
+\verify{$264 + 132 = 396$, and $132\times 3 = 396$. Correct.}
+The number $264$ is option \textbf{(A)}.
+\ans{(A) $264$}
+}
+
+% ---------------------------------------------------------------- Problem 10
+\begin{probbox}{10}{\relax}
+Which of the following numbers is a multiple of $9$?
+\choices{$50$}{$40$}{$35$}{$45$}{$55$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We need the number divisible by $9$ (a multiple of $9$) among the five given numbers.
+\begin{recallbox}A number is divisible by $9$ exactly when its digit sum is divisible by $9$.\end{recallbox}
+\step{1}{Digit sum of each number}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Number & $50$ & $40$ & $35$ & $45$ & $55$\\ \hline
+Digit sum & $5$ & $4$ & $8$ & $9$ & $10$\\ \hline
+Divisible by $9$? & no & no & no & \textbf{yes} & no\\ \hline
+\end{tabular}
+\end{center}
+\step{2}{Check with the $9$ times table}
+Multiples of $9$ nearby: $36,\ 45,\ 54$. Only $45 = 9\times 5$ appears among the options.
+\begin{proofbox}Why does the rule work for a two-digit number $\nd{ab}$? We have $\nd{ab} = 10a + b = 9a + (a + b)$. The part $9a$
+is divisible by $9$, so $\nd{ab}$ is divisible by $9$ exactly when $a + b$ is. For $45$: $45 = 9\times 4 + 9$.\end{proofbox}
+\verify{$45 \div 9 = 5$, remainder $0$.}
+The number $45$ is option \textbf{(D)}.
+\ans{(D) $45$}
+}
+
+% ---------------------------------------------------------------- Problem 11
+\begin{probbox}{11}{\relax}
+Consider the set $\{0.34;\ 0.304;\ 0.034;\ 0.43\}$. The sum of the smallest and the largest numbers in the set is
+\choices{$0.77$}{$0.734$}{$0.077$}{$0.464$}{$0.338$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Part 1: find the smallest and the largest number. Part 2: add them.
+\begin{recallbox}To compare decimals, add zeros so the decimal parts have equal length, then compare place by place from
+left to right.\end{recallbox}
+\step{1}{Write the numbers with three decimal places}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Original & Rewritten & Tenths & Hundredths \\ \hline
+$0.34$ & $0.340$ & $3$ & $4$ \\ \hline
+$0.304$ & $0.304$ & $3$ & $0$ \\ \hline
+$0.034$ & $0.034$ & $0$ & $3$ \\ \hline
+$0.43$ & $0.430$ & $4$ & $3$ \\ \hline
+\end{tabular}
+\end{center}
+\step{2}{Find the smallest and the largest}
+Comparing like whole numbers: $34 < 304 < 340 < 430$, so $0.034 < 0.304 < 0.34 < 0.43$.\\
+Smallest: $0.034$ (its tenths digit is $0$). Largest: $0.43$ (its tenths digit is $4$).
+\step{3}{Add, with the decimal points lined up}
+\[ \begin{array}{r} 0.430\\ +\ 0.034\\ \hline 0.464 \end{array} \]
+\begin{warnbox}Misaligning the columns (adding $43$ and $34$ ``by the last digits'') gives $0.77$ or $0.077$ -- options (A)
+and (C). Keep the decimal points in line: $4$ tenths plus $0$ tenths, $3$ hundredths plus $3$ hundredths, \ldots\end{warnbox}
+\verify{$0.464 - 0.43 = 0.034$. Correct.}
+The sum $0.464$ is option \textbf{(D)}.
+\ans{(D) $0.464$}
+}
+
+% ---------------------------------------------------------------- Problem 12
+\begin{probbox}{12}{\relax}
+Lan and Hà run on a circular track $150$ m long. Lan runs $3$ laps in $120$ seconds, and Hà runs $5$ laps in $160$
+seconds. Who is the faster runner, and approximately what is her speed?
+\choicesII{Lan, $3.75$ m/s}{Lan, $2.4$ m/s}{Hà, $3.3$ m/s}{Hà, $4.69$ m/s}{Hà, $3.75$ m/s}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} One lap is $150$ m. Lan: $3$ laps in $120$ s. Hà: $5$ laps in $160$ s. We compute
+each girl's speed (m/s), compare, and choose the option.
+\begin{recallbox}Speed $=$ distance $\div$ time. The distance of $n$ laps $= n\times$ the length of one lap.\end{recallbox}
+\step{1}{Distance run by each girl}
+Lan: $3\times 150 = 450$ (m). \quad Hà: $5\times 150 = 750$ (m).
+\step{2}{Lan's speed}
+$v_{\text{Lan}} = 450 \div 120 = 3.75$ (m/s).
+\step{3}{Hà's speed}
+$v_{\text{Hà}} = 750 \div 160 = 4.6875 \approx 4.69$ (m/s).
+\step{4}{Compare}
+$4.69 > 3.75$, so \textbf{Hà is faster}, running at about $4.69$ m/s.
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} & Distance & Time & Speed\\ \hline
+Lan & $450$ m & $120$ s & $3.75$ m/s\\ \hline
+Hà & $750$ m & $160$ s & $\approx 4.69$ m/s\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Option (E) ``Hà, $3.75$ m/s'' pairs the right name with the slower girl's speed. Option (B) $2.4$ m/s comes from
+the reversed calculation $120 \div 50$ (time divided by distance). Always write the units: m $\div$ s $=$ m/s.\end{warnbox}
+\verify{$4.6875 \times 160 = 750$ m $= 5$ laps; $3.75\times 120 = 450$ m $= 3$ laps. Correct.}
+The conclusion ``Hà, $4.69$ m/s'' is option \textbf{(D)}.
+\ans{(D) Hà, $4.69$ m/s}
+}
+
+% ---------------------------------------------------------------- Problem 13
+\begin{probbox}{13}{\relax}
+In the addition shown, $P$ and $Q$ each represent a digit. The value of $P + Q$ is
+\[ \begin{array}{r@{\;}c@{\;}c@{\;}c} & P & Q & Q\\ & P & P & Q\\ + & Q & Q & Q\\ \hline & 8 & 7 & 6 \end{array} \]
+\choices{$3$}{$5$}{$7$}{$6$}{$4$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The three numbers $\nd{PQQ}$, $\nd{PPQ}$, $\nd{QQQ}$ add up to $876$. We need the digits $P$, $Q$,
+then $P + Q$. We go column by column, starting with the ones.
+\step{1}{Ones column: $Q + Q + Q = 3Q$ ends in $6$}
+Since $Q$ is a digit, $3Q$ is one of $0, 3, 6, \ldots, 27$. Of these, only $6$ ends in $6$ ($16$ and $26$ are not multiples
+of $3$). So $3Q = 6$, $Q = 2$, and there is \emph{no carry} into the tens.
+\step{2}{Tens column: $Q + P + Q = P + 4$ ends in $7$}
+$P + 4$ lies between $4$ and $13$; ending in $7$ means $P + 4 = 7$, so $P = 3$. No carry into the hundreds.
+\step{3}{Hundreds column: check $P + P + Q = 8$}
+$3 + 3 + 2 = 8$. This matches the hundreds digit of $876$.
+\begin{recallbox}Place value: $\nd{PQQ} = 100P + 11Q$, \ $\nd{PPQ} = 110P + Q$, \ $\nd{QQQ} = 111Q$.\end{recallbox}
+\step{4}{Another way using place value}
+Adding: $(100P + 11Q) + (110P + Q) + 111Q = 210P + 123Q = 876$. Try $Q = 2$: $210P = 876 - 246 = 630$, so $P = 3$.
+(Other values of $Q$ do not give a digit for $P$.)
+\verify{$322 + 332 + 222 = 876$. Correct.}
+\begin{parentbox}A digit puzzle is like a detective game: each column is a ``clue''. Let your child write each column as a
+sentence (``three times $Q$ ends in $6$'') and try the digits $0$ to $9$. Do not forget to check the carries.\end{parentbox}
+So $P + Q = 3 + 2 = 5$, which is option \textbf{(B)}.
+\ans{(B) $5$}
+}
+
+% ---------------------------------------------------------------- Problem 14
+\begin{probbox}{14}{\relax}
+The mean (average) of the four integers $78$; $83$; $82$ and $x$ is $80$. Which of the following statements is true?
+\choicesL{$x$ is $2$ greater than the mean}{$x$ is $1$ less than the mean}{$x$ is $2$ less than the mean}{$x$ is $3$ less than the mean}{$x$ is equal to the mean}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We know the mean of four numbers is $80$ and we know three of them. Find $x$ and compare it with $80$.
+\begin{recallbox}Sum of the numbers $=$ mean $\times$ how many numbers.\end{recallbox}
+\step{1}{Sum of the four numbers}
+$80\times 4 = 320$.
+\step{2}{Find $x$}
+$78 + 83 + 82 = 243$, so $x = 320 - 243 = 77$.
+\step{3}{Compare with the mean}
+$80 - 77 = 3$: $x$ is $3$ less than the mean.
+\step{4}{A faster way -- the deviation method}
+Compared with $80$: $78$ is $2$ short; $83$ is $3$ over; $82$ is $2$ over. Sum of these three deviations: $-2 + 3 + 2 = +3$.
+Since all the deviations must add up to $0$, $x$ must be $3$ ``short'': $x = 80 - 3 = 77$.
+\begin{proofbox}Each number can be written as $80 + $(its deviation). The sum of the four numbers is $4\times 80 + $(sum of deviations).
+But the sum of the four numbers is exactly $4\times 80$, so the sum of the deviations is $0$.\end{proofbox}
+\verify{$(78 + 83 + 82 + 77) \div 4 = 320 \div 4 = 80$. Correct.}
+\begin{parentbox}The ``deviation'' method is great for working out average marks mentally in everyday life. You can ask your
+child: ``Three tests scored $7$, $9$, $8$; to average $8$, what does the fourth test need?'' (Answer: $8$, because
+$-1 + 1 + 0 = 0$.)\end{parentbox}
+The statement ``$x$ is $3$ less than the mean'' is option \textbf{(D)}.
+\ans{(D)}
+}
+
+% ---------------------------------------------------------------- Problem 15
+\begin{probbox}{15}{\relax}
+In the Fibonacci sequence $1, 1, 2, 3, 5, \ldots$, each number from the $2$ onwards is the sum of the two numbers just
+before it. For example, the next number in the sequence is $3 + 5 = 8$. Which of the following numbers is in the sequence?
+\choices{$20$}{$21$}{$22$}{$23$}{$24$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Rule: next number $=$ sum of the two before it. We continue the sequence until it
+passes $24$ (the largest option), then see which option appears.
+\step{1}{Continue the sequence}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Position & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\ \hline
+Number & $1$ & $1$ & $2$ & $3$ & $5$ & $8$ & $13$ & $\mathbf{21}$ & $34$\\ \hline
+\end{tabular}
+\end{center}
+In detail: $5 + 8 = 13$; \ $8 + 13 = 21$; \ $13 + 21 = 34$.
+\step{2}{Compare with the options}
+$34$ is already greater than $24$, so all later numbers are greater than $24$. Between $13$ and $34$ there is exactly one
+number of the sequence, $21$. So $20$, $22$, $23$, $24$ are not in the sequence; only $21$ is.
+\begin{tipbox}The Fibonacci sequence keeps increasing (from the second number on) because we keep adding positive numbers.
+So once the sequence has passed a number, that number can never appear later.\end{tipbox}
+\verify{$8 + 13 = 21$. Correct.}
+The number $21$ is option \textbf{(B)}.
+\ans{(B) $21$}
+}

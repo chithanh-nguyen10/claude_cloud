@@ -1,0 +1,985 @@
+% ======================================================================
+% Chủ đề 3 -- Đếm và Xác suất -- phần a (lý thuyết, ví dụ, bài 1--15)
+% ======================================================================
+% helper: bánh xe quay 6 ô bằng nhau, nhãn theo chiều kim đồng hồ bắt đầu từ ô trên-trái
+\providecommand{\cpSpinSix}[6]{%
+  \foreach \a in {90,150,210,270,330,30}{\draw[Ink,line width=0.8pt] (0,0)--(\a:1.1);}
+  \draw[Ink,line width=1pt] (0,0) circle (1.1);
+  \node[font=\itshape\large] at (120:0.72){#1};
+  \node[font=\itshape\large] at (60:0.72){#2};
+  \node[font=\itshape\large] at (0:0.72){#3};
+  \node[font=\itshape\large] at (-60:0.72){#4};
+  \node[font=\itshape\large] at (-120:0.72){#5};
+  \node[font=\itshape\large] at (180:0.72){#6};
+  \draw[-{Stealth[length=7pt]},line width=1.6pt,Ink] (0,0)--(266:0.98);
+  \fill[Ink] (0,0) circle (1.6pt);}
+% helper: một hình bát giác đều có tâm (#1,#2), bề rộng 1
+\providecommand{\cpOct}[2]{%
+  \draw[Ink,line width=0.8pt,fill=tmBlue!8] (#1-0.2071,#2+0.5)--(#1+0.2071,#2+0.5)--(#1+0.5,#2+0.2071)--(#1+0.5,#2-0.2071)
+     --(#1+0.2071,#2-0.5)--(#1-0.2071,#2-0.5)--(#1-0.5,#2-0.2071)--(#1-0.5,#2+0.2071)--cycle;}
+% helper: ô vuông nhỏ (hình thoi) nằm giữa bốn bát giác, tâm (#1,#2)
+\providecommand{\cpDia}[2]{%
+  \draw[Ink,line width=0.8pt,fill=tmOrange!35] (#1,#2+0.2929)--(#1+0.2929,#2)--(#1,#2-0.2929)--(#1-0.2929,#2)--cycle;}
+
+\begin{knowbox}
+\textbf{Ý tưởng lớn.} Trong chủ đề này, mọi bài toán đều quay về \emph{một kỹ năng gốc}: \textbf{đếm cho đúng} -- không sót, không trùng.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \textbf{Đếm} trả lời câu hỏi ``\emph{có bao nhiêu?}'': bao nhiêu số, bao nhiêu cách xếp chỗ, bao nhiêu hình chữ nhật trong hình vẽ, bao nhiêu que tính\ldots
+\item \textbf{Xác suất} trả lời câu hỏi ``\emph{khả năng xảy ra là bao nhiêu?}''. Khi mọi kết quả đều có khả năng như nhau, ta chỉ cần \emph{đếm hai lần}:
+\[
+\text{Xác suất}=\frac{\text{số kết quả thuận lợi}}{\text{số tất cả các kết quả có thể}} .
+\]
+\item Công cụ đếm của chúng ta: \textbf{liệt kê có hệ thống}, \textbf{bảng}, \textbf{sơ đồ cây}, \textbf{quy tắc nhân}, \textbf{chia trường hợp} (quy tắc cộng), \textbf{tìm quy luật} và \textbf{lập luận loại trừ}.
+\end{itemize}
+Ba câu hỏi luôn tự đặt ra trước khi làm bài: \emph{(1) Tất cả có bao nhiêu khả năng? (2) Các khả năng đó có ``công bằng'' (đồng khả năng) không? (3) Trong đó có bao nhiêu khả năng thỏa mãn yêu cầu?}
+\end{knowbox}
+
+\begin{figC}
+\node[draw=tmBlue,fill=tmBlue!10,rounded corners=4pt,line width=1pt,minimum width=3.2cm,minimum height=0.9cm,font=\sffamily\bfseries] (D) at (0,0) {ĐẾM ĐÚNG};
+\node[draw=tmGreen,fill=tmGreen!10,rounded corners=4pt,line width=1pt,minimum width=3.2cm,minimum height=0.9cm,font=\sffamily\bfseries] (X) at (6,0) {XÁC SUẤT};
+\draw[->,line width=1.2pt,Ink] (D)--node[above,font=\footnotesize]{thuận lợi : tất cả}(X);
+\foreach \t/\y in {Liệt kê -- bảng/1.9,Sơ đồ cây/1.2,Quy tắc nhân/0.5,Chia trường hợp/-0.2,Tìm quy luật/-0.9,Lập luận loại trừ/-1.6}{
+  \node[draw=tmOrange,fill=tmOrange!10,rounded corners=3pt,font=\footnotesize,minimum width=2.9cm] at (-4.3,\y-0.15) (n) {\t};
+  \draw[->,tmOrange!80!black] (n.east)--(D.west);}
+\end{figC}
+\vspace{0.3cm}
+
+% ----------------------------------------------------------------------
+\shead{Phép thử, kết quả, biến cố và xác suất}
+\begin{knowbox}
+\textbf{Các khái niệm.}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \textbf{Phép thử ngẫu nhiên} là một hành động mà ta biết trước \emph{các kết quả có thể}, nhưng không biết trước \emph{kết quả nào sẽ xảy ra}. Ví dụ: gieo một con xúc xắc, tung một đồng xu, quay một bánh xe, bốc một viên bi trong túi mà không nhìn.
+\item \textbf{Tập kết quả có thể} là danh sách \emph{tất cả} các kết quả. Gieo xúc xắc: $\{1;2;3;4;5;6\}$ -- có $6$ kết quả. Tung đồng xu: $\{\text{sấp};\ \text{ngửa}\}$ -- có $2$ kết quả.
+\item \textbf{Biến cố} là một ``sự kiện'' mà ta quan tâm, ví dụ ``gieo được số chẵn''. Những kết quả làm cho biến cố xảy ra gọi là \textbf{kết quả thuận lợi} cho biến cố. Biến cố ``gieo được số chẵn'' có $3$ kết quả thuận lợi: $2;4;6$.
+\item Các kết quả gọi là \textbf{đồng khả năng} nếu không kết quả nào ``dễ xảy ra hơn'' kết quả khác (xúc xắc cân đối, đồng xu cân đối, các ô bánh xe bằng nhau, các viên bi giống hệt nhau về hình dạng).
+\end{itemize}
+\textbf{Công thức xác suất} (khi các kết quả đồng khả năng):
+\[
+P(\text{biến cố})=\frac{\text{số kết quả thuận lợi cho biến cố}}{\text{số tất cả các kết quả có thể}} .
+\]
+\textbf{Tính chất.} Vì số kết quả thuận lợi nằm từ $0$ đến số tất cả các kết quả nên luôn có $0\le P\le 1$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item $P=0$: biến cố \emph{không thể} (ví dụ gieo xúc xắc được số $7$).
+\item $P=1$: biến cố \emph{chắc chắn} (ví dụ gieo xúc xắc được số nhỏ hơn $7$).
+\end{itemize}
+\end{knowbox}
+
+\begin{proofbox}
+Vì sao lại là phép chia? Giả sử có $n$ kết quả đồng khả năng. ``Cơ hội'' tổng cộng là $1$ (chắc chắn có một kết quả xảy ra) được chia \emph{đều} cho $n$ kết quả, nên mỗi kết quả có xác suất $\dfrac{1}{n}$. Nếu biến cố có $k$ kết quả thuận lợi, ta cộng $k$ phần bằng nhau: $\dfrac1n+\dfrac1n+\dots+\dfrac1n=\dfrac{k}{n}$.
+\end{proofbox}
+
+\begin{figC}
+\begin{scope}
+\cpSpinSix{1}{2}{3}{4}{5}{6}
+\node[font=\footnotesize,align=center] at (0,-1.55){Bánh xe $6$ ô bằng nhau:\\ mỗi ô có xác suất $\frac16$};
+\end{scope}
+\begin{scope}[xshift=5cm]
+\draw[Ink,line width=1pt,rounded corners=6pt] (-1.3,1)--(-1.2,-1)--(1.2,-1)--(1.3,1);
+\foreach \x/\y/\c in {-0.8/-0.7/AnsRed,-0.3/-0.7/AnsRed,0.2/-0.7/tmOrange,0.7/-0.7/tmOrange,-0.55/-0.25/tmOrange,
+   -0.05/-0.25/tmOrange,0.45/-0.25/tmOrange,-0.3/0.2/tmBlue,0.2/0.2/tmBlue,0.7/0.2/tmBlue,-0.8/0.2/tmBlue}{
+  \shade[ball color=\c] (\x,\y) circle (0.22);}
+\node[font=\footnotesize,align=center] at (0,-1.55){Túi có $2$ đỏ, $5$ vàng, $4$ xanh:\\ $P(\text{đỏ})=\frac{2}{11}$};
+\end{scope}
+\end{figC}
+
+\begin{warnbox}
+\textbf{Đếm \emph{đồ vật}, không đếm \emph{loại}.} Túi trên có $3$ \emph{màu} nhưng có tới $11$ \emph{viên bi}. Xác suất bốc được bi đỏ là $\dfrac{2}{11}$, \textbf{không phải} $\dfrac13$. Mỗi viên bi mới là một kết quả đồng khả năng; ba màu thì không đồng khả năng (màu vàng có nhiều bi hơn nên dễ được bốc hơn).
+\end{warnbox}
+
+\begin{warnbox}
+\textbf{Chỉ dùng công thức khi các kết quả đồng khả năng.} Bánh xe có ô to ô nhỏ thì các ô \emph{không} đồng khả năng. Khi đó xác suất rơi vào một ô bằng \emph{phần của cả hình tròn} mà ô đó chiếm, tức là $\dfrac{\text{số đo góc ở tâm của ô}}{360^\circ}$. Ví dụ ô có góc $90^\circ$ thì xác suất là $\dfrac{90}{360}=\dfrac14$.
+\end{warnbox}
+
+\begin{tipbox}
+Trong câu hỏi trắc nghiệm, đáp án có thể viết ở dạng \emph{chưa rút gọn}, ví dụ $\dfrac{2}{6}$ thay vì $\dfrac13$. Hãy so sánh giá trị của phân số chứ đừng chỉ so sánh ``mặt chữ''. Ngược lại, khi tự trình bày, em nên rút gọn kết quả cuối cùng.
+\end{tipbox}
+
+% ----------------------------------------------------------------------
+\shead{Xác suất của biến cố đối. Tìm số lượng khi biết xác suất}
+\begin{knowbox}
+\textbf{Biến cố đối.} Biến cố ``\emph{không} xảy ra $A$'' gọi là biến cố đối của $A$. Ta có
+\[
+P(\text{không } A)=1-P(A).
+\]
+Ví dụ: gieo xúc xắc, $P(\text{được số }6)=\dfrac16$ nên $P(\text{không được số }6)=1-\dfrac16=\dfrac56$.
+
+\medskip
+\textbf{Tìm số lượng khi biết xác suất.} Từ công thức xác suất ta suy ra
+\[
+\text{số kết quả thuận lợi}=P\times\text{số tất cả các kết quả}.
+\]
+Ví dụ: túi có $20$ viên kẹo, xác suất bốc được kẹo chanh là $\dfrac{3}{4}$ thì số kẹo chanh là $20\times\dfrac34=15$ viên.
+
+\medskip
+\textbf{Khi số lượng thay đổi} (bốc ra rồi \emph{không trả lại}, ăn mất, thêm vào\ldots): phải \textbf{đếm lại cả tử số lẫn mẫu số} trước khi tính xác suất của lần tiếp theo.
+\end{knowbox}
+
+\begin{proofbox}
+Giả sử có $n$ kết quả, trong đó $k$ kết quả thuận lợi cho $A$. Mỗi kết quả còn lại (có $n-k$ kết quả) đều làm cho $A$ \emph{không} xảy ra. Vậy
+$P(\text{không }A)=\dfrac{n-k}{n}=\dfrac{n}{n}-\dfrac{k}{n}=1-P(A)$.
+\end{proofbox}
+
+\begin{warnbox}
+Một bạn có hộp $10$ bi đỏ và $10$ bi xanh. Bạn lấy ra $1$ bi xanh và \emph{không trả lại}. Hỏi xác suất lần sau lấy được bi đỏ?
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \textbf{Sai:} ``vẫn là $\dfrac{10}{20}$'' (quên rằng hộp đã bớt đi một viên).
+\item \textbf{Đúng:} còn $19$ viên, trong đó vẫn đủ $10$ viên đỏ, nên xác suất là $\dfrac{10}{19}$.
+\end{itemize}
+\end{warnbox}
+
+\begin{parentbox}
+Hãy làm thí nghiệm thật với kẹo hoặc nắp chai nhiều màu: cho vào túi vải, cùng con đếm ``có tất cả bao nhiêu cái, bao nhiêu cái màu đỏ'', rồi lấy ra một cái và hỏi lại hai câu đó. Trẻ sẽ tự thấy cả tử số lẫn mẫu số đều thay đổi.
+\end{parentbox}
+
+% ----------------------------------------------------------------------
+\shead{Liệt kê có hệ thống: danh sách, bảng và sơ đồ cây}
+\begin{knowbox}
+Khi số khả năng không quá lớn, cách chắc chắn nhất là \textbf{liệt kê hết}. Muốn liệt kê không sót, không trùng, ta cần \textbf{một trật tự}:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \textbf{Danh sách theo thứ tự} (từ nhỏ đến lớn, theo bảng chữ cái\ldots). Ví dụ các số có hai chữ số khác nhau lập từ $1;2;3$: $12;13;21;23;31;32$ -- xếp theo chữ số hàng chục.
+\item \textbf{Bảng hai chiều} khi phép thử gồm \emph{hai bước} (gieo hai con xúc xắc, chọn một món chính và một món tráng miệng\ldots): mỗi hàng ứng với một kết quả của bước 1, mỗi cột ứng với một kết quả của bước 2, mỗi ô là một kết quả chung.
+\item \textbf{Sơ đồ cây} khi có \emph{hai, ba, bốn bước liên tiếp}: mỗi bước tỏa ra các nhánh; mỗi ``đường đi'' từ gốc tới ngọn là một kết quả.
+\end{itemize}
+\end{knowbox}
+
+\textbf{Bảng gieo hai con xúc xắc (một đỏ, một xanh).} Mỗi ô ghi \emph{tổng} hai số. Có $6$ hàng và $6$ cột nên có $6\times 6=36$ kết quả đồng khả năng.
+\begin{figC}
+\node[font=\bfseries\footnotesize,text=AnsRed] at (-0.15,0.75) {đỏ $\downarrow$};
+\node[font=\bfseries\footnotesize,text=tmBlue] at (2.1,1.05) {xanh $\rightarrow$};
+\foreach \c in {1,...,6}{\node[draw=tmBlue,fill=tmBlue!15,minimum size=0.62cm,font=\bfseries] at (\c*0.62,0.4) {\c};}
+\foreach \r in {1,...,6}{\node[draw=AnsRed,fill=AnsRed!12,minimum size=0.62cm,font=\bfseries] at (0,0.4-\r*0.62) {\r};
+  \foreach \c in {1,...,6}{\pgfmathtruncatemacro\s{\r+\c}%
+    \ifnum\s=7 \def\fc{tmOrange!35}\else\def\fc{white}\fi
+    \node[draw=Line,fill=\fc,minimum size=0.62cm] at (\c*0.62,0.4-\r*0.62) {\s};}}
+\node[font=\footnotesize,align=left,anchor=west] at (4.6,-1.7) {Các ô tô màu cam: tổng bằng $7$.\\ Có $6$ ô như vậy, nên\\ $P(\text{tổng}=7)=\dfrac{6}{36}=\dfrac16$.};
+\end{figC}
+
+\begin{warnbox}
+\textbf{(1; 2) và (2; 1) là hai kết quả khác nhau!} Đỏ ra $1$, xanh ra $2$ khác với đỏ ra $2$, xanh ra $1$. Nếu chỉ đếm ``cặp số'' mà không phân biệt thứ tự thì các cặp \emph{không} còn đồng khả năng nữa (cặp $\{1;2\}$ có $2$ cách xảy ra, còn cặp $\{1;1\}$ chỉ có $1$ cách). Vì thế các tổng $2;3;\dots;12$ \emph{không} đồng khả năng: tổng $7$ có $6$ cách, còn tổng $2$ chỉ có $1$ cách.
+\end{warnbox}
+
+\textbf{Sơ đồ cây khi tung một đồng xu ba lần} (S: sấp, N: ngửa). Mỗi lần có $2$ nhánh, nên có $2\times2\times2=8$ đường đi -- tức $8$ kết quả đồng khả năng.
+\begin{center}\begin{tikzpicture}[font=\sffamily\small,grow'=right,level distance=2.1cm,
+  every node/.style={circle,draw=tmBlue,fill=tmBlue!10,inner sep=1.5pt,minimum size=0.55cm,font=\footnotesize\bfseries},
+  level 1/.style={sibling distance=2.6cm},level 2/.style={sibling distance=1.3cm},level 3/.style={sibling distance=0.65cm},
+  edge from parent/.style={draw=Ink!70,line width=0.7pt}]
+\node[fill=Ink!10,draw=Ink] {Gốc}
+  child {node {S}
+    child {node {S} child {node {S}} child {node {N}}}
+    child {node {N} child {node {S}} child {node {N}}}}
+  child {node {N}
+    child {node {S} child {node {S}} child {node {N}}}
+    child {node {N} child {node {S}} child {node {N}}}};
+\foreach \y/\t in {2.275/SSS,1.625/SSN,0.975/SNS,0.325/SNN,-0.325/NSS,-0.975/NSN,-1.625/NNS,-2.275/NNN}{
+  \node[draw=none,fill=none,font=\footnotesize,anchor=west] at (6.7,\y) {\t};}
+\node[draw=none,fill=none,font=\footnotesize] at (2.1,-2.8) {lần 1};
+\node[draw=none,fill=none,font=\footnotesize] at (4.2,-2.8) {lần 2};
+\node[draw=none,fill=none,font=\footnotesize] at (6.3,-2.8) {lần 3};
+\end{tikzpicture}\end{center}
+Ví dụ: biến cố ``có đúng hai lần sấp'' gồm SSN, SNS, NSS -- $3$ kết quả, nên xác suất là $\dfrac38$.
+
+\begin{tipbox}
+Bài toán ``đi trên lưới bằng cách tung đồng xu'' (sấp thì đi lên, ngửa thì sang phải) thực chất là bài toán đếm dãy sấp/ngửa: sau $4$ lần tung có $2^4=16$ dãy đồng khả năng, và \emph{điểm đến} chỉ phụ thuộc vào \emph{số lần sấp}, không phụ thuộc thứ tự.
+\end{tipbox}
+
+% ----------------------------------------------------------------------
+\shead{Quy tắc nhân và quy tắc cộng}
+\begin{knowbox}
+\textbf{Quy tắc nhân.} Nếu một công việc gồm hai bước liên tiếp, bước 1 có $m$ cách làm, và \emph{với mỗi} cách làm bước 1 thì bước 2 có $n$ cách làm, thì cả công việc có $m\times n$ cách. (Với ba, bốn bước: nhân tiếp.)
+
+\medskip
+\textbf{Quy tắc cộng (chia trường hợp).} Nếu các cách làm được chia thành những trường hợp \emph{không chồng lên nhau}: trường hợp 1 có $a$ cách, trường hợp 2 có $b$ cách, \ldots thì tổng số cách là $a+b+\dots$
+
+\medskip
+\textbf{Các dạng hay gặp với chữ số.}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Lập số có $3$ chữ số từ $3$ chữ số khác $0$ cho trước, \emph{không lặp}: $3\times2\times1=6$ số.
+\item Lập số có $3$ chữ số từ $3$ chữ số khác $0$ cho trước, \emph{được lặp}: $3\times3\times3=27$ số.
+\item Chữ số đầu tiên (hàng cao nhất) \textbf{không được là $0$}: có $9$ lựa chọn ($1$ đến $9$); các hàng khác có $10$ lựa chọn ($0$ đến $9$).
+\item \textbf{Số đối xứng} (đọc xuôi hay ngược đều như nhau) có $3$ chữ số có dạng $\overline{aba}$: chọn $a$ có $9$ cách, chọn $b$ có $10$ cách, chữ số cuối bị ``ép'' phải bằng $a$ (chỉ $1$ cách). Có $9\times10=90$ số.
+\end{itemize}
+\end{knowbox}
+
+\countboxes{hàng trăm/9/từ 1 đến 9/tmBlue,hàng chục/10/từ 0 đến 9/tmOrange,hàng đơn vị/1/bằng hàng trăm/tmGreen}{90}
+\vspace{-6pt}
+\begin{center}\footnotesize Số các số đối xứng có ba chữ số: $9\times 10\times 1=90$.\end{center}
+
+\begin{proofbox}
+Vì sao quy tắc nhân đúng? Vẽ một bảng có $m$ hàng (các cách làm bước 1) và $n$ cột (các cách làm bước 2). Mỗi ô của bảng là \emph{đúng một} cách làm cả công việc, và mỗi cách làm cả công việc nằm ở \emph{đúng một} ô. Bảng có $m$ hàng, mỗi hàng $n$ ô, nên có $m\times n$ ô. Sơ đồ cây cũng cho cùng kết quả: $m$ nhánh lớn, mỗi nhánh lớn tỏa ra $n$ nhánh nhỏ.
+\end{proofbox}
+
+\begin{knowbox}
+\textbf{Chọn hai đồ vật (không kể thứ tự).} Chọn $2$ bạn trong $n$ bạn để đi trực nhật: nếu kể thứ tự (người thứ nhất, người thứ hai) thì có $n\times(n-1)$ cách; nhưng mỗi cặp bạn được đếm \emph{hai lần} (An--Bình và Bình--An), nên số cặp là
+\[
+\frac{n\times(n-1)}{2}.
+\]
+Ví dụ: có $\dfrac{10\times9}{2}=45$ cặp số khác nhau lấy từ $10$ số.
+\end{knowbox}
+
+\begin{warnbox}
+\textbf{Đếm trùng.} Khi đề hỏi ``bao nhiêu \emph{cặp}'', ``bao nhiêu \emph{nhóm}'' (không quan tâm ai trước ai sau) mà em dùng quy tắc nhân theo thứ tự, mỗi nhóm bị đếm nhiều lần -- phải chia đi. Ngược lại, khi đề hỏi về \emph{số} (có thứ tự chữ số) hay \emph{xếp hàng} thì thứ tự là quan trọng, \emph{không} chia.
+\end{warnbox}
+
+\begin{tipbox}
+Khi chia trường hợp, hãy hỏi: ``Các trường hợp có \emph{phủ hết} mọi khả năng chưa? Có \emph{chồng lên nhau} không?'' Ví dụ để tổng $m+n$ là số chẵn thì $m$, $n$ phải \emph{cùng lẻ} hoặc \emph{cùng chẵn} -- hai trường hợp này tách rời nhau và phủ hết mọi khả năng.
+\end{tipbox}
+
+% ----------------------------------------------------------------------
+\shead{Lập luận loại trừ: xếp chỗ ngồi và tô màu}
+\begin{knowbox}
+Có những bài không hỏi ``bao nhiêu'' mà hỏi ``\emph{ai có thể}, \emph{ai không thể}'', ``\emph{cần ít nhất bao nhiêu}''. Khi đó ta dùng \textbf{lập luận}:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \textbf{Vẽ sơ đồ} các vị trí (ghế, ô, mặt hình\ldots) rồi điền thử.
+\item Hai người \textbf{phải ngồi cạnh nhau} thì xem họ như \textbf{một khối} chiếm hai ghế liền nhau.
+\item Muốn chứng tỏ ``\emph{X có thể} ngồi ghế giữa'': chỉ cần \textbf{đưa ra một cách xếp} thỏa mãn mọi điều kiện.
+\item Muốn chứng tỏ ``\emph{X không thể} ngồi ghế giữa'': \textbf{giả sử} X ngồi ghế giữa rồi chỉ ra rằng \emph{mọi} cách xếp còn lại đều vi phạm điều kiện (dẫn đến điều vô lý). Đây gọi là \textbf{phương pháp phản chứng}.
+\item Bài ``cần \emph{ít nhất} bao nhiêu'' gồm \textbf{hai phần}: (1) chỉ ra một cách làm với số đó; (2) giải thích vì sao ít hơn thì không làm được.
+\end{itemize}
+\end{knowbox}
+
+\begin{figC}
+\foreach \i in {1,...,5}{\draw[tmBlue,line width=1pt,fill=tmBlue!8,rounded corners=3pt] (\i*1.3-0.5,0) rectangle (\i*1.3+0.5,0.7);
+  \node[font=\footnotesize] at (\i*1.3,-0.3){ghế \i};}
+\draw[tmOrange,line width=1.4pt,rounded corners=5pt] (3*1.3-0.62,-0.12) rectangle (3*1.3+0.62,0.82);
+\node[font=\footnotesize\bfseries,text=tmOrange!80!black] at (3*1.3,1.1){ghế giữa};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (1*1.3-0.5,-0.55)--(2*1.3+0.5,-0.55) node[midway,below=5pt,font=\footnotesize]{hai ghế bên trái};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (4*1.3-0.5,-0.55)--(5*1.3+0.5,-0.55) node[midway,below=5pt,font=\footnotesize]{hai ghế bên phải};
+\end{figC}
+Nhận xét quan trọng: khi một người đã ngồi ghế giữa, bốn ghế còn lại tách thành \emph{hai cặp ghế liền nhau} (ghế 1--2 và ghế 4--5). Hai ghế ở hai bên ghế giữa (ghế 2 và ghế 4) \emph{không} cạnh nhau.
+
+\begin{knowbox}
+\textbf{Tô màu sao cho hai phần kề nhau khác màu.} Hai mặt của hình lập phương ``kề nhau'' nếu chúng có chung một cạnh. Mỗi mặt kề với $4$ mặt và \emph{không} kề với đúng $1$ mặt -- mặt \textbf{đối diện}. Hình lập phương có $3$ cặp mặt đối diện (trên--dưới, trước--sau, trái--phải).
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \emph{Đủ $3$ màu:} tô mỗi cặp mặt đối diện một màu; hai mặt cùng màu thì đối diện nên không kề nhau.
+\item \emph{Không thể ít hơn $3$ màu:} ba mặt gặp nhau tại một đỉnh thì đôi một kề nhau, nên phải có ba màu khác nhau.
+\end{itemize}
+\end{knowbox}
+
+\begin{tipbox}
+Với câu hỏi trắc nghiệm ``Ai \emph{không thể}\ldots?'', em có thể làm ngược: với từng phương án, thử tìm \emph{một} cách xếp hợp lệ. Phương án nào tìm được cách xếp thì loại; phương án còn lại chính là đáp án -- nhưng nhớ giải thích vì sao nó thật sự không xếp được.
+\end{tipbox}
+
+% ----------------------------------------------------------------------
+\shead{Đếm các hình trong một hình vẽ}
+\begin{knowbox}
+\textbf{Nguyên tắc.} Đếm hình là một bài toán liệt kê. Để không sót, không trùng, ta \textbf{chia theo loại} (theo kích thước, theo vị trí) rồi \textbf{cộng lại}.
+
+\medskip
+\textbf{Mẹo ``chọn hai đường''.} Một hình chữ nhật trong lưới được xác định hoàn toàn bởi \emph{hai đường kẻ ngang} (cạnh trên, cạnh dưới) và \emph{hai đường kẻ dọc} (cạnh trái, cạnh phải). Vì vậy:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Dải gồm $1$ hàng và $n$ ô có $n+1$ đường dọc; số hình chữ nhật là số cách chọn $2$ đường dọc:
+$\dfrac{(n+1)\times n}{2}$. Ví dụ dải $4$ ô: $\dfrac{5\times4}{2}=10$ hình chữ nhật.
+\item Lưới có $a$ đường ngang và $b$ đường dọc (kẻ suốt) có
+$\dfrac{a(a-1)}{2}\times\dfrac{b(b-1)}{2}$ hình chữ nhật (quy tắc nhân!).
+\item Cách đếm này cũng đúng với \emph{hình bình hành} trong lưới có các đường xiên song song với nhau.
+\end{itemize}
+\end{knowbox}
+
+\begin{figC}
+\begin{scope}
+\foreach \i in {0,...,4}{\draw[Ink,line width=1pt] (\i,0)--(\i,1); \node[font=\footnotesize,text=tmBlue] at (\i,-0.3){\pgfmathtruncatemacro\k{\i+1}\k};}
+\draw[Ink,line width=1pt] (0,0)--(4,0) (0,1)--(4,1);
+\fill[tmOrange,opacity=0.3] (1,0) rectangle (3,1);
+\node[font=\footnotesize,align=center] at (2,-0.95){Chọn đường dọc $2$ và $4$\\ $\Rightarrow$ hình chữ nhật tô cam};
+\end{scope}
+\begin{scope}[xshift=6cm]
+\foreach \x in {0,1,2,3}{\draw[Ink,line width=1pt] (\x,0)--(\x,2);}
+\foreach \y in {0,1,2}{\draw[Ink,line width=1pt] (0,\y)--(3,\y);}
+\fill[tmGreen,opacity=0.3] (1,0) rectangle (3,2);
+\node[font=\footnotesize,align=center] at (1.5,-0.7){$3$ đường ngang, $4$ đường dọc:\\ $3\times 6=18$ hình chữ nhật};
+\end{scope}
+\end{figC}
+
+\begin{proofbox}
+Vì sao dải $n$ ô có $\dfrac{(n+1)\times n}{2}$ hình chữ nhật? Chọn cạnh trái: $n+1$ cách; chọn cạnh phải (khác cạnh trái): $n$ cách -- được $(n+1)\times n$ cách \emph{có thứ tự}. Nhưng chọn ``đường 2 rồi đường 4'' hay ``đường 4 rồi đường 2'' cho cùng một hình, nên mỗi hình bị đếm $2$ lần; chia cho $2$. Đếm theo kích thước cũng ra cùng kết quả: với dải $4$ ô có $4$ hình rộng $1$ ô, $3$ hình rộng $2$ ô, $2$ hình rộng $3$ ô, $1$ hình rộng $4$ ô, tổng $4+3+2+1=10$.
+\end{proofbox}
+
+\begin{warnbox}
+Khi các hình \textbf{chồng lên nhau một phần} (không phải lưới kẻ suốt), mẹo ``chọn hai đường'' \emph{không dùng được} vì nhiều đoạn kẻ không chạy hết. Phải kiểm tra từng hình: \textbf{cả bốn cạnh có thật sự được vẽ không?} Đừng đếm những ``hình chữ nhật tưởng tượng'' mà một cạnh bị thiếu.
+\end{warnbox}
+
+\begin{knowbox}
+\textbf{Đếm trong hình lát gạch.} Hình lát bằng bát giác đều và hình vuông nhỏ: nếu có $m$ hàng, mỗi hàng $n$ bát giác thì có $m\times n$ bát giác. Mỗi hình vuông nhỏ nằm ở chỗ \emph{bốn bát giác gặp nhau}; giữa $n$ cột có $n-1$ khe, giữa $m$ hàng có $m-1$ khe, nên có $(m-1)\times(n-1)$ hình vuông.
+\end{knowbox}
+\begin{figC}
+\foreach \i in {0,1,2}{\foreach \j in {0,1}{\cpOct{\i}{\j}}}
+\foreach \i in {0.5,1.5}{\cpDia{\i}{0.5}}
+\node[font=\footnotesize,align=left,anchor=west] at (3,0.5){$2$ hàng, $3$ cột: $2\times3=6$ bát giác,\\ $(2-1)\times(3-1)=2$ hình vuông.};
+\end{figC}
+
+% ----------------------------------------------------------------------
+\shead{Đếm theo quy luật: dãy số cách đều, tốc độ đều}
+\begin{knowbox}
+\textbf{Đếm số các số nguyên từ $a$ đến $b$} (kể cả $a$ và $b$): có $b-a+1$ số. Ví dụ từ $1$ đến $11$ có $11$ số, trong đó có $6$ số lẻ ($1;3;5;7;9;11$) và $5$ số chẵn.
+
+\medskip
+\textbf{Dãy cách đều} (mỗi số hơn số trước một lượng $d$ không đổi):
+\[
+\text{số số hạng}=\frac{\text{số cuối}-\text{số đầu}}{d}+1,\qquad
+\text{tổng}=\frac{(\text{số đầu}+\text{số cuối})\times\text{số số hạng}}{2}.
+\]
+
+\textbf{Đại lượng thay đổi đều theo thời gian} (đi đều, chảy đều, đếm đều\ldots):
+$\text{lượng}=\text{tốc độ}\times\text{thời gian}$. Ví dụ mỗi phút có $3$ con cừu đi qua thì trong $14$ phút có $3\times14=42$ con.
+
+\medskip
+\textbf{Hình xếp bằng que.} Đếm riêng \emph{que nằm ngang} và \emph{que đứng} rồi cộng lại -- thường dễ hơn đếm từng ô.
+
+\medskip
+\textbf{Sự kiện lặp lại theo chu kỳ.} Một việc lặp lại sau mỗi $a$ phút, việc khác sau mỗi $b$ phút; nếu cùng bắt đầu một lúc thì chúng lại trùng nhau sau mỗi $\text{BCNN}(a,b)$ phút.
+\end{knowbox}
+
+\begin{proofbox}
+\textbf{Cách cộng của Gauss.} Tính $S=1+2+3+\dots+10$. Viết tổng hai lần, một lần xuôi, một lần ngược:
+\[
+\begin{array}{rcccccc}
+S&=&1&+\;2&+\;3&+\dots+&10\\
+S&=&10&+\;9&+\;8&+\dots+&1\\ \hline
+2S&=&11&+\;11&+\;11&+\dots+&11
+\end{array}
+\]
+Có $10$ cột, mỗi cột có tổng $11$, nên $2S=10\times11=110$ và $S=55$. Tổng quát: tổng $=\dfrac{(\text{số đầu}+\text{số cuối})\times\text{số số hạng}}{2}$.
+\end{proofbox}
+
+\begin{warnbox}
+\textbf{Lỗi ``lệch một''.} Từ $3$ đến $10$ có $10-3+1=8$ số, \emph{không phải} $7$. Hàng rào dài $10$ m, cứ $1$ m cắm một cọc (cắm cả hai đầu) thì cần $11$ cọc, không phải $10$. Hãy thử với ví dụ nhỏ để kiểm tra công thức.
+\end{warnbox}
+
+\begin{parentbox}
+Với các bài ``que tính'', hãy cho con xếp thật bằng tăm cho hình nhỏ ($1$ ô, $2$ ô, $3$ ô\ldots), ghi số que vào bảng, rồi hỏi: ``mỗi lần thêm một ô thì thêm mấy que?''. Trẻ tự tìm ra quy luật sẽ nhớ lâu hơn nhiều so với học thuộc công thức.
+\end{parentbox}
+
+\begin{knowbox}
+\textbf{Tóm tắt: nhìn dấu hiệu, chọn công cụ.}\par\smallskip
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\textbf{Dấu hiệu trong đề} & \textbf{Công cụ nên dùng}\\ \hline
+``lấy ngẫu nhiên một\ldots'', ``xác suất là bao nhiêu'' & đếm tổng số và số thuận lợi, rồi chia\\
+biết xác suất, hỏi số lượng & số thuận lợi $=P\times$ tổng\\
+đã lấy ra/ăn mất rồi mới lấy tiếp & đếm lại cả tử số và mẫu số\\
+``ít nhất một'', ``không phải'' & biến cố đối: $1-P$\\
+hai xúc xắc, hai lựa chọn độc lập & bảng hai chiều\\
+tung đồng xu nhiều lần, nhiều bước liên tiếp & sơ đồ cây\\
+``lập được bao nhiêu số'', ``bao nhiêu cách'' & quy tắc nhân (vị trí có điều kiện chọn trước)\\
+``bao nhiêu cặp'' (không kể thứ tự) & quy tắc nhân rồi chia $2$\\
+điều kiện kiểu ``hoặc\ldots hoặc\ldots'' & chia trường hợp, cộng lại\\
+``ai có thể / không thể'' & thử một cách xếp / phản chứng\\
+``bao nhiêu hình\ldots'' & chia theo kích thước, hoặc chọn hai đường\\
+hàng ghế, que tính, tốc độ đều & tìm quy luật, dãy cách đều\\
+\end{tabularx}
+\end{knowbox}
+
+% ======================================================================
+% VÍ DỤ
+% ======================================================================
+\begin{exbox}{Ví dụ 1}
+Một hộp có $3$ viên bi đỏ, $5$ viên bi xanh và $4$ viên bi vàng; các viên bi có cùng kích thước. Lấy ngẫu nhiên một viên bi.
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item Tính xác suất lấy được bi xanh.
+\item Tính xác suất lấy được viên bi \emph{không} phải màu đỏ.
+\item Tính xác suất lấy được bi màu tím.
+\end{enumerate}
+\guide
+\step{1}{Đếm tất cả các kết quả có thể}
+Mỗi viên bi là một kết quả, và vì các viên bi giống nhau về kích thước nên các kết quả đồng khả năng. Tổng số bi: $3+5+4=12$. Vậy có $12$ kết quả có thể.
+\step{2}{Câu a}
+Có $5$ viên bi xanh, tức $5$ kết quả thuận lợi.
+$P(\text{xanh})=\dfrac{5}{12}$.
+\step{3}{Câu b -- dùng biến cố đối}
+$P(\text{đỏ})=\dfrac{3}{12}=\dfrac14$, nên $P(\text{không đỏ})=1-\dfrac14=\dfrac34$.
+
+\emph{Cách khác (đếm trực tiếp):} bi không đỏ gồm $5$ xanh và $4$ vàng, tức $9$ viên; $P=\dfrac{9}{12}=\dfrac34$. Hai cách cho cùng kết quả.
+\step{4}{Câu c}
+Trong hộp không có viên bi tím nào: $0$ kết quả thuận lợi. $P(\text{tím})=\dfrac{0}{12}=0$ -- đây là biến cố không thể.
+\ans{a) $\frac{5}{12}$;\quad b) $\frac34$;\quad c) $0$.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 2}
+Một túi có $30$ viên kẹo, gồm kẹo dâu và kẹo cam. Lấy ngẫu nhiên một viên thì xác suất được kẹo dâu là $\dfrac25$.
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item Trong túi có bao nhiêu viên kẹo dâu, bao nhiêu viên kẹo cam?
+\item Bạn An lấy ra $2$ viên kẹo dâu và ăn luôn. Sau đó Bình lấy ngẫu nhiên một viên từ túi. Tính xác suất Bình lấy được kẹo dâu.
+\end{enumerate}
+\guide
+\step{1}{Tìm số kẹo dâu}
+\begin{recallbox}Số kết quả thuận lợi $=$ xác suất $\times$ số tất cả các kết quả.\end{recallbox}
+Số kẹo dâu: $30\times\dfrac25=\dfrac{30\times 2}{5}=\dfrac{60}{5}=12$ viên. Số kẹo cam: $30-12=18$ viên.
+
+\emph{Kiểm tra:} $\dfrac{12}{30}=\dfrac{2}{5}$ \checkmark.
+\step{2}{Đếm lại sau khi An ăn $2$ viên}
+\begin{center}
+\begin{tabular}{|l|c|c|c|}\hline
+ & kẹo dâu & kẹo cam & tổng \\ \hline
+Lúc đầu & $12$ & $18$ & $30$\\ \hline
+Sau khi An ăn $2$ viên dâu & $12-2=10$ & $18$ & $30-2=28$\\ \hline
+\end{tabular}
+\end{center}
+\step{3}{Tính xác suất cho Bình}
+$P(\text{dâu})=\dfrac{10}{28}=\dfrac{5}{14}$.
+\begin{warnbox}Đừng trả lời $\dfrac{10}{30}$: An đã ăn mất $2$ viên nên tổng số kẹo (mẫu số) cũng giảm theo.\end{warnbox}
+\ans{a) $12$ kẹo dâu, $18$ kẹo cam;\quad b) $\frac{5}{14}$.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 3}
+Gieo đồng thời một con xúc xắc đỏ và một con xúc xắc xanh (đều cân đối). Tính xác suất của các biến cố:
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item Tổng hai số chấm bằng $8$.
+\item Hai con xúc xắc ra cùng một số.
+\item Tổng hai số chấm lớn hơn hoặc bằng $10$.
+\end{enumerate}
+\guide
+\step{1}{Lập bảng tất cả các kết quả}
+Hàng là số của xúc xắc đỏ, cột là số của xúc xắc xanh, mỗi ô ghi tổng. Bảng có $6\times6=36$ ô, ứng với $36$ kết quả đồng khả năng.
+\begin{figC}
+\foreach \c in {1,...,6}{\node[draw=tmBlue,fill=tmBlue!15,minimum size=0.6cm,font=\bfseries] at (\c*0.6,0.4) {\c};}
+\foreach \r in {1,...,6}{\node[draw=AnsRed,fill=AnsRed!12,minimum size=0.6cm,font=\bfseries] at (0,0.4-\r*0.6) {\r};
+  \foreach \c in {1,...,6}{\pgfmathtruncatemacro\s{\r+\c}%
+    \def\fc{white}%
+    \ifnum\s=8 \def\fc{tmOrange!40}\fi
+    \ifnum\s>9 \def\fc{tmGreen!30}\fi
+    \node[draw=Line,fill=\fc,minimum size=0.6cm] at (\c*0.6,0.4-\r*0.6) {\s};
+    \ifnum\r=\c \draw[tmPurple,line width=1pt] (\c*0.6,0.4-\r*0.6) circle (0.24);\fi}}
+\node[font=\footnotesize,align=left,anchor=west] at (4.4,-1.7) {\colorbox{tmOrange!40}{\strut\ \ } tổng bằng $8$ ($5$ ô)\\[2pt]
+  {\color{tmPurple}$\bigcirc$} hai số bằng nhau ($6$ ô)\\[2pt] \colorbox{tmGreen!30}{\strut\ \ } tổng $\ge 10$ ($6$ ô)};
+\end{figC}
+\step{2}{Câu a}
+Các ô có tổng $8$: $(2;6),(3;5),(4;4),(5;3),(6;2)$ -- $5$ kết quả (số đầu là xúc xắc đỏ). $P=\dfrac{5}{36}$.
+\step{3}{Câu b}
+Hai số bằng nhau nằm trên đường chéo: $(1;1),(2;2),\dots,(6;6)$ -- $6$ kết quả. $P=\dfrac{6}{36}=\dfrac16$.
+\step{4}{Câu c}
+Tổng $10$: $(4;6),(5;5),(6;4)$; tổng $11$: $(5;6),(6;5)$; tổng $12$: $(6;6)$. Tất cả $3+2+1=6$ kết quả. $P=\dfrac{6}{36}=\dfrac16$.
+\begin{tipbox}Bảng $6\times6$ còn giúp thấy tính \emph{đối xứng}: số ô phía trên đường chéo (đỏ nhỏ hơn xanh) bằng số ô phía dưới đường chéo (đỏ lớn hơn xanh).\end{tipbox}
+\ans{a) $\frac{5}{36}$;\quad b) $\frac16$;\quad c) $\frac16$.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 4}
+Tung một đồng xu cân đối ba lần liên tiếp. Tính xác suất để:
+a) có đúng hai lần xuất hiện mặt sấp;\quad b) có ít nhất một lần xuất hiện mặt sấp.
+\guide
+\step{1}{Vẽ sơ đồ cây và liệt kê}
+Mỗi lần tung có $2$ kết quả (S hoặc N). Theo sơ đồ cây ở mục 3, có $2\times2\times2=8$ kết quả đồng khả năng:
+\[
+\text{SSS},\ \text{SSN},\ \text{SNS},\ \text{SNN},\ \text{NSS},\ \text{NSN},\ \text{NNS},\ \text{NNN}.
+\]
+\step{2}{Câu a}
+Các kết quả có đúng hai chữ S: SSN, SNS, NSS -- $3$ kết quả. $P=\dfrac38$.
+\step{3}{Câu b -- biến cố đối}
+``Ít nhất một lần sấp'' có biến cố đối là ``không lần nào sấp'', tức chỉ có NNN ($1$ kết quả). Vậy
+$P(\text{ít nhất một S})=1-\dfrac18=\dfrac78$.
+\begin{tipbox}Gặp cụm từ ``\emph{ít nhất một}'', hãy nghĩ ngay đến biến cố đối ``\emph{không có cái nào}'' -- thường chỉ có rất ít kết quả nên dễ đếm.\end{tipbox}
+\ans{a) $\frac38$;\quad b) $\frac78$.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 5}
+Từ các chữ số $1;2;3;4$, có thể lập được bao nhiêu số có ba chữ số, nếu:
+a) các chữ số được phép lặp lại;\quad b) các chữ số phải khác nhau;\quad c) các chữ số khác nhau và số đó là số chẵn?\\
+d) Chọn ngẫu nhiên một số trong các số ở câu b). Tính xác suất số đó là số chẵn.
+\guide
+\step{1}{Câu a -- được lặp}
+Hàng trăm: $4$ cách; hàng chục: vẫn $4$ cách; hàng đơn vị: $4$ cách. Theo quy tắc nhân: $4\times4\times4=64$ số.
+\step{2}{Câu b -- không lặp}
+\countboxes{hàng trăm/4/bất kỳ/tmBlue,hàng chục/3/khác hàng trăm/tmOrange,hàng đơn vị/2/khác hai số trên/tmGreen}{24}
+Hàng trăm: $4$ cách. Hàng chục phải khác chữ số đã dùng: $3$ cách. Hàng đơn vị khác cả hai chữ số đã dùng: $2$ cách. Có $4\times3\times2=24$ số.
+\step{3}{Câu c -- chẵn, không lặp: chọn hàng đơn vị TRƯỚC}
+Số chẵn thì chữ số hàng đơn vị là $2$ hoặc $4$: $2$ cách. Sau đó hàng trăm chọn trong $3$ chữ số còn lại: $3$ cách; hàng chục: $2$ cách. Có $2\times3\times2=12$ số.
+\begin{tipbox}Vị trí nào có \emph{điều kiện} (phải chẵn, phải khác $0$\ldots) thì \textbf{chọn trước}. Nếu chọn hàng trăm trước, số cách chọn hàng đơn vị lúc thì $1$, lúc thì $2$ (tùy hàng trăm đã lấy chữ số chẵn hay lẻ) -- rất dễ nhầm.\end{tipbox}
+\step{4}{Câu d}
+$P(\text{chẵn})=\dfrac{12}{24}=\dfrac12$.
+\verify{Liệt kê các số bắt đầu bằng $1$: $123;124;132;134;142;143$ -- đúng $6=3\times2$ số, trong đó $124;132;134;142$ chẵn ($4$ số). Bốn chữ số đầu như nhau nên $4\times6=24$ số, \ldots\ khớp với câu b.}
+\ans{a) $64$;\quad b) $24$;\quad c) $12$;\quad d) $\frac12$.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 6}
+Bốn bạn An, Bình, Chi, Dũng ngồi trên bốn chiếc ghế xếp thành một hàng, đánh số $1;2;3;4$ từ trái sang phải. Biết rằng: Dũng ngồi ghế số $1$; Bình và Chi ngồi cạnh nhau; An không ngồi cạnh Bình; An không ngồi ghế số $4$. Hỏi ai ngồi ghế số $4$?
+\guide
+\step{1}{Xếp Dũng}
+Dũng ở ghế $1$, còn ghế $2;3;4$ cho An, Bình, Chi.
+\step{2}{Xét vị trí của An}
+An không ngồi ghế $4$, nên An ngồi ghế $2$ hoặc ghế $3$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
+\item \emph{Nếu An ngồi ghế $3$:} Bình và Chi chiếm ghế $2$ và $4$ -- hai ghế này không cạnh nhau, trái điều kiện ``Bình và Chi ngồi cạnh nhau''. Loại.
+\item \emph{Nếu An ngồi ghế $2$:} Bình và Chi chiếm ghế $3$ và $4$ (cạnh nhau, tốt). An không được cạnh Bình, mà ghế $3$ cạnh ghế $2$, nên Bình không ngồi ghế $3$. Vậy Bình ngồi ghế $4$, Chi ngồi ghế $3$.
+\end{itemize}
+\begin{figC}
+\foreach \i/\n/\c in {1/Dũng/tmPurple,2/An/tmOrange,3/Chi/tmGreen,4/Bình/tmBlue}{
+  \draw[\c,line width=1pt,fill=\c!12,rounded corners=3pt] (\i*1.6-0.65,0) rectangle (\i*1.6+0.65,0.7);
+  \node[font=\bfseries] at (\i*1.6,0.35){\n};\node[font=\footnotesize] at (\i*1.6,-0.3){ghế \i};}
+\end{figC}
+\verify{Dũng ghế $1$ \checkmark; Bình (ghế $4$) cạnh Chi (ghế $3$) \checkmark; An (ghế $2$) cạnh Dũng và Chi, không cạnh Bình \checkmark; An không ở ghế $4$ \checkmark.}
+\ans{Bình ngồi ghế số $4$.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 7}
+a) Hình bên trái là một dải gồm $4$ ô vuông. Có tất cả bao nhiêu hình chữ nhật (kể cả hình vuông)?\\
+b) Hình bên phải là một lưới $2\times2$ ô vuông. Có bao nhiêu hình chữ nhật? Trong đó có bao nhiêu hình vuông?
+\begin{figC}
+\foreach \i in {0,...,4}{\draw[Ink,line width=1pt] (\i*0.8,0)--(\i*0.8,0.8);}
+\draw[Ink,line width=1pt] (0,0)--(3.2,0) (0,0.8)--(3.2,0.8);
+\begin{scope}[xshift=5.5cm]
+\foreach \i in {0,1,2}{\draw[Ink,line width=1pt] (\i*0.8,0)--(\i*0.8,1.6) (0,\i*0.8)--(1.6,\i*0.8);}
+\end{scope}
+\end{figC}
+\guide
+\step{1}{Câu a -- đếm theo độ rộng}
+Gọi độ rộng tính theo số ô:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+Độ rộng & $1$ ô & $2$ ô & $3$ ô & $4$ ô\\ \hline
+Số hình & $4$ & $3$ & $2$ & $1$\\ \hline
+\end{tabular}
+\end{center}
+Tổng: $4+3+2+1=10$ hình. \emph{Kiểm tra bằng mẹo chọn hai đường dọc:} có $5$ đường dọc, số cách chọn $2$ đường là $\dfrac{5\times4}{2}=10$ \checkmark.
+\step{2}{Câu b -- chọn hai đường ngang và hai đường dọc}
+Lưới có $3$ đường ngang và $3$ đường dọc. Chọn $2$ đường ngang: $\dfrac{3\times2}{2}=3$ cách; chọn $2$ đường dọc: $3$ cách. Theo quy tắc nhân có $3\times3=9$ hình chữ nhật.
+\step{3}{Đếm riêng hình vuông}
+Hình vuông $1\times1$: $4$ hình; hình vuông $2\times2$: $1$ hình (cả lưới). Có $4+1=5$ hình vuông.
+\verify{Đếm theo kích thước: $1\times1$: $4$; $1\times2$ (nằm ngang): $2$; $2\times1$ (đứng): $2$; $2\times2$: $1$. Tổng $4+2+2+1=9$ \checkmark.}
+\ans{a) $10$ hình chữ nhật;\quad b) $9$ hình chữ nhật, trong đó $5$ hình vuông.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 8}
+Dùng que tính xếp một hàng các ô vuông nối liền nhau như hình dưới.
+\begin{figC}
+\foreach \n/\x in {1/0,2/2,3/5}{
+  \foreach \i in {0,...,\n}{\draw[tmOrange!80!black,line width=1.6pt,line cap=round] (\x+\i*0.7,0.05)--(\x+\i*0.7,0.65);}
+  \foreach \i in {1,...,\n}{\draw[tmOrange!80!black,line width=1.6pt,line cap=round] (\x+\i*0.7-0.65,0)--(\x+\i*0.7-0.05,0) (\x+\i*0.7-0.65,0.7)--(\x+\i*0.7-0.05,0.7);}
+  \node[font=\footnotesize] at (\x+\n*0.35,-0.35){\n\ ô};}
+\end{figC}
+a) Một hàng gồm $20$ ô vuông cần bao nhiêu que?\\
+b) Bạn Lan lần lượt xếp riêng hàng $1$ ô, hàng $2$ ô, \ldots, hàng $10$ ô. Tổng cộng Lan dùng bao nhiêu que?
+\guide
+\step{1}{Tìm quy luật}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+Số ô & $1$ & $2$ & $3$ & $n$\\ \hline
+Số que & $4$ & $7$ & $10$ & $3n+1$\\ \hline
+\end{tabular}
+\end{center}
+Giải thích: đếm riêng từng loại que. Que nằm ngang: mỗi ô có $1$ que trên và $1$ que dưới, tức $2n$ que. Que đứng: $n$ ô có $n+1$ que đứng (giống $n$ khoảng cần $n+1$ cọc). Tổng $2n+(n+1)=3n+1$.
+\step{2}{Câu a}
+$n=20$: $3\times20+1=61$ que.
+\step{3}{Câu b -- tổng của dãy cách đều}
+Số que lần lượt là $4;7;10;\dots;31$ (hàng $10$ ô cần $3\times10+1=31$ que). Đây là dãy cách đều $3$, có $10$ số hạng.
+\begin{recallbox}Tổng dãy cách đều $=\dfrac{(\text{số đầu}+\text{số cuối})\times\text{số số hạng}}{2}$.\end{recallbox}
+Tổng: $\dfrac{(4+31)\times10}{2}=\dfrac{350}{2}=175$ que.
+\verify{$4+7+10+13+16+19+22+25+28+31$: ghép cặp đầu--cuối $4+31=7+28=10+25=13+22=16+19=35$, có $5$ cặp, $5\times35=175$ \checkmark.}
+\ans{a) $61$ que;\quad b) $175$ que.}
+\end{exbox}
+
+% ======================================================================
+\clearpage
+\dividerbar{Luyện tập cơ bản}
+
+% ---------------------------------------------------------------- Bài 1
+\begin{probbox}{1}{\relax}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+Bánh xe quay ở hình bên được chia thành $6$ ô có kích thước bằng nhau, mỗi ô ghi một chữ cái. Quay bánh xe một lần. Xác suất để kim chỉ vào một ô có chữ $P$ là bao nhiêu?
+\choices{$\dfrac{3}{6}$}{$\dfrac{4}{6}$}{$\dfrac{5}{6}$}{$\dfrac{2}{6}$}{$\dfrac{1}{6}$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering\begin{tikzpicture}[scale=0.95]\cpSpinSix{P}{R}{P}{Q}{R}{Q}\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Bánh xe có $6$ ô \emph{bằng nhau}, nên khi quay, kim có khả năng dừng ở mỗi ô là như nhau (đồng khả năng). Ta cần tìm xác suất kim chỉ vào ô ghi chữ $P$.
+\begin{recallbox}Khi các kết quả đồng khả năng: $P(\text{biến cố})=\dfrac{\text{số kết quả thuận lợi}}{\text{số tất cả các kết quả}}$.\end{recallbox}
+\step{1}{Đếm tất cả các kết quả có thể}
+Kim có thể dừng ở một trong $6$ ô, nên có $6$ kết quả có thể.
+\step{2}{Đếm các kết quả thuận lợi}
+Đọc các chữ trên bánh xe theo chiều kim đồng hồ, bắt đầu từ ô phía trên bên trái: $P,\ R,\ P,\ Q,\ R,\ Q$. Có đúng $2$ ô ghi chữ $P$ (ô trên-trái và ô bên phải).
+\step{3}{Tính xác suất}
+$P(\text{chữ }P)=\dfrac{2}{6}$ $\left(=\dfrac13\right)$.
+\begin{warnbox}Có $3$ chữ cái khác nhau ($P$, $Q$, $R$) nhưng xác suất \emph{không} tính bằng ``$1$ chữ trên $3$ chữ''. Ở bài này tình cờ $\dfrac13=\dfrac26$ vì mỗi chữ xuất hiện đúng $2$ lần; nếu số ô của các chữ khác nhau thì cách nghĩ đó sẽ sai. Luôn đếm \emph{ô}, không đếm \emph{loại chữ}.\end{warnbox}
+\verify{Mỗi chữ $P$, $Q$, $R$ chiếm $2$ ô: $\dfrac26+\dfrac26+\dfrac26=1$ -- tổng xác suất của mọi khả năng bằng $1$, hợp lý.}
+Giá trị $\dfrac26$ trùng với phương án \textbf{(D)}. (Phương án (A) $\dfrac36$ là do đếm nhầm thành $3$ ô; (E) $\dfrac16$ là xác suất của \emph{một} ô cụ thể.)
+\ans{(D) $\dfrac{2}{6}$}
+}
+
+% ---------------------------------------------------------------- Bài 2
+\begin{probbox}{2}{\relax}
+Dùng ba chữ số $4$, $7$ và $9$, mỗi chữ số dùng \emph{không quá một lần}, có thể lập được bao nhiêu số tự nhiên có ba chữ số khác nhau?
+\choices{$6$}{$3$}{$5$}{$12$}{$9$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Số có ba chữ số, dùng đúng ba chữ số $4;7;9$, không chữ số nào lặp lại. Vậy mỗi số là một \emph{cách sắp xếp} ba chữ số này vào ba hàng: trăm, chục, đơn vị.
+\step{1}{Cách 1 -- liệt kê có hệ thống}
+Xếp theo chữ số hàng trăm (từ nhỏ đến lớn):
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt,topsep=1pt]
+\item Hàng trăm là $4$: hai chữ số còn lại $7;9$ xếp được $479$ và $497$.
+\item Hàng trăm là $7$: $749$ và $794$.
+\item Hàng trăm là $9$: $947$ và $974$.
+\end{itemize}
+Có $2+2+2=6$ số.
+\step{2}{Cách 2 -- quy tắc nhân}
+\begin{recallbox}Quy tắc nhân: một việc gồm nhiều bước liên tiếp, mỗi bước có một số cách (không phụ thuộc cách chọn ở bước trước) thì số cách làm cả việc bằng \emph{tích} các số cách đó.\end{recallbox}
+\countboxes{hàng trăm/3/4 hoặc 7 hoặc 9/tmBlue,hàng chục/2/2 chữ số còn lại/tmOrange,hàng đơn vị/1/chữ số cuối cùng/tmGreen}{6}
+Hàng trăm: $3$ cách chọn. Hàng chục: chỉ còn $2$ chữ số chưa dùng, $2$ cách. Hàng đơn vị: còn đúng $1$ chữ số, $1$ cách. Số các số: $3\times2\times1=6$.
+\begin{warnbox}Nếu cho phép lặp chữ số thì mới có $3\times3\times3=27$ số (như $444$, $477$\ldots). Đề bài cấm lặp, nên sau mỗi bước số lựa chọn giảm đi $1$.\end{warnbox}
+\verify{Sáu số $479;497;749;794;947;974$ đều khác nhau và đều dùng đủ ba chữ số. Hai cách cho cùng kết quả.}
+Đáp số $6$ là phương án \textbf{(A)}. (Phương án (B) $3$ chỉ là số chữ số được cho.)
+\ans{(A) $6$}
+}
+
+% ---------------------------------------------------------------- Bài 3
+\begin{probbox}{3}{\relax}
+Một phong bì đựng $2$ hạt hướng dương, $3$ hạt đậu xanh và $4$ hạt bí ngô. Bạn Chi lấy ngẫu nhiên một hạt trong phong bì. Xác suất để Chi lấy được hạt hướng dương là bao nhiêu?
+\choices{$\dfrac{2}{9}$}{$\dfrac{5}{9}$}{$\dfrac{9}{7}$}{$\dfrac{7}{9}$}{$\dfrac{1}{9}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Phong bì có ba loại hạt với số lượng khác nhau. Chi lấy ngẫu nhiên \emph{một hạt}: mỗi hạt có cơ hội được lấy như nhau, nên mỗi \emph{hạt} là một kết quả đồng khả năng.
+\step{1}{Đếm tất cả các kết quả có thể}
+Tổng số hạt: $2+3+4=9$ hạt, tức $9$ kết quả.
+\step{2}{Đếm các kết quả thuận lợi}
+Có $2$ hạt hướng dương, nên có $2$ kết quả thuận lợi.
+\step{3}{Tính xác suất}
+\begin{recallbox}$P=\dfrac{\text{số kết quả thuận lợi}}{\text{số tất cả các kết quả}}$.\end{recallbox}
+$P(\text{hướng dương})=\dfrac{2}{9}$.
+\begin{warnbox}Có $3$ \emph{loại} hạt nhưng đáp số không phải $\dfrac13$, vì loại hạt bí ngô có nhiều hạt hơn nên dễ được lấy hơn. Cũng nhớ rằng xác suất không bao giờ lớn hơn $1$, nên phương án (C) $\dfrac97$ chắc chắn sai.\end{warnbox}
+\verify{$P(\text{hướng dương})+P(\text{đậu xanh})+P(\text{bí ngô})=\dfrac29+\dfrac39+\dfrac49=\dfrac99=1$.}
+Kết quả $\dfrac29$ là phương án \textbf{(A)}. (Phương án (D) $\dfrac79$ là xác suất \emph{không} lấy được hạt hướng dương.)
+\ans{(A) $\dfrac{2}{9}$}
+}
+
+% ---------------------------------------------------------------- Bài 4
+\begin{probbox}{4}{\relax}
+Một rạp chiếu phim có $11$ hàng ghế, được đánh số từ $1$ đến $11$. Mỗi hàng mang số lẻ có $15$ ghế, mỗi hàng mang số chẵn có $16$ ghế. Rạp có tất cả bao nhiêu ghế?
+\choices{$176$}{$186$}{$165$}{$170$}{$171$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Số ghế của một hàng phụ thuộc vào số thứ tự của hàng là lẻ hay chẵn. Vậy ta cần biết: trong các số từ $1$ đến $11$ có bao nhiêu số lẻ, bao nhiêu số chẵn.
+\step{1}{Đếm số hàng lẻ và số hàng chẵn}
+Các hàng lẻ: $1;3;5;7;9;11$ -- có $6$ hàng.\\
+Các hàng chẵn: $2;4;6;8;10$ -- có $5$ hàng.\\
+Kiểm tra: $6+5=11$ hàng \checkmark.
+\begin{figC}
+\foreach \i in {1,...,11}{\pgfmathtruncatemacro\m{mod(\i,2)}%
+  \ifnum\m=1 \def\cc{tmBlue}\else\def\cc{tmOrange}\fi
+  \draw[\cc,line width=0.9pt,fill=\cc!15,rounded corners=2pt] (\i*0.75-0.33,0) rectangle (\i*0.75+0.33,0.55);
+  \node[font=\footnotesize\bfseries] at (\i*0.75,0.275){\i};}
+\node[font=\footnotesize,text=tmBlue!80!black,anchor=west] at (9,0.55){hàng lẻ: $15$ ghế};
+\node[font=\footnotesize,text=tmOrange!80!black,anchor=west] at (9,0.05){hàng chẵn: $16$ ghế};
+\end{figC}
+\begin{warnbox}Đừng chia đôi $11$ hàng thành ``$5{,}5$ hàng lẻ và $5{,}5$ hàng chẵn''. Dãy bắt đầu \emph{và} kết thúc bằng số lẻ ($1$ và $11$), nên số lẻ nhiều hơn số chẵn đúng $1$.\end{warnbox}
+\step{2}{Tính số ghế ở các hàng lẻ}
+$6\times15=90$ ghế.
+\step{3}{Tính số ghế ở các hàng chẵn}
+$5\times16=80$ ghế.
+\step{4}{Cộng lại}
+Tổng số ghế: $90+80=170$ ghế.
+\verify{\emph{Cách khác -- ghép cặp:} ghép hàng $1$ với hàng $2$, hàng $3$ với hàng $4$, \ldots, hàng $9$ với hàng $10$: được $5$ cặp, mỗi cặp có $15+16=31$ ghế, tức $5\times31=155$ ghế; còn lại hàng $11$ có $15$ ghế. Tổng $155+15=170$ \checkmark.}
+Đáp số $170$ là phương án \textbf{(D)}. (Nếu nhầm thành $5$ hàng lẻ và $6$ hàng chẵn sẽ được $171$ -- phương án (E), một ``bẫy'' rất hay gặp.)
+\ans{(D) $170$}
+}
+
+% ---------------------------------------------------------------- Bài 5
+\begin{probbox}{5}{\relax}
+Trong buổi liên hoan của lớp, mỗi bạn lần lượt bốc ngẫu nhiên một món quà đã được gói kín trong một chiếc túi. Các món quà chỉ gồm sách và máy tính cầm tay; trong túi có tất cả $27$ món quà. Bạn Mai được bốc đầu tiên. Biết rằng xác suất để Mai bốc được sách là $\dfrac23$. Hỏi trong túi có bao nhiêu cuốn sách?
+\choices{$15$}{$9$}{$21$}{$7$}{$18$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Bài toán ``ngược'': biết \emph{xác suất} và \emph{tổng số} món quà, cần tìm \emph{số kết quả thuận lợi} (số sách). Vì Mai bốc đầu tiên nên trong túi còn đủ $27$ món.
+\begin{recallbox}Từ $P=\dfrac{\text{số kết quả thuận lợi}}{\text{số tất cả các kết quả}}$ suy ra: số kết quả thuận lợi $=P\times$ số tất cả các kết quả.\end{recallbox}
+\step{1}{Gọi số sách là ẩn}
+Gọi số sách là $s$. Xác suất bốc được sách là $\dfrac{s}{27}$. Theo đề bài: $\dfrac{s}{27}=\dfrac23$.
+\step{2}{Tìm $s$}
+$s=27\times\dfrac23=\dfrac{27\times2}{3}=\dfrac{54}{3}=18$.
+
+\emph{Cách nghĩ bằng sơ đồ:} $\dfrac23$ nghĩa là chia $27$ món quà thành $3$ phần bằng nhau, mỗi phần $27:3=9$ món; sách chiếm $2$ phần, tức $2\times 9=18$ cuốn.
+\begin{figC}
+\blk{0}{3}{0}{0.6}{tmBlue}{9 sách}\blk{3}{6}{0}{0.6}{tmBlue}{9 sách}\blk{6}{9}{0}{0.6}{tmOrange}{9 máy tính}
+\brcup{0}{9}{0.5}{$27$ món quà}
+\brcdn{0}{6}{-0.5}{$\frac23$ là sách: $18$ cuốn}
+\end{figC}
+\verify{Có $18$ sách và $27-18=9$ máy tính. Xác suất bốc được sách: $\dfrac{18}{27}=\dfrac{18:9}{27:9}=\dfrac23$ \checkmark.}
+\begin{warnbox}Số $9$ ở phương án (B) là số \emph{máy tính}, không phải số sách -- đọc kỹ câu hỏi trước khi chọn.\end{warnbox}
+Đáp số $18$ là phương án \textbf{(E)}.
+\ans{(E) $18$}
+}
+
+% ---------------------------------------------------------------- Bài 6
+\begin{probbox}{6}{\relax}
+Một thùng trái cây có $20$ quả táo, $10$ quả cam và không có loại quả nào khác. Lấy ngẫu nhiên một quả từ thùng. Xác suất để lấy được quả cam là bao nhiêu?
+\choices{$\dfrac{1}{10}$}{$\dfrac{1}{20}$}{$\dfrac{1}{30}$}{$\dfrac{1}{3}$}{$\dfrac{2}{3}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi quả trong thùng có cơ hội được lấy như nhau. Kết quả thuận lợi là lấy trúng một trong các quả cam.
+\step{1}{Đếm tất cả các kết quả}
+Tổng số quả: $20+10=30$ quả.
+\step{2}{Đếm kết quả thuận lợi}
+Có $10$ quả cam.
+\step{3}{Tính và rút gọn}
+\begin{recallbox}$P=\dfrac{\text{số kết quả thuận lợi}}{\text{số tất cả các kết quả}}$; rút gọn phân số bằng cách chia cả tử và mẫu cho ƯCLN của chúng.\end{recallbox}
+$P(\text{cam})=\dfrac{10}{30}=\dfrac{10:10}{30:10}=\dfrac13$.
+\begin{warnbox}Hai lỗi hay gặp: (1) lấy mẫu số là số táo ($20$) thay vì \emph{tổng số quả} ($30$), được $\dfrac{10}{20}$; (2) viết $\dfrac{1}{10}$ (phương án A) vì nghĩ ``có $10$ quả cam thì mỗi quả $\dfrac1{10}$''. Mẫu số luôn là \emph{tất cả} các kết quả.\end{warnbox}
+\verify{$P(\text{táo})=\dfrac{20}{30}=\dfrac23$ và $\dfrac13+\dfrac23=1$ \checkmark. Cũng hợp lý: táo nhiều gấp đôi cam nên khả năng lấy được táo gấp đôi khả năng lấy được cam.}
+Kết quả $\dfrac13$ là phương án \textbf{(D)}. (Phương án (E) $\dfrac23$ là xác suất lấy được táo.)
+\ans{(D) $\dfrac13$}
+}
+
+% ---------------------------------------------------------------- Bài 7
+\begin{probbox}{7}{\relax}
+Một túi có $2$ quả bóng đỏ, $5$ quả bóng vàng và $4$ quả bóng xanh có cùng kích thước. Không nhìn vào túi, lấy ra một quả bóng. Xác suất để lấy được quả bóng vàng là
+\choices{$\dfrac{2}{11}$}{$\dfrac{5}{11}$}{$\dfrac{4}{11}$}{$\dfrac{6}{11}$}{$\dfrac{7}{11}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} ``Không nhìn'' và ``cùng kích thước'' bảo đảm mỗi quả bóng có cơ hội được lấy như nhau.
+\step{1}{Đếm tất cả các kết quả}
+Tổng số bóng: $2+5+4=11$ quả.
+\step{2}{Đếm kết quả thuận lợi}
+Có $5$ quả bóng vàng.
+\step{3}{Tính xác suất}
+\begin{recallbox}$P=\dfrac{\text{số kết quả thuận lợi}}{\text{số tất cả các kết quả}}$.\end{recallbox}
+$P(\text{vàng})=\dfrac{5}{11}$ (phân số này đã tối giản vì $5$ và $11$ không có ước chung nào khác $1$).
+\begin{figC}
+\foreach \i in {1,2}{\shade[ball color=AnsRed] (\i*0.6,0) circle (0.22);}
+\foreach \i in {3,...,7}{\shade[ball color=tmOrange] (\i*0.6+0.3,0) circle (0.22);\draw[tmOrange!70!black,line width=0.8pt] (\i*0.6+0.3,0) circle (0.27);}
+\foreach \i in {8,...,11}{\shade[ball color=tmBlue] (\i*0.6+0.6,0) circle (0.22);}
+\node[font=\footnotesize] at (3.9,-0.55){$5$ trong $11$ quả là bóng vàng};
+\end{figC}
+\verify{$\dfrac{2}{11}+\dfrac{5}{11}+\dfrac{4}{11}=\dfrac{11}{11}=1$ \checkmark.}
+Các phương án nhiễu: (A) $\dfrac{2}{11}$ là xác suất bóng đỏ, (C) $\dfrac{4}{11}$ là xác suất bóng xanh, (D) $\dfrac{6}{11}$ là xác suất \emph{không} lấy được bóng vàng. Đáp án đúng là \textbf{(B)}.
+\ans{(B) $\dfrac{5}{11}$}
+}
+
+% ---------------------------------------------------------------- Bài 8
+\begin{probbox}{8}{\relax}
+Em đang làm một bài kiểm tra trắc nghiệm. Ở một câu hỏi, em không biết đáp án nên chọn bừa một phương án. Nếu câu hỏi có năm phương án (A, B, C, D, E) và chỉ một phương án đúng, thì xác suất em đoán đúng là bao nhiêu?
+\choices{$\dfrac{1}{5}$}{$\dfrac{5}{5}$}{$\dfrac{4}{5}$}{$\dfrac{2}{5}$}{$\dfrac{3}{5}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} ``Chọn bừa'' nghĩa là chọn ngẫu nhiên: năm phương án có khả năng được chọn như nhau. Câu hỏi có đúng \emph{một} phương án đúng.
+\step{1}{Đếm tất cả các kết quả}
+Có $5$ phương án có thể chọn: A, B, C, D, E.
+\step{2}{Đếm kết quả thuận lợi}
+Chỉ có $1$ phương án đúng, nên có $1$ kết quả thuận lợi.
+\step{3}{Tính xác suất}
+\begin{recallbox}$P=\dfrac{\text{số kết quả thuận lợi}}{\text{số tất cả các kết quả}}$.\end{recallbox}
+$P(\text{đúng})=\dfrac15$.
+\begin{tipbox}Xác suất đoán \emph{sai} là $1-\dfrac15=\dfrac45$ -- phương án (C). Như vậy đoán bừa thì sai nhiều hơn đúng gấp $4$ lần. Còn (B) $\dfrac55=1$ nghĩa là ``chắc chắn đúng'' -- vô lý khi đoán bừa.\end{tipbox}
+\verify{Nếu làm $100$ câu như vậy và đoán bừa tất cả, trung bình em đúng khoảng $100\times\dfrac15=20$ câu -- phù hợp với cảm nhận ``cứ $5$ câu thì đúng $1$''.}
+Đáp án là \textbf{(A)}.
+\ans{(A) $\dfrac15$}
+}
+
+% ---------------------------------------------------------------- Bài 9
+\begin{probbox}{9}{\relax}
+Một con xúc xắc cân đối có sáu mặt, các mặt ghi các số từ $1$ đến $6$. Gieo con xúc xắc một lần. Xác suất để mặt xuất hiện là số $5$ bằng bao nhiêu?
+\choices{$\dfrac{2}{6}$}{$\dfrac{1}{6}$}{$\dfrac{5}{6}$}{$\dfrac{3}{6}$}{$\dfrac{4}{6}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Xúc xắc \emph{cân đối} nên sáu mặt có khả năng xuất hiện như nhau. Biến cố ta quan tâm: ``xuất hiện mặt số $5$''.
+\step{1}{Liệt kê các kết quả có thể}
+$\{1;\,2;\,3;\,4;\,5;\,6\}$ -- có $6$ kết quả đồng khả năng.
+\step{2}{Đếm kết quả thuận lợi}
+Chỉ có một mặt ghi số $5$: $1$ kết quả thuận lợi.
+\step{3}{Tính xác suất}
+\begin{recallbox}$P=\dfrac{\text{số kết quả thuận lợi}}{\text{số tất cả các kết quả}}$.\end{recallbox}
+$P(\text{số }5)=\dfrac16$.
+\begin{warnbox}Đừng nhầm ``con số $5$'' với ``số kết quả thuận lợi''. Nhiều bạn viết $\dfrac56$ (phương án C) vì thấy số $5$ trong đề. Số $5$ chỉ là \emph{tên} của mặt, còn số mặt mang tên đó chỉ là $1$. ($\dfrac56$ là xác suất gieo được số \emph{từ $1$ đến $5$}, hay số khác $6$.)\end{warnbox}
+\verify{Mỗi mặt có xác suất $\dfrac16$, sáu mặt cộng lại được $\dfrac66=1$ \checkmark.}
+Đáp án là \textbf{(B)}.
+\ans{(B) $\dfrac16$}
+}
+
+% ---------------------------------------------------------------- Bài 10
+\begin{probbox}{10}{\relax}
+Năm bạn An, Hà, Chi, Minh và Tùng ngồi trên một hàng gồm năm ghế. Biết rằng An \emph{không} ngồi cạnh Hà, còn Chi ngồi cạnh Minh. Bạn nào \emph{không thể} ngồi ở ghế chính giữa?
+\choices{An}{Hà}{Chi}{Minh}{Tùng}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Năm ghế xếp thành hàng, đánh số $1;2;3;4;5$ từ trái sang phải; ghế giữa là ghế $3$. Hai điều kiện: (i) An và Hà \emph{không} ngồi cạnh nhau; (ii) Chi và Minh ngồi cạnh nhau. Ta phải tìm bạn \emph{không bao giờ} có thể ngồi ghế $3$.
+\begin{recallbox}Muốn chứng tỏ một bạn \emph{có thể} ngồi ghế giữa: chỉ cần chỉ ra \emph{một} cách xếp đúng mọi điều kiện. Muốn chứng tỏ một bạn \emph{không thể}: giả sử bạn đó ngồi ghế giữa rồi chỉ ra mọi cách xếp đều vi phạm điều kiện (phản chứng).\end{recallbox}
+\step{1}{Bốn bạn An, Hà, Chi, Minh đều có thể ngồi giữa}
+Ta đưa ra một cách xếp cho mỗi bạn (ghế $1\to5$):
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|l|}\hline
+Ai ngồi giữa & ghế 1 & ghế 2 & \textbf{ghế 3} & ghế 4 & ghế 5 & kiểm tra\\ \hline
+An & Chi & Minh & \textbf{An} & Tùng & Hà & An (3), Hà (5) không cạnh nhau\\ \hline
+Hà & Chi & Minh & \textbf{Hà} & Tùng & An & Hà (3), An (5) không cạnh nhau\\ \hline
+Chi & An & Minh & \textbf{Chi} & Tùng & Hà & Chi (3) cạnh Minh (2)\\ \hline
+Minh & An & Chi & \textbf{Minh} & Tùng & Hà & Minh (3) cạnh Chi (2)\\ \hline
+\end{tabular}
+\end{center}
+Trong cả bốn cách, Chi và Minh luôn cạnh nhau, An và Hà luôn bị tách xa (An ở ghế $1$ hoặc $3$, Hà ở ghế $5$, hoặc ngược lại). Vậy loại các phương án (A), (B), (C), (D).
+\step{2}{Chứng tỏ Tùng không thể ngồi giữa}
+Giả sử Tùng ngồi ghế $3$. Bốn ghế còn lại tách thành hai cặp ghế liền nhau: cặp trái (ghế $1$--$2$) và cặp phải (ghế $4$--$5$). Chú ý ghế $2$ và ghế $4$ \emph{không} cạnh nhau (bị Tùng ngăn cách).
+\begin{figC}
+\foreach \i/\n/\c in {1/?/tmBlue,2/?/tmBlue,3/Tùng/tmOrange,4/?/tmGreen,5/?/tmGreen}{
+  \draw[\c,line width=1pt,fill=\c!12,rounded corners=3pt] (\i*1.5-0.6,0) rectangle (\i*1.5+0.6,0.65);
+  \node[font=\bfseries] at (\i*1.5,0.33){\n};\node[font=\footnotesize] at (\i*1.5,-0.28){ghế \i};}
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (0.9,-0.5)--(3.6,-0.5) node[midway,below=5pt,font=\footnotesize]{cặp trái};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (5.4,-0.5)--(8.1,-0.5) node[midway,below=5pt,font=\footnotesize]{cặp phải};
+\end{figC}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
+\item Chi và Minh phải ngồi cạnh nhau, mà hai ghế cạnh nhau (không tính ghế của Tùng) chỉ có thể là ghế $1$--$2$ hoặc ghế $4$--$5$. Vậy Chi và Minh chiếm trọn một cặp.
+\item Khi đó An và Hà buộc phải ngồi ở cặp còn lại -- tức là \emph{cạnh nhau}. Điều này trái với điều kiện ``An không ngồi cạnh Hà''.
+\end{itemize}
+Vậy giả sử là sai: Tùng không thể ngồi ghế giữa.
+\begin{warnbox}Đừng chọn đáp án chỉ vì ``thử vài cách thấy không được''. Với câu ``không thể'', phải lập luận rằng \emph{mọi} cách đều không được, như Bước 2.\end{warnbox}
+\verify{Có thể kiểm tra bằng cách liệt kê toàn bộ $5\times4\times3\times2\times1=120$ cách xếp: không có cách hợp lệ nào đặt Tùng ở ghế giữa, còn mỗi bạn khác đều có cách hợp lệ.}
+Đáp án là \textbf{(E)}.
+\ans{(E) Tùng}
+}
+
+% ---------------------------------------------------------------- Bài 11
+\begin{probbox}{11}{\relax}
+Một hộp kẹo dẻo có $15$ viên màu đỏ, $20$ viên màu xanh dương và $16$ viên màu xanh lá. Bạn Khoa lấy một viên màu xanh lá và ăn luôn. Sau đó Khoa lấy tiếp một viên màu xanh dương và cũng ăn luôn. Nếu mỗi viên kẹo còn lại trong hộp có khả năng được chọn như nhau, thì xác suất để viên kẹo tiếp theo Khoa lấy là màu đỏ bằng bao nhiêu?
+\choices{$\dfrac{15}{31}$}{$\dfrac{34}{49}$}{$\dfrac{15}{49}$}{$\dfrac{2}{7}$}{$\dfrac{1}{15}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Hộp kẹo đã bị ăn mất $2$ viên trước lần lấy mà ta quan tâm. Vì vậy phải \emph{đếm lại} số kẹo trong hộp ngay trước lần lấy thứ ba.
+\begin{recallbox}Khi đồ vật bị lấy ra và không trả lại, phải cập nhật cả \emph{số kết quả thuận lợi} (tử số) lẫn \emph{tổng số kết quả} (mẫu số) trước khi tính xác suất lần tiếp theo.\end{recallbox}
+\step{1}{Số kẹo lúc đầu}
+$15+20+16=51$ viên.
+\step{2}{Số kẹo sau khi Khoa ăn $2$ viên}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}\hline
+ & đỏ & xanh dương & xanh lá & tổng\\ \hline
+Lúc đầu & $15$ & $20$ & $16$ & $51$\\ \hline
+Sau khi ăn $1$ xanh lá & $15$ & $20$ & $15$ & $50$\\ \hline
+Sau khi ăn $1$ xanh dương & $15$ & $19$ & $15$ & $49$\\ \hline
+\end{tabular}
+\end{center}
+Số kẹo đỏ không đổi ($15$ viên) vì Khoa chưa ăn viên đỏ nào; tổng số kẹo giảm còn $49$.
+\step{3}{Tính xác suất}
+$P(\text{đỏ})=\dfrac{15}{49}$.
+\begin{warnbox}Hai cách sai thường gặp: (1) quên trừ kẹo đã ăn, được $\dfrac{15}{51}$ (không có trong các phương án -- dấu hiệu để tự kiểm tra lại!); (2) chỉ so sánh kẹo đỏ với kẹo xanh lá còn lại, được $\dfrac{15}{31}$ (phương án A). Mẫu số phải là \emph{tất cả} kẹo còn trong hộp.\end{warnbox}
+\verify{$P(\text{đỏ})+P(\text{không đỏ})=\dfrac{15}{49}+\dfrac{19+15}{49}=\dfrac{15}{49}+\dfrac{34}{49}=1$ \checkmark. (Nhân tiện: $\dfrac{34}{49}$ ở phương án (B) là xác suất \emph{không} được kẹo đỏ.)}
+Đáp án là \textbf{(C)}.
+\ans{(C) $\dfrac{15}{49}$}
+}
+
+% ---------------------------------------------------------------- Bài 12
+\begin{probbox}{12}{\relax}
+Bạn Nam đếm số cừu trong một đàn khi chúng đi qua đường. Đàn cừu bắt đầu qua đường lúc $14\,h\,00$, đều đặn mỗi phút có $3$ con đi qua. Đếm được $42$ con thì Nam ngủ quên. Nam ngủ đúng một tiếng rưỡi rồi tỉnh dậy, và đúng lúc đó, số cừu đã qua đường kể từ $14\,h\,00$ vừa bằng một nửa cả đàn. Hỏi cả đàn có bao nhiêu con cừu?
+\choices{$630$}{$621$}{$582$}{$624$}{$618$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cừu đi qua \emph{đều}, $3$ con mỗi phút. Thời gian từ $14\,h\,00$ đến lúc Nam tỉnh dậy gồm hai đoạn: thời gian Nam đếm $42$ con, và thời gian Nam ngủ ($1$ giờ $30$ phút). Số cừu đi qua trong cả khoảng đó bằng \emph{nửa đàn}.
+\begin{recallbox}Đại lượng thay đổi đều: lượng $=$ tốc độ $\times$ thời gian, nên thời gian $=$ lượng $:$ tốc độ.\end{recallbox}
+\step{1}{Thời gian Nam đếm $42$ con}
+$42:3=14$ phút. Vậy Nam ngủ quên lúc $14\,h\,14$.
+\step{2}{Thời gian Nam ngủ}
+Một tiếng rưỡi $=60+30=90$ phút. Nam tỉnh dậy lúc $14\,h\,14+90$ phút $=15\,h\,44$.
+\step{3}{Tổng thời gian từ $14\,h\,00$ đến lúc tỉnh}
+$14+90=104$ phút.
+\begin{figC}
+\draw[->,line width=1pt,Ink] (0,0)--(10.8,0);
+\fill[tmBlue!25] (0,-0.15) rectangle (1.4,0.15);\fill[tmOrange!30] (1.4,-0.15) rectangle (10.4,0.15);
+\foreach \x/\t in {0/14\,h\,00,1.4/14\,h\,14,10.4/15\,h\,44}{\draw[Ink,line width=1pt] (\x,0.2)--(\x,-0.2);\node[below=3pt,font=\footnotesize] at (\x,-0.2){$\t$};}
+\node[above,font=\footnotesize,text=tmBlue!80!black] at (0.7,0.2){đếm: $14$ phút};
+\node[above,font=\footnotesize,text=tmOrange!80!black] at (5.9,0.2){ngủ: $90$ phút};
+\end{figC}
+\step{4}{Số cừu đã qua đường trong $104$ phút}
+$3\times104=312$ con. (Hoặc: $42$ con lúc đếm $+\ 3\times90=270$ con lúc ngủ $=312$ con.)
+\step{5}{Số cừu cả đàn}
+$312$ con là một nửa đàn, nên cả đàn có $312\times2=624$ con.
+\begin{warnbox}Đừng quên $42$ con đã đi qua \emph{trước} khi Nam ngủ. Nếu chỉ tính $270$ con lúc ngủ rồi nhân đôi sẽ được $540$ -- không khớp đề bài, vì đề nói số cừu qua đường ``kể từ $14\,h\,00$'' mới là nửa đàn.\end{warnbox}
+\verify{Nửa đàn $=624:2=312$ con, cần $312:3=104$ phút, tức là từ $14\,h\,00$ đến $15\,h\,44$; trừ $14$ phút đếm còn đúng $90$ phút ngủ \checkmark.}
+Đáp án là \textbf{(D)}.
+\ans{(D) $624$}
+}
+
+% ---------------------------------------------------------------- Bài 13
+\begin{probbox}{13}{\relax}
+Một số nguyên dương gọi là \emph{số đối xứng} nếu đọc các chữ số của nó từ trái sang phải hay từ phải sang trái đều được cùng một số. Ví dụ $474$ và $222$ là các số đối xứng. Có bao nhiêu số đối xứng nằm giữa $100$ và $1000$?
+\choices{$10$}{$90$}{$100$}{$900$}{$1000$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Các số nằm giữa $100$ và $1000$ là các số có \emph{ba chữ số} ($101$ đến $999$; còn $100$ và $1000$ đều không phải số đối xứng nên có tính hay không cũng không ảnh hưởng). Số có ba chữ số $\overline{abc}$ là số đối xứng khi đọc ngược $\overline{cba}$ vẫn là chính nó, tức là $c=a$. Vậy số đối xứng có dạng $\overline{aba}$.
+\step{1}{Chọn chữ số hàng trăm $a$}
+$a$ là chữ số đầu tiên nên $a\neq0$: $a\in\{1;2;\dots;9\}$ -- có $9$ cách.
+\step{2}{Chọn chữ số hàng chục $b$}
+$b$ có thể là bất kỳ chữ số nào từ $0$ đến $9$ -- có $10$ cách.
+\step{3}{Chữ số hàng đơn vị}
+Chữ số hàng đơn vị bắt buộc bằng $a$ -- chỉ $1$ cách (không được chọn tự do).
+\step{4}{Áp dụng quy tắc nhân}
+\begin{recallbox}Quy tắc nhân: số cách $=$ tích số cách chọn ở từng bước.\end{recallbox}
+\countboxes{hàng trăm a/9/từ 1 đến 9/tmBlue,hàng chục b/10/từ 0 đến 9/tmOrange,hàng đơn vị/1/phải bằng a/tmGreen}{90}
+Có $9\times10\times1=90$ số đối xứng.
+\verify{Liệt kê theo $a$: với $a=1$ có $101;111;121;\dots;191$ -- đúng $10$ số. Mỗi giá trị $a$ từ $1$ đến $9$ đều cho $10$ số như vậy, nên tổng là $9\times10=90$ \checkmark.}
+\begin{warnbox}Phương án (D) $900$ là số \emph{tất cả} các số có ba chữ số (từ $100$ đến $999$), không phải số đối xứng. Phương án (C) $100$ có được nếu quên điều kiện $a\neq 0$ (đếm cả ``$010$'', ``$020$''\ldots vốn không phải số có ba chữ số).\end{warnbox}
+Đáp án là \textbf{(B)}.
+\ans{(B) $90$}
+}
+
+% ---------------------------------------------------------------- Bài 14
+\begin{probbox}{14}{\relax}
+\begin{minipage}[t]{0.5\linewidth}\vspace{0pt}
+Hình bên được ghép chỉ từ các hình bát giác và các hình vuông nhỏ. Tỉ số giữa số hình bát giác và số hình vuông là
+\choicesII{$1:1$}{$2:1$}{$25:12$}{$5:0$}{$5:3$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.46\linewidth}\vspace{0pt}
+\centering\begin{tikzpicture}[scale=0.62]
+\foreach \i in {0,...,4}{\foreach \j in {0,...,3}{\cpOct{\i}{\j}}}
+\foreach \i in {0.5,1.5,2.5,3.5}{\foreach \j in {0.5,1.5,2.5}{\cpDia{\i}{\j}}}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta phải đếm riêng số bát giác và số hình vuông rồi lập tỉ số (số bát giác : số hình vuông) và rút gọn.
+\step{1}{Đếm số bát giác}
+Các bát giác xếp thành $4$ hàng, mỗi hàng $5$ hình. Số bát giác: $4\times5=20$.
+\step{2}{Đếm số hình vuông}
+Mỗi hình vuông nhỏ nằm ở chỗ \emph{bốn} bát giác gặp nhau (giữa hai hàng liền nhau và giữa hai cột liền nhau).
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt,topsep=1pt]
+\item Giữa $5$ cột bát giác có $5-1=4$ khe dọc.
+\item Giữa $4$ hàng bát giác có $4-1=3$ khe ngang.
+\end{itemize}
+Số hình vuông: $3\times4=12$ (đúng bằng số hình vuông đếm trực tiếp trên hình: $3$ hàng, mỗi hàng $4$ hình).
+\begin{warnbox}Ở mép ngoài của hình \emph{không} có hình vuông (chỗ lõm giữa hai bát giác ở mép không được đóng kín). Đừng đếm thêm những ``nửa hình vuông'' ở viền.\end{warnbox}
+\step{3}{Lập và rút gọn tỉ số}
+\begin{recallbox}Rút gọn tỉ số $a:b$ bằng cách chia cả hai số cho ƯCLN của chúng.\end{recallbox}
+Tỉ số: $20:12$. ƯCLN$(20,12)=4$, nên $20:12=(20:4):(12:4)=5:3$.
+\verify{$5:3$ nghĩa là cứ $5$ bát giác thì có $3$ hình vuông; $20=5\times4$ và $12=3\times4$ \checkmark.}
+Các phương án nhiễu: (D) $5:0$ là quên đếm hình vuông; (C) $25:12$ là đếm sai số bát giác thành $5\times5$. Đáp án là \textbf{(E)}.
+\ans{(E) $5:3$}
+}
+
+% ---------------------------------------------------------------- Bài 15
+\begin{probbox}{15}{\relax}
+\begin{minipage}[t]{0.52\linewidth}\vspace{0pt}
+Hình bên gồm ba hình chữ nhật bằng nhau đặt chồng lên nhau. Hỏi trong hình có tất cả bao nhiêu hình chữ nhật (tính mọi kích thước)?
+\choicesII{$11$}{$15$}{$7$}{$13$}{$9$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\linewidth}\vspace{0pt}
+\centering\begin{tikzpicture}[x=0.95cm,y=0.42cm]
+\draw[Ink,line width=1pt] (0,2) rectangle (2,4);
+\draw[Ink,line width=1pt] (1,1) rectangle (3,3);
+\draw[Ink,line width=1pt] (2,0) rectangle (4,2);
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ba hình chữ nhật bằng nhau, gọi là \textbf{I} (trên--trái), \textbf{II} (giữa) và \textbf{III} (dưới--phải). Các cạnh cắt nhau tạo ra thêm nhiều hình chữ nhật nhỏ. Ta phải đếm \emph{tất cả} các hình chữ nhật có đủ bốn cạnh được vẽ trên hình.
+\step{1}{Quan sát kỹ hình vẽ}
+Đặt tên các điểm như hình dưới. Để ý: cạnh dưới của hình I và cạnh trên của hình III nằm trên \emph{cùng một đường thẳng} và nối tiếp nhau tại điểm $O$ -- tâm của hình II. Tương tự cạnh phải của hình I và cạnh trái của hình III nối tiếp nhau tại $O$. Vì vậy bên trong hình II có một ``dấu cộng'' chia hình II thành $4$ ô nhỏ bằng nhau.
+\begin{center}\begin{tikzpicture}[x=1.5cm,y=0.75cm,font=\sffamily\small]
+\fill[tmOrange!25] (1,2) rectangle (2,3);\fill[tmGreen!25] (2,2) rectangle (3,3);
+\fill[tmBlue!20] (1,1) rectangle (2,2);\fill[tmPurple!20] (2,1) rectangle (3,2);
+\draw[Ink,line width=1pt] (0,2) rectangle (2,4);
+\draw[Ink,line width=1pt] (1,1) rectangle (3,3);
+\draw[Ink,line width=1pt] (2,0) rectangle (4,2);
+\node at (1.5,2.5){$1$};\node at (2.5,2.5){$2$};\node at (1.5,1.5){$3$};\node at (2.5,1.5){$4$};
+\fill[AnsRed] (2,2) circle (2pt);\node[above right,font=\footnotesize\bfseries,text=AnsRed] at (2,2){$O$};
+\node[font=\bfseries,text=Slate] at (0.5,3.4){I};\node[font=\bfseries,text=Slate] at (3.5,0.6){III};
+\node[font=\bfseries,text=Slate,anchor=west] at (3.05,2.75){II};
+\end{tikzpicture}\end{center}
+\step{2}{Đếm theo từng loại}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
+\item \textbf{Ba hình chữ nhật lớn ban đầu:} I, II, III -- $3$ hình.
+\item \textbf{Bốn ô nhỏ} trong hình II (ô $1$, $2$, $3$, $4$) -- $4$ hình. Mỗi ô đều có đủ bốn cạnh: ví dụ ô $1$ có cạnh trên và cạnh trái là cạnh của hình II, cạnh dưới và cạnh phải là cạnh của hình I.
+\item \textbf{Nửa hình II} (ghép hai ô cạnh nhau): ô $1+2$ (nửa trên), ô $3+4$ (nửa dưới), ô $1+3$ (nửa trái), ô $2+4$ (nửa phải) -- $4$ hình.
+\end{itemize}
+\step{3}{Kiểm tra không còn hình nào khác}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
+\item Phần của hình I nằm \emph{ngoài} hình II có dạng chữ L, và không có đoạn kẻ nào đi xuyên qua vùng đó. Một hình chữ nhật muốn chứa một phần vùng chữ L này thì phải lấy cạnh trái và cạnh trên của hình I làm cạnh của nó; hai cạnh này chỉ dài đúng bằng cạnh của hình I, nên hình chữ nhật đó chính là hình I. Tương tự, hình chữ nhật chứa một phần của III nằm ngoài II chỉ có thể là hình III.
+\item Mọi hình chữ nhật còn lại phải nằm gọn trong hình II. Hình II cùng ``dấu cộng'' bên trong là một lưới $2\times2$ ô, và ở bước 2 ta đã kể đủ: $4$ ô, $4$ nửa và chính hình II.
+\end{itemize}
+\begin{warnbox}Đừng đếm hình chữ nhật lớn bao quanh cả ba hình (từ góc trên-trái của I đến góc dưới-phải của III): hình đó \emph{không} có cạnh nào được vẽ đầy đủ. Và cũng đừng bỏ sót các ô nhỏ do ``dấu cộng'' ở tâm tạo ra.\end{warnbox}
+\step{4}{Cộng lại}
+$3+4+4=11$ hình chữ nhật.
+\verify{Đếm cách khác -- chỉ trong hình II (đây là một lưới $2\times2$ đầy đủ): theo Ví dụ 7 có $9$ hình chữ nhật (gồm $4$ ô, $4$ nửa và chính hình II). Cộng thêm hình I và hình III: $9+2=11$ \checkmark.}
+Đáp án là \textbf{(A)}.
+\ans{(A) $11$}
+}

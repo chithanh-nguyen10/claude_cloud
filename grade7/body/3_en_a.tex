@@ -1,0 +1,372 @@
+% ======================================================================
+% Topic 3 -- Counting and Probability -- part a (theory, examples, problems 1--15)
+% ======================================================================
+% helper: spinner with 6 equal sectors, labels clockwise starting from the top-left sector
+\providecommand{\cpSpinSix}[6]{%
+  \foreach \a in {90,150,210,270,330,30}{\draw[Ink,line width=0.8pt] (0,0)--(\a:1.1);}
+  \draw[Ink,line width=1pt] (0,0) circle (1.1);
+  \node[font=\itshape\large] at (120:0.72){#1};
+  \node[font=\itshape\large] at (60:0.72){#2};
+  \node[font=\itshape\large] at (0:0.72){#3};
+  \node[font=\itshape\large] at (-60:0.72){#4};
+  \node[font=\itshape\large] at (-120:0.72){#5};
+  \node[font=\itshape\large] at (180:0.72){#6};
+  \draw[-{Stealth[length=7pt]},line width=1.6pt,Ink] (0,0)--(266:0.98);
+  \fill[Ink] (0,0) circle (1.6pt);}
+% helper: a regular octagon centred at (#1,#2), width 1
+\providecommand{\cpOct}[2]{%
+  \draw[Ink,line width=0.8pt,fill=tmBlue!8] (#1-0.2071,#2+0.5)--(#1+0.2071,#2+0.5)--(#1+0.5,#2+0.2071)--(#1+0.5,#2-0.2071)
+     --(#1+0.2071,#2-0.5)--(#1-0.2071,#2-0.5)--(#1-0.5,#2-0.2071)--(#1-0.5,#2+0.2071)--cycle;}
+% helper: small square (diamond) between four octagons, centre (#1,#2)
+\providecommand{\cpDia}[2]{%
+  \draw[Ink,line width=0.8pt,fill=tmOrange!35] (#1,#2+0.2929)--(#1+0.2929,#2)--(#1,#2-0.2929)--(#1-0.2929,#2)--cycle;}
+
+
+\begin{knowbox}
+\textbf{The big idea.} In this topic every problem comes back to \emph{one core skill}: \textbf{counting correctly} -- missing nothing and counting nothing twice.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \textbf{Counting} answers the question ``\emph{how many?}'': how many numbers, how many seating arrangements, how many rectangles in a figure, how many toothpicks\ldots
+\item \textbf{Probability} answers the question ``\emph{how likely is it?}''. When all outcomes are equally likely, we only need to \emph{count twice}:
+\[
+\text{Probability}=\frac{\text{number of favourable outcomes}}{\text{number of all possible outcomes}} .
+\]
+\item Our counting tools: \textbf{systematic listing}, \textbf{tables}, \textbf{tree diagrams}, the \textbf{multiplication rule}, \textbf{splitting into cases} (the addition rule), \textbf{finding a pattern} and \textbf{reasoning by elimination}.
+\end{itemize}
+Always ask yourself three questions before starting: \emph{(1) How many possible outcomes are there altogether? (2) Are these outcomes ``fair'' (equally likely)? (3) How many of them satisfy the requirement?}
+\end{knowbox}
+
+\begin{figC}
+\node[draw=tmBlue,fill=tmBlue!10,rounded corners=4pt,line width=1pt,minimum width=3.2cm,minimum height=0.9cm,font=\sffamily\bfseries] (D) at (0,0) {COUNT CORRECTLY};
+\node[draw=tmGreen,fill=tmGreen!10,rounded corners=4pt,line width=1pt,minimum width=3.2cm,minimum height=0.9cm,font=\sffamily\bfseries] (X) at (6,0) {PROBABILITY};
+\draw[->,line width=1.2pt,Ink] (D)--node[above,font=\footnotesize]{favourable / all}(X);
+\foreach \t/\y in {Listing -- tables/1.9,Tree diagrams/1.2,Multiplication rule/0.5,Splitting into cases/-0.2,Finding a pattern/-0.9,Elimination/-1.6}{
+  \node[draw=tmOrange,fill=tmOrange!10,rounded corners=3pt,font=\footnotesize,minimum width=2.9cm] at (-4.3,\y-0.15) (n) {\t};
+  \draw[->,tmOrange!80!black] (n.east)--(D.west);}
+\end{figC}
+\vspace{0.3cm}
+
+% ----------------------------------------------------------------------
+\shead{Experiments, outcomes, events and probability}
+\begin{knowbox}
+\textbf{Key words.}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item A \textbf{random experiment} is an action for which we know in advance \emph{all the possible outcomes}, but not \emph{which outcome will happen}. Examples: rolling a die, tossing a coin, spinning a spinner, drawing a marble from a bag without looking.
+\item The \textbf{set of possible outcomes} is the list of \emph{all} outcomes. Rolling a die: $\{1,2,3,4,5,6\}$ -- $6$ outcomes. Tossing a coin: $\{\text{heads},\ \text{tails}\}$ -- $2$ outcomes.
+\item An \textbf{event} is something we are interested in, for example ``rolling an even number''. The outcomes that make the event happen are called \textbf{favourable outcomes} for the event. The event ``rolling an even number'' has $3$ favourable outcomes: $2,4,6$.
+\item Outcomes are \textbf{equally likely} if none of them is ``easier to get'' than another (a fair die, a fair coin, equal sectors on a spinner, marbles of identical shape and size).
+\end{itemize}
+\textbf{Probability formula} (when the outcomes are equally likely):
+\[
+P(\text{event})=\frac{\text{number of outcomes favourable to the event}}{\text{number of all possible outcomes}} .
+\]
+\textbf{Properties.} The number of favourable outcomes is between $0$ and the total number of outcomes, so always $0\le P\le 1$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item $P=0$: an \emph{impossible} event (for example rolling a $7$ on a die).
+\item $P=1$: a \emph{certain} event (for example rolling a number less than $7$).
+\end{itemize}
+\end{knowbox}
+
+\begin{proofbox}
+Why a division? Suppose there are $n$ equally likely outcomes. The total ``chance'' $1$ (one of the outcomes is sure to happen) is shared \emph{equally} among $n$ outcomes, so each outcome has probability $\dfrac{1}{n}$. If the event has $k$ favourable outcomes, we add $k$ equal parts: $\dfrac1n+\dfrac1n+\dots+\dfrac1n=\dfrac{k}{n}$.
+\end{proofbox}
+
+\begin{figC}
+\begin{scope}
+\cpSpinSix{1}{2}{3}{4}{5}{6}
+\node[font=\footnotesize,align=center] at (0,-1.55){Spinner with $6$ equal sectors:\\ each sector has probability $\frac16$};
+\end{scope}
+\begin{scope}[xshift=5cm]
+\draw[Ink,line width=1pt,rounded corners=6pt] (-1.3,1)--(-1.2,-1)--(1.2,-1)--(1.3,1);
+\foreach \x/\y/\c in {-0.8/-0.7/AnsRed,-0.3/-0.7/AnsRed,0.2/-0.7/tmOrange,0.7/-0.7/tmOrange,-0.55/-0.25/tmOrange,
+   -0.05/-0.25/tmOrange,0.45/-0.25/tmOrange,-0.3/0.2/tmBlue,0.2/0.2/tmBlue,0.7/0.2/tmBlue,-0.8/0.2/tmBlue}{
+  \shade[ball color=\c] (\x,\y) circle (0.22);}
+\node[font=\footnotesize,align=center] at (0,-1.55){Bag with $2$ red, $5$ yellow, $4$ blue:\\ $P(\text{red})=\frac{2}{11}$};
+\end{scope}
+\end{figC}
+
+\begin{warnbox}
+\textbf{Count \emph{objects}, not \emph{kinds}.} The bag above has $3$ \emph{colours} but $11$ \emph{marbles}. The probability of drawing a red marble is $\dfrac{2}{11}$, \textbf{not} $\dfrac13$. Each marble is one equally likely outcome; the three colours are not equally likely (yellow has more marbles, so it is easier to draw).
+\end{warnbox}
+
+\begin{warnbox}
+\textbf{Use the formula only when the outcomes are equally likely.} On a spinner with big and small sectors, the sectors are \emph{not} equally likely. Then the probability of landing in a sector equals \emph{the fraction of the whole circle} that the sector takes up, that is $\dfrac{\text{central angle of the sector}}{360^\circ}$. For example a sector with angle $90^\circ$ has probability $\dfrac{90}{360}=\dfrac14$.
+\end{warnbox}
+
+\begin{tipbox}
+In multiple-choice questions the answer may be written in \emph{unsimplified} form, such as $\dfrac{2}{6}$ instead of $\dfrac13$. Compare the values of the fractions, not just how they look. On the other hand, when you write your own solution, simplify your final answer.
+\end{tipbox}
+
+% ----------------------------------------------------------------------
+\shead{Complementary events. Finding a quantity from a probability}
+\begin{knowbox}
+\textbf{Complementary event.} The event ``$A$ does \emph{not} happen'' is called the complement of $A$. We have
+\[
+P(\text{not } A)=1-P(A).
+\]
+Example: rolling a die, $P(\text{a }6)=\dfrac16$, so $P(\text{not a }6)=1-\dfrac16=\dfrac56$.
+
+\medskip
+\textbf{Finding a quantity from a probability.} From the probability formula we get
+\[
+\text{number of favourable outcomes}=P\times\text{number of all outcomes}.
+\]
+Example: a bag has $20$ sweets and the probability of drawing a lemon sweet is $\dfrac{3}{4}$; then there are $20\times\dfrac34=15$ lemon sweets.
+
+\medskip
+\textbf{When the quantities change} (drawn and \emph{not replaced}, eaten, added\ldots): \textbf{recount both the numerator and the denominator} before computing the probability for the next draw.
+\end{knowbox}
+
+\begin{proofbox}
+Suppose there are $n$ outcomes, of which $k$ are favourable to $A$. Each of the remaining $n-k$ outcomes makes $A$ \emph{not} happen. So
+$P(\text{not }A)=\dfrac{n-k}{n}=\dfrac{n}{n}-\dfrac{k}{n}=1-P(A)$.
+\end{proofbox}
+
+\begin{warnbox}
+A box has $10$ red and $10$ blue marbles. A student takes out $1$ blue marble and does \emph{not put it back}. What is the probability that the next marble is red?
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \textbf{Wrong:} ``still $\dfrac{10}{20}$'' (forgetting that the box now has one marble fewer).
+\item \textbf{Right:} $19$ marbles are left, and all $10$ red ones are still there, so the probability is $\dfrac{10}{19}$.
+\end{itemize}
+\end{warnbox}
+
+\begin{parentbox}
+Do a real experiment with sweets or bottle caps of different colours: put them in a cloth bag, count together ``how many are there altogether, how many are red'', then take one out and ask the same two questions again. Your child will see for themselves that both the numerator and the denominator change.
+\end{parentbox}
+
+% ----------------------------------------------------------------------
+\shead{Systematic listing: lists, tables and tree diagrams}
+\begin{knowbox}
+When the number of possibilities is not too large, the safest method is to \textbf{list them all}. To list without missing or repeating anything, we need \textbf{an order}:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item An \textbf{ordered list} (from smallest to largest, alphabetically\ldots). Example: the two-digit numbers with different digits made from $1,2,3$: $12,13,21,23,31,32$ -- ordered by the tens digit.
+\item A \textbf{two-way table} when the experiment has \emph{two stages} (rolling two dice, choosing a main dish and a dessert\ldots): each row is an outcome of stage 1, each column an outcome of stage 2, each cell a combined outcome.
+\item A \textbf{tree diagram} when there are \emph{two, three, four stages in a row}: each stage branches out; each ``path'' from the root to the end of a branch is one outcome.
+\end{itemize}
+\end{knowbox}
+
+\textbf{Table for rolling two dice (one red, one blue).} Each cell shows the \emph{sum} of the two numbers. There are $6$ rows and $6$ columns, so $6\times 6=36$ equally likely outcomes.
+\begin{figC}
+\node[font=\bfseries\footnotesize,text=AnsRed] at (-0.15,0.75) {red $\downarrow$};
+\node[font=\bfseries\footnotesize,text=tmBlue] at (2.1,1.05) {blue $\rightarrow$};
+\foreach \c in {1,...,6}{\node[draw=tmBlue,fill=tmBlue!15,minimum size=0.62cm,font=\bfseries] at (\c*0.62,0.4) {\c};}
+\foreach \r in {1,...,6}{\node[draw=AnsRed,fill=AnsRed!12,minimum size=0.62cm,font=\bfseries] at (0,0.4-\r*0.62) {\r};
+  \foreach \c in {1,...,6}{\pgfmathtruncatemacro\s{\r+\c}%
+    \ifnum\s=7 \def\fc{tmOrange!35}\else\def\fc{white}\fi
+    \node[draw=Line,fill=\fc,minimum size=0.62cm] at (\c*0.62,0.4-\r*0.62) {\s};}}
+\node[font=\footnotesize,align=left,anchor=west] at (4.6,-1.7) {Orange cells: sum equals $7$.\\ There are $6$ such cells, so\\ $P(\text{sum}=7)=\dfrac{6}{36}=\dfrac16$.};
+\end{figC}
+
+\begin{warnbox}
+\textbf{(1, 2) and (2, 1) are two different outcomes!} Red $1$, blue $2$ is different from red $2$, blue $1$. If you only count ``pairs of numbers'' without order, the pairs are \emph{no longer} equally likely (the pair $\{1,2\}$ can happen in $2$ ways, the pair $\{1,1\}$ in only $1$ way). That is why the sums $2,3,\dots,12$ are \emph{not} equally likely: a sum of $7$ can happen in $6$ ways, a sum of $2$ in only $1$ way.
+\end{warnbox}
+
+\textbf{Tree diagram for tossing a coin three times} (H: heads, T: tails). Each toss has $2$ branches, so there are $2\times2\times2=8$ paths -- that is, $8$ equally likely outcomes.
+\begin{center}\begin{tikzpicture}[font=\sffamily\small,grow'=right,level distance=2.1cm,
+  every node/.style={circle,draw=tmBlue,fill=tmBlue!10,inner sep=1.5pt,minimum size=0.55cm,font=\footnotesize\bfseries},
+  level 1/.style={sibling distance=2.6cm},level 2/.style={sibling distance=1.3cm},level 3/.style={sibling distance=0.65cm},
+  edge from parent/.style={draw=Ink!70,line width=0.7pt}]
+\node[fill=Ink!10,draw=Ink] {Start}
+  child {node {H}
+    child {node {H} child {node {H}} child {node {T}}}
+    child {node {T} child {node {H}} child {node {T}}}}
+  child {node {T}
+    child {node {H} child {node {H}} child {node {T}}}
+    child {node {T} child {node {H}} child {node {T}}}};
+\foreach \y/\t in {2.275/HHH,1.625/HHT,0.975/HTH,0.325/HTT,-0.325/THH,-0.975/THT,-1.625/TTH,-2.275/TTT}{
+  \node[draw=none,fill=none,font=\footnotesize,anchor=west] at (6.7,\y) {\t};}
+\node[draw=none,fill=none,font=\footnotesize] at (2.1,-2.8) {toss 1};
+\node[draw=none,fill=none,font=\footnotesize] at (4.2,-2.8) {toss 2};
+\node[draw=none,fill=none,font=\footnotesize] at (6.3,-2.8) {toss 3};
+\end{tikzpicture}\end{center}
+Example: the event ``exactly two heads'' consists of HHT, HTH, THH -- $3$ outcomes, so its probability is $\dfrac38$.
+
+\begin{tipbox}
+A problem like ``walk on a grid by tossing a coin'' (heads: move up, tails: move right) is really a problem about counting sequences of heads and tails: after $4$ tosses there are $2^4=16$ equally likely sequences, and the \emph{end point} depends only on the \emph{number of heads}, not on their order.
+\end{tipbox}
+
+% ----------------------------------------------------------------------
+\shead{The multiplication rule and the addition rule}
+\begin{knowbox}
+\textbf{Multiplication rule.} If a task consists of two successive stages, stage 1 can be done in $m$ ways, and \emph{for each} way of doing stage 1, stage 2 can be done in $n$ ways, then the whole task can be done in $m\times n$ ways. (With three or four stages: keep multiplying.)
+
+\medskip
+\textbf{Addition rule (splitting into cases).} If the ways are split into cases that \emph{do not overlap}: case 1 has $a$ ways, case 2 has $b$ ways, \ldots, then the total number of ways is $a+b+\dots$
+
+\medskip
+\textbf{Common situations with digits.}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Three-digit numbers made from $3$ given non-zero digits, \emph{no repetition}: $3\times2\times1=6$ numbers.
+\item Three-digit numbers made from $3$ given non-zero digits, \emph{repetition allowed}: $3\times3\times3=27$ numbers.
+\item The first (leading) digit \textbf{cannot be $0$}: $9$ choices ($1$ to $9$); the other places have $10$ choices ($0$ to $9$).
+\item A three-digit \textbf{palindrome} (reads the same forwards and backwards) has the form $\overline{aba}$: $9$ ways to choose $a$, $10$ ways to choose $b$, and the last digit is ``forced'' to equal $a$ (only $1$ way). There are $9\times10=90$ such numbers.
+\end{itemize}
+\end{knowbox}
+
+\countboxes{hundreds/9/from 1 to 9/tmBlue,tens/10/from 0 to 9/tmOrange,ones/1/same as hundreds/tmGreen}{90}
+\vspace{-6pt}
+\begin{center}\footnotesize Number of three-digit palindromes: $9\times 10\times 1=90$.\end{center}
+
+\begin{proofbox}
+Why is the multiplication rule true? Draw a table with $m$ rows (the ways of doing stage 1) and $n$ columns (the ways of doing stage 2). Each cell of the table is \emph{exactly one} way of doing the whole task, and each way of doing the whole task is in \emph{exactly one} cell. The table has $m$ rows of $n$ cells, so $m\times n$ cells. A tree diagram gives the same result: $m$ big branches, each splitting into $n$ small branches.
+\end{proofbox}
+
+\begin{knowbox}
+\textbf{Choosing two objects (order does not matter).} Choosing $2$ of $n$ students for classroom duty: if we care about order (first person, second person) there are $n\times(n-1)$ ways; but each pair is counted \emph{twice} (An--Bình and Bình--An), so the number of pairs is
+\[
+\frac{n\times(n-1)}{2}.
+\]
+Example: there are $\dfrac{10\times9}{2}=45$ pairs of different numbers taken from $10$ numbers.
+\end{knowbox}
+
+\begin{warnbox}
+\textbf{Double counting.} When the question asks ``how many \emph{pairs}'', ``how many \emph{groups}'' (who comes first does not matter) and you use the multiplication rule with order, each group is counted several times -- you must divide. On the other hand, when the question is about \emph{numbers} (the order of the digits matters) or \emph{seating in a row}, order matters and you do \emph{not} divide.
+\end{warnbox}
+
+\begin{tipbox}
+When splitting into cases, ask: ``Do the cases \emph{cover} every possibility? Do they \emph{overlap}?'' For example, for the sum $m+n$ to be even, $m$ and $n$ must be \emph{both odd} or \emph{both even} -- these two cases are separate and together they cover every possibility.
+\end{tipbox}
+
+% ----------------------------------------------------------------------
+\shead{Reasoning by elimination: seating and colouring}
+\begin{knowbox}
+Some problems do not ask ``how many'' but ``\emph{who can}, \emph{who cannot}'', ``\emph{what is the least number needed}''. Then we use \textbf{reasoning}:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \textbf{Draw a diagram} of the positions (seats, cells, faces\ldots) and try filling it in.
+\item Two people who \textbf{must sit together} can be treated as \textbf{one block} taking two neighbouring seats.
+\item To show ``\emph{X can} sit in the middle seat'': just \textbf{give one arrangement} that satisfies all the conditions.
+\item To show ``\emph{X cannot} sit in the middle seat'': \textbf{suppose} X sits in the middle seat and show that \emph{every} remaining arrangement breaks a condition (leading to a contradiction). This is called \textbf{proof by contradiction}.
+\item A ``what is the \emph{least} number'' problem has \textbf{two parts}: (1) show a way that works with that number; (2) explain why fewer is impossible.
+\end{itemize}
+\end{knowbox}
+
+\begin{figC}
+\foreach \i in {1,...,5}{\draw[tmBlue,line width=1pt,fill=tmBlue!8,rounded corners=3pt] (\i*1.3-0.5,0) rectangle (\i*1.3+0.5,0.7);
+  \node[font=\footnotesize] at (\i*1.3,-0.3){seat \i};}
+\draw[tmOrange,line width=1.4pt,rounded corners=5pt] (3*1.3-0.62,-0.12) rectangle (3*1.3+0.62,0.82);
+\node[font=\footnotesize\bfseries,text=tmOrange!80!black] at (3*1.3,1.1){middle seat};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (1*1.3-0.5,-0.55)--(2*1.3+0.5,-0.55) node[midway,below=5pt,font=\footnotesize]{two seats on the left};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (4*1.3-0.5,-0.55)--(5*1.3+0.5,-0.55) node[midway,below=5pt,font=\footnotesize]{two seats on the right};
+\end{figC}
+Key observation: once someone sits in the middle seat, the other four seats split into \emph{two pairs of neighbouring seats} (seats 1--2 and seats 4--5). The two seats on either side of the middle seat (seat 2 and seat 4) are \emph{not} next to each other.
+
+\begin{knowbox}
+\textbf{Colouring so that neighbouring parts have different colours.} Two faces of a cube are ``neighbours'' if they share an edge. Each face is a neighbour of $4$ faces and is \emph{not} a neighbour of exactly $1$ face -- the \textbf{opposite} face. A cube has $3$ pairs of opposite faces (top--bottom, front--back, left--right).
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \emph{$3$ colours are enough:} paint each pair of opposite faces one colour; two faces of the same colour are opposite, so they are not neighbours.
+\item \emph{Fewer than $3$ colours is impossible:} the three faces meeting at a corner are neighbours of each other in pairs, so they need three different colours.
+\end{itemize}
+\end{knowbox}
+
+\begin{tipbox}
+For a multiple-choice question ``Who \emph{cannot}\ldots?'', you can work backwards: for each option, try to find \emph{one} valid arrangement. Every option for which you find an arrangement is eliminated; the remaining option is the answer -- but remember to explain why it really cannot be arranged.
+\end{tipbox}
+
+% ----------------------------------------------------------------------
+\shead{Counting shapes in a figure}
+\begin{knowbox}
+\textbf{Principle.} Counting shapes is a listing problem. To miss nothing and count nothing twice, \textbf{split into types} (by size, by position) and then \textbf{add up}.
+
+\medskip
+\textbf{The ``choose two lines'' trick.} A rectangle in a grid is completely determined by \emph{two horizontal lines} (top and bottom sides) and \emph{two vertical lines} (left and right sides). Therefore:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item A strip of $1$ row and $n$ squares has $n+1$ vertical lines; the number of rectangles is the number of ways to choose $2$ vertical lines:
+$\dfrac{(n+1)\times n}{2}$. Example: a strip of $4$ squares has $\dfrac{5\times4}{2}=10$ rectangles.
+\item A grid with $a$ horizontal lines and $b$ vertical lines (all running the full length) has
+$\dfrac{a(a-1)}{2}\times\dfrac{b(b-1)}{2}$ rectangles (multiplication rule!).
+\item The same counting works for \emph{parallelograms} in a grid whose slanted lines are parallel to each other.
+\end{itemize}
+\end{knowbox}
+
+\begin{figC}
+\begin{scope}
+\foreach \i in {0,...,4}{\draw[Ink,line width=1pt] (\i,0)--(\i,1); \node[font=\footnotesize,text=tmBlue] at (\i,-0.3){\pgfmathtruncatemacro\k{\i+1}\k};}
+\draw[Ink,line width=1pt] (0,0)--(4,0) (0,1)--(4,1);
+\fill[tmOrange,opacity=0.3] (1,0) rectangle (3,1);
+\node[font=\footnotesize,align=center] at (2,-0.95){Choose vertical lines $2$ and $4$\\ $\Rightarrow$ the orange rectangle};
+\end{scope}
+\begin{scope}[xshift=6cm]
+\foreach \x in {0,1,2,3}{\draw[Ink,line width=1pt] (\x,0)--(\x,2);}
+\foreach \y in {0,1,2}{\draw[Ink,line width=1pt] (0,\y)--(3,\y);}
+\fill[tmGreen,opacity=0.3] (1,0) rectangle (3,2);
+\node[font=\footnotesize,align=center] at (1.5,-0.7){$3$ horizontal, $4$ vertical lines:\\ $3\times 6=18$ rectangles};
+\end{scope}
+\end{figC}
+
+\begin{proofbox}
+Why does a strip of $n$ squares have $\dfrac{(n+1)\times n}{2}$ rectangles? Choose the left side: $n+1$ ways; choose the right side (different from the left side): $n$ ways -- that gives $(n+1)\times n$ \emph{ordered} choices. But choosing ``line 2 then line 4'' or ``line 4 then line 2'' gives the same rectangle, so each rectangle is counted $2$ times; divide by $2$. Counting by size gives the same result: a strip of $4$ squares has $4$ rectangles of width $1$, $3$ of width $2$, $2$ of width $3$ and $1$ of width $4$, in total $4+3+2+1=10$.
+\end{proofbox}
+
+\begin{warnbox}
+When the shapes \textbf{partly overlap} (not a grid with full-length lines), the ``choose two lines'' trick \emph{does not work}, because many segments do not run all the way across. Check each shape: \textbf{are all four sides really drawn?} Do not count ``imaginary rectangles'' that are missing a side.
+\end{warnbox}
+
+\begin{knowbox}
+\textbf{Counting in a tiling.} A tiling made of regular octagons and small squares: if there are $m$ rows with $n$ octagons in each row, there are $m\times n$ octagons. Each small square sits where \emph{four octagons meet}; between $n$ columns there are $n-1$ gaps and between $m$ rows there are $m-1$ gaps, so there are $(m-1)\times(n-1)$ squares.
+\end{knowbox}
+\begin{figC}
+\foreach \i in {0,1,2}{\foreach \j in {0,1}{\cpOct{\i}{\j}}}
+\foreach \i in {0.5,1.5}{\cpDia{\i}{0.5}}
+\node[font=\footnotesize,align=left,anchor=west] at (3,0.5){$2$ rows, $3$ columns: $2\times3=6$ octagons,\\ $(2-1)\times(3-1)=2$ squares.};
+\end{figC}
+
+% ----------------------------------------------------------------------
+\shead{Counting with patterns: evenly spaced sequences, constant rates}
+\begin{knowbox}
+\textbf{Counting the whole numbers from $a$ to $b$} (including $a$ and $b$): there are $b-a+1$ numbers. For example from $1$ to $11$ there are $11$ numbers, of which $6$ are odd ($1,3,5,7,9,11$) and $5$ are even.
+
+\medskip
+\textbf{Evenly spaced sequence} (each number is a fixed amount $d$ more than the one before):
+\[
+\text{number of terms}=\frac{\text{last}-\text{first}}{d}+1,\qquad
+\text{sum}=\frac{(\text{first}+\text{last})\times\text{number of terms}}{2}.
+\]
+
+\textbf{Quantities that change at a constant rate} (moving steadily, flowing steadily, counting steadily\ldots):
+$\text{amount}=\text{rate}\times\text{time}$. For example, if $3$ sheep pass each minute, then in $14$ minutes $3\times14=42$ sheep pass.
+
+\medskip
+\textbf{Figures made of sticks.} Count the \emph{horizontal sticks} and the \emph{vertical sticks} separately and then add -- usually easier than counting square by square.
+
+\medskip
+\textbf{Events that repeat in cycles.} If one thing repeats every $a$ minutes and another every $b$ minutes, and they start together, they coincide again every $\text{LCM}(a,b)$ minutes.
+\end{knowbox}
+
+\begin{proofbox}
+\textbf{Gauss's way of adding.} Compute $S=1+2+3+\dots+10$. Write the sum twice, once forwards and once backwards:
+\[
+\begin{array}{rcccccc}
+S&=&1&+\;2&+\;3&+\dots+&10\\
+S&=&10&+\;9&+\;8&+\dots+&1\\ \hline
+2S&=&11&+\;11&+\;11&+\dots+&11
+\end{array}
+\]
+There are $10$ columns, each with sum $11$, so $2S=10\times11=110$ and $S=55$. In general: sum $=\dfrac{(\text{first}+\text{last})\times\text{number of terms}}{2}$.
+\end{proofbox}
+
+\begin{warnbox}
+\textbf{The ``off by one'' error.} From $3$ to $10$ there are $10-3+1=8$ numbers, \emph{not} $7$. A fence $10$ m long with a post every $1$ m (including both ends) needs $11$ posts, not $10$. Test a formula on a small example to check it.
+\end{warnbox}
+
+\begin{parentbox}
+For ``toothpick'' problems, let your child actually build the small figures ($1$ square, $2$ squares, $3$ squares\ldots) with toothpicks, write the number of toothpicks in a table, and then ask: ``each time we add one square, how many toothpicks do we add?''. A child who finds the pattern alone remembers it much longer than a memorised formula.
+\end{parentbox}
+
+\begin{knowbox}
+\textbf{Summary: read the clues, choose the tool.}\par\smallskip
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\textbf{Clue in the problem} & \textbf{Tool to use}\\ \hline
+``choose one at random'', ``what is the probability'' & count all outcomes and favourable outcomes, then divide\\
+probability given, quantity asked & favourable $=P\times$ total\\
+something was taken out/eaten before the next draw & recount numerator and denominator\\
+``at least one'', ``not'' & complement: $1-P$\\
+two dice, two independent choices & two-way table\\
+tossing a coin several times, several stages in a row & tree diagram\\
+``how many numbers can be made'', ``how many ways'' & multiplication rule (choose restricted positions first)\\
+``how many pairs'' (order does not matter) & multiplication rule, then divide by $2$\\
+conditions of the form ``either\ldots or\ldots'' & split into cases, add\\
+``who can / cannot'' & try one arrangement / proof by contradiction\\
+``how many shapes\ldots'' & split by size, or choose two lines\\
+rows of seats, toothpicks, constant rates & find the pattern, evenly spaced sequences\\
+\end{tabularx}
+\end{knowbox}
+

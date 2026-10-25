@@ -1,0 +1,717 @@
+% ================= Topic 3 (EN) -- part b: problems 16--30 =================
+\providecommand{\cpTooth}[3]{% #1 rows, #2 columns, #3 unit (cm): grid of toothpicks
+  \foreach \j in {0,...,#1}{\foreach \i in {1,...,#2}{
+    \draw[tmOrange!85!black,line width=1.6pt,line cap=round]
+      ({(\i-1)*#3+0.05},{\j*#3})--({\i*#3-0.05},{\j*#3});}}
+  \foreach \j in {1,...,#1}{\foreach \i in {0,...,#2}{
+    \draw[tmOrange!85!black,line width=1.6pt,line cap=round]
+      ({\i*#3},{(\j-1)*#3+0.05})--({\i*#3},{\j*#3-0.05});}}}
+
+\begin{probbox}{16}{\relax}
+On the dot grid shown, Lan stands at dot $A$. She tosses a fair coin to decide how to move: if the coin shows
+\emph{heads} she moves \emph{up} one dot; if it shows \emph{tails} she moves \emph{right} one dot. After exactly four
+tosses, Lan will stop at one of the five dots $P$, $Q$, $R$, $S$, $T$. What is the probability that Lan stops at dot $R$?
+\begin{figC}\begin{scope}[scale=0.8]
+  \foreach \y in {0,...,4}{\pgfmathtruncatemacro\m{4-\y}
+    \foreach \x in {0,...,\m}{\fill[Navy] (\x,\y) circle (2.6pt);}}
+  \node[below left] at (0,0) {$A$};
+  \node[above right] at (0,4) {$P$};\node[above right] at (1,3) {$Q$};
+  \node[above right] at (2,2) {$R$};\node[above right] at (3,1) {$S$};
+  \node[above right] at (4,0) {$T$};
+  \fill[tmOrange] (0,0) circle (3.4pt);
+\end{scope}\end{figC}
+\choices{$\dfrac12$}{$\dfrac38$}{$\dfrac9{16}$}{$\dfrac7{16}$}{$\dfrac5{16}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} At each toss Lan moves \emph{up} ($\uparrow$, for heads) or \emph{right}
+($\rightarrow$, for tails). After $4$ tosses she has made exactly $4$ moves. We need the probability that after these
+$4$ moves she is at $R$.
+
+\step{1}{Count all possible outcomes}
+Each toss has $2$ outcomes (heads or tails), so four tosses in a row give
+$2\times2\times2\times2=16$ sequences, for example $\uparrow\rightarrow\rightarrow\uparrow$.
+Since the coin is fair, these $16$ sequences are \emph{equally likely}.
+\begin{recallbox}\emph{Multiplication principle:} if the first task can be done in $a$ ways, the second in $b$ ways, \dots{} then
+doing them one after another can be done in $a\times b\times\cdots$ ways. The \emph{probability} of an event (when the outcomes
+are equally likely) $=\dfrac{\text{number of favourable outcomes}}{\text{number of possible outcomes}}$.\end{recallbox}
+
+\step{2}{The final dot depends only on the number of up-moves}
+If $k$ of the $4$ moves are up, then $4-k$ moves are to the right. The order of the moves does not change the final dot.
+Starting from $A$: $4$ ups $\to P$; $3$ ups $\to Q$; $2$ ups $\to R$; $1$ up $\to S$; $0$ ups $\to T$.
+So Lan stops at $R$ exactly when she makes \textbf{exactly $2$ moves up and $2$ moves right}.
+
+\step{3}{List the favourable sequences}
+We choose which two of the four turns (turn 1, 2, 3, 4) are $\uparrow$:
+\[\uparrow\uparrow\rightarrow\rightarrow,\quad \uparrow\rightarrow\uparrow\rightarrow,\quad
+\uparrow\rightarrow\rightarrow\uparrow,\quad \rightarrow\uparrow\uparrow\rightarrow,\quad
+\rightarrow\uparrow\rightarrow\uparrow,\quad \rightarrow\rightarrow\uparrow\uparrow.\]
+There are $6$ sequences (choosing $2$ turns out of $4$: $\dfrac{4\times3}{2}=6$ ways).
+
+\step{4}{Compute the probability}
+\[P(\text{stop at } R)=\frac{6}{16}=\frac38.\]
+
+\step{5}{A picture: write the number of paths at each dot}
+At each dot write the number of move sequences leading from $A$ to that dot. A dot can only be reached from the dot just to its
+left or the dot just below it, so the number at each dot $=$ the sum of the numbers to its left and below (just like Pascal's triangle):
+\begin{figC}\begin{scope}[scale=0.75]
+  \foreach \x/\y/\n in {0/0/1,1/0/1,2/0/1,3/0/1,4/0/1,0/1/1,1/1/2,2/1/3,3/1/4,0/2/1,1/2/3,2/2/6,
+     0/3/1,1/3/4,0/4/1}{
+    \fill[tmBlue!12] (\x,\y) circle (9pt);
+    \node[font=\small\bfseries,text=Navy] at (\x,\y) {\n};}
+  \draw[AnsRed,thick] (2,2) circle (10pt);
+  \node[right=10pt,text=AnsRed,font=\small] at (2,2) {$R$};
+  \node[right=10pt,font=\small] at (4,0) {$T$};\node[right=10pt,font=\small] at (3,1) {$S$};
+  \node[right=10pt,font=\small] at (1,3) {$Q$};\node[right=10pt,font=\small] at (0,4) {$P$};
+\end{scope}\end{figC}
+Along the last diagonal: $1+4+6+4+1=16$ (exactly the total number of sequences), and the number at $R$ is $6$.
+\begin{warnbox}The five dots $P,Q,R,S,T$ are \emph{not} equally likely! Do not answer ``one of $5$ dots, so the probability is
+$\frac15$''. The middle dot ($R$) can be reached in the most ways; each of the two end dots ($P$ and $T$) can be reached in only one way.\end{warnbox}
+\verify{The probabilities of stopping at $P,Q,R,S,T$ are $\frac1{16},\frac4{16},\frac6{16},\frac4{16},\frac1{16}$;
+they add up to $\frac{16}{16}=1$, as they should.}
+The value $\frac38=\frac6{16}$ is option \textbf{(B)}.
+\ans{(B) $\dfrac38$}
+}
+
+\begin{probbox}{17}{\relax}
+Identical toothpicks are used to build rectangular grids of squares, as shown below. For example, the $1\times10$ grid
+($1$ row of $10$ squares) uses $31$ toothpicks in total. How many toothpicks are needed for a $43\times10$ grid
+($43$ rows, each with $10$ squares)?
+\begin{figC}
+  \begin{scope}[shift={(0,2.4)}]\cpTooth{1}{10}{0.42}\node[right] at (4.4,0.21) {$1\times10$};\end{scope}
+  \begin{scope}[shift={(0,1.05)}]\cpTooth{2}{10}{0.42}\node[right] at (4.4,0.42) {$2\times10$};\end{scope}
+  \begin{scope}[shift={(0,-0.6)}]\cpTooth{3}{10}{0.42}\node[right] at (4.4,0.63) {$3\times10$};\end{scope}
+\end{figC}
+\choices{$913$}{$860$}{$871$}{$903$}{$946$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The $43\times10$ grid has $43$ rows of squares, $10$ squares in each row. The toothpicks lie in
+two directions: \emph{horizontal} and \emph{vertical}. We count each kind separately and add (addition principle).
+
+\step{1}{Check the method on the $1\times10$ grid}
+\emph{Horizontal toothpicks:} the grid has $2$ horizontal lines (top edge and bottom edge), each made of $10$ toothpicks:
+$2\times10=20$ toothpicks.
+\emph{Vertical toothpicks:} there are $11$ vertical lines ($10$ squares need $11$ walls), each made of $1$ toothpick:
+$11\times1=11$ toothpicks. Total: $20+11=31$, exactly as stated.
+\begin{recallbox}A row of $10$ squares needs $10+1=11$ vertical walls (like the fence-post problem: $10$ gaps need $11$ posts).
+In the same way, $43$ rows of squares have $43+1=44$ horizontal lines.\end{recallbox}
+
+\step{2}{Count the horizontal toothpicks of the $43\times10$ grid}
+There are $43+1=44$ horizontal lines, each $10$ toothpicks long: $44\times10=440$ toothpicks.
+
+\step{3}{Count the vertical toothpicks of the $43\times10$ grid}
+There are $10+1=11$ vertical lines, each $43$ toothpicks long (one toothpick per row): $11\times43=473$ toothpicks.
+
+\step{4}{Add}
+$440+473=913$ toothpicks.
+
+\step{5}{Second method: add one row at a time}
+The $1\times10$ grid has $31$ toothpicks. Each time a new row is placed on top, we need $10$ more horizontal toothpicks
+(the top edge of the new row) and $11$ vertical ones, that is $21$ toothpicks (the bottom edge is already there). Going from
+$1$ row to $43$ rows means adding $42$ rows:
+\[31+42\times21=31+882=913.\]
+\begin{warnbox}Do not compute $43\times31=1333$: when rows are stacked, two neighbouring rows \emph{share} a line of $10$ horizontal
+toothpicks, so multiplying like that counts those toothpicks twice.\end{warnbox}
+\verify{By the formula $(\text{rows}+1)\times10+11\times\text{rows}$: the $2\times10$ grid needs
+$3\times10+11\times2=52$ toothpicks and the $3\times10$ grid needs $4\times10+11\times3=73$; counting directly in the picture also gives
+$52$ and $73$. Both methods give the same result, $913$.}
+So the answer is \textbf{(A)}.
+\ans{(A) $913$ toothpicks}
+}
+
+\begin{probbox}{18}{\relax}
+In the cafeteria at Minh's school, the meats are beef and chicken, and the fruits are apple, pear and banana. Minh is given a
+random lunch consisting of one meat and one fruit. The probability that Minh's lunch includes a banana is
+\choices{$\dfrac13$}{$\dfrac23$}{$\dfrac12$}{$\dfrac15$}{$\dfrac35$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} A lunch $=$ (one meat, one fruit). The lunch is chosen at random, so all possible lunches are
+equally likely. We need the probability that the lunch includes a banana.
+
+\step{1}{List all possible lunches}
+By the multiplication principle there are $2\times3=6$ lunches. We make a table (rows: meat, columns: fruit):
+\begin{center}\begin{tabular}{|c|c|c|c|}\hline
+ & Apple & Pear & \cellcolor{tmOrange!20}Banana\\\hline
+Beef & Beef--Apple & Beef--Pear & \cellcolor{tmOrange!20}Beef--Banana\\\hline
+Chicken & Chicken--Apple & Chicken--Pear & \cellcolor{tmOrange!20}Chicken--Banana\\\hline
+\end{tabular}\end{center}
+
+\step{2}{Count the lunches with a banana}
+The ``Banana'' column has $2$ lunches: Beef--Banana and Chicken--Banana.
+
+\step{3}{Compute the probability}
+\[P(\text{banana})=\frac{2}{6}=\frac13.\]
+\begin{recallbox}To simplify a fraction, divide the numerator and the denominator by their greatest common divisor:
+$\dfrac26=\dfrac{2\div2}{6\div2}=\dfrac13$.\end{recallbox}
+\begin{tipbox}The meat has no effect on the fruit. A quicker way to think: the fruit is one of $3$ equally likely kinds, and banana is
+$1$ of the $3$ kinds, so the probability is $\frac13$.\end{tipbox}
+\begin{warnbox}Do not add ``$2$ meats $+\,3$ fruits $=5$'' and answer $\frac15$: the number of lunches is $2\times3=6$, not $2+3=5$.\end{warnbox}
+\verify{The probabilities of getting an apple, a pear and a banana are all $\frac13$; they add up to $\frac13+\frac13+\frac13=1$.}
+So the answer is \textbf{(A)}.
+\ans{(A) $\dfrac13$}
+}
+
+\begin{probbox}{19}{\relax}
+A special six-sided die is made, with one number written on each face (numbers may repeat). When this die is rolled, the probability
+of getting a multiple of $3$ is $\frac12$, and the probability of getting an even number is $\frac13$.
+The six numbers on the faces could be
+\choicesII{$1,2,3,5,5,6$}{$1,2,3,3,5,6$}{$1,2,3,4,6,6$}{$1,2,3,3,4,6$}{$2,3,3,3,5,6$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The die has $6$ equally likely faces. From the two given probabilities we work out the
+\emph{number of faces} showing a multiple of $3$ and the number of faces showing an even number, then check each option.
+
+\step{1}{Turn probabilities into numbers of faces}
+\begin{recallbox}With $6$ equally likely faces: $P=\dfrac{\text{number of favourable faces}}{6}$, so
+the number of favourable faces $=P\times6$.\end{recallbox}
+Faces with a multiple of $3$: $\frac12\times6=3$ faces.\quad Even faces: $\frac13\times6=2$ faces.
+
+So we need: \textbf{exactly $3$ faces that are multiples of $3$} and \textbf{exactly $2$ even faces}.
+
+\step{2}{Check each option}
+Among the numbers $1$ to $6$: the multiples of $3$ are $3$ and $6$; the even numbers are $2$, $4$, $6$.
+Note that $6$ is both even and a multiple of $3$, so it must be counted in \emph{both} columns.
+\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+Option & Faces & Multiples of $3$ & Even faces & OK?\\\hline
+(A) & $1,2,3,5,5,6$ & $3,6$ \;($2$ faces) & $2,6$ \;($2$ faces) & No\\\hline
+\rowcolor{tmGreen!12}(B) & $1,2,3,3,5,6$ & $3,3,6$ \;($3$ faces) & $2,6$ \;($2$ faces) & Yes\\\hline
+(C) & $1,2,3,4,6,6$ & $3,6,6$ \;($3$ faces) & $2,4,6,6$ \;($4$ faces) & No\\\hline
+(D) & $1,2,3,3,4,6$ & $3,3,6$ \;($3$ faces) & $2,4,6$ \;($3$ faces) & No\\\hline
+(E) & $2,3,3,3,5,6$ & $3,3,3,6$ \;($4$ faces) & $2,6$ \;($2$ faces) & No\\\hline
+\end{tabular}\end{center}
+\begin{warnbox}If you forget that $6$ is even, you will count only $2$ even faces for (D) and wrongly choose (D).
+A number can belong to several groups at once!\end{warnbox}
+\verify{For (B): $P(\text{multiple of }3)=\frac36=\frac12$ and $P(\text{even})=\frac26=\frac13$; both conditions hold.}
+Only option \textbf{(B)} works.
+\ans{(B) $1,2,3,3,5,6$}
+}
+
+\begin{probbox}{20}{\stars{1}}
+Three bus routes run along the roads shown in the figure, all passing through stop $X$ (segments with the same number of small marks
+are equal: $PX=XS$, $QX=XT$, $RX=XU$).
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Bus $A$ runs the route $P\to X\to S\to X\to P$; each round trip takes $12$ minutes.
+\item Bus $B$ runs the route $Q\to X\to T\to X\to Q$; each round trip takes $20$ minutes.
+\item Bus $C$ runs the route $R\to X\to U\to X\to R$; each round trip takes $28$ minutes.
+\end{itemize}
+At 1:00 p.m., buses $A$, $B$, $C$ leave $P$, $Q$, $R$ respectively. Each bus travels at a constant speed, turns around instantly
+at both ends of its route and runs without stopping until 11:00 p.m. Between 5:00 p.m. and 10:00 p.m., at how many moments are two
+or more buses at stop $X$ at the same time?
+\begin{figC}\begin{scope}[scale=0.9]
+  \draw[Ink,thick] (0,1.6)--(0,-1.6);\draw[Ink,thick] (-1.9,0)--(1.9,0);\draw[Ink,thick] (-2,-1.35)--(2,1.35);
+  \foreach \p in {(0,1.6),(0,-1.6),(-1.9,0),(1.9,0),(-2,-1.35),(2,1.35),(0,0)}{\fill[Navy] \p circle (2pt);}
+  \node[above] at (0,1.6) {$P$};\node[below] at (0,-1.6) {$S$};\node[left] at (-1.9,0) {$Q$};
+  \node[right] at (1.9,0) {$T$};\node[below left] at (-2,-1.35) {$R$};\node[above right] at (2,1.35) {$U$};
+  \node[below right] at (0.05,-0.02) {$X$};
+  \draw[tmBlue,thick] (-0.12,0.8)--(0.12,0.8);\draw[tmBlue,thick] (-0.12,-0.8)--(0.12,-0.8);
+  \foreach \s in {-1,1}{\draw[tmOrange,thick] (\s*0.95-0.04,-0.12)--(\s*0.95-0.04,0.12);
+                        \draw[tmOrange,thick] (\s*0.95+0.04,-0.12)--(\s*0.95+0.04,0.12);}
+  \foreach \s in {-1,1}{\foreach \d in {-0.09,0,0.09}{
+     \draw[tmGreen!80!black,thick] ($(\s*1,\s*0.675)+(\d*0.829,\d*0.559)+(0.067,-0.1)$)--++(-0.134,0.2);}}
+\end{scope}\end{figC}
+\choices{$18$}{$19$}{$20$}{$21$}{$22$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We measure time as \emph{the number of minutes after 1:00 p.m.} and call this number $t$.
+We need the values of $t$ at which at least two buses are at $X$, with $t$ between 5:00 p.m. and 10:00 p.m.
+
+\step{1}{Convert the time window into minutes}
+5:00 p.m. is $4$ hours after 1:00 p.m.: $t=4\times60=240$. \quad 10:00 p.m. is $9$ hours after 1:00 p.m.: $t=9\times60=540$.
+So we look at $240\le t\le540$.
+
+\step{2}{When is bus $A$ at $X$?}
+One round trip of bus $A$ consists of $4$ equal legs: $P\to X$, $X\to S$, $S\to X$, $X\to P$ (because $PX=XS$).
+The bus moves at constant speed, so each leg takes $12\div4=3$ minutes. Bus $A$ reaches $X$ at the end of the first leg and at the end
+of the third leg of every round trip, that is at
+\[t=3,\ 9,\ 15,\ 21,\ 27,\ \dots\]
+These are exactly the \textbf{odd multiples of $3$} ($3\times1$, $3\times3$, $3\times5$, \dots). At the end of the second and fourth legs
+the bus is at $S$ or $P$, not at $X$.
+
+\step{3}{The same for buses $B$ and $C$}
+Bus $B$: each leg takes $20\div4=5$ minutes, so it is at $X$ when $t=5,15,25,35,\dots$ -- the \textbf{odd multiples of $5$}.\\
+Bus $C$: each leg takes $28\div4=7$ minutes, so it is at $X$ when $t=7,21,35,49,\dots$ -- the \textbf{odd multiples of $7$}.
+
+\step{4}{When do two buses meet at $X$?}
+\begin{recallbox}A number divisible by both $3$ and $5$ is divisible by $\text{lcm}(3,5)=15$. Similarly:
+divisible by both $3$ and $7$ $\Leftrightarrow$ divisible by $21$; divisible by both $5$ and $7$ $\Leftrightarrow$
+divisible by $35$.\end{recallbox}
+Buses $A$ and $B$ are both at $X$ when $t$ is an odd multiple of $3$ and also an odd multiple of $5$, that is when $t$ is an
+\textbf{odd number divisible by $15$} (an odd multiple of $15$). Similarly: $A$ and $C$ meet when $t$ is an odd multiple of $21$;
+$B$ and $C$ meet when $t$ is an odd multiple of $35$.
+\begin{proofbox}An odd multiple of $15$ is an odd number divisible by $15$, so it is an odd number divisible by $3$ (an odd multiple of $3$)
+and an odd number divisible by $5$ (an odd multiple of $5$). Conversely, a number that is an odd multiple of $3$ and an odd multiple of $5$ is
+odd and divisible by $15$.\end{proofbox}
+
+\step{5}{List them for $240\le t\le540$}
+\begin{center}\begin{tabular}{|l|l|c|}\hline
+Two buses & Values of $t$ (odd multiples) & Count\\\hline
+$A$ and $B$ ($15$) & $255, 285, 315, 345, 375, 405, 435, 465, 495, 525$ & $10$\\\hline
+$A$ and $C$ ($21$) & $273, 315, 357, 399, 441, 483, 525$ & $7$\\\hline
+$B$ and $C$ ($35$) & $245, 315, 385, 455, 525$ & $5$\\\hline
+\end{tabular}\end{center}
+(For example, in the first row: $15\times17=255$ is the first odd multiple greater than $240$; after that we keep adding $30$, because
+two consecutive odd multiples of $15$ are $2\times15=30$ apart.)
+
+\step{6}{Remove the moments counted more than once}
+Adding the three rows gives $10+7+5=22$, but the moments $315$ and $525$ appear in \emph{all three rows}
+(they are odd multiples of $3\times5\times7=105$: at those moments all three buses are at $X$). Each of these moments is counted $3$ times
+but should be counted only once, so we subtract $2+2=4$:
+\[22-4=18 \text{ moments.}\]
+\begin{warnbox}The question asks for the number of \emph{moments}, not the number of ``pairs of buses meeting''. When all three buses are at
+$X$ together, that is just \emph{one} moment. Adding $10+7+5=22$ and choosing (E) is wrong.\end{warnbox}
+\verify{In clock times: 5:05, 5:15, 5:33, 5:45, 6:15, 6:45, 6:57, 7:15, 7:25, 7:39, 7:45, 8:15, 8:21, 8:35, 8:45, 9:03, 9:15, 9:45 p.m.
+-- exactly $18$ moments, all between 5:00 p.m. and 10:00 p.m.}
+So the answer is \textbf{(A)}.
+\ans{(A) $18$}
+}
+
+\begin{probbox}{21}{\relax}
+Each face of a cube is painted with exactly one colour. What is the smallest number of colours needed to paint the cube so that any
+two faces sharing an edge have different colours?
+\choices{$2$}{$3$}{$4$}{$5$}{$6$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Two faces ``sharing an edge'' are adjacent faces. Two opposite faces (such as the top and the
+bottom) have no common edge, so they may have the same colour. We must (1) show a colouring that uses few colours, and
+(2) prove that fewer colours are impossible.
+
+\step{1}{Two colours are not enough}
+\begin{proofbox}Look at any corner of the cube, for example the top--front--right corner. Three faces meet there: the top, the front and the
+right face. Any two of these three faces share an edge, so the three faces must have three different colours. Hence at least $3$ colours
+are needed.\end{proofbox}
+
+\step{2}{Three colours are enough}
+Paint \emph{each pair of opposite faces the same colour}: top and bottom blue, front and back orange, left and right green.
+Each face is adjacent to $4$ faces, which are exactly the four faces \emph{not} opposite to it, and these four faces carry the other two
+colours. So no two adjacent faces have the same colour.
+\begin{figC}
+  \begin{scope}
+   \fill[tmOrange!55,draw=Ink,thick] (0,0)--(1.6,0)--(1.6,1.6)--(0,1.6)--cycle;
+   \fill[tmBlue!55,draw=Ink,thick] (0,1.6)--(1.6,1.6)--(2.4,2.3)--(0.8,2.3)--cycle;
+   \fill[tmGreen!55,draw=Ink,thick] (1.6,0)--(2.4,0.7)--(2.4,2.3)--(1.6,1.6)--cycle;
+   \node at (0.8,0.8) {front};\node at (1.2,1.95) {top};\node at (2,1.15) {right};
+  \end{scope}
+  \begin{scope}[shift={(4,0.1)},scale=0.5]
+   \foreach \x/\y/\c in {1/2/tmBlue,0/1/tmGreen,1/1/tmOrange,2/1/tmGreen,3/1/tmOrange,1/0/tmBlue}{
+     \fill[\c!55,draw=Ink,thick] (\x,\y) rectangle ++(1,1);}
+   \node[font=\scriptsize] at (2,-0.45) {net of the cube};
+  \end{scope}
+\end{figC}
+
+\step{3}{Conclusion}
+At least $3$ colours are needed (step 1) and $3$ colours are enough (step 2), so the smallest number of colours is $3$.
+\begin{warnbox}Finding one colouring with $3$ colours is \emph{not enough} to claim that $3$ is the smallest; you must explain why $2$ colours
+fail (the three faces at a corner). On the other hand, thinking ``$6$ faces need $6$ colours'' forgets that opposite faces may share a
+colour.\end{warnbox}
+\verify{On the net, each square shares edges only with squares of other colours (when folded, two squares of the same colour become
+opposite faces).}
+So the answer is \textbf{(B)}.
+\ans{(B) $3$ colours}
+}
+
+\begin{probbox}{22}{\relax}
+How many different pairs $(m,n)$ can be formed from the integers $1,2,3,\dots,20$ such that $m<n$ and $m+n$ is even?
+\choices{$55$}{$90$}{$140$}{$110$}{$50$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We choose two different numbers out of $20$; because $m<n$, each pair of two numbers is counted
+\emph{only once} (the smaller one is $m$, the larger one is $n$). Condition: the sum $m+n$ is even.
+
+\step{1}{When is the sum of two numbers even?}
+\begin{recallbox}even $+$ even $=$ even;\quad odd $+$ odd $=$ even;\quad even $+$ odd $=$ odd.\end{recallbox}
+So $m+n$ is even exactly when $m$ and $n$ have \textbf{the same parity} (both even or both odd).
+
+\step{2}{Split the $20$ numbers into two groups}
+Even group: $2,4,6,\dots,20$ -- $10$ numbers.\quad Odd group: $1,3,5,\dots,19$ -- $10$ numbers.
+
+\step{3}{Count the pairs in the even group}
+The first number can be chosen in $10$ ways and the second (different from the first) in $9$ ways: $10\times9=90$ \emph{ordered} choices.
+But each pair, for example $\{2,4\}$, is counted twice ($2$ then $4$, or $4$ then $2$), while the condition $m<n$ allows only the order
+$(2,4)$. So the number of pairs is $\dfrac{10\times9}{2}=45$.
+\begin{recallbox}The number of ways to choose $2$ objects (order does not matter) from $k$ objects is $\dfrac{k\times(k-1)}{2}$.\end{recallbox}
+
+\step{4}{Count the pairs in the odd group and add}
+In the same way the odd group gives $45$ pairs. A pair cannot be in both groups, so by the addition principle:
+$45+45=90$ pairs.
+\begin{warnbox}Forgetting to divide by $2$ gives $90+90=180$ (not an option); forgetting the odd group gives $45$. Always ask yourself:
+``Did I count a pair twice? Did I miss a case?''\end{warnbox}
+\verify{Count using the complement: the total number of pairs with $m<n$ is $\dfrac{20\times19}{2}=190$. The number of pairs with different
+parity (one even, one odd) is $10\times10=100$. So the number of pairs with the same parity is $190-100=90$. It matches!}
+So the answer is \textbf{(B)}.
+\ans{(B) $90$ pairs}
+}
+
+\begin{probbox}{23}{\stars{1}}
+Two different two-digit positive integers are called a \emph{reversal pair} if one is obtained from the other by swapping its two digits.
+For example, $52$ and $25$ form a reversal pair. The number $2015$ has a special property: it is the product of three different prime
+numbers, two of which form a reversal pair ($2015=5\times13\times31$). Including $2015$, how many positive integers less than $10\,000$
+have this same property?
+\choices{$18$}{$14$}{$20$}{$17$}{$19$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We must count the numbers $N<10\,000$ of the form $N=p\times q\times r$, where $p,q,r$ are three
+different primes and two of them (call them $p$ and $q$) form a two-digit reversal pair. Plan: find all reversal pairs made of two primes,
+then for each pair find the suitable third primes.
+
+\step{1}{Find the reversal pairs in which both numbers are prime}
+\begin{recallbox}A prime number is a natural number greater than $1$ whose only divisors are $1$ and itself. The two-digit primes are:
+$11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97$.\end{recallbox}
+\begin{tipbox}The units digit of the reversal of $p$ is the tens digit of $p$. A two-digit prime must end in $1,3,7$ or $9$, so we only need
+to look at primes starting with $1,3,7,9$: $11,13,17,19,31,37,71,73,79,97$.\end{tipbox}
+Check the reversal of each one:
+\begin{center}\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+$p$ & $11$ & $13$ & $17$ & $19$ & $31$ & $37$ & $71$ & $73$ & $79$ & $97$\\\hline
+reversal & $11$ & $31$ & $71$ & $91$ & $13$ & $73$ & $17$ & $37$ & $97$ & $79$\\\hline
+prime? & same & yes & yes & no & yes & yes & yes & yes & yes & yes\\\hline
+\end{tabular}\end{center}
+($91=7\times13$ is not prime; $11$ reversed is still $11$, so it does not give two \emph{different} numbers.)
+So there are exactly $4$ pairs: $\{13,31\}$, $\{17,71\}$, $\{37,73\}$, $\{79,97\}$.
+
+\step{2}{Compute the product of each pair}
+$13\times31=403$;\quad $17\times71=1207$;\quad $37\times73=2701$;\quad $79\times97=7663$.
+
+\step{3}{Find the third prime $r$ for each pair}
+We need $r$ prime, different from the two numbers of the pair, and the product $<10\,000$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Pair $\{13,31\}$: we need $403\times r<10\,000$. Since $403\times24=9672$ and $403\times25=10\,075$, we need $r\le23$.
+The primes $\le23$ are $2,3,5,7,11,13,17,19,23$; remove $13$ (already in the pair): $8$ primes remain, giving
+$806;\ 1209;\ 2015;\ 2821;\ 4433;\ 6851;\ 7657;\ 9269$.
+\item Pair $\{17,71\}$: we need $1207\times r<10\,000$; since $1207\times8=9656$ and $1207\times9=10\,863$, $r\le8$:
+$r\in\{2,3,5,7\}$, giving $2414;\ 3621;\ 6035;\ 8449$ ($4$ numbers).
+\item Pair $\{37,73\}$: $2701\times3=8103<10\,000$ and $2701\times4>10\,000$, so $r\in\{2,3\}$: $5402;\ 8103$ ($2$ numbers).
+\item Pair $\{79,97\}$: even $7663\times2=15\,326>10\,000$, so there are none.
+\end{itemize}
+
+\step{4}{Check that no number is counted twice, and add}
+\begin{proofbox}Every number has only one prime factorisation. If a number appeared in two lists, then among its three prime factors there
+would be two different reversal pairs; these two pairs would have to share a prime. But the table in step 1 shows that each prime belongs
+to exactly one pair. So no number is counted twice.\end{proofbox}
+In total: $8+4+2+0=14$ numbers.
+\begin{warnbox}Two common mistakes: (1) forgetting that the third prime must be \emph{different} from the two primes of the pair, and so
+also counting $403\times13=5239=13\times13\times31$ (wrong, since $13$ is repeated); (2) forgetting the prime $2$.\end{warnbox}
+\verify{$2015=403\times5$ is in the list. Checking a few numbers: $9269=13\times31\times23$, $8449=17\times71\times7$,
+$8103=37\times73\times3$; all are less than $10\,000$.}
+So the answer is \textbf{(B)}.
+\ans{(B) $14$}
+}
+
+\begin{probbox}{24}{\relax}
+The figure is made of $8$ identical small parallelograms. Including these $8$ small parallelograms, how many parallelograms are there in
+the figure altogether?
+\begin{figC}
+  \foreach \j in {0,1,2}{\draw[Ink,thick] (\j*0.55,\j*0.8)--(4.4+\j*0.55,\j*0.8);}
+  \foreach \i in {0,...,4}{\draw[Ink,thick] (\i*1.1,0)--(\i*1.1+1.1,1.6);}
+\end{figC}
+\choices{$29$}{$30$}{$26$}{$27$}{$28$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The figure has $2$ rows, each with $4$ small parallelograms. Every parallelogram in the figure is
+formed from the segments already drawn: two of its sides lie on \emph{horizontal lines} and two lie on \emph{slanted lines}.
+
+\step{1}{Count the lines in the figure}
+There are $3$ horizontal lines (bottom, middle, top) and $5$ slanted lines (parallel to each other).
+\begin{figC}
+  \foreach \j/\l in {0/1,1/2,2/3}{\draw[tmBlue,thick] (\j*0.55,\j*0.8)--(4.4+\j*0.55,\j*0.8);
+     \node[left,text=tmBlue,font=\scriptsize] at (\j*0.55,\j*0.8) {horiz.\ \l};}
+  \foreach \i in {0,...,4}{\draw[tmOrange,thick] (\i*1.1,0)--(\i*1.1+1.1,1.6);
+     \pgfmathtruncatemacro\k{\i+1}\node[below,text=tmOrange!80!black,font=\scriptsize] at (\i*1.1,0) {s\k};}
+  \fill[tmGreen!30,opacity=0.7] (1.1,0)--(3.3,0)--(3.85,0.8)--(1.65,0.8)--cycle;
+\end{figC}
+For example, the green parallelogram is determined by horizontal lines $1$ and $2$ and slanted lines s$2$ and s$4$.
+
+\step{2}{Each parallelogram corresponds to a choice of $2$ horizontal lines and $2$ slanted lines}
+Choosing $2$ of the $3$ horizontal lines as bottom and top sides, and $2$ of the $5$ slanted lines as left and right sides, gives exactly
+one parallelogram; conversely, every parallelogram in the figure comes from exactly one such choice.
+\begin{recallbox}The number of ways to choose $2$ lines out of $k$ lines is $\dfrac{k\times(k-1)}{2}$.\end{recallbox}
+Choosing $2$ horizontal lines: $\dfrac{3\times2}{2}=3$ ways. \quad Choosing $2$ slanted lines: $\dfrac{5\times4}{2}=10$ ways.
+
+\step{3}{Apply the multiplication principle}
+Number of parallelograms: $3\times10=30$.
+
+\step{4}{Check by counting by size}
+Call a parallelogram ``height $a$, width $b$'' if it is made of $a$ rows and $b$ columns of small ones:
+\begin{center}\begin{tabular}{|c|c|c|c|c|c|}\hline
+ & width $1$ & width $2$ & width $3$ & width $4$ & Total\\\hline
+height $1$ ($2$ positions in rows) & $2\times4=8$ & $2\times3=6$ & $2\times2=4$ & $2\times1=2$ & $20$\\\hline
+height $2$ ($1$ position in rows) & $4$ & $3$ & $2$ & $1$ & $10$\\\hline
+\end{tabular}\end{center}
+\begin{warnbox}Do not just count the $8$ small ones plus a few ``obvious'' big ones. Count systematically: by size (table above) or by
+choosing lines.\end{warnbox}
+\verify{The table gives $20+10=30$, the same as $3\times10$.}
+So the answer is \textbf{(B)}.
+\ans{(B) $30$ parallelograms}
+}
+
+\begin{probbox}{25}{\stars{1}}
+A jar contains $2$ red marbles and $2$ blue marbles and no other marbles. Hoa randomly takes $2$ marbles out of the jar at the same time.
+If the two marbles have the same colour, she throws one away and puts the other back into the jar. If they have different colours, she
+throws away the red marble and puts the blue marble back into the jar. Hoa does this three times in total. The probability that the last
+marble left in the jar is red is
+\choices{$\dfrac12$}{$\dfrac14$}{$\dfrac23$}{$\dfrac13$}{$0$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each draw removes exactly $1$ marble from the jar. After $3$ draws, $1$ of the $4$ marbles is left.
+We follow the \emph{state} of the jar, written (number of red, number of blue), starting from $(2\text{R},2\text{B})$.
+
+\step{1}{First draw, from $(2\text{R},2\text{B})$}
+Call the marbles R$_1$, R$_2$, B$_1$, B$_2$. There are $6$ equally likely ways to take $2$ marbles:
+R$_1$R$_2$;\ B$_1$B$_2$;\ R$_1$B$_1$;\ R$_1$B$_2$;\ R$_2$B$_1$;\ R$_2$B$_2$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Two reds ($1$ way): throw away $1$ red $\to(1\text{R},2\text{B})$.
+\item Two blues ($1$ way): throw away $1$ blue $\to(2\text{R},1\text{B})$.
+\item Different colours ($4$ ways): throw away the red $\to(1\text{R},2\text{B})$.
+\end{itemize}
+So after draw $1$: state $(1\text{R},2\text{B})$ with probability $\frac56$, state $(2\text{R},1\text{B})$ with probability $\frac16$.
+
+\step{2}{Second draw}
+From $(1\text{R},2\text{B})$: $3$ ways to draw; $2$ ways give different colours $\to(0\text{R},2\text{B})$; $1$ way gives two blues $\to(1\text{R},1\text{B})$.\\
+From $(2\text{R},1\text{B})$: $3$ ways to draw; $1$ way gives two reds $\to(1\text{R},1\text{B})$; $2$ ways give different colours $\to(1\text{R},1\text{B})$.
+So from $(2\text{R},1\text{B})$ we certainly go to $(1\text{R},1\text{B})$.
+
+\step{3}{Third draw}
+From $(0\text{R},2\text{B})$: two blues are drawn, one is thrown away $\to(0\text{R},1\text{B})$.\\
+From $(1\text{R},1\text{B})$: different colours are drawn, the red is thrown away $\to(0\text{R},1\text{B})$.
+\begin{figC}
+  \tikzset{st/.style={draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,inner sep=3pt,font=\footnotesize}}
+  \node[st] (a) at (0,0) {$2$R, $2$B};
+  \node[st] (b) at (2.8,0.9) {$1$R, $2$B};\node[st] (c) at (2.8,-0.9) {$2$R, $1$B};
+  \node[st] (d) at (5.6,0.9) {$0$R, $2$B};\node[st] (e) at (5.6,-0.9) {$1$R, $1$B};
+  \node[st,draw=AnsRed,fill=AnsRed!8] (f) at (8.2,0) {$0$R, $1$B};
+  \draw[->,thick,Slate] (a)--node[above,font=\scriptsize]{$\frac56$}(b);
+  \draw[->,thick,Slate] (a)--node[below,font=\scriptsize]{$\frac16$}(c);
+  \draw[->,thick,Slate] (b)--node[above,font=\scriptsize]{$\frac23$}(d);
+  \draw[->,thick,Slate] (b)--node[above right,font=\scriptsize,pos=0.3]{$\frac13$}(e);
+  \draw[->,thick,Slate] (c)--node[below,font=\scriptsize]{$1$}(e);
+  \draw[->,thick,Slate] (d)--node[above,font=\scriptsize]{$1$}(f);
+  \draw[->,thick,Slate] (e)--node[below,font=\scriptsize]{$1$}(f);
+  \node[font=\scriptsize,text=Slate] at (1.4,-1.7) {draw 1};\node[font=\scriptsize,text=Slate] at (4.2,-1.7) {draw 2};
+  \node[font=\scriptsize,text=Slate] at (6.9,-1.7) {draw 3};
+\end{figC}
+Every branch ends at $(0\text{R},1\text{B})$: the last marble is \textbf{always} blue.
+
+\step{4}{Why -- without drawing the tree}
+\begin{proofbox}Look at the number of blue marbles. Whenever at least one of the two marbles drawn is blue, Hoa always puts a blue marble back
+into the jar (two blues: she puts one back; different colours: she puts the blue back). The number of blue marbles decreases only when two
+blues are drawn, and then the one that was put back is still there. So the jar \emph{always contains at least one blue marble}. When only one
+marble is left, it must be blue.\end{proofbox}
+Therefore the event ``the last marble is red'' is an \emph{impossible event}, with probability $0$.
+\begin{recallbox}An impossible event (one that never happens) has probability $0$; a certain event has probability $1$.\end{recallbox}
+\begin{warnbox}Seeing ``$2$ red, $2$ blue'' and immediately guessing $\frac12$ is a trap: the throwing-away rule is \emph{not symmetric}
+in the two colours (with different colours, the red one is always thrown away).\end{warnbox}
+\verify{Total probability of reaching the final state $(0\text{R},1\text{B})$: $\frac56\cdot\frac23+\frac56\cdot\frac13+\frac16\cdot1=\frac{10}{18}+\frac{5}{18}+\frac{3}{18}=1$.}
+So the answer is \textbf{(E)}.
+\ans{(E) $0$}
+}
+
+\begin{probbox}{26}{\stars{1}}
+On the $10\times10$ grid of squares shown, triangle $FGH$ is drawn. Point $P$ can be any of the $41$ points where grid lines cross
+that lie \emph{inside} (not on the sides of) triangle $FGH$. For each position of $P$, exactly three triangles are formed: $FPG$, $GPH$,
+$HPF$. Among all $41\times3=123$ of these triangles, how many have an area equal to exactly half the area of triangle $FGH$?
+\begin{figC}\begin{scope}[scale=0.3]
+  \draw[Line,thin] (0,0) grid (10,10);
+  \draw[Ink,line width=1.3pt] (0,0)--(10,0)--(5,10)--cycle;
+  \node[above,font=\scriptsize] at (5,10) {$F$};\node[below left,font=\scriptsize] at (0,0) {$G$};
+  \node[below right,font=\scriptsize] at (10,0) {$H$};
+\end{scope}\end{figC}
+\choices{$5$}{$7$}{$3$}{$11$}{$9$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Take the side of one small square as the unit and put $G$ at the bottom-left corner. Then $G$ and $H$
+are the two bottom corners ($GH=10$) and $F$ is the midpoint of the top side. Each grid point is named by two numbers (squares to the
+right, squares up); for example $G=(0,0)$, $H=(10,0)$, $F=(5,10)$.
+
+\step{1}{Area of triangle $FGH$ and half of it}
+\begin{recallbox}Area of a triangle $=\dfrac12\times\text{base}\times\text{corresponding height}$.\end{recallbox}
+$\text{Area}(FGH)=\frac12\times10\times10=50$. Half of it is $25$.
+
+\step{2}{Triangle $GPH$: the easiest}
+Triangle $GPH$ has base $GH=10$, and its height is the distance from $P$ down to $GH$, that is the ``height'' $h$ of $P$ (the number of
+squares above the bottom). $\text{Area}(GPH)=\frac12\times10\times h=5h$. We need $5h=25$, so $h=5$: $P$ lies on the $5$th horizontal grid
+line. At height $5$ (half the height) the triangle is half as wide as its base, from $2.5$ to $7.5$. The grid points strictly \emph{inside}
+on that segment are $(3,5),(4,5),(5,5),(6,5),(7,5)$: $\mathbf{5}$ points.
+
+\step{3}{Triangle $FPG$: using a parallel line}
+\begin{recallbox}Triangles with a common base whose third vertices lie on a line parallel to the base have the same height, so they have the
+same area.\end{recallbox}
+Let $M=(5,0)$ be the midpoint of $GH$. Triangle $FMG$ has base $GM=5$ and height $10$, so $\text{Area}(FMG)=\frac12\times5\times10=25$.
+So every point $P$ on the line through $M$ parallel to $FG$ gives $\text{Area}(FPG)=25$.
+\begin{proofbox}If $P$ is farther from $FG$ than that line, the height of triangle $FPG$ (on base $FG$) is larger, so the area is more than
+$25$; if $P$ is closer to $FG$, the area is less than $25$. So $\text{Area}(FPG)=25$ \emph{only when} $P$ lies on that line.\end{proofbox}
+Side $FG$ goes from $(0,0)$ to $(5,10)$: for every $1$ square to the right it goes up $2$ squares. The parallel line through $M=(5,0)$ does the
+same: it passes through $(5,0)$, $(6,2)$, $(7,4)$ and then meets side $FH$ at $(7.5,\,5)$ (the midpoint of $FH$). The grid points
+\emph{inside} the triangle are $(6,2)$ and $(7,4)$: $\mathbf{2}$ points. ($M$ lies on side $GH$, so it is excluded.)
+
+\step{4}{Triangle $HPF$: by symmetry}
+The figure is symmetric about the vertical line through $F$, so similarly there are $\mathbf{2}$ points: $(4,2)$ and $(3,4)$.
+\begin{figC}\begin{scope}[scale=0.42]
+  \draw[Line,thin] (0,0) grid (10,10);
+  \draw[Ink,line width=1.2pt] (0,0)--(10,0)--(5,10)--cycle;
+  \draw[tmBlue,line width=1.2pt] (2.5,5)--(7.5,5);
+  \draw[tmOrange,line width=1.2pt] (5,0)--(7.5,5);\draw[tmGreen!80!black,line width=1.2pt] (5,0)--(2.5,5);
+  \foreach \p in {(3,5),(4,5),(5,5),(6,5),(7,5)}{\fill[tmBlue] \p circle (5pt);}
+  \foreach \p in {(6,2),(7,4)}{\fill[tmOrange] \p circle (5pt);}
+  \foreach \p in {(4,2),(3,4)}{\fill[tmGreen!80!black] \p circle (5pt);}
+  \node[above,font=\scriptsize] at (5,10) {$F$};\node[below left,font=\scriptsize] at (0,0) {$G$};
+  \node[below right,font=\scriptsize] at (10,0) {$H$};\node[below,font=\scriptsize] at (5,0) {$M$};
+  \node[right,font=\scriptsize,text=tmBlue,align=left] at (10.4,6) {blue: area $GPH=25$};
+  \node[right,font=\scriptsize,text=tmOrange!80!black] at (10.4,4.6) {orange: area $FPG=25$};
+  \node[right,font=\scriptsize,text=tmGreen!70!black] at (10.4,3.2) {green: area $HPF=25$};
+\end{scope}\end{figC}
+
+\step{5}{Add}
+Number of triangles with area $25$: $5+2+2=9$. (One point $P$ cannot give two triangles of area $25$, because then the third triangle would
+have area $50-25-25=0$, while $P$ lies strictly inside. So no triangle is missed or counted twice.)
+\verify{For $P=(6,2)$: triangle $FPG$ fits in the rectangle from $(0,0)$ to $(6,10)$, of area $60$. Cut off three right triangles:
+$\frac12\times6\times2=6$, $\frac12\times1\times8=4$ and $\frac12\times5\times10=25$. What remains is $60-6-4-25=25$. Correct!}
+So the answer is \textbf{(E)}.
+\ans{(E) $9$ triangles}
+}
+
+\begin{probbox}{27}{\relax}
+A $10\times10$ square grid is made of $100$ points, as shown. Point $P$ is marked. One of the other $99$ points is chosen at random to be
+$Q$. The probability that segment $PQ$ is horizontal or vertical is
+\begin{figC}\begin{scope}[scale=0.38]
+  \foreach \x in {0,...,9}{\foreach \y in {0,...,9}{\fill[Navy] (\x,\y) circle (3.2pt);}}
+  \fill[white] (6,3) circle (6pt);\draw[tmOrange,line width=1.2pt] (6,3) circle (6pt);
+  \node[above right,font=\scriptsize,text=tmOrange!80!black] at (6,3) {$P$};
+\end{scope}\end{figC}
+\choices{$\dfrac2{11}$}{$\dfrac15$}{$\dfrac1{10}$}{$\dfrac4{25}$}{$\dfrac5{33}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} $Q$ is chosen at random among $99$ points (not counting $P$), all equally likely.
+Segment $PQ$ is horizontal when $Q$ is in the same row as $P$, and vertical when $Q$ is in the same column as $P$.
+
+\step{1}{Number of possible outcomes}
+There are $100-1=99$ ways to choose $Q$.
+
+\step{2}{Number of favourable outcomes}
+The row containing $P$ has $10$ points; without $P$ there are $9$. The column containing $P$ has $10$ points; without $P$ there are $9$.
+A point other than $P$ cannot be in both the same row and the same column as $P$ (the only such point is $P$ itself), so no point is
+counted twice: $9+9=18$ points in total.
+\begin{figC}\begin{scope}[scale=0.3]
+  \foreach \x in {0,...,9}{\foreach \y in {0,...,9}{\fill[Slate!50] (\x,\y) circle (3pt);}}
+  \foreach \x in {0,...,9}{\fill[tmBlue] (\x,3) circle (5pt);}
+  \foreach \y in {0,...,9}{\fill[tmGreen!80!black] (6,\y) circle (5pt);}
+  \fill[white] (6,3) circle (6pt);\draw[tmOrange,line width=1.2pt] (6,3) circle (6pt);
+  \node[right,font=\scriptsize,text=tmBlue] at (10,3) {$9$ points in the same row};
+  \node[above,font=\scriptsize,text=tmGreen!70!black] at (6,9.3) {$9$ points in the same column};
+\end{scope}\end{figC}
+
+\step{3}{Compute the probability}
+\[P=\frac{18}{99}=\frac{18\div9}{99\div9}=\frac{2}{11}.\]
+\begin{warnbox}The denominator is $99$, not $100$, because $Q$ must be different from $P$. Using $100$ gives $\frac{18}{100}$, which is not
+an option. Also do not count $10+10=20$ points (that counts $P$ twice).\end{warnbox}
+\begin{tipbox}The position of $P$ in the grid does not matter: every point has exactly $9$ points in its row and $9$ points in its column.\end{tipbox}
+\verify{$\frac2{11}\times99=18$, exactly the number of favourable points.}
+So the answer is \textbf{(A)}.
+\ans{(A) $\dfrac2{11}$}
+}
+
+\begin{probbox}{28}{\stars{1}}
+The sum of all the digits of the integers from $98$ to $101$ is
+\[9+8+9+9+1+0+0+1+0+1=38.\]
+What is the sum of all the digits of the integers from $1$ to $2008$?
+\choices{$30\,054$}{$27\,018$}{$28\,036$}{$30\,036$}{$28\,054$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Writing out $2008$ numbers and adding is far too long. We split them into three blocks: $1$ to $999$;
+$1000$ to $1999$; $2000$ to $2008$, and find the digit sum of each block by counting \emph{how many times each digit appears}.
+
+\step{1}{Block $1$ to $999$: write leading zeros to get three digits}
+Write the numbers from $0$ to $999$ with three digits: $000, 001, 002, \dots, 998, 999$. Adding leading zeros and the number $000$
+\emph{does not change} the digit sum. There are $1000$ numbers, that is $3000$ digits.
+\begin{proofbox}In the units place the digits repeat in the cycle $0,1,2,\dots,9$; $1000$ numbers contain $100$ cycles, so each digit
+$0$--$9$ appears exactly $100$ times. In the tens place each digit appears $10$ times in a row ($00$--$09$ have tens digit $0$, \dots)
+and this repeats $10$ times: again $100$ times. In the hundreds place: $000$--$099$ have hundreds digit $0$ ($100$ times), \dots,
+$900$--$999$ have hundreds digit $9$ ($100$ times). So in each place, each digit appears $100$ times.\end{proofbox}
+Hence each digit $0,1,\dots,9$ appears $3\times100=300$ times. The digit sum is
+\[300\times(0+1+2+\dots+9)=300\times45=13\,500.\]
+\begin{recallbox}$0+1+2+\dots+9=\dfrac{9\times10}{2}=45$ (pair them up: $0+9=1+8=\dots=4+5=9$, and there are $5$ pairs).\end{recallbox}
+
+\step{2}{Block $1000$ to $1999$}
+Each number has the form $1\,abc$ where $abc$ runs from $000$ to $999$. The last three digits give $13\,500$ (as in step 1). The thousands
+digit is $1$, appearing $1000$ times, which adds $1000$. Total: $13\,500+1000=14\,500$.
+
+\step{3}{Block $2000$ to $2008$}
+There are $9$ numbers. The thousands digit $2$ contributes $9\times2=18$; the two middle digits are $0$; the units digits are
+$0,1,\dots,8$, contributing $0+1+\dots+8=36$. Total: $18+36=54$.
+
+\step{4}{Add the three blocks}
+\[13\,500+14\,500+54=28\,054.\]
+\begin{warnbox}Do not forget the last small block $2000$--$2008$ (forgetting it gives $28\,000$), and do not forget the thousands digit $1$
+in the second block (forgetting it gives $27\,054$).\end{warnbox}
+\verify{Test the method on a small case, $1$ to $99$: each digit appears $2\times10=20$ times, sum $20\times45=900$. Directly: the units
+place contributes $10\times45=450$ and the tens place contributes $10\times(1+2+\dots+9)=450$, total $900$. It matches.}
+So the answer is \textbf{(E)}.
+\ans{(E) $28\,054$}
+}
+
+\begin{probbox}{29}{\relax}
+Two fair dice are rolled, one red and one blue (each has six faces numbered $1$ to $6$). The probability that the number on the red die
+is greater than the number on the blue die is
+\choices{$\dfrac{18}{36}$}{$\dfrac{25}{36}$}{$\dfrac{15}{36}$}{$\dfrac{12}{36}$}{$\dfrac{17}{36}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} An outcome is a pair (number on the red die, number on the blue die). The dice have different
+colours, so $(5,2)$ and $(2,5)$ are different outcomes.
+
+\step{1}{Number of possible outcomes}
+By the multiplication principle: $6\times6=36$ equally likely outcomes.
+
+\step{2}{Make a table and mark the cells ``red $>$ blue''}
+\begin{figC}\begin{scope}[scale=0.5]
+  \foreach \r in {1,...,6}{\foreach \b in {1,...,6}{
+    \pgfmathsetmacro\yy{6-\r}
+    \ifnum\r>\b \fill[AnsRed!25] (\b-1,\yy) rectangle ++(1,1);
+    \else\ifnum\r=\b \fill[Slate!20] (\b-1,\yy) rectangle ++(1,1);\fi\fi}}
+  \draw[Ink] (0,0) grid (6,6);
+  \foreach \i in {1,...,6}{\node[font=\scriptsize,text=tmBlue] at (\i-0.5,6.4) {\i};
+     \node[font=\scriptsize,text=AnsRed] at (-0.4,6.5-\i) {\i};}
+  \node[font=\scriptsize,text=tmBlue] at (3,7.1) {blue die};
+  \node[font=\scriptsize,text=AnsRed,rotate=90] at (-1.2,3) {red die};
+\end{scope}\end{figC}
+Red cells: the red number is greater than the blue number; grey cells: the two numbers are equal. Count row by row (red number):
+red $=1$: $0$ cells; red $=2$: $1$ cell; red $=3$: $2$ cells; red $=4$: $3$ cells; red $=5$: $4$ cells; red $=6$: $5$ cells.
+Total: $0+1+2+3+4+5=15$ favourable outcomes.
+
+\step{3}{Compute the probability}
+$P(\text{red}>\text{blue})=\dfrac{15}{36}$.
+
+\step{4}{A quick way: use symmetry}
+There are $6$ outcomes where the two numbers are equal (the diagonal). The other $36-6=30$ outcomes split equally between ``red is
+greater'' and ``blue is greater'' (swap the roles of the dice), so each kind has $30\div2=15$ outcomes.
+\begin{warnbox}The answer $\frac{18}{36}=\frac12$ is a trap: it forgets the cases where the two numbers are equal. ``Red is greater'' and
+``blue is greater'' are not the only possibilities.\end{warnbox}
+\verify{$P(\text{red}>\text{blue})+P(\text{equal})+P(\text{blue}>\text{red})=\frac{15}{36}+\frac6{36}+\frac{15}{36}=1$.}
+So the answer is \textbf{(C)}.
+\ans{(C) $\dfrac{15}{36}$}
+}
+
+\begin{probbox}{30}{\relax}
+Two fair dice are rolled, one red and one blue. The probability that the \emph{product} of the two numbers shown is even is
+\choices{$\dfrac12$}{$\dfrac34$}{$\dfrac14$}{$\dfrac23$}{$\dfrac{11}{36}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} As in problem 29, there are $6\times6=36$ equally likely outcomes. Counting the even products directly
+is rather long, so we count the \emph{complement}: the outcomes with an odd product.
+
+\step{1}{When is the product of two numbers odd?}
+\begin{recallbox}odd $\times$ odd $=$ odd;\quad even $\times$ (any number) $=$ even. So the product of two numbers is odd exactly when
+\emph{both} numbers are odd.\end{recallbox}
+
+\step{2}{Count the outcomes with an odd product}
+Odd numbers on each die: $1,3,5$ ($3$ numbers). Both dice odd: $3\times3=9$ outcomes.
+
+\step{3}{Count the outcomes with an even product using the complement}
+\begin{recallbox}\emph{Complement}: number of favourable outcomes $=$ number of possible outcomes $-$ number of unfavourable outcomes.
+Likewise, $P(\text{event})=1-P(\text{event does not happen})$.\end{recallbox}
+Number of outcomes with an even product: $36-9=27$.
+
+\step{4}{Compute the probability}
+\[P(\text{even product})=\frac{27}{36}=\frac{27\div9}{36\div9}=\frac34.\]
+\begin{warnbox}Many students think ``even and odd are half and half'' and choose $\frac12$. But just \emph{one} even number makes the product
+even, so an even product happens much more often.\end{warnbox}
+\verify{Direct count: red die even ($3$ ways) with any blue number ($6$ ways): $18$ outcomes; red die odd ($3$ ways) and blue die even
+($3$ ways): $9$ outcomes. Total $18+9=27$. It matches.}
+So the answer is \textbf{(B)}.
+\ans{(B) $\dfrac34$}
+}

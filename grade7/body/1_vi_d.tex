@@ -1,0 +1,532 @@
+% ===== Topic 1, part d (VI): problems 41-50 (nâng cao, mở rộng ý tưởng các bài 16-30) =====
+% helper shapes (same definitions as in part b; \providecommand so they are defined only once)
+\providecommand{\aeShp}[3]{%
+  \if#1T\draw[tmBlue!80!black,line width=0.8pt,fill=tmBlue!18] (#2,#3)--(#2+0.34,#3)--(#2+0.17,#3+0.3)--cycle;\fi
+  \if#1C\draw[tmOrange!85!black,line width=0.8pt,fill=tmOrange!22] (#2+0.15,#3+0.15) circle (0.15);\fi
+  \if#1S\draw[tmGreen!80!black,line width=0.8pt,fill=tmGreen!18] (#2,#3) rectangle (#2+0.3,#3+0.3);\fi
+  \if#1D\draw[tmPurple!85!black,line width=0.8pt,fill=tmPurple!18] (#2+0.13,#3)--(#2+0.26,#3+0.16)--(#2+0.13,#3+0.32)--(#2,#3+0.16)--cycle;\fi
+  \if#1Q\node[font=\Large\bfseries,text=Ink,inner sep=0pt,anchor=south] at (#2+0.15,#3) {?};\fi}
+\providecommand{\aeTri}{\tikz[baseline=0pt]{\aeShp{T}{0}{0}}}
+\providecommand{\aeCir}{\tikz[baseline=0pt]{\aeShp{C}{0}{0}}}
+\providecommand{\aeSq}{\tikz[baseline=0pt]{\aeShp{S}{0}{0}}}
+\providecommand{\aeDia}{\tikz[baseline=0pt]{\aeShp{D}{0}{0}}}
+\providecommand{\aeRow}[3]{%
+  \foreach \aeS [count=\aeI] in {#1}{\xdef\aeN{\aeI}}%
+  \foreach \aeS [count=\aeI] in {#1}{\aeShp{\aeS}{#2-0.19*\aeN+0.38*\aeI-0.36}{#3+0.03}}}
+\providecommand{\aeScale}[4]{\begin{scope}[shift={(#1,#2)}]
+  \draw[Ink,line width=1pt] (-1.9,0.55)--(-0.5,0.55) (-1.2,0.55)--(-1.2,0.25)--(1.2,0.25)--(1.2,0.55) (0.5,0.55)--(1.9,0.55);
+  \draw[Ink,line width=0.9pt,fill=Ink!12] (-0.2,-0.12)--(0,0.25)--(0.2,-0.12)--cycle;
+  \aeRow{#3}{-1.2}{0.55}\aeRow{#4}{1.2}{0.55}
+\end{scope}}
+
+% ------------------------------------------------------------------ 41
+\begin{probbox}{41}{\stars{1}}
+Ba chiếc cân dưới đây đều thăng bằng; các hình giống nhau có khối lượng bằng nhau.
+\begin{figC}
+\aeScale{0}{0}{T,T}{C,C,C}
+\aeScale{4.4}{0}{C,S}{T}
+\aeScale{8.8}{0}{D}{T,S}
+\node[font=\footnotesize\bfseries,text=Slate] at (0,-0.45) {Cân 1};
+\node[font=\footnotesize\bfseries,text=Slate] at (4.4,-0.45) {Cân 2};
+\node[font=\footnotesize\bfseries,text=Slate] at (8.8,-0.45) {Cân 3};
+\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Cần bao nhiêu hình \aeSq\ để cân bằng với một hình \aeCir?
+\item Cần bao nhiêu hình \aeSq\ để cân bằng với một hình \aeDia?
+\item Đặt một \aeDia\ và một \aeCir\ lên đĩa trái. Nếu đĩa phải chỉ được dùng các hình \aeTri\ thì cần bao nhiêu hình \aeTri?
+\item Biết tổng khối lượng của bốn vật \aeTri, \aeCir, \aeSq, \aeDia\ (mỗi loại một vật) là $50$ g. Tìm khối lượng của mỗi vật.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Đây là bài mở rộng của Bài 17. Ta viết ba cân thành ba đẳng thức rồi tìm cách đưa mọi hình về cùng một đơn vị là \aeSq:
+\[ \text{(1) } 2\,\aeTri=3\,\aeCir,\qquad \text{(2) } \aeCir+\aeSq=\aeTri,\qquad \text{(3) } \aeDia=\aeTri+\aeSq. \]
+\begin{recallbox}Với một cân thăng bằng (một đẳng thức), ta được phép: nhân đôi (nhân ba,\dots) số vật ở \emph{cả hai} đĩa; bỏ đi những vật giống nhau ở \emph{cả hai} đĩa; thay một nhóm vật bằng một nhóm khác nặng bằng nó. Cân vẫn thăng bằng.\end{recallbox}
+
+\step{1}{Câu a -- Nhân đôi cân 2}
+Nhân đôi mọi vật ở cân 2: $2\,\aeCir+2\,\aeSq=2\,\aeTri$.\par
+Theo cân 1, $2\,\aeTri=3\,\aeCir$, nên $2\,\aeCir+2\,\aeSq=3\,\aeCir$.\par
+Bỏ đi $2\,\aeCir$ ở cả hai đĩa: $2\,\aeSq=\aeCir$.\par
+Vậy cần \textbf{$2$ hình \aeSq} để cân bằng một \aeCir.
+\begin{tipbox}Vì sao lại nghĩ đến ``nhân đôi''? Vì cân 1 nói về \emph{hai} hình \aeTri. Nhân đôi cân 2 để cũng có \emph{hai} hình \aeTri, rồi thay được bằng cân 1.\end{tipbox}
+
+\step{2}{Đổi \aeTri\ ra \aeSq}
+Từ cân 2: $\aeTri=\aeCir+\aeSq=2\,\aeSq+\aeSq=3\,\aeSq$.\par
+(Kiểm tra với cân 1: $2\,\aeTri=6\,\aeSq$ và $3\,\aeCir=6\,\aeSq$ \checkmark.)
+
+\step{3}{Câu b}
+Từ cân 3: $\aeDia=\aeTri+\aeSq=3\,\aeSq+\aeSq=4\,\aeSq$. Cần \textbf{$4$ hình \aeSq}.
+
+\step{4}{Câu c}
+Đĩa trái: $\aeDia+\aeCir=4\,\aeSq+2\,\aeSq=6\,\aeSq$. Mỗi \aeTri\ nặng bằng $3\,\aeSq$, nên cần $6:3=$ \textbf{$2$ hình \aeTri}.
+
+\step{5}{Câu d}
+Tổng bốn vật tính theo \aeSq: $\aeTri+\aeCir+\aeSq+\aeDia=3+2+1+4=10$ (\aeSq). Vậy $10$ hình \aeSq\ nặng $50$ g, mỗi \aeSq\ nặng $50:10=5$ g. Suy ra:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}Vật & \aeSq & \aeCir & \aeTri & \aeDia\\ \hline
+Theo \aeSq & $1$ & $2$ & $3$ & $4$\\ \hline
+Khối lượng & $5$ g & $10$ g & $15$ g & $20$ g\\ \hline
+\end{tabular}
+\end{center}
+\verify{Cân 1: $2\cdot 15=30=3\cdot 10$ \checkmark. Cân 2: $10+5=15$ \checkmark. Cân 3: $20=15+5$ \checkmark. Tổng: $15+10+5+20=50$ \checkmark.}
+\begin{parentbox}Có thể dùng đồ vật thật (kẹo, cúc áo, đồng xu) để con ``chơi cân'': mỗi lần bỏ hoặc thay vật ở cả hai bên, hỏi con ``cân còn thăng bằng không?''. Đây chính là nền tảng của việc giải phương trình ở các lớp sau.\end{parentbox}
+\ans{a) $2$ hình \aeSq;\ b) $4$ hình \aeSq;\ c) $2$ hình \aeTri;\ d) \aeSq\ $5$ g, \aeCir\ $10$ g, \aeTri\ $15$ g, \aeDia\ $20$ g.}
+}
+
+% ------------------------------------------------------------------ 42
+\begin{probbox}{42}{\stars{1}}
+Trong bài này ta chỉ xét các tam giác mà số đo mỗi góc (tính bằng độ) là một \emph{số nguyên}. Hai tam giác cân được coi là \emph{cùng kiểu} nếu chúng có cùng bộ ba số đo góc.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Chứng minh rằng không có tam giác nào mà cả ba góc đều có số đo lẻ.
+\item Có bao nhiêu kiểu tam giác cân mà cả ba góc đều có số đo chẵn?
+\item Có bao nhiêu kiểu tam giác cân có đúng hai góc có số đo lẻ? Có tam giác cân nào có đúng một góc có số đo lẻ không?
+\item Có tất cả bao nhiêu kiểu tam giác cân?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mở rộng của Bài 20: thay vì chỉ xét tam giác có góc $70^\circ$, ta xét \emph{mọi} tam giác cân có góc nguyên và phân loại chúng theo tính chẵn -- lẻ của các góc.
+\begin{recallbox}Tổng ba góc của một tam giác bằng $180^\circ$. Tam giác cân có hai góc ở đáy bằng nhau. Về chẵn -- lẻ: lẻ $+$ lẻ $=$ chẵn; chẵn $+$ lẻ $=$ lẻ; tổng của ba số lẻ là số lẻ; $2\times$(số bất kỳ) là số chẵn.\end{recallbox}
+
+\step{1}{Câu a}
+Giả sử cả ba góc đều lẻ. Tổng hai số lẻ đầu là số chẵn; cộng thêm một số lẻ nữa được số \emph{lẻ}. Nhưng tổng ba góc là $180$ -- số chẵn. Mâu thuẫn. Vậy không có tam giác nào có cả ba góc lẻ.
+
+\step{2}{Mô tả mọi tam giác cân bằng một số $x$}
+Gọi số đo mỗi góc ở đáy là $x$ (độ). Khi đó góc ở đỉnh là $180-2x$. Điều kiện để là tam giác: góc ở đỉnh phải dương, tức $180-2x\ge 1$, hay $x\le 89$. Vậy $x$ có thể là $1,2,3,\dots,89$, và mỗi giá trị của $x$ cho đúng một kiểu tam giác cân.
+\begin{proofbox}Hai giá trị $x$ khác nhau cho hai bộ góc khác nhau (vì góc ở đáy khác nhau), và mọi tam giác cân đều có dạng $(x;x;180-2x)$. Tam giác đều $(60;60;60)$ ứng với $x=60$ -- chỉ được đếm một lần. Lưu ý: ta luôn có thể coi góc ở đáy là hai góc bằng nhau; với tam giác đều thì góc nào cũng được.\end{proofbox}
+
+\step{3}{Góc ở đỉnh luôn chẵn}
+$180-2x=2\cdot(90-x)$ là một số chẵn, với mọi $x$. Do đó tính chẵn -- lẻ của tam giác chỉ phụ thuộc vào $x$:
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item $x$ chẵn: hai góc đáy chẵn, góc đỉnh chẵn $\Rightarrow$ cả ba góc chẵn.
+\item $x$ lẻ: hai góc đáy lẻ, góc đỉnh chẵn $\Rightarrow$ đúng hai góc lẻ.
+\end{itemize}
+
+\step{4}{Câu b}
+Đếm số chẵn từ $1$ đến $89$: $2,4,\dots,88$, có $88:2=44$ số. Vậy có \textbf{$44$ kiểu}.
+
+\step{5}{Câu c}
+Đếm số lẻ từ $1$ đến $89$: $1,3,\dots,89$, có $(89+1):2=45$ số. Vậy có \textbf{$45$ kiểu} có đúng hai góc lẻ.\par
+Tam giác cân có đúng một góc lẻ thì \textbf{không có}: theo Bước 3, số góc lẻ chỉ có thể là $0$ hoặc $2$.
+
+\step{6}{Câu d}
+Tổng số kiểu: $44+45=89$ (đúng bằng số giá trị của $x$).
+\begin{center}\small
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$x$ (góc đáy) & Bộ ba góc & Số góc lẻ\\ \hline
+$1$ & $1^\circ;\,1^\circ;\,178^\circ$ & $2$\\ \hline
+$2$ & $2^\circ;\,2^\circ;\,176^\circ$ & $0$\\ \hline
+$55$ & $55^\circ;\,55^\circ;\,70^\circ$ & $2$\\ \hline
+$70$ & $70^\circ;\,70^\circ;\,40^\circ$ & $0$\\ \hline
+$89$ & $89^\circ;\,89^\circ;\,2^\circ$ & $2$\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Đừng quên các tam giác ``rất dẹt'' như $(1^\circ;1^\circ;178^\circ)$ -- chúng vẫn là tam giác hợp lệ. Cũng đừng cho $x=90$: khi đó góc đỉnh bằng $0^\circ$, không còn là tam giác.\end{warnbox}
+\verify{Liệt kê bằng máy tính $x=1,\dots,89$: đúng $44$ bộ toàn chẵn và $45$ bộ có hai góc lẻ. Hai dòng $x=55$ và $x=70$ chính là hai tam giác của Bài 20.}
+\ans{a) Không tồn tại;\ b) $44$;\ c) $45$ kiểu, và không có tam giác cân nào có đúng một góc lẻ;\ d) $89$.}
+}
+
+% ------------------------------------------------------------------ 43
+\begin{probbox}{43}{\stars{2}}
+Một chấm tròn xuất phát tại gốc tọa độ $O(0;0)$ và di chuyển theo luật như Bài 22: bước thứ nhất dài $1$ đơn vị theo phương ngang hoặc dọc; mỗi bước sau dài hơn bước trước $1$ đơn vị và vuông góc với bước ngay trước nó (chiều đi tùy ý).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Giải thích vì sao sau đúng $10$ bước, chấm không thể ở lại $O$.
+\item Tìm số $n$ nhỏ nhất ($n\ge 1$) sao cho sau đúng $n$ bước chấm có thể quay về $O$. Chỉ ra một cách đi.
+\item Sau đúng $8$ bước, chấm có thể quay về $O$ không?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Như Bài 22, các bước luân phiên ngang -- dọc. Một nhóm phương gồm các bước có độ dài \emph{lẻ} $1,3,5,\dots$; nhóm kia gồm các bước độ dài \emph{chẵn} $2,4,6,\dots$ Chấm về $O$ khi và chỉ khi tổng có dấu của \emph{mỗi} nhóm bằng $0$.
+\begin{recallbox}Quay về $O$ nghĩa là tổng dịch chuyển ngang bằng $0$ \emph{và} tổng dịch chuyển dọc bằng $0$. Đổi dấu một số hạng $a$ trong một tổng làm tổng thay đổi $2a$ -- một số chẵn -- nên \textbf{không làm đổi tính chẵn lẻ} của tổng.\end{recallbox}
+
+\step{1}{Câu a}
+Sau $10$ bước, nhóm lẻ gồm các độ dài $1,3,5,7,9$ (dù bước đầu là ngang hay dọc). Tổng có dấu $\pm1\pm3\pm5\pm7\pm9$ có cùng tính chẵn lẻ với $1+3+5+7+9=25$, tức là luôn \emph{lẻ}, nên không thể bằng $0$. Vậy theo phương đó chấm không về được vị trí ban đầu, tức chấm không ở $O$.
+
+\step{2}{Câu b -- Loại các giá trị $n\le 6$}
+Xét nhóm lẻ (theo một phương) với từng $n$:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$n$ & Nhóm độ dài lẻ & Vì sao tổng có dấu không thể bằng $0$\\ \hline
+$1,\ 2$ & $\{1\}$ & $\pm 1\neq 0$\\ \hline
+$3,\ 4$ & $\{1,3\}$ & $\pm1\pm3$ chỉ bằng $4, 2, -2, -4$\\ \hline
+$5,\ 6$ & $\{1,3,5\}$ & tổng có dấu cùng tính chẵn lẻ với $1+3+5=9$ (lẻ)\\ \hline
+\end{tabular}
+\end{center}
+Vậy với $n\le 6$, chấm không thể về $O$, nên $n\ge 7$.
+
+\step{3}{Câu b -- Với $n=7$ thì được}
+Nhóm lẻ: $\{1,3,5,7\}$, chọn $+1-3-5+7=0$. Nhóm chẵn: $\{2,4,6\}$, chọn $+2+4-6=0$.\par
+Cho bước đầu là ngang. Cách đi: phải $1$, lên $2$, trái $3$, lên $4$, trái $5$, xuống $6$, phải $7$. Các vị trí lần lượt:
+\[ (0;0)\to(1;0)\to(1;2)\to(-2;2)\to(-2;6)\to(-7;6)\to(-7;0)\to(0;0). \]
+\begin{figC}\begin{scope}[scale=0.36]
+\draw[Line,line width=0.3pt] (-8,-1) grid (2,7);
+\draw[->,Navy,line width=0.5pt] (-8,0)--(2.4,0); \draw[->,Navy,line width=0.5pt] (0,-1)--(0,7.4);
+\draw[tmBlue,line width=1.3pt,->] (0,0)--(1,0)--(1,2)--(-2,2)--(-2,6)--(-7,6)--(-7,0)--(-0.12,0);
+\fill[AnsRed] (0,0) circle (5pt);
+\node[font=\scriptsize,anchor=north west] at (0,0) {$O$};
+\foreach \p/\l/\a in {(0.5,0)/1/below,(1,1)/2/right,(-0.5,2)/3/below,(-2,4)/4/right,(-4.5,6)/5/above,(-7,3)/6/left,(-3.5,0)/7/below}{\node[\a,font=\scriptsize\bfseries,text=tmBlue!80!black] at \p {\l};}
+\end{scope}\end{figC}
+Vậy $n$ nhỏ nhất là $7$.
+
+\step{4}{Câu c -- $n=8$}
+Nhóm lẻ: $\{1,3,5,7\}$, vẫn chọn $+1-3-5+7=0$. Nhóm chẵn: $\{2,4,6,8\}$, chọn $+2-4-6+8=0$. Vậy \textbf{có thể}: phải $1$, lên $2$, trái $3$, xuống $4$, trái $5$, xuống $6$, phải $7$, lên $8$; các vị trí: $(1;0)$, $(1;2)$, $(-2;2)$, $(-2;-2)$, $(-7;-2)$, $(-7;-8)$, $(0;-8)$, $(0;0)$.
+\begin{proofbox}Một tổng có dấu $\pm a_1\pm a_2\pm\dots$ bằng $0$ khi và chỉ khi ta chia được các số $a_1,a_2,\dots$ thành hai nhóm có tổng bằng nhau (nhóm mang dấu $+$ và nhóm mang dấu $-$). Ví dụ $\{1,3,5,7\}$: $1+7=3+5=8$. Vì vậy điều kiện cần là tổng tất cả các số phải \emph{chẵn}.\end{proofbox}
+\begin{warnbox}Không được quên rằng \emph{cả hai} nhóm đều phải có tổng bằng $0$. Với $n=5$: nhóm chẵn $\{2,4\}$ không thể cho $0$, và nhóm lẻ $\{1,3,5\}$ cũng không -- chỉ cần một nhóm hỏng là đủ để loại.\end{warnbox}
+\verify{Kiểm tra bằng máy tính mọi cách chọn chiều với $n=1,2,\dots,15$: chấm về được $O$ khi $n=7$, $n=8$ và $n=15$; mọi $n\le 6$ đều không được.}
+\ans{a) Tổng có dấu của $1,3,5,7,9$ luôn lẻ nên khác $0$;\ b) $n=7$ (ví dụ: phải 1, lên 2, trái 3, lên 4, trái 5, xuống 6, phải 7);\ c) Có.}
+}
+
+% ------------------------------------------------------------------ 44
+\begin{probbox}{44}{\stars{2}}
+Một hình hộp chữ nhật kích thước $4\times 6\times n$ ($n$ là số nguyên dương) được ghép từ các hình lập phương đơn vị $1\times1\times1$. Gọi $A$ là diện tích toàn phần của hình hộp, $B$ là tổng diện tích toàn phần của tất cả các hình lập phương đơn vị.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Viết $A$, $B$ và tỉ số $\dfrac{B}{A}$ dưới dạng biểu thức của $n$.
+\item Chứng minh rằng với mọi $n$, ta luôn có $\dfrac{B}{A}<7{,}2$.
+\item Tìm tất cả các giá trị của $n$ để $\dfrac{B}{A}$ là số nguyên.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mở rộng của Bài 24, nhưng lần này mẹo ``tách phần nguyên'' không còn gọn như trước. Ta dùng một cách khác: chặn trên tỉ số, rồi thử từng giá trị nguyên có thể.
+\begin{recallbox}Hình hộp $a\times b\times c$: diện tích toàn phần $2(ab+bc+ca)$, gồm $a\cdot b\cdot c$ hình lập phương đơn vị; mỗi hình lập phương đơn vị có diện tích toàn phần $6$.\end{recallbox}
+
+\step{1}{Câu a}
+$A=2(4\cdot 6+4\cdot n+6\cdot n)=2(24+10n)=48+20n$.\par
+Số hình lập phương đơn vị: $4\cdot 6\cdot n=24n$; do đó $B=6\cdot 24n=144n$.\par
+\[ \frac{B}{A}=\frac{144n}{48+20n}=\frac{4\cdot 36n}{4\cdot(12+5n)}=\frac{36n}{5n+12}. \]
+
+\step{2}{Câu b}
+Vì $5n+12>5n$, ta chia $36n$ cho một số \emph{lớn hơn} $5n$ nên được kết quả \emph{nhỏ hơn}:
+\[ \frac{36n}{5n+12}<\frac{36n}{5n}=\frac{36}{5}=7{,}2. \]
+\begin{recallbox}Với các số dương: cùng tử số, phân số nào có mẫu lớn hơn thì nhỏ hơn.\end{recallbox}
+
+\step{3}{Câu c -- Đặt giá trị nguyên là $k$}
+Nếu $\frac{B}{A}=k$ là số nguyên thì $k$ dương và $k<7{,}2$, nên $k\in\{1,2,3,4,5,6,7\}$. Ta có
+\[ \frac{36n}{5n+12}=k \iff 36n=k(5n+12)=5kn+12k \iff 36n-5kn=12k \iff n(36-5k)=12k. \]
+Vậy $n=\dfrac{12k}{36-5k}$, và ta chỉ cần thử $7$ giá trị của $k$.
+
+\step{4}{Thử từng giá trị của $k$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$k$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$\\ \hline
+$12k$ & $12$ & $24$ & $36$ & $48$ & $60$ & $72$ & $84$\\ \hline
+$36-5k$ & $31$ & $26$ & $21$ & $16$ & $11$ & $6$ & $1$\\ \hline
+$n=\frac{12k}{36-5k}$ & $\frac{12}{31}$ $\times$ & $\frac{24}{26}$ $\times$ & $\frac{36}{21}$ $\times$ & $\mathbf{3}$ & $\frac{60}{11}$ $\times$ & $\mathbf{12}$ & $\mathbf{84}$\\ \hline
+\end{tabular}
+\end{center}
+(Dấu $\times$: không phải số nguyên.)
+Vậy $n\in\{3;\,12;\,84\}$.
+\begin{proofbox}Vì sao không bỏ sót? Mọi $n$ làm $\frac{B}{A}$ nguyên đều cho một $k$ nguyên trong khoảng $1$ đến $7$ (câu b), và với mỗi $k$ chỉ có đúng một $n$ thỏa $n(36-5k)=12k$. Ta đã thử hết $7$ khả năng.\end{proofbox}
+\verify{
+$n=3$: $A=48+60=108$, $B=432$, $\frac{B}{A}=4$ \checkmark.\quad
+$n=12$: $A=48+240=288$, $B=1728$, $\frac{B}{A}=6$ \checkmark.\quad
+$n=84$: $A=48+1680=1728$, $B=12\,096$, $\frac{B}{A}=7$ \checkmark.}
+\begin{tipbox}Khi một phân số chứa $n$ không ``tách'' được gọn, hãy tìm xem nó luôn nhỏ hơn số nào. Nếu chỉ còn vài giá trị nguyên có thể, ta thử hết từng giá trị!\end{tipbox}
+\ans{a) $A=48+20n$, $B=144n$, $\dfrac{B}{A}=\dfrac{36n}{5n+12}$;\ b) xem lời giải;\ c) $n=3$, $n=12$, $n=84$.}
+}
+
+% ------------------------------------------------------------------ 45
+\begin{probbox}{45}{\stars{2}}
+Hai tuyến xe buýt cắt nhau tại bến $X$. Xe A chạy đi chạy lại trên tuyến $P\text{--}X\text{--}S$, mỗi nhánh ($PX$ hoặc $XS$) mất đúng $4$ phút. Xe B chạy trên tuyến $Q\text{--}X\text{--}T$, mỗi nhánh mất đúng $6$ phút. Lúc $13$\,h\,$00$, xe A xuất phát từ $P$ và xe B xuất phát từ $Q$; các xe quay đầu ngay lập tức ở cuối tuyến và chạy liên tục.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Chứng minh rằng hai xe A và B không bao giờ cùng có mặt tại $X$.
+\item Người ta cho thêm xe C chạy trên tuyến $R\text{--}X\text{--}U$, mỗi nhánh mất $10$ phút, xuất phát từ $R$ lúc $13$\,h\,$00$. Từ $13$\,h\,$00$ đến $19$\,h\,$00$, vào những thời điểm nào có hai xe cùng ở $X$?
+\item Giả sử mỗi nhánh của tuyến xe C mất $m$ phút ($m$ là số nguyên dương bất kỳ). Chứng minh rằng xe C không thể vừa gặp xe A tại $X$ (vào một lúc nào đó), vừa gặp xe B tại $X$ (vào một lúc nào đó).
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mở rộng của Bài 25. Đo thời gian $t$ bằng số phút kể từ $13$\,h\,$00$. Như ở Bài 25, một xe có nhánh dài $a$ phút sẽ tới $X$ lần đầu ở phút $a$, rồi cứ sau $2a$ phút (đi ra cuối tuyến và quay lại) lại tới $X$:
+\[ t=a,\ 3a,\ 5a,\ 7a,\dots \quad\text{tức là } t=a\times(\text{số lẻ}). \]
+Vậy xe A ở $X$ khi $t=4\times(\text{lẻ})$; xe B khi $t=6\times(\text{lẻ})$; xe C khi $t=m\times(\text{lẻ})$.
+\begin{recallbox}Tích của hai số lẻ là số lẻ. Số chia hết cho $4$ thì khi chia cho $2$ được một số chẵn.\end{recallbox}
+
+\step{1}{Câu a}
+Thời điểm xe A ở $X$: $t=4\times(\text{lẻ})$ -- luôn \textbf{chia hết cho $4$}.\par
+Thời điểm xe B ở $X$: $t=6\times(\text{lẻ})=2\times(3\times\text{lẻ})=2\times(\text{lẻ})$ -- chia cho $2$ được một số lẻ, nên \textbf{không chia hết cho $4$}.\par
+Một số không thể vừa chia hết vừa không chia hết cho $4$, nên A và B không bao giờ cùng ở $X$.
+
+\step{2}{Câu b -- xe C với $m=10$}
+Xe C ở $X$ khi $t=10\times(\text{lẻ})=2\times(5\times\text{lẻ})$ -- không chia hết cho $4$, nên C \textbf{không bao giờ} gặp A tại $X$ (lý luận như câu a).\par
+C gặp B khi $t=6\times(\text{lẻ})=10\times(\text{lẻ})$. Khi đó $\frac{t}{2}=3\times(\text{lẻ})=5\times(\text{lẻ})$ là số lẻ chia hết cho $3$ và $5$, tức là bội lẻ của $15$. Vậy $t=30\times(\text{lẻ})$. Ngược lại, $t=30\times(\text{lẻ})=6\times(5\times\text{lẻ})=10\times(3\times\text{lẻ})$ đúng là lúc cả hai xe ở $X$.\par
+Từ $13$\,h\,$00$ đến $19$\,h\,$00$ là $0\le t\le 360$: $t=30,\ 90,\ 150,\ 210,\ 270,\ 330$.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$t$ (phút) & $30$ & $90$ & $150$ & $210$ & $270$ & $330$\\ \hline
+Giờ & 13\,h\,30 & 14\,h\,30 & 15\,h\,30 & 16\,h\,30 & 17\,h\,30 & 18\,h\,30\\ \hline
+\end{tabular}
+\end{center}
+Ở cả $6$ thời điểm này, hai xe cùng ở $X$ là B và C.
+
+\step{3}{Câu c -- ``số lần chia đôi''}
+Với mỗi số nguyên dương $t$, ta chia $t$ cho $2$ liên tiếp cho tới khi được số lẻ. Gọi số lần chia được là $h(t)$. Ví dụ: $12\to 6\to 3$ nên $h(12)=2$; $6\to3$ nên $h(6)=1$; $5$ đã lẻ nên $h(5)=0$.
+\begin{proofbox}\textbf{Nhân với một số lẻ không làm thay đổi $h$.} Viết $m=2\cdot2\cdots2\times r$ (có $h(m)$ thừa số $2$, $r$ lẻ). Khi đó $m\times(\text{lẻ})=2\cdot2\cdots2\times(r\times\text{lẻ})$, trong đó $r\times\text{lẻ}$ vẫn là số lẻ. Vậy $m\times(\text{lẻ})$ cũng chia đôi được đúng $h(m)$ lần.\end{proofbox}
+Áp dụng:
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item Mọi thời điểm xe A ở $X$: $h\big(4\times\text{lẻ}\big)=h(4)=2$.
+\item Mọi thời điểm xe B ở $X$: $h\big(6\times\text{lẻ}\big)=h(6)=1$.
+\item Mọi thời điểm xe C ở $X$: $h\big(m\times\text{lẻ}\big)=h(m)$.
+\end{itemize}
+Nếu C gặp A thì $h(m)=2$; nếu C gặp B thì $h(m)=1$. Một số $m$ không thể có cả $h(m)=2$ lẫn $h(m)=1$. Vậy C không thể gặp cả A lẫn B.
+\begin{warnbox}Câu c không nói C \emph{luôn} không gặp ai: với $m=4$, C gặp A (lúc $t=4$); với $m=2$, C gặp B (lúc $t=6$). Điều ta chứng minh là C không thể gặp \emph{cả hai}.\end{warnbox}
+\verify{Kiểm tra bằng máy tính với $m=1,2,\dots,12$: không có giá trị nào của $m$ để C gặp được cả A và B; $m=4$ và $m=12$ gặp A; $m=2,6,10$ gặp B.}
+\ans{a) Thời điểm A ở $X$ chia hết cho $4$, thời điểm B ở $X$ thì không;\ b) $13$\,h\,$30$, $14$\,h\,$30$, $15$\,h\,$30$, $16$\,h\,$30$, $17$\,h\,$30$, $18$\,h\,$30$ (đều là xe B và C);\ c) xem lời giải.}
+}
+
+% ------------------------------------------------------------------ 46
+\begin{probbox}{46}{\stars{1}}
+Bạn Sơn đếm tiến $7, 10, 13,\dots$ (mỗi lần thêm $3$) và dừng lại trước khi vượt quá $2026$. Bạn Dũng đếm lùi $2026, 2021, 2016,\dots$ (mỗi lần bớt $5$) và dừng lại trước khi nhỏ hơn $7$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Có bao nhiêu số có mặt trong cả hai dãy?
+\item Tính tổng của tất cả các số ở câu a.
+\item Bạn Mai viết dãy các bội dương của $4$: $4, 8, 12,\dots$ Có bao nhiêu số có mặt trong cả ba dãy của Sơn, Dũng và Mai? Số lớn nhất trong đó là số nào?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mở rộng của Bài 26. Ở Bài 26 ta đã thấy: số thuộc dãy của Sơn $\iff$ chia $3$ dư $1$ (và $\ge 7$); số thuộc dãy của Dũng $\iff$ chia $5$ dư $1$ (và $\le 2026$). Bây giờ ta tìm \emph{tất cả} các số chung.
+
+\step{1}{Câu a -- Dấu hiệu của số chung}
+Số $N$ chung $\iff$ $N$ chia $3$ dư $1$ và chia $5$ dư $1$ $\iff$ $N-1$ chia hết cho $3$ và cho $5$ $\iff$ $N-1$ chia hết cho $15$. Vậy $N=15j+1$.
+\begin{recallbox}Một số chia hết cho $3$ và cho $5$ (hai số nguyên tố cùng nhau) thì chia hết cho $3\cdot 5=15$.\end{recallbox}
+
+\step{2}{Câu a -- Đếm}
+Cần $7\le 15j+1\le 2026$. Số nhỏ nhất: $j=1$ cho $16$ ($j=0$ cho $1<7$, loại). Số lớn nhất: $15j+1\le 2026 \Rightarrow 15j\le 2025 \Rightarrow j\le 135$; $j=135$ cho $2026$.\par
+Vậy các số chung là $16, 31, 46,\dots, 2026$ ứng với $j=1,2,\dots,135$: có \textbf{$135$ số}.
+
+\step{3}{Câu b -- Tổng (cách ghép cặp của Gauss)}
+\begin{recallbox}Tổng của một dãy số cách đều $=$ (số đầu $+$ số cuối) $\times$ (số số hạng) $:2$. Lý do: viết dãy theo thứ tự xuôi và ngược rồi cộng từng cặp, mỗi cặp đều bằng số đầu $+$ số cuối.\end{recallbox}
+\[ 16+31+\dots+2026=\frac{(16+2026)\cdot 135}{2}=\frac{2042\cdot 135}{2}=1021\cdot 135=137\,835. \]
+
+\step{4}{Câu c -- Thêm điều kiện chia hết cho $4$}
+Xét các số chung $16, 31, 46, 61, 76, 91, 106, 121, 136,\dots$ Số nào chia hết cho $4$?
+\[ 16\ \checkmark,\ 31,\ 46,\ 61,\ 76\ \checkmark,\ 91,\ 106,\ 121,\ 136\ \checkmark,\dots \]
+Cứ $4$ số liên tiếp thì có đúng $1$ số chia hết cho $4$, và các số đó cách nhau $4\cdot 15=60$: $16, 76, 136, \dots$
+\begin{proofbox}Mỗi lần đi tiếp trong dãy, số tăng $15$; tăng $15$ thì số dư khi chia $4$ tăng $3$ (vì $15=12+3$). Các số dư khi chia $4$ của $16,31,46,61$ lần lượt là $0,3,2,1$, rồi lặp lại. Vậy chính xác cứ $4$ số có một số chia hết cho $4$, và hai số liền nhau như vậy cách nhau $4\times15=60$.\end{proofbox}
+Các số chung của cả ba dãy: $16+60i$ với $16+60i\le 2026$, tức $60i\le 2010$, $i\le 33{,}5$, nên $i=0,1,\dots,33$: có \textbf{$34$ số}. Số lớn nhất: $16+60\cdot 33=16+1980=1996$.
+\verify{$1996=4\cdot 499$ \checkmark; $1996-7=1989=3\cdot 663$ \checkmark; $2026-1996=30=5\cdot 6$ \checkmark. Số tiếp theo $1996+60=2056>2026$, bị loại.}
+\ans{a) $135$ số;\ b) $137\,835$;\ c) $34$ số, lớn nhất là $1996$.}
+}
+
+% ------------------------------------------------------------------ 47
+\begin{probbox}{47}{\stars{2}}
+An và Bình cùng xuất phát tại điểm $A$ trên một đường chạy hình tròn, mỗi người chạy với vận tốc không đổi.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Hai bạn chạy ngược chiều nhau, tỉ số vận tốc An : Bình là $5:3$. Hai bạn gặp nhau ở bao nhiêu điểm khác nhau trên đường chạy?
+\item Nếu hai bạn chạy \emph{cùng chiều} (vẫn với tỉ số $5:3$) thì An vượt Bình ở bao nhiêu điểm khác nhau?
+\item Tìm tất cả các tỉ số vận tốc $p:q$ (với $p>q$, $p$ và $q$ là các số nguyên dương nguyên tố cùng nhau) sao cho khi chạy ngược chiều nhau, hai bạn gặp nhau ở đúng $10$ điểm khác nhau.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mở rộng của Bài 27. Ta dùng lại hai ý: (1) chạy ngược chiều thì giữa hai lần gặp liên tiếp, tổng quãng đường của hai bạn bằng $1$ vòng; (2) quãng đường tỉ lệ với vận tốc.
+
+\step{1}{Câu a -- Chia vòng thành 8 đoạn}
+Tỉ số $5:3$ nên ta chia vòng chạy thành $5+3=8$ đoạn bằng nhau, đánh số các điểm chia $0,1,2,\dots,7$ theo chiều chạy của An (điểm $0$ là $A$). Giữa hai lần gặp, hai bạn cùng chạy $8$ đoạn, trong đó An chạy $5$ đoạn, Bình $3$ đoạn.\par
+Vị trí lần gặp thứ $k$ là điểm cách $A$ đúng $5k$ đoạn; cứ đủ $8$ đoạn là một vòng nên ta bớt đi các bội của $8$:
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}Lần gặp $k$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$\\ \hline
+$5k$ & $5$ & $10$ & $15$ & $20$ & $25$ & $30$ & $35$ & $40$ & $45$\\ \hline
+Điểm (bớt bội của $8$) & $5$ & $2$ & $7$ & $4$ & $1$ & $6$ & $3$ & $0$ & $5$\\ \hline
+\end{tabular}
+\end{center}
+Tám lần gặp đầu rơi vào đủ $8$ điểm khác nhau $0,1,\dots,7$; lần thứ $9$ trở lại điểm $5$ và mọi thứ lặp lại. Vậy có \textbf{$8$ điểm gặp}.
+\begin{figC}
+\draw[Ink,line width=1.1pt] (0,0) circle (1.3);
+\foreach \i/\k in {0/8,1/5,2/2,3/7,4/4,5/1,6/6,7/3}{
+  \fill[AnsRed] ({90+45*\i}:1.3) circle (2.6pt);
+  \node[font=\scriptsize] at ({90+45*\i}:1.75) {điểm \i};
+  \node[font=\scriptsize\bfseries,text=tmBlue] at ({90+45*\i}:0.98) {\k};}
+\node[font=\scriptsize,text=tmBlue,align=center] at (0,0) {lần\\gặp};
+\end{figC}
+(Số xanh bên trong: lần gặp thứ mấy rơi vào điểm đó; các điểm được đánh số theo chiều chạy của An.)
+
+\step{2}{Câu b -- Chạy cùng chiều}
+Chạy cùng chiều thì An vượt Bình mỗi khi An chạy \emph{hơn} Bình đúng $1$ vòng. Trong cùng thời gian, An chạy $5$ phần thì Bình chạy $3$ phần, An hơn $2$ phần. Vậy ``hơn $1$ vòng'' ứng với $2$ phần $=1$ vòng, tức mỗi phần là $\frac12$ vòng, và An đã chạy $5\cdot\frac12=2\frac12$ vòng.\par
+Lần vượt thứ nhất: An chạy $2\frac12$ vòng, ở điểm đối diện $A$. Lần thứ hai: $5$ vòng, đúng tại $A$. Rồi lặp lại. Vậy có \textbf{$2$ điểm} (điểm $A$ và điểm đối diện với $A$).
+
+\step{3}{Câu c -- Quy luật tổng quát}
+Làm như câu a với tỉ số $p:q$: chia vòng thành $p+q$ đoạn; lần gặp thứ $k$ ở điểm cách $A$ đúng $k\cdot p$ đoạn (bớt các bội của $p+q$).
+\begin{proofbox}\textbf{Nếu $p$, $q$ nguyên tố cùng nhau thì có đúng $p+q$ điểm gặp.}\par
+\emph{Lần thứ $p+q$ trở về $A$:} vì $(p+q)\cdot p$ là bội của $p+q$.\par
+\emph{Các lần $1,2,\dots,p+q$ ở các điểm khác nhau:} giả sử lần $i$ và lần $j$ ($i<j\le p+q$) trùng điểm. Khi đó $j\cdot p-i\cdot p=(j-i)\cdot p$ là bội của $p+q$. Mọi ước chung của $p$ và $p+q$ cũng là ước của $(p+q)-p=q$, mà $p,q$ nguyên tố cùng nhau, nên $p$ và $p+q$ không có ước nguyên tố chung. Do đó mọi thừa số nguyên tố của $p+q$ phải nằm trong $j-i$, tức $j-i$ chia hết cho $p+q$. Nhưng $0<j-i<p+q$ -- vô lý.\par
+Vậy có đúng $p+q$ điểm gặp, cách đều nhau trên vòng tròn.\end{proofbox}
+Cần $p+q=10$ với $p>q\ge 1$ nguyên tố cùng nhau:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$p:q$ & $9:1$ & $8:2$ & $7:3$ & $6:4$\\ \hline
+Nguyên tố cùng nhau? & có & không ($=4:1$) & có & không ($=3:2$)\\ \hline
+Số điểm gặp & $10$ & $5$ & $10$ & $5$\\ \hline
+\end{tabular}
+\end{center}
+($5:5$ bị loại vì $p>q$.) Vậy có hai tỉ số: \textbf{$9:1$ và $7:3$}.
+\begin{warnbox}Tỉ số $8:2$ có $8+2=10$ nhưng thực chất là $4:1$, chỉ cho $4+1=5$ điểm gặp. Luôn rút gọn tỉ số trước khi áp dụng quy luật ``$p+q$ điểm''.\end{warnbox}
+\verify{Kiểm tra lại Bài 27 bằng quy luật: tỉ số $2:1$ cho $2+1=3$ điểm \checkmark. Mô phỏng bằng máy tính với các tỉ số $p:q$ tối giản, $p\le 19$: chỉ có $9:1$ và $7:3$ cho $10$ điểm.}
+\ans{a) $8$ điểm;\ b) $2$ điểm;\ c) $9:1$ và $7:3$.}
+}
+
+% ------------------------------------------------------------------ 48
+\begin{probbox}{48}{\stars{2}}
+Ta gọi một dãy số nguyên dương \emph{tăng} là \emph{dãy Fibo} nếu kể từ số thứ ba, mỗi số bằng tổng của hai số đứng ngay trước nó (ví dụ: $11, 20, 31, 51, 82$ như ở Bài 28).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Tìm tất cả các dãy Fibo gồm $6$ số có số cuối cùng bằng $100$.
+\item Có bao nhiêu dãy Fibo gồm $5$ số có số cuối cùng bằng $200$?
+\item Chứng minh rằng không có dãy Fibo nào gồm $6$ số có số cuối cùng bằng $30$.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Như Bài 28, cả dãy được xác định bởi hai số đầu $a$ và $b$; dãy tăng khi và chỉ khi $a<b$.
+
+\step{1}{Biểu diễn các số theo $a$ và $b$}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}Số thứ 1 & Số thứ 2 & Số thứ 3 & Số thứ 4 & Số thứ 5 & Số thứ 6\\ \hline
+$a$ & $b$ & $a+b$ & $a+2b$ & $2a+3b$ & $(a+2b)+(2a+3b)=3a+5b$\\ \hline
+\end{tabular}
+\end{center}
+\begin{tipbox}Các hệ số $1,1,2,3,5,8,\dots$ xuất hiện trong bảng chính là dãy Fibonacci nổi tiếng!\end{tipbox}
+
+\step{2}{Câu a -- Phương trình $3a+5b=100$}
+Điều kiện: $a\ge 1$, $a<b$, $3a+5b=100$.
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item Từ $a\ge 1$: $5b=100-3a\le 97$, nên $b\le 19$.
+\item Từ $a<b$: $100=3a+5b<3b+5b=8b$, nên $b>12{,}5$, tức $b\ge 13$.
+\item $3a=100-5b$ phải chia hết cho $3$.
+\end{itemize}
+Thử $b$ từ $13$ đến $19$:
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$b$ & $13$ & $14$ & $15$ & $16$ & $17$ & $18$ & $19$\\ \hline
+$100-5b$ & $35$ & $30$ & $25$ & $20$ & $15$ & $10$ & $5$\\ \hline
+$a=(100-5b):3$ & $\times$ & $\mathbf{10}$ & $\times$ & $\times$ & $\mathbf{5}$ & $\times$ & $\times$\\ \hline
+\end{tabular}
+\end{center}
+Có hai dãy: $\mathbf{10, 14, 24, 38, 62, 100}$ và $\mathbf{5, 17, 22, 39, 61, 100}$.
+
+\step{3}{Câu b -- Phương trình $2a+3b=200$}
+Vì $2a$ và $200$ chẵn nên $3b$ chẵn, suy ra $b$ chẵn: $b=2t$. Khi đó $2a=200-6t$, tức $a=100-3t$.
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item $a\ge 1$: $100-3t\ge 1 \Rightarrow t\le 33$.
+\item $a<b$: $100-3t<2t \Rightarrow 100<5t \Rightarrow t>20 \Rightarrow t\ge 21$.
+\end{itemize}
+Vậy $t=21,22,\dots,33$: có $33-21+1=13$ dãy. (Ví dụ $t=21$: $37, 42, 79, 121, 200$; $t=33$: $1, 66, 67, 133, 200$.)
+\begin{warnbox}Với $t=20$ ta được $a=b=40$: dãy $40,40,80,120,200$ \emph{không tăng} ở bước đầu, nên bị loại. Đếm số nguyên từ $21$ đến $33$ là $33-21+1=13$, không phải $12$.\end{warnbox}
+
+\step{4}{Câu c -- Không có dãy nào kết thúc bằng $30$}
+Cần $3a+5b=30$ với $1\le a<b$.
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item $3a=30-5b\ge 3$ nên $5b\le 27$, tức $b\le 5$.
+\item $5b=30-3a$ chia hết cho $3$, nên $b$ chia hết cho $3$; với $b\le 5$ chỉ có $b=3$.
+\item $b=3$ cho $3a=15$, $a=5$. Nhưng $a=5>3=b$ -- dãy $5,3,8,11,19,30$ không tăng.
+\end{itemize}
+Vậy không có dãy Fibo $6$ số nào kết thúc bằng $30$.
+\begin{proofbox}Có thể lập luận gọn hơn: vì $a<b$ nên $a\ge 1$, $b\ge 2$, và số thứ sáu $3a+5b<3b+5b=8b$. Muốn có $3a+5b=30$ thì phải có $b>30:8$, tức $b\ge 4$; cùng với $b\le 5$ và $b$ chia hết cho $3$ thì không còn giá trị nào.\end{proofbox}
+\verify{Thử bằng máy tính mọi cặp $1\le a<b$: đúng $2$ dãy ở câu a, $13$ dãy ở câu b và $0$ dãy ở câu c.}
+\ans{a) $10,14,24,38,62,100$ và $5,17,22,39,61,100$;\ b) $13$ dãy;\ c) xem lời giải.}
+}
+
+% ------------------------------------------------------------------ 49
+\begin{probbox}{49}{\stars{1}}
+Bốn bạn An, Bình, Chi, Dũng, mỗi bạn có ít nhất một viên bi. Biết rằng:
+\begin{itemize}[leftmargin=1.6em,itemsep=0pt]
+\item[(1)] Số bi của An và Bình cộng lại bằng số bi của Chi và Dũng cộng lại.
+\item[(2)] Số bi của An và Dũng cộng lại nhiều hơn số bi của Bình và Chi cộng lại.
+\item[(3)] Bình có nhiều bi hơn An và Chi cộng lại.
+\end{itemize}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Sắp xếp bốn bạn theo thứ tự số bi từ ít đến nhiều.
+\item Biết cả bốn bạn có tổng cộng $30$ viên bi. Chi có nhiều nhất bao nhiêu viên bi? Khi đó mỗi bạn có bao nhiêu viên?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mở rộng của Bài 29: thay vì so sánh trực tiếp từng cặp, ở đây các thông tin là so sánh các \emph{tổng}. Gọi số bi của An, Bình, Chi, Dũng lần lượt là $a, b, c, d$ (số nguyên dương). Ta có:
+\[ \text{(1) } a+b=c+d,\qquad \text{(2) } a+d>b+c,\qquad \text{(3) } b>a+c. \]
+\begin{recallbox}Cộng hai vế của một bất đẳng thức với hai vế của một đẳng thức (cùng chiều), ta được một bất đẳng thức cùng chiều: nếu $X>Y$ và $M=N$ thì $X+M>Y+N$ và $X-M>Y-N$.\end{recallbox}
+
+\step{1}{So sánh An và Chi: cộng (2) với (1)}
+$(a+d)+(a+b)>(b+c)+(c+d)$, tức $2a+b+d>b+d+2c$. Bỏ $b+d$ ở hai vế: $2a>2c$, vậy $a>c$: \textbf{An nhiều hơn Chi}.
+
+\step{2}{So sánh Bình và Dũng: lấy (2) trừ (1)}
+$(a+d)-(a+b)>(b+c)-(c+d)$, tức $d-b>b-d$. Cộng $b+d$ vào hai vế: $2d>2b$, vậy $d>b$: \textbf{Dũng nhiều hơn Bình}.
+
+\step{3}{So sánh An và Bình: dùng (3)}
+$b>a+c\ge a+1>a$ (vì $c\ge 1$). Vậy \textbf{Bình nhiều hơn An}.
+
+\step{4}{Câu a -- Kết luận}
+Ghép lại: $c<a<b<d$.
+\begin{figC}
+\foreach \n/\x in {Chi/0,An/2,Bình/4,Dũng/6}{\node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,font=\small,minimum width=1.3cm,text height=1.7ex,text depth=0.4ex] (\n) at (\x,0) {\n};}
+\draw[->,tmBlue,line width=0.9pt] (Chi)--(An); \draw[->,tmBlue,line width=0.9pt] (An)--(Bình); \draw[->,tmBlue,line width=0.9pt] (Bình)--(Dũng);
+\node[font=\scriptsize,text=Slate] at (3,-0.55) {ít $\longrightarrow$ nhiều};
+\end{figC}
+Thứ tự từ ít đến nhiều: \textbf{Chi, An, Bình, Dũng}.
+
+\step{5}{Câu b -- Dùng tổng bằng 30}
+Từ (1), $a+b=c+d$ và tổng là $30$ nên $a+b=c+d=15$. Suy ra $b=15-a$.\par
+Thay vào (3): $15-a>a+c$, tức $2a+c<15$, hay $2a+c\le 14$.\par
+Theo câu a, $a>c$ nên $a\ge c+1$. Do đó $2(c+1)+c\le 2a+c\le 14$, tức $3c+2\le 14$, $3c\le 12$, $c\le 4$.
+
+\step{6}{Câu b -- Kiểm tra $c=4$ có xảy ra không}
+Với $c=4$: cần $a\ge 5$ và $2a+4\le 14$, tức $a\le 5$. Vậy $a=5$, $b=15-5=10$, $d=15-4=11$.\par
+Kiểm tra cả ba điều kiện:
+(1) $5+10=15=4+11$ \checkmark;\quad (2) $5+11=16>14=10+4$ \checkmark;\quad (3) $10>5+4=9$ \checkmark.
+\begin{warnbox}Chứng minh ``$c\le 4$'' mới chỉ là một nửa: phải chỉ ra một trường hợp cụ thể có $c=4$ thì mới khẳng định được $4$ là giá trị lớn nhất.\end{warnbox}
+\verify{Liệt kê bằng máy tính mọi bộ $(a,b,c,d)$ có tổng $30$ thỏa (1), (2), (3): có $12$ bộ, trong đó $c$ lớn nhất bằng $4$, chỉ ở bộ $(5,10,4,11)$; và trong mọi bộ đều có $c<a<b<d$.}
+\ans{a) Chi, An, Bình, Dũng;\ b) Chi có nhiều nhất $4$ viên; khi đó An $5$, Bình $10$, Chi $4$, Dũng $11$ viên.}
+}
+
+% ------------------------------------------------------------------ 50
+\begin{probbox}{50}{\stars{1}}
+Một cửa hàng bán kẹo loại A giá $12$ nghìn đồng cho $100$ g và kẹo loại B giá $20$ nghìn đồng cho $100$ g.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Cần trộn bao nhiêu gam mỗi loại để được $1$ kg kẹo hỗn hợp có giá $15$ nghìn đồng cho $100$ g (giá hỗn hợp bằng đúng tổng giá trị kẹo đem trộn)?
+\item Phải thêm bao nhiêu gam kẹo loại C giá $30$ nghìn đồng cho $100$ g vào $1$ kg hỗn hợp ở câu a để được hỗn hợp mới có giá $18$ nghìn đồng cho $100$ g?
+\item Chứng minh rằng: trộn kẹo A với kẹo B (có mặt cả hai loại) theo bất kỳ tỉ lệ nào, giá của hỗn hợp luôn lớn hơn $12$ và nhỏ hơn $20$ nghìn đồng cho $100$ g.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mở rộng của Bài 30. Nguyên tắc: \emph{tổng tiền của hỗn hợp $=$ tổng tiền của các phần đem trộn}. Để tính cho gọn, ta đo khối lượng theo đơn vị ``lạng'' ($1$ lạng $=100$ g), khi đó giá là ``nghìn đồng một lạng'' và $1$ kg $=10$ lạng.
+\begin{recallbox}Số tiền $=$ giá (cho một đơn vị khối lượng) $\times$ khối lượng. Giá trung bình $=$ tổng tiền $:$ tổng khối lượng.\end{recallbox}
+
+\step{1}{Câu a -- Lập phương trình}
+Gọi khối lượng kẹo A là $x$ lạng; kẹo B là $10-x$ lạng.\par
+Tiền kẹo A: $12x$; tiền kẹo B: $20(10-x)=200-20x$; tiền hỗn hợp $1$ kg: $15\cdot 10=150$ (nghìn đồng). Ta có
+\[ 12x+200-20x=150 \iff 200-8x=150 \iff 8x=50 \iff x=6{,}25. \]
+Vậy cần $6{,}25$ lạng $=625$ g kẹo A và $1000-625=375$ g kẹo B.
+\verify{$12\cdot 6{,}25+20\cdot 3{,}75=75+75=150$ nghìn đồng cho $10$ lạng, tức $15$ nghìn đồng một lạng \checkmark.}
+
+\step{2}{Câu a -- Cách nhìn bằng ``đòn bẩy''}
+\begin{figC}
+\draw[Navy,line width=1pt] (0,0)--(8,0);
+\foreach \x/\l in {0/12,3/15,8/20}{\draw[Navy,line width=1pt] (\x,0.12)--(\x,-0.12); \node[below,font=\small] at (\x,-0.12) {\l};}
+\node[above,font=\small\bfseries,text=tmBlue] at (0,0.15) {A};
+\node[above,font=\small\bfseries,text=tmOrange!85!black] at (8,0.15) {B};
+\node[above,font=\small\bfseries,text=AnsRed] at (3,0.15) {hỗn hợp};
+\brcdn{0}{3}{-0.75}{cách A: $3$}
+\brcdn{3}{8}{-0.75}{cách B: $5$}
+\end{figC}
+Giá $15$ cách giá A là $3$, cách giá B là $5$. Mỗi lạng A làm ``hụt'' $3$ nghìn so với $15$, mỗi lạng B làm ``dư'' $5$ nghìn. Muốn hụt và dư bù trừ nhau thì khối lượng A : B $=5:3$ (\emph{đảo ngược} khoảng cách). Chia $1000$ g theo tỉ số $5:3$: A $=\frac58\cdot 1000=625$ g, B $=\frac38\cdot1000=375$ g. Trùng với Bước 1.
+\begin{proofbox}Với A $5$ phần, B $3$ phần: phần hụt $5\cdot 3=15$, phần dư $3\cdot 5=15$ -- bằng nhau, nên giá trung bình đúng bằng $15$.\end{proofbox}
+
+\step{3}{Câu b}
+Gọi khối lượng kẹo C thêm vào là $y$ lạng. Tổng tiền: $150+30y$; tổng khối lượng: $10+y$ lạng. Cần giá $18$:
+\[ 150+30y=18(10+y)=180+18y \iff 12y=30 \iff y=2{,}5. \]
+Vậy cần thêm $2{,}5$ lạng $=250$ g kẹo C.
+\verify{Tổng tiền $150+30\cdot 2{,}5=225$ nghìn đồng cho $12{,}5$ lạng: $225:12{,}5=18$ \checkmark. (Bằng đòn bẩy: $18$ cách $15$ là $3$, cách $30$ là $12$, nên hỗn hợp cũ : C $=12:3=4:1$, tức C $=1000:4=250$ g \checkmark.)}
+
+\step{4}{Câu c}
+Gọi khối lượng A là $x$ lạng, B là $y$ lạng, với $x>0$, $y>0$. Giá hỗn hợp là $G=\dfrac{12x+20y}{x+y}$.
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item Vì $y>0$ nên $20y>12y$, do đó $12x+20y>12x+12y=12(x+y)$. Chia cho $x+y>0$: $G>12$.
+\item Vì $x>0$ nên $12x<20x$, do đó $12x+20y<20x+20y=20(x+y)$. Chia cho $x+y$: $G<20$.
+\end{itemize}
+Vậy $12<G<20$: giá hỗn hợp luôn nằm \emph{giữa} giá hai loại kẹo.
+\begin{warnbox}Không thể trộn A và B để được giá $25$ nghìn đồng một lạng, hay $10$ nghìn đồng một lạng: giá trung bình không bao giờ vượt ra ngoài khoảng giữa giá thấp nhất và giá cao nhất.\end{warnbox}
+\begin{parentbox}Có thể minh họa câu c bằng việc pha nước: trộn nước $20^\circ$C với nước $60^\circ$C thì được nước ấm ở giữa, không bao giờ nóng hơn $60^\circ$C. ``Trung bình luôn nằm ở giữa'' là một ý tưởng rất hữu ích.\end{parentbox}
+\ans{a) $625$ g kẹo A và $375$ g kẹo B;\ b) $250$ g kẹo C;\ c) xem lời giải.}
+}

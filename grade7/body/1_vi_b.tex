@@ -1,0 +1,649 @@
+% ===== Topic 1, part b (VI): problems 16-30 =====
+% helper shapes for the balance-scale problems (topic-specific prefix \ae...)
+% \aeShp{code}{x}{y}: draw shape (T triangle, C circle, S square, D diamond, Q question mark) with lower-left corner at (x,y)
+\providecommand{\aeShp}[3]{%
+  \if#1T\draw[tmBlue!80!black,line width=0.8pt,fill=tmBlue!18] (#2,#3)--(#2+0.34,#3)--(#2+0.17,#3+0.3)--cycle;\fi
+  \if#1C\draw[tmOrange!85!black,line width=0.8pt,fill=tmOrange!22] (#2+0.15,#3+0.15) circle (0.15);\fi
+  \if#1S\draw[tmGreen!80!black,line width=0.8pt,fill=tmGreen!18] (#2,#3) rectangle (#2+0.3,#3+0.3);\fi
+  \if#1D\draw[tmPurple!85!black,line width=0.8pt,fill=tmPurple!18] (#2+0.13,#3)--(#2+0.26,#3+0.16)--(#2+0.13,#3+0.32)--(#2,#3+0.16)--cycle;\fi
+  \if#1Q\node[font=\Large\bfseries,text=Ink,inner sep=0pt,anchor=south] at (#2+0.15,#3) {?};\fi}
+\providecommand{\aeTri}{\tikz[baseline=0pt]{\aeShp{T}{0}{0}}}
+\providecommand{\aeCir}{\tikz[baseline=0pt]{\aeShp{C}{0}{0}}}
+\providecommand{\aeSq}{\tikz[baseline=0pt]{\aeShp{S}{0}{0}}}
+\providecommand{\aeDia}{\tikz[baseline=0pt]{\aeShp{D}{0}{0}}}
+% \aeRow{list}{xcentre}{y}: a row of shapes (e.g. {T,C}) centred at xcentre, standing on height y
+\providecommand{\aeRow}[3]{%
+  \foreach \aeS [count=\aeI] in {#1}{\xdef\aeN{\aeI}}%
+  \foreach \aeS [count=\aeI] in {#1}{\aeShp{\aeS}{#2-0.19*\aeN+0.38*\aeI-0.36}{#3+0.03}}}
+% \aeScale{x}{y}{left list}{right list}: a balanced scale centred at (x,y)
+\providecommand{\aeScale}[4]{\begin{scope}[shift={(#1,#2)}]
+  \draw[Ink,line width=1pt] (-1.9,0.55)--(-0.5,0.55) (-1.2,0.55)--(-1.2,0.25)--(1.2,0.25)--(1.2,0.55) (0.5,0.55)--(1.9,0.55);
+  \draw[Ink,line width=0.9pt,fill=Ink!12] (-0.2,-0.12)--(0,0.25)--(0.2,-0.12)--cycle;
+  \aeRow{#3}{-1.2}{0.55}\aeRow{#4}{1.2}{0.55}
+\end{scope}}
+
+% ------------------------------------------------------------------ 16
+\begin{probbox}{16}{\relax}
+Bạn Hồng đang tập tiết kiệm. Hôm nay trong tài khoản của Hồng có $120$ nghìn đồng. Từ nay, mỗi lần gửi tiết kiệm Hồng sẽ gửi thêm đúng $30$ nghìn đồng. Nếu Hồng gửi $m$ lần như vậy thì biểu thức nào dưới đây biểu thị đúng số tiền (tính bằng nghìn đồng) có trong tài khoản?
+\choices{$120+m$}{$30m$}{$30+120m$}{$150m$}{$120+30m$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cho biết: lúc đầu có $120$ nghìn đồng; mỗi lần gửi thêm $30$ nghìn đồng; gửi $m$ lần. Cần tìm: biểu thức đại số cho tổng số tiền sau $m$ lần gửi.
+
+\step{1}{Thử với vài giá trị cụ thể của $m$ để thấy quy luật}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}\textbf{Số lần gửi} & \textbf{Số tiền gửi thêm} & \textbf{Tổng số tiền (nghìn đồng)}\\ \hline
+$0$ & $0$ & $120$\\ \hline
+$1$ & $30$ & $120+30=150$\\ \hline
+$2$ & $30+30=30\cdot 2=60$ & $120+60=180$\\ \hline
+$3$ & $30\cdot 3=90$ & $120+90=210$\\ \hline
+$m$ & $30\cdot m=30m$ & $120+30m$\\ \hline
+\end{tabular}
+\end{center}
+
+\step{2}{Viết biểu thức}
+Số tiền \emph{gửi thêm} sau $m$ lần là $m$ lần của $30$, tức là $30m$. Cộng với số tiền có sẵn $120$, ta được
+\[ \text{Tổng số tiền} = 120 + 30m \ \text{(nghìn đồng)}. \]
+\begin{recallbox}$30m$ nghĩa là $30\cdot m$ (ta được phép bỏ dấu nhân giữa một số và một chữ). Cộng một số $a$ lặp lại $m$ lần thì được $a\cdot m$.\end{recallbox}
+
+\step{3}{Loại các phương án sai}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item (A) $120+m$: chỉ cộng thêm $1$ nghìn mỗi lần -- sai.
+\item (B) $30m$: quên mất $120$ nghìn có sẵn. Với $m=0$ cho $0$ -- sai.
+\item (C) $30+120m$: đảo vai trò hai số. Với $m=1$ cho $150$ (trùng!) nhưng với $m=2$ cho $270\ne 180$ -- sai.
+\item (D) $150m$: với $m=2$ cho $300\ne 180$ -- sai.
+\end{itemize}
+\begin{warnbox}Thử với \emph{một} giá trị $m=1$ là chưa đủ: cả (C), (D) và (E) đều cho $150$. Hãy thử thêm $m=0$ hoặc $m=2$ để phân biệt.\end{warnbox}
+\verify{Với $m=3$: $120+30\cdot 3=210$, đúng như bảng ở Bước 1.}
+Vậy chọn \textbf{(E)}.
+\ans{(E) $120+30m$}
+}
+
+% ------------------------------------------------------------------ 17
+\begin{probbox}{17}{\relax}
+Cả bốn chiếc cân dưới đây đều đang thăng bằng. Các hình giống nhau có khối lượng bằng nhau. Một cách có thể thay vào dấu ``?'' để chiếc cân thứ tư thăng bằng là
+\begin{figC}
+\aeScale{0}{1.6}{T,C}{S}
+\aeScale{4.6}{1.6}{T}{D,C}
+\aeScale{0}{0}{D,T}{C,S}
+\aeScale{4.6}{0}{C,D,T}{Q}
+\node[font=\footnotesize\bfseries,text=Slate] at (-2.25,2.45) {1};
+\node[font=\footnotesize\bfseries,text=Slate] at (2.35,2.45) {2};
+\node[font=\footnotesize\bfseries,text=Slate] at (-2.25,0.85) {3};
+\node[font=\footnotesize\bfseries,text=Slate] at (2.35,0.85) {4};
+\end{figC}
+\choices{\aeTri\,\aeSq}{\aeDia\,\aeTri}{\aeCir\,\aeSq}{\aeSq\,\aeDia}{\aeTri\,\aeCir}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi chiếc cân thăng bằng cho ta một \emph{đẳng thức}: tổng khối lượng đĩa trái bằng tổng khối lượng đĩa phải. Ta viết thẳng các hình vào đẳng thức (mỗi hình thay cho khối lượng của nó):
+\[
+\text{Cân 1: } \aeTri+\aeCir=\aeSq,\qquad
+\text{Cân 2: } \aeTri=\aeDia+\aeCir,\qquad
+\text{Cân 3: } \aeDia+\aeTri=\aeCir+\aeSq.
+\]
+Cần tìm: đĩa phải của cân 4 phải nặng bằng $\aeCir+\aeDia+\aeTri$. Ý tưởng: đổi mọi hình về cùng một ``đơn vị'' là \aeCir.
+\begin{recallbox}Nếu cân thăng bằng thì khi \emph{thay} một vật bằng các vật nặng bằng nó, hoặc \emph{bỏ bớt} những vật giống nhau ở cả hai đĩa, cân vẫn thăng bằng. Đây chính là tính chất của đẳng thức: $a=b \Rightarrow a+c=b+c$ và $a-c=b-c$.\end{recallbox}
+
+\step{1}{Dùng cân 2 để thay \aeTri\ trong cân 1}
+Theo cân 2, $\aeTri=\aeDia+\aeCir$. Thay vào cân 1:
+\[ \aeSq=\aeTri+\aeCir=(\aeDia+\aeCir)+\aeCir=\aeDia+2\,\aeCir. \]
+
+\step{2}{Thay vào cân 3 để tìm \aeDia}
+Đĩa trái cân 3: $\aeDia+\aeTri=\aeDia+(\aeDia+\aeCir)=2\,\aeDia+\aeCir$.\par
+Đĩa phải cân 3: $\aeCir+\aeSq=\aeCir+(\aeDia+2\,\aeCir)=\aeDia+3\,\aeCir$.\par
+Vậy $2\,\aeDia+\aeCir=\aeDia+3\,\aeCir$. Bỏ bớt một \aeDia\ và một \aeCir\ ở cả hai đĩa:
+\[ \aeDia = 2\,\aeCir. \]
+
+\step{3}{Đổi mọi hình về đơn vị \aeCir}
+\[ \aeDia=2\,\aeCir,\qquad \aeTri=\aeDia+\aeCir=3\,\aeCir,\qquad \aeSq=\aeDia+2\,\aeCir=4\,\aeCir. \]
+Đĩa trái cân 4: $\aeCir+\aeDia+\aeTri=1+2+3=6$ (\aeCir).
+
+\step{4}{Tính từng phương án (theo đơn vị \aeCir)}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} & (A) \aeTri\,\aeSq & (B) \aeDia\,\aeTri & (C) \aeCir\,\aeSq & (D) \aeSq\,\aeDia & (E) \aeTri\,\aeCir\\ \hline
+Khối lượng & $3+4=7$ & $2+3=5$ & $1+4=5$ & $4+2=\mathbf{6}$ & $3+1=4$\\ \hline
+\end{tabular}
+\end{center}
+Chỉ có (D) nặng đúng $6$ \aeCir.
+\verify{Lấy \aeCir\ nặng $1$ kg thì \aeDia, \aeTri, \aeSq\ nặng $2$, $3$, $4$ kg. Cân 1: $3+1=4$ \checkmark; cân 2: $3=2+1$ \checkmark; cân 3: $2+3=1+4$ \checkmark; cân 4: $1+2+3=6=4+2$ \checkmark.}
+\begin{tipbox}Khi có nhiều ẩn, hãy chọn \emph{một} hình làm đơn vị đo và biểu diễn mọi hình khác theo nó -- giống như đổi mọi số tiền ra cùng một loại tờ tiền.\end{tipbox}
+Vậy chọn \textbf{(D)}.
+\ans{(D) \aeSq\,\aeDia}
+}
+
+% ------------------------------------------------------------------ 18
+\begin{probbox}{18}{\relax}
+Số cần điền vào ô trống để có đẳng thức đúng $\dfrac{3}{7}=\dfrac{\square}{63}$ là
+\choices{$27$}{$9$}{$59$}{$63$}{$3$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Hai phân số bằng nhau, đã biết mẫu của phân số thứ hai là $63$. Cần tìm tử số.
+\begin{recallbox}\textbf{Tính chất cơ bản của phân số:} nếu nhân cả tử và mẫu của một phân số với cùng một số khác $0$ thì được một phân số bằng nó: $\dfrac{a}{b}=\dfrac{a\cdot k}{b\cdot k}$ $(k\ne 0)$.\end{recallbox}
+
+\step{1}{Mẫu số đã được nhân với bao nhiêu?}
+Từ $7$ lên $63$: $63:7=9$. Vậy mẫu số đã được nhân với $9$.
+
+\step{2}{Nhân tử số với cùng số đó}
+Để phân số không đổi, tử số cũng phải nhân với $9$: $3\cdot 9=27$.
+\[ \frac{3}{7}=\frac{3\cdot 9}{7\cdot 9}=\frac{27}{63}. \]
+
+\step{3}{Cách khác: dùng ``tích chéo''}
+Hai phân số $\dfrac{a}{b}=\dfrac{c}{d}$ khi và chỉ khi $a\cdot d=b\cdot c$. Gọi số cần điền là $x$: $3\cdot 63=7\cdot x$, tức $189=7x$, nên $x=189:7=27$.
+\begin{warnbox}Một số bạn thấy $63-7=56$ rồi lấy $3+56=59$ (phương án C). Phân số không thay đổi khi \emph{cộng} cùng một số vào tử và mẫu! Phải \emph{nhân} (hoặc chia).\end{warnbox}
+\verify{$27:63$ rút gọn cho $9$ được $3:7$, tức $\dfrac{27}{63}=\dfrac{3}{7}$ \checkmark.}
+Vậy chọn \textbf{(A)}.
+\ans{(A) $27$}
+}
+
+% ------------------------------------------------------------------ 19
+\begin{probbox}{19}{\relax}
+Tổng của bốn số bằng $T$. Mỗi số trong bốn số đó được tăng thêm $1$ đơn vị. Cộng bốn số mới lại, rồi nhân tổng vừa được với $3$. Kết quả cuối cùng bằng
+\choices{$3T+3$}{$3T+4$}{$3T+12$}{$T+12$}{$12T$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Bốn số chưa biết, chỉ biết tổng của chúng là $T$. Ta không cần biết từng số -- chỉ cần theo dõi \emph{tổng} thay đổi thế nào.
+
+\step{1}{Đặt tên các số}
+Gọi bốn số là $a$, $b$, $c$, $d$. Theo đề: $a+b+c+d=T$.
+
+\step{2}{Tăng mỗi số thêm 1 rồi cộng lại}
+Bốn số mới là $a+1$, $b+1$, $c+1$, $d+1$. Tổng của chúng:
+\[ (a+1)+(b+1)+(c+1)+(d+1)=(a+b+c+d)+(1+1+1+1)=T+4. \]
+\begin{recallbox}Phép cộng có tính chất giao hoán và kết hợp, nên ta được phép nhóm các chữ với nhau và các số với nhau.\end{recallbox}
+
+\step{3}{Nhân với 3}
+\[ 3\cdot(T+4)=3\cdot T+3\cdot 4=3T+12. \]
+\begin{recallbox}\textbf{Tính chất phân phối:} $k\cdot(x+y)=k\cdot x+k\cdot y$. Phải nhân $3$ với \emph{từng} số hạng trong ngoặc.\end{recallbox}
+\begin{warnbox}Hai lỗi hay gặp: (1) chỉ cộng $1$ vào tổng (thay vì $4$, vì có bốn số) rồi được $3T+3$; (2) quên nhân $3$ với số $4$ rồi được $3T+4$.\end{warnbox}
+\verify{Lấy bốn số $1,2,3,4$: $T=10$. Số mới $2,3,4,5$ có tổng $14$; nhân $3$ được $42$. Còn $3T+12=30+12=42$ \checkmark. Các phương án khác cho $33$, $34$, $22$, $120$ -- đều sai.}
+Vậy chọn \textbf{(C)}.
+\ans{(C) $3T+12$}
+}
+
+% ------------------------------------------------------------------ 20
+\begin{probbox}{20}{\relax}
+Hai tam giác cân, mỗi tam giác đều có ít nhất một góc bằng $70^\circ$. Ở tam giác thứ nhất, số đo (theo độ) của mỗi góc trong hai góc còn lại là số chẵn. Ở tam giác thứ hai, số đo của mỗi góc trong hai góc còn lại là số lẻ. Gọi $S$ là tổng hai góc bằng nhau của tam giác thứ nhất và $T$ là tổng hai góc bằng nhau của tam giác thứ hai. Giá trị của $S+T$ là
+\choices{$280^\circ$}{$250^\circ$}{$220^\circ$}{$200^\circ$}{$300^\circ$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Một tam giác cân có hai góc ở đáy bằng nhau. Góc $70^\circ$ có thể là \emph{góc ở đỉnh} hoặc \emph{góc ở đáy}. Ta xét cả hai khả năng, rồi xem khả năng nào cho ``hai góc còn lại chẵn'', khả năng nào cho ``hai góc còn lại lẻ''.
+\begin{recallbox}Tổng ba góc trong một tam giác bằng $180^\circ$. Trong tam giác cân, hai góc ở đáy bằng nhau.\end{recallbox}
+
+\step{1}{Khả năng 1: góc $70^\circ$ là góc ở đáy}
+Khi đó góc ở đáy còn lại cũng bằng $70^\circ$. Góc ở đỉnh bằng $180^\circ-70^\circ-70^\circ=40^\circ$.\par
+Ba góc: $70^\circ,\ 70^\circ,\ 40^\circ$. Hai góc còn lại (ngoài một góc $70^\circ$) là $70^\circ$ và $40^\circ$ -- \textbf{đều chẵn}.
+
+\step{2}{Khả năng 2: góc $70^\circ$ là góc ở đỉnh}
+Hai góc ở đáy bằng nhau và có tổng $180^\circ-70^\circ=110^\circ$, nên mỗi góc bằng $110^\circ:2=55^\circ$.\par
+Ba góc: $70^\circ,\ 55^\circ,\ 55^\circ$. Hai góc còn lại là $55^\circ$ và $55^\circ$ -- \textbf{đều lẻ}.
+\begin{figC}
+\begin{scope}
+\draw[tmBlue,line width=1.1pt,fill=tmBlue!8] (0,0)--(1.6,0)--(0.8,2.2)--cycle;
+\node[font=\scriptsize] at (0.33,0.2) {$70^\circ$};
+\node[font=\scriptsize] at (1.27,0.2) {$70^\circ$};
+\node[font=\scriptsize] at (0.8,1.65) {$40^\circ$};
+\node[font=\footnotesize\bfseries,text=tmBlue] at (0.8,-0.35) {Tam giác thứ nhất};
+\end{scope}
+\begin{scope}[xshift=3.6cm]
+\draw[tmOrange,line width=1.1pt,fill=tmOrange!8] (0,0)--(2.4,0)--(1.2,1.71)--cycle;
+\node[font=\scriptsize] at (0.45,0.18) {$55^\circ$};
+\node[font=\scriptsize] at (1.95,0.18) {$55^\circ$};
+\node[font=\scriptsize] at (1.2,1.25) {$70^\circ$};
+\node[font=\footnotesize\bfseries,text=tmOrange!85!black] at (1.2,-0.35) {Tam giác thứ hai};
+\end{scope}
+\end{figC}
+
+\step{3}{Xác định $S$ và $T$}
+Tam giác thứ nhất (hai góc còn lại chẵn) là khả năng 1. Hai góc \emph{bằng nhau} của nó là hai góc $70^\circ$: $S=70^\circ+70^\circ=140^\circ$.\par
+Tam giác thứ hai (hai góc còn lại lẻ) là khả năng 2. Hai góc bằng nhau là hai góc $55^\circ$: $T=55^\circ+55^\circ=110^\circ$.
+
+\step{4}{Tính $S+T$}
+$S+T=140^\circ+110^\circ=250^\circ$.
+\begin{warnbox}``Tổng hai góc bằng nhau'' là tổng hai góc \emph{ở đáy}, không phải tổng hai góc ``còn lại''. Ở tam giác thứ nhất, hai góc còn lại là $70^\circ$ và $40^\circ$ (tổng $110^\circ$), nhưng hai góc bằng nhau là $70^\circ$ và $70^\circ$ (tổng $140^\circ$). Nhầm chỗ này sẽ ra $110^\circ+110^\circ=220^\circ$ (phương án C).\end{warnbox}
+\verify{$70+70+40=180$ và $70+55+55=180$ \checkmark.}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $250^\circ$}
+}
+
+% ------------------------------------------------------------------ 21
+\begin{probbox}{21}{\relax}
+Bạn Ánh tham gia một chuyến chèo thuyền kayak kéo dài $6$ ngày với tổng quãng đường $168$ km. Vừa hết ngày thứ ba, Ánh đã đi được $\frac{3}{7}$ tổng quãng đường. Trong những ngày còn lại, trung bình mỗi ngày Ánh phải chèo bao nhiêu ki-lô-mét?
+\choices{$29$}{$24$}{$27$}{$32$}{$26$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cho biết: tổng quãng đường $168$ km; chuyến đi $6$ ngày; sau $3$ ngày đã đi $\frac{3}{7}$ quãng đường. Cần tìm: số km trung bình mỗi ngày trong số ngày còn lại.
+\begin{recallbox}Muốn tìm $\frac{m}{n}$ của một số, ta nhân số đó với $\frac{m}{n}$ (chia cho $n$ rồi nhân với $m$).\end{recallbox}
+
+\step{1}{Vẽ sơ đồ: chia quãng đường thành 7 phần bằng nhau}
+\begin{barfigC}
+\foreach \i in {0,1,2}{\blk{\i*1.3}{\i*1.3+1.3}{0}{0.6}{tmGreen}{}}
+\foreach \i in {3,4,5,6}{\blk{\i*1.3}{\i*1.3+1.3}{0}{0.6}{tmOrange}{}}
+\brcup{0}{3.9}{0.55}{đã đi: $3$ phần (3 ngày)}
+\brcup{3.9}{9.1}{0.55}{còn lại: $4$ phần (3 ngày)}
+\brcdn{0}{9.1}{-0.55}{$168$ km}
+\end{barfigC}
+Mỗi phần dài $168:7=24$ (km).
+
+\step{2}{Tính quãng đường đã đi và còn lại}
+Đã đi: $3$ phần $=3\cdot 24=72$ (km).\par
+Còn lại: $168-72=96$ (km) (hoặc $4$ phần $=4\cdot 24=96$ km).
+
+\step{3}{Số ngày còn lại}
+Chuyến đi $6$ ngày, đã xong $3$ ngày, nên còn $6-3=3$ ngày.
+
+\step{4}{Trung bình mỗi ngày}
+$96:3=32$ (km/ngày).
+\begin{warnbox}Đừng nhầm ``phần quãng đường còn lại'' ($\frac{4}{7}$) với ``số ngày còn lại'' ($3$ ngày). Phương án (B) $24$ km chỉ là độ dài của \emph{một phần bảy} quãng đường.\end{warnbox}
+\verify{$72+3\cdot 32=72+96=168$ km \checkmark.}
+Vậy chọn \textbf{(D)}.
+\ans{(D) $32$ km mỗi ngày}
+}
+
+% ------------------------------------------------------------------ 22
+\begin{probbox}{22}{\stars{1}}
+Một chấm tròn xuất phát tại điểm $(20;19)$ trên mặt phẳng tọa độ. Ở bước thứ nhất, chấm di chuyển $1$ đơn vị theo phương ngang hoặc phương dọc, tức là đến một trong các điểm $(21;19)$, $(19;19)$, $(20;20)$ hoặc $(20;18)$. Ở bước thứ hai, chấm di chuyển $2$ đơn vị (về chiều nào cũng được) theo phương \emph{vuông góc} với bước thứ nhất. Từ đó về sau, mỗi bước dài hơn bước trước $1$ đơn vị ($3$ đơn vị, $4$ đơn vị, $5$ đơn vị, \dots) và luôn vuông góc với bước ngay trước nó. Chấm dừng lại sau $10$ bước. Điểm nào dưới đây \textbf{không thể} là vị trí cuối cùng của chấm?
+\choices{$(27;33)$}{$(30;40)$}{$(21;21)$}{$(42;44)$}{$(37;37)$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Các bước có độ dài $1,2,3,\dots,10$. ``Vuông góc với bước trước'' nghĩa là các bước \emph{luân phiên} ngang -- dọc -- ngang -- dọc\dots\ Ta cần tìm điểm mà chấm không bao giờ tới được.
+\begin{recallbox}Trên mặt phẳng tọa độ, đi sang phải (trái) $k$ đơn vị làm hoành độ (số thứ nhất) tăng (giảm) $k$; đi lên (xuống) $k$ đơn vị làm tung độ (số thứ hai) tăng (giảm) $k$.\end{recallbox}
+
+\step{1}{Tách các bước thành hai nhóm}
+Nếu bước $1$ là bước ngang thì các bước ngang là bước $1,3,5,7,9$ (độ dài lẻ) và các bước dọc là bước $2,4,6,8,10$ (độ dài chẵn). Nếu bước $1$ là bước dọc thì ngược lại.\par
+Mỗi bước có thể đi theo chiều dương (dấu $+$) hoặc chiều âm (dấu $-$). Vậy độ dịch chuyển theo một phương là
+\[ \pm 1\pm 3\pm 5\pm 7\pm 9 \quad\text{(nhóm lẻ)},\qquad \pm 2\pm 4\pm 6\pm 8\pm 10\quad\text{(nhóm chẵn).} \]
+
+\step{2}{Nhóm lẻ cho được những số nào?}
+Nếu tất cả mang dấu $+$: $1+3+5+7+9=25$. Khi đổi dấu một bước độ dài $a$ từ $+$ sang $-$, tổng giảm đi $2a$ (mất $a$ và còn bị trừ thêm $a$). Vậy:
+\[ \text{độ dịch chuyển}=25-2\times(\text{tổng các độ dài bị đổi dấu}). \]
+Muốn được $21$, cần tổng các độ dài bị đổi dấu là $(25-21):2=2$. Nhưng trong $\{1,3,5,7,9\}$ không có cách chọn nào có tổng bằng $2$ (chọn $1$ thì được $1$; chọn thêm bất kỳ số nào thì đã $\ge 4$). Vậy \textbf{nhóm lẻ không thể cho độ dịch chuyển $21$} (tương tự cũng không thể cho $-21$).
+\begin{proofbox}Mọi tổng con của $\{1,3,5,7,9\}$ có thể bằng: $0,1,3,4,5,6,7,8,9,\dots$ nhưng \emph{không} bằng $2$, vì số nhỏ nhất là $1$, số nhỏ thứ hai là $3$, nên chọn từ hai số trở lên thì tổng ít nhất $1+3=4$.\end{proofbox}
+
+\step{3}{Kiểm tra phương án (B) $(30;40)$}
+Độ dịch chuyển: ngang $30-20=10$, dọc $40-19=21$.\par
+Một tổng có dấu của $5$ số lẻ luôn là số \emph{lẻ}; của các số chẵn luôn là số \emph{chẵn}. Vì $21$ lẻ nên phương dọc phải là nhóm lẻ, tức phải có $\pm1\pm3\pm5\pm7\pm9=21$ -- điều này không thể theo Bước 2. Vậy chấm \textbf{không thể} đến $(30;40)$.
+
+\step{4}{Các phương án còn lại đều đến được (chỉ ra cách đi)}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}\textbf{Điểm} & \textbf{Dịch chuyển (ngang; dọc)} & \textbf{Nhóm lẻ} & \textbf{Nhóm chẵn}\\ \hline
+(A) $(27;33)$ & $(7;14)$ & $1+3+5+7-9=7$ & $2+4+6-8+10=14$\\ \hline
+(C) $(21;21)$ & $(1;2)$ & $1-3+5+7-9=1$ & $2-4+6+8-10=2$\\ \hline
+(D) $(42;44)$ & $(22;25)$ & $1+3+5+7+9=25$ & $2-4+6+8+10=22$\\ \hline
+(E) $(37;37)$ & $(17;18)$ & $-1-3+5+7+9=17$ & $2+4-6+8+10=18$\\ \hline
+\end{tabular}
+\end{center}
+(Ở (D), độ dịch chuyển ngang $22$ là số chẵn nên bước đầu tiên phải là bước dọc.) Ví dụ đường đi tới $(21;21)$: các bước lần lượt là phải $1$, lên $2$, trái $3$, xuống $4$, phải $5$, lên $6$, phải $7$, lên $8$, trái $9$, xuống $10$:
+\begin{figC}\begin{scope}[scale=0.24]
+\draw[Line,line width=0.3pt] (-3,-3) grid (11,13);
+\draw[tmBlue,line width=1.2pt,->] (0,0)--(1,0)--(1,2)--(-2,2)--(-2,-2)--(3,-2)--(3,4)--(10,4)--(10,12)--(1,12)--(1,2);
+\fill[tmGreen] (0,0) circle (7pt); \fill[AnsRed] (1,2) circle (7pt);
+\node[font=\scriptsize,anchor=north east] at (0,0) {$(20;19)$};
+\node[font=\scriptsize,anchor=west,fill=white,inner sep=1pt] at (1.6,1.1) {$(21;21)$};
+\end{scope}\end{figC}
+\begin{warnbox}Chỉ xét tính chẵn -- lẻ là chưa đủ: cả $10$ (chẵn) và $21$ (lẻ) đều ``hợp lệ'' về tính chẵn lẻ, nhưng $21$ vẫn không đạt được. Phải kiểm tra thật sự xem có cách chọn dấu hay không.\end{warnbox}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $(30;40)$}
+}
+
+% ------------------------------------------------------------------ 23
+\begin{probbox}{23}{\relax}
+Chị Giang làm nhân viên phục vụ ở một nhà hàng. Hôm thứ Bảy, chị dậy lúc $6$\,h\,$30$ sáng, bắt đầu làm việc lúc $x$ giờ sáng và kết thúc lúc $x$ giờ chiều (cùng ngày). Hôm thứ Bảy chị Giang làm việc trong bao lâu?
+\choicesII{$24-2x$ giờ}{$12-x$ giờ}{$2x$ giờ}{$0$ giờ}{$12$ giờ}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Bắt đầu lúc $x$ giờ sáng, kết thúc lúc $x$ giờ chiều. Cần tìm thời gian làm việc. Giờ dậy $6$\,h\,$30$ là thông tin \emph{thừa}, không dùng đến.
+\begin{recallbox}$x$ giờ chiều (theo cách nói 12 giờ) chính là $(x+12)$ giờ theo cách tính 24 giờ. Ví dụ: $3$ giờ chiều là $15$ giờ.\end{recallbox}
+
+\step{1}{Đổi sang cách tính 24 giờ}
+Bắt đầu: $x$ giờ. Kết thúc: $x+12$ giờ.
+
+\step{2}{Tính thời gian làm việc}
+Thời gian $=$ giờ kết thúc $-$ giờ bắt đầu $=(x+12)-x=12$ (giờ).
+
+\step{3}{Cách nghĩ khác (chia làm hai đoạn)}
+\begin{figC}
+\draw[Navy,line width=1pt,->] (0,0)--(8.4,0);
+\foreach \x/\l in {0/{$x$ giờ sáng},4/{$12$ giờ trưa},8/{$x$ giờ chiều}}{\draw[Navy,line width=1pt] (\x,0.12)--(\x,-0.12); \node[below,font=\footnotesize] at (\x,-0.12) {\l};}
+\brcup{0}{4}{0.25}{$12-x$ giờ}
+\brcup{4}{8}{0.25}{$x$ giờ}
+\end{figC}
+Từ $x$ giờ sáng đến $12$ giờ trưa là $12-x$ giờ; từ $12$ giờ trưa đến $x$ giờ chiều là $x$ giờ. Tổng: $(12-x)+x=12$ giờ. Kết quả không phụ thuộc vào $x$!
+\begin{warnbox}Phương án (B) $12-x$ chỉ là phần buổi sáng. Phương án (D) $0$ giờ xuất hiện khi lấy $x-x$ mà quên rằng một bên là ``sáng'', một bên là ``chiều''.\end{warnbox}
+\verify{Nếu $x=8$: chị làm từ $8$ giờ sáng đến $8$ giờ tối ($20$ giờ), tức $20-8=12$ giờ \checkmark.}
+Vậy chọn \textbf{(E)}.
+\ans{(E) $12$ giờ}
+}
+
+% ------------------------------------------------------------------ 24
+\begin{probbox}{24}{\stars{1}}
+Một hình hộp chữ nhật kích thước $8\times 8\times n$ ($n$ là số nguyên dương) được ghép từ các hình lập phương nhỏ kích thước $1\times1\times1$. Gọi $A$ là diện tích toàn phần của hình hộp chữ nhật và $B$ là tổng diện tích toàn phần của tất cả các hình lập phương nhỏ tạo nên nó. Tổng tất cả các giá trị của $n$ để $\dfrac{B}{A}$ là một số nguyên bằng
+\choices{$86$}{$90$}{$70$}{$78$}{$96$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cần viết $A$ và $B$ theo $n$, lập tỉ số $\frac{B}{A}$, rồi tìm mọi $n$ nguyên dương làm tỉ số này là số nguyên, cuối cùng cộng các $n$ đó lại.
+\begin{figC}\begin{scope}[scale=0.8]
+\draw[tmBlue,line width=1pt,fill=tmBlue!10] (0,0) rectangle (2.4,1.6);
+\draw[tmBlue,line width=1pt,fill=tmBlue!20] (0,1.6)--(0.9,2.3)--(3.3,2.3)--(2.4,1.6)--cycle;
+\draw[tmBlue,line width=1pt,fill=tmBlue!5] (2.4,0)--(3.3,0.7)--(3.3,2.3)--(2.4,1.6)--cycle;
+\node[below,font=\footnotesize] at (1.2,0) {$8$};
+\node[right,font=\footnotesize] at (3.3,1.5) {$n$};
+\node[below right,font=\footnotesize] at (2.8,0.4) {$8$};
+\end{scope}\end{figC}
+\begin{recallbox}Hình hộp chữ nhật có ba kích thước $a,b,c$ có diện tích toàn phần (tổng diện tích $6$ mặt) là $2(ab+bc+ca)$. Hình lập phương cạnh $1$ có $6$ mặt, mỗi mặt diện tích $1$, nên diện tích toàn phần là $6$. Hình hộp $a\times b\times c$ ghép từ $a\cdot b\cdot c$ hình lập phương đơn vị.\end{recallbox}
+
+\step{1}{Tính $A$}
+$A=2(8\cdot 8+8\cdot n+8\cdot n)=2(64+16n)=128+32n$.
+
+\step{2}{Tính $B$}
+Số hình lập phương nhỏ: $8\cdot 8\cdot n=64n$. Mỗi hình có diện tích toàn phần $6$, nên $B=6\cdot 64n=384n$.
+
+\step{3}{Rút gọn tỉ số}
+\[ \frac{B}{A}=\frac{384n}{128+32n}=\frac{32\cdot 12n}{32\cdot(4+n)}=\frac{12n}{n+4}. \]
+
+\step{4}{Tách phần nguyên}
+\[ \frac{12n}{n+4}=\frac{12(n+4)-48}{n+4}=12-\frac{48}{n+4}. \]
+\begin{proofbox}$12(n+4)-48=12n+48-48=12n$, nên tử số không đổi. Do đó $\frac{12n}{n+4}$ là số nguyên khi và chỉ khi $\frac{48}{n+4}$ là số nguyên, tức là $n+4$ là ước của $48$.\end{proofbox}
+
+\step{5}{Tìm các giá trị của $n$}
+Các ước dương của $48$: $1,2,3,4,6,8,12,16,24,48$. Vì $n\ge 1$ nên $n+4\ge 5$; chỉ giữ lại $6,8,12,16,24,48$:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$n+4$ & $6$ & $8$ & $12$ & $16$ & $24$ & $48$\\ \hline
+$n$ & $2$ & $4$ & $8$ & $12$ & $20$ & $44$\\ \hline
+$\frac{B}{A}=12-\frac{48}{n+4}$ & $4$ & $6$ & $8$ & $9$ & $10$ & $11$\\ \hline
+\end{tabular}
+\end{center}
+
+\step{6}{Cộng các giá trị}
+$2+4+8+12+20+44=90$.
+\begin{warnbox}Đừng quên điều kiện $n\ge 1$: các ước $1,2,3,4$ của $48$ cho $n+4\le 4$, tức $n\le 0$ -- bị loại.\end{warnbox}
+\verify{Với $n=2$: $A=128+64=192$, $B=768$, $\frac{B}{A}=4$ \checkmark. Với $n=44$: $A=128+1408=1536$, $B=16\,896$, $\frac{B}{A}=11$ \checkmark.}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $90$}
+}
+
+% ------------------------------------------------------------------ 25
+\begin{probbox}{25}{\stars{1}}
+Ba tuyến xe buýt cắt nhau tại bến $X$ như hình vẽ (các đoạn có cùng số vạch thì dài bằng nhau). Cứ $12$ phút, xe A đi hết một lượt $P\to X\to S\to X\to P$. Cứ $20$ phút, xe B đi hết một lượt $Q\to X\to T\to X\to Q$. Cứ $28$ phút, xe C đi hết một lượt $R\to X\to U\to X\to R$. Lúc $13$\,h\,$00$, ba xe A, B, C lần lượt xuất phát từ $P$, $Q$, $R$; mỗi xe chạy với vận tốc không đổi và quay đầu ngay lập tức khi tới cuối tuyến. Các xe chạy liên tục đến $23$\,h\,$00$. Trong khoảng thời gian từ $17$\,h\,$00$ đến $22$\,h\,$00$, có bao nhiêu thời điểm mà có từ hai xe trở lên cùng có mặt tại $X$?
+\begin{figC}
+\draw[Ink,line width=1pt] (0,1.6)--(0,-1.6) (-2.2,0)--(2.2,0) (-1.9,-1.4)--(1.9,1.4);
+\foreach \p/\q/\l/\a in {(0,1.6)/P/P/above,(0,-1.6)/S/S/below,(-2.2,0)/Q/Q/left,(2.2,0)/T/T/right,(-1.9,-1.4)/R/R/below left,(1.9,1.4)/U/U/above right}{\fill[Ink] \p circle (2pt); \node[\a,font=\small\itshape] at \p {$\l$};}
+\fill[Ink] (0,0) circle (2pt); \node[below right,font=\small\itshape] at (0.05,-0.05) {$X$};
+% single ticks on PX and XS
+\draw[tmBlue,line width=1pt] (-0.12,0.8)--(0.12,0.8) (-0.12,-0.8)--(0.12,-0.8);
+% double ticks on QX and XT
+\foreach \x in {-1.1,1.1}{\draw[tmOrange,line width=1pt] (\x-0.05,-0.12)--(\x-0.05,0.12) (\x+0.05,-0.12)--(\x+0.05,0.12);}
+% triple ticks on RX and XU
+\foreach \t in {-0.5,0.5}{\begin{scope}[shift={(1.9*\t,1.4*\t)},rotate=36.4]
+  \draw[tmGreen,line width=1pt] (-0.09,-0.12)--(-0.09,0.12) (0,-0.12)--(0,0.12) (0.09,-0.12)--(0.09,0.12);\end{scope}}
+\end{figC}
+\choicesII{$18$}{$19$}{$20$}{$21$}{$22$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi xe chạy đều trên tuyến có hai nhánh dài bằng nhau. Ta tìm \emph{các thời điểm} mỗi xe có mặt tại $X$, rồi đếm các thời điểm trùng nhau. Đo thời gian $t$ bằng \emph{số phút kể từ $13$\,h\,$00$}: khi đó $17$\,h\,$00$ ứng với $t=240$ và $22$\,h\,$00$ ứng với $t=540$.
+
+\step{1}{Xe A có mặt tại $X$ vào những lúc nào?}
+Một lượt $P\to X\to S\to X\to P$ gồm $4$ đoạn dài bằng nhau ($PX=XS$), đi hết $12$ phút, nên mỗi đoạn mất $12:4=3$ phút. Xe A tới $X$ sau $3$ phút, rồi đi $X\to S\to X$ hết $6$ phút, nên tới $X$ lần nữa ở phút $9$; sau đó là phút $15, 21, 27,\dots$ Tức là
+\[ t=3,\ 9,\ 15,\ 21,\dots \quad = 3\times 1,\ 3\times 3,\ 3\times 5,\ 3\times 7,\dots \]
+Xe A có mặt tại $X$ đúng vào các thời điểm $t=3\times(\text{số lẻ})$.
+
+\step{2}{Tương tự cho xe B và xe C}
+Xe B: mỗi đoạn mất $20:4=5$ phút, có mặt tại $X$ khi $t=5,15,25,\dots=5\times(\text{số lẻ})$.\par
+Xe C: mỗi đoạn mất $28:4=7$ phút, có mặt tại $X$ khi $t=7,21,35,\dots=7\times(\text{số lẻ})$.
+
+\step{3}{Hai xe gặp nhau tại $X$ khi nào?}
+\begin{proofbox}Xe A và B cùng ở $X$ $\iff$ $t=3\times(\text{lẻ})=5\times(\text{lẻ})$. Khi đó $t$ lẻ (tích hai số lẻ là số lẻ), và $t$ chia hết cho cả $3$ và $5$, nên chia hết cho $15$; vậy $t$ là \emph{bội lẻ của $15$}. Ngược lại, nếu $t=15\times(\text{lẻ})$ thì $t=3\times(5\times\text{lẻ})=5\times(3\times\text{lẻ})$, trong ngoặc là số lẻ, nên cả hai xe đều ở $X$.\end{proofbox}
+Lập luận giống hệt: A và C cùng ở $X$ $\iff$ $t$ là bội lẻ của $21$; B và C cùng ở $X$ $\iff$ $t$ là bội lẻ của $35$; cả ba xe cùng ở $X$ $\iff$ $t$ là bội lẻ của $105$.
+\begin{recallbox}Nếu một số chia hết cho hai số nguyên tố cùng nhau $a$ và $b$ thì nó chia hết cho $a\cdot b$. Ví dụ: chia hết cho $3$ và $5$ thì chia hết cho $15$.\end{recallbox}
+
+\step{4}{Đếm trong khoảng $240\le t\le 540$}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item Bội lẻ của $15$: $15\times 17=255$, \dots, $15\times 35=525$ (với $17,19,\dots,35$): \textbf{10} thời điểm.
+\item Bội lẻ của $21$: $21\times 13=273$, \dots, $21\times 25=525$ (với $13,15,\dots,25$): \textbf{7} thời điểm.
+\item Bội lẻ của $35$: $35\times 7=245$, \dots, $35\times 15=525$ (với $7,9,\dots,15$): \textbf{5} thời điểm.
+\item Bội lẻ của $105$: $105\times 3=315$ và $105\times 5=525$: \textbf{2} thời điểm (cả ba xe).
+\end{itemize}
+
+\step{5}{Loại các thời điểm bị đếm trùng}
+Hai thời điểm $t=315$ và $t=525$ có cả ba xe, nên đã được đếm \emph{ba lần} trong $10+7+5=22$ (một lần trong mỗi danh sách), trong khi chỉ được đếm một lần. Ta bớt mỗi thời điểm đi $2$ lần:
+\[ 22-2\times 2=18. \]
+Bảng đầy đủ $18$ thời điểm (đổi ra giờ):
+\begin{center}\small
+\begin{tabular}{|c|c||c|c||c|c|}
+\hline
+\rowcolor{tmBlue!10}Giờ & Xe & Giờ & Xe & Giờ & Xe\\ \hline
+17\,h\,05 & B, C & 18\,h\,57 & A, C & 20\,h\,21 & A, C\\ \hline
+17\,h\,15 & A, B & 19\,h\,15 & A, B & 20\,h\,35 & B, C\\ \hline
+17\,h\,33 & A, C & 19\,h\,25 & B, C & 20\,h\,45 & A, B\\ \hline
+17\,h\,45 & A, B & 19\,h\,39 & A, C & 21\,h\,03 & A, C\\ \hline
+\textbf{18\,h\,15} & \textbf{A, B, C} & 19\,h\,45 & A, B & 21\,h\,15 & A, B\\ \hline
+18\,h\,45 & A, B & 20\,h\,15 & A, B & \textbf{21\,h\,45} & \textbf{A, B, C}\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Xe A ở $X$ \emph{hai lần} trong mỗi lượt $12$ phút (lúc đi ra và lúc quay về), nên khoảng cách giữa hai lần là $6$ phút chứ không phải $12$ phút. Nếu chỉ dùng ``bội của $12$, $20$, $28$'' sẽ ra kết quả sai.\end{warnbox}
+\verify{Đếm trực tiếp từng phút từ $240$ đến $540$ (ví dụ bằng máy tính) cũng được đúng $18$ thời điểm.}
+Vậy chọn \textbf{(A)}.
+\ans{(A) $18$}
+}
+
+% ------------------------------------------------------------------ 26
+\begin{probbox}{26}{\relax}
+Bạn Sơn bắt đầu từ số $7$ và đếm tiến, mỗi lần thêm $3$, được dãy $7, 10, 13,\dots$ Bạn Dũng bắt đầu từ số $2026$ và đếm lùi, mỗi lần bớt $5$, được dãy $2026, 2021, 2016,\dots$ Số nào dưới đây có mặt trong cả hai dãy?
+\choices{$1009$}{$1006$}{$1003$}{$1001$}{$1011$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi dãy gồm các số cách đều nhau. Ta tìm ``dấu hiệu nhận biết'' một số thuộc mỗi dãy, rồi kiểm tra từng phương án.
+
+\step{1}{Dấu hiệu của dãy của Sơn}
+$7=2\cdot 3+1$ chia cho $3$ dư $1$. Mỗi lần cộng thêm $3$, số dư khi chia cho $3$ không đổi. Vậy mọi số trong dãy của Sơn đều \textbf{chia cho $3$ dư $1$} (và $\ge 7$). Ngược lại, mọi số $\ge 7$ chia $3$ dư $1$ đều có mặt, vì nó bằng $7+3k$.
+
+\step{2}{Dấu hiệu của dãy của Dũng}
+$2026=405\cdot 5+1$ chia cho $5$ dư $1$. Bớt đi $5$ không làm đổi số dư khi chia cho $5$. Vậy mọi số trong dãy của Dũng đều \textbf{chia cho $5$ dư $1$} (và $\le 2026$), tức là có \textbf{chữ số tận cùng là $1$ hoặc $6$}.
+\begin{recallbox}Cộng hoặc trừ một bội của $m$ không làm thay đổi số dư khi chia cho $m$. Một số chia $5$ dư $1$ khi và chỉ khi chữ số tận cùng của nó là $1$ hoặc $6$. Một số chia $3$ dư bao nhiêu thì tổng các chữ số của nó chia $3$ dư bấy nhiêu.\end{recallbox}
+
+\step{3}{Kiểm tra từng phương án}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}\textbf{Số} & \textbf{Tổng chữ số; dư khi chia 3} & \textbf{Chữ số tận cùng} & \textbf{Thuộc cả hai?}\\ \hline
+$1009$ & $10$; dư $1$ \checkmark & $9$ $\times$ & không\\ \hline
+$1006$ & $7$; dư $1$ \checkmark & $6$ \checkmark & \textbf{có}\\ \hline
+$1003$ & $4$; dư $1$ \checkmark & $3$ $\times$ & không\\ \hline
+$1001$ & $2$; dư $2$ $\times$ & $1$ \checkmark & không\\ \hline
+$1011$ & $3$; dư $0$ $\times$ & $1$ \checkmark & không\\ \hline
+\end{tabular}
+\end{center}
+\verify{$1006=7+3\cdot 333$ (vì $1006-7=999=3\cdot 333$), nên $1006$ là số thứ $334$ trong dãy của Sơn. $2026-1006=1020=5\cdot 204$, nên $1006$ có trong dãy của Dũng (sau $204$ lần bớt $5$) \checkmark.}
+\begin{tipbox}Thay vì viết hàng trăm số của mỗi dãy, ta chỉ cần biết số dư -- một ``chữ ký'' chung của mọi số trong dãy.\end{tipbox}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $1006$}
+}
+
+% ------------------------------------------------------------------ 27
+\begin{probbox}{27}{\stars{1}}
+Trên một đường chạy hình tròn, bạn An đứng ở điểm $A$, bạn Bình đứng ở điểm $B$ đối diện với $A$ (đoạn $AB$ là một đường kính). An chạy ngược chiều kim đồng hồ, Bình chạy cùng chiều kim đồng hồ. Hai bạn chạy với vận tốc không đổi nhưng khác nhau. Sau một thời gian, hai bạn nhận thấy mỗi lần gặp nhau đều chỉ ở đúng ba vị trí cố định trên đường chạy. Tỉ số vận tốc của hai bạn là
+\begin{figC}
+\draw[Ink,line width=1.1pt] (0,0) circle (1.1);
+\fill[Ink] (0,1.1) circle (2pt) node[above right,font=\small\itshape] {$A$};
+\fill[Ink] (0,-1.1) circle (2pt) node[below right,font=\small\itshape] {$B$};
+\draw[tmBlue,line width=1pt,->] (-0.2,1.33)--(-0.75,1.18);
+\draw[tmOrange,line width=1pt,->] (-0.2,-1.33)--(-0.75,-1.18);
+\node[font=\scriptsize,text=tmBlue] at (-1.25,1.45) {An};
+\node[font=\scriptsize,text=tmOrange!85!black] at (-1.3,-1.45) {Bình};
+\end{figC}
+\choicesII{$3:2$}{$3:1$}{$4:1$}{$2:1$}{$5:2$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Hai bạn chạy \emph{ngược chiều nhau} trên vòng tròn. Ta tìm xem giữa hai lần gặp liên tiếp, mỗi bạn chạy được bao nhiêu phần của vòng, từ đó suy ra có bao nhiêu điểm gặp nhau khác nhau.
+
+\step{1}{Giữa hai lần gặp liên tiếp, cả hai cùng chạy được đúng 1 vòng}
+\begin{proofbox}Ngay sau khi gặp nhau, hai bạn tách ra theo hai chiều ngược nhau. Khoảng cách giữa họ (đo dọc theo đường chạy) tăng dần, và họ gặp lại nhau khi tổng quãng đường hai bạn chạy được vừa đủ phủ kín cả vòng tròn. Vậy giữa hai lần gặp liên tiếp, \emph{tổng} quãng đường hai bạn chạy đúng bằng $1$ vòng. (Riêng lần gặp đầu tiên: lúc đầu hai bạn cách nhau nửa vòng nên tổng quãng đường là $\frac12$ vòng.)\end{proofbox}
+
+\step{2}{Mỗi lần, An chạy được bao nhiêu phần vòng?}
+Trong cùng một khoảng thời gian, quãng đường tỉ lệ với vận tốc. Nếu tỉ số vận tốc An : Bình là $p:q$ thì trong $1$ vòng chung, An chạy được $\dfrac{p}{p+q}$ vòng, Bình chạy được $\dfrac{q}{p+q}$ vòng.
+\begin{recallbox}Chia một đại lượng theo tỉ số $p:q$: phần thứ nhất bằng $\frac{p}{p+q}$, phần thứ hai bằng $\frac{q}{p+q}$ của tổng.\end{recallbox}
+Vậy điểm gặp sau luôn cách điểm gặp trước một cung bằng $\dfrac{p}{p+q}$ vòng (theo chiều chạy của An).
+
+\step{3}{Thử với tỉ số $2:1$}
+Mỗi lần An chạy $\frac{2}{3}$ vòng. Gọi $M_1$ là điểm gặp đầu tiên. Các điểm gặp tiếp theo cách $M_1$ lần lượt $\frac23$, $\frac43$, $\frac63=2$ vòng, \dots\ Vì đi trọn $1$ vòng thì quay về chỗ cũ, nên $\frac43$ vòng cũng là $\frac13$ vòng và $2$ vòng chính là $M_1$. Chỉ có \textbf{ba} điểm gặp: $M_1$ và hai điểm chia đường tròn thành ba phần bằng nhau. (Nếu Bình nhanh hơn, tỉ số $1:2$, kết quả tương tự.)
+
+\step{4}{Các tỉ số khác cho bao nhiêu điểm?}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}\textbf{Tỉ số} & \textbf{Mỗi lần An chạy} & \textbf{Vị trí các điểm gặp (tính từ $M_1$)} & \textbf{Số điểm}\\ \hline
+(A) $3:2$ & $\frac35$ vòng & $0,\frac35,\frac15,\frac45,\frac25$ rồi lặp lại & $5$\\ \hline
+(B) $3:1$ & $\frac34$ vòng & $0,\frac34,\frac24,\frac14$ rồi lặp lại & $4$\\ \hline
+(C) $4:1$ & $\frac45$ vòng & $0,\frac45,\frac35,\frac25,\frac15$ & $5$\\ \hline
+(D) $2:1$ & $\frac23$ vòng & $0,\frac23,\frac13$ & $\mathbf{3}$\\ \hline
+(E) $5:2$ & $\frac57$ vòng & $7$ vị trí khác nhau & $7$\\ \hline
+\end{tabular}
+\end{center}
+(Ví dụ hàng (A): $\frac35+\frac35=\frac65$, bỏ $1$ vòng còn $\frac15$; thêm $\frac35$ được $\frac45$; thêm $\frac35$ được $\frac75$, bỏ $1$ vòng còn $\frac25$; thêm $\frac35$ được $1$ vòng -- trở về $M_1$.)
+\begin{figC}
+\draw[Ink,line width=1.1pt] (0,0) circle (1.1);
+\fill[Ink] (0,1.1) circle (2pt) node[above,font=\small\itshape] {$A$};
+\fill[Ink] (0,-1.1) circle (2pt) node[below,font=\small\itshape] {$B$};
+\foreach \a in {90,210,330}{\fill[AnsRed] (\a:1.1) circle (3pt);}
+\node[font=\scriptsize,text=AnsRed,anchor=east] at (210:1.25) {gặp};
+\node[font=\scriptsize,text=AnsRed,anchor=west] at (330:1.25) {gặp};
+\node[font=\scriptsize,text=AnsRed,anchor=south west] at (90:1.18) {gặp};
+\end{figC}
+\verify{Đường chạy dài $600$ m, An chạy $200$ m/phút, Bình $100$ m/phút. Lúc đầu cách nhau $300$ m, gặp lần đầu sau $300:300=1$ phút, tại điểm cách $A$ $200$ m (theo chiều của An). Sau đó cứ $600:300=2$ phút gặp một lần, An chạy thêm $400$ m mỗi lần: vị trí $200\to 600$ (tức $A$) $\to 1000$ (tức $400$ m) $\to 1400$ (tức $200$ m) \dots\ Đúng ba điểm: $0$ m, $200$ m, $400$ m, chia đường tròn làm ba phần đều -- như hình trên.}
+Vậy chọn \textbf{(D)}.
+\ans{(D) $2:1$}
+}
+
+% ------------------------------------------------------------------ 28
+\begin{probbox}{28}{\stars{1}}
+Dãy $11, 20, 31, 51, 82$ là một ví dụ về một dãy tăng gồm năm số nguyên dương, trong đó số thứ nhất cộng số thứ hai bằng số thứ ba, số thứ hai cộng số thứ ba bằng số thứ tư, và số thứ ba cộng số thứ tư bằng số thứ năm. Có bao nhiêu dãy như vậy có số thứ năm bằng $124$?
+\choices{$10$}{$7$}{$9$}{$6$}{$8$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cả dãy được xác định hoàn toàn bởi hai số đầu tiên. Ta biểu diễn số thứ năm theo hai số đầu, rồi đếm số cặp thỏa mãn.
+
+\step{1}{Biểu diễn cả dãy theo hai số đầu $a$ và $b$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}Số thứ 1 & Số thứ 2 & Số thứ 3 & Số thứ 4 & Số thứ 5\\ \hline
+$a$ & $b$ & $a+b$ & $b+(a+b)=a+2b$ & $(a+b)+(a+2b)=2a+3b$\\ \hline
+\end{tabular}
+\end{center}
+Kiểm tra với ví dụ: $a=11$, $b=20$ cho số thứ năm $2\cdot 11+3\cdot 20=22+60=82$ \checkmark.
+
+\step{2}{Điều kiện}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item Số thứ năm bằng $124$: $2a+3b=124$.
+\item $a, b$ nguyên dương.
+\item Dãy tăng: cần $a<b$. (Các bước sau tự động tăng: $a+b>b$, $a+2b>a+b$, \dots\ vì $a,b>0$.)
+\end{itemize}
+
+\step{3}{$b$ phải là số chẵn}
+$2a$ và $124$ đều chẵn, nên $3b=124-2a$ chẵn, do đó $b$ chẵn. Đặt $b=2t$ ($t$ nguyên dương). Khi đó $2a=124-6t$, tức
+\[ a=62-3t. \]
+
+\step{4}{Tìm khoảng giá trị của $t$}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item $a\ge 1$: $62-3t\ge 1 \Rightarrow 3t\le 61 \Rightarrow t\le 20$.
+\item $a<b$: $62-3t<2t \Rightarrow 62<5t \Rightarrow t>12{,}4 \Rightarrow t\ge 13$.
+\end{itemize}
+Vậy $t\in\{13,14,15,16,17,18,19,20\}$: có $8$ giá trị.
+
+\step{5}{Liệt kê để kiểm tra}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$t$ & $13$ & $14$ & $15$ & $16$ & $17$ & $18$ & $19$ & $20$\\ \hline
+$a=62-3t$ & $23$ & $20$ & $17$ & $14$ & $11$ & $8$ & $5$ & $2$\\ \hline
+$b=2t$ & $26$ & $28$ & $30$ & $32$ & $34$ & $36$ & $38$ & $40$\\ \hline
+\end{tabular}
+\end{center}
+Ví dụ $t=13$: dãy $23, 26, 49, 75, 124$; $t=20$: dãy $2, 40, 42, 82, 124$.
+\begin{warnbox}Nếu quên điều kiện ``dãy tăng'' ($a<b$), ta sẽ đếm thừa các cặp như $a=26$, $b=24$ (dãy $26, 24, 50, 74, 124$ -- giảm ở bước đầu).\end{warnbox}
+\verify{$t=12$ cho $a=26$, $b=24$: $a>b$, bị loại. $t=21$ cho $a=-1$: không dương, bị loại. Vậy đúng $8$ dãy.}
+Vậy chọn \textbf{(E)}.
+\ans{(E) $8$}
+}
+
+% ------------------------------------------------------------------ 29
+\begin{probbox}{29}{\relax}
+Khánh nuôi nhiều mèo hơn Lan và nhiều chó hơn Bảo. Lan nuôi nhiều chó hơn Khánh nhưng ít mèo hơn Bảo. Khẳng định nào dưới đây \textbf{chắc chắn} đúng?
+\choicesL{Bảo nuôi ít mèo nhất.}{Bảo nuôi nhiều mèo nhất.}{Khánh nuôi nhiều mèo nhất.}{Lan nuôi nhiều chó nhất.}{Khánh nuôi ít chó nhất.}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Có hai loại so sánh riêng rẽ: so sánh số \emph{mèo} và so sánh số \emph{chó}. Ta tách thông tin thành hai nhóm rồi sắp thứ tự.
+
+\step{1}{Thông tin về mèo}
+``Khánh nhiều mèo hơn Lan'': Lan $<$ Khánh.\quad ``Lan ít mèo hơn Bảo'': Lan $<$ Bảo.\par
+Vậy Lan ít mèo nhất. Nhưng giữa Khánh và Bảo, \emph{không biết ai nhiều hơn}.
+
+\step{2}{Thông tin về chó}
+``Khánh nhiều chó hơn Bảo'': Bảo $<$ Khánh.\quad ``Lan nhiều chó hơn Khánh'': Khánh $<$ Lan.\par
+Ghép lại: Bảo $<$ Khánh $<$ Lan. Vậy \textbf{Lan nhiều chó nhất}, Bảo ít chó nhất.
+\begin{figC}
+\node[font=\small\bfseries,text=tmOrange!85!black] at (-0.6,1.4) {Mèo};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (L) at (1,1.4) {Lan};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (K) at (3,1.9) {Khánh};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (B) at (3,0.9) {Bảo};
+\draw[->,tmOrange,line width=0.9pt] (L)--(K); \draw[->,tmOrange,line width=0.9pt] (L)--(B);
+\node[font=\scriptsize,text=Slate] at (4.6,1.4) {(chưa so sánh được)};
+\node[font=\small\bfseries,text=tmBlue] at (-0.6,0) {Chó};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (b) at (1,0) {Bảo};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (k) at (3,0) {Khánh};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (l) at (5,0) {Lan};
+\draw[->,tmBlue,line width=0.9pt] (b)--(k); \draw[->,tmBlue,line width=0.9pt] (k)--(l);
+\node[font=\scriptsize,text=Slate] at (3,-0.55) {mũi tên chỉ từ ít đến nhiều};
+\end{figC}
+
+\step{3}{Xét từng khẳng định}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item (A) ``Bảo ít mèo nhất'': \textbf{sai}, vì Lan ít mèo hơn Bảo.
+\item (B) ``Bảo nhiều mèo nhất'': \emph{có thể} đúng, nhưng không chắc. Ví dụ Lan $1$, Khánh $3$, Bảo $2$ con mèo thỏa mọi điều kiện mà Khánh nhiều mèo nhất.
+\item (C) ``Khánh nhiều mèo nhất'': cũng không chắc. Ví dụ Lan $1$, Khánh $2$, Bảo $3$ con mèo thì Bảo nhiều nhất.
+\item (D) ``Lan nhiều chó nhất'': \textbf{chắc chắn đúng} (Bước 2).
+\item (E) ``Khánh ít chó nhất'': \textbf{sai}, vì Bảo ít chó hơn Khánh.
+\end{itemize}
+\begin{warnbox}``Chắc chắn đúng'' nghĩa là đúng trong \emph{mọi} trường hợp thỏa đề bài. Chỉ cần tìm được một trường hợp làm khẳng định sai là loại khẳng định đó.\end{warnbox}
+Vậy chọn \textbf{(D)}.
+\ans{(D) Lan nuôi nhiều chó nhất}
+}
+
+% ------------------------------------------------------------------ 30
+\begin{probbox}{30}{\relax}
+Chị Linh mua $300$ g kẹo loại A hết $50$ nghìn đồng và $x$ g kẹo loại B hết $70$ nghìn đồng. Chị tính được rằng giá trung bình của toàn bộ số kẹo đã mua là $15$ nghìn đồng cho mỗi $100$ g. Giá trị của $x$ là
+\choices{$525$}{$600$}{$500$}{$450$}{$900$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cho biết: tổng số tiền của hai loại kẹo và giá trung bình. Cần tìm khối lượng kẹo B. Ý tưởng: từ tổng tiền và giá trung bình suy ra \emph{tổng khối lượng}.
+\begin{recallbox}Giá trung bình $=$ tổng số tiền $:$ tổng khối lượng. Do đó tổng khối lượng $=$ tổng số tiền $:$ giá trung bình.\end{recallbox}
+
+\step{1}{Tổng số tiền}
+$50+70=120$ (nghìn đồng).
+
+\step{2}{Tổng khối lượng}
+Cứ $100$ g giá $15$ nghìn đồng. Với $120$ nghìn đồng, số ``phần $100$ g'' mua được là $120:15=8$. Vậy tổng khối lượng là $8\cdot 100=800$ (g).
+
+\step{3}{Khối lượng kẹo B}
+$x=800-300=500$ (g).
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} & \textbf{Kẹo A} & \textbf{Kẹo B} & \textbf{Cả hai}\\ \hline
+Khối lượng (g) & $300$ & $x=500$ & $800$\\ \hline
+Số tiền (nghìn đồng) & $50$ & $70$ & $120$\\ \hline
+Giá cho $100$ g (nghìn đồng) & $\approx 16{,}7$ & $14$ & $15$\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Không được lấy trung bình cộng của hai giá ($16{,}7$ và $14$) vì khối lượng hai loại khác nhau. Giá trung bình phải tính bằng \emph{tổng tiền chia tổng khối lượng}.\end{warnbox}
+\verify{$120$ nghìn đồng cho $800$ g, tức $120:8=15$ nghìn đồng cho $100$ g \checkmark.}
+Vậy chọn \textbf{(C)}.
+\ans{(C) $500$}
+}

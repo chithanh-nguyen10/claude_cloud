@@ -1,0 +1,610 @@
+% ===== Topic 2, part d: problems 41-50 (VI) =====
+\providecommand{\tbGrid}[4]{\begin{tikzpicture}[baseline=0.2cm,x=0.5cm,y=0.5cm]
+  \draw[Ink,line width=0.7pt] (0,0) grid[step=1] (2,2);
+  \node[font=\sffamily\bfseries,text=tmBlue!80!black,inner sep=0pt,#4] at (#1,#2) {#3};\end{tikzpicture}}
+
+% ---------------------------------------------------------------- 41
+\begin{probbox}{41}{\stars{1}}
+\textit{(Mở rộng Bài 16.)} Ta chỉ xét các hình chữ nhật có độ dài hai cạnh là các \emph{số nguyên dương}
+(đơn vị cm); hình vuông cũng được coi là hình chữ nhật.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Tìm tất cả các hình chữ nhật mà số đo diện tích (cm$^2$) \emph{bằng} số đo chu vi (cm).
+\item Tìm tất cả các hình chữ nhật mà số đo diện tích \emph{gấp đôi} số đo chu vi.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Gọi hai cạnh là $a$ và $b$ (số nguyên dương). Không mất tính tổng quát, giả sử
+$a\le b$ ($a$ là cạnh ngắn). Diện tích là $ab$, chu vi là $2(a+b)$. Đây là bài toán ``tìm nghiệm nguyên'':
+một phương trình có hai ẩn. Mẹo: dùng $a\le b$ để \emph{chặn} $a$ trong một khoảng nhỏ, rồi thử từng giá trị.
+
+\textbf{a)} Điều kiện: $ab=2a+2b$.
+
+\step{1}{Chặn trên cho $a$}
+Vì $a\le b$ nên $2a+2b\le 2b+2b=4b$. Suy ra $ab\le 4b$. Chia hai vế cho $b>0$: $a\le 4$.
+
+\step{2}{Chặn dưới cho $a$}
+Vì $2a>0$ nên $ab=2a+2b>2b$. Chia hai vế cho $b>0$: $a>2$. Vậy $a=3$ hoặc $a=4$.
+
+\step{3}{Thử từng giá trị}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $a=3$: $3b=6+2b\Rightarrow b=6$. Hình chữ nhật $3\times 6$.
+\item $a=4$: $4b=8+2b\Rightarrow 2b=8\Rightarrow b=4$. Hình vuông $4\times 4$.
+\end{itemize}
+\begin{figC}\begin{scope}[x=0.45cm,y=0.45cm]
+\fill[tmBlue!15] (0,0) rectangle (6,3);\draw[Line] (0,0) grid[step=1] (6,3);\draw[tmBlue!80!black,line width=1pt] (0,0) rectangle (6,3);
+\node[below,font=\footnotesize] at (3,0){$S=18$, $C=18$};
+\begin{scope}[xshift=4cm]
+\fill[tmGreen!15] (0,0) rectangle (4,4);\draw[Line] (0,0) grid[step=1] (4,4);\draw[tmGreen!70!black,line width=1pt] (0,0) rectangle (4,4);
+\node[below,font=\footnotesize] at (2,0){$S=16$, $C=16$};
+\end{scope}
+\end{scope}\end{figC}
+
+\textbf{b)} Điều kiện: $ab=2\cdot 2(a+b)=4a+4b$.
+
+\step{4}{Chặn $a$ như trên}
+$ab=4a+4b\le 8b\Rightarrow a\le 8$; và $ab=4a+4b>4b\Rightarrow a>4$. Vậy $a\in\{5;6;7;8\}$.
+
+\step{5}{Thử từng giá trị}
+Từ $ab=4a+4b$ ta có $ab-4b=4a$, tức $b(a-4)=4a$, nên $b=\dfrac{4a}{a-4}$.
+\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+$a$ & $5$ & $6$ & $7$ & $8$\\\hline
+$b=\dfrac{4a}{a-4}$ & $\dfrac{20}{1}=20$ & $\dfrac{24}{2}=12$ & $\dfrac{28}{3}$ (không nguyên) & $\dfrac{32}{4}=8$\\\hline
+\end{tabular}\end{center}
+Có ba hình: $5\times 20$, $6\times 12$, $8\times 8$.
+
+\begin{proofbox}Vì sao không sót? Mọi hình chữ nhật thỏa mãn đều có cạnh ngắn $a$ nằm trong khoảng đã chặn,
+và với mỗi $a$, cạnh $b$ được xác định duy nhất từ phương trình. Ta đã thử hết các $a$ đó.\end{proofbox}
+\begin{tipbox}Cách khác cho câu a): $ab-2a-2b+4=4$, tức là $(a-2)(b-2)=4=1\cdot 4=2\cdot 2$. Suy ra
+$a-2=1,\ b-2=4$ hoặc $a-2=b-2=2$. Lại được $3\times 6$ và $4\times 4$.\end{tipbox}
+\verify{$3\times 6$: $S=18$, $C=2\cdot 9=18$. $4\times4$: $16=16$. $5\times 20$: $S=100$, $C=50$;
+$6\times 12$: $S=72$, $C=36$; $8\times 8$: $S=64$, $C=32$ -- đều gấp đôi.}
+\ans{a) $3\times 6$ và $4\times 4$. \quad b) $5\times 20$, $6\times 12$, $8\times 8$.}
+}
+
+% ---------------------------------------------------------------- 42
+\begin{probbox}{42}{\stars{1}}
+\textit{(Mở rộng Bài 17.)} Chữ P được viết ở ô trên -- phải của lưới $2\times 2$: \tbGrid{1.5}{1.5}{P}{}\,.
+Ta được dùng ba phép biến hình, bao nhiêu lần và theo thứ tự nào cũng được:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $Q$: quay lưới $90^\circ$ theo chiều kim đồng hồ quanh tâm;
+\item $D$: lật lưới qua đường thẳng \emph{đứng} đi qua tâm;
+\item $N$: lật lưới qua đường thẳng \emph{nằm ngang} đi qua tâm.
+\end{itemize}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Vẽ kết quả khi thực hiện $D$ rồi $N$. Có thể nhận được kết quả đó chỉ bằng các phép $Q$ không?
+\item Chứng tỏ rằng thực hiện $D$ rồi $Q$ cho cùng kết quả với một phép lật qua một \emph{đường chéo} của lưới.
+Đó là đường chéo nào?
+\item Có tất cả bao nhiêu hình khác nhau có thể nhận được (kể cả hình ban đầu)? Hãy giải thích vì sao không
+thể nhiều hơn.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Như trong Bài 17, ta coi lưới là một \emph{tấm thẻ} vuông trong suốt, có vẽ chữ P. Mỗi
+phép biến hình là một cách nhấc tấm thẻ lên rồi đặt lại vừa khít chỗ cũ. Để theo dõi, ta ghi nhớ hai điều:
+chữ P nằm ở ô nào, và nó bị quay/lật ra sao.
+
+\textbf{a)}
+\step{1}{Thực hiện $D$}
+Lật qua đường đứng: ô trên -- phải sang ô trên -- trái, chữ P bị ``soi gương'' (bụng quay sang trái).
+\step{2}{Thực hiện tiếp $N$}
+Lật qua đường ngang: ô trên -- trái xuống ô dưới -- trái, chữ bị lật ngược trên -- dưới. Kết quả: chữ P ở ô
+dưới -- trái, \emph{lộn đầu} (giống chữ ``d''), như hình thứ ba bên dưới.
+\begin{figC}
+\node at (0,0){\tbGrid{1.5}{1.5}{P}{}};\node at (1.15,0){$\xrightarrow{D}$};
+\node at (2.3,0){\tbGrid{0.5}{1.5}{P}{xscale=-1}};\node at (3.45,0){$\xrightarrow{N}$};
+\node at (4.6,0){\tbGrid{0.5}{0.5}{P}{rotate=180}};
+\node at (6.4,0){\small$=$ quay $180^\circ$};
+\end{figC}
+\step{3}{So sánh với các phép $Q$}
+Quay $Q$ hai lần (tức quay $180^\circ$): ô trên -- phải đi tới ô đối diện qua tâm là ô dưới -- trái, và chữ bị
+lộn đầu. Trùng với kết quả trên. Vậy \textbf{$D$ rồi $N$ cho cùng kết quả với $Q$ rồi $Q$.}
+\begin{recallbox}Hai lần lật qua hai đường vuông góc với nhau (cùng đi qua tâm) cho kết quả bằng một phép quay
+$180^\circ$ quanh tâm.\end{recallbox}
+
+\textbf{b)}
+\step{4}{Thực hiện $D$ rồi $Q$}
+$D$: chữ P sang ô trên -- trái, bị soi gương. $Q$ (quay $90^\circ$ theo chiều kim đồng hồ): ô trên -- trái sang ô
+trên -- phải. Kết quả: P \emph{trở về ô trên -- phải} nhưng thân nằm ngang, bụng ở phía trên:
+\begin{figC}
+\node at (0,0){\tbGrid{1.5}{1.5}{P}{}};\node at (1.15,0){$\xrightarrow{D}$};
+\node at (2.3,0){\tbGrid{0.5}{1.5}{P}{xscale=-1}};\node at (3.45,0){$\xrightarrow{Q}$};
+\node at (4.6,0){\tbGrid{1.5}{1.5}{P}{cm={0,1,1,0,(0,0)}}};
+\draw[tmOrange,dashed,line width=0.9pt] (4.05,-0.5)--(5.15,0.6);
+\end{figC}
+\step{5}{Nhận ra phép lật qua đường chéo}
+Ô trên -- phải không đổi chỗ, nghĩa là nó nằm trên trục lật. Đường chéo đi qua ô trên -- phải (và ô dưới -- trái)
+là đường chéo nối \textbf{góc dưới -- trái với góc trên -- phải} (nét đứt). Lật qua đường này: hướng ``lên''
+thành hướng ``sang phải'' và ngược lại, nên thân P (thẳng đứng) thành nằm ngang, bụng P (bên phải) thành ở
+phía trên -- đúng như hình. Có thể kiểm tra thêm: một chữ đặt ở ô trên -- trái sẽ chuyển sang ô dưới -- phải
+trong cả hai cách.
+
+\textbf{c)}
+\step{6}{Không thể có quá $8$ hình}
+\begin{proofbox}Đánh dấu góc trên -- phải của tấm thẻ bằng một ngôi sao. Mỗi lần đặt lại, ngôi sao chỉ có thể
+nằm ở $1$ trong $4$ góc của khung. Ngoài ra tấm thẻ chỉ có thể đang \emph{ngửa} hoặc \emph{úp} (mỗi lần lật
+$D$ hay $N$ đổi ngửa thành úp và ngược lại; quay $Q$ không đổi). Khi đã biết vị trí ngôi sao và thẻ ngửa hay
+úp thì vị trí của tấm thẻ, và do đó cả hình, được xác định hoàn toàn. Vậy có nhiều nhất $4\times 2=8$
+hình.\end{proofbox}
+\step{7}{Có đủ $8$ hình}
+Bốn hình ``thẻ ngửa'': quay $0^\circ$, $90^\circ$, $180^\circ$, $270^\circ$ (dùng $Q$ từ $0$ đến $3$ lần).
+Bốn hình ``thẻ úp'': mỗi hình trên thực hiện thêm $D$. Chữ P không có trục đối xứng nào, nên $8$ hình này
+khác nhau từng đôi một:
+\begin{figC}
+\node at (0,0){\tbGrid{1.5}{1.5}{P}{}};\node at (1.45,0){\tbGrid{1.5}{0.5}{P}{rotate=-90}};
+\node at (2.9,0){\tbGrid{0.5}{0.5}{P}{rotate=180}};\node at (4.35,0){\tbGrid{0.5}{1.5}{P}{rotate=90}};
+\node at (0,-1.3){\tbGrid{0.5}{1.5}{P}{xscale=-1}};\node at (1.45,-1.3){\tbGrid{0.5}{0.5}{P}{cm={0,-1,-1,0,(0,0)}}};
+\node at (2.9,-1.3){\tbGrid{1.5}{0.5}{P}{yscale=-1}};\node at (4.35,-1.3){\tbGrid{1.5}{1.5}{P}{cm={0,1,1,0,(0,0)}}};
+\node[anchor=east,font=\footnotesize] at (-0.7,0){thẻ ngửa};\node[anchor=east,font=\footnotesize] at (-0.7,-1.3){thẻ úp};
+\end{figC}
+\begin{warnbox}Đừng đếm ``$4$ ô $\times$ $8$ tư thế $=32$''. Vị trí ô và tư thế của chữ \emph{gắn liền} với
+nhau, vì chúng đi theo cùng một tấm thẻ.\end{warnbox}
+\ans{a) P ở ô dưới -- trái, lộn đầu; bằng $Q$ rồi $Q$ (quay $180^\circ$). \ b) Đường chéo nối góc dưới -- trái
+với góc trên -- phải. \ c) $8$ hình.}
+}
+
+% ---------------------------------------------------------------- 43
+\begin{probbox}{43}{\stars{1}}
+\textit{(Mở rộng Bài 18.)} Cho hình chữ nhật $ABCD$ với $AB=12$ cm, $BC=8$ cm. Điểm $P$ nằm bên trong hình chữ nhật.
+\begin{figC}\begin{scope}[x=0.36cm,y=0.36cm]
+\fill[tmBlue!25] (0,0)--(12,0)--(7,3)--cycle;\fill[tmOrange!25] (12,8)--(0,8)--(7,3)--cycle;
+\draw[Ink,line width=1pt] (0,0) rectangle (12,8);
+\draw[Ink] (0,0)--(7,3)--(12,0) (0,8)--(7,3)--(12,8);
+\fill[Ink] (7,3) circle (2.5pt);\node[right=2pt] at (7,3){$P$};
+\node[below left] at (0,0){$A$};\node[below right] at (12,0){$B$};\node[above right] at (12,8){$C$};\node[above left] at (0,8){$D$};
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Chứng minh rằng dù $P$ ở đâu, ta luôn có $S_{PAB}+S_{PCD}=48$ cm$^2$.
+\item Biết $S_{PAB}=18$ cm$^2$ và $S_{PBC}=20$ cm$^2$. Tính $S_{PCD}$, $S_{PDA}$ và khoảng cách từ $P$ đến
+bốn cạnh của hình chữ nhật.
+\item Có điểm $P$ nào bên trong hình chữ nhật mà $S_{PAB}=20$, $S_{PBC}=30$ và $S_{PCD}=30$ (cm$^2$) không?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cả bốn tam giác đều có đáy là một cạnh hình chữ nhật và đỉnh là $P$. Chiều cao của
+mỗi tam giác chính là \emph{khoảng cách từ $P$ đến cạnh đó}. Ta gọi khoảng cách từ $P$ đến $AB$, $BC$, $CD$,
+$DA$ lần lượt là $h_1,h_2,h_3,h_4$.
+\begin{figC}\begin{scope}[x=0.36cm,y=0.36cm]
+\draw[Ink,line width=1pt] (0,0) rectangle (12,8);
+\draw[tmBlue,thick,<->] (7,0.1)--(7,2.9);\draw[tmOrange!80!black,thick,<->] (7,3.1)--(7,7.9);
+\draw[tmGreen!70!black,thick,<->] (7.1,3)--(11.9,3);\draw[tmPurple,thick,<->] (0.1,3)--(6.9,3);
+\fill[Ink] (7,3) circle (2.5pt);
+\node[right,font=\footnotesize] at (7,1.5){$h_1$};\node[right,font=\footnotesize] at (7,5.5){$h_3$};
+\node[above,font=\footnotesize] at (9.5,3){$h_2$};\node[above,font=\footnotesize] at (3.5,3){$h_4$};
+\node[below left] at (0,0){$A$};\node[below right] at (12,0){$B$};\node[above right] at (12,8){$C$};\node[above left] at (0,8){$D$};
+\end{scope}\end{figC}
+
+\textbf{a)}
+\step{1}{Tổng hai chiều cao}
+Kẻ qua $P$ đường thẳng vuông góc với $AB$; vì $AB\parallel CD$ nên nó cũng vuông góc với $CD$. Đoạn nằm giữa
+$AB$ và $CD$ có độ dài bằng $BC=8$, và $P$ chia đoạn này thành hai phần $h_1$ và $h_3$. Vậy $h_1+h_3=8$.
+Tương tự $h_2+h_4=AB=12$.
+\step{2}{Cộng hai diện tích}
+\begin{recallbox}Diện tích tam giác $=\tfrac12\times$ đáy $\times$ chiều cao.\end{recallbox}
+\[ S_{PAB}+S_{PCD}=\frac{12\cdot h_1}{2}+\frac{12\cdot h_3}{2}=6(h_1+h_3)=6\cdot 8=48 \text{ (cm}^2). \]
+Kết quả không phụ thuộc vào vị trí của $P$. (Đó đúng bằng nửa diện tích hình chữ nhật $12\cdot 8=96$.)
+Tương tự, $S_{PBC}+S_{PDA}=\tfrac{8}{2}(h_2+h_4)=4\cdot 12=48$ cm$^2$.
+
+\textbf{b)}
+\step{3}{Dùng kết quả câu a}
+$S_{PCD}=48-18=30$ cm$^2$, \quad $S_{PDA}=48-20=28$ cm$^2$.
+\step{4}{Tính bốn khoảng cách}
+Từ $S=\tfrac12\cdot$ đáy $\cdot h$ suy ra $h=2S:$ đáy.
+\[ h_1=\frac{2\cdot 18}{12}=3,\quad h_2=\frac{2\cdot 20}{8}=5,\quad h_3=\frac{2\cdot 30}{12}=5,\quad h_4=\frac{2\cdot 28}{8}=7 \text{ (cm)}. \]
+
+\textbf{c)}
+\step{5}{Kiểm tra điều kiện bắt buộc}
+Theo câu a), luôn có $S_{PAB}+S_{PCD}=48$. Nhưng $20+30=50\ne 48$. Vậy \textbf{không có} điểm $P$ nào như thế.
+
+\begin{tipbox}Bài 18 là trường hợp đặc biệt: $P$ là tâm hình vuông nên bốn tam giác bằng nhau. Ở đây $P$ bất kì
+nhưng ``tổng hai tam giác đối diện'' vẫn luôn bằng nửa hình.\end{tipbox}
+\verify{$h_1+h_3=3+5=8=BC$ và $h_2+h_4=5+7=12=AB$. Đặt $A(0;0)$ thì $P(7;3)$ -- đúng là điểm trong hình vẽ.}
+\ans{b) $S_{PCD}=30$ cm$^2$, $S_{PDA}=28$ cm$^2$; khoảng cách đến $AB,BC,CD,DA$ là $3;5;5;7$ cm. \ c) Không có.}
+}
+
+% ---------------------------------------------------------------- 44
+\begin{probbox}{44}{\stars{1}}
+\textit{(Mở rộng Bài 22.)} Hình bình hành $ABCD$ có diện tích $48$ cm$^2$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Gọi $M$, $N$ lần lượt là trung điểm của $BC$ và $CD$. Tính diện tích tam giác $AMN$.
+\item Giữ $N$ là trung điểm của $CD$, nhưng lấy $M$ trên cạnh $BC$ sao cho $BM=3\,MC$. Tính diện tích tam giác $AMN$.
+\end{enumerate}
+\begin{figC}\begin{scope}[x=0.55cm,y=0.55cm]
+\fill[tmBlue!25] (0,0)--(7,2)--(5,4)--cycle;
+\draw[Ink,line width=1pt] (0,0)--(6,0)--(8,4)--(2,4)--cycle;
+\draw[tmBlue!80!black,line width=1pt] (0,0)--(7,2)--(5,4)--cycle;
+\node[below left] at (0,0){$A$};\node[below right] at (6,0){$B$};\node[above right] at (8,4){$C$};\node[above left] at (2,4){$D$};
+\node[right] at (7,2){$M$};\node[above] at (5,4){$N$};
+\end{scope}\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Tam giác $AMN$ nằm ``chéo'' bên trong hình bình hành. Ta lấy cả hình bình hành bỏ đi ba
+tam giác ở các góc: $ABM$, $MCN$ và $NDA$.
+\[ S_{AMN}=S_{ABCD}-S_{ABM}-S_{MCN}-S_{NDA}. \]
+\begin{recallbox}(1) Mỗi đường chéo chia hình bình hành thành hai tam giác có diện tích bằng nhau ($=24$ cm$^2$).
+(2) Hai tam giác chung đỉnh, có hai đáy nằm trên cùng một đường thẳng thì tỉ số diện tích bằng tỉ số hai đáy.
+\end{recallbox}
+
+\textbf{a)}
+\step{1}{Tam giác $ABM$}
+So với tam giác $ABC$ ($=24$): chung đỉnh $A$, đáy $BM=\tfrac12 BC$. Vậy $S_{ABM}=\tfrac12\cdot 24=12$.
+\step{2}{Tam giác $NDA$}
+So với tam giác $ACD$ ($=24$): chung đỉnh $A$, đáy $DN=\tfrac12 DC$. Vậy $S_{NDA}=12$.
+\step{3}{Tam giác $MCN$ (làm hai bước, như Bài 22)}
+Tam giác $BCD$ có diện tích $24$. Tam giác $MCD$ chung đỉnh $D$ với nó, đáy $CM=\tfrac12 CB$: $S_{MCD}=12$.
+Tam giác $MCN$ chung đỉnh $M$ với tam giác $MCD$, đáy $CN=\tfrac12 CD$: $S_{MCN}=\tfrac12\cdot 12=6$.
+\step{4}{Kết quả}
+$S_{AMN}=48-12-6-12=18$ cm$^2$.
+
+\textbf{b)}
+\step{5}{Làm lại với $MC=\tfrac14 BC$}
+Vì $BM=3\,MC$ nên $BC=4\,MC$, tức $MC=\tfrac14 BC$ và $BM=\tfrac34 BC$.
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $S_{ABM}=\tfrac34\cdot 24=18$;
+\item $S_{NDA}=12$ (không đổi);
+\item $S_{MCD}=\tfrac14\cdot 24=6$, rồi $S_{MCN}=\tfrac12\cdot 6=3$.
+\end{itemize}
+$S_{AMN}=48-18-3-12=15$ cm$^2$.
+
+\begin{tipbox}Quy tắc ``góc'': nếu trên hai cạnh của một tam giác, tính từ cùng một đỉnh, ta lấy các phần
+bằng $\tfrac{p}{q}$ và $\tfrac{r}{s}$ của cạnh, thì tam giác nhỏ ở góc đó có diện tích bằng
+$\tfrac{p}{q}\cdot\tfrac{r}{s}$ tam giác lớn. Ở câu b): $\tfrac14\cdot\tfrac12=\tfrac18$ của $24$ là $3$.\end{tipbox}
+\verify{Đặt $A(0;0)$, $B(8;0)$, $D(2;6)$, $C(10;6)$ (diện tích $8\cdot 6=48$). Câu a): $M(9;3)$, $N(6;6)$; bao tam giác
+$AMN$ bằng hình chữ nhật $9\times 6=54$, trừ $\tfrac{9\cdot3}{2}=13{,}5$, $\tfrac{3\cdot 3}{2}=4{,}5$,
+$\tfrac{6\cdot6}{2}=18$: còn $18$. Đúng.}
+\ans{a) $18$ cm$^2$. \quad b) $15$ cm$^2$.}
+}
+
+% ---------------------------------------------------------------- 45
+\begin{probbox}{45}{\stars{1}}
+\textit{(Mở rộng Bài 21.)} Xét các tam giác có độ dài ba cạnh là các số nguyên dương và chu vi bằng $15$
+(hai tam giác có cùng bộ ba độ dài cạnh chỉ tính là một).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Gọi $c$ là cạnh dài nhất. Chứng minh rằng $5\le c\le 7$.
+\item Có tất cả bao nhiêu tam giác như vậy? Hãy liệt kê.
+\item Trong đó có bao nhiêu tam giác cân? Bao nhiêu tam giác có \emph{đúng} hai cạnh bằng nhau?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Gọi ba cạnh là $a\le b\le c$ (sắp xếp từ nhỏ đến lớn để không đếm trùng). Ta có
+$a+b+c=15$, và theo bất đẳng thức tam giác chỉ cần kiểm tra $a+b>c$.
+\begin{recallbox}Ba đoạn $a\le b\le c$ là ba cạnh của một tam giác khi và chỉ khi $a+b>c$ (tổng hai cạnh nhỏ
+lớn hơn cạnh lớn nhất).\end{recallbox}
+
+\textbf{a)}
+\step{1}{Chặn trên}
+$a+b=15-c$. Điều kiện $a+b>c$ trở thành $15-c>c$, tức $2c<15$, $c<7{,}5$. Vì $c$ nguyên nên $c\le 7$.
+\step{2}{Chặn dưới}
+$c$ là cạnh lớn nhất nên $a\le c$, $b\le c$, suy ra $15=a+b+c\le 3c$, tức $c\ge 5$.
+
+\textbf{b)}
+\step{3}{Liệt kê theo $c$}
+Với mỗi $c$, ta có $a+b=15-c$ và $a\le b\le c$.
+\begin{center}\begin{tabular}{|c|c|l|c|}\hline
+$c$ & $a+b$ & Các cặp $(a;b)$ với $a\le b\le c$ & Số tam giác\\\hline
+$7$ & $8$ & $(1;7),\ (2;6),\ (3;5),\ (4;4)$ & $4$\\
+$6$ & $9$ & $(3;6),\ (4;5)$ \quad (không lấy $(2;7)$ vì $7>6$) & $2$\\
+$5$ & $10$ & $(5;5)$ & $1$\\\hline
+\end{tabular}\end{center}
+Tổng cộng $4+2+1=7$ tam giác:
+\[ (1;7;7),\ (2;6;7),\ (3;5;7),\ (4;4;7),\ (3;6;6),\ (4;5;6),\ (5;5;5). \]
+\begin{warnbox}Với $c=7$, cặp $(1;7)$ cho tam giác $1;7;7$ -- rất ``gầy'' nhưng vẫn hợp lệ vì $1+7=8>7$.
+Ngược lại, không có tam giác nào có cạnh $8$ vì khi đó hai cạnh còn lại có tổng $7<8$.\end{warnbox}
+
+\textbf{c)}
+\step{4}{Chọn ra các tam giác cân}
+Tam giác cân có ít nhất hai cạnh bằng nhau: $(1;7;7)$, $(4;4;7)$, $(3;6;6)$, $(5;5;5)$ -- có $4$ tam giác.
+Trong đó $(5;5;5)$ là tam giác đều (ba cạnh bằng nhau), nên có đúng hai cạnh bằng nhau là $3$ tam giác.
+\verify{Mỗi bộ đều có tổng $15$ và thỏa $a+b>c$: $8>7$, $8>7$, $8>7$, $8>7$, $9>6$, $9>6$, $10>5$. Đúng.}
+\ans{a) $5\le c\le 7$. \ b) $7$ tam giác. \ c) $4$ tam giác cân, trong đó $3$ tam giác có đúng hai cạnh bằng nhau.}
+}
+
+% ---------------------------------------------------------------- 46
+\begin{probbox}{46}{\stars{2}}
+\textit{(Mở rộng Bài 23.)} Trên lưới ô vuông (mỗi ô cạnh $1$), cho tam giác $ABC$ với $A(0;0)$, $B(12;0)$,
+$C(3;9)$. Có đúng $43$ giao điểm của các đường kẻ lưới nằm \emph{bên trong} (không nằm trên cạnh) tam giác.
+Với mỗi giao điểm $P$ như vậy, ta được ba tam giác $PAB$, $PBC$, $PCA$.
+\begin{figC}\begin{scope}[x=0.36cm,y=0.36cm]
+\draw[Line,line width=0.5pt] (0,0) grid[step=1] (12,9);
+\draw[Ink,line width=1.3pt] (0,0)--(12,0)--(3,9)--cycle;
+\node[below left] at (0,0){$A$};\node[below right] at (12,0){$B$};\node[above] at (3,9){$C$};
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Tính diện tích tam giác $ABC$.
+\item Tìm điểm $P$ sao cho ba tam giác $PAB$, $PBC$, $PCA$ có diện tích bằng nhau.
+\item Trong tất cả $3\cdot 43=129$ tam giác, có bao nhiêu tam giác có diện tích đúng bằng $\tfrac13$ diện tích
+tam giác $ABC$? Có bao nhiêu vị trí của $P$ cho ít nhất một tam giác như thế?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Đây là ``phiên bản một phần ba'' của Bài 23. Ý chính vẫn là: tam giác có đáy cố định thì
+diện tích chỉ phụ thuộc vào chiều cao, và các điểm có cùng chiều cao nằm trên một đường thẳng song song với đáy.
+
+\textbf{a)}
+\step{1}{Diện tích tam giác $ABC$}
+Đáy $AB=12$ nằm trên trục hoành, chiều cao là tung độ của $C$, bằng $9$:
+$S_{ABC}=\tfrac{12\cdot 9}{2}=54$. Một phần ba là $18$.
+
+\textbf{c)} (làm trước, câu b) suy ra ngay)
+\step{2}{Tam giác $PAB$ có diện tích $18$}
+Đáy $AB=12$ nên chiều cao phải là $2\cdot 18:12=3$, tức $P$ nằm trên đường ngang $y=3$.
+Trên đường này: cạnh $AC$ (đi ``sang phải $1$, lên $3$'') qua điểm $(1;3)$; cạnh $BC$ (đi ``sang trái $1$,
+lên $1$'' từ $B$) qua điểm $(9;3)$. Các điểm bên trong: $x=2,3,\dots,8$, tức $7$ điểm.
+
+\step{3}{Tam giác $PBC$ có diện tích $18$}
+\begin{proofbox}Lấy $E$ trên $AB$ với $EB=\tfrac13 AB=4$, tức $E(8;0)$. Tam giác $EBC$ và $ABC$ chung đỉnh $C$,
+đáy $EB=\tfrac13 AB$ nên $S_{EBC}=\tfrac13\cdot 54=18$. Do đó $S_{PBC}=18$ khi và chỉ khi $P$ cách $BC$ đúng
+bằng $E$, tức $P$ nằm trên đường thẳng qua $E$ song song với $BC$ (về phía trong tam giác).\end{proofbox}
+$BC$ có hướng ``sang trái $1$, lên $1$''. Từ $E(8;0)$ đi theo hướng đó: $(7;1)$, $(6;2)$, $(5;3)$, $(4;4)$, $(3;5)$,
+rồi $(2;6)$ -- điểm này nằm trên $AC$ (vì trên $AC$, tung độ gấp $3$ lần hoành độ), không tính. Có $5$ điểm.
+
+\step{4}{Tam giác $PCA$ có diện tích $18$}
+Tương tự, lấy $F$ trên $AB$ với $AF=4$, tức $F(4;0)$; $P$ phải nằm trên đường thẳng qua $F$ song song với $AC$
+(hướng ``sang phải $1$, lên $3$''): $(5;3)$, rồi $(6;6)$ -- nằm trên $BC$ (vì $6+6=12$), không tính. Có $1$ điểm.
+\begin{figC}\begin{scope}[x=0.36cm,y=0.36cm]
+\draw[Line,line width=0.5pt] (0,0) grid[step=1] (12,9);
+\draw[Ink,line width=1.3pt] (0,0)--(12,0)--(3,9)--cycle;
+\draw[tmBlue,line width=1pt] (1,3)--(9,3);
+\draw[tmOrange!90!black,line width=1pt] (8,0)--(2,6);
+\draw[tmGreen!70!black,line width=1pt] (4,0)--(6,6);
+\foreach \p in {(2,3),(3,3),(4,3),(6,3),(7,3),(8,3)}{\fill[tmBlue] \p circle (3pt);}
+\foreach \p in {(7,1),(6,2),(4,4),(3,5)}{\fill[tmOrange!90!black] \p circle (3pt);}
+\fill[AnsRed] (5,3) circle (4pt);
+\node[below left] at (0,0){$A$};\node[below right] at (12,0){$B$};\node[above] at (3,9){$C$};
+\node[below] at (8,0){$E$};\node[below] at (4,0){$F$};
+\end{scope}\end{figC}
+
+\step{5}{Đếm}
+Số tam giác: $7+5+1=13$. Điểm $(5;3)$ nằm trên cả ba đường (điểm đỏ), nên được đếm ba lần. Số vị trí khác
+nhau của $P$: $13-2=11$.
+
+\textbf{b)}
+\step{6}{Ba tam giác bằng nhau}
+Ba tam giác có tổng diện tích bằng $54$, nên bằng nhau khi mỗi tam giác bằng $18$, tức $P$ phải nằm trên
+\emph{cả ba} đường thẳng vừa tìm. Chỉ có một điểm như vậy: $P(5;3)$.
+
+\begin{tipbox}Điểm $(5;3)$ chính là \emph{trọng tâm} của tam giác: hoành độ $\tfrac{0+12+3}{3}=5$, tung độ
+$\tfrac{0+0+9}{3}=3$. Các em sẽ học kĩ về trọng tâm trong chương tam giác.\end{tipbox}
+\verify{Với $P(5;3)$: $S_{PAB}=\tfrac{12\cdot 3}{2}=18$. $S_{PCA}$: bao bằng hình chữ nhật $5\times 9=45$, trừ
+$\tfrac{3\cdot 9}{2}=13{,}5$ (góc trên -- trái), $\tfrac{2\cdot 6}{2}=6$ (góc trên -- phải),
+$\tfrac{5\cdot 3}{2}=7{,}5$ (góc dưới -- phải): còn $18$. Vậy $S_{PBC}=54-18-18=18$. Đúng.}
+\ans{a) $54$. \ b) $P(5;3)$. \ c) $13$ tam giác, ứng với $11$ vị trí của $P$.}
+}
+
+% ---------------------------------------------------------------- 47
+\begin{probbox}{47}{\stars{1}}
+\textit{(Mở rộng Bài 25.)} Ta lại xếp các hình chữ nhật $4\times 2$ thành ``cầu thang'' như Bài 25, nhưng lần này
+đỉnh trên -- trái của mỗi hình (từ hình thứ hai) đặt tại điểm trên cạnh dưới của hình ngay phía trên, cách đỉnh
+dưới -- trái của hình đó một khoảng $s$, với $s$ là $1$, $2$ hoặc $3$. (Bài 25 ứng với $s=2$.)
+\begin{figC}\begin{scope}[x=0.38cm,y=0.38cm]
+\foreach \i in {0,1,2,3}{\draw[Ink,line width=0.9pt] (\i,-2*\i) rectangle (\i+4,-2*\i+2);}
+\draw[tmBlue,<->] (0,-0.5)--(1,-0.5);\node[below,font=\footnotesize] at (0.5,-0.5){$s$};
+\node[above] at (2,2){$4$};\node[left] at (0,1){$2$};
+\foreach \k in {0,1,2}{\fill[Ink] (5.5+0.5*\k,-6.6-0.5*\k) circle (2.3pt);}
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Với $s=1$ và $10$ hình chữ nhật, tính chu vi của cả hình.
+\item Tìm công thức tính chu vi theo số hình $n$ và khoảng $s$.
+\item Có thể chọn $s\in\{1;2;3\}$ và số hình $n$ để chu vi đúng bằng $100$ không? Tìm tất cả các cách.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ở Bài 25 ta đã thấy chu vi ``cầu thang'' bằng chu vi hình chữ nhật nhỏ nhất bao quanh
+nó. Lập luận đó vẫn đúng với mọi $s$ (vì đường viền trên -- phải chỉ đi sang phải và đi xuống; đường viền dưới --
+trái cũng vậy). Vậy chỉ cần tính bề ngang và chiều cao của cả hình.
+\begin{recallbox}Hình ``cầu thang'' (đường viền chỉ đi sang phải/xuống ở mỗi phía) có chu vi bằng chu vi hình chữ
+nhật bao quanh nó: $2\times(\text{bề ngang}+\text{chiều cao})$.\end{recallbox}
+
+\textbf{b)} (làm trước vì câu a) suy ra ngay)
+\step{1}{Bề ngang và chiều cao}
+Mỗi hình mới lùi sang phải $s$. Hình đầu chiếm bề ngang $4$, mỗi hình sau thêm $s$:
+bề ngang $=4+(n-1)s$. Mỗi hình mới thấp xuống $2$: chiều cao $=2n$.
+\step{2}{Công thức}
+\[ C=2\big(4+(n-1)s+2n\big). \]
+
+\textbf{a)}
+\step{3}{Thay $s=1$, $n=10$}
+Bề ngang $4+9\cdot 1=13$, chiều cao $20$; $C=2(13+20)=66$.
+
+\textbf{c)}
+\step{4}{Xét từng giá trị của $s$}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $s=1$: $C=2(4+n-1+2n)=2(3n+3)=6n+6$. $6n+6=100\Rightarrow 6n=94$: không chia hết, loại.
+\item $s=2$: $C=2(4+2n-2+2n)=2(4n+2)=8n+4$. $8n+4=100\Rightarrow n=12$. Nhận.
+\item $s=3$: $C=2(4+3n-3+2n)=2(5n+1)=10n+2$. $10n+2=100\Rightarrow 10n=98$: loại.
+\end{itemize}
+Chỉ có một cách: $s=2$ và $n=12$.
+\begin{warnbox}Nhớ rằng chiều cao $2n$ không phụ thuộc $s$; chỉ bề ngang thay đổi. Nhiều bạn cộng nhầm cả
+những đoạn bị che bên trong.\end{warnbox}
+\verify{Câu a) đếm trực tiếp: cạnh đứng $10\cdot 4=40$; cạnh ngang phía trên $4+9\cdot 1=13$; phía dưới
+$9\cdot 1+4=13$. Tổng $66$. Đúng. Câu c): $s=2$, $n=12$: $8\cdot 12+4=100$. Đúng.}
+\ans{a) $66$. \ b) $C=2\big(4+(n-1)s+2n\big)$. \ c) Chỉ có $s=2$, $n=12$.}
+}
+
+% ---------------------------------------------------------------- 48
+\begin{probbox}{48}{\stars{1}}
+\textit{(Mở rộng Bài 27.)} Hình dưới đây gồm $15$ hình bình hành nhỏ giống nhau, xếp thành $3$ hàng, mỗi hàng
+$5$ hình. Hình bình hành nhỏ ở chính giữa được tô màu.
+\begin{figC}\begin{scope}[x=0.5cm,y=0.5cm]
+\fill[tmOrange!45] (5.4,1)--(7.6,1)--(8.6,2)--(6.4,2)--cycle;
+\foreach \k in {0,...,5}{\draw[Ink,line width=0.9pt] (2.2*\k,0)--(2.2*\k+3,3);}
+\foreach \j in {0,...,3}{\draw[Ink,line width=0.9pt] (\j,\j)--(\j+11,\j);}
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Trong hình có tất cả bao nhiêu hình bình hành?
+\item Có bao nhiêu hình bình hành chứa hình bình hành nhỏ được tô màu?
+\item Có bao nhiêu hình bình hành được ghép từ \emph{đúng} $4$ hình bình hành nhỏ?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Hình có $4$ đường ngang và $6$ đường xiên. Như Bài 27, mỗi hình bình hành ứng với một
+cách chọn $2$ đường ngang (cạnh trên, cạnh dưới) và $2$ đường xiên (cạnh trái, cạnh phải).
+\begin{recallbox}Số cách chọn $2$ đường từ $k$ đường là $\dfrac{k(k-1)}{2}$.\end{recallbox}
+
+\textbf{a)}
+\step{1}{Đếm}
+Chọn $2$ trong $4$ đường ngang: $\tfrac{4\cdot 3}{2}=6$ cách; chọn $2$ trong $6$ đường xiên: $\tfrac{6\cdot5}{2}=15$
+cách. Số hình bình hành: $6\times 15=90$.
+
+\textbf{b)}
+\step{2}{Điều kiện để chứa ô tô màu}
+Đánh số các đường ngang từ dưới lên là $0,1,2,3$; ô tô màu nằm giữa đường $1$ và đường $2$. Hình bình hành chứa ô
+này khi cạnh dưới là đường $0$ hoặc $1$ ($2$ cách) và cạnh trên là đường $2$ hoặc $3$ ($2$ cách).
+Đánh số các đường xiên từ trái sang là $0,1,\dots,5$; ô tô màu nằm giữa đường $2$ và đường $3$. Cạnh trái là đường
+$0$, $1$ hoặc $2$ ($3$ cách); cạnh phải là đường $3$, $4$ hoặc $5$ ($3$ cách).
+\step{3}{Nhân lại}
+$2\times 2\times 3\times 3=36$ hình bình hành.
+\begin{proofbox}Vì sao được nhân? Bốn lựa chọn (dưới, trên, trái, phải) độc lập với nhau: chọn thế nào cũng được
+đúng một hình bình hành chứa ô tô màu, và hình khác nhau ứng với lựa chọn khác nhau.\end{proofbox}
+
+\textbf{c)}
+\step{4}{Các ``kích thước'' gồm đúng $4$ ô}
+Một hình bình hành cao $h$ hàng, rộng $w$ cột gồm $h\times w$ ô. Cần $h\times w=4$ với $h\le 3$, $w\le 5$:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $h=1$, $w=4$: chọn hàng ($3$ cách), chọn $4$ cột liền nhau trong $5$ cột ($2$ cách): $3\cdot 2=6$;
+\item $h=2$, $w=2$: chọn $2$ hàng liền nhau ($2$ cách), chọn $2$ cột liền nhau ($4$ cách): $2\cdot 4=8$;
+\item $h=4$, $w=1$: không được vì chỉ có $3$ hàng.
+\end{itemize}
+Tổng: $6+8=14$.
+\begin{warnbox}Đừng quên kiểu $2\times 2$! Và hình cao $4$ hàng thì không có.\end{warnbox}
+\verify{Câu a) đếm theo hàng: hình cao $1$ hàng: $3\cdot 15=45$; cao $2$ hàng: $2\cdot 15=30$; cao $3$ hàng: $15$
+(mỗi dải có $5+4+3+2+1=15$ cách chọn cột). Tổng $90$. Khớp.}
+\ans{a) $90$. \ b) $36$. \ c) $14$.}
+}
+
+% ---------------------------------------------------------------- 49
+\begin{probbox}{49}{\stars{2}}
+\textit{(Mở rộng Bài 28, 29.)} Một hình hộp chữ nhật kích thước $4\times 5\times 6$ được ghép từ $120$ khối lập
+phương nhỏ cạnh $1$. Người ta sơn tất cả các mặt ngoài của hình hộp, rồi tách rời các khối nhỏ.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Có bao nhiêu khối nhỏ được sơn đúng $3$ mặt? đúng $2$ mặt? đúng $1$ mặt? không được sơn mặt nào?
+\item Tổng số mặt nhỏ (hình vuông $1\times 1$) được sơn là bao nhiêu? Giải thích vì sao kết quả bằng diện tích
+toàn phần của hình hộp.
+\item Một hình lập phương $n\times n\times n$ ($n\ge 3$) cũng được sơn và tách như vậy. Tìm $n$ để số khối nhỏ được
+sơn đúng $1$ mặt bằng số khối nhỏ không được sơn mặt nào.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Số mặt được sơn của một khối nhỏ phụ thuộc vào \emph{vị trí} của nó: ở đỉnh, trên cạnh,
+trên mặt hay nằm hẳn bên trong. Quan sát mặt trước (kích thước $6\times 4$) để thấy rõ:
+\begin{figC}\begin{scope}[x=0.5cm,y=0.5cm]
+\foreach \x in {0,...,5}{\foreach \z in {0,...,3}{
+  \pgfmathtruncatemacro\ex{(\x==0||\x==5)?1:0}\pgfmathtruncatemacro\ez{(\z==0||\z==3)?1:0}
+  \pgfmathtruncatemacro\t{\ex+\ez}
+  \ifnum\t=2 \fill[tmOrange!60] (\x,\z) rectangle (\x+1,\z+1);\fi
+  \ifnum\t=1 \fill[tmGreen!40] (\x,\z) rectangle (\x+1,\z+1);\fi
+  \ifnum\t=0 \fill[tmBlue!30] (\x,\z) rectangle (\x+1,\z+1);\fi}}
+\draw[Ink] (0,0) grid[step=1] (6,4);
+\foreach \x in {0,...,6}{\draw[Ink] (\x,4)--(\x+2.5,5.75);}
+\foreach \d in {0,...,5}{\draw[Ink] (0.5*\d,4+0.35*\d)--(6+0.5*\d,4+0.35*\d);}
+\foreach \z in {0,...,4}{\draw[Ink] (6,\z)--(8.5,\z+1.75);}
+\foreach \d in {0,...,5}{\draw[Ink] (6+0.5*\d,0.35*\d)--(6+0.5*\d,4+0.35*\d);}
+\draw[Ink,line width=1.1pt] (0,0)--(6,0)--(8.5,1.75)--(8.5,5.75)--(2.5,5.75)--(0,4)--cycle (0,4)--(6,4)--(6,0) (6,4)--(8.5,5.75);
+\node[below,font=\footnotesize] at (3,0){$6$};\node[left,font=\footnotesize] at (0,2){$4$};\node[right,font=\footnotesize] at (7.3,0.6){$5$};
+\begin{scope}[xshift=5.2cm,yshift=0.4cm,font=\footnotesize]
+\fill[tmOrange!60] (0,3) rectangle (0.6,3.6);\node[right] at (0.7,3.3){đỉnh: $3$ mặt sơn};
+\fill[tmGreen!40] (0,2) rectangle (0.6,2.6);\node[right] at (0.7,2.3){trên cạnh: $2$ mặt};
+\fill[tmBlue!30] (0,1) rectangle (0.6,1.6);\node[right] at (0.7,1.3){giữa một mặt: $1$ mặt};
+\end{scope}
+\end{scope}\end{figC}
+
+\textbf{a)}
+\step{1}{Khối ở đỉnh: $3$ mặt sơn}
+Hình hộp có $8$ đỉnh, mỗi đỉnh có đúng một khối: $8$ khối.
+\step{2}{Khối trên cạnh (trừ hai đầu): $2$ mặt sơn}
+Hình hộp có $12$ cạnh: $4$ cạnh dài $4$, $4$ cạnh dài $5$, $4$ cạnh dài $6$. Trên một cạnh dài $L$ có $L$ khối, bỏ
+$2$ khối ở hai đầu (đã đếm ở đỉnh) còn $L-2$ khối:
+\[ 4\cdot(4-2)+4\cdot(5-2)+4\cdot(6-2)=8+12+16=36. \]
+\step{3}{Khối ở giữa một mặt: $1$ mặt sơn}
+Trên một mặt $p\times q$, bỏ đi viền ngoài còn $(p-2)(q-2)$ ô. Hình hộp có $2$ mặt $4\times5$, $2$ mặt $4\times 6$,
+$2$ mặt $5\times 6$:
+\[ 2\cdot(2\cdot 3)+2\cdot(2\cdot 4)+2\cdot(3\cdot 4)=12+16+24=52. \]
+\step{4}{Khối nằm hẳn bên trong: không sơn}
+Bóc đi ``lớp vỏ'' dày $1$ ở mọi phía, còn lại một hình hộp $(4-2)\times(5-2)\times(6-2)=2\times 3\times 4=24$ khối.
+\verify{$8+36+52+24=120$ -- đúng bằng tổng số khối.}
+
+\textbf{b)}
+\step{5}{Đếm mặt nhỏ được sơn}
+$8\cdot 3+36\cdot 2+52\cdot 1+24\cdot 0=24+72+52=148$.
+\begin{recallbox}Diện tích toàn phần hình hộp $a\times b\times c$ là $2(ab+bc+ca)$.\end{recallbox}
+$2(4\cdot5+5\cdot6+6\cdot4)=2(20+30+24)=148$. Hai kết quả bằng nhau vì mỗi ô vuông $1\times 1$ trên mặt ngoài
+hình hộp chính là đúng một mặt nhỏ được sơn của đúng một khối -- ta chỉ đếm cùng một tập hợp theo hai cách.
+
+\textbf{c)}
+\step{6}{Lập phương trình}
+Với hình lập phương $n\times n\times n$: mỗi mặt có $(n-2)^2$ ô ở giữa, $6$ mặt cho $6(n-2)^2$ khối sơn đúng $1$
+mặt; phần bên trong là hình lập phương $(n-2)^3$ khối. Cần:
+\[ (n-2)^3=6(n-2)^2. \]
+\step{7}{Giải}
+Vì $n\ge 3$ nên $(n-2)^2>0$; chia hai vế cho $(n-2)^2$: $n-2=6$, tức $n=8$.
+\begin{warnbox}Điều kiện $n\ge 3$ quan trọng: với $n=2$ thì cả hai số đều bằng $0$ (``bằng nhau'' một cách tầm
+thường), và ta không được chia cho $0$.\end{warnbox}
+\verify{$n=8$: $6\cdot 6^2=216$ và $6^3=216$. Đúng.}
+\ans{a) $8$; $36$; $52$; $24$ khối. \ b) $148$. \ c) $n=8$.}
+}
+
+% ---------------------------------------------------------------- 50
+\begin{probbox}{50}{\stars{2}}
+\textit{(Mở rộng Bài 19, 25.)} Ghép $10$ ô vuông cạnh $1$ thành một hình phẳng sao cho: hai ô kề nhau thì ghép
+trùng khít một cạnh, và hình ``liền một khối'' (từ ô bất kì có thể đi đến ô bất kì khác qua các cạnh chung).
+Chu vi của hình là tổng độ dài các cạnh ô không bị ô khác che.
+\begin{figC}\begin{scope}[x=0.38cm,y=0.38cm]
+\foreach \c in {(0,0),(1,0),(2,0),(2,1),(3,1),(4,1),(4,2),(1,1),(4,0),(5,1)}{\fill[tmBlue!30,draw=Ink] \c rectangle ++(1,1);}
+\node[font=\footnotesize] at (3,-0.8){một ví dụ};
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
+\item Chứng tỏ chu vi luôn là một số chẵn.
+\item Chu vi lớn nhất có thể là bao nhiêu?
+\item Chu vi nhỏ nhất có thể là bao nhiêu?
+\item Những số nào có thể là chu vi của một hình như vậy?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Gọi $k$ là số \emph{cạnh chung} (cạnh mà hai ô ghép vào nhau). Ý chính: mỗi cạnh chung
+làm ``mất'' hai cạnh ô khỏi chu vi.
+
+\textbf{a)}
+\step{1}{Công thức chu vi}
+$10$ ô có tất cả $10\cdot 4=40$ cạnh ô. Mỗi cạnh chung là cạnh của hai ô và không nằm trên chu vi; mọi cạnh ô
+còn lại nằm trên chu vi. Do đó
+\[ C=40-2k. \]
+$40$ và $2k$ đều chẵn nên $C$ chẵn.
+
+\textbf{b)}
+\step{2}{Hình liền khối có ít nhất $9$ cạnh chung}
+\begin{proofbox}Ta dựng lại hình bằng cách đặt từng ô một: bắt đầu từ một ô bất kì, mỗi lần đặt thêm một ô kề với
+một ô đã đặt (luôn làm được vì hình liền khối). Mỗi ô thêm vào tạo ra ít nhất $1$ cạnh chung mới. Có $9$ lần đặt
+thêm nên $k\ge 9$.\end{proofbox}
+\step{3}{Kết luận}
+$C=40-2k\le 40-18=22$. Dấu bằng xảy ra với hàng thẳng $1\times 10$: chu vi $2(10+1)=22$. Vậy chu vi lớn nhất là $22$.
+
+\textbf{c)}
+\step{4}{So sánh với hình chữ nhật bao quanh}
+Gọi hình chữ nhật nhỏ nhất (cạnh theo lưới) chứa cả hình là $a\times b$ ($a$ cột, $b$ hàng).
+\begin{proofbox}Mỗi cột của hình chữ nhật bao có ít nhất một ô. Ô cao nhất trong cột có cạnh trên nằm trên chu vi,
+ô thấp nhất có cạnh dưới nằm trên chu vi: mỗi cột góp ít nhất $2$ đơn vị cạnh ngang. Tương tự mỗi hàng góp ít nhất
+$2$ đơn vị cạnh đứng. Vậy $C\ge 2a+2b=2(a+b)$.\end{proofbox}
+\step{5}{Chặn $a+b$}
+Hình chữ nhật bao chứa $10$ ô nên $ab\ge 10$. Nếu $a+b\le 6$ thì $ab\le 9$ (các cặp có tổng $6$: $1\cdot5=5$,
+$2\cdot4=8$, $3\cdot3=9$; tổng nhỏ hơn còn cho tích nhỏ hơn) -- vô lí. Vậy $a+b\ge 7$ và $C\ge 14$.
+\step{6}{Có hình đạt $14$}
+Hình chữ nhật $2\times 5$: chu vi $2(2+5)=14$. Vậy chu vi nhỏ nhất là $14$.
+
+\textbf{d)}
+\step{7}{Các giá trị có thể}
+Từ a), b), c): $C$ chẵn và $14\le C\le 22$, nên $C\in\{14;16;18;20;22\}$. Mỗi giá trị đều đạt được bằng các hình
+``hai hàng'' sau (dùng ý của Bài 25: đường viền là cầu thang nên chu vi bằng chu vi hình chữ nhật bao quanh):
+\begin{figC}\begin{scope}[x=0.3cm,y=0.3cm]
+\foreach \top/\bot/\xs/\lab in {5/5/0/14,6/4/6.5/16,7/3/14/18,8/2/22.5/20}{
+  \foreach \i in {1,...,\top}{\fill[tmBlue!30,draw=Ink] (\xs+\i-1,1) rectangle ++(1,1);}
+  \foreach \i in {1,...,\bot}{\fill[tmBlue!30,draw=Ink] (\xs+\i-1,0) rectangle ++(1,1);}
+  \node[font=\footnotesize] at (\xs+\top/2,-0.9){$C=\lab$};}
+\foreach \i in {1,...,10}{\fill[tmGreen!35,draw=Ink] (\i-1,-4) rectangle ++(1,1);}
+\node[font=\footnotesize,anchor=west] at (10.5,-3.5){$C=22$};
+\end{scope}\end{figC}
+Hàng trên $5,6,7,8$ ô, hàng dưới $5,4,3,2$ ô: hình chữ nhật bao là $5\times2$, $6\times 2$, $7\times 2$, $8\times 2$,
+chu vi lần lượt $14,16,18,20$; và hàng thẳng cho $22$.
+\begin{warnbox}Không phải cứ ``gọn'' là chu vi nhỏ: hình $3\times 3$ thêm một ô lồi ra có chu vi $12+2=14$, bằng
+hình $2\times 5$, chứ không nhỏ hơn.\end{warnbox}
+\verify{Hình $6+4$: $k=5+3+4=12$, $C=40-24=16$. Hình $8+2$: $k=7+1+2=10$, $C=40-20=20$. Đúng.}
+\ans{a) $C=40-2k$ chẵn. \ b) $22$. \ c) $14$. \ d) $14$, $16$, $18$, $20$, $22$.}
+}

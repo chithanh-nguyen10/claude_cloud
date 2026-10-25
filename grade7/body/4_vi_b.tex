@@ -1,0 +1,589 @@
+% ============================================================
+% Topic 4 -- Số học và Tư duy số -- part b: problems 16--30 (VI)
+% ============================================================
+
+\begin{probbox}{16}{\relax}
+Trung bình cộng của năm số nguyên liên tiếp bằng $21$. Số nhỏ nhất trong năm số đó là
+\choices{$17$}{$21$}{$1$}{$18$}{$19$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta có \emph{năm số nguyên liên tiếp} (mỗi số hơn số đứng trước đúng $1$ đơn vị). Biết trung bình cộng của chúng là $21$. Cần tìm số \emph{nhỏ nhất}.
+
+\begin{recallbox}Trung bình cộng của một nhóm số $=$ (tổng các số) $:$ (số các số). Do đó: tổng các số $=$ trung bình cộng $\times$ số các số.\end{recallbox}
+
+\step{1}{Tìm tổng của năm số}
+Tổng của năm số là $21\times 5=105$.
+
+\step{2}{Gọi tên năm số theo số ở giữa}
+Gọi số đứng giữa (số thứ ba) là $n$. Khi đó năm số liên tiếp là
+\[n-2,\quad n-1,\quad n,\quad n+1,\quad n+2.\]
+Cộng lại: $(n-2)+(n-1)+n+(n+1)+(n+2)=5n$ (các số $-2$ và $+2$, $-1$ và $+1$ triệt tiêu nhau).
+
+\step{3}{Tìm số ở giữa rồi suy ra số nhỏ nhất}
+Ta có $5n=105$, nên $n=105:5=21$. Năm số là $19,\ 20,\ 21,\ 22,\ 23$. Số nhỏ nhất là $n-2=19$.
+
+\begin{figC}
+\draw[->,thick,Navy] (-0.5,0)--(6.6,0);
+\foreach \x/\lab in {0/18,1/19,2/20,3/21,4/22,5/23,6/24}{\draw[Navy,line width=0.8pt] (\x,0.08)--(\x,-0.08); \node[below,text=Ink] at (\x,-0.1) {$\lab$};}
+\foreach \x in {1,2,3,4,5}{\fill[KidOrange] (\x,0) circle (2.7pt);}
+\draw[<->,tmBlue] (1,0.45)--(3,0.45) node[midway,above,font=\footnotesize]{lùi $2$};
+\draw[<->,tmBlue] (3,0.45)--(5,0.45) node[midway,above,font=\footnotesize]{tiến $2$};
+\node[tmGreen!70!black,font=\footnotesize\bfseries] at (3,1.1) {số ở giữa $=$ trung bình cộng};
+\end{figC}
+
+\begin{proofbox}Với một số \emph{lẻ} các số nguyên liên tiếp, các số đứng đối xứng hai bên số ở giữa ``bù trừ'' cho nhau (một số kém $1$, một số hơn $1$; một số kém $2$, một số hơn $2$\dots). Vì thế tổng bằng (số ở giữa) $\times$ (số các số), tức là trung bình cộng đúng bằng số ở giữa.\end{proofbox}
+
+\begin{warnbox}Đừng chọn ngay $21$: đó là số \emph{ở giữa}, không phải số nhỏ nhất. Cũng đừng lấy $21-4=17$: từ số giữa đến số nhỏ nhất chỉ lùi $2$ bước, không phải $4$.\end{warnbox}
+
+\verify{$19+20+21+22+23=105$ và $105:5=21$. Đúng.}
+Số nhỏ nhất là $19$, ứng với phương án \textbf{(E)}.
+\ans{(E) $19$}
+}
+
+\begin{probbox}{17}{\relax}
+Có bao nhiêu số nguyên dương (kể cả số $1$) là ước của cả hai số $40$ và $72$?
+\choices{$9$}{$12$}{$4$}{$2$}{$5$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Một số ``là ước của cả $40$ và $72$'' nghĩa là $40$ chia hết cho số đó \emph{và} $72$ cũng chia hết cho số đó. Đó chính là các \emph{ước chung} của $40$ và $72$. Ta cần đếm chúng.
+
+\begin{recallbox}Số $d$ là ước của $a$ nếu $a$ chia hết cho $d$. Ước chung của hai số là số vừa là ước của số này vừa là ước của số kia. Ước chung lớn nhất (ƯCLN) là số lớn nhất trong các ước chung.\end{recallbox}
+
+\step{1}{Liệt kê các ước của $40$}
+Ta tìm theo từng cặp nhân bằng $40$: $1\times 40$, $2\times 20$, $4\times 10$, $5\times 8$. Vậy
+\[\text{Ư}(40)=\{1;\ 2;\ 4;\ 5;\ 8;\ 10;\ 20;\ 40\}.\]
+
+\step{2}{Liệt kê các ước của $72$}
+Các cặp nhân bằng $72$: $1\times 72$, $2\times 36$, $3\times 24$, $4\times 18$, $6\times 12$, $8\times 9$. Vậy
+\[\text{Ư}(72)=\{1;\ 2;\ 3;\ 4;\ 6;\ 8;\ 9;\ 12;\ 18;\ 24;\ 36;\ 72\}.\]
+
+\step{3}{Chọn các số có mặt trong cả hai danh sách}
+So sánh hai danh sách, các số chung là $1,\ 2,\ 4,\ 8$. Vậy có $4$ ước chung.
+
+\begin{tipbox}Có cách nhanh hơn: các ước chung của hai số chính là các ước của ƯCLN của chúng. Ta có $40=2^3\cdot 5$ và $72=2^3\cdot 3^2$, nên $\text{ƯCLN}(40,72)=2^3=8$. Các ước của $8$ là $1,2,4,8$: đúng $4$ số.\end{tipbox}
+
+\begin{proofbox}Nếu $d$ là ước của cả $40$ và $72$ thì $d$ cũng là ước của hiệu $72-40=32$, rồi của $40-32=8$. Ngược lại, mọi ước của $8$ đều là ước của $40=8\cdot 5$ và của $72=8\cdot 9$. Vậy ``ước chung của $40$ và $72$'' và ``ước của $8$'' là cùng một tập hợp.\end{proofbox}
+
+\begin{warnbox}Phương án $12$ là số ước của riêng $72$; phương án $9$ hay $5$ thường do đếm sót hoặc đếm nhầm. Câu hỏi hỏi ước \emph{chung}.\end{warnbox}
+
+\verify{$40:1,\ 40:2=20,\ 40:4=10,\ 40:8=5$; $72:1,\ 72:2=36,\ 72:4=18,\ 72:8=9$ -- tất cả đều chia hết. Còn $3,6,9$ không là ước của $40$; $5,10$ không là ước của $72$.}
+Có $4$ số, ứng với phương án \textbf{(C)}.
+\ans{(C) $4$}
+}
+
+\begin{probbox}{18}{\relax}
+Số cần điền vào ô trống để có đẳng thức đúng $\dfrac{3}{7}=\dfrac{\square}{63}$ là
+\choices{$27$}{$9$}{$59$}{$63$}{$3$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Hai phân số bằng nhau; mẫu số đã đổi từ $7$ thành $63$. Ta cần tìm tử số mới.
+
+\begin{recallbox}\textbf{Tính chất cơ bản của phân số:} nếu nhân cả tử và mẫu của một phân số với cùng một số khác $0$ thì được một phân số bằng nó: $\dfrac{a}{b}=\dfrac{a\cdot m}{b\cdot m}\ (m\neq 0)$.\end{recallbox}
+
+\step{1}{Mẫu số đã được nhân với bao nhiêu?}
+$63:7=9$, nên mẫu $7$ đã được nhân với $9$ để thành $63$.
+
+\step{2}{Nhân tử số với cùng số đó}
+Để phân số không đổi, tử số cũng phải nhân với $9$: $3\times 9=27$. Vậy
+\[\frac{3}{7}=\frac{3\cdot 9}{7\cdot 9}=\frac{27}{63}.\]
+
+\begin{warnbox}Phương án $9$ là \emph{số nhân}, không phải tử số mới. Phương án $59$ đến từ lỗi ``cộng thêm'': $63-7=56$ rồi $3+56=59$ -- cộng cùng một số vào tử và mẫu \emph{không} giữ nguyên phân số.\end{warnbox}
+
+\verify{Nhân chéo: $3\times 63=189$ và $7\times 27=189$. Hai tích bằng nhau nên hai phân số bằng nhau.}
+Số cần điền là $27$, ứng với phương án \textbf{(A)}.
+\ans{(A) $27$}
+}
+
+\begin{probbox}{19}{\relax}
+Một phân số bằng phân số $\dfrac{5}{8}$. Tổng của tử số và mẫu số của nó bằng $91$. Hiệu của mẫu số và tử số của phân số đó là bao nhiêu?
+\choices{$21$}{$3$}{$33$}{$13$}{$19$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Phân số cần tìm bằng $\dfrac58$, nên tử số và mẫu số ``chia phần'' theo tỉ lệ $5:8$. Biết tử $+$ mẫu $=91$. Cần tìm mẫu $-$ tử.
+
+\begin{recallbox}Mọi phân số bằng $\dfrac{5}{8}$ đều có dạng $\dfrac{5k}{8k}$ với $k$ là số nguyên dương nào đó (nhân cả tử và mẫu với $k$).\end{recallbox}
+
+\step{1}{Vẽ sơ đồ đoạn thẳng}
+Coi tử số gồm $5$ phần bằng nhau, mẫu số gồm $8$ phần như thế.
+\begin{barfig}
+\rowlab{-0.15}{0.5}{Tử số}
+\foreach \i in {0,...,4}{\blk{\i*0.8}{\i*0.8+0.8}{0.5}{0.5}{tmBlue}{}}
+\rowlab{-0.15}{-0.3}{Mẫu số}
+\foreach \i in {0,...,7}{\blk{\i*0.8}{\i*0.8+0.8}{-0.3}{0.5}{tmOrange}{}}
+\brcup{0}{4}{0.9}{$5$ phần}
+\brcdn{0}{6.4}{-0.7}{$8$ phần}
+\vbrace{6.6}{0.75}{-0.55}{tổng $=91$}
+\end{barfig}
+
+\step{2}{Tìm giá trị một phần}
+Tổng số phần là $5+8=13$ phần, ứng với $91$. Một phần là $91:13=7$.
+
+\step{3}{Tìm tử số, mẫu số và hiệu}
+Tử số $=5\times 7=35$; mẫu số $=8\times 7=56$. Phân số là $\dfrac{35}{56}$.\\
+Hiệu mẫu $-$ tử $=56-35=21$ (cũng chính là $3$ phần: $3\times 7=21$).
+
+\begin{warnbox}Phương án $3$ là hiệu $8-5$ của phân số $\dfrac58$ ban đầu, chưa nhân với giá trị một phần. Phương án $13$ là số phần, không phải hiệu.\end{warnbox}
+
+\verify{$35+56=91$; rút gọn $\dfrac{35}{56}=\dfrac{35:7}{56:7}=\dfrac58$. Đúng.}
+Hiệu là $21$, ứng với phương án \textbf{(A)}.
+\ans{(A) $21$}
+}
+
+\begin{probbox}{20}{\relax}
+Chị Lan lái ô tô với vận tốc $80$ km/h trên một con đường có các cột điện dựng cách đều nhau. Cứ $4$ giây xe lại đi qua một cột điện. Khoảng cách giữa hai cột điện liền nhau gần nhất với giá trị nào?
+\choices{$50$ m}{$60$ m}{$70$ m}{$80$ m}{$90$ m}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Trong $4$ giây, xe đi được đúng khoảng cách giữa hai cột liền nhau. Vậy ta cần tính quãng đường xe đi trong $4$ giây khi vận tốc là $80$ km/h. Chú ý: vận tốc tính theo \emph{km và giờ}, còn thời gian tính theo \emph{giây}, đáp án tính theo \emph{mét} -- phải đổi đơn vị.
+
+\begin{recallbox}Quãng đường $=$ vận tốc $\times$ thời gian. $1$ km $=1000$ m; $1$ giờ $=60$ phút $=3600$ giây.\end{recallbox}
+
+\step{1}{Đổi vận tốc ra mét mỗi giây}
+$80$ km/h nghĩa là trong $3600$ giây xe đi $80\,000$ m. Trong $1$ giây xe đi
+\[80\,000:3600=\frac{80\,000}{3600}=\frac{200}{9}\approx 22{,}2\ \text{m}.\]
+
+\step{2}{Tính quãng đường đi trong $4$ giây}
+\[\frac{200}{9}\times 4=\frac{800}{9}\approx 88{,}9\ \text{m}.\]
+
+\step{3}{So sánh với các phương án}
+$88{,}9$ m cách $90$ m khoảng $1{,}1$ m, cách $80$ m khoảng $8{,}9$ m. Vậy gần nhất là $90$ m.
+
+\begin{tipbox}Cách nghĩ khác: trong $1$ giờ $=3600$ giây xe đi qua $3600:4=900$ khoảng cách giữa hai cột. $900$ khoảng dài tổng cộng $80\,000$ m, nên mỗi khoảng dài $80\,000:900\approx 88{,}9$ m.\end{tipbox}
+
+\begin{warnbox}Nếu quên đổi đơn vị và lấy $80\times 4=320$ thì sẽ không khớp phương án nào. Nếu đổi $1$ giờ $=60$ giây (sai, phải là $3600$ giây) cũng ra kết quả vô lí.\end{warnbox}
+
+\verify{$90$ m mỗi $4$ giây là $22{,}5$ m/s, tức $22{,}5\times 3600=81\,000$ m/h $=81$ km/h, rất gần $80$ km/h. Hợp lí.}
+Chọn phương án \textbf{(E)}.
+\ans{(E) $90$ m}
+}
+
+\begin{probbox}{21}{\relax}
+Các số $334$ và $419$ đều có tích các chữ số bằng $36$ (vì $3\cdot 3\cdot 4=36$ và $4\cdot 1\cdot 9=36$). Có tất cả bao nhiêu số nguyên dương có ba chữ số mà tích các chữ số bằng $36$?
+\choices{$21$}{$15$}{$18$}{$24$}{$12$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Một số có ba chữ số $\nd{abc}$ có tích các chữ số $a\cdot b\cdot c=36$. Không chữ số nào được bằng $0$ (nếu có chữ số $0$ thì tích bằng $0$). Cách làm gọn gàng: \emph{trước hết} tìm các bộ ba chữ số (không kể thứ tự) có tích $36$, \emph{sau đó} đếm xem mỗi bộ xếp được thành bao nhiêu số.
+
+\step{1}{Tìm mọi bộ ba chữ số (từ $1$ đến $9$) có tích bằng $36$}
+Ta sắp mỗi bộ theo thứ tự $a\le b\le c$ và xét chữ số nhỏ nhất $a$.
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $a=1$: cần $b\cdot c=36$ với $1\le b\le c\le 9$: $36=4\cdot 9=6\cdot 6$ (còn $1\cdot 36$, $2\cdot 18$, $3\cdot 12$ có số lớn hơn $9$). Được $\{1,4,9\}$ và $\{1,6,6\}$.
+\item $a=2$: cần $b\cdot c=18$ với $2\le b\le c\le 9$: $18=2\cdot 9=3\cdot 6$. Được $\{2,2,9\}$ và $\{2,3,6\}$.
+\item $a=3$: cần $b\cdot c=12$ với $3\le b\le c$: $12=3\cdot 4$. Được $\{3,3,4\}$.
+\item $a\ge 4$: khi đó $a\cdot b\cdot c\ge 4\cdot 4\cdot 4=64>36$, không có bộ nào.
+\end{itemize}
+Vậy có đúng $5$ bộ: $\{1,4,9\},\ \{1,6,6\},\ \{2,2,9\},\ \{2,3,6\},\ \{3,3,4\}$.
+
+\begin{recallbox}\textbf{Đếm cách xếp:} ba chữ số \emph{khác nhau} xếp được $3\cdot 2\cdot 1=6$ số (chọn chữ số hàng trăm: $3$ cách, hàng chục: $2$ cách, hàng đơn vị: $1$ cách). Ba chữ số mà có \emph{hai chữ số giống nhau} chỉ xếp được $3$ số (chỉ cần chọn vị trí cho chữ số khác biệt).\end{recallbox}
+
+\step{2}{Đếm số các số tạo được từ mỗi bộ}
+\begin{center}
+\begin{tabular}{|c|c|l|c|}
+\hline
+\rowcolor{Tint}\textbf{Bộ chữ số} & \textbf{Loại} & \textbf{Các số tạo được} & \textbf{Số lượng}\\
+\hline
+$\{1,4,9\}$ & khác nhau & $149,194,419,491,914,941$ & $6$\\
+$\{2,3,6\}$ & khác nhau & $236,263,326,362,623,632$ & $6$\\
+$\{1,6,6\}$ & có $2$ số giống & $166,616,661$ & $3$\\
+$\{2,2,9\}$ & có $2$ số giống & $229,292,922$ & $3$\\
+$\{3,3,4\}$ & có $2$ số giống & $334,343,433$ & $3$\\
+\hline
+\multicolumn{3}{|r|}{\textbf{Tổng}} & $\mathbf{21}$\\
+\hline
+\end{tabular}
+\end{center}
+
+\step{3}{Cộng lại}
+$6+6+3+3+3=21$ số.
+
+\begin{warnbox}Hai lỗi hay gặp: (1) quên bộ có chữ số $1$ (như $\{1,4,9\}$, $\{1,6,6\}$) vì chỉ nghĩ đến cách tách $36$ thành ba số ``lớn hơn $1$''; (2) coi bộ có hai chữ số giống nhau cũng xếp được $6$ số -- khi đó sẽ đếm trùng (ví dụ $334$ bị đếm hai lần).\end{warnbox}
+
+\verify{Bảng trên liệt kê đủ $21$ số, có cả hai số $334$ và $419$ mà đề bài nêu. Kiểm tra bằng máy tính (duyệt tất cả các số từ $100$ đến $999$) cũng cho đúng $21$ số.}
+Chọn phương án \textbf{(A)}.
+\ans{(A) $21$}
+}
+
+\begin{probbox}{22}{\relax}
+Một \emph{dãy cách đều} là dãy số mà mỗi số hạng (từ số hạng thứ hai) bằng số hạng đứng trước cộng thêm một số không đổi. Ví dụ: $2,4,6,8$ và $1,4,7,10$ là các dãy cách đều.
+
+Trong bảng dưới đây, các số trên mỗi hàng (đọc từ trái sang phải) tạo thành một dãy cách đều, và các số trên mỗi cột (đọc từ trên xuống) cũng tạo thành một dãy cách đều. Giá trị của $x$ là
+\begin{figC}
+\foreach \rr in {0,1,2,3}{\foreach \cc in {0,1,2,3}{\draw[Navy,line width=0.9pt,fill=white] (\cc*1.1,-\rr*0.8) rectangle (\cc*1.1+1.1,-\rr*0.8-0.8);}}
+\node at (0.55,-0.4) {$1$};
+\node at (0.55,-1.2) {$4$}; \node at (3.85,-1.2) {$25$};
+\node at (0.55,-2.0) {$7$}; \node at (3.85,-2.0) {$x$};
+\node at (0.55,-2.8) {$10$}; \node at (2.75,-2.8) {$36$};
+\end{figC}
+\choices{$37$}{$28$}{$36$}{$43{,}75$}{$46$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Bảng có $4$ hàng, $4$ cột. Mỗi hàng và mỗi cột là một dãy cách đều. Ta cần tìm số $x$ ở hàng $3$, cột $4$. Ý tưởng: dùng các hàng đã biết đủ hai số để tìm thêm số, rồi dùng cột $4$ để tìm $x$.
+
+\begin{recallbox}Một dãy cách đều có $4$ số hạng viết được là $a,\ a+d,\ a+2d,\ a+3d$ ($d$ là khoảng cách không đổi). Từ số đầu đến số cuối có $3$ khoảng cách, nên $d=(\text{số cuối}-\text{số đầu}):3$. Nếu biết số thứ nhất và số thứ ba thì $d=(\text{số thứ ba}-\text{số thứ nhất}):2$.\end{recallbox}
+
+\step{1}{Hàng $2$: $4,\ \_,\ \_,\ 25$}
+Từ $4$ đến $25$ có $3$ khoảng: $d=(25-4):3=21:3=7$. Hàng $2$ là $4,\ 11,\ 18,\ 25$.
+
+\step{2}{Hàng $4$: $10,\ \_,\ 36,\ \_$}
+Từ số thứ nhất $10$ đến số thứ ba $36$ có $2$ khoảng: $d=(36-10):2=26:2=13$. Hàng $4$ là $10,\ 23,\ 36,\ 49$. Vậy ô cuối của hàng $4$ là $49$.
+
+\step{3}{Cột $4$: $\_,\ 25,\ x,\ 49$}
+Trong cột $4$, số $x$ đứng giữa $25$ và $49$, cách mỗi số một khoảng bằng nhau. Do đó $x$ là trung bình cộng của chúng:
+\[x=\frac{25+49}{2}=\frac{74}{2}=37.\]
+(Khoảng cách của cột $4$ là $37-25=12$, nên số đầu cột là $25-12=13$.)
+
+\step{4}{Điền đầy đủ bảng để kiểm tra}
+\begin{figC}
+\foreach \rr in {0,1,2,3}{\foreach \cc in {0,1,2,3}{\draw[Navy,line width=0.9pt,fill=white] (\cc*1.1,-\rr*0.8) rectangle (\cc*1.1+1.1,-\rr*0.8-0.8);}}
+\foreach \cc/\val in {0/1,1/5,2/9,3/13}{\node at (\cc*1.1+0.55,-0.4) {$\val$};}
+\foreach \cc/\val in {0/4,1/11,2/18,3/25}{\node at (\cc*1.1+0.55,-1.2) {$\val$};}
+\foreach \cc/\val in {0/7,1/17,2/27}{\node at (\cc*1.1+0.55,-2.0) {$\val$};}
+\node[text=AnsRed,font=\bfseries] at (3.85,-2.0) {$37$};
+\foreach \cc/\val in {0/10,1/23,2/36,3/49}{\node at (\cc*1.1+0.55,-2.8) {$\val$};}
+\node[anchor=west,font=\footnotesize,text=Slate] at (4.6,-0.4) {$+4$};
+\node[anchor=west,font=\footnotesize,text=Slate] at (4.6,-1.2) {$+7$};
+\node[anchor=west,font=\footnotesize,text=Slate] at (4.6,-2.0) {$+10$};
+\node[anchor=west,font=\footnotesize,text=Slate] at (4.6,-2.8) {$+13$};
+\end{figC}
+Cột $1$: $1,4,7,10$ (cách $3$); cột $2$: $5,11,17,23$ (cách $6$); cột $3$: $9,18,27,36$ (cách $9$); cột $4$: $13,25,37,49$ (cách $12$). Mọi hàng, mọi cột đều cách đều.
+
+\begin{warnbox}Không được tìm $x$ bằng cách nhìn hàng $3$ trước: hàng $3$ mới chỉ biết một số ($7$), chưa đủ để tìm khoảng cách. Phải đi ``vòng'' qua hàng $2$, hàng $4$ rồi mới đến cột $4$.\end{warnbox}
+
+\verify{Hàng $3$: $7,17,27,37$ cách đều $10$; cột $4$: $25,37,49$ cách đều $12$. Đúng.}
+$x=37$, ứng với phương án \textbf{(A)}.
+\ans{(A) $37$}
+}
+
+\begin{probbox}{23}{\relax}
+Trong số có sáu chữ số $\nd{1ABCDE}$, mỗi chữ cái biểu thị một chữ số. Biết rằng $\nd{1ABCDE}\times 3=\nd{ABCDE1}$. Giá trị của $A+B+C+D+E$ là
+\choices{$29$}{$26$}{$22$}{$30$}{$28$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Khi nhân số $\nd{1ABCDE}$ với $3$, chữ số $1$ ở đầu ``chạy'' xuống cuối, còn khối $ABCDE$ dịch sang trái một hàng. Ta cần tìm các chữ số $A,B,C,D,E$ rồi tính tổng. Có hai cách giải; cả hai đều rất đáng học.
+
+\begin{recallbox}\textbf{Cấu tạo số:} viết thêm một chữ số $c$ vào bên phải số $N$ thì được số $10\cdot N+c$; viết chữ số $1$ vào bên trái một số $N$ có năm chữ số thì được số $100\,000+N$.\end{recallbox}
+
+\textbf{Cách 1: Đặt ẩn cho cả khối.}
+\step{1}{Gọi $N=\nd{ABCDE}$ (một số có năm chữ số)}
+Khi đó $\nd{1ABCDE}=100\,000+N$ và $\nd{ABCDE1}=10N+1$.
+\step{2}{Lập đẳng thức và tìm $N$}
+\[3\cdot(100\,000+N)=10N+1\ \Longrightarrow\ 300\,000+3N=10N+1.\]
+Bớt $3N$ và bớt $1$ ở cả hai vế: $299\,999=7N$, nên $N=299\,999:7=42\,857$.
+\step{3}{Đọc các chữ số}
+$A=4,\ B=2,\ C=8,\ D=5,\ E=7$. Tổng: $4+2+8+5+7=26$.
+
+\textbf{Cách 2: Nhân từng hàng từ phải sang trái (như đặt tính).}
+\[\begin{array}{r@{\;}c@{\;}c@{\;}c@{\;}c@{\;}c@{\;}c}
+ & 1 & A & B & C & D & E\\
+\times & & & & & & 3\\ \hline
+ & A & B & C & D & E & 1
+\end{array}\]
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item Hàng đơn vị: $3\cdot E$ tận cùng là $1$ $\Rightarrow$ $E=7$ ($3\cdot 7=21$, viết $1$ nhớ $2$).
+\item Hàng chục: $3\cdot D+2$ tận cùng là $E=7$ $\Rightarrow$ $3D$ tận cùng là $5$ $\Rightarrow$ $D=5$ ($15+2=17$, viết $7$ nhớ $1$).
+\item Hàng trăm: $3\cdot C+1$ tận cùng là $D=5$ $\Rightarrow$ $3C$ tận cùng là $4$ $\Rightarrow$ $C=8$ ($24+1=25$, viết $5$ nhớ $2$).
+\item Hàng nghìn: $3\cdot B+2$ tận cùng là $C=8$ $\Rightarrow$ $3B$ tận cùng là $6$ $\Rightarrow$ $B=2$ ($6+2=8$, nhớ $0$).
+\item Hàng chục nghìn: $3\cdot A+0$ tận cùng là $B=2$ $\Rightarrow$ $A=4$ ($12$, viết $2$ nhớ $1$).
+\item Hàng trăm nghìn: $3\cdot 1+1=4$, đúng bằng $A=4$. Phép nhân khớp hoàn toàn.
+\end{itemize}
+(Mỗi bước chỉ có một chữ số thỏa mãn, vì các tích $3\cdot 0, 3\cdot 1,\dots,3\cdot 9$ có chữ số tận cùng khác nhau.)
+
+\begin{tipbox}Số $142\,857$ là một số rất nổi tiếng: $142\,857\times 2=285\,714$, $\times 3=428\,571$, $\times 4=571\,428$, $\times 5=714\,285$, $\times 6=857\,142$ -- luôn là các chữ số $1,4,2,8,5,7$ ``xoay vòng''. Nó liên quan đến $\dfrac17=0{,}(142857)$.\end{tipbox}
+
+\verify{$142\,857\times 3=428\,571$. Đúng là $\nd{ABCDE1}$ với $ABCDE=42857$.}
+$A+B+C+D+E=26$, ứng với phương án \textbf{(B)}.
+\ans{(B) $26$}
+}
+
+\begin{probbox}{24}{\relax}
+Trên mặt phẳng tọa độ, một chấm tròn xuất phát từ điểm $(20;19)$. Ở lần di chuyển thứ nhất, chấm đi $1$ đơn vị theo phương ngang hoặc phương dọc, tức là tới một trong các điểm $(21;19)$, $(19;19)$, $(20;20)$ hoặc $(20;18)$. Ở lần thứ hai, chấm đi $2$ đơn vị theo phương vuông góc với lần thứ nhất (theo chiều nào cũng được). Mỗi lần tiếp theo, quãng di chuyển dài hơn lần trước $1$ đơn vị ($3$ đơn vị, $4$ đơn vị, $5$ đơn vị,\dots) và phải vuông góc với phương của lần ngay trước đó. Chấm dừng lại sau $10$ lần di chuyển. Điểm nào sau đây \textbf{không thể} là vị trí cuối cùng của chấm?
+\choices{$(27;33)$}{$(30;40)$}{$(21;21)$}{$(42;44)$}{$(37;37)$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} ``Vuông góc với lần trước'' nghĩa là các lần di chuyển \emph{xen kẽ}: ngang, dọc, ngang, dọc,\dots\ (hoặc dọc, ngang, dọc,\dots). Độ dài các lần là $1,2,3,\dots,10$. Ta theo dõi riêng sự thay đổi của hoành độ (tọa độ thứ nhất, do các bước ngang) và tung độ (tọa độ thứ hai, do các bước dọc).
+
+\begin{recallbox}Điểm $(x;y)$: $x$ là hoành độ (đi ngang sang phải thì $x$ tăng, sang trái thì $x$ giảm), $y$ là tung độ (đi lên thì $y$ tăng, đi xuống thì $y$ giảm). Tổng của một số lẻ các số lẻ là số lẻ; tổng (hay hiệu) các số chẵn luôn là số chẵn.\end{recallbox}
+
+\step{1}{Chia các bước thành hai nhóm}
+Các lần thứ $1,3,5,7,9$ cùng một phương, có độ dài $1,3,5,7,9$ (đều lẻ). Các lần thứ $2,4,6,8,10$ cùng phương còn lại, có độ dài $2,4,6,8,10$ (đều chẵn).
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item Nếu lần đầu đi \emph{ngang}: hoành độ thay đổi $\pm1\pm3\pm5\pm7\pm9$, tung độ thay đổi $\pm2\pm4\pm6\pm8\pm10$.
+\item Nếu lần đầu đi \emph{dọc}: ngược lại, hoành độ thay đổi $\pm2\pm4\pm6\pm8\pm10$, tung độ thay đổi $\pm1\pm3\pm5\pm7\pm9$.
+\end{itemize}
+(Dấu $+$ hay $-$ tùy chấm đi theo chiều nào.)
+
+\step{2}{Tính chất chẵn -- lẻ}
+$\pm1\pm3\pm5\pm7\pm9$ là tổng/hiệu của $5$ số lẻ nên luôn là số \emph{lẻ}, và nhiều nhất là $25$. Còn $\pm2\pm4\pm6\pm8\pm10$ luôn là số \emph{chẵn}, nhiều nhất là $30$. Vậy trong hai độ thay đổi (của hoành độ và tung độ) phải có đúng một số lẻ (lấy từ nhóm lẻ) và một số chẵn (lấy từ nhóm chẵn).
+
+\begin{proofbox}Lấy tổng ``toàn dấu cộng'' $1+3+5+7+9=25$. Đổi dấu một số $k$ từ $+$ sang $-$ làm tổng giảm đi $2k$. Vậy mọi giá trị có dạng $25-2s$, trong đó $s$ là tổng các số bị đổi dấu. Tương tự, nhóm chẵn cho các giá trị $30-2s$.\end{proofbox}
+
+\step{3}{Tính độ thay đổi cho từng phương án}
+Lấy tọa độ cuối trừ $(20;19)$:
+\begin{center}
+\small\begin{tabularx}{\linewidth}{|c|c|c|X|}
+\hline
+\rowcolor{Tint}\textbf{Phương án} & \textbf{Hoành độ thay đổi} & \textbf{Tung độ thay đổi} & \textbf{Có đạt được không?}\\
+\hline
+(A) $(27;33)$ & $7$ & $14$ & $1+3+5+7-9=7$; $2+4+6-8+10=14$ \\
+(B) $(30;40)$ & $10$ & $21$ & phải có $\pm1\pm3\pm5\pm7\pm9=21$ \dots\\
+(C) $(21;21)$ & $1$ & $2$ & $1-3+5+7-9=1$; $2-4+6+8-10=2$\\
+(D) $(42;44)$ & $22$ & $25$ & $2-4+6+8+10=22$; $1+3+5+7+9=25$\\
+(E) $(37;37)$ & $17$ & $18$ & $-1-3+5+7+9=17$; $2+4-6+8+10=18$\\
+\hline
+\end{tabularx}
+\end{center}
+
+\step{4}{Vì sao (B) không thể}
+Ở (B), độ thay đổi lẻ là $21$, nên phải có $\pm1\pm3\pm5\pm7\pm9=21$, tức $25-2s=21$, hay $s=2$: phải đổi dấu một nhóm số lẻ có tổng bằng $2$. Nhưng một số lẻ thì không bằng $2$ (chỉ có thể là $1,3,5,\dots$), còn hai số lẻ khác nhau trong nhóm có tổng ít nhất $1+3=4$. Không có cách nào! Vậy chấm không thể dừng ở $(30;40)$.
+
+\step{5}{Một ví dụ đường đi minh họa (phương án D)}
+Lần đầu đi lên: lên $1$, phải $2$, lên $3$, trái $4$, lên $5$, phải $6$, lên $7$, phải $8$, lên $9$, phải $10$. Chấm từ $(20;19)$ tới $(42;44)$.
+\begin{figC}\begin{scope}[scale=0.17]
+\draw[Line,line width=0.3pt] (-3,-1) grid (23,26);
+\draw[tmBlue,line width=1.4pt,->] (0,0)--(0,1)--(2,1)--(2,4)--(-2,4)--(-2,9)--(4,9)--(4,16)--(12,16)--(12,25)--(22,25);
+\fill[tmGreen] (0,0) circle (10pt); \fill[AnsRed] (22,25) circle (10pt);
+\node[below right,font=\scriptsize,text=tmGreen!70!black] at (0,0) {$(20;19)$};
+\node[below,font=\scriptsize,text=AnsRed] at (22,24.6) {$(42;44)$};
+\end{scope}\end{figC}
+
+\begin{warnbox}Chỉ kiểm tra ``điểm có quá xa không'' là chưa đủ: $(30;40)$ không hề xa hơn $(42;44)$. Điều quyết định là tính chẵn -- lẻ và các tổng có thể tạo được.\end{warnbox}
+
+\verify{Mỗi đẳng thức trong bảng đều tính lại được, ví dụ $-1-3+5+7+9=17$. Duyệt bằng máy tính toàn bộ $2\cdot 2^{10}=2048$ cách đi cũng xác nhận: chỉ $(30;40)$ là không đạt được.}
+Chọn phương án \textbf{(B)}.
+\ans{(B) $(30;40)$}
+}
+
+\begin{probbox}{25}{\relax}
+Trong trò chơi ``Ba đồng xu'', người chơi tung cùng lúc ba đồng xu. Người chơi thắng nếu cả ba đồng xu đều ngửa hoặc cả ba đều sấp. Nếu chỉ chơi một lần thì xác suất thắng là bao nhiêu?
+\choices{$\dfrac16$}{$\dfrac14$}{$\dfrac{2}{27}$}{$\dfrac23$}{$\dfrac13$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi đồng xu có $2$ mặt: ngửa (N) hoặc sấp (S), khả năng như nhau. Thắng khi ba đồng ra NNN hoặc SSS. Ta liệt kê mọi kết quả có thể rồi đếm.
+
+\begin{recallbox}Khi các kết quả có khả năng xảy ra như nhau: \emph{xác suất} của một biến cố $=$ (số kết quả thuận lợi) $:$ (tổng số kết quả có thể).\end{recallbox}
+
+\step{1}{Liệt kê mọi kết quả bằng sơ đồ cây}
+\begin{figC}\begin{scope}[level distance=1.9cm,grow'=right,
+  level 1/.style={sibling distance=2.4cm},level 2/.style={sibling distance=1.2cm},level 3/.style={sibling distance=0.6cm},
+  every node/.style={font=\footnotesize\bfseries}, edge from parent/.style={draw=tmBlue!70,thick}]
+\node[text=Ink] {Tung}
+  child {node[text=tmOrange] {N}
+    child {node[text=tmOrange] {N} child {node[text=AnsRed] {N \ $\to$ NNN (thắng)}} child {node[text=Slate] {S \ $\to$ NNS}}}
+    child {node[text=tmOrange] {S} child {node[text=Slate] {N \ $\to$ NSN}} child {node[text=Slate] {S \ $\to$ NSS}}}}
+  child {node[text=tmPurple] {S}
+    child {node[text=tmPurple] {N} child {node[text=Slate] {N \ $\to$ SNN}} child {node[text=Slate] {S \ $\to$ SNS}}}
+    child {node[text=tmPurple] {S} child {node[text=Slate] {N \ $\to$ SSN}} child {node[text=AnsRed] {S \ $\to$ SSS (thắng)}}}};
+\node[font=\scriptsize,text=Slate] at (1.9,2.55) {đồng $1$};
+\node[font=\scriptsize,text=Slate] at (3.8,2.55) {đồng $2$};
+\node[font=\scriptsize,text=Slate] at (5.7,2.55) {đồng $3$};
+\end{scope}\end{figC}
+Đồng thứ nhất có $2$ khả năng, với mỗi khả năng đó đồng thứ hai có $2$ khả năng, rồi đồng thứ ba có $2$ khả năng: tổng cộng $2\cdot2\cdot2=8$ kết quả, có khả năng như nhau.
+
+\step{2}{Đếm kết quả thuận lợi}
+Chỉ có $2$ kết quả thắng: NNN và SSS.
+
+\step{3}{Tính xác suất}
+\[P(\text{thắng})=\frac{2}{8}=\frac14.\]
+
+\begin{warnbox}Một lập luận \emph{sai} hay gặp: ``Số mặt ngửa có thể là $0,1,2,3$ -- bốn trường hợp, thắng ở $2$ trường hợp ($0$ và $3$), nên xác suất là $\dfrac24$.'' Sai vì bốn trường hợp này \emph{không} có khả năng như nhau: ``$1$ mặt ngửa'' xảy ra theo $3$ cách (NSS, SNS, SSN), còn ``$3$ mặt ngửa'' chỉ có $1$ cách.\end{warnbox}
+
+\begin{tipbox}Cách nghĩ nhanh: đồng thứ nhất ra mặt gì cũng được. Để thắng, đồng thứ hai phải giống đồng thứ nhất (xác suất $\dfrac12$) và đồng thứ ba cũng phải giống (xác suất $\dfrac12$): $\dfrac12\cdot\dfrac12=\dfrac14$.\end{tipbox}
+
+\verify{$8$ kết quả trong sơ đồ cây khác nhau và đầy đủ; đúng $2$ kết quả thắng. $\dfrac28=\dfrac14$.}
+Chọn phương án \textbf{(B)}.
+\ans{(B) $\dfrac14$}
+}
+
+\begin{probbox}{26}{\relax}
+Cho tam giác $PQR$ vuông tại $Q$ và $PQ=QR$. Các đoạn thẳng $QS$, $TU$ và $VW$ vuông góc với $PR$; các đoạn thẳng $ST$ và $UV$ vuông góc với $QR$ (như hình vẽ). Phần tô đậm chiếm bao nhiêu phần diện tích tam giác $PQR$?
+\begin{figC}\begin{scope}[scale=0.42]
+\coordinate (Q) at (0,0); \coordinate (R) at (8,0); \coordinate (P) at (0,8);
+\coordinate (S) at (4,4); \coordinate (T) at (4,0); \coordinate (U) at (6,2); \coordinate (V) at (6,0); \coordinate (W) at (7,1);
+\fill[tmBlue!35] (S)--(T)--(U)--cycle; \fill[tmBlue!35] (U)--(V)--(W)--cycle;
+\draw[Navy,line width=1pt] (P)--(Q)--(R)--cycle;
+\draw[Navy,line width=0.8pt] (Q)--(S)--(T)--(U)--(V)--(W);
+\draw[Navy,line width=0.5pt] (0,0.5)--(0.5,0.5)--(0.5,0);
+\node[above] at (P) {$P$}; \node[below left] at (Q) {$Q$}; \node[below right] at (R) {$R$};
+\node[above right] at (S) {$S$}; \node[below] at (T) {$T$}; \node[above right] at (U) {$U$}; \node[below] at (V) {$V$}; \node[above right] at (W) {$W$};
+\end{scope}\end{figC}
+\choices{$\dfrac{3}{16}$}{$\dfrac38$}{$\dfrac{5}{16}$}{$\dfrac{5}{32}$}{$\dfrac{7}{32}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Tam giác $PQR$ là tam giác \emph{vuông cân} tại $Q$. Hình vẽ được tạo ra bằng cách cứ ``hạ đường vuông góc'' liên tiếp. Phần tô đậm gồm hai tam giác: $STU$ và $UVW$. Ý tưởng chính: \emph{mỗi lần hạ đường vuông góc từ đỉnh góc vuông của một tam giác vuông cân, ta chia nó thành hai nửa bằng nhau, mỗi nửa lại là tam giác vuông cân.}
+
+\begin{recallbox}Trong tam giác cân, đường cao kẻ từ đỉnh (xuống cạnh đáy) cũng là đường trung tuyến, chia tam giác thành hai tam giác bằng nhau. Tam giác vuông cân có hai góc nhọn bằng $45^\circ$.\end{recallbox}
+
+\begin{proofbox}Xét tam giác $XYZ$ vuông cân tại $X$ ($XY=XZ$), kẻ $XH\perp YZ$. Hai tam giác vuông $XHY$ và $XHZ$ có cạnh huyền $XY=XZ$ và cạnh góc vuông $XH$ chung, nên bằng nhau (cạnh huyền -- cạnh góc vuông). Vậy mỗi tam giác có diện tích bằng một nửa tam giác $XYZ$. Hơn nữa, $\widehat{Y}=45^\circ$ và $\widehat{XHY}=90^\circ$ nên $\widehat{HXY}=45^\circ$: tam giác $XHY$ vuông cân tại $H$. Tương tự với tam giác $XHZ$.\end{proofbox}
+
+\step{1}{Chia đôi liên tiếp}
+Gọi diện tích tam giác $PQR$ là $1$ (cả tam giác).
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $QS\perp PR$ chia $PQR$ thành hai nửa: tam giác $QSR$ có diện tích $\dfrac12$, vuông cân tại $S$.
+\item $ST\perp QR$ chia $QSR$ thành hai nửa: tam giác $STR$ có diện tích $\dfrac14$, vuông cân tại $T$.
+\item $TU\perp SR$ chia $STR$ thành hai nửa: tam giác $STU$ \textbf{(tô đậm)} có diện tích $\dfrac18$; tam giác $TUR$ có diện tích $\dfrac18$, vuông cân tại $U$.
+\item $UV\perp TR$ chia $TUR$ thành hai nửa: tam giác $UVR$ có diện tích $\dfrac1{16}$, vuông cân tại $V$.
+\item $VW\perp UR$ chia $UVR$ thành hai nửa: tam giác $UVW$ \textbf{(tô đậm)} có diện tích $\dfrac1{32}$.
+\end{itemize}
+
+\step{2}{Cộng diện tích phần tô đậm}
+\[\frac18+\frac1{32}=\frac{4}{32}+\frac{1}{32}=\frac{5}{32}.\]
+
+\step{3}{Kiểm tra bằng lưới ô vuông}
+Đặt $Q$ ở gốc, mỗi cạnh góc vuông dài $8$ ô: $Q(0;0)$, $R(8;0)$, $P(0;8)$. Khi đó $S(4;4)$, $T(4;0)$, $U(6;2)$, $V(6;0)$, $W(7;1)$ (như hình). Tam giác $PQR$ có diện tích $\dfrac{8\cdot 8}{2}=32$ ô. Tam giác $STU$ có cạnh $ST=4$ (thẳng đứng) và đỉnh $U$ cách $ST$ một đoạn $2$, nên diện tích $\dfrac{4\cdot 2}{2}=4$ ô. Tam giác $UVW$ có $UV=2$, $W$ cách $UV$ một đoạn $1$, diện tích $\dfrac{2\cdot1}{2}=1$ ô. Tô đậm: $4+1=5$ ô trên $32$ ô, tức $\dfrac5{32}$.
+
+\begin{recallbox}Diện tích tam giác $=\dfrac{\text{cạnh đáy}\times\text{chiều cao}}{2}$.\end{recallbox}
+
+\begin{warnbox}Nhiều bạn chọn $\dfrac{3}{16}$ hay $\dfrac38$ vì ``nhìn hình ước lượng''. Hãy luôn tính bằng chuỗi chia đôi: mỗi tam giác nhỏ hơn bằng một nửa tam giác chứa nó.\end{warnbox}
+
+\verify{Hai cách (chia đôi và đếm ô) cùng cho $\dfrac{5}{32}$.}
+Chọn phương án \textbf{(D)}.
+\ans{(D) $\dfrac{5}{32}$}
+}
+
+\begin{probbox}{27}{\relax}
+Chị Mai đến một phiên chợ đồ cũ. Ở đó, cứ sau mỗi $15$ phút, giá của mọi món hàng lại được giảm $10\%$ so với giá \emph{hiện tại} của nó. Lúc $9\,$h$\,00$, một tấm thảm có giá $100\,000$ đồng. Lúc $9\,$h$\,15$, giá tấm thảm giảm còn $90\,000$ đồng. Ngay khi giá tấm thảm xuống \emph{dưới} $80\,000$ đồng, chị Mai mua nó. Chị Mai mua tấm thảm lúc mấy giờ?
+\choicesII{$9\,$h$\,45$}{$9\,$h$\,15$}{$9\,$h$\,30$}{$10\,$h$\,15$}{$10\,$h$\,00$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi lần giảm giá là giảm $10\%$ của \emph{giá đang có} (không phải của giá ban đầu $100\,000$ đồng). Ta tính giá sau từng mốc $15$ phút cho đến khi giá nhỏ hơn $80\,000$ đồng.
+
+\begin{recallbox}Giảm $10\%$ một số nghĩa là bớt đi $\dfrac{10}{100}=\dfrac1{10}$ của số đó; phần còn lại là $90\%$ số đó. Vậy: giá mới $=$ giá cũ $\times 0{,}9$ (hoặc giá cũ $-$ giá cũ $:10$).\end{recallbox}
+
+\step{1}{Lập bảng giá theo thời gian}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{Tint}\textbf{Thời điểm} & \textbf{Giá trước khi giảm} & \textbf{Số tiền giảm ($10\%$)} & \textbf{Giá mới}\\
+\hline
+$9\,$h$\,00$ & -- & -- & $100\,000$\\
+$9\,$h$\,15$ & $100\,000$ & $10\,000$ & $90\,000$\\
+$9\,$h$\,30$ & $90\,000$ & $9\,000$ & $81\,000$\\
+$9\,$h$\,45$ & $81\,000$ & $8\,100$ & $\mathbf{72\,900}$\\
+\hline
+\end{tabular}
+\end{center}
+
+\step{2}{Tìm lần đầu tiên giá dưới $80\,000$ đồng}
+Lúc $9\,$h$\,30$ giá là $81\,000$ đồng -- vẫn \emph{lớn hơn} $80\,000$ đồng, chị Mai chưa mua. Lúc $9\,$h$\,45$ giá là $72\,900$ đồng $<80\,000$ đồng: đây là lần đầu giá xuống dưới $80\,000$ đồng. Chị Mai mua lúc $9\,$h$\,45$.
+
+\begin{warnbox}(1) Giảm $10\%$ \emph{của giá hiện tại}, nên số tiền giảm mỗi lần nhỏ dần ($10\,000$, rồi $9\,000$, rồi $8\,100$\dots), không phải lần nào cũng giảm $10\,000$ đồng. (2) Lúc $9\,$h$\,30$ giá $81\,000$ đồng ``rất gần'' $80\,000$ nhưng chưa \emph{dưới} $80\,000$, nên chưa phải lúc mua.\end{warnbox}
+
+\verify{$100\,000\times 0{,}9\times 0{,}9\times 0{,}9=72\,900$ (sau $3$ lần giảm, tức $3\times 15=45$ phút kể từ $9\,$h$\,00$); còn sau $2$ lần giảm: $100\,000\times0{,}81=81\,000>80\,000$.}
+Chọn phương án \textbf{(A)}.
+\ans{(A) $9\,$h$\,45$}
+}
+
+\begin{probbox}{28}{\relax}
+Người ta dùng số $2018$ để tạo ra các số nguyên dương có sáu chữ số: mỗi số đó phải chứa bốn chữ số $2,0,1,8$ \emph{đứng liền nhau và theo đúng thứ tự này}. Ví dụ, số $720\,186$ thỏa mãn, còn các số $209\,318$ và $210\,893$ thì không. Có bao nhiêu số có sáu chữ số như vậy chia hết cho $9$?
+\choices{$28$}{$27$}{$31$}{$34$}{$22$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Số có sáu chữ số chứa khối ``$2018$'' liền nhau, cộng thêm hai chữ số nữa (gọi là $a$ và $b$). Cần đếm các số chia hết cho $9$.
+
+\begin{recallbox}\textbf{Dấu hiệu chia hết cho $9$:} một số chia hết cho $9$ khi và chỉ khi tổng các chữ số của nó chia hết cho $9$. Chữ số đầu tiên của một số có sáu chữ số phải khác $0$.\end{recallbox}
+
+\step{1}{Điều kiện về tổng chữ số}
+Tổng bốn chữ số của khối là $2+0+1+8=11$. Cả số có tổng chữ số $11+a+b$. Vì $a,b$ là chữ số nên $0\le a+b\le 18$, do đó $11\le 11+a+b\le 29$. Các bội của $9$ trong khoảng này là $18$ và $27$. Vậy
+\[a+b=7\qquad\text{hoặc}\qquad a+b=16.\]
+Các cặp có tổng $16$ chỉ có: $(7;9),\ (8;8),\ (9;7)$.
+
+\step{2}{Ba vị trí có thể đặt khối $2018$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{Tint}\textbf{Dạng số} & \textbf{Điều kiện thêm} & \textbf{$a+b=7$} & \textbf{$a+b=16$} & \textbf{Cộng}\\
+\hline
+$\nd{2018ab}$ & không có ($a$ được bằng $0$) & $8$ cặp: $a=0,1,\dots,7$ & $3$ & $11$\\
+$\nd{a2018b}$ & $a\neq 0$ & $7$ cặp: $a=1,\dots,7$ & $3$ & $10$\\
+$\nd{ab2018}$ & $a\neq 0$ & $7$ cặp: $a=1,\dots,7$ & $3$ & $10$\\
+\hline
+\multicolumn{4}{|r|}{\textbf{Tổng}} & $\mathbf{31}$\\
+\hline
+\end{tabular}
+\end{center}
+Giải thích cột ``$a+b=7$'': các cặp là $(0;7),(1;6),(2;5),(3;4),(4;3),(5;2),(6;1),(7;0)$ -- có $8$ cặp. Khi $a$ đứng đầu số thì bỏ cặp $(0;7)$, còn $7$ cặp. Các cặp có tổng $16$ đều có $a\ge 7$ nên không bị loại.
+
+\step{3}{Có số nào bị đếm hai lần không?}
+Một số bị đếm hai lần chỉ khi khối $2018$ xuất hiện ở hai vị trí khác nhau trong cùng một số có sáu chữ số. Hai khối $4$ chữ số trong $6$ chữ số buộc phải ``chồng lên nhau'', mà khối $2018$ không thể chồng lên chính nó (ví dụ dịch $1$ vị trí thì chữ số $0$ phải trùng chữ số $2$\dots). Vậy không có số nào bị đếm hai lần.
+
+\begin{warnbox}Hay quên một trong hai trường hợp: nhiều bạn chỉ xét $a+b=7$ (được $8+7+7=22$, đúng là phương án nhiễu (E)) mà quên $a+b=16$. Cũng hay quên điều kiện chữ số đầu khác $0$ (khi đó sẽ đếm thành $34$).\end{warnbox}
+
+\verify{Vài ví dụ: $201\,870$ có tổng chữ số $18$; $720\,186$ có tổng $24$ -- không chia hết cho $9$ (đúng, vì $7+6=13$ không bằng $7$ hay $16$); $920\,187$ có tổng $27$, chia hết cho $9$. Duyệt bằng máy tính mọi số từ $100\,000$ đến $999\,999$ cũng được đúng $31$ số.}
+Chọn phương án \textbf{(C)}.
+\ans{(C) $31$}
+}
+
+\begin{probbox}{29}{\relax}
+Gọi $N$ là tích của tất cả các số nguyên dương lẻ từ $1$ đến $99$ mà \emph{không} có chữ số tận cùng là $5$, tức là
+\[N=1\times 3\times 7\times 9\times 11\times 13\times 17\times 19\times\cdots\times 91\times 93\times 97\times 99.\]
+Chữ số hàng đơn vị của $N$ là
+\choices{$1$}{$3$}{$5$}{$7$}{$9$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} $N$ là một số khổng lồ, không thể tính trực tiếp. Nhưng ta chỉ cần \emph{chữ số tận cùng}, và chữ số tận cùng của một tích chỉ phụ thuộc vào chữ số tận cùng của các thừa số.
+
+\begin{recallbox}Chữ số tận cùng của một tích bằng chữ số tận cùng của tích các chữ số tận cùng của các thừa số. Ví dụ: $13\times 17=221$ có tận cùng $1$, cũng như $3\times 7=21$.\end{recallbox}
+
+\step{1}{Xem các thừa số có chữ số tận cùng nào}
+Các số lẻ không tận cùng bằng $5$ chỉ tận cùng bằng $1,3,7,9$. Chia các thừa số thành $10$ nhóm theo từng chục:
+\[(1\cdot3\cdot7\cdot9),\ (11\cdot13\cdot17\cdot19),\ (21\cdot23\cdot27\cdot29),\ \dots,\ (91\cdot93\cdot97\cdot99).\]
+Mỗi nhóm có $4$ thừa số với chữ số tận cùng lần lượt $1,3,7,9$; có $10$ nhóm (từ chục $0$ đến chục $9$), tổng cộng $40$ thừa số.
+
+\step{2}{Chữ số tận cùng của mỗi nhóm}
+$1\cdot3\cdot7\cdot9=189$, tận cùng là $9$. Vậy tích của mỗi nhóm tận cùng bằng $9$.
+
+\step{3}{Nhân $10$ nhóm lại}
+Chữ số tận cùng của $N$ bằng chữ số tận cùng của $\underbrace{9\cdot 9\cdots 9}_{10\text{ thừa số}}=9^{10}$. Ta có $9\cdot 9=81$ tận cùng $1$. Ghép $10$ thừa số $9$ thành $5$ cặp, mỗi cặp tận cùng $1$, nên $9^{10}$ tận cùng bằng $1\cdot1\cdot1\cdot1\cdot1=1$.
+
+\begin{tipbox}Lũy thừa của $9$ có chữ số tận cùng luân phiên: $9^1\to 9$, $9^2\to 1$, $9^3\to 9$, $9^4\to 1$,\dots: số mũ lẻ tận cùng $9$, số mũ chẵn tận cùng $1$.\end{tipbox}
+
+\begin{warnbox}Đừng nghĩ ``tích của toàn số lẻ thì tận cùng là $9$'' hay chọn $5$ theo phản xạ: các số tận cùng bằng $5$ đã bị loại khỏi tích. Cũng cần đếm đúng số nhóm: từ $1$ đến $99$ có $10$ nhóm (nhóm đầu là $1,3,7,9$).\end{warnbox}
+
+\verify{Tính dần: sau nhóm $1$ tận cùng $9$, sau nhóm $2$ tận cùng $9\cdot9\to1$, sau nhóm $3$ tận cùng $9$,\dots, sau nhóm $10$ (số chẵn) tận cùng $1$. Máy tính tính đúng tích $N$ cũng cho chữ số tận cùng $1$.}
+Chọn phương án \textbf{(A)}.
+\ans{(A) $1$}
+}
+
+\begin{probbox}{30}{\relax}
+Năm bạn học sinh làm một bài kiểm tra có điểm tối đa là $50$. Điểm của bốn bạn là $42$, $43$, $46$ và $49$. Điểm của bạn thứ năm là $N$. Trung bình cộng điểm của năm bạn bằng trung vị điểm của năm bạn. Số giá trị có thể có của $N$ là
+\choices{$3$}{$4$}{$1$}{$0$}{$2$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} $N$ là một điểm từ $0$ đến $50$. Trung bình cộng phụ thuộc vào $N$; trung vị cũng phụ thuộc vào vị trí của $N$ khi xếp năm điểm theo thứ tự. Ta xét từng trường hợp vị trí của $N$.
+
+\begin{recallbox}\textbf{Trung vị} của năm số là số đứng \emph{chính giữa} (số thứ ba) khi xếp chúng từ nhỏ đến lớn. \textbf{Trung bình cộng} $=$ tổng $:$ số các số.\end{recallbox}
+
+\step{1}{Biểu diễn trung bình cộng theo $N$}
+Tổng bốn điểm đã biết: $42+43+46+49=180$. Trung bình cộng của năm bạn là $\dfrac{180+N}{5}$.
+
+\step{2}{Trung vị là bao nhiêu? -- Ba trường hợp}
+Xếp $42,43,46,49$ cùng với $N$ theo thứ tự tăng dần:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item Nếu $N\le 43$: thứ tự là $\dots,43,46,49$ với $N$ ở hai vị trí đầu, số thứ ba là $43$. Trung vị $=43$.
+\item Nếu $43\le N\le 46$: thứ tự $42,43,N,46,49$. Trung vị $=N$.
+\item Nếu $N\ge 46$: thứ tự $42,43,46,\dots$ với $N$ ở hai vị trí cuối. Trung vị $=46$.
+\end{itemize}
+\begin{figC}
+\draw[->,thick,Navy] (0,0)--(10.6,0);
+\foreach \x/\lab in {0/0,6/42,6.6/43,8.4/46,10.2/50}{\draw[Navy] (\x,0.1)--(\x,-0.1); \node[below,font=\footnotesize] at (\x,-0.1) {$\lab$};}
+\draw[tmBlue,line width=3pt,opacity=0.5] (0,0.35)--(6.6,0.35); \node[above,font=\scriptsize,text=tmBlue] at (3.3,0.4) {trung vị $=43$};
+\draw[tmOrange,line width=3pt,opacity=0.6] (6.6,0.35)--(8.4,0.35); \node[above,font=\scriptsize,text=tmOrange!80!black] at (7.5,0.4) {trung vị $=N$};
+\draw[tmGreen,line width=3pt,opacity=0.5] (8.4,0.35)--(10.2,0.35); \node[above,font=\scriptsize,text=tmGreen!70!black] at (9.4,0.85) {trung vị $=46$};
+\end{figC}
+
+\step{3}{Giải từng trường hợp}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item \textbf{Trường hợp 1} (trung vị $43$): $\dfrac{180+N}{5}=43\Rightarrow 180+N=215\Rightarrow N=35$. Kiểm tra: $35\le 43$ -- đúng trường hợp đang xét. \textbf{Nhận.}
+\item \textbf{Trường hợp 2} (trung vị $N$): $\dfrac{180+N}{5}=N\Rightarrow 180+N=5N\Rightarrow 4N=180\Rightarrow N=45$. Kiểm tra: $43\le 45\le 46$. \textbf{Nhận.}
+\item \textbf{Trường hợp 3} (trung vị $46$): $\dfrac{180+N}{5}=46\Rightarrow 180+N=230\Rightarrow N=50$. Kiểm tra: $50\ge 46$ và $50$ không vượt điểm tối đa. \textbf{Nhận.}
+\end{itemize}
+
+\begin{warnbox}Sau khi giải ra $N$ trong mỗi trường hợp, \emph{phải kiểm tra} $N$ có thực sự nằm trong trường hợp đó không (và có nằm trong khoảng $0$ đến $50$ không). Ở bài này cả ba giá trị đều hợp lệ, nhưng ở nhiều bài khác sẽ có giá trị bị loại. Đừng dừng lại sau khi tìm được một giá trị!\end{warnbox}
+
+\verify{
+$N=35$: điểm $35,42,43,46,49$, tổng $215$, trung bình $43$, trung vị $43$.
+$N=45$: điểm $42,43,45,46,49$, tổng $225$, trung bình $45$, trung vị $45$.
+$N=50$: điểm $42,43,46,49,50$, tổng $230$, trung bình $46$, trung vị $46$.}
+Có $3$ giá trị của $N$, ứng với phương án \textbf{(A)}.
+\ans{(A) $3$}
+}

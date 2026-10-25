@@ -1,0 +1,442 @@
+% ============================================================
+% Topic 4 -- Number Sense -- part b: problems 16--30 (EN)
+% ============================================================
+
+\begin{probbox}{16}{\relax}
+The mean (average) of five consecutive integers is $21$. The smallest of the five integers is
+\choices{$17$}{$21$}{$1$}{$18$}{$19$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We have \emph{five consecutive integers} (each one is exactly $1$ more than the one before). Their mean is $21$. We must find the \emph{smallest} one.
+
+\begin{recallbox}Mean of a group of numbers $=$ (sum of the numbers) $\div$ (how many numbers there are). So: sum $=$ mean $\times$ how many numbers.\end{recallbox}
+
+\step{1}{Find the sum of the five numbers}
+The sum of the five numbers is $21\times 5=105$.
+
+\step{2}{Name the five numbers using the middle one}
+Call the middle (third) number $n$. Then the five consecutive numbers are
+\[n-2,\quad n-1,\quad n,\quad n+1,\quad n+2.\]
+Adding: $(n-2)+(n-1)+n+(n+1)+(n+2)=5n$ (the $-2$ and $+2$, and the $-1$ and $+1$, cancel each other).
+
+\step{3}{Find the middle number, then the smallest}
+We have $5n=105$, so $n=105\div 5=21$. The five numbers are $19,\ 20,\ 21,\ 22,\ 23$. The smallest is $n-2=19$.
+
+\begin{figC}
+\draw[->,thick,Navy] (-0.5,0)--(6.6,0);
+\foreach \x/\lab in {0/18,1/19,2/20,3/21,4/22,5/23,6/24}{\draw[Navy,line width=0.8pt] (\x,0.08)--(\x,-0.08); \node[below,text=Ink] at (\x,-0.1) {$\lab$};}
+\foreach \x in {1,2,3,4,5}{\fill[KidOrange] (\x,0) circle (2.7pt);}
+\draw[<->,tmBlue] (1,0.45)--(3,0.45) node[midway,above,font=\footnotesize]{back $2$};
+\draw[<->,tmBlue] (3,0.45)--(5,0.45) node[midway,above,font=\footnotesize]{forward $2$};
+\node[tmGreen!70!black,font=\footnotesize\bfseries] at (3,1.1) {middle number $=$ mean};
+\end{figC}
+
+\begin{proofbox}With an \emph{odd} number of consecutive integers, the numbers placed symmetrically around the middle one ``balance out'' (one is $1$ less, one is $1$ more; one is $2$ less, one is $2$ more\dots). So the sum equals (middle number) $\times$ (how many numbers), which means the mean is exactly the middle number.\end{proofbox}
+
+\begin{warnbox}Do not choose $21$ straight away: that is the \emph{middle} number, not the smallest. And do not take $21-4=17$ either: from the middle number to the smallest is only $2$ steps back, not $4$.\end{warnbox}
+
+\verify{$19+20+21+22+23=105$ and $105\div 5=21$. Correct.}
+The smallest number is $19$, which is option \textbf{(E)}.
+\ans{(E) $19$}
+}
+
+\begin{probbox}{17}{\relax}
+How many positive whole numbers, including $1$, divide exactly into both $40$ and $72$?
+\choices{$9$}{$12$}{$4$}{$2$}{$5$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} A number ``divides exactly into both $40$ and $72$'' when $40$ is divisible by it \emph{and} $72$ is divisible by it. These are the \emph{common divisors} (common factors) of $40$ and $72$. We must count them.
+
+\begin{recallbox}$d$ is a divisor of $a$ if $a$ is divisible by $d$. A common divisor of two numbers is a divisor of both. The greatest common divisor (GCD) is the largest of the common divisors.\end{recallbox}
+
+\step{1}{List the divisors of $40$}
+Find them in pairs whose product is $40$: $1\times 40$, $2\times 20$, $4\times 10$, $5\times 8$. So the divisors of $40$ are
+\[\{1,\ 2,\ 4,\ 5,\ 8,\ 10,\ 20,\ 40\}.\]
+
+\step{2}{List the divisors of $72$}
+Pairs with product $72$: $1\times 72$, $2\times 36$, $3\times 24$, $4\times 18$, $6\times 12$, $8\times 9$. So the divisors of $72$ are
+\[\{1,\ 2,\ 3,\ 4,\ 6,\ 8,\ 9,\ 12,\ 18,\ 24,\ 36,\ 72\}.\]
+
+\step{3}{Pick the numbers that appear in both lists}
+Comparing the lists, the common numbers are $1,\ 2,\ 4,\ 8$. So there are $4$ common divisors.
+
+\begin{tipbox}A faster way: the common divisors of two numbers are exactly the divisors of their GCD. We have $40=2^3\cdot 5$ and $72=2^3\cdot 3^2$, so $\text{GCD}(40,72)=2^3=8$. The divisors of $8$ are $1,2,4,8$: exactly $4$ numbers.\end{tipbox}
+
+\begin{proofbox}If $d$ divides both $40$ and $72$, then $d$ also divides the difference $72-40=32$, and then $40-32=8$. Conversely, every divisor of $8$ divides $40=8\cdot 5$ and $72=8\cdot 9$. So ``common divisors of $40$ and $72$'' and ``divisors of $8$'' are the same set.\end{proofbox}
+
+\begin{warnbox}Option $12$ is the number of divisors of $72$ alone; options $9$ or $5$ usually come from missing or miscounting some. The question asks for \emph{common} divisors.\end{warnbox}
+
+\verify{$40\div1,\ 40\div2=20,\ 40\div4=10,\ 40\div8=5$; $72\div1,\ 72\div2=36,\ 72\div4=18,\ 72\div8=9$ -- all exact. But $3,6,9$ do not divide $40$, and $5,10$ do not divide $72$.}
+There are $4$ such numbers, which is option \textbf{(C)}.
+\ans{(C) $4$}
+}
+
+\begin{probbox}{18}{\relax}
+The number that goes into the box to make $\dfrac{3}{7}=\dfrac{\square}{63}$ true is
+\choices{$27$}{$9$}{$59$}{$63$}{$3$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The two fractions are equal; the denominator has changed from $7$ to $63$. We need the new numerator.
+
+\begin{recallbox}\textbf{Basic property of fractions:} multiplying both the numerator and the denominator by the same non-zero number gives an equal fraction: $\dfrac{a}{b}=\dfrac{a\cdot m}{b\cdot m}\ (m\neq 0)$.\end{recallbox}
+
+\step{1}{What was the denominator multiplied by?}
+$63\div 7=9$, so the denominator $7$ was multiplied by $9$ to become $63$.
+
+\step{2}{Multiply the numerator by the same number}
+To keep the fraction the same, the numerator must also be multiplied by $9$: $3\times 9=27$. So
+\[\frac{3}{7}=\frac{3\cdot 9}{7\cdot 9}=\frac{27}{63}.\]
+
+\begin{warnbox}Option $9$ is the \emph{multiplier}, not the new numerator. Option $59$ comes from the ``adding'' mistake: $63-7=56$ and then $3+56=59$ -- adding the same number to the numerator and denominator does \emph{not} keep the fraction the same.\end{warnbox}
+
+\verify{Cross-multiply: $3\times 63=189$ and $7\times 27=189$. The products are equal, so the fractions are equal.}
+The missing number is $27$, which is option \textbf{(A)}.
+\ans{(A) $27$}
+}
+
+\begin{probbox}{19}{\relax}
+A fraction is equal to $\dfrac{5}{8}$. Its numerator and denominator add up to $91$. What is the difference between the denominator and the numerator of this fraction?
+\choices{$21$}{$3$}{$33$}{$13$}{$19$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The fraction equals $\dfrac58$, so its numerator and denominator ``share'' in the ratio $5:8$. We know numerator $+$ denominator $=91$. We want denominator $-$ numerator.
+
+\begin{recallbox}Every fraction equal to $\dfrac{5}{8}$ has the form $\dfrac{5k}{8k}$ for some positive integer $k$ (multiply the numerator and denominator by $k$).\end{recallbox}
+
+\step{1}{Draw a bar model}
+Think of the numerator as $5$ equal parts and the denominator as $8$ such parts.
+\begin{barfig}
+\rowlab{-0.15}{0.5}{Numerator}
+\foreach \i in {0,...,4}{\blk{\i*0.8}{\i*0.8+0.8}{0.5}{0.5}{tmBlue}{}}
+\rowlab{-0.15}{-0.3}{Denominator}
+\foreach \i in {0,...,7}{\blk{\i*0.8}{\i*0.8+0.8}{-0.3}{0.5}{tmOrange}{}}
+\brcup{0}{4}{0.9}{$5$ parts}
+\brcdn{0}{6.4}{-0.7}{$8$ parts}
+\vbrace{6.6}{0.75}{-0.55}{sum $=91$}
+\end{barfig}
+
+\step{2}{Find the value of one part}
+There are $5+8=13$ parts in total, worth $91$. One part is $91\div 13=7$.
+
+\step{3}{Find the numerator, the denominator and the difference}
+Numerator $=5\times 7=35$; denominator $=8\times 7=56$. The fraction is $\dfrac{35}{56}$.\\
+Denominator $-$ numerator $=56-35=21$ (which is also $3$ parts: $3\times 7=21$).
+
+\begin{warnbox}Option $3$ is the difference $8-5$ of the original fraction $\dfrac58$, not yet multiplied by the value of one part. Option $13$ is the number of parts, not the difference.\end{warnbox}
+
+\verify{$35+56=91$; simplifying, $\dfrac{35}{56}=\dfrac{35\div7}{56\div7}=\dfrac58$. Correct.}
+The difference is $21$, which is option \textbf{(A)}.
+\ans{(A) $21$}
+}
+
+\begin{probbox}{20}{\relax}
+Lan is driving at $80$ km/h along a road with equally spaced power poles. Her car passes a pole every $4$ seconds. Which of the following is closest to the distance between two neighbouring poles?
+\choices{$50$ m}{$60$ m}{$70$ m}{$80$ m}{$90$ m}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} In $4$ seconds the car travels exactly the distance between two neighbouring poles. So we need the distance travelled in $4$ seconds at $80$ km/h. Careful: the speed is in \emph{km and hours}, the time is in \emph{seconds}, and the answers are in \emph{metres} -- we must convert units.
+
+\begin{recallbox}Distance $=$ speed $\times$ time. $1$ km $=1000$ m; $1$ hour $=60$ minutes $=3600$ seconds.\end{recallbox}
+
+\step{1}{Convert the speed to metres per second}
+$80$ km/h means $80\,000$ m in $3600$ seconds. In $1$ second the car travels
+\[80\,000\div 3600=\frac{80\,000}{3600}=\frac{200}{9}\approx 22.2\ \text{m}.\]
+
+\step{2}{Distance travelled in $4$ seconds}
+\[\frac{200}{9}\times 4=\frac{800}{9}\approx 88.9\ \text{m}.\]
+
+\step{3}{Compare with the options}
+$88.9$ m is about $1.1$ m from $90$ m and about $8.9$ m from $80$ m. So the closest is $90$ m.
+
+\begin{tipbox}Another way to think: in $1$ hour $=3600$ seconds the car passes $3600\div 4=900$ gaps between poles. These $900$ gaps make up $80\,000$ m altogether, so each gap is $80\,000\div 900\approx 88.9$ m.\end{tipbox}
+
+\begin{warnbox}If you forget to convert and compute $80\times 4=320$, no option matches. Converting $1$ hour as $60$ seconds (wrong -- it is $3600$ seconds) also gives an absurd result.\end{warnbox}
+
+\verify{$90$ m every $4$ seconds is $22.5$ m/s, i.e.\ $22.5\times 3600=81\,000$ m per hour $=81$ km/h, very close to $80$ km/h. Reasonable.}
+Choose option \textbf{(E)}.
+\ans{(E) $90$ m}
+}
+
+\begin{probbox}{21}{\relax}
+Each of the integers $334$ and $419$ has digits whose product is $36$ (since $3\cdot 3\cdot 4=36$ and $4\cdot 1\cdot 9=36$). How many $3$-digit positive integers have digits whose product is $36$?
+\choices{$21$}{$15$}{$18$}{$24$}{$12$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} A $3$-digit number $\nd{abc}$ has digit product $a\cdot b\cdot c=36$. No digit can be $0$ (a $0$ would make the product $0$). A tidy method: \emph{first} find the sets of three digits (ignoring order) with product $36$, \emph{then} count how many numbers each set can make.
+
+\step{1}{Find every set of three digits (from $1$ to $9$) with product $36$}
+List each set in order $a\le b\le c$ and look at the smallest digit $a$.
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $a=1$: we need $b\cdot c=36$ with $1\le b\le c\le 9$: $36=4\cdot 9=6\cdot 6$ (while $1\cdot 36$, $2\cdot 18$, $3\cdot 12$ use a number bigger than $9$). We get $\{1,4,9\}$ and $\{1,6,6\}$.
+\item $a=2$: we need $b\cdot c=18$ with $2\le b\le c\le 9$: $18=2\cdot 9=3\cdot 6$. We get $\{2,2,9\}$ and $\{2,3,6\}$.
+\item $a=3$: we need $b\cdot c=12$ with $3\le b\le c$: $12=3\cdot 4$. We get $\{3,3,4\}$.
+\item $a\ge 4$: then $a\cdot b\cdot c\ge 4\cdot 4\cdot 4=64>36$, no sets.
+\end{itemize}
+So there are exactly $5$ sets: $\{1,4,9\},\ \{1,6,6\},\ \{2,2,9\},\ \{2,3,6\},\ \{3,3,4\}$.
+
+\begin{recallbox}\textbf{Counting arrangements:} three \emph{different} digits can be arranged into $3\cdot 2\cdot 1=6$ numbers (hundreds digit: $3$ choices, tens: $2$ choices, units: $1$ choice). Three digits with \emph{two equal} can be arranged into only $3$ numbers (we just choose the position of the odd one out).\end{recallbox}
+
+\step{2}{Count the numbers made from each set}
+\begin{center}
+\begin{tabular}{|c|c|l|c|}
+\hline
+\rowcolor{Tint}\textbf{Digit set} & \textbf{Type} & \textbf{Numbers formed} & \textbf{Count}\\
+\hline
+$\{1,4,9\}$ & all different & $149,194,419,491,914,941$ & $6$\\
+$\{2,3,6\}$ & all different & $236,263,326,362,623,632$ & $6$\\
+$\{1,6,6\}$ & two equal & $166,616,661$ & $3$\\
+$\{2,2,9\}$ & two equal & $229,292,922$ & $3$\\
+$\{3,3,4\}$ & two equal & $334,343,433$ & $3$\\
+\hline
+\multicolumn{3}{|r|}{\textbf{Total}} & $\mathbf{21}$\\
+\hline
+\end{tabular}
+\end{center}
+
+\step{3}{Add up}
+$6+6+3+3+3=21$ numbers.
+
+\begin{warnbox}Two common mistakes: (1) forgetting the sets containing the digit $1$ (like $\{1,4,9\}$, $\{1,6,6\}$) because you only think of splitting $36$ into three numbers ``bigger than $1$''; (2) assuming a set with two equal digits also gives $6$ numbers -- this double counts (for example, $334$ would be counted twice).\end{warnbox}
+
+\verify{The table lists all $21$ numbers, including $334$ and $419$ from the question. A computer check (going through every number from $100$ to $999$) also gives exactly $21$.}
+Choose option \textbf{(A)}.
+\ans{(A) $21$}
+}
+
+\begin{probbox}{22}{\relax}
+An \emph{arithmetic sequence} is a sequence in which each term after the first is obtained by adding a constant to the previous term. For example, $2,4,6,8$ and $1,4,7,10$ are arithmetic sequences.
+
+In the grid shown, the numbers in each row (read from left to right) must form an arithmetic sequence, and the numbers in each column (read from top to bottom) must form an arithmetic sequence. The value of $x$ is
+\begin{figC}
+\foreach \rr in {0,1,2,3}{\foreach \cc in {0,1,2,3}{\draw[Navy,line width=0.9pt,fill=white] (\cc*1.1,-\rr*0.8) rectangle (\cc*1.1+1.1,-\rr*0.8-0.8);}}
+\node at (0.55,-0.4) {$1$};
+\node at (0.55,-1.2) {$4$}; \node at (3.85,-1.2) {$25$};
+\node at (0.55,-2.0) {$7$}; \node at (3.85,-2.0) {$x$};
+\node at (0.55,-2.8) {$10$}; \node at (2.75,-2.8) {$36$};
+\end{figC}
+\choices{$37$}{$28$}{$36$}{$43.75$}{$46$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The grid has $4$ rows and $4$ columns. Every row and every column is an arithmetic sequence. We need $x$ in row $3$, column $4$. Idea: use the rows that already have two known numbers to find more numbers, then use column $4$ to find $x$.
+
+\begin{recallbox}An arithmetic sequence with $4$ terms can be written $a,\ a+d,\ a+2d,\ a+3d$ ($d$ is the constant difference). From the first to the last term there are $3$ steps, so $d=(\text{last}-\text{first})\div 3$. If we know the first and the third terms, then $d=(\text{third}-\text{first})\div 2$.\end{recallbox}
+
+\step{1}{Row $2$: $4,\ \_,\ \_,\ 25$}
+From $4$ to $25$ there are $3$ steps: $d=(25-4)\div 3=21\div 3=7$. Row $2$ is $4,\ 11,\ 18,\ 25$.
+
+\step{2}{Row $4$: $10,\ \_,\ 36,\ \_$}
+From the first term $10$ to the third term $36$ there are $2$ steps: $d=(36-10)\div 2=26\div 2=13$. Row $4$ is $10,\ 23,\ 36,\ 49$. So the last cell of row $4$ is $49$.
+
+\step{3}{Column $4$: $\_,\ 25,\ x,\ 49$}
+In column $4$, $x$ lies between $25$ and $49$, the same distance from each. So $x$ is their mean:
+\[x=\frac{25+49}{2}=\frac{74}{2}=37.\]
+(The difference in column $4$ is $37-25=12$, so the top of the column is $25-12=13$.)
+
+\step{4}{Fill in the whole grid to check}
+\begin{figC}
+\foreach \rr in {0,1,2,3}{\foreach \cc in {0,1,2,3}{\draw[Navy,line width=0.9pt,fill=white] (\cc*1.1,-\rr*0.8) rectangle (\cc*1.1+1.1,-\rr*0.8-0.8);}}
+\foreach \cc/\val in {0/1,1/5,2/9,3/13}{\node at (\cc*1.1+0.55,-0.4) {$\val$};}
+\foreach \cc/\val in {0/4,1/11,2/18,3/25}{\node at (\cc*1.1+0.55,-1.2) {$\val$};}
+\foreach \cc/\val in {0/7,1/17,2/27}{\node at (\cc*1.1+0.55,-2.0) {$\val$};}
+\node[text=AnsRed,font=\bfseries] at (3.85,-2.0) {$37$};
+\foreach \cc/\val in {0/10,1/23,2/36,3/49}{\node at (\cc*1.1+0.55,-2.8) {$\val$};}
+\node[anchor=west,font=\footnotesize,text=Slate] at (4.6,-0.4) {$+4$};
+\node[anchor=west,font=\footnotesize,text=Slate] at (4.6,-1.2) {$+7$};
+\node[anchor=west,font=\footnotesize,text=Slate] at (4.6,-2.0) {$+10$};
+\node[anchor=west,font=\footnotesize,text=Slate] at (4.6,-2.8) {$+13$};
+\end{figC}
+Column $1$: $1,4,7,10$ (step $3$); column $2$: $5,11,17,23$ (step $6$); column $3$: $9,18,27,36$ (step $9$); column $4$: $13,25,37,49$ (step $12$). Every row and every column is arithmetic.
+
+\begin{warnbox}You cannot find $x$ by looking at row $3$ first: row $3$ has only one known number ($7$), not enough to find its difference. You must go ``around'' through row $2$ and row $4$ to reach column $4$.\end{warnbox}
+
+\verify{Row $3$: $7,17,27,37$ has constant difference $10$; column $4$: $25,37,49$ has constant difference $12$. Correct.}
+$x=37$, which is option \textbf{(A)}.
+\ans{(A) $37$}
+}
+
+\begin{probbox}{23}{\relax}
+In the six-digit number $\nd{1ABCDE}$, each letter represents a digit. Given that $\nd{1ABCDE}\times 3=\nd{ABCDE1}$, the value of $A+B+C+D+E$ is
+\choices{$29$}{$26$}{$22$}{$30$}{$28$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} When $\nd{1ABCDE}$ is multiplied by $3$, the leading digit $1$ ``moves'' to the end, and the block $ABCDE$ shifts one place to the left. We must find the digits $A,B,C,D,E$ and add them. There are two methods; both are well worth learning.
+
+\begin{recallbox}\textbf{Place value:} writing a digit $c$ to the right of a number $N$ gives $10\cdot N+c$; writing the digit $1$ to the left of a five-digit number $N$ gives $100\,000+N$.\end{recallbox}
+
+\textbf{Method 1: One unknown for the whole block.}
+\step{1}{Let $N=\nd{ABCDE}$ (a five-digit number)}
+Then $\nd{1ABCDE}=100\,000+N$ and $\nd{ABCDE1}=10N+1$.
+\step{2}{Write the equation and find $N$}
+\[3\cdot(100\,000+N)=10N+1\ \Longrightarrow\ 300\,000+3N=10N+1.\]
+Subtract $3N$ and $1$ from both sides: $299\,999=7N$, so $N=299\,999\div 7=42\,857$.
+\step{3}{Read off the digits}
+$A=4,\ B=2,\ C=8,\ D=5,\ E=7$. Sum: $4+2+8+5+7=26$.
+
+\textbf{Method 2: Multiply column by column, from right to left.}
+\[\begin{array}{r@{\;}c@{\;}c@{\;}c@{\;}c@{\;}c@{\;}c}
+ & 1 & A & B & C & D & E\\
+\times & & & & & & 3\\ \hline
+ & A & B & C & D & E & 1
+\end{array}\]
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item Units: $3\cdot E$ ends in $1$ $\Rightarrow$ $E=7$ ($3\cdot 7=21$, write $1$ carry $2$).
+\item Tens: $3\cdot D+2$ ends in $E=7$ $\Rightarrow$ $3D$ ends in $5$ $\Rightarrow$ $D=5$ ($15+2=17$, write $7$ carry $1$).
+\item Hundreds: $3\cdot C+1$ ends in $D=5$ $\Rightarrow$ $3C$ ends in $4$ $\Rightarrow$ $C=8$ ($24+1=25$, write $5$ carry $2$).
+\item Thousands: $3\cdot B+2$ ends in $C=8$ $\Rightarrow$ $3B$ ends in $6$ $\Rightarrow$ $B=2$ ($6+2=8$, carry $0$).
+\item Ten thousands: $3\cdot A+0$ ends in $B=2$ $\Rightarrow$ $A=4$ ($12$, write $2$ carry $1$).
+\item Hundred thousands: $3\cdot 1+1=4$, exactly $A=4$. The multiplication matches completely.
+\end{itemize}
+(At each step only one digit works, because $3\cdot 0, 3\cdot 1,\dots,3\cdot 9$ all have different last digits.)
+
+\begin{tipbox}$142\,857$ is a famous number: $142\,857\times 2=285\,714$, $\times 3=428\,571$, $\times 4=571\,428$, $\times 5=714\,285$, $\times 6=857\,142$ -- always the digits $1,4,2,8,5,7$ ``rotated''. It is linked to $\dfrac17=0.\overline{142857}$.\end{tipbox}
+
+\verify{$142\,857\times 3=428\,571$. This is indeed $\nd{ABCDE1}$ with $ABCDE=42857$.}
+$A+B+C+D+E=26$, which is option \textbf{(B)}.
+\ans{(B) $26$}
+}
+
+\begin{probbox}{24}{\relax}
+On a coordinate grid, a dot starts at the point $(20,19)$. On its first move it goes $1$ unit horizontally or vertically, that is, to one of the points $(21,19)$, $(19,19)$, $(20,20)$ or $(20,18)$. On its second move it goes $2$ units in a direction perpendicular to the first move (either way). Each move after that is $1$ unit longer than the previous one ($3$ units, $4$ units, $5$ units,\dots) and must be perpendicular to the direction of the move just before it. The dot stops after $10$ moves. Which of the following final positions is \textbf{not} possible?
+\choices{$(27,33)$}{$(30,40)$}{$(21,21)$}{$(42,44)$}{$(37,37)$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} ``Perpendicular to the previous move'' means the moves \emph{alternate}: horizontal, vertical, horizontal, vertical,\dots\ (or vertical, horizontal, vertical,\dots). The move lengths are $1,2,3,\dots,10$. We track separately the change in the $x$-coordinate (from horizontal moves) and in the $y$-coordinate (from vertical moves).
+
+\begin{recallbox}For the point $(x,y)$: $x$ is the horizontal coordinate (moving right increases $x$, moving left decreases it), $y$ is the vertical coordinate (moving up increases $y$, moving down decreases it). A sum of an odd number of odd numbers is odd; a sum (or difference) of even numbers is always even.\end{recallbox}
+
+\step{1}{Split the moves into two groups}
+Moves $1,3,5,7,9$ are all in one direction (horizontal or vertical), with lengths $1,3,5,7,9$ (all odd). Moves $2,4,6,8,10$ are in the other direction, with lengths $2,4,6,8,10$ (all even).
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item If the first move is \emph{horizontal}: $x$ changes by $\pm1\pm3\pm5\pm7\pm9$ and $y$ changes by $\pm2\pm4\pm6\pm8\pm10$.
+\item If the first move is \emph{vertical}: the other way round, $x$ changes by $\pm2\pm4\pm6\pm8\pm10$ and $y$ by $\pm1\pm3\pm5\pm7\pm9$.
+\end{itemize}
+(The sign $+$ or $-$ depends on which way the dot goes.)
+
+\step{2}{Odd and even}
+$\pm1\pm3\pm5\pm7\pm9$ combines $5$ odd numbers, so it is always \emph{odd}, and at most $25$. And $\pm2\pm4\pm6\pm8\pm10$ is always \emph{even}, at most $30$. So of the two changes (in $x$ and in $y$), exactly one is odd (from the odd group) and the other is even (from the even group).
+
+\begin{proofbox}Start with the ``all plus'' total $1+3+5+7+9=25$. Switching the sign of a number $k$ from $+$ to $-$ lowers the total by $2k$. So every possible value is $25-2s$, where $s$ is the sum of the numbers whose sign was switched. Likewise, the even group gives the values $30-2s$.\end{proofbox}
+
+\step{3}{Compute the changes for each option}
+Subtract $(20,19)$ from the final point:
+\begin{center}
+\small\begin{tabularx}{\linewidth}{|c|c|c|X|}
+\hline
+\rowcolor{Tint}\textbf{Option} & \textbf{Change in $x$} & \textbf{Change in $y$} & \textbf{Can it be made?}\\
+\hline
+(A) $(27,33)$ & $7$ & $14$ & $1+3+5+7-9=7$; $2+4+6-8+10=14$ \\
+(B) $(30,40)$ & $10$ & $21$ & we would need $\pm1\pm3\pm5\pm7\pm9=21$ \dots\\
+(C) $(21,21)$ & $1$ & $2$ & $1-3+5+7-9=1$; $2-4+6+8-10=2$\\
+(D) $(42,44)$ & $22$ & $25$ & $2-4+6+8+10=22$; $1+3+5+7+9=25$\\
+(E) $(37,37)$ & $17$ & $18$ & $-1-3+5+7+9=17$; $2+4-6+8+10=18$\\
+\hline
+\end{tabularx}
+\end{center}
+
+\step{4}{Why (B) is impossible}
+In (B) the odd change is $21$, so we would need $\pm1\pm3\pm5\pm7\pm9=21$, i.e.\ $25-2s=21$, so $s=2$: we would have to switch the signs of some odd numbers adding up to $2$. But a single odd number is never $2$ (it can only be $1,3,5,\dots$), and two different odd numbers of the group add up to at least $1+3=4$. There is no way! So the dot cannot stop at $(30,40)$.
+
+\step{5}{An example path (option D)}
+First move up: up $1$, right $2$, up $3$, left $4$, up $5$, right $6$, up $7$, right $8$, up $9$, right $10$. The dot goes from $(20,19)$ to $(42,44)$.
+\begin{figC}\begin{scope}[scale=0.17]
+\draw[Line,line width=0.3pt] (-3,-1) grid (23,26);
+\draw[tmBlue,line width=1.4pt,->] (0,0)--(0,1)--(2,1)--(2,4)--(-2,4)--(-2,9)--(4,9)--(4,16)--(12,16)--(12,25)--(22,25);
+\fill[tmGreen] (0,0) circle (10pt); \fill[AnsRed] (22,25) circle (10pt);
+\node[below right,font=\scriptsize,text=tmGreen!70!black] at (0,0) {$(20,19)$};
+\node[below,font=\scriptsize,text=AnsRed] at (22,24.6) {$(42,44)$};
+\end{scope}\end{figC}
+
+\begin{warnbox}Checking only ``is the point too far away?'' is not enough: $(30,40)$ is no farther than $(42,44)$. What decides it is odd/even and which totals can actually be made.\end{warnbox}
+
+\verify{Every equation in the table can be recomputed, e.g.\ $-1-3+5+7+9=17$. A computer search over all $2\cdot 2^{10}=2048$ ways of moving also confirms that only $(30,40)$ cannot be reached.}
+Choose option \textbf{(B)}.
+\ans{(B) $(30,40)$}
+}
+
+\begin{probbox}{25}{\relax}
+In the ``Coin Game'', you toss three coins at the same time. You win only if the $3$ coins all show heads or all show tails. If you play the game once only, what is the probability of winning?
+\choices{$\dfrac16$}{$\dfrac14$}{$\dfrac{2}{27}$}{$\dfrac23$}{$\dfrac13$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each coin has $2$ faces: heads (H) or tails (T), equally likely. You win with HHH or TTT. We list all possible outcomes and count.
+
+\begin{recallbox}When all outcomes are equally likely: the \emph{probability} of an event $=$ (number of favourable outcomes) $\div$ (total number of possible outcomes).\end{recallbox}
+
+\step{1}{List all outcomes with a tree diagram}
+\begin{figC}\begin{scope}[level distance=1.9cm,grow'=right,
+  level 1/.style={sibling distance=2.4cm},level 2/.style={sibling distance=1.2cm},level 3/.style={sibling distance=0.6cm},
+  every node/.style={font=\footnotesize\bfseries}, edge from parent/.style={draw=tmBlue!70,thick}]
+\node[text=Ink] {Toss}
+  child {node[text=tmOrange] {H}
+    child {node[text=tmOrange] {H} child {node[text=AnsRed] {H \ $\to$ HHH (win)}} child {node[text=Slate] {T \ $\to$ HHT}}}
+    child {node[text=tmOrange] {T} child {node[text=Slate] {H \ $\to$ HTH}} child {node[text=Slate] {T \ $\to$ HTT}}}}
+  child {node[text=tmPurple] {T}
+    child {node[text=tmPurple] {H} child {node[text=Slate] {H \ $\to$ THH}} child {node[text=Slate] {T \ $\to$ THT}}}
+    child {node[text=tmPurple] {T} child {node[text=Slate] {H \ $\to$ TTH}} child {node[text=AnsRed] {T \ $\to$ TTT (win)}}}};
+\node[font=\scriptsize,text=Slate] at (1.9,2.55) {coin $1$};
+\node[font=\scriptsize,text=Slate] at (3.8,2.55) {coin $2$};
+\node[font=\scriptsize,text=Slate] at (5.7,2.55) {coin $3$};
+\end{scope}\end{figC}
+The first coin has $2$ possibilities, for each of them the second coin has $2$, and then the third coin has $2$: altogether $2\cdot2\cdot2=8$ equally likely outcomes.
+
+\step{2}{Count the favourable outcomes}
+Only $2$ outcomes win: HHH and TTT.
+
+\step{3}{Compute the probability}
+\[P(\text{win})=\frac{2}{8}=\frac14.\]
+
+\begin{warnbox}A common \emph{wrong} argument: ``The number of heads can be $0,1,2,3$ -- four cases, and we win in $2$ of them ($0$ and $3$), so the probability is $\dfrac24$.'' This is wrong because these four cases are \emph{not} equally likely: ``$1$ head'' happens in $3$ ways (HTT, THT, TTH), while ``$3$ heads'' happens in only $1$ way.\end{warnbox}
+
+\begin{tipbox}A quick way: the first coin can show anything. To win, the second coin must match the first (probability $\dfrac12$) and the third must match too (probability $\dfrac12$): $\dfrac12\cdot\dfrac12=\dfrac14$.\end{tipbox}
+
+\verify{The $8$ outcomes in the tree are all different and cover everything; exactly $2$ of them win. $\dfrac28=\dfrac14$.}
+Choose option \textbf{(B)}.
+\ans{(B) $\dfrac14$}
+}
+
+\begin{probbox}{26}{\relax}
+In the right-angled triangle $PQR$, the right angle is at $Q$ and $PQ=QR$. The segments $QS$, $TU$ and $VW$ are perpendicular to $PR$, and the segments $ST$ and $UV$ are perpendicular to $QR$, as shown. What fraction of the area of triangle $PQR$ is shaded?
+\begin{figC}\begin{scope}[scale=0.42]
+\coordinate (Q) at (0,0); \coordinate (R) at (8,0); \coordinate (P) at (0,8);
+\coordinate (S) at (4,4); \coordinate (T) at (4,0); \coordinate (U) at (6,2); \coordinate (V) at (6,0); \coordinate (W) at (7,1);
+\fill[tmBlue!35] (S)--(T)--(U)--cycle; \fill[tmBlue!35] (U)--(V)--(W)--cycle;
+\draw[Navy,line width=1pt] (P)--(Q)--(R)--cycle;
+\draw[Navy,line width=0.8pt] (Q)--(S)--(T)--(U)--(V)--(W);
+\draw[Navy,line width=0.5pt] (0,0.5)--(0.5,0.5)--(0.5,0);
+\node[above] at (P) {$P$}; \node[below left] at (Q) {$Q$}; \node[below right] at (R) {$R$};
+\node[above right] at (S) {$S$}; \node[below] at (T) {$T$}; \node[above right] at (U) {$U$}; \node[below] at (V) {$V$}; \node[above right] at (W) {$W$};
+\end{scope}\end{figC}
+\choices{$\dfrac{3}{16}$}{$\dfrac38$}{$\dfrac{5}{16}$}{$\dfrac{5}{32}$}{$\dfrac{7}{32}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Triangle $PQR$ is a \emph{right isosceles} triangle with the right angle at $Q$. The picture is built by repeatedly ``dropping a perpendicular''. The shaded part consists of two triangles: $STU$ and $UVW$. Key idea: \emph{dropping a perpendicular from the right-angle vertex of a right isosceles triangle cuts it into two equal halves, and each half is again a right isosceles triangle.}
+
+\begin{recallbox}In an isosceles triangle, the altitude from the apex (to the base) is also the median, and it divides the triangle into two congruent triangles. A right isosceles triangle has two acute angles of $45^\circ$.\end{recallbox}
+
+\begin{proofbox}Take triangle $XYZ$, right isosceles at $X$ ($XY=XZ$), and draw $XH\perp YZ$. The right triangles $XHY$ and $XHZ$ have equal hypotenuses $XY=XZ$ and the common leg $XH$, so they are congruent (hypotenuse--leg). So each has half the area of $XYZ$. Moreover $\widehat{Y}=45^\circ$ and $\widehat{XHY}=90^\circ$, so $\widehat{HXY}=45^\circ$: triangle $XHY$ is right isosceles at $H$. The same holds for $XHZ$.\end{proofbox}
+
+\step{1}{Keep halving}
+Let the area of triangle $PQR$ be $1$ (the whole triangle).
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item $QS\perp PR$ cuts $PQR$ into two halves: triangle $QSR$ has area $\dfrac12$ and is right isosceles at $S$.
+\item $ST\perp QR$ cuts $QSR$ into two halves: triangle $STR$ has area $\dfrac14$ and is right isosceles at $T$.
+\item $TU\perp SR$ cuts $STR$ into two halves: triangle $STU$ \textbf{(shaded)} has area $\dfrac18$; triangle $TUR$ has area $\dfrac18$ and is right isosceles at $U$.
+\item $UV\perp TR$ cuts $TUR$ into two halves: triangle $UVR$ has area $\dfrac1{16}$ and is right isosceles at $V$.
+\item $VW\perp UR$ cuts $UVR$ into two halves: triangle $UVW$ \textbf{(shaded)} has area $\dfrac1{32}$.
+\end{itemize}
+
+\step{2}{Add the shaded areas}
+\[\frac18+\frac1{32}=\frac{4}{32}+\frac{1}{32}=\frac{5}{32}.\]
+
+\step{3}{Check with a square grid}
+Put $Q$ at the origin with legs of $8$ units: $Q(0,0)$, $R(8,0)$, $P(0,8)$. Then $S(4,4)$, $T(4,0)$, $U(6,2)$, $V(6,0)$, $W(7,1)$ (as in the figure). Triangle $PQR$ has area $\dfrac{8\cdot 8}{2}=32$ squares. Triangle $STU$ has side $ST=4$ (vertical) and $U$ is $2$ units away from $ST$, so its area is $\dfrac{4\cdot 2}{2}=4$ squares. Triangle $UVW$ has $UV=2$ and $W$ is $1$ unit from $UV$, area $\dfrac{2\cdot1}{2}=1$ square. Shaded: $4+1=5$ squares out of $32$, i.e.\ $\dfrac5{32}$.
+
+\begin{recallbox}Area of a triangle $=\dfrac{\text{base}\times\text{height}}{2}$.\end{recallbox}
+
+\begin{warnbox}Many students pick $\dfrac{3}{16}$ or $\dfrac38$ by ``estimating from the picture''. Always compute with the chain of halvings: each smaller triangle is half of the triangle containing it.\end{warnbox}
+
+\verify{Both methods (halving and counting squares) give $\dfrac{5}{32}$.}
+Choose option \textbf{(D)}.
+\ans{(D) $\dfrac{5}{32}$}
+}
+

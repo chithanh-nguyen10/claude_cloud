@@ -1,0 +1,377 @@
+% =====================================================================
+% Topic 4 — Number Sense — part c: problems 31–40 (extending problems 1–15)
+% =====================================================================
+\clearpage
+\dividerbar{Extension and challenge}
+
+% ---------------------------------------------------------------- Problem 31
+\begin{probbox}{31}{\relax}
+Consider the numbers: $-1.5;\quad 0.25;\quad -0.75;\quad 1.2;\quad -2$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Arrange the numbers in increasing order.
+  \item Which numbers lie between $-1$ and $1$ on the number line?
+  \item Find the sum of the largest and the smallest number.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This problem combines two skills from Problems 1 and 3: comparing decimals and comparing
+negative numbers.
+\begin{recallbox}Negative numbers are always less than positive numbers. Of two negative numbers, the one farther from $0$ is
+smaller. For two positive numbers, compare the whole parts, then the decimal places one by one.\end{recallbox}
+\step{1}{Split into two groups: negative and positive}
+Negative: $-1.5;\ -0.75;\ -2$. \quad Positive: $0.25;\ 1.2$.
+\step{2}{Order the negative numbers}
+Distance from $0$: $-2$ is $2$ away; \ $-1.5$ is $1.5$ away; \ $-0.75$ is $0.75$ away. The one farthest from $0$ is the smallest:
+\[ -2 < -1.5 < -0.75. \]
+\step{3}{Order the positive numbers, then put everything together}
+$0.25 < 1.2$ (whole parts $0 < 1$). Negative numbers first, positive numbers after:
+\[ -2 < -1.5 < -0.75 < 0.25 < 1.2. \]
+\begin{figC}\begin{scope}[x=1.6cm]
+  \draw[->,thick,Navy] (-2.5,0)--(1.7,0);
+  \foreach \x in {-2,-1,0,1}{\draw[Navy] (\x,0.08)--(\x,-0.08); \node[below,font=\scriptsize] at (\x,-0.1) {$\x$};}
+  \foreach \x/\l in {-2/{-2},-1.5/{-1.5},-0.75/{-0.75},0.25/{0.25},1.2/{1.2}}{\fill[tmOrange] (\x,0) circle (2.6pt); \node[above,font=\scriptsize] at (\x,0.1) {$\l$};}
+  \draw[tmGreen!70!black,line width=2pt,opacity=0.35] (-1,0)--(1,0);
+\end{scope}\end{figC}
+\step{4}{The numbers between $-1$ and $1$}
+On the number line, the green segment from $-1$ to $1$ contains $-0.75$ and $0.25$. ($-1.5$ is to the left of $-1$; $1.2$ is
+to the right of $1$.)
+\step{5}{Sum of the largest and the smallest}
+The largest is $1.2$, the smallest is $-2$:
+\[ 1.2 + (-2) = -(2 - 1.2) = -0.8. \]
+\begin{recallbox}Adding two numbers with opposite signs: subtract the smaller size from the larger (ignoring signs), then use
+the sign of the number farther from $0$.\end{recallbox}
+\begin{warnbox}Many students put $-0.75$ before $-1.5$ because ``$0.75 < 1.5$''. For negative numbers it is reversed: $-1.5 < -0.75$.\end{warnbox}
+\verify{$-0.8 - 1.2 = -2$. Correct.}
+\ans{a) $-2 < -1.5 < -0.75 < 0.25 < 1.2$;\quad b) $-0.75$ and $0.25$;\quad c) $-0.8$}
+}
+
+% ---------------------------------------------------------------- Problem 32
+\begin{probbox}{32}{\relax}
+Consider the expression $2 + 3 \times 4 - 1$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Evaluate the expression.
+  \item Insert \emph{one} pair of brackets $(\ )$ into the expression (without changing the order of the numbers or the signs)
+  to get the largest possible value. What is that largest value?
+  \item Same question as b), but for the smallest value.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This extends Problems 4 and 7: the position of the brackets changes the order of the
+operations, and so changes the result.
+\begin{recallbox}Brackets first; then multiplication and division; finally addition and subtraction (from left to right).\end{recallbox}
+\step{1}{Value without brackets}
+$2 + 3\times 4 - 1 = 2 + 12 - 1 = 13$.
+\step{2}{List systematically every way to place one pair of brackets}
+A pair of brackets must enclose at least two neighbouring numbers. Call the four numbers, in order, number $1, 2, 3, 4$
+($2;\ 3;\ 4;\ 1$). The brackets can start at number $i$ and end at number $j$ with $i < j$: $6$ ways.
+\begin{center}
+\begin{tabular}{|c|l|c|}
+\hline
+\rowcolor{tmBlue!10} Brackets around & Expression & Value\\ \hline
+numbers 1 -- 2 & $(2+3)\times 4 - 1 = 5\times 4 - 1$ & $\mathbf{19}$\\ \hline
+numbers 1 -- 3 & $(2+3\times 4) - 1 = 14 - 1$ & $13$\\ \hline
+numbers 1 -- 4 & $(2+3\times 4-1)$ & $13$\\ \hline
+numbers 2 -- 3 & $2 + (3\times 4) - 1$ & $13$\\ \hline
+numbers 2 -- 4 & $2 + (3\times 4 - 1) = 2 + 11$ & $13$\\ \hline
+numbers 3 -- 4 & $2 + 3\times(4 - 1) = 2 + 9$ & $\mathbf{11}$\\ \hline
+\end{tabular}
+\end{center}
+\step{3}{Read off the results}
+The largest is $19$, with $(2+3)\times 4 - 1$: the sum $2 + 3$ is ``blown up'' $4$ times.\\
+The smallest is $11$, with $2 + 3\times(4-1)$: $3$ is multiplied by a smaller number ($3$ instead of $4$).
+\begin{tipbox}For a large result, let the multiplication act on a large sum; for a small result, let it act on a difference.
+But to be sure, the best way is still to list every case, as in the table.\end{tipbox}
+\verify{$(2+3)\times 4 - 1 = 20 - 1 = 19$ and $2 + 3\times 3 = 11$.}
+\ans{a) $13$;\quad b) $(2+3)\times 4 - 1 = 19$;\quad c) $2 + 3\times(4-1) = 11$}
+}
+
+% ---------------------------------------------------------------- Problem 33
+\begin{probbox}{33}{\relax}
+An's storybook has $360$ pages. On the first day An reads $\dfrac{1}{4}$ of the book. On the second day An reads
+$\dfrac{1}{3}$ \emph{of the remaining pages}. After two days, how many pages has An not read yet, and what fraction of the
+book is that?
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Careful: the fraction $\dfrac13$ on the second day is taken of the \emph{remaining
+pages}, not of the whole book. This is a ``two-step'' version of Problem 9.
+\begin{recallbox}$\dfrac{m}{n}$ of $a$ equals $a \div n \times m$.\end{recallbox}
+\step{1}{First day}
+An reads $360 \div 4 = 90$ (pages). Remaining: $360 - 90 = 270$ (pages).
+\step{2}{Second day (taken of $270$ pages)}
+An reads $270 \div 3 = 90$ (pages). Remaining: $270 - 90 = 180$ (pages).
+\step{3}{Fraction of the book left}
+$\dfrac{180}{360} = \dfrac12$.
+\begin{barfigC}
+  \blk{0}{2}{0}{0.6}{tmBlue}{$90$}
+  \blk{2}{4}{0}{0.6}{tmGreen}{$90$}
+  \blk{4}{6}{0}{0.6}{tmOrange}{$90$}
+  \blk{6}{8}{0}{0.6}{tmOrange}{$90$}
+  \brcup{0}{2}{0.5}{day 1}
+  \brcup{2}{4}{0.5}{day 2}
+  \brcup{4}{8}{0.5}{not read}
+  \brcdn{2}{8}{-0.5}{left after day 1: $270$ pages, split into $3$ parts}
+\end{barfigC}
+\begin{warnbox}A common mistake: adding $\dfrac14 + \dfrac13 = \dfrac{7}{12}$ and saying $\dfrac{5}{12}$ of the book
+($150$ pages) is left. Wrong, because $\dfrac13$ is of the \emph{remaining part} ($270$ pages), not of the whole book ($360$ pages).\end{warnbox}
+\step{4}{Another way: multiply the ``remaining'' fractions}
+After day 1, $\dfrac34$ of the book remains; after day 2, $\dfrac23$ of that remains, i.e.\ $\dfrac23\times\dfrac34 = \dfrac{6}{12} = \dfrac12$
+of the book, which is $360 \div 2 = 180$ pages.
+\verify{$90 + 90 + 180 = 360$. Correct.}
+\ans{$180$ pages, which is $\dfrac12$ of the book}
+}
+
+% ---------------------------------------------------------------- Problem 34
+\begin{probbox}{34}{\relax}
+The first test has $40$ questions, and Bình answers $32$ of them correctly.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item What percentage of the questions in the first test did Bình answer correctly?
+  \item The second test has $60$ questions. At least how many questions must Bình answer correctly in the second test so
+  that, over both tests together, his correct answers make up at least $85\%$ of all the questions?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Part a) asks for a percentage (the reverse of Problem 5). Part b) asks for a percentage of a total.
+\begin{recallbox}$a$ as a percentage of $b$ is $\dfrac{a}{b}\times 100\%$. \ $p\%$ of $a$ is $a\times\dfrac{p}{100}$.\end{recallbox}
+\step{1}{Percentage in the first test}
+$\dfrac{32}{40}\times 100\% = 0.8\times 100\% = 80\%$.
+\step{2}{Total number of questions in both tests}
+$40 + 60 = 100$ (questions).
+\step{3}{Correct answers needed overall}
+$85\%$ of $100$ questions is $100\times\dfrac{85}{100} = 85$ (questions).
+\step{4}{Correct answers needed in the second test}
+Bình already has $32$ correct answers, so he needs at least $85 - 32 = 53$ (questions) in the second test.
+\begin{warnbox}Do not take ``the average of the two percentages'': solving $(80\% + x) \div 2 = 85\%$ gives $x = 90\%$ of $60$
+questions, i.e.\ $54$ questions -- wrong! The tests have different numbers of questions, so we must work with the
+\emph{total number of questions}.\end{warnbox}
+\verify{With $53$ correct: $(32 + 53) \div 100 = 85\%$ (just enough). With $52$: $84 \div 100 = 84\% < 85\%$ (not enough).}
+\ans{a) $80\%$;\quad b) at least $53$ questions}
+}
+
+% ---------------------------------------------------------------- Problem 35
+\begin{probbox}{35}{\relax}
+A shop sells cashew nuts in packs: a $3$ kg pack costs $255$ thousand dong, a $5$ kg pack costs $410$ thousand dong (no loose sales).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Which pack is cheaper per kilogram?
+  \item Ms Hằng needs to buy \emph{exactly} $15$ kg. How should she buy them to spend as little as possible? How much does it cost?
+  \item How much does it cost to buy \emph{exactly} $13$ kg?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This extends Problem 6: compare unit prices, then find how to combine packs to get the exact mass.
+\begin{recallbox}Unit price $=$ total cost $\div$ quantity.\end{recallbox}
+\step{1}{Unit price of each pack}
+$3$ kg pack: $255 \div 3 = 85$ (thousand dong/kg). \quad $5$ kg pack: $410 \div 5 = 82$ (thousand dong/kg).\\
+So the $5$ kg pack is cheaper ($82 < 85$).
+\step{2}{Ways to make exactly $15$ kg}
+Let $a$ be the number of $3$ kg packs and $b$ the number of $5$ kg packs: $3a + 5b = 15$. Try $b = 0, 1, 2, 3$:
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} $b$ & $15 - 5b$ & $a$ & Cost (thousand dong)\\ \hline
+$0$ & $15$ & $5$ & $5\times 255 = 1275$\\ \hline
+$1$ & $10$ & not divisible by $3$ & --\\ \hline
+$2$ & $5$ & not divisible by $3$ & --\\ \hline
+$3$ & $0$ & $0$ & $3\times 410 = \mathbf{1230}$\\ \hline
+\end{tabular}
+\end{center}
+Buying $3$ packs of $5$ kg is cheapest: $1\,230$ thousand dong $= 1\,230\,000$ dong.
+\step{3}{Exactly $13$ kg}
+$3a + 5b = 13$: \ $b = 0 \Rightarrow 13$ (not divisible by $3$); \ $b = 1 \Rightarrow 8$ (not divisible by $3$);
+\ $b = 2 \Rightarrow 3$, $a = 1$. There is only one way: $1$ pack of $3$ kg and $2$ packs of $5$ kg.\\
+Cost: $255 + 2\times 410 = 255 + 820 = 1075$ (thousand dong) $= 1\,075\,000$ dong.
+\begin{warnbox}Part c) cannot be answered by computing $13\times 82$, because the shop does not sell loose nuts: the packs
+must add up to exactly $13$ kg.\end{warnbox}
+\verify{$3 + 5 + 5 = 13$ kg; $5 + 5 + 5 = 15$ kg.}
+\ans{a) the $5$ kg pack ($82$ thousand dong/kg);\quad b) $3$ packs of $5$ kg, $1\,230\,000$ dong;\quad c) $1\,075\,000$ dong}
+}
+
+% ---------------------------------------------------------------- Problem 36
+\begin{probbox}{36}{\relax}
+The five members of a group weigh (in kg) $38;\ 41;\ 40;\ 37$ and $x$. Their mean weight is $40$ kg.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Find $x$. Is the fifth member heavier or lighter than the mean, and by how many kilograms?
+  \item Find the median weight of the group.
+  \item A sixth member joins the group, and the mean weight of all six becomes $41$ kg. How much does the sixth member weigh?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This extends Problem 14: use the sum and the deviations to find the missing number; add
+the median and an ``extra member'' question.
+\begin{recallbox}Sum $=$ mean $\times$ how many numbers. The deviations from the mean add up to $0$.\end{recallbox}
+\step{1}{Find $x$ using deviations}
+Compared with $40$: $38 \to -2$; \ $41 \to +1$; \ $40 \to 0$; \ $37 \to -3$. Sum: $-2 + 1 + 0 - 3 = -4$.\\
+For the deviations to add up to $0$, the fifth member must be $+4$: $x = 40 + 4 = 44$ (kg), $4$ kg heavier than the mean.\\
+Check with the sum: $5\times 40 = 200$; \ $200 - (38 + 41 + 40 + 37) = 200 - 156 = 44$.
+\step{2}{Median}
+In increasing order: $37;\ 38;\ \mathbf{40};\ 41;\ 44$. The middle (third) number is $40$. The median is $40$ kg.
+\step{3}{The sixth member}
+Total weight of six members: $6\times 41 = 246$ (kg). The first five weigh $200$ kg in total. The sixth weighs $246 - 200 = 46$ (kg).
+\begin{tipbox}Think in deviations: the mean rises by $1$ kg for all $6$ people, so $6$ kg extra above the level of $40$ are needed;
+the new member must weigh $40 + 6 = 46$ kg.\end{tipbox}
+\begin{warnbox}It is not ``the sixth member weighs $41$ kg'' -- then the mean would rise only a little: $241 \div 6 \approx 40.17$ kg.\end{warnbox}
+\verify{$(37 + 38 + 40 + 41 + 44 + 46) \div 6 = 246 \div 6 = 41$. Correct.}
+\ans{a) $x = 44$ kg, $4$ kg heavier than the mean;\quad b) $40$ kg;\quad c) $46$ kg}
+}
+
+% ---------------------------------------------------------------- Problem 37
+\begin{probbox}{37}{\stars{1}}
+A running track around the schoolyard is $200$ m long. Mai runs $6$ laps in $4$ minutes. Tú runs at a constant $18$ km/h.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Who is faster?
+  \item Keeping the same speeds, how many minutes does each of them need to run $3$ km?
+  \item They start at the same time from the same point of the track, but run in \emph{opposite directions}. After how many
+  seconds do they meet for the first time?
+  \item One day Tú increases his speed to $21.6$ km/h while Mai runs as before. They start at the same time from the same
+  point, running in the \emph{same direction}. How long is it until Tú is exactly one lap ahead of Mai?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This extends Problem 12: find a speed from laps run, convert km/h to m/s, then study two
+runners on the same circular track.
+\begin{recallbox}$v = s \div t$, \ $t = s \div v$. \ $1$ km/h $= \dfrac{5}{18}$ m/s, so to convert km/h to m/s multiply by $5$ and divide by $18$.\end{recallbox}
+\step{1}{Mai's speed}
+Distance: $6\times 200 = 1200$ (m). Time: $4$ minutes $= 240$ seconds. \ $v_{\text{Mai}} = 1200 \div 240 = 5$ (m/s).
+\step{2}{Tú's speed (in m/s)}
+$v_{\text{Tú}} = 18\times\dfrac{5}{18} = 5$ (m/s). They run \textbf{equally fast}!
+\begin{warnbox}Comparing ``$5$'' with ``$18$'' directly is meaningless, because the units differ (m/s and km/h). Convert to the
+same unit first.\end{warnbox}
+\step{3}{Time to run $3$ km}
+$3$ km $= 3000$ m. \ $t = 3000 \div 5 = 600$ (seconds) $= 600 \div 60 = 10$ (minutes). Both need $10$ minutes.
+\step{4}{Opposite directions}
+Every second Mai runs $5$ m and Tú runs $5$ m the other way, so the ``combined'' distance they cover grows by
+$5 + 5 = 10$ m per second. They first meet when the \emph{total} of their distances is exactly one lap, $200$ m:
+\[ t = 200 \div 10 = 20 \text{ (seconds)}. \]
+\begin{figC}
+  \draw[Slate!60,line width=4pt] (0,0) circle (1.1);
+  \fill[Navy] (0,1.1) circle (2.5pt); \node[above=4pt,font=\scriptsize] at (0,1.35) {start};
+  \draw[->,tmBlue,thick] (95:1.4) arc (95:265:1.4);
+  \draw[->,tmOrange,thick] (85:1.4) arc (85:-85:1.4);
+  \node[left,font=\scriptsize,text=tmBlue!80!black] at (-1.5,0) {Mai: $100$ m};
+  \node[right,font=\scriptsize,text=tmOrange!80!black] at (1.5,0) {Tú: $100$ m};
+  \fill[AnsRed] (0,-1.1) circle (2.5pt); \node[below,font=\scriptsize,text=AnsRed] at (0,-1.5) {they meet after $20$ s};
+\end{figC}
+After $20$ seconds each has run $5\times 20 = 100$ m, exactly half a lap: they meet at the point opposite the start.
+\step{5}{Same direction, Tú faster}
+$v_{\text{Tú}} = 21.6\times\dfrac{5}{18} = \dfrac{108}{18} = 6$ (m/s). Every second Tú runs $6 - 5 = 1$ m more than Mai. Tú is
+exactly one lap ahead when he has run $200$ m more than Mai:
+\[ t = 200 \div 1 = 200 \text{ (seconds)} = 3 \text{ minutes } 20 \text{ seconds}. \]
+\verify{After $200$ seconds: Tú has run $6\times 200 = 1200$ m ($6$ laps), Mai $5\times 200 = 1000$ m ($5$ laps). Tú is exactly $1$ lap ahead.}
+\begin{parentbox}You can act out parts c) and d) with two coins on a round plate: in opposite directions the ``gap to close''
+shrinks by the \emph{sum} of the speeds; in the same direction it shrinks by the \emph{difference} of the speeds.\end{parentbox}
+\ans{a) equally fast ($5$ m/s);\quad b) $10$ minutes;\quad c) $20$ seconds;\quad d) $200$ seconds ($3$ minutes $20$ seconds)}
+}
+
+% ---------------------------------------------------------------- Problem 38
+\begin{probbox}{38}{\stars{1}}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=0pt]
+  \item Find the digits $a$, $b$ such that the number $\nd{4a7b}$ is divisible by $2$, $5$ and $9$.
+  \item How many four-digit numbers of the form $\nd{5a3b}$ are divisible by $9$? List them.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This extends Problem 10: use several divisibility rules at once and count systematically.
+\begin{recallbox}Divisible by $2$ and $5$ $\iff$ the last digit is $0$. \ Divisible by $9$ $\iff$ the digit sum is divisible by $9$.\end{recallbox}
+\begin{proofbox}Why is ``divisible by both $2$ and $5$'' the same as ``ends in $0$''? Divisibility by $2$ needs an even last digit;
+divisibility by $5$ needs a last digit of $0$ or $5$. The only digit that is even and in $\{0;5\}$ is $0$.\end{proofbox}
+\step{1}{Part a) -- find $b$}
+$\nd{4a7b}$ is divisible by $2$ and $5$, so $b = 0$.
+\step{2}{Part a) -- find $a$}
+Digit sum: $4 + a + 7 + 0 = 11 + a$. Since $0 \le a \le 9$, we have $11 \le 11 + a \le 20$. The only multiple of $9$ in this
+range is $18$. So $11 + a = 18$, $a = 7$. The number is $4770$.
+\verify{$4770 = 9\times 530$, and it ends in $0$, so it is divisible by $2$ and $5$.}
+\step{3}{Part b) -- the condition}
+The digit sum of $\nd{5a3b}$ is $5 + a + 3 + b = 8 + a + b$. Since $0 \le a + b \le 18$, we have $8 \le 8 + a + b \le 26$. The
+multiples of $9$ in this range are $9$ and $18$. Hence $a + b = 1$ or $a + b = 10$.
+\step{4}{Part b) -- count systematically}
+$a + b = 1$: $(a;b) = (0;1)$ or $(1;0)$ \ -- \ $2$ numbers.\\
+$a + b = 10$: $a$ runs from $1$ to $9$, $b = 10 - a$ (from $9$ down to $1$) \ -- \ $9$ numbers. ($a = 0$ would give $b = 10$, not a digit.)\\
+In total: $2 + 9 = 11$ numbers:
+\[ 5031,\ 5130,\ 5139,\ 5238,\ 5337,\ 5436,\ 5535,\ 5634,\ 5733,\ 5832,\ 5931. \]
+\begin{warnbox}Do not forget that $a$ may be $0$ (the first digit is $5$), and do not miss the case where the digit sum is $9$
+(that is, $a + b = 1$).\end{warnbox}
+\verify{Each number above has digit sum $9$ or $18$, e.g.\ $5\,436$: $5+4+3+6 = 18$.}
+\ans{a) $a = 7$, $b = 0$ (the number $4770$);\quad b) $11$ numbers}
+}
+
+% ---------------------------------------------------------------- Problem 39
+\begin{probbox}{39}{\stars{1}}
+In the addition below, $M$ and $N$ are two different non-zero digits. Find all pairs $(M;N)$ that work.
+\[ \begin{array}{r@{\;}c@{\;}c} & M & N\\ & N & M\\ + & N & N\\ \hline 1 & 8 & 7 \end{array} \]
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This extends Problem 13. This time, instead of trying column by column, we use place value
+to get one simple equation, and then find \emph{all} solutions.
+\begin{recallbox}$\nd{MN} = 10M + N$, \ $\nd{NM} = 10N + M$, \ $\nd{NN} = 10N + N = 11N$.\end{recallbox}
+\step{1}{Write the sum using place value}
+\[ \nd{MN} + \nd{NM} + \nd{NN} = (10M + N) + (10N + M) + 11N = 11M + 22N = 11\times(M + 2N). \]
+\step{2}{Set up the equation}
+$11\times(M + 2N) = 187$, so $M + 2N = 187 \div 11 = 17$.
+\step{3}{Find every pair of digits}
+$M = 17 - 2N$ must be a digit from $1$ to $9$, so $17 - 2N \le 9$, i.e.\ $N \ge 4$; and $17 - 2N \ge 1$, i.e.\ $N \le 8$.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} $N$ & $4$ & $5$ & $6$ & $7$ & $8$\\ \hline
+$M = 17 - 2N$ & $9$ & $7$ & $5$ & $3$ & $1$\\ \hline
+Addition & $94+49+44$ & $75+57+55$ & $56+65+66$ & $37+73+77$ & $18+81+88$\\ \hline
+\end{tabular}
+\end{center}
+All five pairs have $M \ne N$, and every sum equals $187$.
+\begin{tipbox}When letters appear ``symmetrically'', as in $\nd{MN}$ and $\nd{NM}$, try place value: there is often a common
+factor ($11$ here) that makes the problem much simpler.\end{tipbox}
+\begin{warnbox}The problem asks for \emph{all} pairs. Finding one pair (say $M = 9$, $N = 4$) and stopping is not enough.\end{warnbox}
+\verify{$94 + 49 + 44 = 187$; \ $75 + 57 + 55 = 187$; \ $56 + 65 + 66 = 187$; \ $37 + 73 + 77 = 187$; \ $18 + 81 + 88 = 187$.}
+\ans{$(M;N) \in \{(9;4),\ (7;5),\ (5;6),\ (3;7),\ (1;8)\}$}
+}
+
+% ---------------------------------------------------------------- Problem 40
+\begin{probbox}{40}{\stars{2}}
+A sequence is built by the Fibonacci rule: from the third number on, each number is the sum of the two numbers just before it.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item The first number is $2$ and the fifth number is $19$. Find the second and the eighth numbers of the sequence.
+  \item Find the mean of the first five numbers of the sequence in part a).
+  \item In the familiar Fibonacci sequence $1, 1, 2, 3, 5, 8, \ldots$, is the $2026$th number even or odd? Explain.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This extends Problem 15. In part a) the second number is unknown, so we call it $b$ and
+express the following numbers in terms of $b$. In part c) we cannot write out $2026$ numbers; we need a pattern of even and odd.
+\step{1}{Express the numbers in terms of $b$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Position & 1 & 2 & 3 & 4 & 5\\ \hline
+Number & $2$ & $b$ & $2 + b$ & $b + (2 + b) = 2 + 2b$ & $(2 + b) + (2 + 2b) = 4 + 3b$\\ \hline
+\end{tabular}
+\end{center}
+\step{2}{Find $b$}
+$4 + 3b = 19 \Rightarrow 3b = 15 \Rightarrow b = 5$. The second number is $5$.
+\step{3}{Continue up to the eighth number}
+$2,\ 5,\ 7,\ 12,\ 19,\ 31,\ 50,\ 81$ \quad ($12 + 19 = 31$; \ $19 + 31 = 50$; \ $31 + 50 = 81$). The eighth number is $81$.
+\step{4}{Mean of the first five numbers}
+$(2 + 5 + 7 + 12 + 19) \div 5 = 45 \div 5 = 9$.
+\step{5}{The even--odd pattern of the Fibonacci sequence}
+\begin{recallbox}odd $+$ odd $=$ even; \ odd $+$ even $=$ odd; \ even $+$ odd $=$ odd.\end{recallbox}
+Write O (odd) and E (even) for the numbers $1, 1, 2, 3, 5, 8, 13, 21, 34, \ldots$:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Position & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\ \hline
+Number & 1 & 1 & 2 & 3 & 5 & 8 & 13 & 21 & 34\\ \hline
+Even/odd & O & O & \textbf{E} & O & O & \textbf{E} & O & O & \textbf{E}\\ \hline
+\end{tabular}
+\end{center}
+The pattern ``O, O, E'' repeats forever.
+\begin{proofbox}Suppose at some point we have two consecutive numbers O, O. Then the next number is O $+$ O $=$ E; the one after is
+O $+$ E $=$ O; the one after that is E $+$ O $=$ O. We again have two consecutive numbers O, O, so the cycle ``O, O, E'' starts
+again. The sequence begins with $1, 1$ (O, O), so this pattern repeats all the way: the numbers in positions divisible by $3$
+are even, all the others are odd.\end{proofbox}
+\step{6}{Look at position $2026$}
+$2026 = 3\times 675 + 1$, i.e.\ $2026$ leaves remainder $1$ when divided by $3$. This position corresponds to the first ``O'' in
+a cycle. So the $2026$th number is \textbf{odd}.
+\begin{warnbox}You cannot conclude ``$2026$ is even, so the $2026$th number is even too''. The parity of the \emph{position} is
+different from the parity of the \emph{number} in that position; for example, the $2$nd number is $1$ (odd).\end{warnbox}
+\verify{Part a): $2 + 5 = 7$, $5 + 7 = 12$, $7 + 12 = 19$ -- indeed the fifth number is $19$. Part c): test the pattern on small
+positions: position $4 = 3\times 1 + 1$ holds $3$ (odd); position $7 = 3\times 2 + 1$ holds $13$ (odd).}
+\ans{a) the second number is $5$, the eighth is $81$;\quad b) $9$;\quad c) odd}
+}

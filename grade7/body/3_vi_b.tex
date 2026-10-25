@@ -1,0 +1,725 @@
+% ================= Topic 3 (VI) -- part b: problems 16--30 =================
+\providecommand{\cpTooth}[3]{% #1 rows, #2 columns, #3 unit (cm): grid of toothpicks
+  \foreach \j in {0,...,#1}{\foreach \i in {1,...,#2}{
+    \draw[tmOrange!85!black,line width=1.6pt,line cap=round]
+      ({(\i-1)*#3+0.05},{\j*#3})--({\i*#3-0.05},{\j*#3});}}
+  \foreach \j in {1,...,#1}{\foreach \i in {0,...,#2}{
+    \draw[tmOrange!85!black,line width=1.6pt,line cap=round]
+      ({\i*#3},{(\j-1)*#3+0.05})--({\i*#3},{\j*#3-0.05});}}}
+
+\begin{probbox}{16}{\relax}
+Trên lưới điểm ở hình bên, bạn Lan đứng ở điểm $A$. Lan tung một đồng xu cân đối để quyết định
+cách di chuyển: nếu đồng xu ra mặt \emph{sấp} thì Lan đi \emph{lên} một điểm; nếu ra mặt \emph{ngửa}
+thì Lan đi \emph{sang phải} một điểm. Sau đúng bốn lần tung, Lan sẽ dừng ở một trong năm điểm
+$P$, $Q$, $R$, $S$, $T$. Xác suất để Lan dừng ở điểm $R$ là bao nhiêu?
+\begin{figC}\begin{scope}[scale=0.8]
+  \foreach \y in {0,...,4}{\pgfmathtruncatemacro\m{4-\y}
+    \foreach \x in {0,...,\m}{\fill[Navy] (\x,\y) circle (2.6pt);}}
+  \node[below left] at (0,0) {$A$};
+  \node[above right] at (0,4) {$P$};\node[above right] at (1,3) {$Q$};
+  \node[above right] at (2,2) {$R$};\node[above right] at (3,1) {$S$};
+  \node[above right] at (4,0) {$T$};
+  \fill[tmOrange] (0,0) circle (3.4pt);
+\end{scope}\end{figC}
+\choices{$\dfrac12$}{$\dfrac38$}{$\dfrac9{16}$}{$\dfrac7{16}$}{$\dfrac5{16}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi lần tung, Lan đi \emph{lên} ($\uparrow$, khi ra sấp) hoặc \emph{sang phải}
+($\rightarrow$, khi ra ngửa). Sau $4$ lần tung, Lan đi đúng $4$ bước. Ta cần tính xác suất để
+sau $4$ bước Lan đứng ở $R$.
+
+\step{1}{Đếm tất cả các kết quả có thể}
+Mỗi lần tung có $2$ kết quả (sấp hoặc ngửa), bốn lần tung liên tiếp cho
+$2\times2\times2\times2=16$ dãy kết quả, ví dụ $\uparrow\rightarrow\rightarrow\uparrow$.
+Vì đồng xu cân đối nên $16$ dãy này \emph{đồng khả năng}.
+\begin{recallbox}\emph{Quy tắc nhân:} nếu việc thứ nhất có $a$ cách, việc thứ hai có $b$ cách, \dots{} thì
+làm lần lượt các việc đó có $a\times b\times\cdots$ cách. \emph{Xác suất} của một biến cố (khi các kết
+quả đồng khả năng) $=\dfrac{\text{số kết quả thuận lợi}}{\text{số kết quả có thể}}$.\end{recallbox}
+
+\step{2}{Điểm cuối chỉ phụ thuộc vào số bước đi lên}
+Nếu trong $4$ bước có $k$ bước đi lên thì có $4-k$ bước sang phải. Thứ tự các bước không làm thay
+đổi điểm cuối. Đặt $A$ là gốc, ta có: $4$ lần lên $\to P$; $3$ lần lên $\to Q$;
+$2$ lần lên $\to R$; $1$ lần lên $\to S$; $0$ lần lên $\to T$.
+Vậy Lan dừng ở $R$ khi và chỉ khi có \textbf{đúng $2$ bước lên và $2$ bước sang phải}.
+
+\step{3}{Liệt kê các dãy thuận lợi}
+Ta chọn vị trí của hai bước $\uparrow$ trong bốn lượt (lượt 1, 2, 3, 4):
+\[\uparrow\uparrow\rightarrow\rightarrow,\quad \uparrow\rightarrow\uparrow\rightarrow,\quad
+\uparrow\rightarrow\rightarrow\uparrow,\quad \rightarrow\uparrow\uparrow\rightarrow,\quad
+\rightarrow\uparrow\rightarrow\uparrow,\quad \rightarrow\rightarrow\uparrow\uparrow.\]
+Có $6$ dãy (chọn $2$ lượt trong $4$ lượt: $\dfrac{4\times3}{2}=6$ cách).
+
+\step{4}{Tính xác suất}
+\[P(\text{dừng ở } R)=\frac{6}{16}=\frac38.\]
+
+\step{5}{Một cách nhìn bằng hình: ghi số đường đi tới mỗi điểm}
+Ghi vào mỗi điểm số dãy bước dẫn từ $A$ tới điểm đó. Mỗi điểm chỉ có thể tới từ điểm ngay bên trái hoặc
+ngay bên dưới, nên số ở mỗi điểm $=$ tổng hai số ở bên trái và bên dưới (giống tam giác Pascal):
+\begin{figC}\begin{scope}[scale=0.75]
+  \foreach \x/\y/\n in {0/0/1,1/0/1,2/0/1,3/0/1,4/0/1,0/1/1,1/1/2,2/1/3,3/1/4,0/2/1,1/2/3,2/2/6,
+     0/3/1,1/3/4,0/4/1}{
+    \fill[tmBlue!12] (\x,\y) circle (9pt);
+    \node[font=\small\bfseries,text=Navy] at (\x,\y) {\n};}
+  \draw[AnsRed,thick] (2,2) circle (10pt);
+  \node[right=10pt,text=AnsRed,font=\small] at (2,2) {$R$};
+  \node[right=10pt,font=\small] at (4,0) {$T$};\node[right=10pt,font=\small] at (3,1) {$S$};
+  \node[right=10pt,font=\small] at (1,3) {$Q$};\node[right=10pt,font=\small] at (0,4) {$P$};
+\end{scope}\end{figC}
+Trên đường chéo cuối: $1+4+6+4+1=16$ (đúng bằng tổng số dãy) và tại $R$ có số $6$.
+\begin{warnbox}Năm điểm $P,Q,R,S,T$ \emph{không} đồng khả năng! Không được trả lời ``$1$ trong $5$ điểm nên
+xác suất là $\frac15$''. Điểm ở giữa ($R$) có nhiều đường đi tới nhất; hai điểm ở đầu ($P$ và $T$) mỗi điểm chỉ có một đường.\end{warnbox}
+\verify{Xác suất dừng ở các điểm $P,Q,R,S,T$ lần lượt là $\frac1{16},\frac4{16},\frac6{16},\frac4{16},\frac1{16}$;
+tổng bằng $\frac{16}{16}=1$, hợp lý.}
+Giá trị $\frac38=\frac6{16}$ là phương án \textbf{(B)}.
+\ans{(B) $\dfrac38$}
+}
+
+\begin{probbox}{17}{\relax}
+Người ta dùng các que tăm giống hệt nhau để xếp thành các lưới ô vuông như hình dưới. Chẳng hạn, lưới
+$1\times10$ (gồm $1$ hàng, $10$ cột ô vuông) cần tất cả $31$ que tăm. Hỏi để xếp lưới $43\times10$
+($43$ hàng, mỗi hàng $10$ ô) thì cần bao nhiêu que tăm?
+\begin{figC}
+  \begin{scope}[shift={(0,2.4)}]\cpTooth{1}{10}{0.42}\node[right] at (4.4,0.21) {$1\times10$};\end{scope}
+  \begin{scope}[shift={(0,1.05)}]\cpTooth{2}{10}{0.42}\node[right] at (4.4,0.42) {$2\times10$};\end{scope}
+  \begin{scope}[shift={(0,-0.6)}]\cpTooth{3}{10}{0.42}\node[right] at (4.4,0.63) {$3\times10$};\end{scope}
+\end{figC}
+\choices{$913$}{$860$}{$871$}{$903$}{$946$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Lưới $43\times10$ có $43$ hàng ô vuông, mỗi hàng $10$ ô. Các que tăm nằm theo hai
+hướng: \emph{nằm ngang} và \emph{thẳng đứng}. Ta đếm riêng từng loại rồi cộng lại (quy tắc cộng).
+
+\step{1}{Kiểm tra cách đếm trên lưới $1\times10$}
+\emph{Que nằm ngang:} lưới có $2$ đường kẻ ngang (cạnh trên và cạnh dưới), mỗi đường gồm $10$ que:
+$2\times10=20$ que.
+\emph{Que thẳng đứng:} có $11$ đường kẻ dọc ($10$ ô cần $11$ vách ngăn), mỗi đường gồm $1$ que:
+$11\times1=11$ que. Tổng: $20+11=31$ que, đúng như đề cho.
+\begin{recallbox}Một hàng có $10$ ô thì cần $10+1=11$ vách dọc (giống bài toán trồng cây: $10$ khoảng cách
+thì có $11$ cây). Tương tự, $43$ hàng ô thì có $43+1=44$ đường kẻ ngang.\end{recallbox}
+
+\step{2}{Đếm que nằm ngang của lưới $43\times10$}
+Có $43+1=44$ đường kẻ ngang, mỗi đường dài $10$ que: $44\times10=440$ que.
+
+\step{3}{Đếm que thẳng đứng của lưới $43\times10$}
+Có $10+1=11$ đường kẻ dọc, mỗi đường dài $43$ que (mỗi hàng ô góp $1$ que): $11\times43=473$ que.
+
+\step{4}{Cộng lại}
+$440+473=913$ que tăm.
+
+\step{5}{Cách thứ hai: thêm từng hàng}
+Lưới $1\times10$ có $31$ que. Mỗi khi đặt thêm một hàng mới lên trên, ta cần thêm $10$ que nằm ngang
+(cạnh trên của hàng mới) và $11$ que thẳng đứng, tức $21$ que (cạnh dưới đã có sẵn). Từ $1$ hàng lên
+$43$ hàng phải thêm $42$ hàng:
+\[31+42\times21=31+882=913.\]
+\begin{warnbox}Không được lấy $43\times31=1333$: khi chồng các hàng lên nhau, hai hàng kề nhau \emph{dùng chung}
+một dãy $10$ que nằm ngang, nên nhân như vậy là đếm trùng.\end{warnbox}
+\verify{Theo công thức $(\text{số hàng}+1)\times10+11\times\text{số hàng}$: lưới $2\times10$ cần
+$3\times10+11\times2=52$ que, lưới $3\times10$ cần $4\times10+11\times3=73$ que; đếm trực tiếp trên hình cũng
+được $52$ và $73$. Hai cách tính cho cùng kết quả $913$.}
+Vậy chọn \textbf{(A)}.
+\ans{(A) $913$ que tăm}
+}
+
+\begin{probbox}{18}{\relax}
+Ở căng-tin trường bạn Minh, món thịt có hai loại là thịt bò và thịt gà; trái cây có ba loại là táo, lê
+và chuối. Minh được phát ngẫu nhiên một suất ăn gồm một món thịt và một loại trái cây. Xác suất để
+suất ăn của Minh có chuối là
+\choices{$\dfrac13$}{$\dfrac23$}{$\dfrac12$}{$\dfrac15$}{$\dfrac35$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Một suất ăn $=$ (một món thịt, một loại trái cây). Suất ăn được chọn ngẫu nhiên
+nên mọi suất ăn có thể đều đồng khả năng. Cần tìm xác suất suất ăn có chuối.
+
+\step{1}{Liệt kê tất cả các suất ăn có thể}
+Theo quy tắc nhân có $2\times3=6$ suất ăn. Ta lập bảng (hàng: thịt, cột: trái cây):
+\begin{center}\begin{tabular}{|c|c|c|c|}\hline
+ & Táo & Lê & \cellcolor{tmOrange!20}Chuối\\\hline
+Bò & Bò--Táo & Bò--Lê & \cellcolor{tmOrange!20}Bò--Chuối\\\hline
+Gà & Gà--Táo & Gà--Lê & \cellcolor{tmOrange!20}Gà--Chuối\\\hline
+\end{tabular}\end{center}
+
+\step{2}{Đếm các suất ăn có chuối}
+Cột ``Chuối'' có $2$ suất: Bò--Chuối và Gà--Chuối.
+
+\step{3}{Tính xác suất}
+\[P(\text{có chuối})=\frac{2}{6}=\frac13.\]
+\begin{recallbox}Rút gọn phân số: chia cả tử và mẫu cho ước chung lớn nhất: $\dfrac26=\dfrac{2:2}{6:2}=\dfrac13$.\end{recallbox}
+\begin{tipbox}Món thịt không ảnh hưởng gì tới trái cây. Có thể nghĩ gọn: trái cây được chọn là một trong
+$3$ loại đồng khả năng, chuối là $1$ trong $3$ loại, nên xác suất là $\frac13$.\end{tipbox}
+\begin{warnbox}Đừng cộng ``$2$ loại thịt $+\,3$ loại trái cây $=5$'' rồi trả lời $\frac15$: số suất ăn là
+$2\times3=6$ chứ không phải $2+3=5$.\end{warnbox}
+\verify{Xác suất có táo, có lê, có chuối đều bằng $\frac13$; tổng $\frac13+\frac13+\frac13=1$.}
+Vậy chọn \textbf{(A)}.
+\ans{(A) $\dfrac13$}
+}
+
+\begin{probbox}{19}{\relax}
+Người ta làm một con xúc xắc đặc biệt có sáu mặt, mỗi mặt ghi một số (các số có thể trùng nhau). Khi gieo
+xúc xắc này, xác suất được một số chia hết cho $3$ là $\frac12$, còn xác suất được một số chẵn là $\frac13$.
+Sáu số trên các mặt có thể là
+\choicesII{$1,2,3,5,5,6$}{$1,2,3,3,5,6$}{$1,2,3,4,6,6$}{$1,2,3,3,4,6$}{$2,3,3,3,5,6$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Xúc xắc có $6$ mặt đồng khả năng. Từ hai xác suất đã cho, ta suy ra \emph{số mặt}
+ghi số chia hết cho $3$ và số mặt ghi số chẵn, rồi kiểm tra từng phương án.
+
+\step{1}{Đổi xác suất thành số mặt}
+\begin{recallbox}Với $6$ mặt đồng khả năng: $P=\dfrac{\text{số mặt thuận lợi}}{6}$, nên
+số mặt thuận lợi $=P\times6$.\end{recallbox}
+Số mặt chia hết cho $3$: $\frac12\times6=3$ mặt.\quad Số mặt chẵn: $\frac13\times6=2$ mặt.
+
+Vậy ta cần: \textbf{đúng $3$ mặt chia hết cho $3$} và \textbf{đúng $2$ mặt chẵn}.
+
+\step{2}{Kiểm tra từng phương án}
+Trong các số từ $1$ đến $6$: các số chia hết cho $3$ là $3$ và $6$; các số chẵn là $2$, $4$, $6$.
+Chú ý số $6$ vừa chẵn vừa chia hết cho $3$, nên phải đếm nó ở \emph{cả hai} cột.
+\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+Phương án & Các mặt & Mặt chia hết cho $3$ & Mặt chẵn & Đạt?\\\hline
+(A) & $1,2,3,5,5,6$ & $3,6$ \;($2$ mặt) & $2,6$ \;($2$ mặt) & Không\\\hline
+\rowcolor{tmGreen!12}(B) & $1,2,3,3,5,6$ & $3,3,6$ \;($3$ mặt) & $2,6$ \;($2$ mặt) & Có\\\hline
+(C) & $1,2,3,4,6,6$ & $3,6,6$ \;($3$ mặt) & $2,4,6,6$ \;($4$ mặt) & Không\\\hline
+(D) & $1,2,3,3,4,6$ & $3,3,6$ \;($3$ mặt) & $2,4,6$ \;($3$ mặt) & Không\\\hline
+(E) & $2,3,3,3,5,6$ & $3,3,3,6$ \;($4$ mặt) & $2,6$ \;($2$ mặt) & Không\\\hline
+\end{tabular}\end{center}
+\begin{warnbox}Nếu quên rằng $6$ là số chẵn, ta sẽ đếm sai số mặt chẵn của (D) thành $2$ và chọn nhầm (D).
+Một số có thể thuộc nhiều nhóm cùng lúc!\end{warnbox}
+\verify{Với (B): $P(\text{chia hết cho }3)=\frac36=\frac12$ và $P(\text{chẵn})=\frac26=\frac13$, đúng cả hai điều kiện.}
+Chỉ có phương án \textbf{(B)} thoả mãn.
+\ans{(B) $1,2,3,3,5,6$}
+}
+
+\begin{probbox}{20}{\stars{1}}
+Ba tuyến xe buýt chạy trên các con đường như hình vẽ, cùng đi qua bến $X$ (các đoạn có cùng số vạch
+nhỏ thì dài bằng nhau: $PX=XS$, $QX=XT$, $RX=XU$).
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Xe $A$ chạy theo lộ trình $P\to X\to S\to X\to P$, mỗi vòng mất $12$ phút.
+\item Xe $B$ chạy theo lộ trình $Q\to X\to T\to X\to Q$, mỗi vòng mất $20$ phút.
+\item Xe $C$ chạy theo lộ trình $R\to X\to U\to X\to R$, mỗi vòng mất $28$ phút.
+\end{itemize}
+Lúc $13$\,h, ba xe $A$, $B$, $C$ lần lượt xuất phát từ $P$, $Q$, $R$. Mỗi xe chạy với vận tốc không đổi,
+quay đầu ngay lập tức ở hai đầu lộ trình và chạy liên tục đến $23$\,h. Hỏi trong khoảng thời gian từ
+$17$\,h đến $22$\,h, có bao nhiêu thời điểm mà có từ hai xe trở lên cùng có mặt tại bến $X$?
+\begin{figC}\begin{scope}[scale=0.9]
+  \draw[Ink,thick] (0,1.6)--(0,-1.6);\draw[Ink,thick] (-1.9,0)--(1.9,0);\draw[Ink,thick] (-2,-1.35)--(2,1.35);
+  \foreach \p in {(0,1.6),(0,-1.6),(-1.9,0),(1.9,0),(-2,-1.35),(2,1.35),(0,0)}{\fill[Navy] \p circle (2pt);}
+  \node[above] at (0,1.6) {$P$};\node[below] at (0,-1.6) {$S$};\node[left] at (-1.9,0) {$Q$};
+  \node[right] at (1.9,0) {$T$};\node[below left] at (-2,-1.35) {$R$};\node[above right] at (2,1.35) {$U$};
+  \node[below right] at (0.05,-0.02) {$X$};
+  % ticks
+  \draw[tmBlue,thick] (-0.12,0.8)--(0.12,0.8);\draw[tmBlue,thick] (-0.12,-0.8)--(0.12,-0.8);
+  \foreach \s in {-1,1}{\draw[tmOrange,thick] (\s*0.95-0.04,-0.12)--(\s*0.95-0.04,0.12);
+                        \draw[tmOrange,thick] (\s*0.95+0.04,-0.12)--(\s*0.95+0.04,0.12);}
+  \foreach \s in {-1,1}{\foreach \d in {-0.09,0,0.09}{
+     \draw[tmGreen!80!black,thick] ($(\s*1,\s*0.675)+(\d*0.829,\d*0.559)+(0.067,-0.1)$)--++(-0.134,0.2);}}
+\end{scope}\end{figC}
+\choices{$18$}{$19$}{$20$}{$21$}{$22$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta đo thời gian bằng \emph{số phút kể từ $13$\,h} và gọi số đó là $t$. Cần tìm
+những giá trị $t$ mà có ít nhất hai xe cùng ở $X$, với $t$ nằm trong khoảng từ $17$\,h đến $22$\,h.
+
+\step{1}{Đổi khoảng thời gian cần xét ra số phút}
+$17$\,h là $4$ giờ sau $13$\,h: $t=4\times60=240$. \quad $22$\,h là $9$ giờ sau $13$\,h: $t=9\times60=540$.
+Vậy ta xét $240\le t\le540$.
+
+\step{2}{Xe $A$ có mặt ở $X$ vào những lúc nào?}
+Một vòng của xe $A$ gồm $4$ đoạn bằng nhau: $P\to X$, $X\to S$, $S\to X$, $X\to P$ (vì $PX=XS$).
+Xe chạy đều nên mỗi đoạn mất $12:4=3$ phút. Xe $A$ tới $X$ ở cuối đoạn thứ nhất và cuối đoạn thứ ba
+của mỗi vòng, tức là lúc
+\[t=3,\ 9,\ 15,\ 21,\ 27,\ \dots\]
+Đó chính là các \textbf{bội lẻ của $3$} ($3\times1$, $3\times3$, $3\times5$, \dots). Ở cuối đoạn thứ hai và thứ tư
+xe ở $S$ hoặc $P$, không ở $X$.
+
+\step{3}{Tương tự với xe $B$ và xe $C$}
+Xe $B$: mỗi đoạn mất $20:4=5$ phút, xe ở $X$ lúc $t=5,15,25,35,\dots$ -- các \textbf{bội lẻ của $5$}.\\
+Xe $C$: mỗi đoạn mất $28:4=7$ phút, xe ở $X$ lúc $t=7,21,35,49,\dots$ -- các \textbf{bội lẻ của $7$}.
+
+\step{4}{Khi nào hai xe gặp nhau ở $X$?}
+\begin{recallbox}Một số chia hết cho cả $3$ và $5$ thì chia hết cho $\text{BCNN}(3,5)=15$. Tương tự:
+chia hết cho cả $3$ và $7$ $\Leftrightarrow$ chia hết cho $21$; chia hết cho cả $5$ và $7$ $\Leftrightarrow$
+chia hết cho $35$.\end{recallbox}
+Xe $A$ và xe $B$ cùng ở $X$ khi $t$ vừa là bội lẻ của $3$ vừa là bội lẻ của $5$, tức $t$ là \textbf{số lẻ chia hết cho $15$}
+(bội lẻ của $15$). Tương tự: $A$ và $C$ gặp nhau khi $t$ là bội lẻ của $21$; $B$ và $C$ gặp nhau khi $t$ là bội lẻ của $35$.
+\begin{proofbox}Bội lẻ của $15$ là số lẻ chia hết cho $15$, nên nó vừa là số lẻ chia hết cho $3$ (bội lẻ của $3$), vừa là
+số lẻ chia hết cho $5$ (bội lẻ của $5$). Ngược lại, một số vừa là bội lẻ của $3$ vừa là bội lẻ của $5$ thì lẻ và chia
+hết cho $15$.\end{proofbox}
+
+\step{5}{Liệt kê trong khoảng $240\le t\le540$}
+\begin{center}\begin{tabular}{|l|l|c|}\hline
+Hai xe & Các giá trị $t$ (bội lẻ) & Số lần\\\hline
+$A$ và $B$ ($15$) & $255, 285, 315, 345, 375, 405, 435, 465, 495, 525$ & $10$\\\hline
+$A$ và $C$ ($21$) & $273, 315, 357, 399, 441, 483, 525$ & $7$\\\hline
+$B$ và $C$ ($35$) & $245, 315, 385, 455, 525$ & $5$\\\hline
+\end{tabular}\end{center}
+(Ví dụ hàng đầu: $15\times17=255$ là bội lẻ đầu tiên lớn hơn $240$; sau đó cứ cộng thêm $30$, vì giữa hai
+bội lẻ liên tiếp của $15$ cách nhau $2\times15=30$.)
+
+\step{6}{Bỏ các thời điểm bị đếm trùng}
+Cộng ba hàng được $10+7+5=22$, nhưng các thời điểm $315$ và $525$ xuất hiện ở \emph{cả ba hàng}
+(đó là bội lẻ của $3\times5\times7=105$: lúc ấy cả ba xe cùng ở $X$). Mỗi thời điểm này bị đếm $3$ lần
+trong khi chỉ được đếm $1$ lần, nên phải bớt $2+2=4$:
+\[22-4=18 \text{ thời điểm.}\]
+\begin{warnbox}Đề hỏi số \emph{thời điểm}, không phải số ``cặp xe gặp nhau''. Lúc ba xe cùng ở $X$ chỉ là
+\emph{một} thời điểm. Cộng thẳng $10+7+5=22$ rồi chọn (E) là sai.\end{warnbox}
+\verify{Đổi ra giờ: $17$\,h\,05; $17$\,h\,15; $17$\,h\,33; $17$\,h\,45; $18$\,h\,15; $18$\,h\,45; $18$\,h\,57;
+$19$\,h\,15; $19$\,h\,25; $19$\,h\,39; $19$\,h\,45; $20$\,h\,15; $20$\,h\,21; $20$\,h\,35; $20$\,h\,45; $21$\,h\,03;
+$21$\,h\,15; $21$\,h\,45 -- đếm được đúng $18$ thời điểm, tất cả đều nằm giữa $17$\,h và $22$\,h.}
+Vậy chọn \textbf{(A)}.
+\ans{(A) $18$}
+}
+
+\begin{probbox}{21}{\relax}
+Mỗi mặt của một hình lập phương được sơn đúng một màu. Cần ít nhất bao nhiêu màu để sơn hình lập
+phương sao cho hai mặt bất kì có chung một cạnh thì có màu khác nhau?
+\choices{$2$}{$3$}{$4$}{$5$}{$6$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Hai mặt ``có chung một cạnh'' là hai mặt kề nhau. Hai mặt đối diện (như mặt trên và
+mặt dưới) không có cạnh chung nên được phép cùng màu. Ta cần (1) chỉ ra một cách tô dùng ít màu, và
+(2) chứng minh không thể dùng ít màu hơn.
+
+\step{1}{Hai màu là không đủ}
+\begin{proofbox}Xét một đỉnh bất kì của hình lập phương, chẳng hạn đỉnh trên--trước--phải. Có ba mặt gặp nhau ở
+đỉnh đó: mặt trên, mặt trước, mặt phải. Hai mặt bất kì trong ba mặt này đều có chung một cạnh, nên ba mặt
+này phải có ba màu đôi một khác nhau. Do đó cần ít nhất $3$ màu.\end{proofbox}
+
+\step{2}{Ba màu là đủ}
+Tô \emph{hai mặt đối diện cùng một màu}: mặt trên và mặt dưới màu xanh dương, mặt trước và mặt sau màu
+cam, mặt trái và mặt phải màu xanh lá. Mỗi mặt kề với $4$ mặt, đó chính là bốn mặt \emph{không} đối diện
+với nó, và bốn mặt này mang hai màu kia. Vậy không có hai mặt kề nhau nào cùng màu.
+\begin{figC}
+  \begin{scope}
+   \fill[tmOrange!55,draw=Ink,thick] (0,0)--(1.6,0)--(1.6,1.6)--(0,1.6)--cycle;
+   \fill[tmBlue!55,draw=Ink,thick] (0,1.6)--(1.6,1.6)--(2.4,2.3)--(0.8,2.3)--cycle;
+   \fill[tmGreen!55,draw=Ink,thick] (1.6,0)--(2.4,0.7)--(2.4,2.3)--(1.6,1.6)--cycle;
+   \node at (0.8,0.8) {trước};\node at (1.2,1.95) {trên};\node[rotate=0] at (2,1.15) {phải};
+  \end{scope}
+  \begin{scope}[shift={(4,0.1)},scale=0.5]
+   \foreach \x/\y/\c in {1/2/tmBlue,0/1/tmGreen,1/1/tmOrange,2/1/tmGreen,3/1/tmOrange,1/0/tmBlue}{
+     \fill[\c!55,draw=Ink,thick] (\x,\y) rectangle ++(1,1);}
+   \node[font=\scriptsize] at (2,-0.45) {hình khai triển};
+  \end{scope}
+\end{figC}
+
+\step{3}{Kết luận}
+Cần ít nhất $3$ màu (bước 1) và $3$ màu là đủ (bước 2), nên số màu nhỏ nhất là $3$.
+\begin{warnbox}Chỉ tìm được một cách tô bằng $3$ màu thì \emph{chưa đủ} để khẳng định $3$ là nhỏ nhất; phải
+giải thích vì sao $2$ màu không được (lập luận ba mặt chung đỉnh). Ngược lại, nghĩ rằng ``$6$ mặt phải có
+$6$ màu'' là quên rằng mặt đối diện được phép cùng màu.\end{warnbox}
+\verify{Trên hình khai triển, mỗi ô vuông chỉ chung cạnh với các ô khác màu (khi gấp lại, hai ô cùng màu
+là hai mặt đối diện).}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $3$ màu}
+}
+
+\begin{probbox}{22}{\relax}
+Có bao nhiêu cặp số $(m,n)$ khác nhau lấy từ các số nguyên $1,2,3,\dots,20$ sao cho $m<n$ và $m+n$ là số chẵn?
+\choices{$55$}{$90$}{$140$}{$110$}{$50$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta chọn hai số khác nhau trong $20$ số; vì yêu cầu $m<n$ nên mỗi cặp hai số chỉ được
+đếm \emph{một lần} (số nhỏ là $m$, số lớn là $n$). Điều kiện: tổng $m+n$ chẵn.
+
+\step{1}{Khi nào tổng hai số là số chẵn?}
+\begin{recallbox}chẵn $+$ chẵn $=$ chẵn;\quad lẻ $+$ lẻ $=$ chẵn;\quad chẵn $+$ lẻ $=$ lẻ.\end{recallbox}
+Vậy $m+n$ chẵn khi và chỉ khi $m$ và $n$ \textbf{cùng tính chẵn lẻ} (cùng chẵn hoặc cùng lẻ).
+
+\step{2}{Chia $20$ số thành hai nhóm}
+Nhóm chẵn: $2,4,6,\dots,20$ -- có $10$ số.\quad Nhóm lẻ: $1,3,5,\dots,19$ -- có $10$ số.
+
+\step{3}{Đếm số cặp trong nhóm chẵn}
+Chọn số thứ nhất có $10$ cách, số thứ hai (khác số thứ nhất) có $9$ cách: $10\times9=90$ cách chọn \emph{có thứ tự}.
+Nhưng mỗi cặp, ví dụ $\{2,4\}$, bị đếm hai lần ($2$ rồi $4$, hoặc $4$ rồi $2$), trong khi điều kiện $m<n$
+chỉ cho phép một thứ tự $(2,4)$. Vậy số cặp là $\dfrac{10\times9}{2}=45$.
+\begin{recallbox}Số cách chọn $2$ phần tử (không kể thứ tự) từ $k$ phần tử là $\dfrac{k\times(k-1)}{2}$.\end{recallbox}
+
+\step{4}{Đếm số cặp trong nhóm lẻ và cộng lại}
+Tương tự, nhóm lẻ cho $45$ cặp. Một cặp không thể vừa ở nhóm chẵn vừa ở nhóm lẻ, nên theo quy tắc cộng:
+$45+45=90$ cặp.
+\begin{warnbox}Quên chia cho $2$ sẽ được $90+90=180$ (không có trong đáp án); quên mất nhóm lẻ sẽ được
+$45$. Hãy luôn tự hỏi: ``Mình có đếm một cặp hai lần không? Mình có bỏ sót trường hợp nào không?''\end{warnbox}
+\verify{Đếm bằng phần bù: tổng số cặp $m<n$ là $\dfrac{20\times19}{2}=190$. Số cặp khác tính chẵn lẻ (một chẵn, một lẻ) là
+$10\times10=100$. Vậy số cặp cùng tính chẵn lẻ là $190-100=90$. Khớp!}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $90$ cặp}
+}
+
+\begin{probbox}{23}{\stars{1}}
+Hai số nguyên dương có hai chữ số, khác nhau, được gọi là một \emph{cặp số đảo} nếu số này nhận được từ số kia bằng
+cách đổi chỗ hai chữ số. Ví dụ: $52$ và $25$ là một cặp số đảo. Số $2015$ có một tính chất đặc biệt: nó bằng
+tích của ba số nguyên tố khác nhau, trong đó có hai số tạo thành một cặp số đảo ($2015=5\times13\times31$).
+Kể cả $2015$, có bao nhiêu số nguyên dương nhỏ hơn $10\,000$ có cùng tính chất này?
+\choices{$18$}{$14$}{$20$}{$17$}{$19$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta cần đếm các số $N<10\,000$ có dạng $N=p\times q\times r$, với $p,q,r$ là ba số nguyên
+tố khác nhau, trong đó hai số (gọi là $p$ và $q$) là một cặp số đảo có hai chữ số. Kế hoạch: tìm tất cả các
+cặp số đảo gồm hai số nguyên tố, rồi với mỗi cặp tìm các số nguyên tố thứ ba phù hợp.
+
+\step{1}{Tìm các cặp số đảo mà cả hai số đều là số nguyên tố}
+\begin{recallbox}Số nguyên tố là số tự nhiên lớn hơn $1$ chỉ có hai ước là $1$ và chính nó. Các số nguyên tố có
+hai chữ số: $11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97$.\end{recallbox}
+\begin{tipbox}Số đảo của $p$ có chữ số hàng đơn vị chính là chữ số hàng chục của $p$. Số nguyên tố có hai chữ số
+phải tận cùng bằng $1,3,7$ hoặc $9$, nên chỉ cần xét các số nguyên tố bắt đầu bằng $1,3,7,9$:
+$11,13,17,19,31,37,71,73,79,97$.\end{tipbox}
+Kiểm tra số đảo của từng số:
+\begin{center}\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+$p$ & $11$ & $13$ & $17$ & $19$ & $31$ & $37$ & $71$ & $73$ & $79$ & $97$\\\hline
+số đảo & $11$ & $31$ & $71$ & $91$ & $13$ & $73$ & $17$ & $37$ & $97$ & $79$\\\hline
+nguyên tố? & trùng & có & có & không & có & có & có & có & có & có\\\hline
+\end{tabular}\end{center}
+($91=7\times13$ không là số nguyên tố; $11$ đảo lại vẫn là $11$, không phải hai số \emph{khác nhau}.)
+Vậy có đúng $4$ cặp: $\{13,31\}$, $\{17,71\}$, $\{37,73\}$, $\{79,97\}$.
+
+\step{2}{Tính tích của mỗi cặp}
+$13\times31=403$;\quad $17\times71=1207$;\quad $37\times73=2701$;\quad $79\times97=7663$.
+
+\step{3}{Tìm số nguyên tố thứ ba $r$ cho từng cặp}
+Cần $r$ là số nguyên tố, khác hai số của cặp, và tích $<10\,000$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Cặp $\{13,31\}$: cần $403\times r<10\,000$. Vì $403\times24=9672$ và $403\times25=10\,075$ nên $r\le23$.
+Các số nguyên tố $\le23$ là $2,3,5,7,11,13,17,19,23$; bỏ $13$ (đã có trong cặp): còn $8$ số, cho
+$806;\ 1209;\ 2015;\ 2821;\ 4433;\ 6851;\ 7657;\ 9269$.
+\item Cặp $\{17,71\}$: cần $1207\times r<10\,000$, mà $1207\times8=9656$, $1207\times9=10\,863$ nên $r\le8$:
+$r\in\{2,3,5,7\}$, cho $2414;\ 3621;\ 6035;\ 8449$ ($4$ số).
+\item Cặp $\{37,73\}$: $2701\times3=8103<10\,000$, $2701\times4>10\,000$ nên $r\in\{2,3\}$: $5402;\ 8103$ ($2$ số).
+\item Cặp $\{79,97\}$: ngay cả $7663\times2=15\,326>10\,000$, nên không có số nào.
+\end{itemize}
+
+\step{4}{Kiểm tra không có số nào bị đếm hai lần và cộng lại}
+\begin{proofbox}Mỗi số chỉ có một cách phân tích ra thừa số nguyên tố. Nếu một số xuất hiện ở hai danh sách thì
+trong ba thừa số nguyên tố của nó có hai cặp số đảo khác nhau; hai cặp này phải dùng chung một số nguyên tố.
+Nhưng nhìn bảng ở bước 1, mỗi số nguyên tố chỉ thuộc đúng một cặp. Vậy không có số nào bị đếm hai lần.\end{proofbox}
+Tổng cộng: $8+4+2+0=14$ số.
+\begin{warnbox}Hai lỗi hay gặp: (1) quên rằng số thứ ba phải \emph{khác} hai số của cặp, nên đếm thêm
+$403\times13=5239=13\times13\times31$ (sai, vì $13$ lặp lại); (2) quên số nguyên tố $2$.\end{warnbox}
+\verify{$2015=403\times5$ có trong danh sách. Kiểm tra vài số: $9269=13\times31\times23$, $8449=17\times71\times7$,
+$8103=37\times73\times3$; tất cả đều nhỏ hơn $10\,000$.}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $14$}
+}
+
+\begin{probbox}{24}{\relax}
+Hình bên được ghép từ $8$ hình bình hành nhỏ giống hệt nhau. Kể cả $8$ hình bình hành nhỏ đó, trong
+hình có tất cả bao nhiêu hình bình hành?
+\begin{figC}
+  \foreach \j in {0,1,2}{\draw[Ink,thick] (\j*0.55,\j*0.8)--(4.4+\j*0.55,\j*0.8);}
+  \foreach \i in {0,...,4}{\draw[Ink,thick] (\i*1.1,0)--(\i*1.1+1.1,1.6);}
+\end{figC}
+\choices{$29$}{$30$}{$26$}{$27$}{$28$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Hình gồm $2$ hàng, mỗi hàng $4$ hình bình hành nhỏ. Mỗi hình bình hành trong hình được
+tạo bởi các đoạn thẳng có sẵn: hai cạnh nằm trên \emph{đường nằm ngang}, hai cạnh nằm trên \emph{đường xiên}.
+
+\step{1}{Đếm các đường thẳng của hình}
+Đánh số: có $3$ đường nằm ngang (đáy, giữa, trên) và $5$ đường xiên (song song với nhau).
+\begin{figC}
+  \foreach \j/\l in {0/1,1/2,2/3}{\draw[tmBlue,thick] (\j*0.55,\j*0.8)--(4.4+\j*0.55,\j*0.8);
+     \node[left,text=tmBlue,font=\scriptsize] at (\j*0.55,\j*0.8) {ngang \l};}
+  \foreach \i in {0,...,4}{\draw[tmOrange,thick] (\i*1.1,0)--(\i*1.1+1.1,1.6);
+     \pgfmathtruncatemacro\k{\i+1}\node[below,text=tmOrange!80!black,font=\scriptsize] at (\i*1.1,0) {x\k};}
+  \fill[tmGreen!30,opacity=0.7] (1.1,0)--(3.3,0)--(3.85,0.8)--(1.65,0.8)--cycle;
+\end{figC}
+Ví dụ: hình bình hành tô xanh lá được xác định bởi đường ngang $1$, ngang $2$ và đường xiên x$2$, x$4$.
+
+\step{2}{Mỗi hình bình hành ứng với một cách chọn $2$ đường ngang và $2$ đường xiên}
+Chọn $2$ trong $3$ đường ngang làm cạnh dưới và cạnh trên, chọn $2$ trong $5$ đường xiên làm cạnh trái và cạnh phải,
+ta được đúng một hình bình hành; ngược lại mỗi hình bình hành trong hình cho đúng một cách chọn như vậy.
+\begin{recallbox}Số cách chọn $2$ đường trong $k$ đường là $\dfrac{k\times(k-1)}{2}$.\end{recallbox}
+Chọn $2$ đường ngang: $\dfrac{3\times2}{2}=3$ cách. \quad Chọn $2$ đường xiên: $\dfrac{5\times4}{2}=10$ cách.
+
+\step{3}{Áp dụng quy tắc nhân}
+Số hình bình hành: $3\times10=30$.
+
+\step{4}{Kiểm tra bằng cách đếm theo kích thước}
+Gọi hình bình hành ``cao $a$, rộng $b$'' là hình gồm $a$ hàng và $b$ cột hình nhỏ:
+\begin{center}\begin{tabular}{|c|c|c|c|c|c|}\hline
+ & rộng $1$ & rộng $2$ & rộng $3$ & rộng $4$ & Cộng\\\hline
+cao $1$ (có $2$ vị trí theo hàng) & $2\times4=8$ & $2\times3=6$ & $2\times2=4$ & $2\times1=2$ & $20$\\\hline
+cao $2$ (có $1$ vị trí theo hàng) & $4$ & $3$ & $2$ & $1$ & $10$\\\hline
+\end{tabular}\end{center}
+\begin{warnbox}Đừng chỉ đếm $8$ hình nhỏ cộng vài hình lớn ``dễ thấy''. Hãy đếm có hệ thống: theo kích thước
+(bảng trên) hoặc theo cách chọn các đường thẳng.\end{warnbox}
+\verify{Tổng theo bảng: $20+10=30$, trùng với cách tính $3\times10$.}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $30$ hình bình hành}
+}
+
+\begin{probbox}{25}{\stars{1}}
+Trong một cái lọ có $2$ viên bi đỏ và $2$ viên bi xanh, ngoài ra không có viên bi nào khác. Bạn Hoa lấy ngẫu
+nhiên cùng lúc $2$ viên bi từ lọ. Nếu hai viên cùng màu, Hoa bỏ ra ngoài một viên và trả viên kia vào lọ.
+Nếu hai viên khác màu, Hoa bỏ viên bi đỏ ra ngoài và trả viên bi xanh vào lọ. Hoa làm như vậy tất cả ba lần.
+Xác suất để viên bi cuối cùng còn lại trong lọ là bi đỏ bằng
+\choices{$\dfrac12$}{$\dfrac14$}{$\dfrac23$}{$\dfrac13$}{$0$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi lần lấy, trong lọ bớt đi đúng $1$ viên bi. Sau $3$ lần, từ $4$ viên còn lại $1$ viên.
+Ta theo dõi \emph{trạng thái} của lọ, viết (số bi đỏ, số bi xanh), bắt đầu từ $(2\text{Đ},2\text{X})$.
+
+\step{1}{Lần lấy thứ nhất, từ $(2\text{Đ},2\text{X})$}
+Gọi các bi là Đ$_1$, Đ$_2$, X$_1$, X$_2$. Có $6$ cách lấy $2$ viên, đồng khả năng:
+Đ$_1$Đ$_2$;\ X$_1$X$_2$;\ Đ$_1$X$_1$;\ Đ$_1$X$_2$;\ Đ$_2$X$_1$;\ Đ$_2$X$_2$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Hai bi đỏ ($1$ cách): bỏ $1$ bi đỏ $\to(1\text{Đ},2\text{X})$.
+\item Hai bi xanh ($1$ cách): bỏ $1$ bi xanh $\to(2\text{Đ},1\text{X})$.
+\item Khác màu ($4$ cách): bỏ bi đỏ $\to(1\text{Đ},2\text{X})$.
+\end{itemize}
+Vậy sau lần $1$: trạng thái $(1\text{Đ},2\text{X})$ với xác suất $\frac56$, trạng thái $(2\text{Đ},1\text{X})$ với xác suất $\frac16$.
+
+\step{2}{Lần lấy thứ hai}
+Từ $(1\text{Đ},2\text{X})$: có $3$ cách lấy; $2$ cách khác màu $\to(0\text{Đ},2\text{X})$; $1$ cách hai bi xanh $\to(1\text{Đ},1\text{X})$.\\
+Từ $(2\text{Đ},1\text{X})$: có $3$ cách lấy; $1$ cách hai bi đỏ $\to(1\text{Đ},1\text{X})$; $2$ cách khác màu $\to(1\text{Đ},1\text{X})$.
+Vậy từ $(2\text{Đ},1\text{X})$ chắc chắn sang $(1\text{Đ},1\text{X})$.
+
+\step{3}{Lần lấy thứ ba}
+Từ $(0\text{Đ},2\text{X})$: lấy hai bi xanh, bỏ một $\to(0\text{Đ},1\text{X})$.\\
+Từ $(1\text{Đ},1\text{X})$: lấy hai bi khác màu, bỏ bi đỏ $\to(0\text{Đ},1\text{X})$.
+\begin{figC}
+  \tikzset{st/.style={draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,inner sep=3pt,font=\footnotesize}}
+  \node[st] (a) at (0,0) {$2$Đ, $2$X};
+  \node[st] (b) at (2.8,0.9) {$1$Đ, $2$X};\node[st] (c) at (2.8,-0.9) {$2$Đ, $1$X};
+  \node[st] (d) at (5.6,0.9) {$0$Đ, $2$X};\node[st] (e) at (5.6,-0.9) {$1$Đ, $1$X};
+  \node[st,draw=AnsRed,fill=AnsRed!8] (f) at (8.2,0) {$0$Đ, $1$X};
+  \draw[->,thick,Slate] (a)--node[above,font=\scriptsize]{$\frac56$}(b);
+  \draw[->,thick,Slate] (a)--node[below,font=\scriptsize]{$\frac16$}(c);
+  \draw[->,thick,Slate] (b)--node[above,font=\scriptsize]{$\frac23$}(d);
+  \draw[->,thick,Slate] (b)--node[above right,font=\scriptsize,pos=0.3]{$\frac13$}(e);
+  \draw[->,thick,Slate] (c)--node[below,font=\scriptsize]{$1$}(e);
+  \draw[->,thick,Slate] (d)--node[above,font=\scriptsize]{$1$}(f);
+  \draw[->,thick,Slate] (e)--node[below,font=\scriptsize]{$1$}(f);
+  \node[font=\scriptsize,text=Slate] at (1.4,-1.7) {lần 1};\node[font=\scriptsize,text=Slate] at (4.2,-1.7) {lần 2};
+  \node[font=\scriptsize,text=Slate] at (6.9,-1.7) {lần 3};
+\end{figC}
+Mọi nhánh đều kết thúc ở $(0\text{Đ},1\text{X})$: viên bi cuối cùng \textbf{luôn} là bi xanh.
+
+\step{4}{Giải thích vì sao -- không cần vẽ cây}
+\begin{proofbox}Hãy nhìn vào số bi xanh. Mỗi khi trong hai viên lấy ra có ít nhất một bi xanh, Hoa luôn trả lại vào lọ một
+bi xanh (nếu hai bi xanh thì trả một viên; nếu khác màu thì trả viên xanh). Số bi xanh chỉ giảm khi lấy được hai bi xanh,
+và khi đó vẫn còn lại ít nhất viên vừa trả vào. Vậy trong lọ \emph{luôn còn ít nhất một bi xanh}. Khi chỉ còn một viên, viên đó phải
+là bi xanh.\end{proofbox}
+Do đó biến cố ``viên còn lại là bi đỏ'' là \emph{biến cố không thể}, có xác suất bằng $0$.
+\begin{recallbox}Biến cố không thể (không bao giờ xảy ra) có xác suất $0$; biến cố chắc chắn có xác suất $1$.\end{recallbox}
+\begin{warnbox}Thấy ``$2$ đỏ, $2$ xanh'' rồi đoán ngay xác suất $\frac12$ là bẫy: luật bỏ bi \emph{không đối xứng}
+giữa hai màu (khi khác màu thì luôn bỏ bi đỏ).\end{warnbox}
+\verify{Tổng xác suất tới trạng thái cuối $(0\text{Đ},1\text{X})$: $\frac56\cdot\frac23+\frac56\cdot\frac13+\frac16\cdot1=\frac{10}{18}+\frac{5}{18}+\frac{3}{18}=1$.}
+Vậy chọn \textbf{(E)}.
+\ans{(E) $0$}
+}
+
+\begin{probbox}{26}{\stars{1}}
+Trên lưới ô vuông $10\times10$ ở hình bên, cho tam giác $FGH$. Điểm $P$ có thể là bất kì điểm nào trong
+$41$ giao điểm của các đường kẻ lưới nằm \emph{bên trong} (không nằm trên cạnh) tam giác $FGH$. Với mỗi vị trí của $P$,
+ta có đúng ba tam giác: $FPG$, $GPH$, $HPF$. Trong tất cả $41\times3=123$ tam giác đó, có bao nhiêu tam giác có diện
+tích bằng đúng một nửa diện tích tam giác $FGH$?
+\begin{figC}\begin{scope}[scale=0.3]
+  \draw[Line,thin] (0,0) grid (10,10);
+  \draw[Ink,line width=1.3pt] (0,0)--(10,0)--(5,10)--cycle;
+  \node[above,font=\scriptsize] at (5,10) {$F$};\node[below left,font=\scriptsize] at (0,0) {$G$};
+  \node[below right,font=\scriptsize] at (10,0) {$H$};
+\end{scope}\end{figC}
+\choices{$5$}{$7$}{$3$}{$11$}{$9$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Lấy cạnh mỗi ô vuông làm đơn vị và đặt $G$ ở góc dưới trái. Khi đó $G$, $H$ ở hai góc dưới
+($GH=10$), $F$ ở chính giữa cạnh trên. Mỗi điểm lưới được gọi tên bằng hai số (số ô sang phải, số ô lên trên); ví dụ
+$G=(0,0)$, $H=(10,0)$, $F=(5,10)$.
+
+\step{1}{Tính diện tích tam giác $FGH$ và một nửa của nó}
+\begin{recallbox}Diện tích tam giác $=\dfrac12\times\text{cạnh đáy}\times\text{chiều cao tương ứng}$.\end{recallbox}
+$S_{FGH}=\frac12\times10\times10=50$. Một nửa là $25$.
+
+\step{2}{Tam giác $GPH$: dễ nhất}
+Tam giác $GPH$ có đáy $GH=10$ và chiều cao là khoảng cách từ $P$ xuống $GH$, tức là ``độ cao'' $h$ của $P$
+(số ô tính từ đáy). $S_{GPH}=\frac12\times10\times h=5h$. Ta cần $5h=25$, tức $h=5$: $P$ nằm trên đường kẻ ngang
+thứ $5$. Ở độ cao $5$ (giữa chiều cao), tam giác rộng bằng một nửa đáy, từ vị trí $2{,}5$ đến $7{,}5$. Các điểm lưới
+nằm \emph{bên trong} trên đoạn đó là $(3,5),(4,5),(5,5),(6,5),(7,5)$: có $\mathbf{5}$ điểm.
+
+\step{3}{Tam giác $FPG$: dùng đường thẳng song song}
+\begin{recallbox}Các tam giác có chung đáy và có đỉnh thứ ba nằm trên một đường thẳng song song với đáy thì có
+cùng chiều cao, nên có diện tích bằng nhau.\end{recallbox}
+Gọi $M=(5,0)$ là trung điểm của $GH$. Tam giác $FMG$ có đáy $GM=5$, chiều cao $10$, nên $S_{FMG}=\frac12\times5\times10=25$.
+Vậy mọi điểm $P$ nằm trên đường thẳng đi qua $M$ và song song với $FG$ đều cho $S_{FPG}=25$.
+\begin{proofbox}Nếu $P$ nằm xa $FG$ hơn đường thẳng đó thì chiều cao của tam giác $FPG$ (ứng với đáy $FG$) lớn hơn, nên
+diện tích lớn hơn $25$; nếu nằm gần $FG$ hơn thì diện tích nhỏ hơn $25$. Vậy $S_{FPG}=25$ \emph{chỉ khi} $P$ nằm trên
+đường thẳng ấy.\end{proofbox}
+Cạnh $FG$ đi từ $(0,0)$ tới $(5,10)$: cứ sang phải $1$ ô thì lên $2$ ô. Đường song song qua $M=(5,0)$ cũng vậy:
+đi qua $(5,0)$, $(6,2)$, $(7,4)$ rồi gặp cạnh $FH$ tại $(7{,}5;\,5)$ (trung điểm của $FH$). Các điểm lưới nằm
+\emph{bên trong} tam giác là $(6,2)$ và $(7,4)$: có $\mathbf{2}$ điểm. ($M$ nằm trên cạnh $GH$ nên bị loại.)
+
+\step{4}{Tam giác $HPF$: đối xứng}
+Hình đối xứng qua đường thẳng đứng đi qua $F$, nên tương tự có $\mathbf{2}$ điểm: $(4,2)$ và $(3,4)$.
+\begin{figC}\begin{scope}[scale=0.42]
+  \draw[Line,thin] (0,0) grid (10,10);
+  \draw[Ink,line width=1.2pt] (0,0)--(10,0)--(5,10)--cycle;
+  \draw[tmBlue,line width=1.2pt] (2.5,5)--(7.5,5);
+  \draw[tmOrange,line width=1.2pt] (5,0)--(7.5,5);\draw[tmGreen!80!black,line width=1.2pt] (5,0)--(2.5,5);
+  \foreach \p in {(3,5),(4,5),(5,5),(6,5),(7,5)}{\fill[tmBlue] \p circle (5pt);}
+  \foreach \p in {(6,2),(7,4)}{\fill[tmOrange] \p circle (5pt);}
+  \foreach \p in {(4,2),(3,4)}{\fill[tmGreen!80!black] \p circle (5pt);}
+  \node[above,font=\scriptsize] at (5,10) {$F$};\node[below left,font=\scriptsize] at (0,0) {$G$};
+  \node[below right,font=\scriptsize] at (10,0) {$H$};\node[below,font=\scriptsize] at (5,0) {$M$};
+  \node[right,font=\scriptsize,text=tmBlue,align=left] at (10.4,6) {xanh dương: $S_{GPH}=25$};
+  \node[right,font=\scriptsize,text=tmOrange!80!black] at (10.4,4.6) {cam: $S_{FPG}=25$};
+  \node[right,font=\scriptsize,text=tmGreen!70!black] at (10.4,3.2) {xanh lá: $S_{HPF}=25$};
+\end{scope}\end{figC}
+
+\step{5}{Cộng lại}
+Số tam giác có diện tích $25$: $5+2+2=9$. (Một điểm $P$ không thể cho hai tam giác cùng có diện tích $25$, vì khi đó tam giác
+thứ ba có diện tích $50-25-25=0$, mà $P$ nằm hẳn bên trong. Nên không có tam giác nào bị đếm thiếu hay trùng.)
+\verify{Với $P=(6,2)$: tam giác $FPG$ nằm trong hình chữ nhật từ $(0,0)$ đến $(6,10)$, diện tích $60$. Cắt bỏ ba tam giác
+vuông: $\frac12\times6\times2=6$, $\frac12\times1\times8=4$ và $\frac12\times5\times10=25$. Còn lại $60-6-4-25=25$. Đúng!}
+Vậy chọn \textbf{(E)}.
+\ans{(E) $9$ tam giác}
+}
+
+\begin{probbox}{27}{\relax}
+Người ta xếp $100$ điểm thành một lưới vuông $10\times10$ như hình bên. Điểm $P$ đã được đánh dấu. Chọn ngẫu nhiên một
+điểm $Q$ trong $99$ điểm còn lại. Xác suất để đoạn thẳng $PQ$ nằm ngang hoặc thẳng đứng là
+\begin{figC}\begin{scope}[scale=0.38]
+  \foreach \x in {0,...,9}{\foreach \y in {0,...,9}{\fill[Navy] (\x,\y) circle (3.2pt);}}
+  \fill[white] (6,3) circle (6pt);\draw[tmOrange,line width=1.2pt] (6,3) circle (6pt);
+  \node[above right,font=\scriptsize,text=tmOrange!80!black] at (6,3) {$P$};
+\end{scope}\end{figC}
+\choices{$\dfrac2{11}$}{$\dfrac15$}{$\dfrac1{10}$}{$\dfrac4{25}$}{$\dfrac5{33}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} $Q$ được chọn ngẫu nhiên trong $99$ điểm (không tính $P$), các điểm đồng khả năng.
+Đoạn $PQ$ nằm ngang khi $Q$ cùng hàng với $P$; thẳng đứng khi $Q$ cùng cột với $P$.
+
+\step{1}{Số kết quả có thể}
+Có $100-1=99$ cách chọn $Q$.
+
+\step{2}{Số kết quả thuận lợi}
+Hàng chứa $P$ có $10$ điểm, trừ $P$ còn $9$ điểm. Cột chứa $P$ có $10$ điểm, trừ $P$ còn $9$ điểm.
+Một điểm khác $P$ không thể vừa cùng hàng vừa cùng cột với $P$ (điểm duy nhất như thế là chính $P$), nên
+không có điểm nào bị đếm hai lần: tổng cộng $9+9=18$ điểm.
+\begin{figC}\begin{scope}[scale=0.3]
+  \foreach \x in {0,...,9}{\foreach \y in {0,...,9}{\fill[Slate!50] (\x,\y) circle (3pt);}}
+  \foreach \x in {0,...,9}{\fill[tmBlue] (\x,3) circle (5pt);}
+  \foreach \y in {0,...,9}{\fill[tmGreen!80!black] (6,\y) circle (5pt);}
+  \fill[white] (6,3) circle (6pt);\draw[tmOrange,line width=1.2pt] (6,3) circle (6pt);
+  \node[right,font=\scriptsize,text=tmBlue] at (10,3) {$9$ điểm cùng hàng};
+  \node[above,font=\scriptsize,text=tmGreen!70!black] at (6,9.3) {$9$ điểm cùng cột};
+\end{scope}\end{figC}
+
+\step{3}{Tính xác suất}
+\[P=\frac{18}{99}=\frac{18:9}{99:9}=\frac{2}{11}.\]
+\begin{warnbox}Mẫu số là $99$ chứ không phải $100$, vì $Q$ phải khác $P$. Dùng $100$ sẽ ra $\frac{18}{100}$, không có trong
+các phương án. Cũng đừng đếm $10+10=20$ điểm (tính cả $P$ hai lần).\end{warnbox}
+\begin{tipbox}Vị trí của $P$ trên lưới không quan trọng: điểm nào cũng có đúng $9$ điểm cùng hàng và $9$ điểm cùng cột.\end{tipbox}
+\verify{$\frac2{11}\times99=18$, đúng bằng số điểm thuận lợi.}
+Vậy chọn \textbf{(A)}.
+\ans{(A) $\dfrac2{11}$}
+}
+
+\begin{probbox}{28}{\stars{1}}
+Tổng tất cả các chữ số của các số nguyên từ $98$ đến $101$ là
+\[9+8+9+9+1+0+0+1+0+1=38.\]
+Hỏi tổng tất cả các chữ số của các số nguyên từ $1$ đến $2008$ là bao nhiêu?
+\choices{$30\,054$}{$27\,018$}{$28\,036$}{$30\,036$}{$28\,054$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Viết ra $2008$ số rồi cộng là quá dài. Ta chia thành ba khối: từ $1$ đến $999$; từ $1000$ đến
+$1999$; từ $2000$ đến $2008$, và tính tổng chữ số của từng khối bằng cách đếm \emph{mỗi chữ số xuất hiện bao nhiêu lần}.
+
+\step{1}{Khối $1$ đến $999$: viết thêm số $0$ vào trước cho đủ ba chữ số}
+Viết các số từ $0$ đến $999$ dưới dạng ba chữ số: $000, 001, 002, \dots, 998, 999$. Thêm chữ số $0$ vào trước và thêm số
+$000$ \emph{không làm thay đổi} tổng các chữ số. Có tất cả $1000$ số, tức $3000$ chữ số.
+\begin{proofbox}Ở hàng đơn vị, các chữ số lặp lại theo chu kì $0,1,2,\dots,9$; trong $1000$ số có $100$ chu kì nên mỗi chữ số
+$0$--$9$ xuất hiện đúng $100$ lần. Ở hàng chục, mỗi chữ số đứng liền $10$ lần ($00$--$09$ có chữ số hàng chục $0$, \dots)
+và lặp lại $10$ lần, cũng được $100$ lần. Ở hàng trăm: $000$--$099$ có chữ số hàng trăm $0$ ($100$ lần), \dots,
+$900$--$999$ có chữ số hàng trăm $9$ ($100$ lần). Vậy ở mỗi hàng, mỗi chữ số xuất hiện $100$ lần.\end{proofbox}
+Do đó mỗi chữ số $0,1,\dots,9$ xuất hiện $3\times100=300$ lần. Tổng các chữ số:
+\[300\times(0+1+2+\dots+9)=300\times45=13\,500.\]
+\begin{recallbox}$0+1+2+\dots+9=\dfrac{9\times10}{2}=45$ (ghép cặp $0+9=1+8=\dots=4+5=9$, có $5$ cặp).\end{recallbox}
+
+\step{2}{Khối $1000$ đến $1999$}
+Mỗi số có dạng $1\,abc$ với $abc$ chạy từ $000$ đến $999$. Phần ba chữ số cuối cho tổng $13\,500$ (như bước 1). Chữ số
+hàng nghìn là $1$, xuất hiện $1000$ lần, góp thêm $1000$. Tổng: $13\,500+1000=14\,500$.
+
+\step{3}{Khối $2000$ đến $2008$}
+Có $9$ số. Chữ số hàng nghìn $2$ góp $9\times2=18$; hai chữ số giữa đều là $0$; chữ số hàng đơn vị là $0,1,\dots,8$, góp
+$0+1+\dots+8=36$. Tổng: $18+36=54$.
+
+\step{4}{Cộng ba khối}
+\[13\,500+14\,500+54=28\,054.\]
+\begin{warnbox}Đừng quên khối lẻ cuối cùng $2000$--$2008$ (nếu quên sẽ được $28\,000$), và đừng quên chữ số hàng nghìn $1$
+của khối thứ hai (nếu quên sẽ được $27\,054$).\end{warnbox}
+\verify{Thử cách làm trên một trường hợp nhỏ, từ $1$ đến $99$: mỗi chữ số xuất hiện $2\times10=20$ lần, tổng
+$20\times45=900$. Đếm trực tiếp: hàng đơn vị góp $10\times45=450$, hàng chục góp $10\times(1+2+\dots+9)=450$, cộng lại $900$. Khớp.}
+Vậy chọn \textbf{(E)}.
+\ans{(E) $28\,054$}
+}
+
+\begin{probbox}{29}{\relax}
+Gieo hai con xúc xắc cân đối, một con màu đỏ và một con màu xanh (mỗi con có sáu mặt ghi số từ $1$ đến $6$). Xác suất để
+số chấm trên con xúc xắc đỏ lớn hơn số chấm trên con xúc xắc xanh là
+\choices{$\dfrac{18}{36}$}{$\dfrac{25}{36}$}{$\dfrac{15}{36}$}{$\dfrac{12}{36}$}{$\dfrac{17}{36}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Một kết quả là một cặp (số trên con đỏ, số trên con xanh). Hai con xúc xắc khác màu nên
+$(5,2)$ và $(2,5)$ là hai kết quả khác nhau.
+
+\step{1}{Số kết quả có thể}
+Theo quy tắc nhân: $6\times6=36$ kết quả, đồng khả năng.
+
+\step{2}{Lập bảng và đánh dấu các ô ``đỏ $>$ xanh''}
+\begin{figC}\begin{scope}[scale=0.5]
+  \foreach \r in {1,...,6}{\foreach \b in {1,...,6}{
+    \pgfmathsetmacro\yy{6-\r}
+    \ifnum\r>\b \fill[AnsRed!25] (\b-1,\yy) rectangle ++(1,1);
+    \else\ifnum\r=\b \fill[Slate!20] (\b-1,\yy) rectangle ++(1,1);\fi\fi}}
+  \draw[Ink] (0,0) grid (6,6);
+  \foreach \i in {1,...,6}{\node[font=\scriptsize,text=tmBlue] at (\i-0.5,6.4) {\i};
+     \node[font=\scriptsize,text=AnsRed] at (-0.4,6.5-\i) {\i};}
+  \node[font=\scriptsize,text=tmBlue] at (3,7.1) {xúc xắc xanh};
+  \node[font=\scriptsize,text=AnsRed,rotate=90] at (-1.2,3) {xúc xắc đỏ};
+\end{scope}\end{figC}
+Ô tô đỏ: số đỏ lớn hơn số xanh; ô tô xám: hai số bằng nhau. Đếm theo từng hàng (số đỏ):
+đỏ $=1$: $0$ ô; đỏ $=2$: $1$ ô; đỏ $=3$: $2$ ô; đỏ $=4$: $3$ ô; đỏ $=5$: $4$ ô; đỏ $=6$: $5$ ô.
+Tổng: $0+1+2+3+4+5=15$ kết quả thuận lợi.
+
+\step{3}{Tính xác suất}
+$P(\text{đỏ}>\text{xanh})=\dfrac{15}{36}$.
+
+\step{4}{Cách nhanh: dùng tính đối xứng}
+Có $6$ kết quả hai số bằng nhau (đường chéo). Còn lại $36-6=30$ kết quả, trong đó ``đỏ lớn hơn'' và ``xanh lớn hơn'' có số
+lượng bằng nhau (đổi vai hai con xúc xắc), nên mỗi loại có $30:2=15$ kết quả.
+\begin{warnbox}Đáp án $\frac{18}{36}=\frac12$ là bẫy: nó quên mất các trường hợp hai số bằng nhau. ``Đỏ lớn hơn'' và
+``xanh lớn hơn'' không phải là hai khả năng duy nhất.\end{warnbox}
+\verify{$P(\text{đỏ}>\text{xanh})+P(\text{bằng nhau})+P(\text{xanh}>\text{đỏ})=\frac{15}{36}+\frac6{36}+\frac{15}{36}=1$.}
+Vậy chọn \textbf{(C)}.
+\ans{(C) $\dfrac{15}{36}$}
+}
+
+\begin{probbox}{30}{\relax}
+Gieo hai con xúc xắc cân đối, một con màu đỏ và một con màu xanh. Xác suất để \emph{tích} hai số chấm xuất hiện là một số
+chẵn bằng
+\choices{$\dfrac12$}{$\dfrac34$}{$\dfrac14$}{$\dfrac23$}{$\dfrac{11}{36}$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Như bài 29, có $6\times6=36$ kết quả đồng khả năng. Đếm trực tiếp các tích chẵn khá dài, nên ta
+đếm \emph{phần bù}: các kết quả có tích lẻ.
+
+\step{1}{Khi nào tích hai số là số lẻ?}
+\begin{recallbox}lẻ $\times$ lẻ $=$ lẻ;\quad chẵn $\times$ (số bất kì) $=$ chẵn. Vậy tích hai số là số lẻ khi và chỉ khi
+\emph{cả hai} số đều lẻ.\end{recallbox}
+
+\step{2}{Đếm các kết quả có tích lẻ}
+Số lẻ trên mỗi con xúc xắc: $1,3,5$ ($3$ số). Cả hai con đều lẻ: $3\times3=9$ kết quả.
+
+\step{3}{Đếm các kết quả có tích chẵn bằng phần bù}
+\begin{recallbox}\emph{Phần bù}: số kết quả thuận lợi $=$ số kết quả có thể $-$ số kết quả không thuận lợi. Tương tự,
+$P(\text{biến cố})=1-P(\text{biến cố không xảy ra})$.\end{recallbox}
+Số kết quả có tích chẵn: $36-9=27$.
+
+\step{4}{Tính xác suất}
+\[P(\text{tích chẵn})=\frac{27}{36}=\frac{27:9}{36:9}=\frac34.\]
+\begin{warnbox}Nhiều bạn nghĩ ``chẵn hay lẻ là nửa nọ nửa kia'' nên chọn $\frac12$. Nhưng chỉ cần \emph{một} số chẵn là tích đã
+chẵn, nên tích chẵn xảy ra nhiều hơn hẳn.\end{warnbox}
+\verify{Đếm trực tiếp: con đỏ chẵn ($3$ cách) với con xanh bất kì ($6$ cách): $18$ kết quả; con đỏ lẻ ($3$ cách) và con xanh
+chẵn ($3$ cách): $9$ kết quả. Tổng $18+9=27$. Khớp.}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $\dfrac34$}
+}

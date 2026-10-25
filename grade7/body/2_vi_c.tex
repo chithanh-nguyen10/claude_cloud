@@ -1,0 +1,394 @@
+% ======================================================================
+% Chủ đề 2 -- Hình học và Đo lường -- phần c (bài 31--40)
+% ======================================================================
+\clearpage
+\dividerbar{Mở rộng -- Nâng cao}
+
+\begin{probbox}{31}{\relax}
+Trong mặt phẳng toạ độ $Oxy$, cho điểm $A(-3;\,2)$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Gọi $B$ là điểm đối xứng với $A$ qua trục $Ox$, $C$ là điểm đối xứng với $A$ qua trục $Oy$, $D$ là điểm đối xứng với $A$ qua gốc $O$. Tìm toạ độ của $B$, $C$, $D$ và cho biết mỗi điểm nằm ở góc phần tư nào.
+  \item Bốn điểm $A$, $C$, $D$, $B$ là bốn đỉnh của một hình chữ nhật. Tính chu vi và diện tích hình chữ nhật đó.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} ``Đối xứng qua một trục'' giống như soi gương qua trục đó: điểm ảnh nằm ở phía bên kia trục, cách trục một khoảng bằng điểm ban đầu. Ta xem toạ độ nào đổi dấu, toạ độ nào giữ nguyên.
+\begin{recallbox}Đối xứng qua trục $Ox$: $(x;\,y)\to(x;\,-y)$. Đối xứng qua trục $Oy$: $(x;\,y)\to(-x;\,y)$. Đối xứng qua gốc $O$ (cũng là quay $180^\circ$ quanh $O$): $(x;\,y)\to(-x;\,-y)$.\end{recallbox}
+\step{1}{Điểm $B$ -- đối xứng qua $Ox$}
+Soi gương qua trục hoành: điểm giữ nguyên vị trí trái -- phải (hoành độ không đổi), chỉ đổi từ phía trên xuống phía dưới (tung độ đổi dấu). $B(-3;\,-2)$, dạng $(-;-)$: góc phần tư III.
+
+\step{2}{Điểm $C$ -- đối xứng qua $Oy$}
+Soi gương qua trục tung: tung độ giữ nguyên, hoành độ đổi dấu. $C(3;\,2)$, dạng $(+;+)$: góc phần tư I.
+
+\step{3}{Điểm $D$ -- đối xứng qua gốc $O$}
+Cả hai toạ độ đổi dấu: $D(3;\,-2)$, dạng $(+;-)$: góc phần tư IV.
+\begin{gmFig}[scale=0.55]
+  \draw[Line,line width=0.3pt] (-4.5,-3.5) grid (4.5,3.5);
+  \draw[->,Navy,thick] (-4.8,0)--(4.9,0) node[right,text=Ink]{$x$};
+  \draw[->,Navy,thick] (0,-3.8)--(0,3.9) node[above,text=Ink]{$y$};
+  \foreach \t in {-4,...,-1,1,2,3,4}{\node[below,font=\scriptsize] at (\t,0){$\t$};}
+  \foreach \t in {-3,...,-1,1,2,3}{\node[left,font=\scriptsize] at (0,\t){$\t$};}
+  \fill[tmBlue!15] (-3,2) rectangle (3,-2);
+  \draw[tmBlue,thick] (-3,2) rectangle (3,-2);
+  \fill[AnsRed] (-3,2) circle (3pt) node[above left]{$A$};
+  \fill[tmPurple] (-3,-2) circle (3pt) node[below left]{$B$};
+  \fill[tmGreen!70!black] (3,2) circle (3pt) node[above right]{$C$};
+  \fill[tmOrange] (3,-2) circle (3pt) node[below right]{$D$};
+  \node[above,font=\footnotesize,text=tmBlue] at (1.5,2){$6$};
+  \node[right,font=\footnotesize,text=tmBlue] at (3,1){$4$};
+\end{gmFig}
+
+\step{4}{Tính kích thước hình chữ nhật}
+$A(-3;\,2)$ và $C(3;\,2)$ cùng tung độ: $AC=3-(-3)=6$.
+$A(-3;\,2)$ và $B(-3;\,-2)$ cùng hoành độ: $AB=2-(-2)=4$.
+
+\step{5}{Tính chu vi và diện tích}
+\begin{recallbox}Hình chữ nhật dài $a$, rộng $b$: $P=2\cdot(a+b)$, $S=a\cdot b$.\end{recallbox}
+$P=2\cdot(6+4)=20$ (đơn vị độ dài); $\;S=6\cdot4=24$ (đơn vị diện tích).
+\begin{tipbox}Hình chữ nhật này nhận cả hai trục toạ độ làm trục đối xứng. Mỗi góc phần tư chứa đúng một phần tư hình, là hình chữ nhật $3\times2$ có diện tích $6$; và $4\cdot6=24$.\end{tipbox}
+\verify{Mỗi góc phần tư chứa một điểm: $A$ (II), $C$ (I), $B$ (III), $D$ (IV), đúng như hình.}
+\ans{a) $B(-3;\,-2)$: III; $C(3;\,2)$: I; $D(3;\,-2)$: IV. \quad b) Chu vi $20$, diện tích $24$.}
+}
+
+\begin{probbox}{32}{\relax}
+Trong hình vẽ, tam giác $ABC$ có $\widehat{BAC}=40^\circ$; cạnh $BC$ được kéo dài về cả hai phía, cạnh $AB$ được kéo dài qua $B$. Góc ngoài tại đỉnh $C$ bằng $115^\circ$. Giá trị của $x$ là
+\begin{gmFig}[scale=0.55]
+  \coordinate (B) at (0,0); \coordinate (C) at (4,0); \coordinate (A) at (1.460,5.448);
+  \coordinate (L) at (-1.6,0); \coordinate (D) at (-0.42,-1.567); \coordinate (E) at (5.8,0);
+  \draw[Ink,thick] (L)--(E); \draw[Ink,thick] (D)--(A)--(C);
+  \pic[draw,thick,angle radius=0.7cm,"$40^\circ$",angle eccentricity=1.45]{angle=B--A--C};
+  \pic[draw,thick,angle radius=0.45cm,"$115^\circ$",angle eccentricity=2.1]{angle=E--C--A};
+  \pic[draw,AnsRed,thick,angle radius=0.45cm,"$x^\circ$",angle eccentricity=1.8]{angle=L--B--D};
+  \node[above] at (A){$A$}; \node[above left] at (B){$B$}; \node[below] at (C){$C$};
+\end{gmFig}
+\choices{$65$}{$75$}{$105$}{$115$}{$140$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Góc $x^\circ$ ở đỉnh $B$ được tạo bởi hai tia kéo dài (tia đối của $BC$ và tia đối của $BA$), nên nó \emph{đối đỉnh} với góc trong $\widehat{ABC}$. Vậy chỉ cần tìm $\widehat{ABC}$. Ta giải bằng hai cách.
+
+\step{1}{Cách 1 -- qua góc trong tại $C$}
+\begin{recallbox}Hai góc kề bù có tổng $180^\circ$; tổng ba góc trong tam giác bằng $180^\circ$.\end{recallbox}
+Góc trong tại $C$ kề bù với góc ngoài $115^\circ$: $\widehat{ACB}=180^\circ-115^\circ=65^\circ$.
+Góc trong tại $B$: $\widehat{ABC}=180^\circ-40^\circ-65^\circ=75^\circ$.
+
+\step{2}{Cách 2 -- dùng tính chất góc ngoài}
+\begin{recallbox}Góc ngoài của tam giác bằng tổng hai góc trong không kề với nó.\end{recallbox}
+Góc ngoài tại $C$ bằng $\widehat{A}+\widehat{B}$: $115^\circ=40^\circ+\widehat{ABC}$, suy ra $\widehat{ABC}=115^\circ-40^\circ=75^\circ$.
+
+\step{3}{Suy ra $x$}
+\begin{recallbox}Hai góc đối đỉnh thì bằng nhau.\end{recallbox}
+$x^\circ=\widehat{ABC}=75^\circ$, nên $x=75$.
+\begin{warnbox}
+\begin{itemize}[leftmargin=1.3em,itemsep=0pt,topsep=0pt]
+  \item (A) $65$ là góc trong tại $C$, không phải tại $B$.
+  \item (C) $105$ là góc kề bù với $\widehat{ABC}$ -- nhầm ``kề bù'' với ``đối đỉnh''.
+\end{itemize}
+\end{warnbox}
+\verify{$40^\circ+75^\circ+65^\circ=180^\circ$ và $40^\circ+75^\circ=115^\circ$ (góc ngoài tại $C$). Cả hai điều kiện đều đúng.}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $75$}
+}
+
+\begin{probbox}{33}{\relax}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=0pt]
+  \item Một tam giác cân có góc ở đỉnh gấp $4$ lần mỗi góc ở đáy. Tính số đo các góc của tam giác.
+  \item Một tam giác cân có một góc bằng $36^\circ$. Tìm tất cả các khả năng cho số đo hai góc còn lại. Với mỗi khả năng, tính hiệu giữa góc lớn nhất và góc nhỏ nhất của tam giác.
+  \item Có tam giác cân nào có một góc ở đáy bằng $92^\circ$ không? Vì sao?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cả ba câu đều dựa trên hai sự thật: tam giác cân có hai góc ở đáy bằng nhau, và tổng ba góc bằng $180^\circ$.
+\begin{recallbox}Tam giác cân: góc ở đỉnh $d$, mỗi góc ở đáy $g$, thì $d+2g=180^\circ$.\end{recallbox}
+\step{1}{Câu a -- dùng ``phần bằng nhau''}
+Coi mỗi góc đáy là $1$ phần. Góc ở đỉnh gấp $4$ lần nên là $4$ phần. Tổng ba góc gồm $1+1+4=6$ phần, ứng với $180^\circ$.
+\begin{barfigC}
+  \blk{0}{1}{0}{0.6}{tmBlue}{$g$}
+  \blk{1}{2}{0}{0.6}{tmBlue}{$g$}
+  \blk{2}{3}{0}{0.6}{tmOrange}{}
+  \blk{3}{4}{0}{0.6}{tmOrange}{}
+  \blk{4}{5}{0}{0.6}{tmOrange}{}
+  \blk{5}{6}{0}{0.6}{tmOrange}{}
+  \brcup{2}{6}{0.5}{góc ở đỉnh $=4g$}
+  \brcdn{0}{6}{-0.5}{$180^\circ$}
+\end{barfigC}
+Một phần: $180^\circ:6=30^\circ$. Vậy mỗi góc đáy là $30^\circ$, góc ở đỉnh là $4\cdot30^\circ=120^\circ$.
+
+\step{2}{Câu b -- xét hai trường hợp}
+\emph{Trường hợp 1: $36^\circ$ là góc ở đỉnh.} Mỗi góc đáy: $(180^\circ-36^\circ):2=144^\circ:2=72^\circ$. Tam giác $36^\circ,\,72^\circ,\,72^\circ$. Hiệu góc lớn nhất và nhỏ nhất: $72^\circ-36^\circ=36^\circ$.
+
+\emph{Trường hợp 2: $36^\circ$ là góc ở đáy.} Góc đáy kia $36^\circ$, góc ở đỉnh $180^\circ-72^\circ=108^\circ$. Tam giác $36^\circ,\,36^\circ,\,108^\circ$. Hiệu: $108^\circ-36^\circ=72^\circ$.
+
+\step{3}{Câu c -- lập luận}
+\begin{proofbox}Nếu một góc ở đáy bằng $92^\circ$ thì góc ở đáy còn lại cũng bằng $92^\circ$. Khi đó riêng hai góc đáy đã có tổng $184^\circ$, lớn hơn $180^\circ$ -- vô lí, vì tổng \emph{ba} góc chỉ bằng $180^\circ$. Vậy không có tam giác cân nào như thế. (Tổng quát: góc ở đáy của tam giác cân luôn nhỏ hơn $90^\circ$.)\end{proofbox}
+\verify{$30+30+120=180$; $\;36+72+72=180$; $\;36+36+108=180$.}
+\ans{a) $30^\circ$, $30^\circ$, $120^\circ$. \ b) $72^\circ$ và $72^\circ$ (hiệu $36^\circ$), hoặc $36^\circ$ và $108^\circ$ (hiệu $72^\circ$). \ c) Không có.}
+}
+
+\begin{probbox}{34}{\stars{1}}
+Trong mặt phẳng toạ độ, cho điểm $A(4;\,1)$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Quay $A$ quanh gốc $O$ một góc $90^\circ$ ngược chiều kim đồng hồ được điểm $B$; quay $B$ thêm $90^\circ$ ngược chiều kim đồng hồ được $C$; quay $C$ thêm $90^\circ$ ngược chiều kim đồng hồ được $E$. Tìm toạ độ $B$, $C$, $E$.
+  \item Quay $A$ quanh $O$ một góc $270^\circ$ \emph{theo chiều kim đồng hồ} thì được điểm nào trong ba điểm trên?
+  \item Tứ giác $ABCE$ là một hình vuông. Tính diện tích của nó.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta dùng quy tắc quay $90^\circ$ trong mặt phẳng toạ độ, sau đó tính diện tích hình vuông ``nghiêng'' bằng cách đặt nó vào trong một hình vuông lớn có cạnh nằm theo các đường kẻ ô.
+\begin{recallbox}Quay $90^\circ$ ngược chiều kim đồng hồ quanh $O$: $(x;\,y)\to(-y;\,x)$. Quay $\alpha$ theo chiều kim đồng hồ giống quay $360^\circ-\alpha$ ngược chiều.\end{recallbox}
+\begin{proofbox}Vì sao $(x;\,y)\to(-y;\,x)$? Điểm $A(4;\,1)$ đạt được bằng cách đi ``sang phải $4$, lên $1$''. Quay cả đường đi này $90^\circ$ ngược chiều kim đồng hồ: ``sang phải'' biến thành ``lên trên'', ``lên trên'' biến thành ``sang trái''. Vậy ảnh đạt được bằng ``lên $4$, sang trái $1$'', tức điểm $(-1;\,4)$.\end{proofbox}
+\step{1}{Câu a -- áp dụng quy tắc ba lần}
+$A(4;\,1)\to B(-1;\,4)\to C(-4;\,-1)\to E(1;\,-4)$.
+
+(Kiểm tra: $C$ là ảnh của $A$ qua phép quay $180^\circ$, đúng là $(-4;\,-1)$, cả hai toạ độ đổi dấu.)
+
+\step{2}{Câu b}
+Quay $270^\circ$ theo chiều kim đồng hồ giống quay $360^\circ-270^\circ=90^\circ$ ngược chiều kim đồng hồ, nên được đúng điểm $B(-1;\,4)$.
+
+\step{3}{Câu c -- đặt hình vuông vào khung}
+\begin{gmFig}[scale=0.42]
+  \draw[Line,line width=0.3pt] (-4,-4) grid (4,4);
+  \draw[->,Navy] (-4.6,0)--(4.7,0) node[right,text=Ink]{$x$};
+  \draw[->,Navy] (0,-4.6)--(0,4.7) node[above,text=Ink]{$y$};
+  \draw[tmOrange!90!black,thick,dashed] (-4,-4) rectangle (4,4);
+  \fill[tmOrange!25] (4,1)--(4,4)--(-1,4)--cycle;
+  \fill[tmOrange!25] (-1,4)--(-4,4)--(-4,-1)--cycle;
+  \fill[tmOrange!25] (-4,-1)--(-4,-4)--(1,-4)--cycle;
+  \fill[tmOrange!25] (1,-4)--(4,-4)--(4,1)--cycle;
+  \fill[tmBlue!25,draw=tmBlue,thick] (4,1)--(-1,4)--(-4,-1)--(1,-4)--cycle;
+  \node[right] at (4,1){$A$}; \node[above] at (-1,4){$B$}; \node[left] at (-4,-1){$C$}; \node[below] at (1,-4){$E$};
+  \node[font=\scriptsize] at (2.9,3.2){$5\times3$};
+\end{gmFig}
+Hình vuông $ABCE$ nằm gọn trong hình vuông lớn có các đỉnh $(\pm4;\,\pm4)$, cạnh $4-(-4)=8$, diện tích $8\cdot8=64$.
+
+Phần thừa gồm $4$ tam giác vuông bằng nhau ở bốn góc. Ví dụ, tam giác ở góc trên bên phải có đỉnh $A(4;\,1)$, $(4;\,4)$, $B(-1;\,4)$: cạnh nằm ngang dài $4-(-1)=5$, cạnh thẳng đứng dài $4-1=3$, diện tích $\dfrac{5\cdot3}{2}=7{,}5$.
+
+Diện tích hình vuông $ABCE$: $64-4\cdot7{,}5=64-30=34$ (đơn vị diện tích).
+\begin{tipbox}``Đóng khung rồi trừ bớt'' là cách rất mạnh để tính diện tích một đa giác có các đỉnh nằm ở nút lưới: vẽ hình chữ nhật nhỏ nhất bao quanh, rồi trừ các tam giác vuông (hình thang, hình chữ nhật) ở phía ngoài.\end{tipbox}
+\verify{Bốn tam giác vuông bằng nhau (mỗi tam giác $5\times3$) cùng với hình vuông $ABCE$ lấp đầy khung $8\times8$: $4\cdot7{,}5+34=64$. Ngoài ra, cạnh khung $8=5+3$ đúng bằng tổng hai cạnh góc vuông.}
+\ans{a) $B(-1;\,4)$, $C(-4;\,-1)$, $E(1;\,-4)$. \ b) Điểm $B$. \ c) $34$ đơn vị diện tích.}
+}
+
+\begin{probbox}{35}{\relax}
+Điền số thích hợp vào chỗ trống:
+\par\smallskip
+a) $2{,}4\text{ km}=\ldots\text{ m}$; \qquad b) $75\text{ mm}=\ldots\text{ cm}$; \qquad c) $3\text{ m}^2=\ldots\text{ cm}^2$; \qquad d) $2500\text{ cm}^3=\ldots$ lít.
+\par\smallskip
+e) Một tấm bảng hình chữ nhật dài $1{,}2$ m, rộng $50$ cm. Tính diện tích tấm bảng theo $\text{cm}^2$ và theo $\text{m}^2$.
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi câu là một phép đổi đơn vị. Điều cần nhớ: độ dài gấp $10$ lần qua mỗi bậc, diện tích gấp $100$ lần, thể tích gấp $1000$ lần.
+\begin{recallbox}$1\text{ km}=1000\text{ m}$; $\;1\text{ cm}=10\text{ mm}$; $\;1\text{ m}^2=10\,000\text{ cm}^2$; $\;1\text{ lít}=1\text{ dm}^3=1000\text{ cm}^3$. Lớn sang nhỏ: nhân; nhỏ sang lớn: chia.\end{recallbox}
+\step{1}{Câu a}
+km lớn hơn m, nên nhân: $2{,}4\cdot1000=2400$. Vậy $2{,}4\text{ km}=2400\text{ m}$.
+
+\step{2}{Câu b}
+mm nhỏ hơn cm, nên chia: $75:10=7{,}5$. Vậy $75\text{ mm}=7{,}5\text{ cm}$.
+
+\step{3}{Câu c}
+$3\text{ m}^2=3\cdot10\,000\text{ cm}^2=30\,000\text{ cm}^2$.
+\begin{warnbox}Đổi diện tích mà chỉ nhân $100$ (như đổi độ dài m sang cm) sẽ được $300$ -- sai. Hình vuông $1\text{ m}\times1\text{ m}$ là $100\text{ cm}\times100\text{ cm}$, chứa $10\,000$ ô vuông $1\text{ cm}^2$.\end{warnbox}
+
+\step{4}{Câu d}
+$2500\text{ cm}^3=2500:1000\text{ dm}^3=2{,}5\text{ dm}^3=2{,}5$ lít.
+
+\step{5}{Câu e -- đưa về cùng đơn vị trước}
+Hai kích thước khác đơn vị, nên phải đổi trước khi nhân: $1{,}2\text{ m}=120\text{ cm}$.
+Diện tích: $120\cdot50=6000\ (\text{cm}^2)$.
+Đổi ra $\text{m}^2$: $6000:10\,000=0{,}6\ (\text{m}^2)$.
+\verify{Tính trực tiếp bằng mét: $50\text{ cm}=0{,}5\text{ m}$, nên $1{,}2\cdot0{,}5=0{,}6\ (\text{m}^2)$. Khớp.}
+\ans{a) $2400$; \ b) $7{,}5$; \ c) $30\,000$; \ d) $2{,}5$; \ e) $6000\text{ cm}^2=0{,}6\text{ m}^2$.}
+}
+
+\begin{probbox}{36}{\stars{1}}
+Bạn An xếp được khối hộp chữ nhật $4\text{ cm}\times3\text{ cm}\times3\text{ cm}$ từ $36$ khối lập phương nhỏ cạnh $1$ cm (như Bài 10). An sơn tất cả các mặt bên ngoài của khối hộp, rồi tách rời các khối nhỏ ra. Có bao nhiêu khối nhỏ được sơn đúng $3$ mặt? Đúng $2$ mặt? Đúng $1$ mặt? Không được sơn mặt nào?
+\begin{gmFig}[scale=0.55]
+  \fill[tmBlue!20] (0,0) rectangle (4,3);
+  \fill[tmBlue!10] (0,3)--(1.5,4)--(5.5,4)--(4,3)--cycle;
+  \fill[tmBlue!30] (4,0)--(5.5,1)--(5.5,4)--(4,3)--cycle;
+  \draw[Ink] (0,0) grid (4,3);
+  \foreach \t in {1,2}{\draw[Ink] (4+0.5*\t,0.333*\t)--(4+0.5*\t,3+0.333*\t); \draw[Ink] (0.5*\t,3+0.333*\t)--(4+0.5*\t,3+0.333*\t);}
+  \foreach \t in {1,2}{\draw[Ink] (4,\t)--(5.5,\t+1);}
+  \foreach \t in {1,2,3}{\draw[Ink] (\t,3)--(\t+1.5,4);}
+  \draw[Ink,thick] (0,0) rectangle (4,3); \draw[Ink,thick] (0,3)--(1.5,4)--(5.5,4)--(5.5,1)--(4,0); \draw[Ink,thick] (4,3)--(5.5,4);
+\end{gmFig}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Số mặt được sơn của một khối nhỏ phụ thuộc vào \emph{vị trí} của nó: ở đỉnh, nằm trên cạnh, nằm giữa một mặt, hay nằm hẳn bên trong. Ta đếm từng loại.
+\step{1}{Khối ở các đỉnh -- sơn $3$ mặt}
+Mỗi khối ở đỉnh của hình hộp lộ ra $3$ mặt (một mặt trước/sau, một mặt trên/dưới, một mặt trái/phải). Hình hộp có $8$ đỉnh, nên có $\mathbf{8}$ khối sơn $3$ mặt.
+
+\step{2}{Khối nằm trên cạnh (trừ hai đầu) -- sơn $2$ mặt}
+Hình hộp có $12$ cạnh: $4$ cạnh dài $4$ cm, $4$ cạnh dài $3$ cm (chiều cao) và $4$ cạnh dài $3$ cm (chiều sâu). Trên một cạnh dài $n$ khối, bỏ hai khối ở hai đầu (đã đếm ở bước 1), còn $n-2$ khối.
+\begin{itemize}[leftmargin=1.3em,itemsep=0pt,topsep=0pt]
+  \item $4$ cạnh dài $4$: mỗi cạnh $4-2=2$ khối, tổng $4\cdot2=8$;
+  \item $8$ cạnh dài $3$: mỗi cạnh $3-2=1$ khối, tổng $8\cdot1=8$.
+\end{itemize}
+Có $8+8=\mathbf{16}$ khối sơn $2$ mặt.
+
+\step{3}{Khối nằm giữa một mặt -- sơn $1$ mặt}
+Trên một mặt $m\times n$, bỏ đi viền ngoài, còn $(m-2)\cdot(n-2)$ khối.
+\begin{itemize}[leftmargin=1.3em,itemsep=0pt,topsep=0pt]
+  \item $2$ mặt $4\times3$ (trước, sau): mỗi mặt $2\cdot1=2$ khối, tổng $4$;
+  \item $2$ mặt $4\times3$ (trên, dưới): mỗi mặt $2\cdot1=2$ khối, tổng $4$;
+  \item $2$ mặt $3\times3$ (trái, phải): mỗi mặt $1\cdot1=1$ khối, tổng $2$.
+\end{itemize}
+Có $4+4+2=\mathbf{10}$ khối sơn $1$ mặt.
+
+\step{4}{Khối nằm hẳn bên trong -- không sơn}
+Bỏ đi một lớp vỏ ở mỗi phía, phần lõi bên trong có kích thước $(4-2)\times(3-2)\times(3-2)=2\times1\times1$, gồm $\mathbf{2}$ khối.
+\begin{gmFig}[scale=0.8]
+  \foreach \x/\y/\c/\l in {0/0/AnsRed/3,1.4/0/tmOrange/2,2.8/0/tmGreen/1,4.2/0/Slate/0}{
+    \fill[\c!30,draw=\c!80!black] (\x,\y) rectangle ++(0.8,0.8);
+    \node[font=\footnotesize,below] at (\x+0.4,\y){$\l$ mặt};}
+  \node[font=\footnotesize] at (0.4,1.1){$8$}; \node[font=\footnotesize] at (1.8,1.1){$16$};
+  \node[font=\footnotesize] at (3.2,1.1){$10$}; \node[font=\footnotesize] at (4.6,1.1){$2$};
+\end{gmFig}
+\begin{parentbox}Nếu có bộ khối lập phương đồ chơi (hoặc khối rubik), hãy cùng con xếp hình hộp $4\times3\times3$, dán giấy màu lên các mặt ngoài rồi tách ra để đếm. Con sẽ tự thấy vì sao khối ở đỉnh có $3$ mặt màu.\end{parentbox}
+\verify{Tổng bốn loại phải bằng số khối: $8+16+10+2=36=4\cdot3\cdot3$. Đúng.}
+\ans{$3$ mặt: $8$ khối; $2$ mặt: $16$ khối; $1$ mặt: $10$ khối; không sơn: $2$ khối.}
+}
+
+\begin{probbox}{37}{\relax}
+Một hình chữ nhật có chu vi bằng chu vi của một hình vuông có diện tích $81\text{ cm}^2$. Chiều dài hình chữ nhật gấp đôi chiều rộng. Diện tích hình chữ nhật là
+\choices{$81\text{ cm}^2$}{$72\text{ cm}^2$}{$54\text{ cm}^2$}{$36\text{ cm}^2$}{$64\text{ cm}^2$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Chuỗi suy luận: diện tích hình vuông $\to$ cạnh hình vuông $\to$ chu vi (chung cho cả hai hình) $\to$ nửa chu vi của hình chữ nhật $\to$ chiều dài, chiều rộng $\to$ diện tích.
+\begin{recallbox}Hình vuông cạnh $a$: $S=a\cdot a$, $P=4a$. Hình chữ nhật: $P=2\cdot(\text{dài}+\text{rộng})$, $S=\text{dài}\cdot\text{rộng}$.\end{recallbox}
+\step{1}{Cạnh hình vuông}
+Cần số $a$ với $a\cdot a=81$: $a=9$ cm (vì $9\cdot9=81$).
+
+\step{2}{Chu vi}
+Chu vi hình vuông $=4\cdot9=36$ cm, cũng là chu vi hình chữ nhật.
+
+\step{3}{Tổng chiều dài và chiều rộng}
+Nửa chu vi hình chữ nhật: $36:2=18$ cm $=$ dài $+$ rộng.
+
+\step{4}{Chia theo tỉ lệ}
+Chiều dài gấp đôi chiều rộng: rộng là $1$ phần, dài là $2$ phần, tổng $3$ phần ứng với $18$ cm.
+\begin{barfigC}
+  \rowlab{-0.2}{0}{rộng}
+  \blk{0}{2}{0}{0.55}{tmBlue}{$6$}
+  \rowlab{-0.2}{-0.8}{dài}
+  \blk{0}{2}{-0.8}{0.55}{tmOrange}{$6$}
+  \blk{2}{4}{-0.8}{0.55}{tmOrange}{$6$}
+  \vbrace{4.2}{0.3}{-1.1}{tổng $18$ cm}
+\end{barfigC}
+Một phần $=18:3=6$ cm. Rộng $6$ cm, dài $12$ cm.
+
+\step{5}{Diện tích}
+$S=12\cdot6=72\ (\text{cm}^2)$.
+\begin{tipbox}Hai hình có cùng chu vi $36$ cm, nhưng hình vuông có diện tích $81\text{ cm}^2$ lớn hơn hình chữ nhật ($72\text{ cm}^2$). Trong các hình chữ nhật cùng chu vi, hình vuông có diện tích lớn nhất.\end{tipbox}
+\verify{Chu vi hình chữ nhật: $2\cdot(12+6)=36$ cm $=$ chu vi hình vuông; $12=2\cdot6$. Đúng.}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $72\text{ cm}^2$}
+}
+
+\begin{probbox}{38}{\stars{1}}
+Một vòng quay may mắn hình tròn được chia thành bốn ô có góc ở tâm lần lượt là $36^\circ$, $x^\circ$, $2x^\circ$ và $3x^\circ$ (hình vẽ).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Tìm $x$.
+  \item Mỗi ô chiếm bao nhiêu phần trăm diện tích vòng quay?
+  \item Khi quay, kim \emph{không} dừng ở ô lớn nhất trong khoảng bao nhiêu phần trăm số lần?
+\end{enumerate}
+\begin{gmFig}[scale=0.9]
+  \fill[tmPurple!20] (0,0)--(90:1.7) arc[start angle=90,end angle=126,radius=1.7]--cycle;
+  \fill[tmBlue!20] (0,0)--(126:1.7) arc[start angle=126,end angle=180,radius=1.7]--cycle;
+  \fill[tmGreen!20] (0,0)--(180:1.7) arc[start angle=180,end angle=288,radius=1.7]--cycle;
+  \fill[tmOrange!25] (0,0)--(288:1.7) arc[start angle=288,end angle=450,radius=1.7]--cycle;
+  \draw[Ink,thick] (0,0) circle (1.7);
+  \foreach \a in {90,126,180,288}{\draw[Ink,thick] (0,0)--(\a:1.7);}
+  \node[font=\footnotesize] at (108:1.2){$36^\circ$};
+  \node[font=\footnotesize] at (153:1.1){$x^\circ$};
+  \node[font=\footnotesize] at (234:1.0){$2x^\circ$};
+  \node[font=\footnotesize] at (9:0.95){$3x^\circ$};
+\end{gmFig}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Bốn góc ở tâm ghép lại thành một vòng trọn. Từ đó lập được một đẳng thức để tìm $x$, rồi đổi từng góc ra phần trăm.
+\begin{recallbox}Các góc ở tâm quanh một điểm có tổng $360^\circ$. Ô có góc ở tâm $n^\circ$ chiếm $\dfrac{n}{360}$ hình tròn.\end{recallbox}
+\step{1}{Câu a -- lập đẳng thức}
+$36+x+2x+3x=360$, tức $36+6x=360$.
+Bớt $36$ ở cả hai vế: $6x=324$. Chia cho $6$: $x=54$.
+
+\step{2}{Câu b -- các góc và phần trăm}
+Bốn góc: $36^\circ$, $54^\circ$, $108^\circ$, $162^\circ$.
+\[ \frac{36}{360}=10\%,\qquad \frac{54}{360}=15\%,\qquad \frac{108}{360}=30\%,\qquad \frac{162}{360}=45\%. \]
+(Mẹo tính: $\frac{36}{360}=\frac1{10}$; các góc còn lại gấp $1{,}5$; $3$; $4{,}5$ lần $36^\circ$, nên phần trăm lần lượt là $15\%$, $30\%$, $45\%$.)
+
+\step{3}{Câu c -- dùng phần bù}
+Ô lớn nhất là ô $162^\circ$, chiếm $45\%$. Kim \emph{không} dừng ở ô đó trong khoảng $100\%-45\%=55\%$ số lần.
+\begin{warnbox}Kết quả ``$55\%$'' chỉ là \emph{khoảng} số lần sau rất nhiều lượt quay. Trong vài lượt quay, số lần thực tế có thể khác; tỉ lệ diện tích cho biết kim dừng ở đâu \emph{thường xuyên đến mức nào} về lâu dài.\end{warnbox}
+\verify{$36+54+108+162=360$ và $10\%+15\%+30\%+45\%=100\%$.}
+\ans{a) $x=54$. \ b) $10\%$, $15\%$, $30\%$, $45\%$. \ c) Khoảng $55\%$.}
+}
+
+\begin{probbox}{39}{\stars{1}}
+Một hình chữ nhật dài $15$ cm, rộng $6$ cm. Trên cạnh trên, lấy hai đoạn ở hai đầu có cùng độ dài $a$ cm rồi cắt bỏ hai tam giác vuông ở hai góc trên, còn lại hình thang tô màu như hình. Biết diện tích hình thang là $72\text{ cm}^2$. Tìm $a$ và độ dài đáy nhỏ của hình thang.
+\begin{gmFig}[scale=0.42]
+  \fill[tmBlue!35] (0,0)--(15,0)--(12,6)--(3,6)--cycle;
+  \draw[Ink,thick] (0,0) rectangle (15,6);
+  \draw[Ink,thick] (0,0)--(3,6); \draw[Ink,thick] (15,0)--(12,6);
+  \node[above] at (1.5,6){$a$}; \node[above] at (13.5,6){$a$};
+  \node[below] at (7.5,0){$15$ cm}; \node[right] at (15,3){$6$ cm};
+\end{gmFig}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Bài 14 cho kích thước và hỏi diện tích; bài này làm ngược lại: cho diện tích, hỏi kích thước. Ta viết diện tích hình thang theo $a$ bằng cách ``hình chữ nhật trừ hai tam giác'', rồi tìm $a$.
+\begin{recallbox}$S_{\text{hình chữ nhật}}=$ dài $\times$ rộng; $\;S_{\text{tam giác vuông}}=\dfrac{\text{tích hai cạnh góc vuông}}{2}$.\end{recallbox}
+\step{1}{Diện tích hình chữ nhật}
+$15\cdot6=90\ (\text{cm}^2)$.
+
+\step{2}{Tổng diện tích hai tam giác bị cắt}
+Diện tích hai tam giác $=90-72=18\ (\text{cm}^2)$, nên mỗi tam giác có diện tích $18:2=9\ (\text{cm}^2)$.
+
+\step{3}{Tìm $a$}
+Mỗi tam giác vuông có hai cạnh góc vuông là $a$ và $6$:
+\[ \frac{a\cdot6}{2}=9\quad\Rightarrow\quad 3\cdot a=9\quad\Rightarrow\quad a=3. \]
+
+\step{4}{Đáy nhỏ của hình thang}
+Đáy nhỏ $=15-a-a=15-3-3=9$ cm.
+\verify{Theo công thức hình thang: $\dfrac{(15+9)\cdot6}{2}=\dfrac{24\cdot6}{2}=72\ (\text{cm}^2)$. Đúng.}
+\begin{tipbox}Cũng có thể giải bằng công thức hình thang: đáy nhỏ $b$ thoả mãn $\dfrac{(15+b)\cdot 6}{2}=72$, tức $(15+b)\cdot3=72$, $15+b=24$, $b=9$; rồi $a=(15-9):2=3$.\end{tipbox}
+\ans{$a=3$ cm; đáy nhỏ $9$ cm.}
+}
+
+\begin{probbox}{40}{\stars{1}}
+Tam giác $ABC$ vuông tại $A$ có $AB=6$ cm, $AC=8$ cm và $BC=10$ cm.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+  \item Tính diện tích tam giác $ABC$.
+  \item Tính độ dài đường cao $AH$ kẻ từ $A$ xuống cạnh $BC$.
+  \item Gọi $M$ là trung điểm của $BC$. Tính diện tích tam giác $ABM$.
+\end{enumerate}
+\begin{gmFig}[scale=0.55]
+  \coordinate (B) at (0,0); \coordinate (C) at (10,0); \coordinate (A) at (3.6,4.8);
+  \coordinate (H) at (3.6,0); \coordinate (M) at (5,0);
+  \fill[tmBlue!10] (A)--(B)--(C)--cycle;
+  \draw[Ink,thick] (A)--(B)--(C)--cycle;
+  \draw[AnsRed,thick,dashed] (A)--(H); \draw[Ink] (H) rectangle ++(0.3,0.3);
+  \draw[tmGreen!70!black,thick] (A)--(M);
+  \draw[Ink] ($(A)+(-0.24,-0.32)$)--($(A)+(0.08,-0.56)$)--($(A)+(0.32,-0.24)$);
+  \node[above] at (A){$A$}; \node[below left] at (B){$B$}; \node[below right] at (C){$C$};
+  \node[below] at (H){$H$}; \node[below] at (M){$M$};
+  \node[left] at (1.8,2.4){$6$}; \node[right] at (6.8,2.6){$8$};
+\end{gmFig}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Một tam giác có thể chọn \emph{bất kì} cạnh nào làm đáy, miễn là dùng đúng chiều cao ứng với đáy đó. Diện tích luôn như nhau. Ta tính diện tích theo cách dễ (đáy $AB$, chiều cao $AC$), rồi dùng nó để tìm chiều cao ứng với đáy $BC$.
+\begin{recallbox}$S=\dfrac{\text{đáy}\cdot\text{chiều cao}}{2}$, suy ra chiều cao $=\dfrac{2\cdot S}{\text{đáy}}$. Tam giác vuông: hai cạnh góc vuông là đáy và chiều cao của nhau.\end{recallbox}
+\step{1}{Câu a -- chọn đáy $AB$}
+Vì góc $A$ vuông nên $AC$ vuông góc với $AB$: lấy $AB$ làm đáy thì $AC$ là chiều cao.
+\[ S_{ABC}=\frac{6\cdot8}{2}=24\ (\text{cm}^2). \]
+
+\step{2}{Câu b -- chọn đáy $BC$}
+Lấy $BC=10$ cm làm đáy, chiều cao tương ứng là $AH$. Diện tích vẫn là $24\text{ cm}^2$:
+\[ \frac{10\cdot AH}{2}=24\quad\Rightarrow\quad 10\cdot AH=48\quad\Rightarrow\quad AH=4{,}8\text{ cm}. \]
+
+\step{3}{Câu c -- trung điểm chia đôi diện tích}
+\begin{recallbox}Hai tam giác có đáy bằng nhau và chung chiều cao thì có diện tích bằng nhau.\end{recallbox}
+Hai tam giác $ABM$ và $ACM$ có đáy $BM=MC=5$ cm (vì $M$ là trung điểm) và chung chiều cao $AH$ (cùng kẻ từ $A$ xuống đường thẳng $BC$). Vậy chúng có diện tích bằng nhau, mỗi tam giác bằng nửa tam giác $ABC$:
+\[ S_{ABM}=\frac{5\cdot4{,}8}{2}=12\ (\text{cm}^2)=\frac{24}{2}. \]
+\begin{warnbox}Đừng lấy ``đáy $BC$ nhân cạnh $AB$'' -- cạnh $AB$ không vuông góc với $BC$, nên không phải chiều cao ứng với đáy $BC$.\end{warnbox}
+\verify{$AH=4{,}8$ nhỏ hơn cả $AB=6$ và $AC=8$ -- hợp lí, vì đường vuông góc là đường ngắn nhất từ $A$ đến đường thẳng $BC$. Và $\frac{10\cdot4{,}8}{2}=24$.}
+\ans{a) $24\text{ cm}^2$. \ b) $AH=4{,}8$ cm. \ c) $12\text{ cm}^2$.}
+}

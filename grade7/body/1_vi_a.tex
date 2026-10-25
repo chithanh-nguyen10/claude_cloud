@@ -1,0 +1,983 @@
+% ===================== Chủ đề 1 -- Đại số và Phương trình -- phần a (VI) =====================
+% helper macros (topic prefix \ae..., guarded)
+% \aeaBox{a}{b}{c}{d}: ô vuông 2x2 chứa bốn số (dùng trong Bài 14, 39)
+\providecommand{\aeaBox}[4]{\begin{tikzpicture}[baseline=-0.7ex,font=\small]
+  \draw[Navy,line width=0.8pt,fill=tmBlue!6] (-0.66,-0.32) rectangle (0.66,0.32);
+  \draw[Navy,line width=0.8pt] (0,-0.32)--(0,0.32) (-0.66,0)--(0.66,0);
+  \node[inner sep=0pt] at (-0.33,0.16){$#1$};\node[inner sep=0pt] at (0.33,0.16){$#2$};
+  \node[inner sep=0pt] at (-0.33,-0.16){$#3$};\node[inner sep=0pt] at (0.33,-0.16){$#4$};\end{tikzpicture}}
+% \aeaScale{left}{right}: một chiếc cân thăng bằng, vật đặt trên hai đĩa
+\providecommand{\aeaScale}[2]{\begin{tikzpicture}[baseline=0pt,font=\small]
+  \draw[Ink,line width=1.1pt] (-1.7,0)--(1.7,0);
+  \fill[Slate] (0,0)--(-0.22,-0.38)--(0.22,-0.38)--cycle;
+  \draw[Slate,line width=1pt] (-0.4,-0.38)--(0.4,-0.38);
+  \node[above=1pt] at (-1.05,0){#1};\node[above=1pt] at (1.05,0){#2};\end{tikzpicture}}
+% ký hiệu hình có màu cho các bài toán cân
+\providecommand{\aeaTri}{\textcolor{tmOrange}{\scalebox{1.5}{$\blacktriangle$}}}
+\providecommand{\aeaSq}{\textcolor{tmBlue}{\scalebox{1.5}{$\blacksquare$}}}
+\providecommand{\aeaCir}{\textcolor{tmGreen}{\scalebox{2.6}{$\bullet$}}}
+
+\begin{knowbox}
+\textbf{Ý tưởng lớn.} Đại số là \emph{ngôn ngữ của các con số chưa biết}. Thay vì nói dài dòng
+``một số nào đó, cộng thêm $5$, rồi nhân đôi'', ta viết gọn: $2(x+5)$. Chữ cái $x$ (gọi là
+\textbf{biến} hay \textbf{ẩn}) giữ chỗ cho một số mà ta chưa biết hoặc có thể thay đổi.
+
+Trong chủ đề này, các em sẽ luyện bốn kĩ năng cốt lõi:
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item \textbf{Dịch} lời văn thành biểu thức, công thức (``nhiều hơn'', ``gấp'', ``tổng'', ``hiệu''...).
+\item \textbf{Thay số} để tính giá trị của biểu thức, kiểm tra một đẳng thức đúng hay sai.
+\item \textbf{Giải phương trình} bằng \emph{nguyên tắc cân bằng}: làm gì với vế này thì làm đúng như thế với vế kia.
+\item \textbf{Nhìn ra quy luật}: dãy số, bảng giá trị, tỉ lệ, thứ tự lớn -- bé.
+\end{enumerate}
+Mỗi bài toán có lời văn đều đi theo một lộ trình: \emph{đọc kĩ $\to$ đặt ẩn $\to$ lập biểu thức
+hoặc phương trình $\to$ giải $\to$ thử lại $\to$ trả lời}.
+\end{knowbox}
+\vspace{0.3cm}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Biến, biểu thức đại số và công thức}
+\begin{knowbox}
+\textbf{1. Biến và biểu thức.} Một \textbf{biểu thức đại số} được tạo thành từ các số, các chữ
+(biến) và các phép tính $+,\ -,\ \times,\ :$, luỹ thừa, dấu ngoặc. Ví dụ: $3x-1$;\quad $2(n-1)$;\quad $120+30m$;\quad $xy$.
+
+\textbf{Quy ước viết gọn.} Giữa số và chữ, hoặc giữa hai chữ, ta bỏ dấu nhân:
+$3x$ nghĩa là $3\cdot x$;\ \ $xy$ nghĩa là $x\cdot y$;\ \ $2(n-1)$ nghĩa là $2\cdot(n-1)$. Số viết trước chữ.
+
+\textbf{2. Giá trị của biểu thức.} Muốn tính giá trị của biểu thức khi biết giá trị của biến, ta
+\emph{thay} mỗi chữ bằng số đã cho (nên đặt số trong ngoặc), rồi tính theo đúng thứ tự thực hiện phép tính.
+
+\emph{Ví dụ:} với $x=3$ thì $3x-1=3\cdot 3-1=9-1=8$;\quad $2x^2=2\cdot 3^2=2\cdot 9=18$.
+
+\textbf{3. Dịch lời văn sang biểu thức.}
+
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+\rowcolor{tmBlue!10}\textbf{Lời văn} & \textbf{Biểu thức}\\ \hline
+nhiều hơn $x$ là $5$ đơn vị;\ \ $x$ cộng thêm $5$ & $x+5$\\ \hline
+ít hơn $x$ là $5$ đơn vị;\ \ bớt $5$ khỏi $x$ & $x-5$\\ \hline
+gấp $3$ lần $x$;\ \ $3$ lần $x$ & $3x$\\ \hline
+một nửa của $x$;\ \ $x$ chia cho $2$ & $\dfrac{x}{2}$ hay $x:2$\\ \hline
+có sẵn $120$, mỗi lần thêm $30$, thêm $m$ lần & $120+30m$\\ \hline
+ba số tự nhiên liên tiếp, số bé nhất là $n$ & $n,\ n+1,\ n+2$\\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{4. Công thức} là một đẳng thức cho biết cách tính một đại lượng từ các đại lượng khác.
+Các công thức hình học hay dùng (độ dài các cạnh là $a$, $b$, $c$):
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item Chu vi tam giác: $P=a+b+c$ (tổng độ dài ba cạnh).
+\item Hình chữ nhật dài $a$, rộng $b$: chu vi $P=2(a+b)$, diện tích $S=a\cdot b$.
+\item Tam giác có cạnh đáy $a$, chiều cao $h$: diện tích $S=\dfrac{a\cdot h}{2}$.
+\item Hình hộp chữ nhật kích thước $a\times b\times c$: diện tích toàn phần $S_{tp}=2(ab+bc+ca)$, thể tích $V=abc$.
+\end{itemize}
+\end{knowbox}
+
+\begin{proofbox}
+\textbf{Vì sao diện tích tam giác bằng nửa (đáy $\times$ cao)?} Vẽ hình chữ nhật có một cạnh là đáy $a$
+của tam giác và cạnh kia bằng chiều cao $h$. Đường cao chia tam giác thành hai tam giác vuông; mỗi tam giác
+vuông đúng bằng một nửa của một hình chữ nhật nhỏ (hình dưới, phần tô và phần trắng bằng nhau từng cặp).
+Vậy tam giác chiếm đúng một nửa hình chữ nhật lớn: $S=\dfrac{a\cdot h}{2}$.
+\begin{figC}
+\draw[Navy,line width=0.9pt] (0,0) rectangle (4,2);
+\fill[tmOrange!25] (0,0)--(4,0)--(1.4,2)--cycle;
+\draw[tmOrange!80!black,line width=1pt] (0,0)--(4,0)--(1.4,2)--cycle;
+\draw[dashed,Slate] (1.4,2)--(1.4,0);
+\draw[Slate] (1.4,0.2)--(1.6,0.2)--(1.6,0);
+\node[below] at (2,0){$a$};
+\node[right] at (4,1){$h$};
+\node[left,font=\footnotesize] at (1.4,1){$h$};
+\end{figC}
+Tương tự, chu vi hình chữ nhật là $a+b+a+b=2a+2b=2(a+b)$ vì hình chữ nhật có hai cạnh dài bằng nhau và hai cạnh ngắn bằng nhau.
+\end{proofbox}
+
+\begin{tipbox}
+Khi thay số, hãy \emph{luôn đặt số vào trong ngoặc}, nhất là số âm: với $x=-2$ thì
+$x^2=(-2)^2=4$, còn $3x=3\cdot(-2)=-6$. Dấu ngoặc giúp tránh nhầm dấu.
+\end{tipbox}
+
+\begin{warnbox}
+$3x$ với $x=4$ là $3\cdot 4=12$, \emph{không phải} ``$34$''. Và $x^2$ (là $x\cdot x$) khác $2x$ (là $x+x$):
+với $x=5$ thì $x^2=25$ còn $2x=10$.
+\end{warnbox}
+
+\begin{tipbox}
+\textbf{Biểu diễn mọi thứ theo vài chữ.} Một dãy mà mỗi số (từ số thứ ba) bằng tổng hai số liền trước:
+nếu hai số đầu là $a$ và $b$ thì các số tiếp theo là
+\[a,\quad b,\quad a+b,\quad b+(a+b)=a+2b,\quad (a+b)+(a+2b)=2a+3b,\ \dots\]
+Chẳng hạn với $a=11$, $b=20$: số thứ năm là $2\cdot 11+3\cdot 20=22+60=82$, đúng như dãy $11,20,31,51,82$.
+Viết các số theo $a$, $b$ giúp ta biến một câu hỏi về dãy số thành một phương trình.
+\end{tipbox}
+
+\begin{parentbox}
+Hãy cho con ``chơi trò máy biến số'': phụ huynh nói một quy tắc (``nhân $3$ rồi trừ $1$''),
+con viết thành biểu thức $3x-1$, rồi hai người lần lượt đưa số vào máy để tính. Trò chơi này làm
+cho chữ $x$ trở nên gần gũi, không còn đáng sợ.
+\end{parentbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Số nguyên, thứ tự thực hiện phép tính và tính chất phân phối}
+\begin{knowbox}
+\textbf{1. Số nguyên.} Các số $\dots,-3,-2,-1,0,1,2,3,\dots$ gọi là số nguyên. Trên trục số, số nằm bên
+trái thì nhỏ hơn. Số đối của $a$ là $-a$; ta có $a+(-a)=0$.
+\begin{center}\begin{tikzpicture}[x=0.85cm,>=stealth]
+\draw[->,thick,Navy] (-5.5,0)--(5.5,0);
+\foreach \i in {-5,...,5}{\draw[Navy] (\i,0.08)--(\i,-0.08); \node[below,font=\small] at (\i,-0.1){$\i$};}
+\draw[->,tmOrange,line width=1pt] (2,0.25) to[bend left=35] node[above,font=\footnotesize]{$-5$} (-3,0.25);
+\fill[tmGreen] (2,0) circle (2.2pt); \fill[AnsRed] (-3,0) circle (2.2pt);
+\end{tikzpicture}\end{center}
+\emph{Ví dụ:} $2+(-5)=-3$: từ $2$, đi sang trái $5$ bước, đến $-3$.
+
+\textbf{2. Cộng, trừ số nguyên.}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item Cộng hai số cùng dấu: cộng phần số, giữ dấu chung: $(-11)+(-26)=-37$.
+\item Cộng hai số khác dấu: lấy phần số lớn trừ phần số nhỏ, lấy dấu của số có phần số lớn hơn: $11+(-37)=-26$.
+\item Trừ là cộng với số đối: $a-b=a+(-b)$. Ví dụ: $-26-11=-26+(-11)=-37$.
+\end{itemize}
+
+\textbf{3. Thứ tự thực hiện phép tính.} Ngoặc trước $\to$ luỹ thừa $\to$ nhân, chia (từ trái sang phải)
+$\to$ cộng, trừ (từ trái sang phải). Ví dụ: $6+2\cdot 3=6+6=12$ (không phải $8\cdot 3$).
+
+\textbf{4. Tính chất phân phối.} $a(b+c)=ab+ac$ và $a(b-c)=ab-ac$.
+\emph{Ví dụ:} $3(T+4)=3T+12$;\quad $20\cdot 9\,000-20\cdot 6\,750=20\cdot(9\,000-6\,750)$.
+
+\textbf{5. Thu gọn biểu thức.} Cộng các số hạng ``cùng loại'': $3x+5x=8x$; \
+$(a+1)+(b+1)+(c+1)+(d+1)=(a+b+c+d)+4$.
+
+\textbf{6. Điểm trên mặt phẳng toạ độ.} Điểm $(x;y)$ có hoành độ $x$ và tung độ $y$. Đi sang phải $k$
+đơn vị thì $x$ tăng $k$; đi lên $k$ đơn vị thì $y$ tăng $k$ (đi sang trái, đi xuống thì giảm).
+\end{knowbox}
+
+\begin{proofbox}
+\textbf{Vì sao $a(b+c)=ab+ac$?} Xét một hình chữ nhật có chiều rộng $a$, chiều dài $b+c$. Diện tích của nó là
+$a(b+c)$. Nhưng ta cũng có thể cắt nó thành hai hình chữ nhật nhỏ có diện tích $ab$ và $ac$. Cùng một
+diện tích nên $a(b+c)=ab+ac$.
+\begin{figC}
+\fill[tmBlue!18] (0,0) rectangle (3,1.2); \fill[tmGreen!20] (3,0) rectangle (5,1.2);
+\draw[Navy,line width=0.9pt] (0,0) rectangle (5,1.2); \draw[Navy,line width=0.9pt] (3,0)--(3,1.2);
+\node at (1.5,0.6){$ab$}; \node at (4,0.6){$ac$};
+\node[left] at (0,0.6){$a$}; \node[below] at (1.5,0){$b$}; \node[below] at (4,0){$c$};
+\end{figC}
+\end{proofbox}
+
+\begin{warnbox}
+$3(T+4)$ \emph{không bằng} $3T+4$: phải nhân $3$ với \emph{từng} số hạng trong ngoặc, $3(T+4)=3T+3\cdot 4=3T+12$.
+Tương tự $-(a-b)=-a+b$ (đổi dấu \emph{mọi} số hạng trong ngoặc).
+\end{warnbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Đẳng thức, phương trình và nguyên tắc cân bằng}
+\begin{knowbox}
+\textbf{1. Phương trình.} Một đẳng thức chứa ẩn, chẳng hạn $2(x+8)=38$, gọi là \textbf{phương trình}.
+Số thay vào ẩn làm cho hai vế bằng nhau gọi là \textbf{nghiệm}. \emph{Giải phương trình} là tìm nghiệm.
+
+\textbf{2. Nguyên tắc cân bằng.} Hãy tưởng tượng phương trình là một chiếc cân đang thăng bằng.
+Cân vẫn thăng bằng nếu ta:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item cộng (hoặc trừ) \emph{cùng một số} vào cả hai vế;
+\item nhân (hoặc chia) cả hai vế với \emph{cùng một số khác $0$}.
+\end{itemize}
+Hệ quả quen thuộc là \textbf{quy tắc chuyển vế}: chuyển một số hạng từ vế này sang vế kia thì phải \emph{đổi dấu} số hạng đó.
+
+\begin{center}
+\aeaScale{\aeaSq\,\aeaSq\ \ \fbox{\footnotesize 3 kg}}{\fbox{\footnotesize 11 kg}}
+\end{center}
+\emph{Ví dụ:} hai hộp như nhau cùng quả cân $3$ kg cân bằng với $11$ kg: $2x+3=11$.
+Bỏ quả cân $3$ kg ở cả hai đĩa: $2x=11-3=8$. Chia đôi cả hai đĩa: $x=8:2=4$. Mỗi hộp nặng $4$ kg.
+
+\textbf{3. Phép thế trên cân.} Nếu một đĩa cân chứa $A$ cân bằng với $B$ thì ở bất kì chiếc cân nào khác, ta có thể
+thay $A$ bằng $B$ mà cân vẫn thăng bằng (giống như thay một biểu thức bằng một biểu thức bằng nó).
+
+\textbf{4. Luôn thử lại.} Sau khi giải, thay nghiệm vào phương trình ban đầu để chắc chắn hai vế bằng nhau.
+\end{knowbox}
+
+\begin{proofbox}
+\textbf{Vì sao chuyển vế phải đổi dấu?} Từ $2x+3=11$, trừ $3$ ở cả hai vế (cân vẫn thăng bằng):
+$2x+3-3=11-3$, tức là $2x=11-3$. Nhìn kết quả, ta thấy số hạng $+3$ ở vế trái như đã ``nhảy'' sang vế phải và trở thành $-3$.
+Thật ra không có gì ``nhảy'' cả, ta chỉ trừ cùng một số ở hai vế.
+\end{proofbox}
+
+\begin{warnbox}
+Quên đổi dấu khi chuyển vế: từ $x+11=-26$ mà viết $x=-26+11$ là \textbf{sai}. Đúng là $x=-26-11=-37$.
+\end{warnbox}
+
+\begin{tipbox}
+Gặp bài trắc nghiệm có phương trình, ta có thể \emph{thay lần lượt từng phương án} vào phương trình. Cách này
+chậm hơn nhưng rất chắc chắn, và cũng là cách thử lại tốt nhất.
+\end{tipbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Giải bài toán bằng cách lập phương trình}
+\begin{knowbox}
+\textbf{Bốn bước giải bài toán có lời văn.}
+\begin{enumerate}[leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item \textbf{Chọn ẩn}: gọi đại lượng cần tìm (hoặc một đại lượng liên quan) là $x$; ghi rõ đơn vị và điều kiện (ví dụ $x>0$, $x$ là số nguyên).
+\item \textbf{Biểu diễn} các đại lượng khác theo $x$.
+\item \textbf{Lập phương trình} từ điều kiện của đề bài rồi \textbf{giải}.
+\item \textbf{Đối chiếu} điều kiện, \textbf{thử lại} và \textbf{trả lời} đúng câu hỏi.
+\end{enumerate}
+
+\textbf{Các dạng hay gặp.}
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt,topsep=2pt]
+\item \textbf{Số nguyên liên tiếp:} $n,\ n+1,\ n+2$ (hoặc gọn hơn $n-1,\ n,\ n+1$). Số chẵn (lẻ) liên tiếp hơn kém nhau $2$: $n,\ n+2,\ n+4$.
+\item \textbf{Tổng từng đôi:} ba vật $a,b,c$ cân từng đôi được $a+b$, $b+c$, $c+a$. Cộng ba kết quả:
+$(a+b)+(b+c)+(c+a)=2(a+b+c)$, nên \emph{tổng ba vật bằng nửa tổng các kết quả}. Muốn tìm một vật, lấy tổng ba vật trừ đi tổng hai vật kia.
+\item \textbf{Góc trong tam giác:} tổng ba góc của một tam giác bằng $180^\circ$; tam giác cân có hai góc ở đáy bằng nhau.
+\item \textbf{Trung bình:} giá trị trung bình $=$ tổng các giá trị $:$ số các giá trị; giá trung bình $=$ tổng số tiền $:$ tổng khối lượng.
+\end{itemize}
+\end{knowbox}
+
+\textbf{Hai ví dụ nhỏ.}
+
+\emph{a) Tam giác cân có một góc $70^\circ$.} Góc $70^\circ$ có thể là \emph{góc ở đáy} hoặc \emph{góc ở đỉnh}, nên phải xét hai trường hợp:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item Nếu $70^\circ$ là góc ở đáy: hai góc đáy là $70^\circ$ và $70^\circ$, góc ở đỉnh là $180^\circ-70^\circ-70^\circ=40^\circ$.
+\item Nếu $70^\circ$ là góc ở đỉnh: hai góc đáy bằng nhau và có tổng $180^\circ-70^\circ=110^\circ$, mỗi góc là $55^\circ$.
+\end{itemize}
+\begin{figC}
+\draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,0)--(2.4,0)--(1.2,3.3)--cycle;
+\node[font=\footnotesize] at (0.45,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.95,0.25){$70^\circ$}; \node[font=\footnotesize] at (1.2,2.6){$40^\circ$};
+\draw[tmOrange!85!black,line width=1pt,fill=tmOrange!10] (4,0)--(7.4,0)--(5.7,2.43)--cycle;
+\node[font=\footnotesize] at (4.55,0.22){$55^\circ$}; \node[font=\footnotesize] at (6.85,0.22){$55^\circ$}; \node[font=\footnotesize] at (5.7,1.85){$70^\circ$};
+\end{figC}
+
+\emph{b) Giá trung bình.} Mua $300$ g kẹo loại I hết $15\,000$ đồng và $200$ g kẹo loại II hết $20\,000$ đồng. Giá trung bình của
+$100$ g kẹo là $(15\,000+20\,000):(300+200)\cdot 100=35\,000:500\cdot 100=7\,000$ đồng.
+\emph{Không} được lấy trung bình của hai giá $5\,000$ và $10\,000$ đồng cho mỗi $100$ g (sẽ ra $7\,500$ đồng, sai), vì hai loại kẹo được mua với khối lượng khác nhau.
+
+\begin{proofbox}
+\textbf{Ba số nguyên liên tiếp: số ở giữa bằng tổng chia $3$.} Gọi ba số là $n-1$, $n$, $n+1$. Tổng của chúng là
+$(n-1)+n+(n+1)=3n$ (vì $-1$ và $+1$ triệt tiêu). Vậy số ở giữa $n=\text{tổng}:3$. Chẳng hạn tổng là $153$ thì số giữa là $51$ và ba số là $50,51,52$.
+\end{proofbox}
+
+\begin{tipbox}
+Đặt ẩn là \emph{số ở giữa} thường làm phương trình gọn nhất. Với các bài ``tổng từng đôi'', đừng vội đặt ba ẩn và giải hệ:
+hãy \emph{cộng tất cả lại} trước.
+\end{tipbox}
+
+\begin{warnbox}
+Giải xong phương trình chưa phải là xong bài! Phải đọc lại câu hỏi: đề hỏi số \emph{lớn nhất}, vật \emph{nhẹ nhất}, hay \emph{tổng}...?
+Rất nhiều bạn tìm đúng $x$ nhưng chọn sai đáp án vì trả lời nhầm câu hỏi.
+\end{warnbox}
+
+\begin{parentbox}
+Khi con bí, hãy hỏi: ``Cái gì mình chưa biết? Gọi nó là $x$ nhé. Bây giờ, đề bài nói gì về $x$?''
+Hãy để con nói thành lời trước, rồi mới viết thành phương trình.
+\end{parentbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Quy luật, bảng giá trị và dãy số cách đều}
+\begin{knowbox}
+\textbf{1. Dãy số cách đều.} Một dãy số mà hai số liền nhau luôn hơn kém nhau cùng một số $d$ (gọi là
+\textbf{khoảng cách} hay \textbf{công sai}) được gọi là dãy cách đều. Nếu số hạng đầu là $a$ thì
+\[\text{số hạng thứ } n \;=\; a+(n-1)\cdot d .\]
+\emph{Ví dụ:} dãy $7,10,13,16,\dots$ có $a=7$, $d=3$; số hạng thứ $n$ là $7+3(n-1)=3n+4$.
+
+\textbf{2. Từ bảng giá trị đến biểu thức.} Khi $n$ tăng $1$ mà giá trị luôn tăng $d$, biểu thức có dạng
+$d\cdot n+\text{(một số)}$. Tìm ``một số'' bằng cách thay $n=1$.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} $n$ & $1$ & $2$ & $3$ & $4$ & $5$\\ \hline
+giá trị & $4$ & $7$ & $10$ & $13$ & $16$\\ \hline
+\end{tabular}
+\end{center}
+Mỗi lần $n$ tăng $1$, giá trị tăng $3$ nên biểu thức có dạng $3n+b$. Thay $n=1$: $3+b=4$, suy ra $b=1$. Vậy giá trị $=3n+1$.
+
+\textbf{3. Một số có nằm trong dãy không?} Số $N$ thuộc dãy $a,\ a+d,\ a+2d,\dots$ khi và chỉ khi
+$N-a$ chia hết cho $d$ (và $N\ge a$). Với dãy đếm lùi $a,\ a-d,\ a-2d,\dots$ thì xét $a-N$.
+
+\textbf{4. Số chung của hai dãy; hiện tượng lặp lại.} Nếu hai dãy cách đều có khoảng cách $d_1$, $d_2$ có một số chung thì
+các số chung cách nhau đúng $\text{BCNN}(d_1,d_2)$. Tương tự, những sự việc lặp lại sau $p$ phút và sau $q$ phút sẽ
+cùng xảy ra lại sau mỗi $\text{BCNN}(p,q)$ phút.
+\end{knowbox}
+
+\begin{tipbox}
+\emph{Ví dụ về sự lặp lại.} Xe buýt thứ nhất cứ $12$ phút lại về bến, xe thứ hai cứ $20$ phút lại về bến. Lúc $7\,h$ cả hai cùng ở bến.
+Thời điểm xe thứ nhất về bến: sau $12, 24, 36, 48, \mathbf{60},\dots$ phút; xe thứ hai: sau $20, 40, \mathbf{60},\dots$ phút.
+Hai xe lại gặp nhau ở bến sau mỗi $\text{BCNN}(12,20)=60$ phút, tức lúc $8\,h$, $9\,h$, \dots
+
+Tương tự, hai dãy $7,10,13,\dots$ (cách $3$) và $2011,2006,2001,\dots$ (cách $5$) nếu có số chung thì các số chung cách nhau $\text{BCNN}(3,5)=15$.
+\end{tipbox}
+
+\begin{proofbox}
+\textbf{Vì sao số hạng thứ $n$ là $a+(n-1)d$?} Đi từ số hạng thứ $1$ đến số hạng thứ $n$, ta bước qua $n-1$ ``khoảng'',
+mỗi khoảng cộng thêm $d$. Giống như đi từ cột điện thứ $1$ đến cột thứ $5$ chỉ qua $4$ khoảng.
+\begin{figC}
+\foreach \i/\v in {0/a,1/a+d,2/a+2d,3/a+3d}{\fill[tmBlue] (2.2*\i,0) circle (2.5pt); \node[below,font=\footnotesize] at (2.2*\i,-0.1){$\v$};}
+\foreach \i in {0,1,2}{\draw[->,tmOrange,line width=0.9pt] (2.2*\i+0.15,0.15) to[bend left=30] node[above,font=\footnotesize]{$+d$} (2.2*\i+2.05,0.15);}
+\node[font=\footnotesize,text=Slate] at (0,0.7){thứ 1}; \node[font=\footnotesize,text=Slate] at (6.6,0.7){thứ 4};
+\end{figC}
+Từ số thứ $1$ đến số thứ $4$ có $3$ bước $+d$, nên số thứ $4$ là $a+3d$.
+\end{proofbox}
+
+\begin{warnbox}
+Kiểm tra một công thức chỉ với \emph{một} cột của bảng là chưa đủ. Chẳng hạn bảng $1,3,5,7,9$: cả $3n-2$ lẫn $2n-1$ đều
+cho giá trị $1$ khi $n=1$, nhưng với $n=2$ thì $3n-2=4\neq 3$. Hãy thử với \emph{ít nhất hai, ba cột}.
+\end{warnbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Tỉ lệ, đơn vị đo và chuyển động đều}
+\begin{knowbox}
+\textbf{1. Đại lượng tỉ lệ thuận.} Nếu một thìa thức ăn đủ cho $8$ con cá thì $2$ thìa đủ cho $16$ con, $4$ thìa đủ cho $32$ con:
+gấp số thìa lên bao nhiêu lần thì số cá cũng gấp lên bấy nhiêu lần. Ta nói $y$ \textbf{tỉ lệ thuận} với $x$ theo hệ số $k$ nếu $y=k\cdot x$.
+Cách giải quen thuộc: \textbf{rút về đơn vị} (tính cho $1$ phần trước, rồi nhân lên).
+
+\textbf{2. Chuyển động đều.} Với $s$ là quãng đường, $v$ là vận tốc, $t$ là thời gian:
+\[ s=v\cdot t,\qquad t=\frac{s}{v},\qquad v=\frac{s}{t}.\]
+Nhớ dùng đơn vị phù hợp: $v$ tính bằng km/h thì $s$ tính bằng km và $t$ tính bằng giờ.
+
+Hai người chạy \emph{cùng một khoảng thời gian}: ai nhanh gấp $k$ lần thì đi được quãng đường gấp $k$ lần.
+
+\emph{Chạy ngược chiều trên đường tròn:} từ lần gặp nhau này đến lần gặp nhau sau, \emph{tổng} quãng đường hai người chạy được đúng bằng một vòng.
+Nếu người thứ nhất nhanh gấp $k$ lần người thứ hai thì trong mỗi lượt đó, người thứ nhất chạy $\dfrac{k}{k+1}$ vòng, người thứ hai chạy $\dfrac{1}{k+1}$ vòng.
+
+\textbf{3. Đổi đơn vị thời gian.}
+$1$ phút $=60$ giây;\ \ $1$ giờ $=60$ phút $=60\times 60=3\,600$ giây;\ \ $1$ ngày $=24$ giờ;\ \ $1$ tuần $=7$ ngày.
+Do đó $1$ tuần $=7\times 24$ giờ $=7\times 24\times 60$ phút $=7\times 24\times 60\times 60$ giây.
+
+\textbf{4. Tiền.} Số tờ tiền $=$ tổng số tiền $:$ mệnh giá một tờ. \ Tiền chênh lệch sau $n$ lần
+$=n\times(\text{giá lớn}-\text{giá nhỏ})$.
+\end{knowbox}
+
+\begin{tipbox}
+Đọc một tích như $60\times 60\times 24\times 7$ như một \emph{chuỗi đổi đơn vị}, đọc từ phải sang trái:
+$7$ (ngày trong một tuần) $\times 24$ (giờ trong một ngày) $\times 60$ (phút trong một giờ) $\times 60$ (giây trong một phút).
+Kết quả là số giây trong một tuần.
+\end{tipbox}
+
+\begin{proofbox}
+\textbf{Vì sao tính chênh lệch ``mỗi lần'' rồi nhân lên cũng được?} Theo tính chất phân phối:
+$20\times 9\,000-20\times 6\,750=20\times(9\,000-6\,750)=20\times 2\,250$. Hai cách tính luôn cho cùng một kết quả,
+nhưng cách thứ hai nhẩm nhanh hơn nhiều.
+\end{proofbox}
+
+\begin{warnbox}
+Trong bài chuyển động, đọc kĩ ``đã đi được bao nhiêu'' và ``còn lại bao nhiêu''. Đi được một nửa quãng đường $510$ km
+thì quãng đường còn lại là $510:2=255$ km, không phải $510$ km.
+\end{warnbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{Phân số bằng nhau và phân số của một số}
+\begin{knowbox}
+\textbf{1. Tính chất cơ bản.} Nhân (hoặc chia) cả tử và mẫu của một phân số với cùng một số khác $0$,
+ta được một phân số bằng nó: $\dfrac{3}{7}=\dfrac{3\cdot 9}{7\cdot 9}=\dfrac{27}{63}$.
+
+\textbf{2. Nhận biết hai phân số bằng nhau.} Với $b\neq 0$, $d\neq 0$:\quad
+$\dfrac{a}{b}=\dfrac{c}{d}$ khi và chỉ khi $a\cdot d=b\cdot c$ (``nhân chéo'').
+
+\textbf{3. Hai phân số cùng tử.} Nếu $\dfrac{1}{p}=\dfrac{1}{q}$ (hay $\dfrac{m}{p}=\dfrac{m}{q}$ với $m\neq 0$) thì $p=q$.
+Hai phân số có tử bằng nhau và bằng nhau thì mẫu cũng bằng nhau.
+
+\textbf{4. Phân số của một số.} Muốn tìm $\dfrac{m}{n}$ của số $A$, ta tính $A\cdot\dfrac{m}{n}=A:n\cdot m$.
+\emph{Ví dụ:} $\dfrac{3}{7}$ của $168$ km là $168:7\cdot 3=24\cdot 3=72$ km. Phần còn lại ứng với $1-\dfrac{3}{7}=\dfrac{4}{7}$.
+\end{knowbox}
+
+\begin{proofbox}
+\textbf{Vì sao $\dfrac{1}{p}=\dfrac{1}{q}$ kéo theo $p=q$?} Nhân chéo: $1\cdot q=p\cdot 1$, tức là $q=p$.
+Nói cách khác: chia một chiếc bánh thành $p$ phần và thành $q$ phần mà mỗi phần to bằng nhau thì số phần phải như nhau.
+\end{proofbox}
+
+% ------------------------------------------------------------------------------------------
+\needspace{6\baselineskip}\shead{So sánh và suy luận về thứ tự}
+\begin{knowbox}
+\textbf{1. Tính chất bắc cầu.} Nếu $a<b$ và $b<c$ thì $a<c$. Nhờ đó ta có thể xếp nhiều số thành một hàng: $a<b<c<d$.
+
+\textbf{2. Kĩ thuật ``đặt bằng $k$''.} Khi nhiều biểu thức bằng nhau, ví dụ $a-2=b+2=c+1=d-3$, hãy gọi giá trị chung là $k$:
+\[a=k+2,\qquad b=k-2,\qquad c=k-1,\qquad d=k+3.\]
+Bây giờ mọi số được so sánh với cùng một mốc $k$; xếp các ``phần thêm'' $-2<-1<+2<+3$ ta được $b<c<a<d$.
+\begin{center}\begin{tikzpicture}[x=1cm,>=stealth]
+\draw[->,thick,Navy] (-2.8,0)--(3.8,0);
+\foreach \i in {-2,...,3}{\draw[Navy] (\i,0.08)--(\i,-0.08);}
+\node[below,font=\small] at (0,-0.1){$k$};
+\foreach \i/\l/\c in {-2/b/tmOrange,-1/c/tmGreen,2/a/tmBlue,3/d/tmPurple}{\fill[\c] (\i,0) circle (3pt); \node[above,font=\small\bfseries,text=\c] at (\i,0.1){$\l$};}
+\node[below,font=\footnotesize] at (-2,-0.1){$k-2$}; \node[below,font=\footnotesize] at (-1,-0.1){$k-1$};
+\node[below,font=\footnotesize] at (2,-0.1){$k+2$}; \node[below,font=\footnotesize] at (3,-0.1){$k+3$};
+\end{tikzpicture}\end{center}
+
+\textbf{3. Suy luận logic về thứ tự.} Với các câu như ``An có nhiều mèo hơn Bình'', hãy dịch thành kí hiệu ($A>B$),
+viết tất cả các điều kiện ra rồi nối chúng bằng tính chất bắc cầu. Một khẳng định ``\emph{chắc chắn đúng}'' phải đúng trong
+\emph{mọi} trường hợp thoả mãn đề bài; chỉ cần một ví dụ trái ngược là đủ để bác bỏ nó.
+\end{knowbox}
+
+\begin{tipbox}
+\emph{Ví dụ suy luận.} An cao hơn Bình; Chi thấp hơn Bình; Dũng cao hơn Chi. Ai thấp nhất?
+Viết kí hiệu: $A>B$, \ $B>C$, \ $D>C$. Từ $A>B>C$ và $D>C$ ta thấy cả $A$, $B$, $D$ đều cao hơn $C$: \textbf{Chi thấp nhất}.
+Nhưng ta \emph{không} biết Dũng cao hơn hay thấp hơn An (chẳng hạn An $1{,}6$ m, Bình $1{,}5$ m, Chi $1{,}2$ m thì Dũng cao $1{,}7$ m hay $1{,}3$ m đều thoả mãn mọi điều kiện), nên câu ``Dũng cao nhất'' \emph{không chắc chắn} đúng.
+\end{tipbox}
+
+\begin{warnbox}
+Nhìn thấy $a-2$ và $b+2$ bằng nhau, nhiều bạn vội kết luận ``$a$ bé hơn vì bị trừ''. Ngược lại mới đúng: $a$ phải \emph{bớt đi} $2$
+mới bằng $b$ \emph{thêm} $2$, nên $a$ lớn hơn $b$ đúng $4$ đơn vị.
+\end{warnbox}
+
+\begin{parentbox}
+Hãy dùng đồ vật thật: ``Túi của con bớt $2$ viên bi thì bằng túi của mẹ thêm $2$ viên. Túi nào nhiều hơn?''
+Cho con dùng bi để kiểm tra. Hình ảnh cụ thể giúp con không bị đánh lừa bởi dấu cộng, dấu trừ.
+\end{parentbox}
+
+% ==========================================================================================
+\needspace{6\baselineskip}\shead{Ví dụ mẫu}
+
+\begin{exbox}{Ví dụ 1 \ (Dịch lời văn và tính giá trị biểu thức)}
+\textbf{a)} Tính giá trị của biểu thức $A=2x^2-3x+1$ tại $x=-2$.
+
+\textbf{b)} Bạn Hoa đang có $50\,000$ đồng trong ống heo. Mỗi tuần Hoa bỏ thêm vào $20\,000$ đồng.
+Viết biểu thức biểu thị số tiền trong ống heo sau $t$ tuần, rồi tính số tiền đó sau $6$ tuần.
+\guide
+\step{1}{Câu a: thay $x=-2$, nhớ đặt trong ngoặc}
+\[A=2\cdot(-2)^2-3\cdot(-2)+1.\]
+\step{2}{Tính theo thứ tự: luỹ thừa $\to$ nhân $\to$ cộng, trừ}
+$(-2)^2=(-2)\cdot(-2)=4$, nên $2\cdot 4=8$. \ $3\cdot(-2)=-6$, nên $-3\cdot(-2)=+6$. Vậy $A=8+6+1=15$.
+\step{3}{Câu b: tìm quy luật bằng một bảng nhỏ}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Số tuần & $0$ & $1$ & $2$ & $t$\\ \hline
+Số tiền (đồng) & $50\,000$ & $50\,000+20\,000$ & $50\,000+2\cdot 20\,000$ & $50\,000+20\,000t$\\ \hline
+\end{tabular}
+\end{center}
+Số tiền có sẵn không đổi; phần bỏ thêm bằng $20\,000$ nhân với số tuần. Biểu thức: $50\,000+20\,000t$ (đồng).
+\step{4}{Thay $t=6$}
+$50\,000+20\,000\cdot 6=50\,000+120\,000=170\,000$ (đồng).
+\begin{warnbox}Không viết $(50\,000+20\,000)\cdot t$: số tiền ban đầu chỉ có \emph{một lần}, không được nhân với số tuần.\end{warnbox}
+\ans{a) $A=15$;\ \ b) $50\,000+20\,000t$ đồng; sau $6$ tuần có $170\,000$ đồng.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 2 \ (Giải phương trình bằng nguyên tắc cân bằng)}
+Giải các phương trình:\quad \textbf{a)} $5x-7=2x+11$;\qquad \textbf{b)} $\dfrac{x}{12}=\dfrac{5}{4}$.
+\guide
+\step{1}{Câu a: gom các số hạng chứa $x$ về vế trái}
+Trừ $2x$ ở cả hai vế: $5x-2x-7=11$, tức là $3x-7=11$.
+\step{2}{Gom các số về vế phải}
+Cộng $7$ vào cả hai vế: $3x=11+7=18$.
+\step{3}{Chia cả hai vế cho $3$}
+$x=18:3=6$.
+\verify{Vế trái: $5\cdot 6-7=30-7=23$. Vế phải: $2\cdot 6+11=12+11=23$. Hai vế bằng nhau.}
+\step{4}{Câu b: quy về cùng mẫu (hoặc nhân chéo)}
+Ta có $\dfrac{5}{4}=\dfrac{5\cdot 3}{4\cdot 3}=\dfrac{15}{12}$. Hai phân số $\dfrac{x}{12}$ và $\dfrac{15}{12}$ có cùng mẫu
+và bằng nhau nên $x=15$. (Nhân chéo cũng được: $4x=12\cdot 5=60$, $x=60:4=15$.)
+\begin{recallbox}$\dfrac{a}{b}=\dfrac{c}{d}$ khi và chỉ khi $ad=bc$ ($b,d\neq 0$).\end{recallbox}
+\ans{a) $x=6$;\ \ b) $x=15$.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 3 \ (Số chẵn liên tiếp)}
+Tổng của bốn số chẵn liên tiếp bằng $116$. Tìm số lớn nhất trong bốn số đó.
+\guide
+\step{1}{Chọn ẩn}
+Gọi số chẵn bé nhất là $n$ ($n$ là số chẵn). Hai số chẵn liên tiếp hơn kém nhau $2$, nên bốn số là
+$n,\ n+2,\ n+4,\ n+6$.
+\step{2}{Lập phương trình}
+$n+(n+2)+(n+4)+(n+6)=116$, tức là $4n+12=116$.
+\step{3}{Giải}
+$4n=116-12=104$, \ $n=104:4=26$. Bốn số là $26,\ 28,\ 30,\ 32$.
+\verify{$26+28+30+32=116$. Đúng.}
+\step{4}{Trả lời đúng câu hỏi}
+Đề hỏi số \emph{lớn nhất}: đó là $32$.
+\begin{tipbox}Cách nhẩm: bốn số cách đều nên trung bình của chúng là $116:4=29$, nằm chính giữa hai số giữa $28$ và $30$. Từ đó suy ra ngay bốn số.\end{tipbox}
+\ans{$32$}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 4 \ (Cân từng đôi)}
+Ba bạn Mai, Lan, Hoa lần lượt đứng lên cân từng đôi một. Mai và Lan nặng $72$ kg; Mai và Hoa nặng $78$ kg;
+Lan và Hoa nặng $80$ kg. Mỗi bạn nặng bao nhiêu ki-lô-gam?
+\guide
+\step{1}{Cộng cả ba lần cân}
+Trong ba lần cân, mỗi bạn được cân đúng \emph{hai} lần:
+$(M+L)+(M+H)+(L+H)=72+78+80=230$, tức là $2(M+L+H)=230$.
+\step{2}{Tổng khối lượng ba bạn}
+$M+L+H=230:2=115$ (kg).
+\step{3}{Tìm từng bạn: lấy tổng trừ đi cặp không chứa bạn đó}
+Hoa $=115-(M+L)=115-72=43$ kg;\quad Lan $=115-(M+H)=115-78=37$ kg;\quad Mai $=115-(L+H)=115-80=35$ kg.
+\begin{figC}
+\foreach \y/\a/\b/\ca/\cb/\s in {0/Mai/Lan/tmBlue/tmOrange/72,-0.8/Mai/Hoa/tmBlue/tmGreen/78,-1.6/Lan/Hoa/tmOrange/tmGreen/80}{
+  \node[draw=\ca!80!black,fill=\ca!15,rounded corners=2pt,minimum width=1.4cm] at (0,\y){\a};
+  \node at (0.95,\y){$+$};
+  \node[draw=\cb!80!black,fill=\cb!15,rounded corners=2pt,minimum width=1.4cm] at (1.9,\y){\b};
+  \node[anchor=west] at (2.7,\y){$=\s$ kg};}
+\end{figC}
+\verify{$35+37=72$, \ $35+43=78$, \ $37+43=80$. Cả ba lần cân đều khớp.}
+\ans{Mai $35$ kg, Lan $37$ kg, Hoa $43$ kg.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 5 \ (Dãy cách đều)}
+Cho dãy số $4,\ 7,\ 10,\ 13,\ \dots$ (mỗi số hơn số liền trước $3$ đơn vị).
+\textbf{a)} Viết biểu thức của số hạng thứ $n$.\quad \textbf{b)} Tính số hạng thứ $50$.\quad
+\textbf{c)} Số $2026$ có thuộc dãy không? Nếu có, đó là số hạng thứ mấy?
+\guide
+\step{1}{Số hạng thứ $n$}
+Số hạng đầu $a=4$, khoảng cách $d=3$: số hạng thứ $n$ là $4+3(n-1)=4+3n-3=3n+1$.
+\begin{recallbox}Số hạng thứ $n$ của dãy cách đều $=a+(n-1)d$.\end{recallbox}
+\step{2}{Số hạng thứ $50$}
+$3\cdot 50+1=151$.
+\step{3}{Kiểm tra số $2026$}
+Ta cần một số tự nhiên $n$ sao cho $3n+1=2026$, tức là $3n=2025$. Vì $2025:3=675$ (chia hết), nên $n=675$.
+\verify{$3\cdot 675+1=2025+1=2026$. Đúng.}
+\begin{warnbox}Đừng quên kiểm tra phép chia có chia hết hay không. Chẳng hạn $2027$ \emph{không} thuộc dãy vì $2026$ không chia hết cho $3$.\end{warnbox}
+\ans{a) $3n+1$;\ \ b) $151$;\ \ c) có, là số hạng thứ $675$.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 6 \ (Chuyển động, phân số và đổi đơn vị)}
+Một đoàn tàu chạy đều với vận tốc $72$ km/h trên quãng đường dài $360$ km. Tàu đã đi được $\dfrac{2}{3}$ quãng đường.
+Hỏi tàu cần chạy thêm bao lâu nữa (tính ra giờ và phút) thì đến nơi?
+\guide
+\step{1}{Quãng đường đã đi}
+$\dfrac{2}{3}$ của $360$ km là $360:3\cdot 2=120\cdot 2=240$ km.
+\step{2}{Quãng đường còn lại}
+$360-240=120$ km. (Hoặc: phần còn lại là $1-\dfrac{2}{3}=\dfrac{1}{3}$ quãng đường, $360:3=120$ km.)
+\begin{barfigC}
+\blk{0}{5}{0}{0.55}{tmBlue}{đã đi 240 km}
+\blk{5}{7.5}{0}{0.55}{tmOrange}{còn 120 km}
+\brcup{0}{7.5}{0.55}{360 km}
+\end{barfigC}
+\step{3}{Thời gian còn lại}
+\begin{recallbox}$t=\dfrac{s}{v}$ (thời gian $=$ quãng đường $:$ vận tốc).\end{recallbox}
+$t=120:72=\dfrac{120}{72}=\dfrac{5}{3}$ giờ $=1\dfrac{2}{3}$ giờ.
+\step{4}{Đổi ra giờ và phút}
+$\dfrac{2}{3}$ giờ $=\dfrac{2}{3}\cdot 60=40$ phút. Vậy $t=1$ giờ $40$ phút.
+\verify{Trong $1$ giờ $40$ phút $=\dfrac{5}{3}$ giờ, tàu đi được $72\cdot\dfrac{5}{3}=24\cdot 5=120$ km. Đúng bằng quãng đường còn lại.}
+\ans{$1$ giờ $40$ phút.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 7 \ (Bài toán chiếc cân)}
+Cả hai chiếc cân dưới đây đều thăng bằng. Các hình giống nhau thì nặng bằng nhau.
+\begin{center}
+\aeaScale{\aeaSq}{\aeaTri\,\aeaCir}\hspace{1.2cm}\aeaScale{\aeaSq\,\aeaCir}{\aeaTri\,\aeaTri\,\aeaTri}
+\end{center}
+Hỏi hai hình vuông \aeaSq\,\aeaSq\ cân bằng với bao nhiêu hình tròn \aeaCir?
+\guide
+\step{1}{Viết mỗi chiếc cân thành một đẳng thức}
+Kí hiệu $V$, $T$, $O$ là khối lượng hình vuông, tam giác, hình tròn. Cân 1: $V=T+O$. \ Cân 2: $V+O=3T$.
+\step{2}{Thế cân 1 vào cân 2}
+Ở cân 2, thay hình vuông bằng ``một tam giác và một tròn'' (cân 1 cho phép):
+$T+O+O=3T$.
+\step{3}{Bỏ bớt những thứ giống nhau ở hai đĩa}
+Bỏ một tam giác ở mỗi đĩa: $O+O=T+T$, tức $2O=2T$, nên $O=T$: một hình tròn nặng bằng một tam giác.
+\step{4}{Trả lời}
+$V=T+O=O+O=2O$, nên $2V=4O$: hai hình vuông cân bằng với $4$ hình tròn.
+\verify{Chọn thử $O=T=1$, $V=2$: cân 1: $2=1+1$; cân 2: $2+1=3$. Đúng cả hai.}
+\ans{$4$ hình tròn.}
+\end{exbox}
+
+\begin{exbox}{Ví dụ 8 \ (Sắp thứ tự nhờ kĩ thuật ``đặt bằng $k$'')}
+Các số nguyên dương $a$, $b$, $c$ (đều lớn hơn $5$) thoả mãn\quad
+$\dfrac{2}{a+3}=\dfrac{2}{b-1}=\dfrac{2}{c+5}$. Hãy sắp xếp $a$, $b$, $c$ theo thứ tự tăng dần.
+\guide
+\step{1}{Phân số cùng tử bằng nhau thì mẫu bằng nhau}
+Ba phân số có cùng tử là $2$ và bằng nhau, nên các mẫu bằng nhau: $a+3=b-1=c+5$.
+\begin{recallbox}Nếu $\dfrac{m}{p}=\dfrac{m}{q}$ với $m\neq 0$ thì $p=q$.\end{recallbox}
+\step{2}{Đặt giá trị chung là $k$}
+$a+3=k\Rightarrow a=k-3$;\quad $b-1=k\Rightarrow b=k+1$;\quad $c+5=k\Rightarrow c=k-5$.
+\step{3}{So sánh với mốc $k$}
+$k-5<k-3<k+1$, nên $c<a<b$.
+\verify{Chọn $k=12$: $a=9$, $b=13$, $c=7$. Khi đó $\dfrac{2}{12}=\dfrac{2}{12}=\dfrac{2}{12}$ và quả thật $7<9<13$.}
+\ans{$c<a<b$.}
+\end{exbox}
+
+% ==========================================================================================
+\clearpage
+\dividerbar{Luyện tập cơ bản}
+
+% ---------------------------------------------------------------- Bài 1
+\begin{probbox}{1}{\relax}
+Chú Tâm lái ô tô chạy đều với vận tốc $85$ km/h trên một chuyến đi dài $510$ km. Hiện chú đã đi được đúng
+một nửa quãng đường. Hỏi chú cần đi thêm bao nhiêu giờ nữa thì hết quãng đường?
+\choices{$5$ giờ}{$425$ giờ}{$12$ giờ}{$1{,}5$ giờ}{$3$ giờ}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} \emph{Đã biết:} vận tốc $85$ km/h (không đổi), cả quãng đường $510$ km, đã đi được một nửa.
+\emph{Cần tìm:} thời gian để đi nốt phần còn lại.
+\step{1}{Tính quãng đường còn lại}
+Đã đi được một nửa thì còn lại cũng đúng một nửa: $510:2=255$ (km).
+\begin{barfigC}
+\blk{0}{3}{0}{0.55}{tmBlue}{đã đi 255 km}
+\blk{3}{6}{0}{0.55}{tmOrange}{còn 255 km}
+\brcup{0}{6}{0.55}{510 km}
+\end{barfigC}
+\step{2}{Tính thời gian đi hết quãng đường còn lại}
+\begin{recallbox}Quãng đường $=$ vận tốc $\times$ thời gian, nên thời gian $=$ quãng đường $:$ vận tốc ($t=\dfrac{s}{v}$).\end{recallbox}
+$t=255:85=3$ (giờ). (Nhẩm: $85\times 3=255$.)
+\begin{warnbox}Nếu lấy cả quãng đường $510:85=6$ giờ thì đó là thời gian của \emph{cả} chuyến đi, chưa trả lời đúng câu hỏi. Còn $510-85=425$ là phép tính vô nghĩa (trừ km cho km/h), đó là cái bẫy ở phương án (B).\end{warnbox}
+\begin{tipbox}Cách khác: cả chuyến đi mất $510:85=6$ giờ; đã đi một nửa quãng đường (với vận tốc không đổi) tức là đã đi một nửa thời gian, nên còn $6:2=3$ giờ.\end{tipbox}
+\verify{Trong $3$ giờ, ô tô đi được $85\times 3=255$ km, đúng bằng quãng đường còn lại.}
+Kết quả $3$ giờ ứng với phương án \textbf{(E)}.
+\ans{(E) $3$ giờ}
+}
+
+% ---------------------------------------------------------------- Bài 2
+\begin{probbox}{2}{\relax}
+Trong hình vẽ, tam giác có một cạnh dài $14$ cm và hai cạnh bằng nhau, mỗi cạnh dài $12$ cm; hình chữ nhật có chiều rộng
+$8$ cm và chiều dài $x$ cm. Biết chu vi tam giác bằng chu vi hình chữ nhật. Tìm $x$.
+\begin{figC}
+\draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,2.6)--(2.8,2.6)--(1.4,1.2)--cycle;
+\node[above] at (1.4,2.6){$14$ cm};
+\node[right] at (2.15,1.9){$12$ cm};
+\draw[tmBlue,line width=0.9pt] ($(0.7,1.9)+(-0.1,-0.1)$)--($(0.7,1.9)+(0.1,0.1)$);
+\draw[tmBlue,line width=0.9pt] ($(2.1,1.9)+(-0.1,0.1)$)--($(2.1,1.9)+(0.1,-0.1)$);
+\draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (0.4,0)rectangle(2.4,0.9);
+\node[right] at (2.4,0.45){$8$ cm};
+\node[below] at (1.4,0){$x$ cm};
+\end{figC}
+\choices{$8$}{$10$}{$11$}{$14$}{$15$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Tam giác có ba cạnh $14$ cm, $12$ cm, $12$ cm (hai vạch nhỏ trên hình cho biết hai cạnh đó bằng nhau).
+Hình chữ nhật có hai kích thước $x$ cm và $8$ cm. Hai chu vi bằng nhau. Cần tìm $x$.
+\step{1}{Tính chu vi tam giác}
+\begin{recallbox}Chu vi tam giác bằng tổng độ dài ba cạnh. Chu vi hình chữ nhật bằng $2\times(\text{dài}+\text{rộng})$.\end{recallbox}
+Chu vi tam giác: $14+12+12=38$ (cm).
+\begin{warnbox}Hình vẽ chỉ ghi số $12$ một lần, nhưng có \emph{hai} cạnh dài $12$ cm (có vạch đánh dấu bằng nhau). Nếu quên cạnh thứ ba, ta sẽ được $26$ cm và giải sai.\end{warnbox}
+\step{2}{Lập phương trình}
+Chu vi hình chữ nhật là $2(x+8)$. Cho hai chu vi bằng nhau: $2(x+8)=38$.
+\step{3}{Giải phương trình}
+Chia cả hai vế cho $2$: $x+8=19$. Trừ $8$ ở cả hai vế: $x=19-8=11$.
+\verify{Hình chữ nhật $11$ cm $\times$ $8$ cm có chu vi $11+8+11+8=38$ cm, đúng bằng chu vi tam giác.}
+Giá trị $x=11$ ứng với phương án \textbf{(C)}.
+\begin{parentbox}Có thể minh hoạ bằng một sợi dây dài $38$ cm: uốn thành tam giác $14$ -- $12$ -- $12$, rồi uốn lại thành hình chữ nhật có cạnh $8$ cm. Con sẽ thấy ``chu vi'' chính là độ dài sợi dây, không đổi khi đổi hình.\end{parentbox}
+\ans{(C) $11$}
+}
+
+% ---------------------------------------------------------------- Bài 3
+\begin{probbox}{3}{\relax}
+Cho $x=3$. Đẳng thức nào dưới đây đúng?
+\choices{$2x=5$}{$3x-1=8$}{$x+5=3$}{$7-x=2$}{$6+2x=14$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta thay $x=3$ vào vế trái của từng đẳng thức, tính ra số, rồi so sánh với vế phải. Chỉ có một đẳng thức đúng.
+\begin{recallbox}Muốn tính giá trị của biểu thức, ta thay chữ bằng số rồi thực hiện phép tính theo thứ tự: nhân, chia trước; cộng, trừ sau.\end{recallbox}
+\step{1}{Kiểm tra lần lượt từng phương án}
+\begin{center}
+\begin{tabular}{|c|l|c|c|}
+\hline
+\rowcolor{tmBlue!10} Phương án & Thay $x=3$ vào vế trái & Vế phải & Đúng/Sai\\ \hline
+(A) & $2x=2\cdot 3=6$ & $5$ & Sai\\ \hline
+(B) & $3x-1=3\cdot 3-1=9-1=8$ & $8$ & \textbf{Đúng}\\ \hline
+(C) & $x+5=3+5=8$ & $3$ & Sai\\ \hline
+(D) & $7-x=7-3=4$ & $2$ & Sai\\ \hline
+(E) & $6+2x=6+2\cdot 3=6+6=12$ & $14$ & Sai\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Ở (E), nếu tính sai thứ tự là $(6+2)\cdot 3=24$ hoặc đọc $2x$ thành ``$23$'' thì sẽ bị nhầm. Nhân trước, cộng sau: $6+2\cdot 3=12$.\end{warnbox}
+\step{2}{Kết luận}
+Chỉ có đẳng thức ở (B) đúng: $3\cdot 3-1=8$. Vậy chọn \textbf{(B)}.
+\ans{(B) $3x-1=8$}
+}
+
+% ---------------------------------------------------------------- Bài 4
+\begin{probbox}{4}{\relax}
+Tổng của ba số nguyên liên tiếp bằng $153$. Số lớn nhất trong ba số đó là
+\choices{$52$}{$50$}{$53$}{$54$}{$51$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ba số nguyên liên tiếp là ba số đứng liền nhau trên trục số, hơn kém nhau $1$ (ví dụ $7,8,9$). Biết tổng là $153$. Cần tìm số \emph{lớn nhất}.
+\step{1}{Chọn ẩn: gọi số ở giữa là $n$}
+Ba số là $n-1$, \ $n$, \ $n+1$.
+\step{2}{Lập phương trình}
+$(n-1)+n+(n+1)=153$. Ở vế trái, $-1$ và $+1$ triệt tiêu nhau, còn lại $3n=153$.
+\step{3}{Giải}
+$n=153:3=51$. Ba số là $50$, $51$, $52$.
+\begin{recallbox}Với ba số nguyên liên tiếp, số ở giữa bằng tổng chia cho $3$ (số ở giữa chính là trung bình cộng).\end{recallbox}
+\begin{proofbox}Cách khác, gọi số bé nhất là $m$: $m+(m+1)+(m+2)=3m+3=153$, nên $3m=150$, $m=50$. Cùng ra ba số $50,51,52$.\end{proofbox}
+\begin{tipbox}Mẹo trắc nghiệm: số lớn nhất phải lớn hơn trung bình $153:3=51$ một chút; thử ngay $50+51+52=153$.\end{tipbox}
+\verify{$50+51+52=153$. Đúng.}
+\step{4}{Trả lời đúng câu hỏi}
+Số lớn nhất là $52$, ứng với phương án \textbf{(A)}.
+\begin{warnbox}Phương án (E) $51$ là số \emph{ở giữa}, phương án (B) $50$ là số \emph{bé nhất}. Đọc kĩ câu hỏi để khỏi chọn nhầm.\end{warnbox}
+\ans{(A) $52$}
+}
+
+% ---------------------------------------------------------------- Bài 5
+\begin{probbox}{5}{\relax}
+Mỗi thìa thức ăn cho cá đủ cho $8$ con cá vàng ăn. Hỏi $4$ thìa thức ăn như thế đủ cho bao nhiêu con cá vàng?
+\choices{$12$}{$16$}{$8$}{$64$}{$32$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} $1$ thìa $\to$ $8$ con cá. Hỏi $4$ thìa $\to$ ? con cá.
+Số thìa gấp lên bao nhiêu lần thì số cá được cho ăn cũng gấp lên bấy nhiêu lần (hai đại lượng tỉ lệ thuận).
+\begin{recallbox}Nếu $y$ tỉ lệ thuận với $x$ theo hệ số $k$ thì $y=k\cdot x$. Ở đây $k=8$ (con cá cho mỗi thìa), nên số cá $=8\times$ số thìa.\end{recallbox}
+\step{1}{Vẽ sơ đồ}
+\begin{barfigC}
+\blk{0}{1.5}{0}{0.55}{tmGreen}{8 con}
+\blk{1.5}{3}{0}{0.55}{tmGreen}{8 con}
+\blk{3}{4.5}{0}{0.55}{tmGreen}{8 con}
+\blk{4.5}{6}{0}{0.55}{tmGreen}{8 con}
+\brcup{0}{6}{0.55}{4 thìa}
+\end{barfigC}
+\step{2}{Tính}
+$4\times 8=32$ (con cá).
+\begin{warnbox}Phương án (A) $12$ là $8+4$ (cộng thay vì nhân), phương án (D) $64$ là $8\times 8$. Mỗi thìa thêm vào cho \emph{thêm $8$ con}, nên phải nhân $8$ với số thìa.\end{warnbox}
+\verify{$32:4=8$: mỗi thìa đúng $8$ con.}
+Vậy chọn \textbf{(E)}.
+\ans{(E) $32$}
+}
+
+% ---------------------------------------------------------------- Bài 6
+\begin{probbox}{6}{\relax}
+Cho $x=4$ và $y=3x$. Giá trị của $y$ là
+\choices{$12$}{$24$}{$7$}{$81$}{$4$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Biết $x=4$. Biểu thức $y=3x$ nghĩa là ``$y$ bằng $3$ nhân $x$''. Cần tính $y$.
+\begin{recallbox}$3x$ là cách viết gọn của $3\cdot x$ (giữa số và chữ ta bỏ dấu nhân).\end{recallbox}
+\step{1}{Thay $x=4$}
+$y=3\cdot x=3\cdot 4=12$.
+\begin{warnbox}Không được đọc $3x$ thành ``$34$'' (ghép chữ số), cũng không phải $3+4=7$ (phương án C) hay $3^4=81$ (phương án D).\end{warnbox}
+\begin{tipbox}Có thể đọc $y=3x$ thành lời: ``$y$ gấp ba lần $x$''. Gấp ba lần $4$ là $12$.\end{tipbox}
+\verify{$12:3=4=x$. Đúng.}
+Vậy chọn \textbf{(A)}.
+\ans{(A) $12$}
+}
+
+% ---------------------------------------------------------------- Bài 7
+\begin{probbox}{7}{\relax}
+Mỗi lần đi xe buýt, bạn Lan trả $6\,750$ đồng, còn bạn Minh trả $9\,000$ đồng (hai bạn đi hai tuyến khác nhau).
+Nếu mỗi bạn đi xe buýt $20$ lần thì tổng cộng Lan trả ít hơn Minh bao nhiêu tiền?
+\choicesII{$75\,000$ đồng}{$30\,000$ đồng}{$45\,000$ đồng}{$135\,000$ đồng}{$180\,000$ đồng}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi lần: Lan $6\,750$ đồng, Minh $9\,000$ đồng. Mỗi bạn đi $20$ lần. Hỏi \emph{số tiền chênh lệch} sau $20$ lần.
+\step{1}{Cách 1 -- Tính tổng của từng bạn rồi trừ}
+Lan trả: $20\times 6\,750=135\,000$ (đồng).\quad Minh trả: $20\times 9\,000=180\,000$ (đồng).\\
+Chênh lệch: $180\,000-135\,000=45\,000$ (đồng).
+\step{2}{Cách 2 -- Tính chênh lệch mỗi lần rồi nhân lên (nhanh hơn)}
+Mỗi lần Lan trả ít hơn Minh: $9\,000-6\,750=2\,250$ (đồng).\\
+Sau $20$ lần: $20\times 2\,250=45\,000$ (đồng).
+\begin{recallbox}Tính chất phân phối: $20\times 9\,000-20\times 6\,750=20\times(9\,000-6\,750)$. Vì vậy hai cách luôn cho cùng kết quả.\end{recallbox}
+\begin{warnbox}Phương án (D) $135\,000$ đồng là \emph{tổng số tiền của Lan}, phương án (E) $180\,000$ đồng là \emph{tổng số tiền của Minh}. Đề hỏi số tiền \emph{ít hơn}, tức là hiệu.\end{warnbox}
+\verify{$135\,000+45\,000=180\,000$. Đúng.}
+Vậy chọn \textbf{(C)}.
+\ans{(C) $45\,000$ đồng}
+}
+
+% ---------------------------------------------------------------- Bài 8
+\begin{probbox}{8}{\relax}
+Biểu thức nào cho đúng các giá trị ở hàng thứ hai của bảng, ứng với mỗi giá trị $n$ ở hàng thứ nhất?
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} $n$ & $1$ & $2$ & $3$ & $4$ & $5$\\ \hline
+Giá trị & $1$ & $3$ & $5$ & $7$ & $9$\\ \hline
+\end{tabular}
+\end{center}
+\choices{$3n-2$}{$2(n-1)$}{$n+4$}{$2n$}{$2n-1$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta cần một biểu thức chứa $n$ mà khi thay $n=1,2,3,4,5$ thì lần lượt được $1,3,5,7,9$.
+\step{1}{Tìm quy luật của hàng giá trị}
+Mỗi lần $n$ tăng thêm $1$ thì giá trị tăng thêm $2$ ($1\to 3\to 5\to 7\to 9$). Vậy biểu thức có dạng $2n+b$.
+\begin{recallbox}Nếu $n$ tăng $1$ mà giá trị luôn tăng $d$ thì biểu thức có dạng $d\cdot n+b$; tìm $b$ bằng cách thay $n=1$.\end{recallbox}
+\step{2}{Tìm $b$}
+Thay $n=1$: $2\cdot 1+b=1$, suy ra $b=1-2=-1$. Biểu thức là $2n-1$.
+\step{3}{Kiểm tra cả bảng và loại các phương án khác}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} $n$ & $1$ & $2$ & $3$ & $4$ & $5$ & Kết luận\\ \hline
+(A) $3n-2$ & $1$ & $4$ & & & & sai từ $n=2$\\ \hline
+(B) $2(n-1)$ & $0$ & & & & & sai ngay $n=1$\\ \hline
+(C) $n+4$ & $5$ & & & & & sai ngay $n=1$\\ \hline
+(D) $2n$ & $2$ & & & & & sai ngay $n=1$\\ \hline
+(E) $2n-1$ & $1$ & $3$ & $5$ & $7$ & $9$ & \textbf{đúng cả bảng}\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Phương án (A) $3n-2$ cũng cho giá trị $1$ khi $n=1$. Nếu chỉ thử cột đầu tiên, ta sẽ không biết chọn (A) hay (E). Phải thử thêm cột khác.\end{warnbox}
+\verify{$2n-1$ với $n=1,2,3,4,5$: $1,3,5,7,9$. Khớp toàn bộ bảng.}
+Vậy chọn \textbf{(E)}.
+\ans{(E) $2n-1$}
+}
+
+% ---------------------------------------------------------------- Bài 9
+\begin{probbox}{9}{\relax}
+Cộng hai số với nhau, ta được kết quả là $-26$. Biết một trong hai số là $11$. Số còn lại là
+\choices{$-37$}{$37$}{$-15$}{$15$}{$-48$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Gọi số chưa biết là $x$. Đề bài cho: $x+11=-26$. Cần tìm $x$.
+\step{1}{Lập phương trình}
+$x+11=-26$.
+\step{2}{Giải bằng nguyên tắc cân bằng}
+Trừ $11$ ở cả hai vế: $x=-26-11$.
+\begin{recallbox}Trừ một số là cộng với số đối của nó: $-26-11=-26+(-11)$. Cộng hai số âm: cộng phần số, giữ dấu ``$-$'': $-(26+11)=-37$.\end{recallbox}
+Vậy $x=-37$.
+\begin{center}\begin{tikzpicture}[x=0.16cm,>=stealth]
+\draw[->,thick,Navy] (-41,0)--(15,0);
+\foreach \i in {-37,-26,0,11}{\draw[Navy] (\i,0.12)--(\i,-0.12); \node[below,font=\footnotesize] at (\i,-0.12){$\i$};}
+\fill[AnsRed] (-37,0) circle (2.5pt); \fill[tmGreen] (-26,0) circle (2.5pt);
+\draw[->,tmOrange,line width=1pt] (-37,0.3) to[bend left=30] node[above,font=\footnotesize]{$+11$} (-26,0.3);
+\end{tikzpicture}\end{center}
+Trên trục số: từ $-37$ đi sang phải $11$ bước thì đến $-26$.
+\begin{warnbox}Quên đổi dấu khi chuyển vế, viết $x=-26+11=-15$, là sai (phương án C). Thử lại: $-15+11=-4\neq -26$.\end{warnbox}
+\begin{parentbox}Có thể giải thích bằng chuyện nợ tiền: ``Sau khi được cho $11$ nghìn, bạn vẫn còn nợ $26$ nghìn. Lúc đầu bạn nợ bao nhiêu?'' Lúc đầu nợ nhiều hơn: $26+11=37$ nghìn, tức là $-37$.\end{parentbox}
+\verify{$(-37)+11=-26$. Đúng.}
+Vậy chọn \textbf{(A)}.
+\ans{(A) $-37$}
+}
+
+% ---------------------------------------------------------------- Bài 10
+\begin{probbox}{10}{\relax}
+Bác Hùng có $10\,000\,000$ đồng, toàn bộ là tờ $50\,000$ đồng. Hỏi bác có bao nhiêu tờ tiền?
+\choices{$1\,000$}{$200$}{$1\,250$}{$500$}{$2\,000$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Tổng số tiền là $10\,000\,000$ đồng (mười triệu đồng). Mỗi tờ có mệnh giá $50\,000$ đồng. Cần tìm số tờ.
+\begin{recallbox}Số tờ tiền $=$ tổng số tiền $:$ mệnh giá một tờ.\end{recallbox}
+\step{1}{Lập phép chia}
+Số tờ $=10\,000\,000:50\,000$.
+\step{2}{Tính gọn bằng cách bỏ bớt chữ số $0$}
+Bỏ bốn chữ số $0$ ở cả số bị chia và số chia (tức là chia cả hai cho $10\,000$, thương không đổi): $10\,000\,000:50\,000=1\,000:5=200$.
+\step{3}{Một cách nghĩ khác}
+$2$ tờ $50\,000$ đồng là $100\,000$ đồng. Mười triệu đồng gồm $100$ lần $100\,000$ đồng, nên có $100\times 2=200$ tờ.
+\verify{$200\times 50\,000=10\,000\,000$ đồng. Đúng.}
+\begin{warnbox}Đếm sai số chữ số $0$ là lỗi rất hay gặp. Nên viết số có dấu cách giữa các nhóm ba chữ số ($10\,000\,000$) để đếm cho chính xác.\end{warnbox}
+Vậy chọn \textbf{(B)}.
+\begin{parentbox}Nếu nhà có tiền thật, có thể cho con đếm $10$ tờ $50\,000$ đồng ($500\,000$ đồng), rồi hỏi: cần bao nhiêu xấp như vậy để có $10$ triệu? ($20$ xấp, tức $200$ tờ.)\end{parentbox}
+\ans{(B) $200$}
+}
+
+% ---------------------------------------------------------------- Bài 11
+\begin{probbox}{11}{\relax}
+Tích $60\times 60\times 24\times 7$ bằng
+\choicesL{số phút trong bảy tuần}{số giờ trong sáu mươi ngày}{số giây trong bảy giờ}{số giây trong một tuần}{số phút trong hai mươi bốn tuần}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Không cần tính tích ra số. Hãy đọc mỗi thừa số như một bước đổi đơn vị thời gian.
+\begin{recallbox}$1$ tuần $=7$ ngày;\ \ $1$ ngày $=24$ giờ;\ \ $1$ giờ $=60$ phút;\ \ $1$ phút $=60$ giây.\end{recallbox}
+\step{1}{Đọc tích từ phải sang trái}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item $7$ là số ngày trong \textbf{một tuần};
+\item $24\times 7$ là số giờ trong một tuần;
+\item $60\times 24\times 7$ là số phút trong một tuần;
+\item $60\times 60\times 24\times 7$ là số \textbf{giây} trong một tuần.
+\end{itemize}
+\step{2}{Kiểm tra các phương án còn lại bằng cách viết tích của chúng}
+\begin{center}
+\begin{tabular}{|c|l|r|}
+\hline
+\rowcolor{tmBlue!10} Phương án & Biểu thức & Giá trị\\ \hline
+(A) phút trong $7$ tuần & $60\times 24\times 7\times 7$ & $70\,560$\\ \hline
+(B) giờ trong $60$ ngày & $24\times 60$ & $1\,440$\\ \hline
+(C) giây trong $7$ giờ & $60\times 60\times 7$ & $25\,200$\\ \hline
+(D) giây trong $1$ tuần & $60\times 60\times 24\times 7$ & $604\,800$\\ \hline
+(E) phút trong $24$ tuần & $60\times 24\times 7\times 24$ & $241\,920$\\ \hline
+\end{tabular}
+\end{center}
+Chỉ phương án (D) có đúng tích $60\times 60\times 24\times 7=604\,800$.
+\begin{warnbox}Thấy các số $60$, $24$, $7$ xuất hiện trong câu chữ, nhiều bạn chọn vội (A) hoặc (E). Phải ghép đúng \emph{từng} bước đổi đơn vị: (A) thiếu một thừa số $60$ và thừa một thừa số $7$.\end{warnbox}
+Vậy chọn \textbf{(D)}.
+\ans{(D) số giây trong một tuần}
+}
+
+% ---------------------------------------------------------------- Bài 12
+\begin{probbox}{12}{\stars{1}}
+Bốn số $a$, $b$, $c$, $d$ đều là số nguyên dương lớn hơn $3$ và thoả mãn
+\[\frac{1}{a-2}=\frac{1}{b+2}=\frac{1}{c+1}=\frac{1}{d-3}.\]
+Cách sắp xếp nào dưới đây là đúng?
+\choicesII{$a<b<c<d$}{$c<b<a<d$}{$b<a<c<d$}{$d<a<c<b$}{$b<c<a<d$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Bốn phân số có cùng tử số $1$ và bằng nhau. Cần so sánh $a,b,c,d$.
+(Điều kiện ``lớn hơn $3$'' bảo đảm các mẫu số đều khác $0$, các phân số có nghĩa.)
+\step{1}{Phân số cùng tử bằng nhau thì mẫu bằng nhau}
+\begin{recallbox}Nếu $\dfrac{1}{p}=\dfrac{1}{q}$ thì $p=q$ (nhân chéo: $1\cdot q=1\cdot p$).\end{recallbox}
+Do đó: $a-2=b+2=c+1=d-3$.
+\step{2}{Đặt giá trị chung là $k$ rồi biểu diễn từng số theo $k$}
+$a-2=k\Rightarrow a=k+2$;\quad $b+2=k\Rightarrow b=k-2$;\quad $c+1=k\Rightarrow c=k-1$;\quad $d-3=k\Rightarrow d=k+3$.
+\step{3}{So sánh với cùng mốc $k$}
+Các ``phần thêm'' là $-2$ (của $b$), $-1$ (của $c$), $+2$ (của $a$), $+3$ (của $d$). Vì $-2<-1<2<3$ nên
+\[k-2<k-1<k+2<k+3,\quad\text{tức là}\quad b<c<a<d.\]
+\begin{center}\begin{tikzpicture}[x=0.9cm]
+\draw[->,thick,Navy] (-2.8,0)--(3.8,0);
+\foreach \i in {-2,...,3}{\draw[Navy] (\i,0.08)--(\i,-0.08);}
+\node[below,font=\small] at (0,-0.1){$k$};
+\foreach \i/\l/\c in {-2/b/tmOrange,-1/c/tmGreen,2/a/tmBlue,3/d/tmPurple}{\fill[\c] (\i,0) circle (3pt); \node[above,font=\small\bfseries,text=\c] at (\i,0.1){$\l$};}
+\end{tikzpicture}\end{center}
+\begin{warnbox}Nhìn ``$a-2$'' có dấu trừ, nhiều bạn nghĩ $a$ nhỏ. Nhưng $a$ phải \emph{bớt đi} $2$ mới bằng $k$, nên $a$ lớn hơn $k$. Ngược lại $b$ phải \emph{thêm} $2$ mới bằng $k$, nên $b$ nhỏ hơn $k$.\end{warnbox}
+\verify{Chọn thử $k=6$ (để cả bốn số đều lớn hơn $3$): $a=8$, $b=4$, $c=5$, $d=9$ (đều lớn hơn $3$). Khi đó $\dfrac{1}{8-2}=\dfrac{1}{4+2}=\dfrac{1}{5+1}=\dfrac{1}{9-3}=\dfrac{1}{6}$ và quả thật $4<5<8<9$, tức $b<c<a<d$.}
+Thứ tự $b<c<a<d$ là phương án \textbf{(E)}.
+\ans{(E) $b<c<a<d$}
+}
+
+% ---------------------------------------------------------------- Bài 13
+\begin{probbox}{13}{\relax}
+Một hình chữ nhật có chiều dài $x$ và chiều rộng $y$. Một tam giác có cạnh đáy bằng $16$ và chiều cao tương ứng bằng $x$.
+Nếu diện tích hình chữ nhật bằng diện tích tam giác thì giá trị của $y$ là
+\choices{$16$}{$4$}{$8$}{$12$}{$32$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Hình chữ nhật: dài $x$, rộng $y$. Tam giác: đáy $16$, cao $x$. Hai diện tích bằng nhau. Tìm $y$
+(lưu ý: đề không cho $x$, nhưng ta sẽ thấy $x$ tự ``biến mất'').
+\begin{figC}
+\draw[tmBlue,line width=1pt,fill=tmBlue!10] (0,0) rectangle (2.4,1.4);
+\node[below] at (1.2,0){$x$}; \node[left] at (0,0.7){$y$};
+\draw[tmOrange!85!black,line width=1pt,fill=tmOrange!12] (3.6,0)--(7.6,0)--(4.6,2.4)--cycle;
+\draw[dashed,Slate] (4.6,2.4)--(4.6,0); \draw[Slate] (4.6,0.18)--(4.78,0.18)--(4.78,0);
+\node[below] at (5.6,0){$16$}; \node[left,font=\small] at (4.6,1.1){$x$};
+\end{figC}
+\step{1}{Viết hai công thức diện tích}
+\begin{recallbox}Diện tích hình chữ nhật $=$ dài $\times$ rộng. Diện tích tam giác $=\dfrac{\text{đáy}\times\text{chiều cao}}{2}$.\end{recallbox}
+Hình chữ nhật: $S_1=x\cdot y=xy$.\quad Tam giác: $S_2=\dfrac{16\cdot x}{2}=8x$.
+\step{2}{Lập phương trình và giải}
+$xy=8x$. Vì $x$ là một độ dài nên $x>0$; chia cả hai vế cho $x$: $y=8$.
+\begin{proofbox}Có thể hiểu không cần chia: $x\cdot y$ và $x\cdot 8$ là ``$x$ nhóm $y$'' và ``$x$ nhóm $8$''. Hai tích bằng nhau với cùng số nhóm $x\neq 0$ thì mỗi nhóm phải bằng nhau: $y=8$.\end{proofbox}
+\begin{warnbox}Quên chia đôi khi tính diện tích tam giác sẽ dẫn đến $y=16$ (phương án A).\end{warnbox}
+\verify{Thử $x=5$: hình chữ nhật $5\times 8=40$; tam giác $\dfrac{16\cdot 5}{2}=40$. Bằng nhau. (Với $x$ bất kì cũng đúng.)}
+Vậy chọn \textbf{(C)}.
+\ans{(C) $8$}
+}
+
+% ---------------------------------------------------------------- Bài 14
+\begin{probbox}{14}{\relax}
+Kí hiệu \aeaBox{3}{4}{5}{6} được tính theo quy tắc: $3\times 6+4\times 5=38$. Biết rằng \aeaBox{2}{6}{1}{\ } có giá trị bằng $16$.
+Số cần điền vào ô trống là
+\choices{$1$}{$2$}{$3$}{$4$}{$5$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Trước hết phải hiểu quy tắc từ ví dụ đã cho, rồi áp dụng cho ô có số chưa biết.
+\step{1}{Tìm quy tắc}
+Trong \aeaBox{3}{4}{5}{6}: $3$ (trên trái) nhân $6$ (dưới phải), cộng với $4$ (trên phải) nhân $5$ (dưới trái): $3\times 6+4\times 5=18+20=38$.
+Tức là: \emph{nhân hai số theo mỗi đường chéo rồi cộng lại}. Tổng quát, \aeaBox{a}{b}{c}{d} $=a\times d+b\times c$.
+\step{2}{Đặt ẩn cho ô trống và lập phương trình}
+Gọi số ở ô trống (dưới phải) là $x$. Theo quy tắc: \aeaBox{2}{6}{1}{x} $=2\times x+6\times 1=2x+6$.
+Đề cho giá trị bằng $16$: $2x+6=16$.
+\step{3}{Giải}
+Trừ $6$ ở hai vế: $2x=10$. Chia hai vế cho $2$: $x=5$.
+\verify{$2\times 5+6\times 1=10+6=16$. Đúng.}
+\begin{warnbox}Đừng ghép nhầm cặp: $2\times 6+1\times x$ (nhân theo hàng) là sai quy tắc; với cách đó sẽ ra $x=4$ (phương án D). Hãy kiểm tra quy tắc với ví dụ $38$ trước khi dùng.\end{warnbox}
+Vậy chọn \textbf{(E)}.
+\begin{parentbox}Hãy cùng con ``sáng chế'' một kí hiệu mới (chẳng hạn nhân theo hàng rồi trừ) và đố nhau. Điều quan trọng là luôn kiểm tra quy tắc với ví dụ mẫu trước khi dùng.\end{parentbox}
+\ans{(E) $5$}
+}
+
+% ---------------------------------------------------------------- Bài 15
+\begin{probbox}{15}{\relax}
+Người ta cân ba quả bí ngô theo từng cặp, đủ mọi cách ghép đôi. Khối lượng của các cặp lần lượt là $12$ kg, $13$ kg và $15$ kg.
+Quả bí nhẹ nhất nặng bao nhiêu?
+\choices{$4$ kg}{$5$ kg}{$6$ kg}{$7$ kg}{$8$ kg}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ba quả bí ghép đôi thì có đúng $3$ cặp. Gọi khối lượng ba quả từ nhẹ đến nặng là $a\le b\le c$ (kg).
+Cặp nhẹ nhất là hai quả nhẹ nhất, cặp nặng nhất là hai quả nặng nhất:
+$a+b=12$, \ $a+c=13$, \ $b+c=15$.
+\step{1}{Cộng cả ba cặp}
+Mỗi quả có mặt trong đúng \emph{hai} cặp: $(a+b)+(a+c)+(b+c)=12+13+15=40$, tức $2(a+b+c)=40$.
+\begin{recallbox}Ba vật cân từng đôi: tổng ba vật bằng một nửa tổng các kết quả cân.\end{recallbox}
+\step{2}{Tổng khối lượng ba quả}
+$a+b+c=40:2=20$ (kg).
+\step{3}{Tìm quả nhẹ nhất}
+Quả nhẹ nhất $a$ là quả \emph{không} có mặt trong cặp nặng nhất ($b+c=15$):
+$a=(a+b+c)-(b+c)=20-15=5$ (kg).
+(Tương tự: $b=20-13=7$ kg, \ $c=20-12=8$ kg.)
+\begin{barfigC}
+\blk{0}{1.25}{0}{0.5}{tmGreen}{a}
+\blk{1.25}{3}{0}{0.5}{tmOrange}{b}
+\brcup{0}{3}{0.5}{12 kg}
+\blk{0}{1.25}{-0.9}{0.5}{tmGreen}{a}
+\blk{1.25}{3.25}{-0.9}{0.5}{tmPurple}{c}
+\brcdn{0}{3.25}{-1.35}{13 kg}
+\end{barfigC}
+\verify{$5+7=12$, \ $5+8=13$, \ $7+8=15$. Đúng cả ba cặp.}
+\begin{warnbox}Đừng lấy $12:2=6$ kg và cho rằng mỗi quả trong cặp nhẹ nhất nặng $6$ kg: hai quả trong một cặp không nhất thiết nặng bằng nhau. Phương án (E) $8$ kg là quả \emph{nặng nhất}.\end{warnbox}
+Quả nhẹ nhất nặng $5$ kg, ứng với phương án \textbf{(B)}.
+\begin{parentbox}Cho con dùng ba đồ vật trong nhà và một chiếc cân: cân từng cặp, cộng ba kết quả rồi chia đôi, so với khi đặt cả ba lên cân. Con sẽ tự thấy vì sao phải chia $2$.\end{parentbox}
+\ans{(B) $5$ kg}
+}
