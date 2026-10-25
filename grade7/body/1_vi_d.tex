@@ -1,77 +1,77 @@
 % ===== Topic 1, part d (VI): problems 41-50 (nâng cao, mở rộng ý tưởng các bài 16-30) =====
-% helper shapes (same definitions as in part b; \providecommand so they are defined only once)
-\providecommand{\aeShp}[3]{%
+% helper shapes for problem 41 (own prefix \rvab..., independent of part b)
+\providecommand{\rvabShp}[3]{%
   \if#1T\draw[tmBlue!80!black,line width=0.8pt,fill=tmBlue!18] (#2,#3)--(#2+0.34,#3)--(#2+0.17,#3+0.3)--cycle;\fi
   \if#1C\draw[tmOrange!85!black,line width=0.8pt,fill=tmOrange!22] (#2+0.15,#3+0.15) circle (0.15);\fi
   \if#1S\draw[tmGreen!80!black,line width=0.8pt,fill=tmGreen!18] (#2,#3) rectangle (#2+0.3,#3+0.3);\fi
   \if#1D\draw[tmPurple!85!black,line width=0.8pt,fill=tmPurple!18] (#2+0.13,#3)--(#2+0.26,#3+0.16)--(#2+0.13,#3+0.32)--(#2,#3+0.16)--cycle;\fi
   \if#1Q\node[font=\Large\bfseries,text=Ink,inner sep=0pt,anchor=south] at (#2+0.15,#3) {?};\fi}
-\providecommand{\aeTri}{\tikz[baseline=0pt]{\aeShp{T}{0}{0}}}
-\providecommand{\aeCir}{\tikz[baseline=0pt]{\aeShp{C}{0}{0}}}
-\providecommand{\aeSq}{\tikz[baseline=0pt]{\aeShp{S}{0}{0}}}
-\providecommand{\aeDia}{\tikz[baseline=0pt]{\aeShp{D}{0}{0}}}
-\providecommand{\aeRow}[3]{%
-  \foreach \aeS [count=\aeI] in {#1}{\xdef\aeN{\aeI}}%
-  \foreach \aeS [count=\aeI] in {#1}{\aeShp{\aeS}{#2-0.19*\aeN+0.38*\aeI-0.36}{#3+0.03}}}
-\providecommand{\aeScale}[4]{\begin{scope}[shift={(#1,#2)}]
+\providecommand{\rvabTri}{\tikz[baseline=0pt]{\rvabShp{T}{0}{0}}}
+\providecommand{\rvabCir}{\tikz[baseline=0pt]{\rvabShp{C}{0}{0}}}
+\providecommand{\rvabSq}{\tikz[baseline=0pt]{\rvabShp{S}{0}{0}}}
+\providecommand{\rvabDia}{\tikz[baseline=0pt]{\rvabShp{D}{0}{0}}}
+\providecommand{\rvabRow}[3]{%
+  \foreach \rvabS [count=\rvabI] in {#1}{\xdef\rvabN{\rvabI}}%
+  \foreach \rvabS [count=\rvabI] in {#1}{\rvabShp{\rvabS}{#2-0.19*\rvabN+0.38*\rvabI-0.36}{#3+0.03}}}
+\providecommand{\rvabScale}[4]{\begin{scope}[shift={(#1,#2)}]
   \draw[Ink,line width=1pt] (-1.9,0.55)--(-0.5,0.55) (-1.2,0.55)--(-1.2,0.25)--(1.2,0.25)--(1.2,0.55) (0.5,0.55)--(1.9,0.55);
   \draw[Ink,line width=0.9pt,fill=Ink!12] (-0.2,-0.12)--(0,0.25)--(0.2,-0.12)--cycle;
-  \aeRow{#3}{-1.2}{0.55}\aeRow{#4}{1.2}{0.55}
+  \rvabRow{#3}{-1.2}{0.55}\rvabRow{#4}{1.2}{0.55}
 \end{scope}}
 
 % ------------------------------------------------------------------ 41
 \begin{probbox}{41}{\stars{1}}
 Ba chiếc cân dưới đây đều thăng bằng; các hình giống nhau có khối lượng bằng nhau.
 \begin{figC}
-\aeScale{0}{0}{T,T}{C,C,C}
-\aeScale{4.4}{0}{C,S}{T}
-\aeScale{8.8}{0}{D}{T,S}
+\rvabScale{0}{0}{T,T}{C,C,C}
+\rvabScale{4.4}{0}{C,S}{T}
+\rvabScale{8.8}{0}{D}{T,S}
 \node[font=\footnotesize\bfseries,text=Slate] at (0,-0.45) {Cân 1};
 \node[font=\footnotesize\bfseries,text=Slate] at (4.4,-0.45) {Cân 2};
 \node[font=\footnotesize\bfseries,text=Slate] at (8.8,-0.45) {Cân 3};
 \end{figC}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
-\item Cần bao nhiêu hình \aeSq\ để cân bằng với một hình \aeCir?
-\item Cần bao nhiêu hình \aeSq\ để cân bằng với một hình \aeDia?
-\item Đặt một \aeDia\ và một \aeCir\ lên đĩa trái. Nếu đĩa phải chỉ được dùng các hình \aeTri\ thì cần bao nhiêu hình \aeTri?
-\item Biết tổng khối lượng của bốn vật \aeTri, \aeCir, \aeSq, \aeDia\ (mỗi loại một vật) là $50$~g. Tìm khối lượng của mỗi vật.
+\item Cần bao nhiêu hình \rvabSq\ để cân bằng với một hình \rvabCir?
+\item Cần bao nhiêu hình \rvabSq\ để cân bằng với một hình \rvabDia?
+\item Đặt một \rvabDia\ và một \rvabCir\ lên đĩa trái. Nếu đĩa phải chỉ được dùng các hình \rvabTri\ thì cần bao nhiêu hình \rvabTri?
+\item Biết tổng khối lượng của bốn vật \rvabTri, \rvabCir, \rvabSq, \rvabDia\ (mỗi loại một vật) là $50$~g. Tìm khối lượng của mỗi vật.
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Đây là bài mở rộng của Bài 17. Ta viết ba cân thành ba đẳng thức rồi tìm cách đưa mọi hình về cùng một đơn vị là \aeSq:
-\[ \text{(1) } 2\,\aeTri=3\,\aeCir,\qquad \text{(2) } \aeCir+\aeSq=\aeTri,\qquad \text{(3) } \aeDia=\aeTri+\aeSq. \]
-\begin{recallbox}Với một cân thăng bằng (một đẳng thức), ta được phép: nhân đôi (nhân ba,\dots) số vật ở \emph{cả hai} đĩa; bỏ đi những vật giống nhau ở \emph{cả hai} đĩa; thay một nhóm vật bằng một nhóm khác nặng bằng nó. Cân vẫn thăng bằng.\end{recallbox}
+\textbf{Phân tích đề.} Đây là bài mở rộng của Bài 17. Gọi $T$, $C$, $S$, $D$ (gam) lần lượt là khối lượng của một hình \rvabTri, một hình \rvabCir, một hình \rvabSq\ và một hình \rvabDia. Mỗi cân thăng bằng cho ta một đẳng thức (khối lượng đĩa trái $=$ khối lượng đĩa phải):
+\[ \text{(1) } 2T=3C,\qquad \text{(2) } C+S=T,\qquad \text{(3) } D=T+S. \]
+Ý tưởng: biểu diễn mọi khối lượng theo cùng một ẩn là $S$.
+\begin{recallbox}Phương pháp thế: nếu biết $T=C+S$ thì ở bất kỳ đẳng thức nào ta cũng có thể thay $T$ bởi $C+S$. Cộng hoặc trừ cùng một biểu thức ở hai vế của một đẳng thức, ta được một đẳng thức đúng (quy tắc chuyển vế).\end{recallbox}
 
-\step{1}{Câu a -- Nhân đôi cân 2}
-Nhân đôi mọi vật ở cân 2: $2\,\aeCir+2\,\aeSq=2\,\aeTri$.\par
-Theo cân 1, $2\,\aeTri=3\,\aeCir$, nên $2\,\aeCir+2\,\aeSq=3\,\aeCir$.\par
-Bỏ đi $2\,\aeCir$ ở cả hai đĩa: $2\,\aeSq=\aeCir$.\par
-Vậy cần \textbf{$2$ hình \aeSq} để cân bằng một \aeCir.
-\begin{tipbox}Vì sao lại nghĩ đến ``nhân đôi''? Vì cân 1 nói về \emph{hai} hình \aeTri. Nhân đôi cân 2 để cũng có \emph{hai} hình \aeTri, rồi thay được bằng cân 1.\end{tipbox}
+\step{1}{Câu a -- Thế (2) vào (1)}
+Thay $T=C+S$ vào (1): $2(C+S)=3C$, tức $2C+2S=3C$.\par
+Trừ $2C$ ở cả hai vế: $2S=3C-2C=C$. Vậy $C=2S$.\par
+Một hình \rvabCir\ nặng bằng hai hình \rvabSq: cần \textbf{$2$ hình \rvabSq}.
+\begin{tipbox}Vì sao lại thế (2) vào (1)? Vì (1) chỉ chứa $T$ và $C$; sau khi thay $T=C+S$, đẳng thức chỉ còn $C$ và $S$, nên so sánh được ngay $C$ với $S$.\end{tipbox}
 
-\step{2}{Đổi \aeTri\ ra \aeSq}
-Từ cân 2: $\aeTri=\aeCir+\aeSq=2\,\aeSq+\aeSq=3\,\aeSq$.\par
-(Kiểm tra với cân 1: $2\,\aeTri=6\,\aeSq$ và $3\,\aeCir=6\,\aeSq$ \checkmark.)
+\step{2}{Biểu diễn $T$ theo $S$}
+Từ (2): $T=C+S=2S+S=3S$.\par
+(Kiểm tra với (1): $2T=6S$ và $3C=3\cdot 2S=6S$ \checkmark.)
 
 \step{3}{Câu b}
-Từ cân 3: $\aeDia=\aeTri+\aeSq=3\,\aeSq+\aeSq=4\,\aeSq$. Cần \textbf{$4$ hình \aeSq}.
+Từ (3): $D=T+S=3S+S=4S$. Cần \textbf{$4$ hình \rvabSq}.
 
 \step{4}{Câu c}
-Đĩa trái: $\aeDia+\aeCir=4\,\aeSq+2\,\aeSq=6\,\aeSq$. Mỗi \aeTri\ nặng bằng $3\,\aeSq$, nên cần $6:3=$ \textbf{$2$ hình \aeTri}.
+Đĩa trái: $D+C=4S+2S=6S$. Mỗi \rvabTri\ nặng $T=3S$, nên số hình \rvabTri\ cần dùng là $6S:3S=$ \textbf{$2$ hình \rvabTri}. (Thật vậy, $2T=6S=D+C$.)
 
-\step{5}{Câu d}
-Tổng bốn vật tính theo \aeSq: $\aeTri+\aeCir+\aeSq+\aeDia=3+2+1+4=10$ (\aeSq). Vậy $10$ hình \aeSq\ nặng $50$~g, mỗi \aeSq\ nặng $50:10=5$~g. Suy ra:
+\step{5}{Câu d -- Lập phương trình một ẩn}
+$T+C+S+D=50$, thay theo $S$: $3S+2S+S+4S=50$, tức $10S=50$, nên $S=5$. Suy ra:
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10}Vật & \aeSq & \aeCir & \aeTri & \aeDia\\ \hline
-Theo \aeSq & $1$ & $2$ & $3$ & $4$\\ \hline
-Khối lượng & $5$~g & $10$~g & $15$~g & $20$ g\\ \hline
+\rowcolor{tmBlue!10}Vật & \rvabSq & \rvabCir & \rvabTri & \rvabDia\\ \hline
+Theo $S$ & $S$ & $C=2S$ & $T=3S$ & $D=4S$\\ \hline
+Khối lượng & $5$~g & $10$~g & $15$~g & $20$~g\\ \hline
 \end{tabular}
 \end{center}
 \verify{Cân 1: $2\cdot 15=30=3\cdot 10$ \checkmark. Cân 2: $10+5=15$ \checkmark. Cân 3: $20=15+5$ \checkmark. Tổng: $15+10+5+20=50$ \checkmark.}
-\begin{parentbox}Có thể dùng đồ vật thật (kẹo, cúc áo, đồng xu) để con ``chơi cân'': mỗi lần bỏ hoặc thay vật ở cả hai bên, hỏi con ``cân còn thăng bằng không?''. Đây chính là nền tảng của việc giải phương trình ở các lớp sau.\end{parentbox}
-\ans{a) $2$ hình \aeSq;\ b) $4$ hình \aeSq;\ c) $2$ hình \aeTri;\ d) \aeSq\ $5$~g, \aeCir\ $10$~g, \aeTri\ $15$~g, \aeDia\ $20$~g.}
+\begin{parentbox}Hãy cho con đọc mỗi chiếc cân thành một đẳng thức bằng chữ ($2T=3C$,\dots) trước khi tính. Mỗi lần ``bỏ cùng một vật ở hai đĩa'' chính là trừ cùng một số ở hai vế -- đây là nền tảng của việc giải phương trình.\end{parentbox}
+\ans{a) $2$ hình \rvabSq;\ b) $4$ hình \rvabSq;\ c) $2$ hình \rvabTri;\ d) \rvabSq\ $5$~g, \rvabCir\ $10$~g, \rvabTri\ $15$~g, \rvabDia\ $20$~g.}
 }
 
 % ------------------------------------------------------------------ 42
@@ -163,9 +163,9 @@ Cho bước đầu là ngang. Cách đi: phải $1$, lên $2$, trái $3$, lên $
 \begin{figC}\begin{scope}[scale=0.36]
 \draw[Line,line width=0.3pt] (-8,-1) grid (2,7);
 \draw[->,Navy,line width=0.5pt] (-8,0)--(2.4,0); \draw[->,Navy,line width=0.5pt] (0,-1)--(0,7.4);
-\draw[tmBlue,line width=1.3pt,->] (0,0)--(1,0)--(1,2)--(-2,2)--(-2,6)--(-7,6)--(-7,0)--(-0.12,0);
-\fill[AnsRed] (0,0) circle (5pt);
-\node[font=\scriptsize,anchor=north west] at (0,0) {$O$};
+\draw[tmBlue,line width=1.3pt,->] (0,0)--(1,0)--(1,2)--(-2,2)--(-2,6)--(-7,6)--(-7,0)--(-0.32,0);
+\fill[AnsRed] (0,0) circle (3pt);
+\node[font=\scriptsize,anchor=north east,inner sep=1.5pt] at (0,0) {$O$};
 \foreach \p/\l/\a in {(0.5,0)/1/below,(1,1)/2/right,(-0.5,2)/3/below,(-2,4)/4/right,(-4.5,6)/5/above,(-7,3)/6/left,(-3.5,0)/7/below}{\node[\a,font=\scriptsize\bfseries,text=tmBlue!80!black] at \p {\l};}
 \end{scope}\end{figC}
 Vậy $n$ nhỏ nhất là $7$.
@@ -277,15 +277,15 @@ Nếu C gặp A thì $h(m)=2$; nếu C gặp B thì $h(m)=1$. Một số $m$ kh�
 
 % ------------------------------------------------------------------ 46
 \begin{probbox}{46}{\stars{1}}
-Bạn Sơn đếm tiến $7, 10, 13,\dots$ (mỗi lần thêm $3$) và dừng lại trước khi vượt quá $2026$. Bạn Dũng đếm lùi $2026, 2021, 2016,\dots$ (mỗi lần bớt $5$) và dừng lại trước khi nhỏ hơn $7$.
+Bạn Sam đếm tiến $7, 10, 13,\dots$ (mỗi lần thêm $3$) và dừng lại trước khi vượt quá $2026$. Bạn Tom đếm lùi $2026, 2021, 2016,\dots$ (mỗi lần bớt $5$) và dừng lại trước khi nhỏ hơn $7$.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
 \item Có bao nhiêu số có mặt trong cả hai dãy?
 \item Tính tổng của tất cả các số ở câu a.
-\item Bạn Mai viết dãy các bội dương của $4$: $4, 8, 12,\dots$ Có bao nhiêu số có mặt trong cả ba dãy của Sơn, Dũng và Mai? Số lớn nhất trong đó là số nào?
+\item Bạn Zoe viết dãy các bội dương của $4$: $4, 8, 12,\dots$ Có bao nhiêu số có mặt trong cả ba dãy của Sam, Tom và Zoe? Số lớn nhất trong đó là số nào?
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Mở rộng của Bài 26. Ở Bài 26 ta đã thấy: số thuộc dãy của Sơn $\iff$ chia $3$ dư $1$ (và $\ge 7$); số thuộc dãy của Dũng $\iff$ chia $5$ dư $1$ (và $\le 2026$). Bây giờ ta tìm \emph{tất cả} các số chung.
+\textbf{Phân tích đề.} Mở rộng của Bài 26. Như ở Bài 26: một số thuộc dãy của Sam $\iff$ nó chia $3$ dư $1$ và $7\le N\le 2026$ (vì $7=3\cdot 2+1$, mỗi lần cộng $3$ thì số dư khi chia cho $3$ không đổi); một số thuộc dãy của Tom $\iff$ nó chia $5$ dư $1$ và $7\le N\le 2026$ (vì $2026=5\cdot 405+1$). Bây giờ ta tìm \emph{tất cả} các số chung.
 
 \step{1}{Câu a -- Dấu hiệu của số chung}
 Số $N$ chung $\iff$ $N$ chia $3$ dư $1$ và chia $5$ dư $1$ $\iff$ $N-1$ chia hết cho $3$ và cho $5$ $\iff$ $N-1$ chia hết cho $15$. Vậy $N=15j+1$.
@@ -311,10 +311,10 @@ Các số chung của cả ba dãy: $16+60i$ với $16+60i\le 2026$, tức $60i\
 
 % ------------------------------------------------------------------ 47
 \begin{probbox}{47}{\stars{2}}
-An và Bình cùng xuất phát tại điểm $A$ trên một đường chạy hình tròn, mỗi người chạy với vận tốc không đổi.
+Emma và Noah cùng xuất phát tại điểm $A$ trên một đường chạy hình tròn, mỗi người chạy với vận tốc không đổi.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
-\item Hai bạn chạy ngược chiều nhau, tỉ số vận tốc An : Bình là $5:3$. Hai bạn gặp nhau ở bao nhiêu điểm khác nhau trên đường chạy?
-\item Nếu hai bạn chạy \emph{cùng chiều} (vẫn với tỉ số $5:3$) thì An vượt Bình ở bao nhiêu điểm khác nhau?
+\item Hai bạn chạy ngược chiều nhau, tỉ số vận tốc Emma : Noah là $5:3$. Hai bạn gặp nhau ở bao nhiêu điểm khác nhau trên đường chạy?
+\item Nếu hai bạn chạy \emph{cùng chiều} (vẫn với tỉ số $5:3$) thì Emma vượt Noah ở bao nhiêu điểm khác nhau?
 \item Tìm tất cả các tỉ số vận tốc $p:q$ (với $p>q$, $p$ và $q$ là các số nguyên dương nguyên tố cùng nhau) sao cho khi chạy ngược chiều nhau, hai bạn gặp nhau ở đúng $10$ điểm khác nhau.
 \end{enumerate}
 \end{probbox}
@@ -322,7 +322,7 @@ An và Bình cùng xuất phát tại điểm $A$ trên một đường chạy h
 \textbf{Phân tích đề.} Mở rộng của Bài 27. Ta dùng lại hai ý: (1) chạy ngược chiều thì giữa hai lần gặp liên tiếp, tổng quãng đường của hai bạn bằng $1$ vòng; (2) quãng đường tỉ lệ với vận tốc.
 
 \step{1}{Câu a -- Chia vòng thành 8 đoạn}
-Tỉ số $5:3$ nên ta chia vòng chạy thành $5+3=8$ đoạn bằng nhau, đánh số các điểm chia $0,1,2,\dots,7$ theo chiều chạy của An (điểm $0$ là $A$). Giữa hai lần gặp, hai bạn cùng chạy $8$ đoạn, trong đó An chạy $5$ đoạn, Bình $3$ đoạn.\par
+Tỉ số $5:3$ nên ta chia vòng chạy thành $5+3=8$ đoạn bằng nhau, đánh số các điểm chia $0,1,2,\dots,7$ theo chiều chạy của Emma (điểm $0$ là $A$). Giữa hai lần gặp, hai bạn cùng chạy $8$ đoạn, trong đó Emma chạy $5$ đoạn, Noah $3$ đoạn.\par
 Vị trí lần gặp thứ $k$ là điểm cách $A$ đúng $5k$ đoạn; cứ đủ $8$ đoạn là một vòng nên ta bớt đi các bội của $8$:
 \begin{center}\small
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
@@ -336,16 +336,17 @@ Tám lần gặp đầu rơi vào đủ $8$ điểm khác nhau $0,1,\dots,7$; l�
 \begin{figC}
 \draw[Ink,line width=1.1pt] (0,0) circle (1.3);
 \foreach \i/\k in {0/8,1/5,2/2,3/7,4/4,5/1,6/6,7/3}{
-  \fill[AnsRed] ({90+45*\i}:1.3) circle (2.6pt);
-  \node[font=\scriptsize] at ({90+45*\i}:1.75) {điểm \i};
-  \node[font=\scriptsize\bfseries,text=tmBlue] at ({90+45*\i}:0.98) {\k};}
+  \pgfmathsetmacro\rvabAng{90+45*\i}
+  \fill[AnsRed] (\rvabAng:1.3) circle (2.6pt);
+  \node[font=\scriptsize,anchor=\rvabAng+180,inner sep=2pt] at (\rvabAng:1.42) {điểm \i};
+  \node[font=\scriptsize\bfseries,text=tmBlue] at (\rvabAng:0.98) {\k};}
 \node[font=\scriptsize,text=tmBlue,align=center] at (0,0) {lần\\gặp};
 \end{figC}
-(Số xanh bên trong: lần gặp thứ mấy rơi vào điểm đó; các điểm được đánh số theo chiều chạy của An.)
+(Số xanh bên trong: lần gặp thứ mấy rơi vào điểm đó; các điểm được đánh số theo chiều chạy của Emma.)
 
 \step{2}{Câu b -- Chạy cùng chiều}
-Chạy cùng chiều thì An vượt Bình mỗi khi An chạy \emph{hơn} Bình đúng $1$ vòng. Trong cùng thời gian, An chạy $5$ phần thì Bình chạy $3$ phần, An hơn $2$ phần. Vậy ``hơn $1$ vòng'' ứng với $2$ phần $=1$ vòng, tức mỗi phần là $\frac12$ vòng, và An đã chạy $5\cdot\frac12=2\frac12$ vòng.\par
-Lần vượt thứ nhất: An chạy $2\frac12$ vòng, ở điểm đối diện $A$. Lần thứ hai: $5$ vòng, đúng tại $A$. Rồi lặp lại. Vậy có \textbf{$2$ điểm} (điểm $A$ và điểm đối diện với $A$).
+Chạy cùng chiều thì Emma vượt Noah mỗi khi Emma chạy \emph{hơn} Noah đúng $1$ vòng. Trong cùng thời gian, Emma chạy $5$ phần thì Noah chạy $3$ phần, Emma hơn $2$ phần. Vậy ``hơn $1$ vòng'' ứng với $2$ phần $=1$ vòng, tức mỗi phần là $\frac12$ vòng, và Emma đã chạy $5\cdot\frac12=2\frac12$ vòng.\par
+Lần vượt thứ nhất: Emma chạy $2\frac12$ vòng, ở điểm đối diện $A$. Lần thứ hai: $5$ vòng, đúng tại $A$. Rồi lặp lại. Vậy có \textbf{$2$ điểm} (điểm $A$ và điểm đối diện với $A$).
 
 \step{3}{Câu c -- Quy luật tổng quát}
 Làm như câu a với tỉ số $p:q$: chia vòng thành $p+q$ đoạn; lần gặp thứ $k$ ở điểm cách $A$ đúng $k\cdot p$ đoạn (bớt các bội của $p+q$).
@@ -432,43 +433,38 @@ Vậy không có dãy Fibo $6$ số nào kết thúc bằng $30$.
 
 % ------------------------------------------------------------------ 49
 \begin{probbox}{49}{\stars{1}}
-Bốn bạn An, Bình, Chi, Dũng, mỗi bạn có ít nhất một viên bi. Biết rằng:
+Bốn bạn Anna, Ben, Chloe và David, mỗi bạn có ít nhất một viên bi. Biết rằng:
 \begin{itemize}[leftmargin=1.6em,itemsep=0pt]
-\item[(1)] Số bi của An và Bình cộng lại bằng số bi của Chi và Dũng cộng lại.
-\item[(2)] Số bi của An và Dũng cộng lại nhiều hơn số bi của Bình và Chi cộng lại.
-\item[(3)] Bình có nhiều bi hơn An và Chi cộng lại.
+\item[(1)] Số bi của Anna và Ben cộng lại bằng số bi của Chloe và David cộng lại.
+\item[(2)] Số bi của Anna và David cộng lại nhiều hơn số bi của Ben và Chloe cộng lại.
+\item[(3)] Ben có nhiều bi hơn Anna và Chloe cộng lại.
 \end{itemize}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
 \item Sắp xếp bốn bạn theo thứ tự số bi từ ít đến nhiều.
-\item Biết cả bốn bạn có tổng cộng $30$ viên bi. Chi có nhiều nhất bao nhiêu viên bi? Khi đó mỗi bạn có bao nhiêu viên?
+\item Biết cả bốn bạn có tổng cộng $30$ viên bi. Chloe có nhiều nhất bao nhiêu viên bi? Khi đó mỗi bạn có bao nhiêu viên?
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Mở rộng của Bài 29: thay vì so sánh trực tiếp từng cặp, ở đây các thông tin là so sánh các \emph{tổng}. Gọi số bi của An, Bình, Chi, Dũng lần lượt là $a, b, c, d$ (số nguyên dương). Ta có:
+\textbf{Phân tích đề.} Mở rộng của Bài 29: thay vì so sánh trực tiếp từng cặp, ở đây các thông tin là so sánh các \emph{tổng}. Gọi số bi của Anna, Ben, Chloe, David lần lượt là $a, b, c, d$ (số nguyên dương). Ta có:
 \[ \text{(1) } a+b=c+d,\qquad \text{(2) } a+d>b+c,\qquad \text{(3) } b>a+c. \]
-\begin{recallbox}Cộng hai vế của một bất đẳng thức với hai vế của một đẳng thức (cùng chiều), ta được một bất đẳng thức cùng chiều: nếu $X>Y$ và $M=N$ thì $X+M>Y+N$ và $X-M>Y-N$.\end{recallbox}
+\begin{recallbox}Cộng (hoặc trừ) hai vế của một bất đẳng thức với hai vế tương ứng của một đẳng thức, ta được một bất đẳng thức cùng chiều: nếu $X>Y$ và $M=N$ thì $X+M>Y+N$ và $X-M>Y-N$.\end{recallbox}
 
-\step{1}{So sánh An và Chi: cộng (2) với (1)}
-$(a+d)+(a+b)>(b+c)+(c+d)$, tức $2a+b+d>b+d+2c$. Bỏ $b+d$ ở hai vế: $2a>2c$, vậy $a>c$: \textbf{An nhiều hơn Chi}.
+\step{1}{So sánh Anna và Chloe: cộng (2) với (1)}
+$(a+d)+(a+b)>(b+c)+(c+d)$, tức $2a+b+d>b+d+2c$. Bớt $b+d$ ở hai vế: $2a>2c$, vậy $a>c$: \textbf{Anna nhiều hơn Chloe}.
 
-\step{2}{So sánh Bình và Dũng: lấy (2) trừ (1)}
-$(a+d)-(a+b)>(b+c)-(c+d)$, tức $d-b>b-d$. Cộng $b+d$ vào hai vế: $2d>2b$, vậy $d>b$: \textbf{Dũng nhiều hơn Bình}.
+\step{2}{So sánh Ben và David: lấy (2) trừ (1)}
+$(a+d)-(a+b)>(b+c)-(c+d)$, tức $d-b>b-d$. Cộng $b+d$ vào hai vế: $2d>2b$, vậy $d>b$: \textbf{David nhiều hơn Ben}.
 
-\step{3}{So sánh An và Bình: dùng (3)}
-$b>a+c\ge a+1>a$ (vì $c\ge 1$). Vậy \textbf{Bình nhiều hơn An}.
+\step{3}{So sánh Anna và Ben: dùng (3)}
+$b>a+c\ge a+1>a$ (vì $c\ge 1$). Vậy \textbf{Ben nhiều hơn Anna}.
 
 \step{4}{Câu a -- Kết luận}
-Ghép lại: $c<a<b<d$.
-\begin{figC}
-\foreach \n/\x in {Chi/0,An/2,Bình/4,Dũng/6}{\node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,font=\small,minimum width=1.3cm,text height=1.7ex,text depth=0.4ex] (\n) at (\x,0) {\n};}
-\draw[->,tmBlue,line width=0.9pt] (Chi)--(An); \draw[->,tmBlue,line width=0.9pt] (An)--(Bình); \draw[->,tmBlue,line width=0.9pt] (Bình)--(Dũng);
-\node[font=\scriptsize,text=Slate] at (3,-0.55) {ít $\longrightarrow$ nhiều};
-\end{figC}
-Thứ tự từ ít đến nhiều: \textbf{Chi, An, Bình, Dũng}.
+Ghép ba kết quả lại: $c<a$, \ $a<b$, \ $b<d$, nên $c<a<b<d$.\par
+Thứ tự từ ít đến nhiều: \textbf{Chloe, Anna, Ben, David}.
 
 \step{5}{Câu b -- Dùng tổng bằng 30}
-Từ (1), $a+b=c+d$ và tổng là $30$ nên $a+b=c+d=15$. Suy ra $b=15-a$.\par
-Thay vào (3): $15-a>a+c$, tức $2a+c<15$, hay $2a+c\le 14$.\par
+Từ (1), $a+b=c+d$ mà $(a+b)+(c+d)=30$, nên $a+b=c+d=15$. Suy ra $b=15-a$.\par
+Thay vào (3): $15-a>a+c$, tức $2a+c<15$; vì $2a+c$ là số nguyên nên $2a+c\le 14$.\par
 Theo câu a, $a>c$ nên $a\ge c+1$. Do đó $2(c+1)+c\le 2a+c\le 14$, tức $3c+2\le 14$, $3c\le 12$, $c\le 4$.
 
 \step{6}{Câu b -- Kiểm tra $c=4$ có xảy ra không}
@@ -476,57 +472,60 @@ Với $c=4$: cần $a\ge 5$ và $2a+4\le 14$, tức $a\le 5$. Vậy $a=5$, $b=15
 Kiểm tra cả ba điều kiện:
 (1) $5+10=15=4+11$ \checkmark;\quad (2) $5+11=16>14=10+4$ \checkmark;\quad (3) $10>5+4=9$ \checkmark.
 \begin{warnbox}Chứng minh ``$c\le 4$'' mới chỉ là một nửa: phải chỉ ra một trường hợp cụ thể có $c=4$ thì mới khẳng định được $4$ là giá trị lớn nhất.\end{warnbox}
-\verify{Liệt kê bằng máy tính mọi bộ $(a,b,c,d)$ có tổng $30$ thỏa (1), (2), (3): có $12$ bộ, trong đó $c$ lớn nhất bằng $4$, chỉ ở bộ $(5,10,4,11)$; và trong mọi bộ đều có $c<a<b<d$.}
-\ans{a) Chi, An, Bình, Dũng;\ b) Chi có nhiều nhất $4$ viên; khi đó An $5$, Bình $10$, Chi $4$, Dũng $11$ viên.}
+\verify{Liệt kê bằng máy tính mọi bộ $(a;b;c;d)$ có tổng $30$ thỏa mãn (1), (2), (3): có $12$ bộ, trong đó $c$ lớn nhất bằng $4$, chỉ ở bộ $(5;10;4;11)$; và trong mọi bộ đều có $c<a<b<d$.}
+\ans{a) Chloe, Anna, Ben, David;\ b) Chloe có nhiều nhất $4$ viên; khi đó Anna có $5$, Ben $10$, Chloe $4$, David $11$ viên.}
 }
 
 % ------------------------------------------------------------------ 50
 \begin{probbox}{50}{\stars{1}}
-Một cửa hàng bán kẹo loại A giá $12$ nghìn đồng cho $100$~g và kẹo loại B giá $20$ nghìn đồng cho $100$~g.
+Một cửa hàng bán kẹo loại A giá \$12 một ki-lô-gam và kẹo loại B giá \$20 một ki-lô-gam.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
-\item Cần trộn bao nhiêu gam mỗi loại để được $1$~kg kẹo hỗn hợp có giá $15$ nghìn đồng cho $100$~g (giá hỗn hợp bằng đúng tổng giá trị kẹo đem trộn)?
-\item Phải thêm bao nhiêu gam kẹo loại C giá $30$ nghìn đồng cho $100$~g vào $1$~kg hỗn hợp ở câu a để được hỗn hợp mới có giá $18$ nghìn đồng cho $100$ g?
-\item Chứng minh rằng: trộn kẹo A với kẹo B (có mặt cả hai loại) theo bất kỳ tỉ lệ nào, giá của hỗn hợp luôn lớn hơn $12$ và nhỏ hơn $20$ nghìn đồng cho $100$~g.
+\item Cần trộn bao nhiêu gam mỗi loại để được $1$~kg kẹo hỗn hợp có giá \$15 một ki-lô-gam (giá trị của hỗn hợp bằng đúng tổng giá trị kẹo đem trộn)?
+\item Phải thêm bao nhiêu gam kẹo loại C giá \$30 một ki-lô-gam vào $1$~kg hỗn hợp ở câu a để được hỗn hợp mới có giá \$18 một ki-lô-gam?
+\item Chứng minh rằng: trộn kẹo A với kẹo B (có mặt cả hai loại) theo bất kỳ tỉ lệ nào, giá của hỗn hợp luôn lớn hơn \$12 và nhỏ hơn \$20 một ki-lô-gam.
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Mở rộng của Bài 30. Nguyên tắc: \emph{tổng tiền của hỗn hợp $=$ tổng tiền của các phần đem trộn}. Để tính cho gọn, ta đo khối lượng theo đơn vị ``lạng'' ($1$ lạng $=100$~g), khi đó giá là ``nghìn đồng một lạng'' và $1$~kg $=10$ lạng.
-\begin{recallbox}Số tiền $=$ giá (cho một đơn vị khối lượng) $\times$ khối lượng. Giá trung bình $=$ tổng tiền $:$ tổng khối lượng.\end{recallbox}
+\textbf{Phân tích đề.} Mở rộng của Bài 30. Nguyên tắc: \emph{tổng số tiền của hỗn hợp $=$ tổng số tiền của các phần đem trộn}. Ta đo khối lượng bằng ki-lô-gam và số tiền bằng đô la.
+\begin{recallbox}Số tiền $=$ giá (cho $1$~kg) $\times$ khối lượng (kg). Giá trung bình của hỗn hợp $=$ tổng số tiền $:$ tổng khối lượng.\end{recallbox}
 
-\step{1}{Câu a -- Lập phương trình}
-Gọi khối lượng kẹo A là $x$ lạng; kẹo B là $10-x$ lạng.\par
-Tiền kẹo A: $12x$; tiền kẹo B: $20(10-x)=200-20x$; tiền hỗn hợp $1$~kg: $15\cdot 10=150$ (nghìn đồng). Ta có
-\[ 12x+200-20x=150 \iff 200-8x=150 \iff 8x=50 \iff x=6{,}25. \]
-Vậy cần $6{,}25$ lạng $=625$~g kẹo A và $1000-625=375$~g kẹo B.
-\verify{$12\cdot 6{,}25+20\cdot 3{,}75=75+75=150$ nghìn đồng cho $10$ lạng, tức $15$ nghìn đồng một lạng \checkmark.}
+\step{1}{Câu a -- Gọi ẩn và lập phương trình}
+Gọi khối lượng kẹo A là $x$ (kg), với $0<x<1$; khi đó khối lượng kẹo B là $1-x$ (kg).\par
+Tiền kẹo A: $12x$; tiền kẹo B: $20(1-x)=20-20x$; tiền của $1$~kg hỗn hợp: $15\cdot 1=15$ (đô la). Ta có phương trình
+\[ 12x+20-20x=15 \iff 20-8x=15 \iff 8x=5 \iff x=\frac{5}{8}=0{,}625. \]
+Vậy cần $0{,}625$~kg $=625$~g kẹo A và $1000-625=375$~g kẹo B.
+\verify{$12\cdot 0{,}625+20\cdot 0{,}375=7{,}5+7{,}5=15$ (đô la) cho $1$~kg, đúng giá \$15 một ki-lô-gam \checkmark.}
 
-\step{2}{Câu a -- Cách nhìn bằng ``đòn bẩy''}
+\step{2}{Câu a -- Cách khác: so sánh với giá \$15 trên trục số}
 \begin{figC}
-\draw[Navy,line width=1pt] (0,0)--(8,0);
-\foreach \x/\l in {0/12,3/15,8/20}{\draw[Navy,line width=1pt] (\x,0.12)--(\x,-0.12); \node[below,font=\small] at (\x,-0.12) {\l};}
+\draw[->,Navy,line width=1pt] (-0.5,0)--(5.4,0);
+\foreach \x/\l in {0/12,1.8/15,4.8/20}{\draw[Navy,line width=1pt] (\x,0.12)--(\x,-0.12); \node[below,font=\small] at (\x,-0.12) {\l};}
 \node[above,font=\small\bfseries,text=tmBlue] at (0,0.15) {A};
-\node[above,font=\small\bfseries,text=tmOrange!85!black] at (8,0.15) {B};
-\node[above,font=\small\bfseries,text=AnsRed] at (3,0.15) {hỗn hợp};
-\brcdn{0}{3}{-0.75}{cách A: $3$}
-\brcdn{3}{8}{-0.75}{cách B: $5$}
+\node[above,font=\small\bfseries,text=AnsRed] at (1.8,0.15) {hỗn hợp};
+\node[above,font=\small\bfseries,text=tmOrange!85!black] at (4.8,0.15) {B};
+\node[anchor=west,font=\footnotesize,text=Slate] at (5.45,0) {đô la/kg};
+\draw[Slate,dashed,line width=0.5pt] (0,-0.6)--(0,-1.05) (1.8,-0.6)--(1.8,-1.05) (4.8,-0.6)--(4.8,-1.05);
+\draw[<->,tmBlue!72!black,line width=0.7pt] (0,-0.9)--(1.8,-0.9);
+\draw[<->,tmBlue!72!black,line width=0.7pt] (1.8,-0.9)--(4.8,-0.9);
+\node[below,font=\footnotesize] at (0.9,-0.95) {$15-12=3$};
+\node[below,font=\footnotesize] at (3.3,-0.95) {$20-15=5$};
 \end{figC}
-Giá $15$ cách giá A là $3$, cách giá B là $5$. Mỗi lạng A làm ``hụt'' $3$ nghìn so với $15$, mỗi lạng B làm ``dư'' $5$ nghìn. Muốn hụt và dư bù trừ nhau thì khối lượng A : B $=5:3$ (\emph{đảo ngược} khoảng cách). Chia $1000$~g theo tỉ số $5:3$: A $=\frac58\cdot 1000=625$~g, B $=\frac38\cdot1000=375$~g. Trùng với Bước 1.
-\begin{proofbox}Với A $5$ phần, B $3$ phần: phần hụt $5\cdot 3=15$, phần dư $3\cdot 5=15$ -- bằng nhau, nên giá trung bình đúng bằng $15$.\end{proofbox}
+Mỗi ki-lô-gam kẹo A rẻ hơn giá \$15 là \$3; mỗi ki-lô-gam kẹo B đắt hơn giá \$15 là \$5. Phần ``rẻ hơn'' phải bù đúng phần ``đắt hơn'': $3x=5(1-x)$. Giải: $3x=5-5x$, $8x=5$, $x=0{,}625$ -- trùng với Bước 1. Từ $3x=5y$ (với $y=1-x$) suy ra $\dfrac{x}{y}=\dfrac{5}{3}$: khối lượng A và B tỉ lệ với $5$ và $3$, tức là tỉ lệ \emph{nghịch đảo} với hai khoảng cách $3$ và $5$.
 
 \step{3}{Câu b}
-Gọi khối lượng kẹo C thêm vào là $y$ lạng. Tổng tiền: $150+30y$; tổng khối lượng: $10+y$ lạng. Cần giá $18$:
-\[ 150+30y=18(10+y)=180+18y \iff 12y=30 \iff y=2{,}5. \]
-Vậy cần thêm $2{,}5$ lạng $=250$~g kẹo C.
-\verify{Tổng tiền $150+30\cdot 2{,}5=225$ nghìn đồng cho $12{,}5$ lạng: $225:12{,}5=18$ \checkmark. (Bằng đòn bẩy: $18$ cách $15$ là $3$, cách $30$ là $12$, nên hỗn hợp cũ : C $=12:3=4:1$, tức C $=1000:4=250$~g \checkmark.)}
+Gọi khối lượng kẹo C thêm vào là $y$ (kg), $y>0$. Tổng số tiền: $15+30y$; tổng khối lượng: $1+y$ (kg). Muốn giá \$18 một ki-lô-gam thì
+\[ 15+30y=18(1+y)=18+18y \iff 30y-18y=18-15 \iff 12y=3 \iff y=0{,}25. \]
+Vậy cần thêm $0{,}25$~kg $=250$~g kẹo C.
+\verify{Tổng số tiền $15+30\cdot 0{,}25=15+7{,}5=22{,}5$ (đô la) cho $1{,}25$~kg: $22{,}5:1{,}25=18$ \checkmark. (Theo cách ở Bước 2: $18$ cách $15$ là $3$, cách $30$ là $12$, nên $3\cdot 1=12y$, $y=0{,}25$ \checkmark.)}
 
 \step{4}{Câu c}
-Gọi khối lượng A là $x$ lạng, B là $y$ lạng, với $x>0$, $y>0$. Giá hỗn hợp là $G=\dfrac{12x+20y}{x+y}$.
+Gọi khối lượng kẹo A là $x$ (kg), kẹo B là $y$ (kg), với $x>0$, $y>0$. Giá hỗn hợp là $G=\dfrac{12x+20y}{x+y}$ (đô la/kg).
 \begin{itemize}[leftmargin=1.3em,itemsep=1pt]
-\item Vì $y>0$ nên $20y>12y$, do đó $12x+20y>12x+12y=12(x+y)$. Chia cho $x+y>0$: $G>12$.
-\item Vì $x>0$ nên $12x<20x$, do đó $12x+20y<20x+20y=20(x+y)$. Chia cho $x+y$: $G<20$.
+\item Vì $y>0$ nên $20y>12y$, do đó $12x+20y>12x+12y=12(x+y)$. Chia hai vế cho số dương $x+y$: $G>12$.
+\item Vì $x>0$ nên $12x<20x$, do đó $12x+20y<20x+20y=20(x+y)$. Chia hai vế cho $x+y$: $G<20$.
 \end{itemize}
-Vậy $12<G<20$: giá hỗn hợp luôn nằm \emph{giữa} giá hai loại kẹo.
-\begin{warnbox}Không thể trộn A và B để được giá $25$ nghìn đồng một lạng, hay $10$ nghìn đồng một lạng: giá trung bình không bao giờ vượt ra ngoài khoảng giữa giá thấp nhất và giá cao nhất.\end{warnbox}
+Vậy $12<G<20$: giá hỗn hợp luôn nằm \emph{giữa} giá của hai loại kẹo.
+\begin{warnbox}Không thể trộn A và B để được giá \$25 hay \$10 một ki-lô-gam: giá trung bình không bao giờ vượt ra ngoài khoảng từ giá thấp nhất đến giá cao nhất.\end{warnbox}
 \begin{parentbox}Có thể minh họa câu c bằng việc pha nước: trộn nước $20^\circ$C với nước $60^\circ$C thì được nước ấm ở giữa, không bao giờ nóng hơn $60^\circ$C. ``Trung bình luôn nằm ở giữa'' là một ý tưởng rất hữu ích.\end{parentbox}
 \ans{a) $625$~g kẹo A và $375$~g kẹo B;\ b) $250$~g kẹo C;\ c) xem lời giải.}
 }

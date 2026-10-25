@@ -20,6 +20,8 @@
 % helper: ô vuông nhỏ (hình thoi) nằm giữa bốn bát giác, tâm (#1,#2)
 \providecommand{\cpDia}[2]{%
   \draw[Ink,line width=0.8pt,fill=tmOrange!35] (#1,#2+0.2929)--(#1+0.2929,#2)--(#1,#2-0.2929)--(#1-0.2929,#2)--cycle;}
+% helper: viên bi phẳng (không hiệu ứng 3D) tâm (#1,#2), màu #3
+\providecommand{\rvcaBall}[3]{\filldraw[fill=#3!55,draw=#3!75!black,line width=0.7pt] (#1,#2) circle (0.22);}
 
 \begin{knowbox}
 \textbf{Ý tưởng lớn.} Trong chủ đề này, mọi bài toán đều quay về \emph{một kỹ năng gốc}: \textbf{đếm cho đúng} -- không sót, không trùng.
@@ -76,9 +78,9 @@ Vì sao lại là phép chia? Giả sử có $n$ kết quả đồng khả năng
 \end{scope}
 \begin{scope}[xshift=5cm]
 \draw[Ink,line width=1pt,rounded corners=6pt] (-1.3,1)--(-1.2,-1)--(1.2,-1)--(1.3,1);
-\foreach \x/\y/\c in {-0.8/-0.7/AnsRed,-0.3/-0.7/AnsRed,0.2/-0.7/tmOrange,0.7/-0.7/tmOrange,-0.55/-0.25/tmOrange,
-   -0.05/-0.25/tmOrange,0.45/-0.25/tmOrange,-0.3/0.2/tmBlue,0.2/0.2/tmBlue,0.7/0.2/tmBlue,-0.8/0.2/tmBlue}{
-  \shade[ball color=\c] (\x,\y) circle (0.22);}
+\foreach \x/\y/\c in {-0.75/-0.7/AnsRed,-0.25/-0.7/AnsRed,0.25/-0.7/StarGold,0.75/-0.7/StarGold,-0.5/-0.25/StarGold,
+   0/-0.25/StarGold,0.5/-0.25/StarGold,-0.75/0.2/tmBlue,-0.25/0.2/tmBlue,0.25/0.2/tmBlue,0.75/0.2/tmBlue}{
+  \rvcaBall{\x}{\y}{\c}}
 \node[font=\footnotesize,align=center] at (0,-1.55){Túi có $2$ đỏ, $5$ vàng, $4$ xanh:\\ $P(\text{đỏ})=\frac{2}{11}$};
 \end{scope}
 \end{figC}
@@ -210,7 +212,7 @@ Vì sao quy tắc nhân đúng? Vẽ một bảng có $m$ hàng (các cách làm
 \end{proofbox}
 
 \begin{knowbox}
-\textbf{Chọn hai đồ vật (không kể thứ tự).} Chọn $2$ bạn trong $n$ bạn để đi trực nhật: nếu kể thứ tự (người thứ nhất, người thứ hai) thì có $n\times(n-1)$ cách; nhưng mỗi cặp bạn được đếm \emph{hai lần} (An--Bình và Bình--An), nên số cặp là
+\textbf{Chọn hai đồ vật (không kể thứ tự).} Chọn $2$ bạn trong $n$ bạn để đi trực nhật: nếu kể thứ tự (người thứ nhất, người thứ hai) thì có $n\times(n-1)$ cách; nhưng mỗi cặp bạn được đếm \emph{hai lần} (Anna--Ben và Ben--Anna), nên số cặp là
 \[
 \frac{n\times(n-1)}{2}.
 \]
@@ -278,15 +280,15 @@ $\dfrac{a(a-1)}{2}\times\dfrac{b(b-1)}{2}$ hình chữ nhật (quy tắc nhân!)
 
 \begin{figC}
 \begin{scope}
+\fill[tmOrange!30] (1,0) rectangle (3,1);
 \foreach \i in {0,...,4}{\draw[Ink,line width=1pt] (\i,0)--(\i,1); \node[font=\footnotesize,text=tmBlue] at (\i,-0.3){\pgfmathtruncatemacro\k{\i+1}\k};}
 \draw[Ink,line width=1pt] (0,0)--(4,0) (0,1)--(4,1);
-\fill[tmOrange,opacity=0.3] (1,0) rectangle (3,1);
 \node[font=\footnotesize,align=center] at (2,-0.95){Chọn đường dọc $2$ và $4$\\ $\Rightarrow$ hình chữ nhật tô cam};
 \end{scope}
 \begin{scope}[xshift=6cm]
+\fill[tmGreen!30] (1,0) rectangle (3,2);
 \foreach \x in {0,1,2,3}{\draw[Ink,line width=1pt] (\x,0)--(\x,2);}
 \foreach \y in {0,1,2}{\draw[Ink,line width=1pt] (0,\y)--(3,\y);}
-\fill[tmGreen,opacity=0.3] (1,0) rectangle (3,2);
 \node[font=\footnotesize,align=center] at (1.5,-0.7){$3$ đường ngang, $4$ đường dọc:\\ $3\times 6=18$ hình chữ nhật};
 \end{scope}
 \end{figC}
@@ -398,7 +400,7 @@ Trong hộp không có viên bi tím nào: $0$ kết quả thuận lợi. $P(\te
 Một túi có $30$ viên kẹo, gồm kẹo dâu và kẹo cam. Lấy ngẫu nhiên một viên thì xác suất được kẹo dâu là $\dfrac25$.
 \begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
 \item Trong túi có bao nhiêu viên kẹo dâu, bao nhiêu viên kẹo cam?
-\item Bạn An lấy ra $2$ viên kẹo dâu và ăn luôn. Sau đó Bình lấy ngẫu nhiên một viên từ túi. Tính xác suất Bình lấy được kẹo dâu.
+\item Bạn Anna lấy ra $2$ viên kẹo dâu và ăn luôn. Sau đó Ben lấy ngẫu nhiên một viên từ túi. Tính xác suất Ben lấy được kẹo dâu.
 \end{enumerate}
 \guide
 \step{1}{Tìm số kẹo dâu}
@@ -406,17 +408,17 @@ Một túi có $30$ viên kẹo, gồm kẹo dâu và kẹo cam. Lấy ngẫu nh
 Số kẹo dâu: $30\times\dfrac25=\dfrac{30\times 2}{5}=\dfrac{60}{5}=12$ viên. Số kẹo cam: $30-12=18$ viên.
 
 \emph{Kiểm tra:} $\dfrac{12}{30}=\dfrac{2}{5}$ \checkmark.
-\step{2}{Đếm lại sau khi An ăn $2$ viên}
+\step{2}{Đếm lại sau khi Anna ăn $2$ viên}
 \begin{center}
 \begin{tabular}{|l|c|c|c|}\hline
  & kẹo dâu & kẹo cam & tổng \\ \hline
 Lúc đầu & $12$ & $18$ & $30$\\ \hline
-Sau khi An ăn $2$ viên dâu & $12-2=10$ & $18$ & $30-2=28$\\ \hline
+Sau khi Anna ăn $2$ viên dâu & $12-2=10$ & $18$ & $30-2=28$\\ \hline
 \end{tabular}
 \end{center}
-\step{3}{Tính xác suất cho Bình}
+\step{3}{Tính xác suất cho Ben}
 $P(\text{dâu})=\dfrac{10}{28}=\dfrac{5}{14}$.
-\begin{warnbox}Đừng trả lời $\dfrac{10}{30}$: An đã ăn mất $2$ viên nên tổng số kẹo (mẫu số) cũng giảm theo.\end{warnbox}
+\begin{warnbox}Đừng trả lời $\dfrac{10}{30}$: Anna đã ăn mất $2$ viên nên tổng số kẹo (mẫu số) cũng giảm theo.\end{warnbox}
 \ans{a) $12$ kẹo dâu, $18$ kẹo cam;\quad b) $\frac{5}{14}$.}
 \end{exbox}
 
@@ -490,23 +492,23 @@ $P(\text{chẵn})=\dfrac{12}{24}=\dfrac12$.
 \end{exbox}
 
 \begin{exbox}{Ví dụ 6}
-Bốn bạn An, Bình, Chi, Dũng ngồi trên bốn chiếc ghế xếp thành một hàng, đánh số $1;2;3;4$ từ trái sang phải. Biết rằng: Dũng ngồi ghế số $1$; Bình và Chi ngồi cạnh nhau; An không ngồi cạnh Bình; An không ngồi ghế số $4$. Hỏi ai ngồi ghế số $4$?
+Bốn bạn Anna, Ben, Chloe, David ngồi trên bốn chiếc ghế xếp thành một hàng, đánh số $1;2;3;4$ từ trái sang phải. Biết rằng: David ngồi ghế số $1$; Ben và Chloe ngồi cạnh nhau; Anna không ngồi cạnh Ben; Anna không ngồi ghế số $4$. Hỏi ai ngồi ghế số $4$?
 \guide
-\step{1}{Xếp Dũng}
-Dũng ở ghế $1$, còn ghế $2;3;4$ cho An, Bình, Chi.
-\step{2}{Xét vị trí của An}
-An không ngồi ghế $4$, nên An ngồi ghế $2$ hoặc ghế $3$.
+\step{1}{Xếp David}
+David ở ghế $1$, còn ghế $2;3;4$ cho Anna, Ben, Chloe.
+\step{2}{Xét vị trí của Anna}
+Anna không ngồi ghế $4$, nên Anna ngồi ghế $2$ hoặc ghế $3$.
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
-\item \emph{Nếu An ngồi ghế $3$:} Bình và Chi chiếm ghế $2$ và $4$ -- hai ghế này không cạnh nhau, trái điều kiện ``Bình và Chi ngồi cạnh nhau''. Loại.
-\item \emph{Nếu An ngồi ghế $2$:} Bình và Chi chiếm ghế $3$ và $4$ (cạnh nhau, tốt). An không được cạnh Bình, mà ghế $3$ cạnh ghế $2$, nên Bình không ngồi ghế $3$. Vậy Bình ngồi ghế $4$, Chi ngồi ghế $3$.
+\item \emph{Nếu Anna ngồi ghế $3$:} Ben và Chloe chiếm ghế $2$ và $4$ -- hai ghế này không cạnh nhau, trái điều kiện ``Ben và Chloe ngồi cạnh nhau''. Loại.
+\item \emph{Nếu Anna ngồi ghế $2$:} Ben và Chloe chiếm ghế $3$ và $4$ (cạnh nhau, tốt). Anna không được cạnh Ben, mà ghế $3$ cạnh ghế $2$, nên Ben không ngồi ghế $3$. Vậy Ben ngồi ghế $4$, Chloe ngồi ghế $3$.
 \end{itemize}
 \begin{figC}
-\foreach \i/\n/\c in {1/Dũng/tmPurple,2/An/tmOrange,3/Chi/tmGreen,4/Bình/tmBlue}{
+\foreach \i/\n/\c in {1/David/tmPurple,2/Anna/tmOrange,3/Chloe/tmGreen,4/Ben/tmBlue}{
   \draw[\c,line width=1pt,fill=\c!12,rounded corners=3pt] (\i*1.6-0.65,0) rectangle (\i*1.6+0.65,0.7);
   \node[font=\bfseries] at (\i*1.6,0.35){\n};\node[font=\footnotesize] at (\i*1.6,-0.3){ghế \i};}
 \end{figC}
-\verify{Dũng ghế $1$ \checkmark; Bình (ghế $4$) cạnh Chi (ghế $3$) \checkmark; An (ghế $2$) cạnh Dũng và Chi, không cạnh Bình \checkmark; An không ở ghế $4$ \checkmark.}
-\ans{Bình ngồi ghế số $4$.}
+\verify{David ghế $1$ \checkmark; Ben (ghế $4$) cạnh Chloe (ghế $3$) \checkmark; Anna (ghế $2$) cạnh David và Chloe, không cạnh Ben \checkmark; Anna không ở ghế $4$ \checkmark.}
+\ans{Ben ngồi ghế số $4$.}
 \end{exbox}
 
 \begin{exbox}{Ví dụ 7}
@@ -546,7 +548,7 @@ Dùng que tính xếp một hàng các ô vuông nối liền nhau như hình d�
   \node[font=\footnotesize] at (\x+\n*0.35,-0.35){\n\ ô};}
 \end{figC}
 a) Một hàng gồm $20$ ô vuông cần bao nhiêu que?\\
-b) Bạn Lan lần lượt xếp riêng hàng $1$ ô, hàng $2$ ô, \ldots, hàng $10$ ô. Tổng cộng Lan dùng bao nhiêu que?
+b) Bạn Lucy lần lượt xếp riêng hàng $1$ ô, hàng $2$ ô, \ldots, hàng $10$ ô. Tổng cộng Lucy dùng bao nhiêu que?
 \guide
 \step{1}{Tìm quy luật}
 \begin{center}
@@ -622,11 +624,11 @@ Hàng trăm: $3$ cách chọn. Hàng chục: chỉ còn $2$ chữ số chưa dù
 
 % ---------------------------------------------------------------- Bài 3
 \begin{probbox}{3}{\relax}
-Một phong bì đựng $2$ hạt hướng dương, $3$ hạt đậu xanh và $4$ hạt bí ngô. Bạn Chi lấy ngẫu nhiên một hạt trong phong bì. Xác suất để Chi lấy được hạt hướng dương là bao nhiêu?
+Một phong bì đựng $2$ hạt hướng dương, $3$ hạt đậu xanh và $4$ hạt bí ngô. Bạn Carrie lấy ngẫu nhiên một hạt trong phong bì. Xác suất để Carrie lấy được hạt hướng dương là bao nhiêu?
 \choices{$\dfrac{2}{9}$}{$\dfrac{5}{9}$}{$\dfrac{9}{7}$}{$\dfrac{7}{9}$}{$\dfrac{1}{9}$}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Phong bì có ba loại hạt với số lượng khác nhau. Chi lấy ngẫu nhiên \emph{một hạt}: mỗi hạt có cơ hội được lấy như nhau, nên mỗi \emph{hạt} là một kết quả đồng khả năng.
+\textbf{Phân tích đề.} Phong bì có ba loại hạt với số lượng khác nhau. Carrie lấy ngẫu nhiên \emph{một hạt}: mỗi hạt có cơ hội được lấy như nhau, nên mỗi \emph{hạt} là một kết quả đồng khả năng.
 \step{1}{Đếm tất cả các kết quả có thể}
 Tổng số hạt: $2+3+4=9$ hạt, tức $9$ kết quả.
 \step{2}{Đếm các kết quả thuận lợi}
@@ -651,14 +653,7 @@ Một rạp chiếu phim có $11$ hàng ghế, được đánh số từ $1$ đ�
 Các hàng lẻ: $1;3;5;7;9;11$ -- có $6$ hàng.\\
 Các hàng chẵn: $2;4;6;8;10$ -- có $5$ hàng.\\
 Kiểm tra: $6+5=11$ hàng \checkmark.
-\begin{figC}
-\foreach \i in {1,...,11}{\pgfmathtruncatemacro\m{mod(\i,2)}%
-  \ifnum\m=1 \def\cc{tmBlue}\else\def\cc{tmOrange}\fi
-  \draw[\cc,line width=0.9pt,fill=\cc!15,rounded corners=2pt] (\i*0.75-0.33,0) rectangle (\i*0.75+0.33,0.55);
-  \node[font=\footnotesize\bfseries] at (\i*0.75,0.275){\i};}
-\node[font=\footnotesize,text=tmBlue!80!black,anchor=west] at (9,0.55){hàng lẻ: $15$ ghế};
-\node[font=\footnotesize,text=tmOrange!80!black,anchor=west] at (9,0.05){hàng chẵn: $16$ ghế};
-\end{figC}
+\begin{recallbox}Số số hạng của một dãy cách đều $=\dfrac{\text{số cuối}-\text{số đầu}}{\text{khoảng cách}}+1$. Dãy các số lẻ $1;3;\dots;11$ có khoảng cách $2$: $\dfrac{11-1}{2}+1=6$ số. Dãy các số chẵn $2;4;\dots;10$: $\dfrac{10-2}{2}+1=5$ số.\end{recallbox}
 \begin{warnbox}Đừng chia đôi $11$ hàng thành ``$5{,}5$ hàng lẻ và $5{,}5$ hàng chẵn''. Dãy bắt đầu \emph{và} kết thúc bằng số lẻ ($1$ và $11$), nên số lẻ nhiều hơn số chẵn đúng $1$.\end{warnbox}
 \step{2}{Tính số ghế ở các hàng lẻ}
 $6\times15=90$ ghế.
@@ -673,23 +668,18 @@ Tổng số ghế: $90+80=170$ ghế.
 
 % ---------------------------------------------------------------- Bài 5
 \begin{probbox}{5}{\relax}
-Trong buổi liên hoan của lớp, mỗi bạn lần lượt bốc ngẫu nhiên một món quà đã được gói kín trong một chiếc túi. Các món quà chỉ gồm sách và máy tính cầm tay; trong túi có tất cả $27$ món quà. Bạn Mai được bốc đầu tiên. Biết rằng xác suất để Mai bốc được sách là $\dfrac23$. Hỏi trong túi có bao nhiêu cuốn sách?
+Trong buổi liên hoan của lớp, mỗi bạn lần lượt bốc ngẫu nhiên một món quà đã được gói kín trong một chiếc túi. Các món quà chỉ gồm sách và máy tính cầm tay; trong túi có tất cả $27$ món quà. Bạn Meghan được bốc đầu tiên. Biết rằng xác suất để Meghan bốc được sách là $\dfrac23$. Hỏi trong túi có bao nhiêu cuốn sách?
 \choices{$15$}{$9$}{$21$}{$7$}{$18$}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Bài toán ``ngược'': biết \emph{xác suất} và \emph{tổng số} món quà, cần tìm \emph{số kết quả thuận lợi} (số sách). Vì Mai bốc đầu tiên nên trong túi còn đủ $27$ món.
+\textbf{Phân tích đề.} Bài toán ``ngược'': biết \emph{xác suất} và \emph{tổng số} món quà, cần tìm \emph{số kết quả thuận lợi} (số sách). Vì Meghan bốc đầu tiên nên trong túi còn đủ $27$ món.
 \begin{recallbox}Từ $P=\dfrac{\text{số kết quả thuận lợi}}{\text{số tất cả các kết quả}}$ suy ra: số kết quả thuận lợi $=P\times$ số tất cả các kết quả.\end{recallbox}
 \step{1}{Gọi số sách là ẩn}
 Gọi số sách là $s$. Xác suất bốc được sách là $\dfrac{s}{27}$. Theo đề bài: $\dfrac{s}{27}=\dfrac23$.
-\step{2}{Tìm $s$}
-$s=27\times\dfrac23=\dfrac{27\times2}{3}=\dfrac{54}{3}=18$.
-
-\emph{Cách nghĩ bằng sơ đồ:} $\dfrac23$ nghĩa là chia $27$ món quà thành $3$ phần bằng nhau, mỗi phần $27:3=9$ món; sách chiếm $2$ phần, tức $2\times 9=18$ cuốn.
-\begin{figC}
-\blk{0}{3}{0}{0.6}{tmBlue}{9 sách}\blk{3}{6}{0}{0.6}{tmBlue}{9 sách}\blk{6}{9}{0}{0.6}{tmOrange}{9 máy tính}
-\brcup{0}{9}{0.5}{$27$ món quà}
-\brcdn{0}{6}{-0.5}{$\frac23$ là sách: $18$ cuốn}
-\end{figC}
+\step{2}{Giải phương trình}
+Nhân cả hai vế của $\dfrac{s}{27}=\dfrac23$ với $27$:
+\[s=27\times\frac23=\frac{27\times2}{3}=\frac{54}{3}=18.\]
+\emph{Cách khác -- tính số máy tính trước:} gọi số máy tính là $c$, ta có $s+c=27$. Biến cố ``bốc được máy tính'' là biến cố đối của ``bốc được sách'', nên $\dfrac{c}{27}=1-\dfrac23=\dfrac13$, suy ra $c=27\times\dfrac13=9$ và $s=27-c=27-9=18$. Hai cách cho cùng kết quả.
 \verify{Có $18$ sách và $27-18=9$ máy tính. Xác suất bốc được sách: $\dfrac{18}{27}=\dfrac{18:9}{27:9}=\dfrac23$ \checkmark.}
 \begin{warnbox}Số $9$ ở phương án (B) là số \emph{máy tính}, không phải số sách -- đọc kỹ câu hỏi trước khi chọn.\end{warnbox}
 Đáp số $18$ là phương án \textbf{(E)}.
@@ -731,9 +721,9 @@ Có $5$ quả bóng vàng.
 \begin{recallbox}$P=\dfrac{\text{số kết quả thuận lợi}}{\text{số tất cả các kết quả}}$.\end{recallbox}
 $P(\text{vàng})=\dfrac{5}{11}$ (phân số này đã tối giản vì $5$ và $11$ không có ước chung nào khác $1$).
 \begin{figC}
-\foreach \i in {1,2}{\shade[ball color=AnsRed] (\i*0.6,0) circle (0.22);}
-\foreach \i in {3,...,7}{\shade[ball color=tmOrange] (\i*0.6+0.3,0) circle (0.22);\draw[tmOrange!70!black,line width=0.8pt] (\i*0.6+0.3,0) circle (0.27);}
-\foreach \i in {8,...,11}{\shade[ball color=tmBlue] (\i*0.6+0.6,0) circle (0.22);}
+\foreach \i in {1,2}{\rvcaBall{\i*0.6}{0}{AnsRed}}
+\foreach \i in {3,...,7}{\rvcaBall{\i*0.6+0.3}{0}{StarGold}\draw[StarGold!70!black,line width=0.8pt] (\i*0.6+0.3,0) circle (0.28);}
+\foreach \i in {8,...,11}{\rvcaBall{\i*0.6+0.6}{0}{tmBlue}}
 \node[font=\footnotesize] at (3.9,-0.55){$5$ trong $11$ quả là bóng vàng};
 \end{figC}
 \verify{$\dfrac{2}{11}+\dfrac{5}{11}+\dfrac{4}{11}=\dfrac{11}{11}=1$ \checkmark.}
@@ -783,47 +773,47 @@ $P(\text{số }5)=\dfrac16$.
 
 % ---------------------------------------------------------------- Bài 10
 \begin{probbox}{10}{\relax}
-Năm bạn An, Hà, Chi, Minh và Tùng ngồi trên một hàng gồm năm ghế. Biết rằng An \emph{không} ngồi cạnh Hà, còn Chi ngồi cạnh Minh. Bạn nào \emph{không thể} ngồi ở ghế chính giữa?
-\choices{An}{Hà}{Chi}{Minh}{Tùng}
+Năm bạn Andy, Jen, Sally, Mike và Tom ngồi trên một hàng gồm năm ghế. Biết rằng Andy \emph{không} ngồi cạnh Jen, còn Sally ngồi cạnh Mike. Bạn nào \emph{không thể} ngồi ở ghế chính giữa?
+\choices{Andy}{Jen}{Sally}{Mike}{Tom}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Năm ghế xếp thành hàng, đánh số $1;2;3;4;5$ từ trái sang phải; ghế giữa là ghế $3$. Hai điều kiện: (i) An và Hà \emph{không} ngồi cạnh nhau; (ii) Chi và Minh ngồi cạnh nhau. Ta phải tìm bạn \emph{không bao giờ} có thể ngồi ghế $3$.
+\textbf{Phân tích đề.} Năm ghế xếp thành hàng, đánh số $1;2;3;4;5$ từ trái sang phải; ghế giữa là ghế $3$. Hai điều kiện: (i) Andy và Jen \emph{không} ngồi cạnh nhau; (ii) Sally và Mike ngồi cạnh nhau. Ta phải tìm bạn \emph{không bao giờ} có thể ngồi ghế $3$.
 \begin{recallbox}Muốn chứng tỏ một bạn \emph{có thể} ngồi ghế giữa: chỉ cần chỉ ra \emph{một} cách xếp đúng mọi điều kiện. Muốn chứng tỏ một bạn \emph{không thể}: giả sử bạn đó ngồi ghế giữa rồi chỉ ra mọi cách xếp đều vi phạm điều kiện (phản chứng).\end{recallbox}
-\step{1}{Bốn bạn An, Hà, Chi, Minh đều có thể ngồi giữa}
+\step{1}{Bốn bạn Andy, Jen, Sally, Mike đều có thể ngồi giữa}
 Ta đưa ra một cách xếp cho mỗi bạn (ghế $1\to5$):
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|l|}\hline
 Ai ngồi giữa & ghế 1 & ghế 2 & \textbf{ghế 3} & ghế 4 & ghế 5 & kiểm tra\\ \hline
-An & Chi & Minh & \textbf{An} & Tùng & Hà & An (3), Hà (5) không cạnh nhau\\ \hline
-Hà & Chi & Minh & \textbf{Hà} & Tùng & An & Hà (3), An (5) không cạnh nhau\\ \hline
-Chi & An & Minh & \textbf{Chi} & Tùng & Hà & Chi (3) cạnh Minh (2)\\ \hline
-Minh & An & Chi & \textbf{Minh} & Tùng & Hà & Minh (3) cạnh Chi (2)\\ \hline
+Andy & Sally & Mike & \textbf{Andy} & Tom & Jen & Andy (3), Jen (5) không cạnh nhau\\ \hline
+Jen & Sally & Mike & \textbf{Jen} & Tom & Andy & Jen (3), Andy (5) không cạnh nhau\\ \hline
+Sally & Andy & Mike & \textbf{Sally} & Tom & Jen & Sally (3) cạnh Mike (2)\\ \hline
+Mike & Andy & Sally & \textbf{Mike} & Tom & Jen & Mike (3) cạnh Sally (2)\\ \hline
 \end{tabular}
 \end{center}
-Trong cả bốn cách, Chi và Minh luôn cạnh nhau, An và Hà luôn bị tách xa (An ở ghế $1$ hoặc $3$, Hà ở ghế $5$, hoặc ngược lại). Vậy loại các phương án (A), (B), (C), (D).
-\step{2}{Chứng tỏ Tùng không thể ngồi giữa}
-Giả sử Tùng ngồi ghế $3$. Bốn ghế còn lại tách thành hai cặp ghế liền nhau: cặp trái (ghế $1$--$2$) và cặp phải (ghế $4$--$5$). Chú ý ghế $2$ và ghế $4$ \emph{không} cạnh nhau (bị Tùng ngăn cách).
+Trong cả bốn cách, Sally và Mike luôn cạnh nhau, Andy và Jen luôn bị tách xa (Andy ở ghế $1$ hoặc $3$, Jen ở ghế $5$, hoặc ngược lại). Vậy loại các phương án (A), (B), (C), (D).
+\step{2}{Chứng tỏ Tom không thể ngồi giữa}
+Giả sử Tom ngồi ghế $3$. Bốn ghế còn lại tách thành hai cặp ghế liền nhau: cặp trái (ghế $1$--$2$) và cặp phải (ghế $4$--$5$). Chú ý ghế $2$ và ghế $4$ \emph{không} cạnh nhau (bị Tom ngăn cách).
 \begin{figC}
-\foreach \i/\n/\c in {1/?/tmBlue,2/?/tmBlue,3/Tùng/tmOrange,4/?/tmGreen,5/?/tmGreen}{
+\foreach \i/\n/\c in {1/?/tmBlue,2/?/tmBlue,3/Tom/tmOrange,4/?/tmGreen,5/?/tmGreen}{
   \draw[\c,line width=1pt,fill=\c!12,rounded corners=3pt] (\i*1.5-0.6,0) rectangle (\i*1.5+0.6,0.65);
   \node[font=\bfseries] at (\i*1.5,0.33){\n};\node[font=\footnotesize] at (\i*1.5,-0.28){ghế \i};}
 \draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (0.9,-0.5)--(3.6,-0.5) node[midway,below=5pt,font=\footnotesize]{cặp trái};
 \draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (5.4,-0.5)--(8.1,-0.5) node[midway,below=5pt,font=\footnotesize]{cặp phải};
 \end{figC}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
-\item Chi và Minh phải ngồi cạnh nhau, mà hai ghế cạnh nhau (không tính ghế của Tùng) chỉ có thể là ghế $1$--$2$ hoặc ghế $4$--$5$. Vậy Chi và Minh chiếm trọn một cặp.
-\item Khi đó An và Hà buộc phải ngồi ở cặp còn lại -- tức là \emph{cạnh nhau}. Điều này trái với điều kiện ``An không ngồi cạnh Hà''.
+\item Sally và Mike phải ngồi cạnh nhau, mà hai ghế cạnh nhau (không tính ghế của Tom) chỉ có thể là ghế $1$--$2$ hoặc ghế $4$--$5$. Vậy Sally và Mike chiếm trọn một cặp.
+\item Khi đó Andy và Jen buộc phải ngồi ở cặp còn lại -- tức là \emph{cạnh nhau}. Điều này trái với điều kiện ``Andy không ngồi cạnh Jen''.
 \end{itemize}
-Vậy giả sử là sai: Tùng không thể ngồi ghế giữa.
+Vậy giả sử là sai: Tom không thể ngồi ghế giữa.
 \begin{warnbox}Đừng chọn đáp án chỉ vì ``thử vài cách thấy không được''. Với câu ``không thể'', phải lập luận rằng \emph{mọi} cách đều không được, như Bước 2.\end{warnbox}
-\verify{Có thể kiểm tra bằng cách liệt kê toàn bộ $5\times4\times3\times2\times1=120$ cách xếp: không có cách hợp lệ nào đặt Tùng ở ghế giữa, còn mỗi bạn khác đều có cách hợp lệ.}
+\verify{Có thể kiểm tra bằng cách liệt kê toàn bộ $5\times4\times3\times2\times1=120$ cách xếp: không có cách hợp lệ nào đặt Tom ở ghế giữa, còn mỗi bạn khác đều có cách hợp lệ.}
 Đáp án là \textbf{(E)}.
-\ans{(E) Tùng}
+\ans{(E) Tom}
 }
 
 % ---------------------------------------------------------------- Bài 11
 \begin{probbox}{11}{\relax}
-Một hộp kẹo dẻo có $15$ viên màu đỏ, $20$ viên màu xanh dương và $16$ viên màu xanh lá. Bạn Khoa lấy một viên màu xanh lá và ăn luôn. Sau đó Khoa lấy tiếp một viên màu xanh dương và cũng ăn luôn. Nếu mỗi viên kẹo còn lại trong hộp có khả năng được chọn như nhau, thì xác suất để viên kẹo tiếp theo Khoa lấy là màu đỏ bằng bao nhiêu?
+Một hộp kẹo dẻo có $15$ viên màu đỏ, $20$ viên màu xanh dương và $16$ viên màu xanh lá. Bạn Jack lấy một viên màu xanh lá và ăn luôn. Sau đó Jack lấy tiếp một viên màu xanh dương và cũng ăn luôn. Nếu mỗi viên kẹo còn lại trong hộp có khả năng được chọn như nhau, thì xác suất để viên kẹo tiếp theo Jack lấy là màu đỏ bằng bao nhiêu?
 \choices{$\dfrac{15}{31}$}{$\dfrac{34}{49}$}{$\dfrac{15}{49}$}{$\dfrac{2}{7}$}{$\dfrac{1}{15}$}
 \end{probbox}
 \probsol{
@@ -831,7 +821,7 @@ Một hộp kẹo dẻo có $15$ viên màu đỏ, $20$ viên màu xanh dương 
 \begin{recallbox}Khi đồ vật bị lấy ra và không trả lại, phải cập nhật cả \emph{số kết quả thuận lợi} (tử số) lẫn \emph{tổng số kết quả} (mẫu số) trước khi tính xác suất lần tiếp theo.\end{recallbox}
 \step{1}{Số kẹo lúc đầu}
 $15+20+16=51$ viên.
-\step{2}{Số kẹo sau khi Khoa ăn $2$ viên}
+\step{2}{Số kẹo sau khi Jack ăn $2$ viên}
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|}\hline
  & đỏ & xanh dương & xanh lá & tổng\\ \hline
@@ -840,7 +830,7 @@ Sau khi ăn $1$ xanh lá & $15$ & $20$ & $15$ & $50$\\ \hline
 Sau khi ăn $1$ xanh dương & $15$ & $19$ & $15$ & $49$\\ \hline
 \end{tabular}
 \end{center}
-Số kẹo đỏ không đổi ($15$ viên) vì Khoa chưa ăn viên đỏ nào; tổng số kẹo giảm còn $49$.
+Số kẹo đỏ không đổi ($15$ viên) vì Jack chưa ăn viên đỏ nào; tổng số kẹo giảm còn $49$.
 \step{3}{Tính xác suất}
 $P(\text{đỏ})=\dfrac{15}{49}$.
 \begin{warnbox}Hai cách sai thường gặp: (1) quên trừ kẹo đã ăn, được $\dfrac{15}{51}$ (không có trong các phương án -- dấu hiệu để tự kiểm tra lại!); (2) chỉ so sánh kẹo đỏ với kẹo xanh lá còn lại, được $\dfrac{15}{31}$ (phương án A). Mẫu số phải là \emph{tất cả} kẹo còn trong hộp.\end{warnbox}
@@ -851,30 +841,32 @@ $P(\text{đỏ})=\dfrac{15}{49}$.
 
 % ---------------------------------------------------------------- Bài 12
 \begin{probbox}{12}{\relax}
-Bạn Nam đếm số cừu trong một đàn khi chúng đi qua đường. Đàn cừu bắt đầu qua đường lúc $14\,h\,00$, đều đặn mỗi phút có $3$ con đi qua. Đếm được $42$ con thì Nam ngủ quên. Nam ngủ đúng một tiếng rưỡi rồi tỉnh dậy, và đúng lúc đó, số cừu đã qua đường kể từ $14\,h\,00$ vừa bằng một nửa cả đàn. Hỏi cả đàn có bao nhiêu con cừu?
+Bạn Nicholas đếm số cừu trong một đàn khi chúng đi qua đường. Đàn cừu bắt đầu qua đường lúc $14\,h\,00$, đều đặn mỗi phút có $3$ con đi qua. Đếm được $42$ con thì Nicholas ngủ quên. Nicholas ngủ đúng một tiếng rưỡi rồi tỉnh dậy, và đúng lúc đó, số cừu đã qua đường kể từ $14\,h\,00$ vừa bằng một nửa cả đàn. Hỏi cả đàn có bao nhiêu con cừu?
 \choices{$630$}{$621$}{$582$}{$624$}{$618$}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Cừu đi qua \emph{đều}, $3$ con mỗi phút. Thời gian từ $14\,h\,00$ đến lúc Nam tỉnh dậy gồm hai đoạn: thời gian Nam đếm $42$ con, và thời gian Nam ngủ ($1$ giờ $30$ phút). Số cừu đi qua trong cả khoảng đó bằng \emph{nửa đàn}.
+\textbf{Phân tích đề.} Cừu đi qua \emph{đều}, mỗi phút $3$ con. Khoảng thời gian từ $14\,h\,00$ đến lúc Nicholas tỉnh dậy gồm hai đoạn: thời gian Nicholas đếm $42$ con và thời gian Nicholas ngủ ($1$ giờ $30$ phút). Số cừu đi qua trong cả khoảng thời gian đó bằng \emph{một nửa đàn}. Ta gọi số cừu cả đàn là ẩn rồi lập phương trình.
 \begin{recallbox}Đại lượng thay đổi đều: lượng $=$ tốc độ $\times$ thời gian, nên thời gian $=$ lượng $:$ tốc độ.\end{recallbox}
-\step{1}{Thời gian Nam đếm $42$ con}
-$42:3=14$ phút. Vậy Nam ngủ quên lúc $14\,h\,14$.
-\step{2}{Thời gian Nam ngủ}
-Một tiếng rưỡi $=60+30=90$ phút. Nam tỉnh dậy lúc $14\,h\,14+90$ phút $=15\,h\,44$.
-\step{3}{Tổng thời gian từ $14\,h\,00$ đến lúc tỉnh}
-$14+90=104$ phút.
+\step{1}{Gọi ẩn}
+Gọi số cừu cả đàn là $x$ (con; $x$ là số tự nhiên). Lúc Nicholas tỉnh dậy, số cừu đã qua đường kể từ $14\,h\,00$ là $\dfrac{x}{2}$ con.
+\step{2}{Tính thời gian Nicholas đếm $42$ con}
+$42:3=14$ phút. Vậy Nicholas ngủ quên lúc $14\,h\,14$.
+\step{3}{Tính tổng thời gian từ $14\,h\,00$ đến lúc tỉnh dậy}
+Một tiếng rưỡi $=60+30=90$ phút. Tổng thời gian: $14+90=104$ phút, nên Nicholas tỉnh dậy lúc $14\,h\,00+104$ phút $=15\,h\,44$.
 \begin{figC}
-\draw[->,line width=1pt,Ink] (0,0)--(10.8,0);
-\fill[tmBlue!25] (0,-0.15) rectangle (1.4,0.15);\fill[tmOrange!30] (1.4,-0.15) rectangle (10.4,0.15);
-\foreach \x/\t in {0/14\,h\,00,1.4/14\,h\,14,10.4/15\,h\,44}{\draw[Ink,line width=1pt] (\x,0.2)--(\x,-0.2);\node[below=3pt,font=\footnotesize] at (\x,-0.2){$\t$};}
-\node[above,font=\footnotesize,text=tmBlue!80!black] at (0.7,0.2){đếm: $14$ phút};
-\node[above,font=\footnotesize,text=tmOrange!80!black] at (5.9,0.2){ngủ: $90$ phút};
+\draw[->,line width=1pt,Ink] (-0.4,0)--(12.2,0) node[right,font=\footnotesize]{phút};
+\foreach \x/\m/\t in {0/0/14\,h\,00,1.54/14/14\,h\,14,11.44/104/15\,h\,44}{
+  \draw[Ink,line width=1pt] (\x,0.12)--(\x,-0.12);
+  \node[below=1pt,font=\footnotesize,align=center] at (\x,-0.12){$\m$\\ $\t$};}
+\draw[decorate,decoration={brace,amplitude=4pt},tmBlue!80!black,line width=0.8pt] (0,0.22)--(1.54,0.22) node[midway,above=4pt,font=\footnotesize]{đếm: $14$ phút};
+\draw[decorate,decoration={brace,amplitude=5pt},tmOrange!80!black,line width=0.8pt] (1.54,0.22)--(11.44,0.22) node[midway,above=5pt,font=\footnotesize]{ngủ: $90$ phút};
 \end{figC}
-\step{4}{Số cừu đã qua đường trong $104$ phút}
-$3\times104=312$ con. (Hoặc: $42$ con lúc đếm $+\ 3\times90=270$ con lúc ngủ $=312$ con.)
-\step{5}{Số cừu cả đàn}
-$312$ con là một nửa đàn, nên cả đàn có $312\times2=624$ con.
-\begin{warnbox}Đừng quên $42$ con đã đi qua \emph{trước} khi Nam ngủ. Nếu chỉ tính $270$ con lúc ngủ rồi nhân đôi sẽ được $540$ -- không khớp đề bài, vì đề nói số cừu qua đường ``kể từ $14\,h\,00$'' mới là nửa đàn.\end{warnbox}
+\step{4}{Lập phương trình}
+Trong $104$ phút, số cừu qua đường là $3\times104=312$ con. (Hoặc: $42$ con lúc đếm $+\ 3\times90=270$ con lúc ngủ $=312$ con.) Số cừu này bằng nửa đàn, nên ta có phương trình
+\[\frac{x}{2}=312.\]
+\step{5}{Giải phương trình}
+Nhân cả hai vế với $2$: $x=312\times2=624$.
+\begin{warnbox}Đừng quên $42$ con đã đi qua \emph{trước} khi Nicholas ngủ. Nếu chỉ tính $270$ con lúc ngủ rồi nhân đôi sẽ được $540$ -- không khớp đề bài, vì đề nói số cừu qua đường ``kể từ $14\,h\,00$'' mới là nửa đàn.\end{warnbox}
 \verify{Nửa đàn $=624:2=312$ con, cần $312:3=104$ phút, tức là từ $14\,h\,00$ đến $15\,h\,44$; trừ $14$ phút đếm còn đúng $90$ phút ngủ \checkmark.}
 Đáp án là \textbf{(D)}.
 \ans{(D) $624$}

@@ -1,83 +1,81 @@
 % =====================================================================
 % Chủ đề 5 — Tư duy logic và Câu đố — phần b: bài 14–30 (bài mới, mức cơ bản)
 % =====================================================================
-% quả bưởi (Bài 22) và quả cân có ghi khối lượng
-\providecommand{\lgaPomelo}{\tikz[baseline=0pt]{\draw[fill=StarGold!70!tmGreen,draw=tmGreen!45!black,line width=0.5pt] (0.26,0.26) circle (0.26);
-  \draw[tmGreen!50!black,line width=0.8pt] (0.26,0.5)--(0.3,0.6);}}
+% quả cân có ghi khối lượng (Bài 22)
 \providecommand{\lgaWeight}[1]{\tikz[baseline=(lgaw.south)]{\node[trapezium,trapezium angle=72,draw=Slate,fill=Slate!25,line width=0.6pt,
   rounded corners=1.5pt,inner xsep=1pt,inner ysep=2.5pt,font=\scriptsize\bfseries] (lgaw) {#1};}}
 
 % ---------------------------------------------------------------- Bài 14
 \begin{probbox}{14}{\relax}
-Trên một hòn đảo, mỗi người hoặc luôn nói thật, hoặc luôn nói dối. Em gặp hai người là Ánh và Bảo. Ánh nói:
+Trên một hòn đảo, mỗi người hoặc luôn nói thật, hoặc luôn nói dối. Em gặp hai người là Alice và Ben. Alice nói:
 ``Cả hai chúng tôi đều là người nói dối.'' Khẳng định nào sau đây đúng?
-\choicesL{Cả hai đều nói thật.}{Cả hai đều nói dối.}{Ánh nói thật, Bảo nói dối.}{Ánh nói dối, Bảo nói thật.}{Không xác định được.}
+\choicesL{Cả hai đều nói thật.}{Cả hai đều nói dối.}{Alice nói thật, Ben nói dối.}{Alice nói dối, Ben nói thật.}{Không xác định được.}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Chỉ có một câu nói, của Ánh. Ta xét hai trường hợp: Ánh nói thật hoặc Ánh nói dối, rồi xem trường hợp nào
+\textbf{Phân tích đề.} Chỉ có một câu nói, của Alice. Ta xét hai trường hợp: Alice nói thật hoặc Alice nói dối, rồi xem trường hợp nào
 không mâu thuẫn.
 \begin{recallbox}Người nói thật chỉ nói câu đúng; người nói dối chỉ nói câu sai. Phủ định của ``cả hai đều nói dối'' là
 ``ít nhất một người nói thật''.\end{recallbox}
-\step{1}{Trường hợp Ánh nói thật}
-Khi đó câu của Ánh đúng: cả hai đều nói dối -- tức là Ánh cũng nói dối. Nhưng ta đang giả sử Ánh nói thật. \textbf{Mâu thuẫn}, loại.
-\step{2}{Trường hợp Ánh nói dối}
-Khi đó câu của Ánh sai: \emph{không phải} cả hai đều nói dối, tức là có ít nhất một người nói thật. Ánh nói dối, nên người nói thật
-phải là \textbf{Bảo}. Không có mâu thuẫn.
+\step{1}{Trường hợp Alice nói thật}
+Khi đó câu của Alice đúng: cả hai đều nói dối -- tức là Alice cũng nói dối. Nhưng ta đang giả sử Alice nói thật. \textbf{Mâu thuẫn}, loại.
+\step{2}{Trường hợp Alice nói dối}
+Khi đó câu của Alice sai: \emph{không phải} cả hai đều nói dối, tức là có ít nhất một người nói thật. Alice nói dối, nên người nói thật
+phải là \textbf{Ben}. Không có mâu thuẫn.
 \step{3}{Kết luận}
-Ánh nói dối, Bảo nói thật.
+Alice nói dối, Ben nói thật.
 \begin{proofbox}Đây là một dạng của câu ``Tôi là người nói dối'': một người nói thật không bao giờ tự nhận mình nói dối. Vì vậy ngay khi
-nghe Ánh nói ``chúng tôi đều nói dối'' (có cả Ánh trong đó), ta biết Ánh phải là người nói dối.\end{proofbox}
-\begin{warnbox}Nhiều bạn chọn (B) vì nghĩ ``Ánh nói dối nên điều ngược lại là cả hai đều nói thật''. Sai! Điều ngược lại của ``cả hai đều
+nghe Alice nói ``chúng tôi đều nói dối'' (có cả Alice trong đó), ta biết Alice phải là người nói dối.\end{proofbox}
+\begin{warnbox}Nhiều bạn chọn (B) vì nghĩ ``Alice nói dối nên điều ngược lại là cả hai đều nói thật''. Sai! Điều ngược lại của ``cả hai đều
 nói dối'' chỉ là ``ít nhất một người nói thật''.\end{warnbox}
-\verify{Ánh dối, Bảo thật: câu ``cả hai đều nói dối'' sai (vì Bảo nói thật) -- đúng là một câu nói dối, phù hợp với Ánh.}
+\verify{Alice dối, Ben thật: câu ``cả hai đều nói dối'' sai (vì Ben nói thật) -- đúng là một câu nói dối, phù hợp với Alice.}
 Vậy chọn \textbf{(D)}.
-\ans{(D) Ánh nói dối, Bảo nói thật}
+\ans{(D) Alice nói dối, Ben nói thật}
 }
 
 % ---------------------------------------------------------------- Bài 15
 \begin{probbox}{15}{\relax}
-Một chiếc bình hoa bị vỡ. Có đúng một trong bốn bạn Dũng, Hà, Long, Mai đã làm vỡ bình. Khi được hỏi, các bạn trả lời:
+Một chiếc bình hoa bị vỡ. Có đúng một trong bốn bạn David, Helen, Leo, Mia đã làm vỡ bình. Khi được hỏi, các bạn trả lời:
 \begin{itemize}[leftmargin=1.6em,itemsep=0pt,topsep=2pt]
-\item Dũng: ``Hà làm vỡ.'' \qquad Hà: ``Long làm vỡ.''
-\item Long: ``Hà nói dối.'' \qquad Mai: ``Không phải tôi làm vỡ.''
+\item David: ``Helen làm vỡ.'' \qquad Helen: ``Leo làm vỡ.''
+\item Leo: ``Helen nói dối.'' \qquad Mia: ``Không phải tôi làm vỡ.''
 \end{itemize}
 Biết rằng chỉ có \textbf{đúng một} bạn nói thật. Ai đã làm vỡ bình hoa?
-\choices{Dũng}{Hà}{Long}{Mai}{Không biết được}
+\choices{David}{Helen}{Leo}{Mia}{Không biết được}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Bốn câu nói, đúng một câu đúng, ba câu sai. Cần tìm người làm vỡ bình.
 \begin{recallbox}Hai câu mâu thuẫn (không thể cùng đúng, không thể cùng sai) thì đúng một trong hai câu đúng.\end{recallbox}
 \step{1}{Tìm cặp câu mâu thuẫn}
-Long nói ``Hà nói dối''. Nếu câu của Hà đúng thì câu của Long sai; nếu câu của Hà sai thì câu của Long đúng. Vậy trong hai câu của
-Hà và Long có \textbf{đúng một} câu đúng.
-\step{2}{Suy ra Dũng và Mai đều nói dối}
-Cả nhóm chỉ có một câu đúng, và câu đúng đó nằm trong cặp Hà -- Long. Do đó câu của Dũng và câu của Mai đều \textbf{sai}.
-\step{3}{Dùng câu sai của Mai}
-Mai nói ``Không phải tôi làm vỡ'' là câu sai, nên \textbf{Mai đã làm vỡ bình}.
+Leo nói ``Helen nói dối''. Nếu câu của Helen đúng thì câu của Leo sai; nếu câu của Helen sai thì câu của Leo đúng. Vậy trong hai câu của
+Helen và Leo có \textbf{đúng một} câu đúng.
+\step{2}{Suy ra David và Mia đều nói dối}
+Cả nhóm chỉ có một câu đúng, và câu đúng đó nằm trong cặp Helen -- Leo. Do đó câu của David và câu của Mia đều \textbf{sai}.
+\step{3}{Dùng câu sai của Mia}
+Mia nói ``Không phải tôi làm vỡ'' là câu sai, nên \textbf{Mia đã làm vỡ bình}.
 \step{4}{Thử lại toàn bộ}
 \begin{center}
 \begin{tabular}{|l|l|c|}
 \hline
-\rowcolor{tmBlue!10} Bạn & Câu nói & Đúng / sai (khi Mai làm vỡ) \\ \hline
-Dũng & ``Hà làm vỡ'' & sai \\ \hline
-Hà & ``Long làm vỡ'' & sai \\ \hline
-Long & ``Hà nói dối'' & \textbf{đúng} (Hà đúng là nói sai) \\ \hline
-Mai & ``Không phải tôi'' & sai \\ \hline
+\rowcolor{tmBlue!10} Bạn & Câu nói & Đúng / sai (khi Mia làm vỡ) \\ \hline
+David & ``Helen làm vỡ'' & sai \\ \hline
+Helen & ``Leo làm vỡ'' & sai \\ \hline
+Leo & ``Helen nói dối'' & \textbf{đúng} (Helen đúng là nói sai) \\ \hline
+Mia & ``Không phải tôi'' & sai \\ \hline
 \end{tabular}
 \end{center}
-Đúng một câu đúng (của Long). Khớp với đề.
-\begin{warnbox}Đừng thử ngẫu nhiên từng người rồi dừng lại khi thấy ``có vẻ ổn''. Cách chắc chắn là thử đủ $4$ khả năng: nếu Dũng làm vỡ
-thì câu của Long và Mai đều đúng ($2$ câu đúng); nếu Hà làm vỡ thì câu của Dũng và Mai đúng; nếu Long làm vỡ thì câu của Hà và Mai đúng.
-Chỉ ``Mai làm vỡ'' cho đúng một câu đúng.\end{warnbox}
+Đúng một câu đúng (của Leo). Khớp với đề.
+\begin{warnbox}Đừng thử ngẫu nhiên từng người rồi dừng lại khi thấy ``có vẻ ổn''. Cách chắc chắn là thử đủ $4$ khả năng: nếu David làm vỡ
+thì câu của Leo và Mia đều đúng ($2$ câu đúng); nếu Helen làm vỡ thì cả ba câu của David, Leo và Mia đều đúng; nếu Leo làm vỡ thì câu của Helen và Mia đúng.
+Chỉ ``Mia làm vỡ'' cho đúng một câu đúng.\end{warnbox}
 Vậy chọn \textbf{(D)}.
-\ans{(D) Mai}
+\ans{(D) Mia}
 }
 
 % ---------------------------------------------------------------- Bài 16
 \begin{probbox}{16}{\relax}
-Bạn Khánh mã hoá một lời chào bằng mật mã Caesar với bước dịch $5$ (mỗi chữ cái được thay bằng chữ cái đứng sau nó $5$ vị trí trên
-vòng chữ cái A--Z, sau Z lại đến A). Khánh nhận được: \textbf{CNS HMFT}. Lời chào ban đầu là
-\choicesII{XIN CHAO}{HSX MRKY}{YJO DIBP}{XIN CHAP}{WHM BGZN}
+Bạn Kate mã hoá một lời chúc bằng tiếng Anh bằng mật mã Caesar với bước dịch $5$ (mỗi chữ cái được thay bằng chữ cái đứng sau nó
+$5$ vị trí trên vòng chữ cái A--Z, sau Z lại đến A). Kate nhận được: \textbf{MFAJ KZS}. Lời chúc ban đầu là
+\choicesII{HAVE FUN}{RKFO PEX}{IBWF GVO}{HAVE FUM}{GZUD ETM}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Ta có bản mã và biết bước dịch $5$. Muốn tìm bản gốc, ta phải \emph{giải mã}: dịch \emph{ngược} $5$ vị trí.
@@ -87,26 +85,26 @@ vòng chữ cái A--Z, sau Z lại đến A). Khánh nhận được: \textbf{CN
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Chữ mã & C & N & S & H & M & F & T \\ \hline
-Số & $2$ & $13$ & $18$ & $7$ & $12$ & $5$ & $19$ \\ \hline
-Trừ $5$ & $-3 \to 23$ & $8$ & $13$ & $2$ & $7$ & $0$ & $14$ \\ \hline
-Chữ gốc & \textbf{X} & \textbf{I} & \textbf{N} & \textbf{C} & \textbf{H} & \textbf{A} & \textbf{O} \\ \hline
+\rowcolor{tmBlue!10} Chữ mã & M & F & A & J & K & Z & S \\ \hline
+Số & $12$ & $5$ & $0$ & $9$ & $10$ & $25$ & $18$ \\ \hline
+Trừ $5$ & $7$ & $0$ & $-5 \to 21$ & $4$ & $5$ & $20$ & $13$ \\ \hline
+Chữ gốc & \textbf{H} & \textbf{A} & \textbf{V} & \textbf{E} & \textbf{F} & \textbf{U} & \textbf{N} \\ \hline
 \end{tabular}
 \end{center}
-Chữ C phải ``quay vòng'': C $\to$ B $\to$ A $\to$ Z $\to$ Y $\to$ X (lùi $5$ bước), đúng bằng $-3 + 26 = 23 =$ X.
+Chữ A phải ``quay vòng'': A $\to$ Z $\to$ Y $\to$ X $\to$ W $\to$ V (lùi $5$ bước), đúng bằng $-5 + 26 = 21 =$ V.
 \step{2}{Đọc kết quả}
-Lời chào là XIN CHAO (``xin chào'').
-\begin{warnbox}(B) HSX MRKY là kết quả khi dịch \emph{xuôi} thêm $5$ bước -- tức là mã hoá thêm một lần, chứ không phải giải mã. (C) và (E)
-là dịch ngược $4$ và $6$ bước (đếm sai). (D) sai ở chữ cuối: T lùi $5$ bước là O, không phải P.\end{warnbox}
-\verify{Mã hoá XIN CHAO với bước $5$: X$(23) + 5 = 28 - 26 = 2 =$ C, I $\to$ N, N $\to$ S, C $\to$ H, H $\to$ M, A $\to$ F, O $\to$ T.
-Được CNS HMFT.}
+Lời chúc là HAVE FUN (tiếng Anh: ``chúc vui vẻ'').
+\begin{warnbox}(B) RKFO PEX là kết quả khi dịch \emph{xuôi} thêm $5$ bước -- tức là mã hoá thêm một lần, chứ không phải giải mã. (C) và (E)
+là dịch ngược $4$ bước và $6$ bước (đếm sai). (D) sai ở chữ cuối: S lùi $5$ bước là N, không phải M.\end{warnbox}
+\verify{Mã hoá HAVE FUN với bước $5$: H $\to$ M, A $\to$ F, V$(21) + 5 = 26 - 26 = 0 =$ A, E $\to$ J, F $\to$ K, U $\to$ Z, N $\to$ S.
+Được MFAJ KZS.}
 Vậy chọn \textbf{(A)}.
-\ans{(A) XIN CHAO}
+\ans{(A) HAVE FUN}
 }
 
 % ---------------------------------------------------------------- Bài 17
 \begin{probbox}{17}{\relax}
-Bạn Ngân mã hoá chữ M bằng mật mã Caesar ba lần liên tiếp: lần thứ nhất với bước dịch $9$, lần thứ hai với bước dịch $11$ (dịch tiếp
+Bạn Nora mã hoá chữ M bằng mật mã Caesar ba lần liên tiếp: lần thứ nhất với bước dịch $9$, lần thứ hai với bước dịch $11$ (dịch tiếp
 từ kết quả lần một), lần thứ ba lại với bước dịch $9$. Sau ba lần, chữ M trở thành chữ nào?
 \choices{V}{G}{J}{P}{O}
 \end{probbox}
@@ -135,9 +133,9 @@ Vậy chọn \textbf{(D)}.
 
 % ---------------------------------------------------------------- Bài 18
 \begin{probbox}{18}{\relax}
-Năm bạn Nga, Oanh, Phương, Quỳnh, Sơn có chiều cao khác nhau. Nga cao hơn Oanh. Phương thấp hơn Quỳnh nhưng cao hơn Nga. Sơn thấp
-hơn Oanh. Khi xếp năm bạn theo chiều cao, bạn nào đứng \emph{chính giữa}?
-\choices{Nga}{Oanh}{Phương}{Quỳnh}{Sơn}
+Năm bạn Nina, Olivia, Peter, Quinn, Sam có chiều cao khác nhau. Nina cao hơn Olivia. Peter thấp hơn Quinn nhưng cao hơn Nina. Sam thấp
+hơn Olivia. Khi xếp năm bạn theo chiều cao, bạn nào đứng \emph{chính giữa}?
+\choices{Nina}{Olivia}{Peter}{Quinn}{Sam}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Có năm bạn; ``chính giữa'' là bạn cao thứ ba (có hai bạn cao hơn và hai bạn thấp hơn).
@@ -146,45 +144,44 @@ $N > O$; \quad $Q > P > N$; \quad $O > S$.
 \step{2}{Nối thành một dãy}
 $Q > P > N$ và $N > O > S$ cho: \quad $Q > P > N > O > S$.
 \begin{figC}
-  \foreach \i/\n/\h in {0/Quỳnh/2.2,1/Phương/1.9,2/Nga/1.6,3/Oanh/1.3,4/Sơn/1.0}{
-    \fill[tmBlue!25,draw=tmBlue,line width=0.7pt,rounded corners=2pt] (\i*1.3,0) rectangle (\i*1.3+0.8,\h);
-    \node[font=\scriptsize] at (\i*1.3+0.4,-0.25){\n};}
-  \draw[AnsRed,line width=1.2pt,rounded corners=3pt] (2*1.3-0.12,-0.5) rectangle (2*1.3+0.92,1.75);
-  \draw[Navy,line width=0.8pt] (-0.2,0)--(6.2,0);
+  \draw[->,Navy,line width=0.8pt] (0,-0.3)--(0,2.8) node[above,font=\scriptsize,text=Slate]{cao hơn};
+  \foreach \y/\n in {2.4/Quinn,1.8/Peter,1.2/Nina,0.6/Olivia,0/Sam}{
+    \fill[tmBlue] (0,\y) circle (2.2pt); \node[right,font=\small] at (0.15,\y){\n};}
+  \node[anchor=west,font=\small\bfseries,text=AnsRed] at (1.45,1.2){$\leftarrow$ đứng giữa (thứ $3$)};
 \end{figC}
 \step{3}{Đọc kết quả}
-Thứ tự từ cao đến thấp: Quỳnh, Phương, \textbf{Nga}, Oanh, Sơn. Bạn đứng giữa là Nga.
-\begin{warnbox}Câu ``Phương thấp hơn Quỳnh nhưng cao hơn Nga'' có \emph{hai} thông tin. Nhiều bạn chỉ ghi $Q > P$ mà quên $P > N$, khi đó
+Thứ tự từ cao đến thấp: Quinn, Peter, \textbf{Nina}, Olivia, Sam. Bạn đứng giữa là Nina.
+\begin{warnbox}Câu ``Peter thấp hơn Quinn nhưng cao hơn Nina'' có \emph{hai} thông tin. Nhiều bạn chỉ ghi $Q > P$ mà quên $P > N$, khi đó
 không xếp được dãy.\end{warnbox}
-\verify{Nga (thứ $3$) cao hơn Oanh (thứ $4$) \checkmark; Phương (thứ $2$) thấp hơn Quỳnh, cao hơn Nga \checkmark; Sơn (thứ $5$) thấp hơn Oanh \checkmark.}
+\verify{Nina (thứ $3$) cao hơn Olivia (thứ $4$) \checkmark; Peter (thứ $2$) thấp hơn Quinn, cao hơn Nina \checkmark; Sam (thứ $5$) thấp hơn Olivia \checkmark.}
 Vậy chọn \textbf{(A)}.
-\ans{(A) Nga}
+\ans{(A) Nina}
 }
 
 % ---------------------------------------------------------------- Bài 19
 \begin{probbox}{19}{\relax}
-Trong một hàng người xếp hàng mua vé, bạn Huy đứng thứ $7$ tính từ đầu hàng và đứng thứ $12$ tính từ cuối hàng. Hàng đó có bao nhiêu người?
+Trong một hàng người xếp hàng mua vé, bạn Henry đứng thứ $7$ tính từ đầu hàng và đứng thứ $12$ tính từ cuối hàng. Hàng đó có bao nhiêu người?
 \choices{$17$}{$18$}{$19$}{$20$}{$5$}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Biết vị trí của Huy khi đếm từ hai đầu. Cần tìm tổng số người trong hàng.
+\textbf{Phân tích đề.} Biết vị trí của Henry khi đếm từ hai đầu. Cần tìm tổng số người trong hàng.
 \step{1}{Vẽ sơ đồ}
 \begin{figC}
   \foreach \i in {1,...,18}{\fill[tmBlue!60] (\i*0.5,0) circle (0.15);}
   \fill[AnsRed] (3.5,0) circle (0.17);
-  \node[font=\scriptsize,text=AnsRed] at (3.5,0.4){Huy};
-  \draw[decorate,decoration={brace,amplitude=4pt,mirror},tmGreen!60!black,line width=0.8pt] (0.35,-0.3)--(3.65,-0.3) node[midway,below=4pt,font=\scriptsize]{$7$ người (tính cả Huy)};
-  \draw[decorate,decoration={brace,amplitude=4pt},tmOrange!80!black,line width=0.8pt] (3.35,0.75)--(9.15,0.75) node[midway,above=4pt,font=\scriptsize]{$12$ người (tính cả Huy)};
+  \node[font=\scriptsize,text=AnsRed] at (3.5,0.4){Henry};
+  \draw[decorate,decoration={brace,amplitude=4pt,mirror},tmGreen!60!black,line width=0.8pt] (0.35,-0.3)--(3.65,-0.3) node[midway,below=4pt,font=\scriptsize]{$7$ người (tính cả Henry)};
+  \draw[decorate,decoration={brace,amplitude=4pt},tmOrange!80!black,line width=0.8pt] (3.35,0.75)--(9.15,0.75) node[midway,above=4pt,font=\scriptsize]{$12$ người (tính cả Henry)};
   \node[font=\scriptsize,text=Slate] at (0.5,0.4){đầu}; \node[font=\scriptsize,text=Slate] at (9,0.4){cuối};
 \end{figC}
 \step{2}{Đếm}
-Đếm từ đầu đến Huy: $7$ người. Đếm từ Huy đến cuối: $12$ người. Cộng lại $7 + 12 = 19$, nhưng Huy được đếm \textbf{hai lần}.
+Đếm từ đầu đến Henry: $7$ người. Đếm từ Henry đến cuối: $12$ người. Cộng lại $7 + 12 = 19$, nhưng Henry được đếm \textbf{hai lần}.
 Vậy số người trong hàng là $19 - 1 = 18$.
 \begin{recallbox}Đứng thứ $k$ từ đầu và thứ $m$ từ cuối thì hàng có $k + m - 1$ người.\end{recallbox}
 \step{3}{Cách khác}
-Phía trước Huy có $7 - 1 = 6$ người, phía sau Huy có $12 - 1 = 11$ người. Cả hàng: $6 + 1 + 11 = 18$ người.
-\begin{warnbox}Phương án (C) $19 = 7 + 12$ là lỗi đếm Huy hai lần; phương án (E) $5 = 12 - 7$ là lấy hiệu -- không có ý nghĩa gì ở đây.\end{warnbox}
-\verify{Hàng $18$ người, Huy đứng thứ $7$ từ đầu thì tính từ cuối là thứ $18 - 7 + 1 = 12$. Đúng.}
+Phía trước Henry có $7 - 1 = 6$ người, phía sau Henry có $12 - 1 = 11$ người. Cả hàng: $6 + 1 + 11 = 18$ người.
+\begin{warnbox}Phương án (C) $19 = 7 + 12$ là lỗi đếm Henry hai lần; phương án (E) $5 = 12 - 7$ là lấy hiệu -- không có ý nghĩa gì ở đây.\end{warnbox}
+\verify{Hàng $18$ người, Henry đứng thứ $7$ từ đầu thì tính từ cuối là thứ $18 - 7 + 1 = 12$. Đúng.}
 Vậy chọn \textbf{(B)}.
 \ans{(B) $18$}
 }
@@ -254,27 +251,27 @@ Vậy chọn \textbf{(C)}.
 
 % ---------------------------------------------------------------- Bài 22
 \begin{probbox}{22}{\relax}
-Hai chiếc cân dưới đây đều thăng bằng. Các quả táo nặng bằng nhau.
+Hai chiếc cân dưới đây đều thăng bằng. Các hình tròn nặng bằng nhau.
 \begin{center}
-\lgaScale{\lgaApple\,\lgaApple\,\lgaApple}{\lgaPomelo}\hspace{1cm}\lgaScale{\lgaPomelo\,\lgaApple}{\lgaWeight{800 g}}
+\lgaScale{\lgaCir\,\lgaCir\,\lgaCir}{\lgaSq}\hspace{1cm}\lgaScale{\lgaSq\,\lgaCir}{\lgaWeight{800 g}}
 \end{center}
-Hỏi quả bưởi \lgaPomelo\ nặng bao nhiêu gam?
+Hỏi hình vuông \lgaSq\ nặng bao nhiêu gam?
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Gọi khối lượng một quả táo là $T$ (gam), quả bưởi là $B$ (gam). Cân 1: $3T = B$. Cân 2: $B + T = 800$.
-\begin{recallbox}Nếu nhóm vật $A$ cân bằng với nhóm $B$ thì ở cân khác có thể thay $A$ bằng $B$.\end{recallbox}
-\step{1}{Thay quả bưởi ở cân 2 bằng $3$ quả táo}
-Cân 1 cho biết quả bưởi nặng bằng $3$ quả táo. Ở cân 2, thay quả bưởi bằng $3$ quả táo: \ $3T + T = 800$, tức $4T = 800$.
-\begin{figC}
-  \node at (0,0){\lgaScale{\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple}{\lgaWeight{800 g}}};
-\end{figC}
-\step{2}{Tìm khối lượng một quả táo}
-$T = 800 : 4 = 200$ (g).
-\step{3}{Tìm khối lượng quả bưởi}
-$B = 3T = 3\times 200 = 600$ (g).
-\begin{warnbox}Đề hỏi khối lượng quả \emph{bưởi}, không phải quả táo. Tính ra $200$ g rồi dừng lại là trả lời nhầm câu hỏi.\end{warnbox}
-\verify{Cân 1: $3\times 200 = 600$ g $=$ quả bưởi \checkmark. Cân 2: $600 + 200 = 800$ g \checkmark.}
-\ans{Quả bưởi nặng $600$ g.}
+\textbf{Phân tích đề.} Có hai đại lượng chưa biết: khối lượng một hình tròn và khối lượng hình vuông. Hai chiếc cân cho hai đẳng thức.
+\begin{recallbox}Nếu nhóm vật $A$ cân bằng với nhóm vật $B$ thì ở chiếc cân khác có thể thay $A$ bằng $B$ (thay thế).\end{recallbox}
+\step{1}{Gọi ẩn}
+Gọi khối lượng một hình tròn là $x$ (gam), $x > 0$. Cân thứ nhất cho biết hình vuông nặng bằng ba hình tròn, nên hình vuông nặng $3x$ (gam).
+\step{2}{Lập phương trình từ cân thứ hai}
+Đĩa trái có hình vuông và một hình tròn: $3x + x$ (gam); đĩa phải là quả cân $800$ g. Ta có phương trình
+\[ 3x + x = 800, \qquad\text{tức là}\qquad 4x = 800. \]
+\step{3}{Giải phương trình}
+$x = 800 : 4 = 200$. Một hình tròn nặng $200$ g.
+\step{4}{Trả lời câu hỏi}
+Hình vuông nặng $3x = 3\cdot 200 = 600$ (g).
+\begin{warnbox}Đề hỏi khối lượng \emph{hình vuông}, không phải hình tròn. Tính ra $x = 200$ rồi dừng lại là trả lời nhầm câu hỏi.\end{warnbox}
+\verify{Cân 1: $3\cdot 200 = 600$ g, bằng hình vuông \checkmark. Cân 2: $600 + 200 = 800$ g \checkmark.}
+\ans{Hình vuông nặng $600$ g.}
 }
 
 % ---------------------------------------------------------------- Bài 23
@@ -450,9 +447,9 @@ Vậy chọn \textbf{(D)}.
 
 % ---------------------------------------------------------------- Bài 28
 \begin{probbox}{28}{\relax}
-Ở lớp 7A, \emph{tất cả} các bạn trong câu lạc bộ cờ vua đều biết bơi. Bạn Lâm không biết bơi. Bạn Na biết bơi. Khẳng định nào sau đây
+Ở lớp 7A, \emph{tất cả} các bạn trong câu lạc bộ cờ vua đều biết bơi. Bạn Leo không biết bơi. Bạn Nora biết bơi. Khẳng định nào sau đây
 \textbf{chắc chắn} đúng?
-\choicesL{Lâm ở trong câu lạc bộ cờ vua.}{Lâm không ở trong câu lạc bộ cờ vua.}{Na ở trong câu lạc bộ cờ vua.}{Na không ở trong câu lạc bộ cờ vua.}{Mọi bạn biết bơi trong lớp đều ở câu lạc bộ cờ vua.}
+\choicesL{Leo ở trong câu lạc bộ cờ vua.}{Leo không ở trong câu lạc bộ cờ vua.}{Nora ở trong câu lạc bộ cờ vua.}{Nora không ở trong câu lạc bộ cờ vua.}{Mọi bạn biết bơi trong lớp đều ở câu lạc bộ cờ vua.}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Câu ``tất cả các bạn trong CLB cờ vua đều biết bơi'' có dạng ``mọi A đều là B'' (A: ở CLB cờ vua, B: biết bơi).
@@ -463,22 +460,22 @@ Vậy chọn \textbf{(D)}.
   \draw[tmOrange,line width=1pt,fill=tmOrange!15] (0.45,1.0) ellipse (0.85 and 0.62);
   \node[font=\scriptsize,text=tmOrange!70!black] at (0.45,1.05){CLB cờ vua};
   \node[font=\scriptsize,text=tmBlue!80!black] at (2.0,1.95){biết bơi};
-  \fill[tmGreen!60!black] (2.0,0.75) circle (2.2pt) node[below,font=\scriptsize]{Na?};
-  \fill[tmGreen!60!black] (0.5,0.7) circle (2.2pt) node[below,font=\scriptsize]{Na?};
-  \fill[AnsRed] (3.6,1.1) circle (2.2pt) node[right,font=\scriptsize]{Lâm};
+  \fill[tmGreen!60!black] (2.0,0.75) circle (2.2pt) node[below,font=\scriptsize]{Nora?};
+  \fill[tmGreen!60!black] (0.5,0.7) circle (2.2pt) node[below,font=\scriptsize]{Nora?};
+  \fill[AnsRed] (3.6,1.1) circle (2.2pt) node[right,font=\scriptsize]{Leo};
 \end{figC}
 Vòng ``CLB cờ vua'' nằm trọn trong vòng ``biết bơi''.
-\step{2}{Lâm}
-Lâm không biết bơi, nên Lâm nằm \emph{ngoài} vòng lớn, do đó chắc chắn nằm ngoài vòng nhỏ: \textbf{Lâm không ở CLB cờ vua}. Nếu Lâm ở CLB thì
-Lâm phải biết bơi -- trái với đề (phản chứng).
-\step{3}{Na}
-Na biết bơi: Na nằm trong vòng lớn, nhưng có thể ở trong hoặc ngoài vòng nhỏ. Vậy (C) và (D) đều chỉ \emph{có thể} đúng, không chắc chắn.
+\step{2}{Leo}
+Leo không biết bơi, nên Leo nằm \emph{ngoài} vòng lớn, do đó chắc chắn nằm ngoài vòng nhỏ: \textbf{Leo không ở CLB cờ vua}. Nếu Leo ở CLB thì
+Leo phải biết bơi -- trái với đề (phản chứng).
+\step{3}{Nora}
+Nora biết bơi: Nora nằm trong vòng lớn, nhưng có thể ở trong hoặc ngoài vòng nhỏ. Vậy (C) và (D) đều chỉ \emph{có thể} đúng, không chắc chắn.
 \step{4}{Câu (E)}
 (E) đảo ngược câu đề bài. Đề không nói gì về những bạn biết bơi nhưng không chơi cờ, nên (E) không chắc chắn đúng.
 \begin{warnbox}Lỗi rất phổ biến: từ ``người chơi cờ đều biết bơi'' suy ra ``người biết bơi đều chơi cờ''. Hãy nghĩ một ví dụ: ``mọi con mèo đều có
 bốn chân'' không có nghĩa ``mọi con vật bốn chân đều là mèo''!\end{warnbox}
 Vậy chọn \textbf{(B)}.
-\ans{(B) Lâm không ở trong câu lạc bộ cờ vua}
+\ans{(B) Leo không ở trong câu lạc bộ cờ vua}
 }
 
 % ---------------------------------------------------------------- Bài 29
@@ -517,40 +514,40 @@ Vậy chọn \textbf{(C)}.
 
 % ---------------------------------------------------------------- Bài 30
 \begin{probbox}{30}{\relax}
-Bốn bạn An, Bách, Cúc, Dung thi chạy, không có hai bạn nào về cùng lúc. Ba bạn đứng xem dự đoán:
+Bốn bạn Amy, Ben, Chloe, David thi chạy, không có hai bạn nào về cùng lúc. Ba bạn đứng xem dự đoán:
 \begin{itemize}[leftmargin=1.6em,itemsep=0pt,topsep=2pt]
-\item Hiếu: ``An về nhất, Bách về nhì.''
-\item Khoa: ``Cúc về nhất, Dung về thứ tư.''
-\item Lan: ``Bách về thứ ba, Dung về nhì.''
+\item Henry: ``Amy về nhất, Ben về nhì.''
+\item Kate: ``Chloe về nhất, David về thứ tư.''
+\item Lucy: ``Ben về thứ ba, David về nhì.''
 \end{itemize}
 Kết quả là mỗi bạn dự đoán đúng \emph{đúng một} ý. Hãy tìm thứ tự về đích của bốn bạn.
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Mỗi dự đoán có hai ý, đúng một ý đúng. Ta xét trường hợp theo dự đoán của Hiếu.
+\textbf{Phân tích đề.} Mỗi dự đoán có hai ý, đúng một ý đúng. Ta xét trường hợp theo dự đoán của Henry.
 \begin{recallbox}Câu ``đúng một nửa'': ý này đúng thì ý kia sai, ý này sai thì ý kia đúng.\end{recallbox}
-\step{1}{Trường hợp 1: ``Bách về nhì'' đúng (và ``An về nhất'' sai)}
-Xét dự đoán của Lan. Bách về nhì nên ``Bách về thứ ba'' sai; vậy ý còn lại ``Dung về nhì'' phải đúng. Nhưng Bách đã về nhì, Dung không thể
+\step{1}{Trường hợp 1: ``Ben về nhì'' đúng (và ``Amy về nhất'' sai)}
+Xét dự đoán của Lucy. Ben về nhì nên ``Ben về thứ ba'' sai; vậy ý còn lại ``David về nhì'' phải đúng. Nhưng Ben đã về nhì, David không thể
 cũng về nhì. \textbf{Mâu thuẫn} -- loại trường hợp này.
-\step{2}{Trường hợp 2: ``An về nhất'' đúng (và ``Bách về nhì'' sai)}
+\step{2}{Trường hợp 2: ``Amy về nhất'' đúng (và ``Ben về nhì'' sai)}
 \begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
-\item Khoa: An về nhất nên ``Cúc về nhất'' sai $\Rightarrow$ ``Dung về thứ tư'' đúng.
-\item Lan: Dung về thứ tư nên ``Dung về nhì'' sai $\Rightarrow$ ``Bách về thứ ba'' đúng.
-\item Còn lại vị trí thứ nhì cho Cúc.
+\item Kate: Amy về nhất nên ``Chloe về nhất'' sai $\Rightarrow$ ``David về thứ tư'' đúng.
+\item Lucy: David về thứ tư nên ``David về nhì'' sai $\Rightarrow$ ``Ben về thứ ba'' đúng.
+\item Còn lại vị trí thứ nhì cho Chloe.
 \end{itemize}
-Thứ tự: An (nhất), Cúc (nhì), Bách (ba), Dung (tư).
+Thứ tự: Amy (nhất), Chloe (nhì), Ben (ba), David (tư).
 \step{3}{Thử lại}
 \begin{center}
 \begin{tabular}{|l|c|c|}
 \hline
 \rowcolor{tmBlue!10} Người dự đoán & Ý thứ nhất & Ý thứ hai \\ \hline
-Hiếu & An nhất: \textcolor{tmGreen!70!black}{đúng} & Bách nhì: \textcolor{AnsRed}{sai} \\ \hline
-Khoa & Cúc nhất: \textcolor{AnsRed}{sai} & Dung tư: \textcolor{tmGreen!70!black}{đúng} \\ \hline
-Lan & Bách ba: \textcolor{tmGreen!70!black}{đúng} & Dung nhì: \textcolor{AnsRed}{sai} \\ \hline
+Henry & Amy nhất: \textcolor{tmGreen!70!black}{đúng} & Ben nhì: \textcolor{AnsRed}{sai} \\ \hline
+Kate & Chloe nhất: \textcolor{AnsRed}{sai} & David tư: \textcolor{tmGreen!70!black}{đúng} \\ \hline
+Lucy & Ben ba: \textcolor{tmGreen!70!black}{đúng} & David nhì: \textcolor{AnsRed}{sai} \\ \hline
 \end{tabular}
 \end{center}
-\begin{tipbox}Chọn dự đoán để xét trường hợp sao cho mỗi trường hợp ``kéo theo'' được nhiều ý khác. Ở đây ý ``Bách nhì'' va chạm ngay với
-``Dung nhì'' của Lan, nên trường hợp 1 bị loại rất nhanh.\end{tipbox}
+\begin{tipbox}Chọn dự đoán để xét trường hợp sao cho mỗi trường hợp ``kéo theo'' được nhiều ý khác. Ở đây ý ``Ben nhì'' va chạm ngay với
+``David nhì'' của Lucy, nên trường hợp 1 bị loại rất nhanh.\end{tipbox}
 \begin{parentbox}Có thể cùng con dùng bốn mẩu giấy ghi tên, xếp thành hàng ``nhất -- nhì -- ba -- tư'' và đổi chỗ để thử. Sau đó hỏi con:
 ``Mình có thử hết các trường hợp chưa? Làm sao chắc chắn không còn đáp án khác?'' -- câu trả lời chính là Bước 1.\end{parentbox}
-\ans{An nhất, Cúc nhì, Bách ba, Dung tư.}
+\ans{Amy nhất, Chloe nhì, Ben ba, David tư.}
 }

@@ -36,11 +36,11 @@
 \begin{probbox}{31}{\relax}
 On an island, every inhabitant is either a \emph{truth-teller} (always tells the truth) or a \emph{liar} (always lies).
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-  \item You meet two inhabitants, Khánh and Lâm. Khánh says: ``Both of us are liars.'' What type is each of them?
-  \item You meet three inhabitants, An, Bình and Chi.\\
-  An says: ``Bình is a liar.''\\
-  Bình says: ``Chi is a liar.''\\
-  Chi says: ``An and Bình are both liars.''\\
+  \item You meet two inhabitants, Kate and Leo. Kate says: ``Both of us are liars.'' What type is each of them?
+  \item You meet three inhabitants, Anna, Ben and Chloe.\\
+  Anna says: ``Ben is a liar.''\\
+  Ben says: ``Chloe is a liar.''\\
+  Chloe says: ``Anna and Ben are both liars.''\\
   What type is each of them?
 \end{enumerate}
 \end{probbox}
@@ -50,40 +50,40 @@ check whether the statements fit that assumption. If we reach a contradiction, w
 \begin{recallbox}Whatever a truth-teller says is \textbf{true}. Whatever a liar says is \textbf{false}. So each statement gives us an
 ``equation'': \emph{the statement is true} $\Longleftrightarrow$ \emph{the speaker is a truth-teller}.\end{recallbox}
 \par\smallskip\textbf{Part a).}
-\step{1}{Suppose Khánh is a truth-teller}
-Then his statement is true, so Khánh is a liar -- contradicting the assumption. So Khánh \textbf{cannot} be a truth-teller.
-\step{2}{Khánh is a liar}
-The statement ``Both of us are liars'' is false. It is false when \emph{at least one} of them is not a liar. Khánh is a liar, so the
-other one -- Lâm -- must be a truth-teller.
+\step{1}{Suppose Kate is a truth-teller}
+Then her statement is true, so Kate is a liar -- contradicting the assumption. So Kate \textbf{cannot} be a truth-teller.
+\step{2}{Kate is a liar}
+The statement ``Both of us are liars'' is false. It is false when \emph{at least one} of them is not a liar. Kate is a liar, so the
+other one -- Leo -- must be a truth-teller.
 \begin{warnbox}The opposite of ``both are liars'' is \textbf{not} ``both tell the truth'', but ``at least one of them tells the
 truth''.\end{warnbox}
 \par\smallskip\textbf{Part b).}
-\step{3}{Suppose An is a truth-teller}
-An's statement is true $\Rightarrow$ Bình is a liar $\Rightarrow$ Bình's statement is false $\Rightarrow$ Chi is a truth-teller
-$\Rightarrow$ Chi's statement is true $\Rightarrow$ An is a liar. This contradicts the assumption! Ruled out.
-\step{4}{So An is a liar}
-An's statement is false $\Rightarrow$ Bình is \emph{not} a liar, i.e.\ Bình is a truth-teller $\Rightarrow$ Bình's statement is true
-$\Rightarrow$ Chi is a liar.
-\step{5}{Check Chi's statement}
-Chi is a liar, so the statement ``An and Bình are both liars'' must be false. Indeed it is false, because Bình is a truth-teller.
+\step{3}{Suppose Anna is a truth-teller}
+Anna's statement is true $\Rightarrow$ Ben is a liar $\Rightarrow$ Ben's statement is false $\Rightarrow$ Chloe is a truth-teller
+$\Rightarrow$ Chloe's statement is true $\Rightarrow$ Anna is a liar. This contradicts the assumption! Ruled out.
+\step{4}{So Anna is a liar}
+Anna's statement is false $\Rightarrow$ Ben is \emph{not} a liar, i.e.\ Ben is a truth-teller $\Rightarrow$ Ben's statement is true
+$\Rightarrow$ Chloe is a liar.
+\step{5}{Check Chloe's statement}
+Chloe is a liar, so the statement ``Anna and Ben are both liars'' must be false. Indeed it is false, because Ben is a truth-teller.
 There is no contradiction.
 \begin{center}
 \begin{tabular}{|c|c|l|c|}
 \hline
 \rowcolor{tmBlue!10} Person & Type & Statement & True/false\\ \hline
-An & liar & Bình is a liar & false \\ \hline
-Bình & truth-teller & Chi is a liar & true\\ \hline
-Chi & liar & An and Bình are both liars & false\\ \hline
+Anna & liar & Ben is a liar & false \\ \hline
+Ben & truth-teller & Chloe is a liar & true\\ \hline
+Chloe & liar & Anna and Ben are both liars & false\\ \hline
 \end{tabular}
 \end{center}
-\verify{In the table, every truth-teller makes a true statement and every liar a false one. We have also seen that ``An is a
+\verify{In the table, every truth-teller makes a true statement and every liar a false one. We have also seen that ``Anna is a
 truth-teller'' is impossible, so this is the only solution.}
-\ans{a) Khánh is a liar, Lâm a truth-teller;\quad b) An and Chi are liars, Bình is a truth-teller}
+\ans{a) Kate is a liar, Leo a truth-teller;\quad b) Anna and Chloe are liars, Ben is a truth-teller}
 }
 
 % ---------------------------------------------------------------- Problem 32
 \begin{probbox}{32}{\relax}
-Mai lies on Mondays, Tuesdays and Wednesdays and tells the truth on the other days of the week. Hùng lies on Thursdays, Fridays and
+Mia lies on Mondays, Tuesdays and Wednesdays and tells the truth on the other days of the week. Henry lies on Thursdays, Fridays and
 Saturdays and tells the truth on the other days. One day, both of them say: ``Yesterday was a day on which I lie.'' Which day of the
 week is it?
 \end{probbox}
@@ -91,48 +91,48 @@ week is it?
 \textbf{Understanding the problem.} The statement ``Yesterday was a day on which I lie'' may be true or false depending on the day.
 For each person we find the days on which they \emph{could} say it, then take the day common to both.
 \begin{recallbox}On a truth day the statement must be true; on a lying day the statement must be false.\end{recallbox}
-\step{1}{Table for Mai (lies Mon, Tue, Wed)}
+\step{1}{Table for Mia (lies Mon, Tue, Wed)}
 \begin{center}\small
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} Today & Mon & Tue & Wed & Thu & Fri & Sat & Sun\\ \hline
-Mai today & lies & lies & lies & truth & truth & truth & truth\\ \hline
-Mai yesterday & truth (Sun) & lies & lies & lies & truth & truth & truth\\ \hline
+Mia today & lies & lies & lies & truth & truth & truth & truth\\ \hline
+Mia yesterday & truth (Sun) & lies & lies & lies & truth & truth & truth\\ \hline
 Statement true? & no & yes & yes & yes & no & no & no\\ \hline
-Can Mai say it? & \textbf{yes} & no & no & \textbf{yes} & no & no & no\\ \hline
+Can Mia say it? & \textbf{yes} & no & no & \textbf{yes} & no & no & no\\ \hline
 \end{tabular}
 \end{center}
-Mai can say it when she lies today and the statement is false (Monday), or when she tells the truth today and the statement is true
+Mia can say it when she lies today and the statement is false (Monday), or when she tells the truth today and the statement is true
 (Thursday).
-\step{2}{Table for Hùng (lies Thu, Fri, Sat)}
+\step{2}{Table for Henry (lies Thu, Fri, Sat)}
 \begin{center}\small
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} Today & Mon & Tue & Wed & Thu & Fri & Sat & Sun\\ \hline
-Hùng today & truth & truth & truth & lies & lies & lies & truth\\ \hline
-Hùng yesterday & truth & truth & truth & truth & lies & lies & lies\\ \hline
+Henry today & truth & truth & truth & lies & lies & lies & truth\\ \hline
+Henry yesterday & truth & truth & truth & truth & lies & lies & lies\\ \hline
 Statement true? & no & no & no & no & yes & yes & yes\\ \hline
-Can Hùng say it? & no & no & no & \textbf{yes} & no & no & \textbf{yes}\\ \hline
+Can Henry say it? & no & no & no & \textbf{yes} & no & no & \textbf{yes}\\ \hline
 \end{tabular}
 \end{center}
-Hùng can say it on Thursday or Sunday.
+Henry can say it on Thursday or Sunday.
 \step{3}{The common day}
-Mai: $\{$Monday, Thursday$\}$; Hùng: $\{$Thursday, Sunday$\}$. The only common day is \textbf{Thursday}.
+Mia: $\{$Monday, Thursday$\}$; Henry: $\{$Thursday, Sunday$\}$. The only common day is \textbf{Thursday}.
 \begin{tipbox}Quick rule: a person can say ``Yesterday I lied'' only on a \emph{switch day} (yesterday and today are of different
 types): the first lying day, or the first day back to telling the truth.\end{tipbox}
-\verify{Thursday: Mai tells the truth, and yesterday (Wednesday) she lied -- the statement is true, consistent. Hùng lies, and
-yesterday (Wednesday) he told the truth -- the statement is false, consistent with Hùng lying today.}
+\verify{Thursday: Mia tells the truth, and yesterday (Wednesday) she lied -- the statement is true, consistent. Henry lies, and
+yesterday (Wednesday) he told the truth -- the statement is false, consistent with Henry lying today.}
 \ans{Thursday}
 }
 
 % ---------------------------------------------------------------- Problem 33
 \begin{probbox}{33}{\relax}
-Six friends Lan, Minh, Nam, Oanh, Phúc and Quân run a race. No two of them finish at the same time. We know that:
+Six friends Lucy, Max, Noah, Olivia, Peter and Quinn run a race. No two of them finish at the same time. We know that:
 \begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=2pt]
-  \item Minh finishes after Lan but before Nam;
-  \item Oanh finishes after Nam;
-  \item Phúc finishes \emph{immediately after} Lan;
-  \item Quân is neither first nor last, and Quân finishes before Minh.
+  \item Max finishes after Lucy but before Noah;
+  \item Olivia finishes after Noah;
+  \item Peter finishes \emph{immediately after} Lucy;
+  \item Quinn is neither first nor last, and Quinn finishes before Max.
 \end{itemize}
 Find the finishing order of the six friends. Who finishes third?
 \end{probbox}
@@ -140,53 +140,53 @@ Find the finishing order of the six friends. Who finishes third?
 \textbf{Understanding the problem.} We have ``before -- after'' conditions. A good method is to join them into a \emph{chain} and then
 insert the remaining friends one by one. Write $X \to Y$ for ``$X$ finishes before $Y$''.
 \step{1}{Join conditions 1 and 2}
-Lan $\to$ Minh $\to$ Nam and Nam $\to$ Oanh, so: \ Lan $\to$ Minh $\to$ Nam $\to$ Oanh.
-\step{2}{Insert Phúc}
-Phúc finishes \emph{immediately after} Lan, i.e.\ nobody comes between Lan and Phúc: \ Lan, Phúc $\to$ Minh $\to$ Nam $\to$ Oanh.
-\step{3}{Insert Quân}
-Quân finishes before Minh, so Quân is in one of these places: before Lan, or between Phúc and Minh (he may not come between Lan and
-Phúc). But Quân is not first, so he is not before Lan. Hence:
-\[ \text{Lan} \to \text{Phúc} \to \text{Quân} \to \text{Minh} \to \text{Nam} \to \text{Oanh}. \]
+Lucy $\to$ Max $\to$ Noah and Noah $\to$ Olivia, so: \ Lucy $\to$ Max $\to$ Noah $\to$ Olivia.
+\step{2}{Insert Peter}
+Peter finishes \emph{immediately after} Lucy, i.e.\ nobody comes between Lucy and Peter: \ Lucy, Peter $\to$ Max $\to$ Noah $\to$ Olivia.
+\step{3}{Insert Quinn}
+Quinn finishes before Max, so Quinn is in one of these places: before Lucy, or between Peter and Max (he may not come between Lucy and
+Peter). But Quinn is not first, so he is not before Lucy. Hence:
+\[ \text{Lucy} \to \text{Peter} \to \text{Quinn} \to \text{Max} \to \text{Noah} \to \text{Olivia}. \]
 \begin{figC}
-\foreach \n/\x in {Lan/0,Phúc/1,Quân/2,Minh/3,Nam/4,Oanh/5}{
+\foreach \n/\x in {Lucy/0,Peter/1,Quinn/2,Max/3,Noah/4,Olivia/5}{
   \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,minimum width=1.5cm,minimum height=0.7cm] at (\x*1.9,0){\n};}
 \foreach \x [count=\k] in {0,...,5}{\node[font=\scriptsize,text=Slate] at (\x*1.9,-0.6){place \k};}
 \foreach \x in {0,...,4}{\draw[->,tmBlue,thick] (\x*1.9+0.78,0)--(\x*1.9+1.12,0);}
 \end{figC}
 \step{4}{Check every condition again}
-Minh (4th) is after Lan (1st) and before Nam (5th): true. Oanh (6th) is after Nam: true. Phúc (2nd) is immediately after Lan: true.
-Quân is 3rd -- not first, not last, before Minh: true.
-\begin{warnbox}If you forget the word ``immediately'', Quân could come between Lan and Phúc and the problem would have two answers. Read
+Max (4th) is after Lucy (1st) and before Noah (5th): true. Olivia (6th) is after Noah: true. Peter (2nd) is immediately after Lucy: true.
+Quinn is 3rd -- not first, not last, before Max: true.
+\begin{warnbox}If you forget the word ``immediately'', Quinn could come between Lucy and Peter and the problem would have two answers. Read
 every word of each condition carefully!\end{warnbox}
-\verify{We tried every possible position for Quân; only one order satisfies all four conditions.}
-\ans{Lan, Phúc, Quân, Minh, Nam, Oanh; Quân finishes third}
+\verify{We tried every possible position for Quinn; only one order satisfies all four conditions.}
+\ans{Lucy, Peter, Quinn, Max, Noah, Olivia; Quinn finishes third}
 }
 
 % ---------------------------------------------------------------- Problem 34
 \begin{probbox}{34}{\relax}
-Five friends Hà, Khoa, Linh, My and Tùng sit in a row of $5$ chairs numbered $1, 2, 3, 4, 5$ from left to right. We know that:
-Hà and Khoa sit next to each other; Linh and My do \emph{not} sit next to each other; Tùng sits at one end of the row (chair $1$ or
+Five friends Hannah, Kevin, Lily, Maya and Tom sit in a row of $5$ chairs numbered $1, 2, 3, 4, 5$ from left to right. We know that:
+Hannah and Kevin sit next to each other; Lily and Maya do \emph{not} sit next to each other; Tom sits at one end of the row (chair $1$ or
 chair $5$).
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
   \item How many seating arrangements satisfy these conditions?
   \item Which of the following statements is \emph{certainly true}?\\
-  (1) Linh sits at one end of the row. \quad (2) Hà does not sit at an end of the row. \quad (3) Khoa sits in chair $3$.
-  \item If we also know that Linh sits in chair $1$ and Hà sits to the left of Khoa, find each friend's seat.
+  (1) Lily sits at one end of the row. \quad (2) Hannah does not sit at an end of the row. \quad (3) Kevin sits in chair $3$.
+  \item If we also know that Lily sits in chair $1$ and Hannah sits to the left of Kevin, find each friend's seat.
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} Start with the ``tightest'' condition (Tùng has only $2$ places), then look at the $4$ remaining
+\textbf{Understanding the problem.} Start with the ``tightest'' condition (Tom has only $2$ places), then look at the $4$ remaining
 chairs.
-\step{1}{Case: Tùng sits in chair 5}
-The other four sit in chairs $1, 2, 3, 4$. The pair Hà -- Khoa takes two adjacent chairs: $(1,2)$, $(2,3)$ or $(3,4)$.
+\step{1}{Case: Tom sits in chair 5}
+The other four sit in chairs $1, 2, 3, 4$. The pair Hannah -- Kevin takes two adjacent chairs: $(1,2)$, $(2,3)$ or $(3,4)$.
 \begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
-  \item Hà -- Khoa in chairs $(1,2)$: Linh and My must sit in chairs $3, 4$ -- next to each other, \textbf{impossible}.
-  \item Hà -- Khoa in chairs $(3,4)$: Linh and My sit in chairs $1, 2$ -- next to each other, \textbf{impossible}.
-  \item Hà -- Khoa in chairs $(2,3)$: Linh and My sit in chairs $1$ and $4$ -- not next to each other, \textbf{possible}.
+  \item Hannah -- Kevin in chairs $(1,2)$: Lily and Maya must sit in chairs $3, 4$ -- next to each other, \textbf{impossible}.
+  \item Hannah -- Kevin in chairs $(3,4)$: Lily and Maya sit in chairs $1, 2$ -- next to each other, \textbf{impossible}.
+  \item Hannah -- Kevin in chairs $(2,3)$: Lily and Maya sit in chairs $1$ and $4$ -- not next to each other, \textbf{possible}.
 \end{itemize}
-In the possible case, Hà and Khoa can swap ($2$ ways) and Linh and My can swap ($2$ ways): $2\times 2 = 4$ ways.
-\step{2}{Case: Tùng sits in chair 1}
-Exactly the same (turn the row around): Hà -- Khoa in chairs $(3,4)$, Linh and My in chairs $2$ and $5$: also $4$ ways.
+In the possible case, Hannah and Kevin can swap ($2$ ways) and Lily and Maya can swap ($2$ ways): $2\times 2 = 4$ ways.
+\step{2}{Case: Tom sits in chair 1}
+Exactly the same (turn the row around): Hannah -- Kevin in chairs $(3,4)$, Lily and Maya in chairs $2$ and $5$: also $4$ ways.
 \step{3}{Total number of ways}
 $4 + 4 = 8$ ways.
 \begin{recallbox}\textbf{Multiplication rule:} if a task consists of consecutive steps, step 1 in $m$ ways and step 2 in $n$ ways, then
@@ -196,18 +196,18 @@ the task can be done in $m\times n$ ways. \textbf{Addition rule:} separate cases
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} Chair 1 & Chair 2 & Chair 3 & Chair 4 & Chair 5\\ \hline
-Linh/My & Hà/Khoa & Hà/Khoa & My/Linh & Tùng\\ \hline
-Tùng & Linh/My & Hà/Khoa & Hà/Khoa & My/Linh\\ \hline
+Lily/Maya & Hannah/Kevin & Hannah/Kevin & Maya/Lily & Tom\\ \hline
+Tom & Lily/Maya & Hannah/Kevin & Hannah/Kevin & Maya/Lily\\ \hline
 \end{tabular}
 \end{center}
-(1) False: when Tùng is in chair 1, Linh may sit in chair 2. \ (2) \textbf{True}: in both rows, Hà and Khoa are always in middle chairs
-($2, 3$ or $3, 4$). \ (3) False: Khoa may sit in chair $2$ or chair $4$.
+(1) False: when Tom is in chair 1, Lily may sit in chair 2. \ (2) \textbf{True}: in both rows, Hannah and Kevin are always in middle chairs
+($2, 3$ or $3, 4$). \ (3) False: Kevin may sit in chair $2$ or chair $4$.
 \step{5}{Part c)}
-Linh is in chair $1$, so Tùng is not in chair $1$; Tùng is in chair $5$ (first row of the table). Then My is in chair $4$ and Hà --
-Khoa in chairs $2, 3$; Hà is to the left of Khoa, so Hà is in chair $2$ and Khoa in chair $3$.
-\verify{Linh(1), Hà(2), Khoa(3), My(4), Tùng(5): Hà and Khoa are adjacent; Linh in chair 1 and My in chair 4 are not adjacent; Tùng
+Lily is in chair $1$, so Tom is not in chair $1$; Tom is in chair $5$ (first row of the table). Then Maya is in chair $4$ and Hannah --
+Kevin in chairs $2, 3$; Hannah is to the left of Kevin, so Hannah is in chair $2$ and Kevin in chair $3$.
+\verify{Lily(1), Hannah(2), Kevin(3), Maya(4), Tom(5): Hannah and Kevin are adjacent; Lily in chair 1 and Maya in chair 4 are not adjacent; Tom
 is at an end. Correct.}
-\ans{a) $8$ ways;\quad b) statement (2);\quad c) Linh -- Hà -- Khoa -- My -- Tùng (chairs 1 to 5)}
+\ans{a) $8$ ways;\quad b) statement (2);\quad c) Lily -- Hannah -- Kevin -- Maya -- Tom (chairs 1 to 5)}
 }
 
 % ---------------------------------------------------------------- Problem 35
@@ -224,14 +224,14 @@ $k$} replaces each letter with number $x$ by the letter whose number is the \emp
 \node[font=\scriptsize,text=tmOrange!80!black,align=center] at (0,0){move\\clockwise};
 \end{figC}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-  \item Encrypt the text \textsf{TOAN HOC} with key $k = 5$.
-  \item Decrypt the text \textsf{OVJ CBP}, knowing that the key is $k = 7$.
-  \item In a message, the word \textsf{BAN} was encrypted as \textsf{QPC}. Find the key $k$ (with $0 \le k \le 25$), then decrypt the
-  word \textsf{HPJ} from the same message.
+  \item Encrypt the text \textsf{MATH CLUB} with key $k = 5$.
+  \item Decrypt the text \textsf{FVB DPU}, knowing that the key is $k = 7$.
+  \item In a message, the word \textsf{CAT} was encrypted as \textsf{RPI}. Find the key $k$ (with $0 \le k \le 25$), then decrypt the
+  word \textsf{SDV} from the same message.
   \item A message is encrypted with key $10$, and the result is encrypted once more with key $20$. These two encryptions together
   are the same as \emph{one} encryption with which key?
-  \item Tú encrypts a word with key $4$, then encrypts the result with key $4$ again, and so on. After how many encryptions, at least,
-  does Tú get back exactly the original word?
+  \item Sam encrypts a word with key $4$, then encrypts the result with key $4$ again, and so on. After how many encryptions, at least,
+  does Sam get back exactly the original word?
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -240,33 +240,34 @@ exactly taking the \emph{remainder on division by $26$}. Decrypting is the rever
 negative, add $26$).
 \begin{recallbox}The remainder of $a$ on division by $26$ is the number $r$ with $0 \le r \le 25$ such that $a - r$ is divisible by
 $26$. Examples: $30$ leaves remainder $4$; \ $-6$ ``leaves remainder'' $20$, because $-6 + 26 = 20$.\end{recallbox}
-\step{1}{Part a): encrypt \textsf{TOAN HOC} with $k = 5$}
+\step{1}{Part a): encrypt \textsf{MATH CLUB} with $k = 5$}
 \begin{center}\small
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Plain letter & T & O & A & N & H & O & C\\ \hline
-Number $x$ & $19$ & $14$ & $0$ & $13$ & $7$ & $14$ & $2$\\ \hline
-$x + 5$ & $24$ & $19$ & $5$ & $18$ & $12$ & $19$ & $7$\\ \hline
-Cipher letter & Y & T & F & S & M & T & H\\ \hline
+\rowcolor{tmBlue!10} Plain letter & M & A & T & H & C & L & U & B\\ \hline
+Number $x$ & $12$ & $0$ & $19$ & $7$ & $2$ & $11$ & $20$ & $1$\\ \hline
+$x + 5$ & $17$ & $5$ & $24$ & $12$ & $7$ & $16$ & $25$ & $6$\\ \hline
+Cipher letter & R & F & Y & M & H & Q & Z & G\\ \hline
 \end{tabular}
 \end{center}
-Result: \textsf{YTFS MTH}. (No number exceeds $25$ here, so no wrapping is needed yet.)
-\step{2}{Part b): decrypt \textsf{OVJ CBP} with $k = 7$ (subtract $7$)}
+Result: \textsf{RFYM HQZG}. (No number exceeds $25$ here, so no wrapping is needed yet.)
+\step{2}{Part b): decrypt \textsf{FVB DPU} with $k = 7$ (subtract $7$)}
 \begin{center}\small
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Cipher letter & O & V & J & C & B & P\\ \hline
-Number & $14$ & $21$ & $9$ & $2$ & $1$ & $15$\\ \hline
-Number $- 7$ & $7$ & $14$ & $2$ & $-5 \to 21$ & $-6 \to 20$ & $8$\\ \hline
-Plain letter & H & O & C & V & U & I\\ \hline
+\rowcolor{tmBlue!10} Cipher letter & F & V & B & D & P & U\\ \hline
+Number & $5$ & $21$ & $1$ & $3$ & $15$ & $20$\\ \hline
+Number $- 7$ & $-2 \to 24$ & $14$ & $-6 \to 20$ & $-4 \to 22$ & $8$ & $13$\\ \hline
+Plain letter & Y & O & U & W & I & N\\ \hline
 \end{tabular}
 \end{center}
-Original text: \textsf{HOC VUI} (Vietnamese for ``fun learning''). Note: $2 - 7 = -5$, adding $26$ gives $21$ (the letter V).
-\step{3}{Part c): find the key from the pair \textsf{BAN} $\to$ \textsf{QPC}}
-B ($1$) becomes Q ($16$), so $k = 16 - 1 = 15$. Check: A ($0$) $\to 0 + 15 = 15$ (P), correct; N ($13$) $\to 13 + 15 = 28$, remainder
-$2$ on division by $26$ (C), correct. So $k = 15$.\\
-Decrypt \textsf{HPJ} (subtract $15$): H $= 7$, $7 - 15 = -8 \to 18$ (S); \ P $= 15 \to 0$ (A); \ J $= 9$, $9 - 15 = -6 \to 20$ (U).
-The original word is \textsf{SAU}.
+Original text: \textsf{YOU WIN}. Note: the letters F, B, D have numbers smaller than $7$, so subtracting $7$ gives a negative number
+and we must add $26$; for example $5 - 7 = -2$, $-2 + 26 = 24$ (the letter Y).
+\step{3}{Part c): find the key from the pair \textsf{CAT} $\to$ \textsf{RPI}}
+C ($2$) becomes R ($17$), so $k = 17 - 2 = 15$. Check: A ($0$) $\to 0 + 15 = 15$ (P), correct; T ($19$) $\to 19 + 15 = 34$, remainder
+$8$ on division by $26$ (I), correct. So $k = 15$.\\
+Decrypt \textsf{SDV} (subtract $15$): S $= 18$, $18 - 15 = 3$ (D); \ D $= 3$, $3 - 15 = -12 \to 14$ (O); \ V $= 21$, $21 - 15 = 6$ (G).
+The original word is \textsf{DOG}.
 \step{4}{Part d): two encryptions in a row}
 Each letter gets $10$ added and then $20$ added, i.e.\ $30$ added. Since $30$ leaves remainder $4$ on division by $26$, ``add $30$ and
 take the remainder'' is exactly the same as ``add $4$ and take the remainder''. The two encryptions equal \textbf{one encryption with
@@ -277,11 +278,11 @@ times, i.e.\ $4n$ must be divisible by $26$. Try $n = 1, 2, 3, \dots$: \ $4n = 4
 divisible by $26$ is $\text{LCM}(4, 26) = 52$, which gives $n = 52 \div 4 = 13$.
 \begin{recallbox}$4n$ is divisible by $26 = 2\times 13$ $\Leftrightarrow$ $2n$ is divisible by $13$ $\Leftrightarrow$ $n$ is divisible
 by $13$ (because $13$ is a prime that does not divide $2$).\end{recallbox}
-\begin{tipbox}With key $13$ you only need $2$ encryptions to get back ($2\times 13 = 26$). Encrypting twice with key $13$ is the same as
-decrypting!\end{tipbox}
-\verify{Part a): decrypting \textsf{YTFS MTH} by subtracting $5$ gives back \textsf{TOAN HOC}. Part c): \textsf{SAU} encrypted with key
-$15$: S $18 + 15 = 33 \to 7$ (H), A $\to 15$ (P), U $20 + 15 = 35 \to 9$ (J). Indeed \textsf{HPJ}.}
-\ans{a) \textsf{YTFS MTH};\ b) \textsf{HOC VUI};\ c) $k = 15$, \textsf{SAU};\ d) key $4$;\ e) $13$ times}
+\begin{tipbox}With key $13$ you only need $2$ encryptions to get back ($2\times 13 = 26$). So with key $13$,
+decrypting is the same as encrypting once more!\end{tipbox}
+\verify{Part a): decrypting \textsf{RFYM HQZG} by subtracting $5$ gives back \textsf{MATH CLUB}. Part c): \textsf{DOG} encrypted with key
+$15$: D $3 + 15 = 18$ (S), O $14 + 15 = 29 \to 3$ (D), G $6 + 15 = 21$ (V). Indeed \textsf{SDV}.}
+\ans{a) \textsf{RFYM HQZG};\ b) \textsf{YOU WIN};\ c) $k = 15$, \textsf{DOG};\ d) key $4$;\ e) $13$ times}
 }
 
 % ---------------------------------------------------------------- Problem 36
@@ -289,9 +290,9 @@ $15$: S $18 + 15 = 33 \to 7$ (H), A $\to 15$ (P), U $20 + 15 = 35 \to 9$ (J). In
 Again number $A = 0, B = 1, \dots, Z = 25$. A \emph{multiplicative cipher} replaces the letter with number $x$ by the letter whose number
 is the remainder of $3x + 2$ on division by $26$.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-  \item Encrypt the word \textsf{MEO}.
-  \item Decrypt the word \textsf{ECS}.
-  \item Nhật suggests using $2x + 2$ instead of $3x + 2$. Find two different letters with the same cipher letter. Why does that make
+  \item Encrypt the word \textsf{MAP}.
+  \item Decrypt the word \textsf{EGW}.
+  \item Nathan suggests using $2x + 2$ instead of $3x + 2$. Find two different letters with the same cipher letter. Why does that make
   decryption impossible?
   \item Explain why, with $3x + 2$, two different letters always get two different cipher letters.
 \end{enumerate}
@@ -300,12 +301,12 @@ is the remainder of $3x + 2$ on division by $26$.
 \textbf{Understanding the problem.} This cipher does not just ``shift'': it also multiplies and then takes the remainder. Encrypting is
 easy (compute directly); to decrypt we need $x$ when we know the remainder of $3x + 2$ -- we use the trick ``add $26$ until the number
 is divisible by $3$''.
-\step{1}{Part a): encrypt \textsf{MEO}}
+\step{1}{Part a): encrypt \textsf{MAP}}
 M $= 12$: $3\cdot 12 + 2 = 38$, remainder $12$ on division by $26$ $\to$ M.\\
-E $= 4$: $3\cdot 4 + 2 = 14$ $\to$ O.\\
-O $= 14$: $3\cdot 14 + 2 = 44$, remainder $18$ $\to$ S.\\
-Result: \textsf{MOS}. (Fun fact: M is encrypted as itself.)
-\step{2}{Part b): decrypt \textsf{ECS}}
+A $= 0$: $3\cdot 0 + 2 = 2$ $\to$ C.\\
+P $= 15$: $3\cdot 15 + 2 = 47$, remainder $21$ $\to$ V.\\
+Result: \textsf{MCV}. (Fun fact: M is encrypted as itself.)
+\step{2}{Part b): decrypt \textsf{EGW}}
 For a cipher letter with number $y$ we need $x$ ($0 \le x \le 25$) such that $3x + 2$ leaves remainder $y$, i.e.\ $3x = y - 2$, or
 $y - 2 + 26$, or $y - 2 + 52$ (try them in turn and take the one divisible by $3$).
 \begin{center}\small
@@ -313,11 +314,11 @@ $y - 2 + 26$, or $y - 2 + 52$ (try them in turn and take the one divisible by $3
 \hline
 \rowcolor{tmBlue!10} Cipher letter & $y$ & Try $y - 2,\ y + 24,\ y + 50$ & $3x$ & Plain letter\\ \hline
 E & $4$ & $2$ (no), $28$ (no), $54$ (divisible) & $54 \Rightarrow x = 18$ & S\\ \hline
-C & $2$ & $0$ (divisible) & $0 \Rightarrow x = 0$ & A\\ \hline
-S & $18$ & $16$ (no), $42$ (divisible) & $42 \Rightarrow x = 14$ & O\\ \hline
+G & $6$ & $4$ (no), $30$ (divisible) & $30 \Rightarrow x = 10$ & K\\ \hline
+W & $22$ & $20$ (no), $46$ (no), $72$ (divisible) & $72 \Rightarrow x = 24$ & Y\\ \hline
 \end{tabular}
 \end{center}
-The original word is \textsf{SAO}.
+The original word is \textsf{SKY}.
 \step{3}{Part c): why $2x + 2$ does not work}
 A $= 0$: $2\cdot 0 + 2 = 2$ $\to$ C. \quad N $= 13$: $2\cdot 13 + 2 = 28$, remainder $2$ $\to$ C.\\
 Both A and N become C. When the receiver sees a C, they cannot tell whether the original letter was A or N, so decryption is not
@@ -330,9 +331,9 @@ greater than $1$, so $x - z$ must be divisible by $26$. However $0 < x - z \le 2
 different letters always get different cipher letters.\end{proofbox}
 \begin{warnbox}With $2x + 2$, the argument breaks down here: $2(x - z)$ is divisible by $26$ as soon as $x - z$ is divisible by $13$,
 for example $x - z = 13$ (A and N).\end{warnbox}
-\verify{Encrypt \textsf{SAO} again: S $3\cdot 18 + 2 = 56 \to 56 - 52 = 4$ (E); A $\to 2$ (C); O $\to 44 - 26 = 18$ (S). We get
-\textsf{ECS}, correct.}
-\ans{a) \textsf{MOS};\ b) \textsf{SAO};\ c) A and N both become C;\ d) see the proof}
+\verify{Encrypt \textsf{SKY} again: S $3\cdot 18 + 2 = 56 \to 56 - 52 = 4$ (E); K $3\cdot 10 + 2 = 32 \to 6$ (G); Y $3\cdot 24 + 2 = 74 \to 74 - 52 = 22$ (W). We get
+\textsf{EGW}, correct.}
+\ans{a) \textsf{MCV};\ b) \textsf{SKY};\ c) A and N both become C;\ d) see the proof}
 }
 
 % ---------------------------------------------------------------- Problem 37
@@ -397,26 +398,30 @@ The three equal-arm balances below are all balanced. Objects of the same shape h
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} Choose \lgxcdI{1} as the ``unit of measure''. Look for a balance with only \emph{one kind} of unknown
-object, solve it first, and substitute into the other balances.
-\begin{recallbox}A balanced scale is like an equation. We may remove (or add) identical objects on both pans, or split both pans into
-equal parts, and the scale stays balanced.\end{recallbox}
-\step{1}{Balance (2): find \lgxcdI{3}}
-Two \lgxcdI{3} balance four \lgxcdI{1}. Halve each pan: one \lgxcdI{3} balances two \lgxcdI{1}. \quad \lgxcdI{3} $= 2$ \lgxcdI{1}.
-\step{2}{Balance (1): find \lgxcdI{2}}
-\lgxcdI{2}\,\lgxcdI{3} balance five \lgxcdI{1}. Replace \lgxcdI{3} by two \lgxcdI{1}: \lgxcdI{2} together with two \lgxcdI{1} balance
-five \lgxcdI{1}. Remove two \lgxcdI{1} from each pan: \lgxcdI{2} $= 3$ \lgxcdI{1}.
-\step{3}{Balance (3): find \lgxcdI{4}}
-\lgxcdI{4}\,\lgxcdI{1} balance two \lgxcdI{2}, i.e.\ $2\times 3 = 6$ \lgxcdI{1}. Remove one \lgxcdI{1} from each pan:
-\lgxcdI{4} $= 5$ \lgxcdI{1}.
-\step{4}{Part b)}
-\lgxcdI{4}\,\lgxcdI{4}\,\lgxcdI{2}\,\lgxcdI{2} weigh as much as $5 + 5 + 3 + 3 = 16$ \lgxcdI{1}. Each \lgxcdI{3} equals $2$
-\lgxcdI{1}, so we need $16 \div 2 = 8$ objects \lgxcdI{3}.
-\step{5}{Part c)}
-\lgxcdI{4}\,\lgxcdI{3}\,\lgxcdI{2} weigh as much as $5 + 2 + 3 = 10$ \lgxcdI{1}, i.e.\ $10\times 12 = 120$ g.
-\begin{tipbox}If we call the masses $t$ (triangle), $q$ (square), $s$ (star), $o$ (circle), the three balances are three equations:
-$q + t = 5o$; \ $2t = 4o$; \ $s + o = 2q$. Solving in turn gives $t = 2o$, $q = 3o$, $s = 5o$.\end{tipbox}
-\verify{Balance (1): $3 + 2 = 5$. Balance (2): $2 + 2 = 4$. Balance (3): $5 + 1 = 6 = 3 + 3$. All three balances are balanced.}
+\textbf{Understanding the problem.} Each balanced scale gives us an \emph{equation}. We introduce a letter for the mass of each kind
+of object, write the three equations, and solve them one by one, starting with the simplest (the one with only two kinds of object).
+\begin{recallbox}A balanced scale is like an equation: mass on the left pan $=$ mass on the right pan. We may add (or subtract) the same
+amount on both sides, or divide both sides by the same non-zero number -- the equation stays true (just as the scale stays
+balanced).\end{recallbox}
+\step{1}{Introduce letters and write the equations}
+Let the masses of one \lgxcdI{1} (circle), \lgxcdI{2} (square), \lgxcdI{3} (triangle), \lgxcdI{4} (star) be $o$, $q$, $t$, $s$.
+Reading the three scales:
+\[ \text{(1)}\ \ q + t = 5o; \qquad \text{(2)}\ \ 2t = 4o; \qquad \text{(3)}\ \ s + o = 2q. \]
+\step{2}{From equation (2): find $t$}
+Divide both sides of $2t = 4o$ by $2$: \ $t = 2o$. So each \lgxcdI{3} weighs as much as $2$ objects \lgxcdI{1}.
+\step{3}{Substitute into equation (1): find $q$}
+Substitute $t = 2o$ into (1): \ $q + 2o = 5o$. Subtract $2o$ from both sides: \ $q = 5o - 2o = 3o$. Each \lgxcdI{2} weighs as much as
+$3$ objects \lgxcdI{1}.
+\step{4}{Substitute into equation (3): find $s$}
+Substitute $q = 3o$ into (3): \ $s + o = 2\cdot 3o = 6o$. Subtract $o$ from both sides: \ $s = 6o - o = 5o$. Each \lgxcdI{4} weighs as
+much as $5$ objects \lgxcdI{1}.
+\step{5}{Part b)}
+The four objects \lgxcdI{4}\,\lgxcdI{4}\,\lgxcdI{2}\,\lgxcdI{2} weigh $2s + 2q = 2\cdot 5o + 2\cdot 3o = 10o + 6o = 16o$.\\
+Let $n$ be the number of objects \lgxcdI{3} needed. We need $n\cdot t = 16o$, i.e.\ $n\cdot 2o = 16o$, so $n = 16 \div 2 = 8$.
+\step{6}{Part c)}
+With $o = 12$ g: \ $s + t + q = 5o + 2o + 3o = 10o = 10\cdot 12 = 120$ g.
+\verify{With $o = 1$, $t = 2$, $q = 3$, $s = 5$: balance (1) $3 + 2 = 5$; balance (2) $2\cdot 2 = 4$; balance (3) $5 + 1 = 6 = 2\cdot 3$.
+All three balances are balanced. Part b): $8$ triangles weigh $8\cdot 2 = 16$, exactly $5 + 5 + 3 + 3$.}
 \ans{a) \lgxcdI{3} $= 2$, \lgxcdI{2} $= 3$, \lgxcdI{4} $= 5$ objects \lgxcdI{1};\quad b) $8$ objects \lgxcdI{3};\quad c) $120$ g}
 }
 

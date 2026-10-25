@@ -24,17 +24,17 @@
 
 % ------------------------------------------------------------------ 16
 \begin{probbox}{16}{\relax}
-Bạn Hồng đang tập tiết kiệm. Hôm nay trong tài khoản của Hồng có $120$ nghìn đồng. Từ nay, mỗi lần gửi tiết kiệm Hồng sẽ gửi thêm đúng $30$ nghìn đồng. Nếu Hồng gửi $m$ lần như vậy thì biểu thức nào dưới đây biểu thị đúng số tiền (tính bằng nghìn đồng) có trong tài khoản?
+Bạn Rosie đang tập tiết kiệm. Hôm nay trong tài khoản của Rosie có $\$120$. Từ nay, mỗi lần gửi tiết kiệm Rosie sẽ gửi thêm đúng $\$30$. Nếu Rosie gửi $m$ lần như vậy thì biểu thức nào dưới đây biểu thị đúng số tiền (tính bằng đô la) có trong tài khoản?
 \choices{$120+m$}{$30m$}{$30+120m$}{$150m$}{$120+30m$}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Cho biết: lúc đầu có $120$ nghìn đồng; mỗi lần gửi thêm $30$ nghìn đồng; gửi $m$ lần. Cần tìm: biểu thức đại số cho tổng số tiền sau $m$ lần gửi.
+\textbf{Phân tích đề.} Cho biết: lúc đầu có $\$120$; mỗi lần gửi thêm $\$30$; gửi $m$ lần. Cần tìm: biểu thức đại số cho tổng số tiền sau $m$ lần gửi.
 
 \step{1}{Thử với vài giá trị cụ thể của $m$ để thấy quy luật}
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-\rowcolor{tmBlue!10}\textbf{Số lần gửi} & \textbf{Số tiền gửi thêm} & \textbf{Tổng số tiền (nghìn đồng)}\\ \hline
+\rowcolor{tmBlue!10}\textbf{Số lần gửi} & \textbf{Số tiền gửi thêm} & \textbf{Tổng số tiền (đô la)}\\ \hline
 $0$ & $0$ & $120$\\ \hline
 $1$ & $30$ & $120+30=150$\\ \hline
 $2$ & $30+30=30\cdot 2=60$ & $120+60=180$\\ \hline
@@ -45,13 +45,13 @@ $m$ & $30\cdot m=30m$ & $120+30m$\\ \hline
 
 \step{2}{Viết biểu thức}
 Số tiền \emph{gửi thêm} sau $m$ lần là $m$ lần của $30$, tức là $30m$. Cộng với số tiền có sẵn $120$, ta được
-\[ \text{Tổng số tiền} = 120 + 30m \ \text{(nghìn đồng)}. \]
+\[ \text{Tổng số tiền} = 120 + 30m \ \text{(đô la)}. \]
 \begin{recallbox}$30m$ nghĩa là $30\cdot m$ (ta được phép bỏ dấu nhân giữa một số và một chữ). Cộng một số $a$ lặp lại $m$ lần thì được $a\cdot m$.\end{recallbox}
 
 \step{3}{Loại các phương án sai}
 \begin{itemize}[leftmargin=1.3em,itemsep=1pt]
-\item (A) $120+m$: chỉ cộng thêm $1$ nghìn mỗi lần -- sai.
-\item (B) $30m$: quên mất $120$ nghìn có sẵn. Với $m=0$ cho $0$ -- sai.
+\item (A) $120+m$: chỉ cộng thêm $\$1$ mỗi lần -- sai.
+\item (B) $30m$: quên mất $\$120$ có sẵn. Với $m=0$ cho $0$ -- sai.
 \item (C) $30+120m$: đảo vai trò hai số. Với $m=1$ cho $150$ (trùng!) nhưng với $m=2$ cho $270\ne 180$ -- sai.
 \item (D) $150m$: với $m=2$ cho $300\ne 180$ -- sai.
 \end{itemize}
@@ -211,32 +211,27 @@ Vậy chọn \textbf{(B)}.
 
 % ------------------------------------------------------------------ 21
 \begin{probbox}{21}{\relax}
-Bạn Ánh tham gia một chuyến chèo thuyền kayak kéo dài $6$ ngày với tổng quãng đường $168$~km. Vừa hết ngày thứ ba, Ánh đã đi được $\frac{3}{7}$ tổng quãng đường. Trong những ngày còn lại, trung bình mỗi ngày Ánh phải chèo bao nhiêu ki-lô-mét?
+Bạn Andrea tham gia một chuyến chèo thuyền kayak kéo dài $6$ ngày với tổng quãng đường $168$~km. Vừa hết ngày thứ ba, Andrea đã đi được $\frac{3}{7}$ tổng quãng đường. Trong những ngày còn lại, trung bình mỗi ngày Andrea phải chèo bao nhiêu ki-lô-mét?
 \choices{$29$}{$24$}{$27$}{$32$}{$26$}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Cho biết: tổng quãng đường $168$~km; chuyến đi $6$ ngày; sau $3$ ngày đã đi $\frac{3}{7}$ quãng đường. Cần tìm: số km trung bình mỗi ngày trong số ngày còn lại.
 \begin{recallbox}Muốn tìm $\frac{m}{n}$ của một số, ta nhân số đó với $\frac{m}{n}$ (chia cho $n$ rồi nhân với $m$).\end{recallbox}
 
-\step{1}{Vẽ sơ đồ: chia quãng đường thành 7 phần bằng nhau}
-\begin{barfigC}
-\foreach \i in {0,1,2}{\blk{\i*1.3}{\i*1.3+1.3}{0}{0.6}{tmGreen}{}}
-\foreach \i in {3,4,5,6}{\blk{\i*1.3}{\i*1.3+1.3}{0}{0.6}{tmOrange}{}}
-\brcup{0}{3.9}{0.55}{đã đi: $3$ phần (3 ngày)}
-\brcup{3.9}{9.1}{0.55}{còn lại: $4$ phần (3 ngày)}
-\brcdn{0}{9.1}{-0.55}{$168$ km}
-\end{barfigC}
-Mỗi phần dài $168:7=24$ (km).
+\step{1}{Tính quãng đường đã đi}
+$\dfrac{3}{7}$ của $168$~km là $168\cdot\dfrac{3}{7}=168:7\cdot 3=24\cdot 3=72$ (km).
 
-\step{2}{Tính quãng đường đã đi và còn lại}
-Đã đi: $3$ phần $=3\cdot 24=72$ (km).\par
-Còn lại: $168-72=96$ (km) (hoặc $4$ phần $=4\cdot 24=96$~km).
-
-\step{3}{Số ngày còn lại}
+\step{2}{Số ngày còn lại}
 Chuyến đi $6$ ngày, đã xong $3$ ngày, nên còn $6-3=3$ ngày.
 
-\step{4}{Trung bình mỗi ngày}
-$96:3=32$ (km/ngày).
+\step{3}{Gọi ẩn và lập phương trình}
+Gọi $x$ (km) là quãng đường trung bình Andrea phải chèo mỗi ngày trong $3$ ngày còn lại ($x>0$).
+Trong $3$ ngày đó Andrea chèo được $3x$ km. Quãng đường đã đi cộng quãng đường sẽ đi bằng cả chặng:
+\[ 72+3x=168. \]
+
+\step{4}{Giải phương trình}
+Chuyển vế: $3x=168-72=96$. Chia hai vế cho $3$: $x=96:3=32$ (km/ngày).
+\begin{tipbox}Cũng có thể nghĩ: phần còn lại là $1-\frac{3}{7}=\frac{4}{7}$ quãng đường, tức $168:7\cdot 4=96$~km, chia đều cho $3$ ngày được $32$~km mỗi ngày.\end{tipbox}
 \begin{warnbox}Đừng nhầm ``phần quãng đường còn lại'' ($\frac{4}{7}$) với ``số ngày còn lại'' ($3$ ngày). Phương án (B) $24$~km chỉ là độ dài của \emph{một phần bảy} quãng đường.\end{warnbox}
 \verify{$72+3\cdot 32=72+96=168$~km \checkmark.}
 Vậy chọn \textbf{(D)}.
@@ -293,7 +288,7 @@ Vậy chọn \textbf{(B)}.
 
 % ------------------------------------------------------------------ 23
 \begin{probbox}{23}{\relax}
-Chị Giang làm nhân viên phục vụ ở một nhà hàng. Hôm thứ Bảy, chị dậy lúc $6$\,h\,$30$ sáng, bắt đầu làm việc lúc $x$ giờ sáng và kết thúc lúc $x$ giờ chiều (cùng ngày). Hôm thứ Bảy chị Giang làm việc trong bao lâu?
+Chị Gail làm nhân viên phục vụ ở một nhà hàng. Hôm thứ Bảy, chị dậy lúc $6$\,h\,$30$ sáng, bắt đầu làm việc lúc $x$ giờ sáng và kết thúc lúc $x$ giờ chiều (cùng ngày). Hôm thứ Bảy chị Gail làm việc trong bao lâu?
 \choicesII{$24-2x$ giờ}{$12-x$ giờ}{$2x$ giờ}{$0$ giờ}{$12$ giờ}
 \end{probbox}
 \probsol{
@@ -310,8 +305,8 @@ Thời gian $=$ giờ kết thúc $-$ giờ bắt đầu $=(x+12)-x=12$ (giờ).
 \begin{figC}
 \draw[Navy,line width=1pt,->] (0,0)--(8.4,0);
 \foreach \x/\l in {0/{$x$ giờ sáng},4/{$12$ giờ trưa},8/{$x$ giờ chiều}}{\draw[Navy,line width=1pt] (\x,0.12)--(\x,-0.12); \node[below,font=\footnotesize] at (\x,-0.12) {\l};}
-\brcup{0}{4}{0.25}{$12-x$ giờ}
-\brcup{4}{8}{0.25}{$x$ giờ}
+\draw[<->,tmBlue!72!black,line width=0.7pt] (0.06,0.35)--(3.94,0.35) node[midway,above,font=\footnotesize] {$12-x$ giờ};
+\draw[<->,tmBlue!72!black,line width=0.7pt] (4.06,0.35)--(7.94,0.35) node[midway,above,font=\footnotesize] {$x$ giờ};
 \end{figC}
 Từ $x$ giờ sáng đến $12$ giờ trưa là $12-x$ giờ; từ $12$ giờ trưa đến $x$ giờ chiều là $x$ giờ. Tổng: $(12-x)+x=12$ giờ. Kết quả không phụ thuộc vào $x$!
 \begin{warnbox}Phương án (B) $12-x$ chỉ là phần buổi sáng. Phương án (D) $0$ giờ xuất hiện khi lấy $x-x$ mà quên rằng một bên là ``sáng'', một bên là ``chiều''.\end{warnbox}
@@ -328,9 +323,9 @@ Một hình hộp chữ nhật kích thước $8\times 8\times n$ ($n$ là số 
 \probsol{
 \textbf{Phân tích đề.} Cần viết $A$ và $B$ theo $n$, lập tỉ số $\frac{B}{A}$, rồi tìm mọi $n$ nguyên dương làm tỉ số này là số nguyên, cuối cùng cộng các $n$ đó lại.
 \begin{figC}\begin{scope}[scale=0.8]
-\draw[tmBlue,line width=1pt,fill=tmBlue!10] (0,0) rectangle (2.4,1.6);
-\draw[tmBlue,line width=1pt,fill=tmBlue!20] (0,1.6)--(0.9,2.3)--(3.3,2.3)--(2.4,1.6)--cycle;
-\draw[tmBlue,line width=1pt,fill=tmBlue!5] (2.4,0)--(3.3,0.7)--(3.3,2.3)--(2.4,1.6)--cycle;
+\draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,0) rectangle (2.4,1.6);
+\draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,1.6)--(0.9,2.3)--(3.3,2.3)--(2.4,1.6)--cycle;
+\draw[tmBlue,line width=1pt,fill=tmBlue!8] (2.4,0)--(3.3,0.7)--(3.3,2.3)--(2.4,1.6)--cycle;
 \node[below,font=\footnotesize] at (1.2,0) {$8$};
 \node[right,font=\footnotesize] at (3.3,1.5) {$n$};
 \node[below right,font=\footnotesize] at (2.8,0.4) {$8$};
@@ -435,17 +430,17 @@ Vậy chọn \textbf{(A)}.
 
 % ------------------------------------------------------------------ 26
 \begin{probbox}{26}{\relax}
-Bạn Sơn bắt đầu từ số $7$ và đếm tiến, mỗi lần thêm $3$, được dãy $7, 10, 13,\dots$ Bạn Dũng bắt đầu từ số $2026$ và đếm lùi, mỗi lần bớt $5$, được dãy $2026, 2021, 2016,\dots$ Số nào dưới đây có mặt trong cả hai dãy?
+Bạn Steve bắt đầu từ số $7$ và đếm tiến, mỗi lần thêm $3$, được dãy $7, 10, 13,\dots$ Bạn Dave bắt đầu từ số $2026$ và đếm lùi, mỗi lần bớt $5$, được dãy $2026, 2021, 2016,\dots$ Số nào dưới đây có mặt trong cả hai dãy?
 \choices{$1009$}{$1006$}{$1003$}{$1001$}{$1011$}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Mỗi dãy gồm các số cách đều nhau. Ta tìm ``dấu hiệu nhận biết'' một số thuộc mỗi dãy, rồi kiểm tra từng phương án.
 
-\step{1}{Dấu hiệu của dãy của Sơn}
-$7=2\cdot 3+1$ chia cho $3$ dư $1$. Mỗi lần cộng thêm $3$, số dư khi chia cho $3$ không đổi. Vậy mọi số trong dãy của Sơn đều \textbf{chia cho $3$ dư $1$} (và $\ge 7$). Ngược lại, mọi số $\ge 7$ chia $3$ dư $1$ đều có mặt, vì nó bằng $7+3k$.
+\step{1}{Dấu hiệu của dãy của Steve}
+$7=2\cdot 3+1$ chia cho $3$ dư $1$. Mỗi lần cộng thêm $3$, số dư khi chia cho $3$ không đổi. Vậy mọi số trong dãy của Steve đều \textbf{chia cho $3$ dư $1$} (và $\ge 7$). Ngược lại, mọi số $\ge 7$ chia $3$ dư $1$ đều có mặt, vì nó bằng $7+3k$.
 
-\step{2}{Dấu hiệu của dãy của Dũng}
-$2026=405\cdot 5+1$ chia cho $5$ dư $1$. Bớt đi $5$ không làm đổi số dư khi chia cho $5$. Vậy mọi số trong dãy của Dũng đều \textbf{chia cho $5$ dư $1$} (và $\le 2026$), tức là có \textbf{chữ số tận cùng là $1$ hoặc $6$}.
+\step{2}{Dấu hiệu của dãy của Dave}
+$2026=405\cdot 5+1$ chia cho $5$ dư $1$. Bớt đi $5$ không làm đổi số dư khi chia cho $5$. Vậy mọi số trong dãy của Dave đều \textbf{chia cho $5$ dư $1$} (và $\le 2026$), tức là có \textbf{chữ số tận cùng là $1$ hoặc $6$}.
 \begin{recallbox}Cộng hoặc trừ một bội của $m$ không làm thay đổi số dư khi chia cho $m$. Một số chia $5$ dư $1$ khi và chỉ khi chữ số tận cùng của nó là $1$ hoặc $6$. Một số chia $3$ dư bao nhiêu thì tổng các chữ số của nó chia $3$ dư bấy nhiêu.\end{recallbox}
 
 \step{3}{Kiểm tra từng phương án}
@@ -460,7 +455,7 @@ $1001$ & $2$; dư $2$ $\times$ & $1$ \checkmark & không\\ \hline
 $1011$ & $3$; dư $0$ $\times$ & $1$ \checkmark & không\\ \hline
 \end{tabular}
 \end{center}
-\verify{$1006=7+3\cdot 333$ (vì $1006-7=999=3\cdot 333$), nên $1006$ là số thứ $334$ trong dãy của Sơn. $2026-1006=1020=5\cdot 204$, nên $1006$ có trong dãy của Dũng (sau $204$ lần bớt $5$) \checkmark.}
+\verify{$1006=7+3\cdot 333$ (vì $1006-7=999=3\cdot 333$), nên $1006$ là số thứ $334$ trong dãy của Steve. $2026-1006=1020=5\cdot 204$, nên $1006$ có trong dãy của Dave (sau $204$ lần bớt $5$) \checkmark.}
 \begin{tipbox}Thay vì viết hàng trăm số của mỗi dãy, ta chỉ cần biết số dư -- một ``chữ ký'' chung của mọi số trong dãy.\end{tipbox}
 Vậy chọn \textbf{(B)}.
 \ans{(B) $1006$}
@@ -468,15 +463,15 @@ Vậy chọn \textbf{(B)}.
 
 % ------------------------------------------------------------------ 27
 \begin{probbox}{27}{\stars{1}}
-Trên một đường chạy hình tròn, bạn An đứng ở điểm $A$, bạn Bình đứng ở điểm $B$ đối diện với $A$ (đoạn $AB$ là một đường kính). An chạy ngược chiều kim đồng hồ, Bình chạy cùng chiều kim đồng hồ. Hai bạn chạy với vận tốc không đổi nhưng khác nhau. Sau một thời gian, hai bạn nhận thấy mỗi lần gặp nhau đều chỉ ở đúng ba vị trí cố định trên đường chạy. Tỉ số vận tốc của hai bạn là
+Trên một đường chạy hình tròn, bạn Anna đứng ở điểm $A$, bạn Ben đứng ở điểm $B$ đối diện với $A$ (đoạn $AB$ là một đường kính). Anna chạy ngược chiều kim đồng hồ, Ben chạy cùng chiều kim đồng hồ. Hai bạn chạy với vận tốc không đổi nhưng khác nhau. Sau một thời gian, hai bạn nhận thấy các lần gặp nhau luôn diễn ra tại đúng ba vị trí cố định trên đường chạy. Tỉ số vận tốc của hai bạn là
 \begin{figC}
 \draw[Ink,line width=1.1pt] (0,0) circle (1.1);
 \fill[Ink] (0,1.1) circle (2pt) node[above right,font=\small\itshape] {$A$};
 \fill[Ink] (0,-1.1) circle (2pt) node[below right,font=\small\itshape] {$B$};
 \draw[tmBlue,line width=1pt,->] (-0.2,1.33)--(-0.75,1.18);
 \draw[tmOrange,line width=1pt,->] (-0.2,-1.33)--(-0.75,-1.18);
-\node[font=\scriptsize,text=tmBlue] at (-1.25,1.45) {An};
-\node[font=\scriptsize,text=tmOrange!85!black] at (-1.3,-1.45) {Bình};
+\node[font=\scriptsize,text=tmBlue] at (-1.25,1.45) {Anna};
+\node[font=\scriptsize,text=tmOrange!85!black] at (-1.3,-1.45) {Ben};
 \end{figC}
 \choicesII{$3:2$}{$3:1$}{$4:1$}{$2:1$}{$5:2$}
 \end{probbox}
@@ -486,19 +481,19 @@ Trên một đường chạy hình tròn, bạn An đứng ở điểm $A$, bạ
 \step{1}{Giữa hai lần gặp liên tiếp, cả hai cùng chạy được đúng 1 vòng}
 \begin{proofbox}Ngay sau khi gặp nhau, hai bạn tách ra theo hai chiều ngược nhau. Khoảng cách giữa họ (đo dọc theo đường chạy) tăng dần, và họ gặp lại nhau khi tổng quãng đường hai bạn chạy được vừa đủ phủ kín cả vòng tròn. Vậy giữa hai lần gặp liên tiếp, \emph{tổng} quãng đường hai bạn chạy đúng bằng $1$ vòng. (Riêng lần gặp đầu tiên: lúc đầu hai bạn cách nhau nửa vòng nên tổng quãng đường là $\frac12$ vòng.)\end{proofbox}
 
-\step{2}{Mỗi lần, An chạy được bao nhiêu phần vòng?}
-Trong cùng một khoảng thời gian, quãng đường tỉ lệ với vận tốc. Nếu tỉ số vận tốc An : Bình là $p:q$ thì trong $1$ vòng chung, An chạy được $\dfrac{p}{p+q}$ vòng, Bình chạy được $\dfrac{q}{p+q}$ vòng.
+\step{2}{Mỗi lần, Anna chạy được bao nhiêu phần vòng?}
+Trong cùng một khoảng thời gian, quãng đường tỉ lệ với vận tốc. Nếu tỉ số vận tốc Anna : Ben là $p:q$ thì trong $1$ vòng chung, Anna chạy được $\dfrac{p}{p+q}$ vòng, Ben chạy được $\dfrac{q}{p+q}$ vòng.
 \begin{recallbox}Chia một đại lượng theo tỉ số $p:q$: phần thứ nhất bằng $\frac{p}{p+q}$, phần thứ hai bằng $\frac{q}{p+q}$ của tổng.\end{recallbox}
-Vậy điểm gặp sau luôn cách điểm gặp trước một cung bằng $\dfrac{p}{p+q}$ vòng (theo chiều chạy của An).
+Vậy điểm gặp sau luôn cách điểm gặp trước một cung bằng $\dfrac{p}{p+q}$ vòng (theo chiều chạy của Anna).
 
 \step{3}{Thử với tỉ số $2:1$}
-Mỗi lần An chạy $\frac{2}{3}$ vòng. Gọi $M_1$ là điểm gặp đầu tiên. Các điểm gặp tiếp theo cách $M_1$ lần lượt $\frac23$, $\frac43$, $\frac63=2$ vòng, \dots\ Vì đi trọn $1$ vòng thì quay về chỗ cũ, nên $\frac43$ vòng cũng là $\frac13$ vòng và $2$ vòng chính là $M_1$. Chỉ có \textbf{ba} điểm gặp: $M_1$ và hai điểm chia đường tròn thành ba phần bằng nhau. (Nếu Bình nhanh hơn, tỉ số $1:2$, kết quả tương tự.)
+Mỗi lần Anna chạy $\frac{2}{3}$ vòng. Gọi $M_1$ là điểm gặp đầu tiên. Các điểm gặp tiếp theo cách $M_1$ lần lượt $\frac23$, $\frac43$, $\frac63=2$ vòng, \dots\ Vì đi trọn $1$ vòng thì quay về chỗ cũ, nên $\frac43$ vòng cũng là $\frac13$ vòng và $2$ vòng chính là $M_1$. Chỉ có \textbf{ba} điểm gặp: $M_1$ và hai điểm chia đường tròn thành ba phần bằng nhau. (Nếu Ben nhanh hơn, tỉ số $1:2$, kết quả tương tự.)
 
 \step{4}{Các tỉ số khác cho bao nhiêu điểm?}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10}\textbf{Tỉ số} & \textbf{Mỗi lần An chạy} & \textbf{Vị trí các điểm gặp (tính từ $M_1$)} & \textbf{Số điểm}\\ \hline
+\rowcolor{tmBlue!10}\textbf{Tỉ số} & \textbf{Mỗi lần Anna chạy} & \textbf{Vị trí các điểm gặp (tính từ $M_1$)} & \textbf{Số điểm}\\ \hline
 (A) $3:2$ & $\frac35$ vòng & $0,\frac35,\frac15,\frac45,\frac25$ rồi lặp lại & $5$\\ \hline
 (B) $3:1$ & $\frac34$ vòng & $0,\frac34,\frac24,\frac14$ rồi lặp lại & $4$\\ \hline
 (C) $4:1$ & $\frac45$ vòng & $0,\frac45,\frac35,\frac25,\frac15$ & $5$\\ \hline
@@ -516,7 +511,7 @@ Mỗi lần An chạy $\frac{2}{3}$ vòng. Gọi $M_1$ là điểm gặp đầu 
 \node[font=\scriptsize,text=AnsRed,anchor=west] at (330:1.25) {gặp};
 \node[font=\scriptsize,text=AnsRed,anchor=south west] at (90:1.18) {gặp};
 \end{figC}
-\verify{Đường chạy dài $600$~m, An chạy $200$ m/phút, Bình $100$ m/phút. Lúc đầu cách nhau $300$~m, gặp lần đầu sau $300:300=1$ phút, tại điểm cách $A$ $200$~m (theo chiều của An). Sau đó cứ $600:300=2$ phút gặp một lần, An chạy thêm $400$~m mỗi lần: vị trí $200\to 600$ (tức $A$) $\to 1000$ (tức $400$~m) $\to 1400$ (tức $200$~m) \dots\ Đúng ba điểm: $0$~m, $200$~m, $400$~m, chia đường tròn làm ba phần đều -- như hình trên.}
+\verify{Đường chạy dài $600$~m, Anna chạy $200$ m/phút, Ben $100$ m/phút. Lúc đầu cách nhau $300$~m, gặp lần đầu sau $300:300=1$ phút, tại điểm cách $A$ $200$~m (theo chiều của Anna). Sau đó cứ $600:300=2$ phút gặp một lần, Anna chạy thêm $400$~m mỗi lần: vị trí $200\to 600$ (tức $A$) $\to 1000$ (tức $400$~m) $\to 1400$ (tức $200$~m) \dots\ Đúng ba điểm: $0$~m, $200$~m, $400$~m, chia đường tròn làm ba phần đều -- như hình trên.}
 Vậy chọn \textbf{(D)}.
 \ans{(D) $2:1$}
 }
@@ -575,75 +570,78 @@ Vậy chọn \textbf{(E)}.
 
 % ------------------------------------------------------------------ 29
 \begin{probbox}{29}{\relax}
-Khánh nuôi nhiều mèo hơn Lan và nhiều chó hơn Bảo. Lan nuôi nhiều chó hơn Khánh nhưng ít mèo hơn Bảo. Khẳng định nào dưới đây \textbf{chắc chắn} đúng?
-\choicesL{Bảo nuôi ít mèo nhất.}{Bảo nuôi nhiều mèo nhất.}{Khánh nuôi nhiều mèo nhất.}{Lan nuôi nhiều chó nhất.}{Khánh nuôi ít chó nhất.}
+Kathy nuôi nhiều mèo hơn Alice và nhiều chó hơn Bruce. Alice nuôi nhiều chó hơn Kathy nhưng ít mèo hơn Bruce. Khẳng định nào dưới đây \textbf{chắc chắn} đúng?
+\choicesL{Bruce nuôi ít mèo nhất.}{Bruce nuôi nhiều mèo nhất.}{Kathy nuôi nhiều mèo nhất.}{Alice nuôi nhiều chó nhất.}{Kathy nuôi ít chó nhất.}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Có hai loại so sánh riêng rẽ: so sánh số \emph{mèo} và so sánh số \emph{chó}. Ta tách thông tin thành hai nhóm rồi sắp thứ tự.
 
 \step{1}{Thông tin về mèo}
-``Khánh nhiều mèo hơn Lan'': Lan $<$ Khánh.\quad ``Lan ít mèo hơn Bảo'': Lan $<$ Bảo.\par
-Vậy Lan ít mèo nhất. Nhưng giữa Khánh và Bảo, \emph{không biết ai nhiều hơn}.
+``Kathy nhiều mèo hơn Alice'': Alice $<$ Kathy.\quad ``Alice ít mèo hơn Bruce'': Alice $<$ Bruce.\par
+Vậy Alice ít mèo nhất. Nhưng giữa Kathy và Bruce, \emph{không biết ai nhiều hơn}.
 
 \step{2}{Thông tin về chó}
-``Khánh nhiều chó hơn Bảo'': Bảo $<$ Khánh.\quad ``Lan nhiều chó hơn Khánh'': Khánh $<$ Lan.\par
-Ghép lại: Bảo $<$ Khánh $<$ Lan. Vậy \textbf{Lan nhiều chó nhất}, Bảo ít chó nhất.
+``Kathy nhiều chó hơn Bruce'': Bruce $<$ Kathy.\quad ``Alice nhiều chó hơn Kathy'': Kathy $<$ Alice.\par
+Ghép lại: Bruce $<$ Kathy $<$ Alice. Vậy \textbf{Alice nhiều chó nhất}, Bruce ít chó nhất.
 \begin{figC}
 \node[font=\small\bfseries,text=tmOrange!85!black] at (-0.6,1.4) {Mèo};
-\node[draw=tmOrange,rounded corners=3pt,font=\small] (L) at (1,1.4) {Lan};
-\node[draw=tmOrange,rounded corners=3pt,font=\small] (K) at (3,1.9) {Khánh};
-\node[draw=tmOrange,rounded corners=3pt,font=\small] (B) at (3,0.9) {Bảo};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (L) at (1,1.4) {Alice};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (K) at (3,1.9) {Kathy};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (B) at (3,0.9) {Bruce};
 \draw[->,tmOrange,line width=0.9pt] (L)--(K); \draw[->,tmOrange,line width=0.9pt] (L)--(B);
 \node[font=\scriptsize,text=Slate] at (4.6,1.4) {(chưa so sánh được)};
 \node[font=\small\bfseries,text=tmBlue] at (-0.6,0) {Chó};
-\node[draw=tmBlue,rounded corners=3pt,font=\small] (b) at (1,0) {Bảo};
-\node[draw=tmBlue,rounded corners=3pt,font=\small] (k) at (3,0) {Khánh};
-\node[draw=tmBlue,rounded corners=3pt,font=\small] (l) at (5,0) {Lan};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (b) at (1,0) {Bruce};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (k) at (3,0) {Kathy};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (l) at (5,0) {Alice};
 \draw[->,tmBlue,line width=0.9pt] (b)--(k); \draw[->,tmBlue,line width=0.9pt] (k)--(l);
 \node[font=\scriptsize,text=Slate] at (3,-0.55) {mũi tên chỉ từ ít đến nhiều};
 \end{figC}
 
 \step{3}{Xét từng khẳng định}
 \begin{itemize}[leftmargin=1.3em,itemsep=1pt]
-\item (A) ``Bảo ít mèo nhất'': \textbf{sai}, vì Lan ít mèo hơn Bảo.
-\item (B) ``Bảo nhiều mèo nhất'': \emph{có thể} đúng, nhưng không chắc. Ví dụ Lan $1$, Khánh $3$, Bảo $2$ con mèo thỏa mọi điều kiện mà Khánh nhiều mèo nhất.
-\item (C) ``Khánh nhiều mèo nhất'': cũng không chắc. Ví dụ Lan $1$, Khánh $2$, Bảo $3$ con mèo thì Bảo nhiều nhất.
-\item (D) ``Lan nhiều chó nhất'': \textbf{chắc chắn đúng} (Bước 2).
-\item (E) ``Khánh ít chó nhất'': \textbf{sai}, vì Bảo ít chó hơn Khánh.
+\item (A) ``Bruce ít mèo nhất'': \textbf{sai}, vì Alice ít mèo hơn Bruce.
+\item (B) ``Bruce nhiều mèo nhất'': \emph{có thể} đúng, nhưng không chắc. Ví dụ Alice $1$, Kathy $3$, Bruce $2$ con mèo thỏa mọi điều kiện mà Kathy nhiều mèo nhất.
+\item (C) ``Kathy nhiều mèo nhất'': cũng không chắc. Ví dụ Alice $1$, Kathy $2$, Bruce $3$ con mèo thì Bruce nhiều nhất.
+\item (D) ``Alice nhiều chó nhất'': \textbf{chắc chắn đúng} (Bước 2).
+\item (E) ``Kathy ít chó nhất'': \textbf{sai}, vì Bruce ít chó hơn Kathy.
 \end{itemize}
 \begin{warnbox}``Chắc chắn đúng'' nghĩa là đúng trong \emph{mọi} trường hợp thỏa đề bài. Chỉ cần tìm được một trường hợp làm khẳng định sai là loại khẳng định đó.\end{warnbox}
 Vậy chọn \textbf{(D)}.
-\ans{(D) Lan nuôi nhiều chó nhất}
+\ans{(D) Alice nuôi nhiều chó nhất}
 }
 
 % ------------------------------------------------------------------ 30
 \begin{probbox}{30}{\relax}
-Chị Linh mua $300$~g kẹo loại A hết $50$ nghìn đồng và $x$~g kẹo loại B hết $70$ nghìn đồng. Chị tính được rằng giá trung bình của toàn bộ số kẹo đã mua là $15$ nghìn đồng cho mỗi $100$~g. Giá trị của $x$ là
+Chị Chloe mua $300$~g kẹo loại A hết $\$5{,}00$ và $x$~g kẹo loại B hết $\$7{,}00$. Chị tính được rằng giá trung bình của toàn bộ số kẹo đã mua là $\$1{,}50$ cho mỗi $100$~g. Giá trị của $x$ là
 \choices{$525$}{$600$}{$500$}{$450$}{$900$}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Cho biết: tổng số tiền của hai loại kẹo và giá trung bình. Cần tìm khối lượng kẹo B. Ý tưởng: từ tổng tiền và giá trung bình suy ra \emph{tổng khối lượng}.
-\begin{recallbox}Giá trung bình $=$ tổng số tiền $:$ tổng khối lượng. Do đó tổng khối lượng $=$ tổng số tiền $:$ giá trung bình.\end{recallbox}
+\textbf{Phân tích đề.} Cho biết: số tiền mua mỗi loại kẹo, khối lượng kẹo A và giá trung bình. Cần tìm khối lượng kẹo B (tính bằng gam).
+\begin{recallbox}Giá trung bình $=$ tổng số tiền $:$ tổng khối lượng. Do đó tổng số tiền $=$ giá trung bình $\times$ tổng khối lượng.\end{recallbox}
 
 \step{1}{Tổng số tiền}
-$50+70=120$ (nghìn đồng).
+$5+7=12$ (đô la).
 
-\step{2}{Tổng khối lượng}
-Cứ $100$~g giá $15$ nghìn đồng. Với $120$ nghìn đồng, số ``phần $100$ g'' mua được là $120:15=8$. Vậy tổng khối lượng là $8\cdot 100=800$ (g).
+\step{2}{Biểu diễn tổng khối lượng và lập phương trình}
+Tổng khối lượng kẹo là $300+x$ (g), tức là $\dfrac{300+x}{100}$ ``phần $100$~g''. Mỗi phần $100$~g có giá trung bình $\$1{,}50$, nên tổng số tiền là
+\[ 1{,}5\cdot\frac{300+x}{100}=12. \]
 
-\step{3}{Khối lượng kẹo B}
-$x=800-300=500$ (g).
+\step{3}{Giải phương trình}
+Chia hai vế cho $1{,}5$: $\dfrac{300+x}{100}=12:1{,}5=8$.\par
+Nhân hai vế với $100$: $300+x=800$.\par
+Chuyển vế: $x=800-300=500$ (g).
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} & \textbf{Kẹo A} & \textbf{Kẹo B} & \textbf{Cả hai}\\ \hline
 Khối lượng (g) & $300$ & $x=500$ & $800$\\ \hline
-Số tiền (nghìn đồng) & $50$ & $70$ & $120$\\ \hline
-Giá cho $100$~g (nghìn đồng) & $\approx 16{,}7$ & $14$ & $15$\\ \hline
+Số tiền (đô la) & $5$ & $7$ & $12$\\ \hline
+Giá cho $100$~g (đô la) & $\approx 1{,}67$ & $1{,}40$ & $1{,}50$\\ \hline
 \end{tabular}
 \end{center}
-\begin{warnbox}Không được lấy trung bình cộng của hai giá ($16{,}7$ và $14$) vì khối lượng hai loại khác nhau. Giá trung bình phải tính bằng \emph{tổng tiền chia tổng khối lượng}.\end{warnbox}
-\verify{$120$ nghìn đồng cho $800$~g, tức $120:8=15$ nghìn đồng cho $100$~g \checkmark.}
+\begin{warnbox}Không được lấy trung bình cộng của hai giá ($\$1{,}67$ và $\$1{,}40$) vì khối lượng hai loại khác nhau. Giá trung bình phải tính bằng \emph{tổng tiền chia tổng khối lượng}.\end{warnbox}
+\verify{$\$12$ cho $800$~g, tức $12:8=1{,}5$ đô la cho $100$~g \checkmark.}
 Vậy chọn \textbf{(C)}.
 \ans{(C) $500$}
 }

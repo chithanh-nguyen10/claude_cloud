@@ -12,12 +12,6 @@
 \providecommand{\lgaSq}{\tikz[baseline=0pt]\draw[fill=tmBlue!65,draw=tmBlue!55!black,line width=0.6pt] (0,0) rectangle (0.3,0.3);}
 \providecommand{\lgaTri}{\tikz[baseline=0pt]\draw[fill=tmOrange!85,draw=tmOrange!55!black,line width=0.6pt] (0,0)--(0.34,0)--(0.17,0.31)--cycle;}
 \providecommand{\lgaCir}{\tikz[baseline=0pt]\draw[fill=tmGreen!65,draw=tmGreen!45!black,line width=0.6pt] (0.15,0.15) circle (0.15);}
-% fruit: apple (red, with stalk), orange (orange), mango (green, oval)
-\providecommand{\lgaApple}{\tikz[baseline=0pt]{\draw[fill=AnsRed!80,draw=AnsRed!55!black,line width=0.5pt] (0.15,0.15) circle (0.15);
-  \draw[tmGreen!50!black,line width=0.8pt] (0.15,0.29)--(0.2,0.39);}}
-\providecommand{\lgaOrg}{\tikz[baseline=0pt]{\draw[fill=tmOrange,draw=tmOrange!60!black,line width=0.5pt] (0.17,0.17) circle (0.17);
-  \fill[tmOrange!45!black] (0.17,0.3) circle (0.025);}}
-\providecommand{\lgaMango}{\tikz[baseline=0pt]{\draw[fill=tmGreen!70,draw=tmGreen!45!black,line width=0.5pt] (0.27,0.15) ellipse (0.27 and 0.15);}}
 % coloured boxes (Problem 23)
 \providecommand{\lgaBox}[1]{\tikz[baseline=0pt]\draw[fill=#1!70,draw=#1!55!black,line width=0.6pt,rounded corners=1pt] (0,0) rectangle (0.34,0.3);}
 % \lgaMagic{a}{b}{c}{d}{e}{f}{g}{h}{i}: 3x3 grid (row by row)
@@ -101,7 +95,7 @@ answer against \textbf{all} the conditions of the problem.}
 \needspace{9\baselineskip}\shead{True and false statements: truth-tellers and liars}
 \begin{knowbox}
 \textbf{1. Statements.} A sentence that is either \emph{true} or \emph{false} (it cannot be both) is called a statement.
-Examples: ``$7$ is odd'' (true), ``Hanoi is south of Ho Chi Minh City'' (false).
+Examples: ``$7$ is odd'' (true), ``Paris is the capital of Italy'' (false).
 
 \textbf{2. Truth-tellers and liars.} In puzzles, everything a \emph{truth-teller} says is true, and everything a \emph{liar} says is
 false. Therefore:
@@ -116,7 +110,7 @@ false. Therefore:
 \begin{tabular}{|l|l|}
 \hline
 \rowcolor{tmBlue!10} Statement & Negation (true exactly when the statement is false) \\ \hline
-An \emph{and} Bình are both liars & \emph{At least one} of the two tells the truth \\ \hline
+Anna \emph{and} Ben are both liars & \emph{At least one} of the two tells the truth \\ \hline
 \emph{Every} apple is red & \emph{There is at least one} apple that is not red \\ \hline
 The flower is a red rose & The flower is not red, \emph{or} it is not a rose (or both) \\ \hline
 \end{tabular}
@@ -136,7 +130,7 @@ impossible. If the speaker were a liar, the statement would be false, so they wo
 cases lead to a contradiction, so the sentence can never be spoken (on an ``island'' with only truth-tellers and liars).
 \end{proofbox}
 \begin{warnbox}
-The negation of ``An and Bình are both liars'' is \emph{not} ``An and Bình both tell the truth''. As soon as \emph{one} of them tells
+The negation of ``Anna and Ben are both liars'' is \emph{not} ``Anna and Ben both tell the truth''. As soon as \emph{one} of them tells
 the truth, the original statement is already false.
 \end{warnbox}
 \begin{tipbox}
@@ -154,8 +148,8 @@ remains is the answer.
 \textbf{2. Proof by contradiction.} To show that a statement $P$ is true, we \emph{assume} that $P$ is false and keep reasoning.
 If we arrive at something impossible, the assumption was wrong, so $P$ is true.
 
-\textbf{3. Two contradictory statements.} If two statements cannot both be true and cannot both be false (for example Long says
-``Hà is lying'' about Hà's statement), then \emph{exactly one} of them is true. This is the ``key'' to very many puzzles: we
+\textbf{3. Two contradictory statements.} If two statements cannot both be true and cannot both be false (for example Leo says
+``Helen is lying'' about Helen's statement), then \emph{exactly one} of them is true. This is the ``key'' to very many puzzles: we
 immediately know that one statement of the pair is true and the other false.
 
 \textbf{4. Seating around a round table.} Rotating the whole table does not change who sits next to whom. So we may \emph{fix} the
@@ -178,7 +172,7 @@ impossible, then the possibility ``$P$ is false'' cannot happen. Only the possib
 analysis with two cases: $P$ true or $P$ false.
 \end{proofbox}
 \begin{tipbox}
-Start with the ``tightest'' piece of information -- the one that allows the fewest possibilities. For instance, ``Giang and Khoa do
+Start with the ``tightest'' piece of information -- the one that allows the fewest possibilities. For instance, ``Jack and Kate do
 \emph{not} sit next to each other'' at a $5$-seat table means there is \emph{exactly one} person between them on one side. Fewer
 possibilities means fewer cases to check!
 \end{tipbox}
@@ -186,8 +180,8 @@ possibilities means fewer cases to check!
 % ---------------------------------------------------------------------
 \needspace{9\baselineskip}\shead{Ordering; ``must be true'' and ``could be true''}
 \begin{knowbox}
-\textbf{1. Use symbols.} Translate each sentence into an inequality: ``Minh runs faster than Hùng'' becomes $M > H$;
-``Kiều ate less than Long'' becomes $K < L$ (or $L > K$).
+\textbf{1. Use symbols.} Translate each sentence into an inequality: ``Ryan runs faster than Henry'' becomes $R > H$;
+``Kayla ate less than Max'' becomes $K < M$ (or $M > K$).
 
 \textbf{2. Transitivity.} If $A > B$ and $B > C$, then $A > C$. This lets us chain inequalities together.
 
@@ -210,7 +204,7 @@ conclude ``whoever is a B is an A''.
 \end{knowbox}
 \begin{figC}
   \begin{scope}
-  \foreach \y/\n in {2.4/Quân,1.8/Tâm,1.2/Minh,0.6/Phúc,0/Hùng}{\fill[tmBlue] (0,\y) circle (2.2pt); \node[right,font=\small] at (0.12,\y){\n};}
+  \foreach \y/\n in {2.4/Oscar,1.8/Tom,1.2/Ryan,0.6/Felix,0/Henry}{\fill[tmBlue] (0,\y) circle (2.2pt); \node[right,font=\small] at (0.12,\y){\n};}
   \draw[->,Navy,line width=0.8pt] (-0.35,-0.15)--(-0.35,2.6) node[above,font=\scriptsize,text=Slate]{faster};
   \end{scope}
   \begin{scope}[xshift=5.2cm]
@@ -298,7 +292,7 @@ $S -$ (sum of the two known numbers).
   \begin{scope}[xshift=4.2cm]
   \fill[tmOrange!25] (-1.35,-0.45) rectangle (1.35,0.45);
   \fill[tmOrange!25] (-0.45,-1.35) rectangle (0.45,1.35);
-  \draw[tmPurple,line width=1.4pt,opacity=0.7] (-1.25,1.25)--(1.25,-1.25) (-1.25,-1.25)--(1.25,1.25);
+  \draw[tmPurple!70,line width=1.4pt] (-1.25,1.25)--(1.25,-1.25) (-1.25,-1.25)--(1.25,1.25);
   \draw[Navy,line width=0.9pt] (-1.35,-1.35) grid[step=0.9] (1.35,1.35);
   \node[font=\bfseries] at (0,0){$c$};
   \node[font=\footnotesize,text=Slate,align=center] at (0,-1.75){$4$ lines through the centre};
@@ -328,19 +322,17 @@ number from both sides).
 \textbf{3. Substitution.} If a group of objects $A$ balances a group $B$, then on any other scale we may replace $A$ by $B$ and the
 scale stays balanced.
 
-\textbf{4. Convert to ``small units''.} If $4$ apples weigh the same as $3$ oranges, think of each apple as weighing $3$ units and each
-orange $4$ units (since $4\times 3 = 3\times 4 = 12$ units). Once every object is converted into units, comparing two groups of
-objects is just comparing two numbers.
+\textbf{4. Reduce to one unknown.} Let the mass of \emph{one} kind of object be $x$, then use the equalities to express the mass of
+every other object in terms of $x$. Comparing two groups of objects then becomes comparing two expressions in $x$.
 \end{knowbox}
 \begin{figC}
-  \node at (0,0){\lgaScale{\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple}{\lgaOrg\,\lgaOrg\,\lgaOrg}};
-  \node[font=\small,anchor=west,align=left] at (2.7,0){$4\cdot T = 3\cdot C$\\ $\Rightarrow$ apple $= 3$ units, orange $= 4$ units};
+  \node at (0,0){\lgaScale{\lgaCir\,\lgaCir\,\lgaCir\,\lgaCir}{\lgaTri\,\lgaTri\,\lgaTri}};
+  \node[font=\small,anchor=west,align=left] at (2.7,0){$4O = 3T$. \ Let $O = x$: \ $3T = 4x$, \ $T = \dfrac{4x}{3}$.};
 \end{figC}
 \begin{proofbox}
-Why is ``converting to units'' correct? If an apple weighs $3$ units and an orange $4$ units, then $4$ apples weigh $12$ units and
-$3$ oranges also weigh $12$ units: the scale balances. Moreover, $4T = 3C$ gives $T = \dfrac{3}{4}C$, so the mass ratio
-apple : orange is \emph{always} $3 : 4$ -- however many grams a real orange weighs. Since only the ratio matters, we are free to choose
-``$1$ unit'' as our measuring unit.
+Why may we do this? A balanced scale means that the two sides of the equation $4O = 3T$ are equal. Dividing both sides by the same
+non-zero number still gives a true equation: $T = \dfrac{4O}{3}$. So however many grams a circle really weighs, a triangle always
+weighs $\dfrac{4}{3}$ of a circle. For instance, if $x = 30$ g then $T = 40$ g; check: $4\cdot 30 = 120 = 3\cdot 40$.
 \end{proofbox}
 \begin{warnbox}
 Never remove an object from \emph{one} pan without removing an identical object from the other. And only remove objects that are
@@ -418,42 +410,42 @@ draw a diagram or a table together. When your child gives an answer, do not say 
 % WORKED EXAMPLES
 % =====================================================================
 \begin{exbox}{Example 1 \ (Truth-tellers and liars)}
-On an island, every person either always tells the truth or always lies. You meet two people, Phong and Quyên.
-Phong says: ``Quyên is a liar.'' Quyên says: ``Phong and I are the same type of person.''
+On an island, every person either always tells the truth or always lies. You meet two people, Peter and Quinn.
+Peter says: ``Quinn is a liar.'' Quinn says: ``Peter and I are the same type of person.''
 Who tells the truth and who lies?
 \guide
-\step{1}{Case: Phong tells the truth}
-Then Phong's statement is true: Quyên is a liar. So Quyên's statement must be false. Quyên says ``we are the same type''; in fact
-Phong is truthful and Quyên lies -- \emph{different} types, so Quyên's statement is indeed false. \textbf{No contradiction.}
-\step{2}{Case: Phong lies}
-Then Phong's statement is false: Quyên is \emph{not} a liar, so Quyên tells the truth. Then Quyên's statement must be true: ``Phong and
-Quyên are the same type''. But Phong lies and Quyên tells the truth -- different types. So Quyên's statement is false after all.
+\step{1}{Case: Peter tells the truth}
+Then Peter's statement is true: Quinn is a liar. So Quinn's statement must be false. Quinn says ``we are the same type''; in fact
+Peter is truthful and Quinn lies -- \emph{different} types, so Quinn's statement is indeed false. \textbf{No contradiction.}
+\step{2}{Case: Peter lies}
+Then Peter's statement is false: Quinn is \emph{not} a liar, so Quinn tells the truth. Then Quinn's statement must be true: ``Peter and
+Quinn are the same type''. But Peter lies and Quinn tells the truth -- different types. So Quinn's statement is false after all.
 \textbf{Contradiction!} This case is ruled out.
 \step{3}{Summary in a table}
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Phong & Quyên & Phong's statement & Quyên's statement & Conclusion \\ \hline
+\rowcolor{tmBlue!10} Peter & Quinn & Peter's statement & Quinn's statement & Conclusion \\ \hline
 truthful & liar & true (fine) & false (fine) & \textcolor{tmGreen!70!black}{\textbf{OK}} \\ \hline
 liar & truthful & false (fine) & false (impossible!) & \textcolor{AnsRed}{ruled out} \\ \hline
 \end{tabular}
 \end{center}
-(The cases ``both truthful'' and ``both liars'' are ruled out straight away by Phong's statement: if Phong is truthful then Quyên lies;
-if Phong lies then Quyên is truthful.)
-\ans{Phong tells the truth, Quyên lies.}
+(The cases ``both truthful'' and ``both liars'' are ruled out straight away by Peter's statement: if Peter is truthful then Quinn lies;
+if Peter lies then Quinn is truthful.)
+\ans{Peter tells the truth, Quinn lies.}
 \end{exbox}
 
 \begin{exbox}{Example 2 \ (Each person is half right)}
 Three teams, Red, Blue and Yellow, play a tug-of-war; no two teams share a place. Before the match, three fans predict:
 \begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=2pt]
-\item Hằng: ``Red first, Blue second.'' \quad Khôi: ``Blue first, Yellow second.'' \quad Lâm: ``Blue third, Yellow first.''
+\item Grace: ``Red first, Blue second.'' \quad Jack: ``Blue first, Yellow second.'' \quad Lucy: ``Blue third, Yellow first.''
 \end{itemize}
 In the end, each person got exactly one part right. Find the places of the three teams.
 \guide
 \step{1}{Pick one part to split into cases}
-Each prediction has exactly one true part. Look at Hằng's: either ``Red first'' is true or ``Blue second'' is true.
+Each prediction has exactly one true part. Look at Grace's: either ``Red first'' is true or ``Blue second'' is true.
 \step{2}{Case 1: ``Blue second'' is true (and ``Red first'' is false)}
-If Blue is second, Blue is not first, so Khôi's part ``Blue first'' is false; hence his other part ``Yellow second'' must be true. But
+If Blue is second, Blue is not first, so Jack's part ``Blue first'' is false; hence his other part ``Yellow second'' must be true. But
 Blue is already second, so Yellow cannot be second as well. \textbf{Contradiction}, ruled out.
 \step{3}{Case 2: ``Red first'' is true (and ``Blue second'' is false)}
 Blue is not first (Red is) and not second, so \textbf{Blue is third}. That leaves Yellow second.
@@ -462,9 +454,9 @@ Blue is not first (Red is) and not second, so \textbf{Blue is third}. That leave
 \begin{tabular}{|l|c|c|}
 \hline
 \rowcolor{tmBlue!10} Person & First part & Second part \\ \hline
-Hằng & Red first: \textcolor{tmGreen!70!black}{true} & Blue second: \textcolor{AnsRed}{false} \\ \hline
-Khôi & Blue first: \textcolor{AnsRed}{false} & Yellow second: \textcolor{tmGreen!70!black}{true} \\ \hline
-Lâm & Blue third: \textcolor{tmGreen!70!black}{true} & Yellow first: \textcolor{AnsRed}{false} \\ \hline
+Grace & Red first: \textcolor{tmGreen!70!black}{true} & Blue second: \textcolor{AnsRed}{false} \\ \hline
+Jack & Blue first: \textcolor{AnsRed}{false} & Yellow second: \textcolor{tmGreen!70!black}{true} \\ \hline
+Lucy & Blue third: \textcolor{tmGreen!70!black}{true} & Yellow first: \textcolor{AnsRed}{false} \\ \hline
 \end{tabular}
 \end{center}
 Each person has exactly one part right.
@@ -503,7 +495,7 @@ So ``The purple pencil is the second longest'' is only \textbf{possibly true}, n
 \end{exbox}
 
 \begin{exbox}{Example 4 \ (Shift cipher -- finding the shift)}
-Tùng encrypts a word with a Caesar cipher and gets \textbf{JOHV}. He tells us that with this encryption the letter A becomes H.\\
+Tom encrypts a word with a Caesar cipher and gets \textbf{JVKL}. He tells us that with this encryption the letter A becomes H.\\
 a) Find the original word. \ b) After this shift, what is the smallest number of further steps (in the same direction) that brings every
 letter back to its original letter?
 \guide
@@ -513,17 +505,19 @@ A $= 0$, H $= 7$. A becomes H, so the shift is $k = 7$.
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Cipher letter & J & O & H & V \\ \hline
-Number & $9$ & $14$ & $7$ & $21$ \\ \hline
-Subtract $7$ & $2$ & $7$ & $0$ & $14$ \\ \hline
-Original letter & \textbf{C} & \textbf{H} & \textbf{A} & \textbf{O} \\ \hline
+\rowcolor{tmBlue!10} Cipher letter & J & V & K & L \\ \hline
+Number & $9$ & $21$ & $10$ & $11$ \\ \hline
+Subtract $7$ & $2$ & $14$ & $3$ & $4$ \\ \hline
+Original letter & \textbf{C} & \textbf{O} & \textbf{D} & \textbf{E} \\ \hline
 \end{tabular}
 \end{center}
-The original word is \textbf{CHAO} (Vietnamese for ``hello'').
+The original word is \textbf{CODE}.
+\begin{warnbox}Subtracting $7$ does not always give a negative number; we add $26$ (wrap around past A) only when the number of the
+cipher letter is less than $7$. Here all four letters have numbers $\ge 7$, so no wrapping is needed.\end{warnbox}
 \step{3}{Part b}
 A total shift of $26$ steps goes once round the circle. We have shifted $7$ steps, so we need $26 - 7 = 19$ more steps.
-\verify{Encrypt CHAO again with shift $7$: C$(2)\to 9 =$ J, H$(7)\to 14 =$ O, A$(0)\to 7 =$ H, O$(14)\to 21 =$ V. We get JOHV.}
-\ans{a) CHAO. \ b) $19$ steps.}
+\verify{Encrypt CODE again with shift $7$: C$(2)\to 9 =$ J, O$(14)\to 21 =$ V, D$(3)\to 10 =$ K, E$(4)\to 11 =$ L. We get JVKL.}
+\ans{a) CODE. \ b) $19$ steps.}
 \end{exbox}
 
 \begin{exbox}{Example 5 \ (Completing a magic square)}
@@ -608,8 +602,8 @@ Row $3$: $3, 4, \_, \_$ needs $\{1, 2\}$; column $3$ already has a $1$ (row $2$)
 
 % ---------------------------------------------------------------- Problem 1
 \begin{probbox}{1}{\relax}
-Mum has just bought a new pot of flowers. Three children guess what flower it is. An guesses: ``a red rose''. Bình guesses: ``a purple
-daisy''. Chi guesses: ``a red dahlia''. Mum says that each child got \emph{exactly one} of the two things right -- either the colour
+Mum has just bought a new pot of flowers. Three children guess what flower it is. Anna guesses: ``a red rose''. Ben guesses: ``a purple
+daisy''. Chloe guesses: ``a red dahlia''. Mum says that each child got \emph{exactly one} of the two things right -- either the colour
 or the kind of flower. The flower Mum bought is a
 \choicesII{purple dahlia}{purple rose}{red dahlia}{yellow rose}{red daisy}
 \end{probbox}
@@ -618,26 +612,26 @@ or the kind of flower. The flower Mum bought is a
 right: if one part is right, the other is wrong. We must find the real colour and kind.
 \begin{recallbox}``Half-true'' statement: if we know one part is true, the other part is false, and vice versa.\end{recallbox}
 \step{1}{The colour: is the flower red?}
-\emph{Suppose the flower is not red.} Then An's part ``red'' is wrong, so his other part ``rose'' must be right. Likewise Chi's part
+\emph{Suppose the flower is not red.} Then Anna's part ``red'' is wrong, so her other part ``rose'' must be right. Likewise Chloe's part
 ``red'' is wrong, so ``dahlia'' must be right. The flower would be both a rose and a dahlia -- \textbf{impossible}. So
 \textbf{the flower is red}.
 \step{2}{Deduce the kind of flower}
-The flower is red, so An has the colour right $\Rightarrow$ An's ``rose'' is wrong: it is not a rose.\\
-Chi also has the colour right $\Rightarrow$ Chi's ``dahlia'' is wrong: it is not a dahlia.\\
-Bình's ``purple'' is wrong (the flower is red), so Bình's ``daisy'' must be right: \textbf{a daisy}.
+The flower is red, so Anna has the colour right $\Rightarrow$ Anna's ``rose'' is wrong: it is not a rose.\\
+Chloe also has the colour right $\Rightarrow$ Chloe's ``dahlia'' is wrong: it is not a dahlia.\\
+Ben's ``purple'' is wrong (the flower is red), so Ben's ``daisy'' must be right: \textbf{a daisy}.
 \step{3}{Check with a table}
 \begin{center}
 \begin{tabular}{|l|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} Child & Colour guessed & Kind guessed & Parts right (real flower: red daisy) \\ \hline
-An & red \textcolor{tmGreen!70!black}{(right)} & rose \textcolor{AnsRed}{(wrong)} & $1$ \\ \hline
-Bình & purple \textcolor{AnsRed}{(wrong)} & daisy \textcolor{tmGreen!70!black}{(right)} & $1$ \\ \hline
-Chi & red \textcolor{tmGreen!70!black}{(right)} & dahlia \textcolor{AnsRed}{(wrong)} & $1$ \\ \hline
+Anna & red \textcolor{tmGreen!70!black}{(right)} & rose \textcolor{AnsRed}{(wrong)} & $1$ \\ \hline
+Ben & purple \textcolor{AnsRed}{(wrong)} & daisy \textcolor{tmGreen!70!black}{(right)} & $1$ \\ \hline
+Chloe & red \textcolor{tmGreen!70!black}{(right)} & dahlia \textcolor{AnsRed}{(wrong)} & $1$ \\ \hline
 \end{tabular}
 \end{center}
-\begin{warnbox}Try option (B) ``purple rose'': An has the kind right (rose), Bình has the colour right (purple), but Chi has
+\begin{warnbox}Try option (B) ``purple rose'': Anna has the kind right (rose), Ben has the colour right (purple), but Chloe has
 \emph{nothing} right -- against the conditions. You must check \emph{all three} children, not just one or two.\end{warnbox}
-\verify{With ``red daisy'' each child has exactly one part right. Every other option gives some child $0$ or $2$ right parts: (A) purple dahlia -- An has $0$; (C) red dahlia -- Chi has $2$; (D) yellow rose -- Bình has $0$.}
+\verify{With ``red daisy'' each child has exactly one part right. Every other option gives some child $0$ or $2$ right parts: (A) purple dahlia -- Anna has $0$; (C) red dahlia -- Chloe has $2$; (D) yellow rose -- Ben has $0$.}
 So the answer is \textbf{(E)}.
 \ans{(E) red daisy}
 }
@@ -645,55 +639,56 @@ So the answer is \textbf{(E)}.
 % ---------------------------------------------------------------- Problem 2
 \begin{probbox}{2}{\relax}
 The $26$ letters of the English alphabet are written in order A, B, C, \ldots, Z clockwise around a circle. To \emph{encrypt} a message,
-each letter is replaced by the letter $4$ places after it, clockwise (this is called a \emph{Caesar cipher}). For example, the word BOX
-is encrypted as FSB. The word YEU is encrypted as
-\choices{CIZ}{BHX}{CIY}{UAQ}{DJZ}
+each letter is replaced by the letter $4$ places after it, clockwise (this is called a \emph{Caesar cipher}). For example, the word ZAP
+is encrypted as DET. The word WIN is encrypted as
+\choices{ALN}{ZLN}{AMR}{AMQ}{ZMQ}
 \end{probbox}
 \probsol{
-\textbf{Analysing the problem.} The shift is $4$, forwards (clockwise). We must encrypt the letters Y, E, U one by one.
+\textbf{Analysing the problem.} The shift is $4$, forwards (clockwise). We must encrypt the letters W, I, N one by one.
 \begin{recallbox}Number A $= 0$, \ldots, Z $= 25$. Encrypt: add $4$; if the result is $\ge 26$, subtract $26$ (going past Z brings you back to A).\end{recallbox}
-\step{1}{Check our understanding with BOX $\to$ FSB}
-B$(1) + 4 = 5 =$ F; \ O$(14) + 4 = 18 =$ S; \ X$(23) + 4 = 27$, $27 - 26 = 1 =$ B. That is indeed FSB, and we see X ``wrap around'' to B.
-\step{2}{Encrypt each letter of YEU}
+\step{1}{Check our understanding with ZAP $\to$ DET}
+Z$(25) + 4 = 29$, $29 - 26 = 3 =$ D; \ A$(0) + 4 = 4 =$ E; \ P$(15) + 4 = 19 =$ T. That is indeed DET, and we see Z ``wrap around'' to D.
+\step{2}{Encrypt each letter of WIN}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Original letter & Y & E & U \\ \hline
-Number & $24$ & $4$ & $20$ \\ \hline
-Add $4$ & $28 \to 28 - 26 = 2$ & $8$ & $24$ \\ \hline
-Cipher letter & \textbf{C} & \textbf{I} & \textbf{Y} \\ \hline
+\rowcolor{tmBlue!10} Original letter & W & I & N \\ \hline
+Number & $22$ & $8$ & $13$ \\ \hline
+Add $4$ & $26 \to 26 - 26 = 0$ & $12$ & $17$ \\ \hline
+Cipher letter & \textbf{A} & \textbf{M} & \textbf{R} \\ \hline
 \end{tabular}
 \end{center}
 \begin{figC}
   \node at (0,0){\lgaWheel{4}};
-  \node[align=left,font=\small,anchor=west] at (2.5,0){Y $\to$ Z $\to$ A $\to$ B $\to$ \textbf{C}\\ E $\to$ F $\to$ G $\to$ H $\to$ \textbf{I}\\ U $\to$ V $\to$ W $\to$ X $\to$ \textbf{Y}};
+  \node[align=left,font=\small,anchor=west] at (2.5,0){W $\to$ X $\to$ Y $\to$ Z $\to$ \textbf{A}\\ I $\to$ J $\to$ K $\to$ L $\to$ \textbf{M}\\ N $\to$ O $\to$ P $\to$ Q $\to$ \textbf{R}};
 \end{figC}
-\begin{warnbox}(B) BHX is a shift of $3$ (one step short); (D) UAQ is a shift \emph{backwards} by $4$ (decrypting instead of
-encrypting); (E) DJZ is a shift of $5$. Count carefully: ``$4$ places after'' means taking $4$ steps, not counting the starting letter.\end{warnbox}
-\verify{Decrypt CIY by going back $4$ steps: C $\to$ B $\to$ A $\to$ Z $\to$ Y; \ I $\to$ E; \ Y $\to$ U. We get YEU back.}
+\begin{warnbox}Each wrong option has at least one letter shifted by the wrong number of steps: (B) ZLN and (E) ZMQ shift W by only $3$
+(stopping at Z and forgetting that after Z we carry on to A); (D) AMQ and (E) ZMQ shift N by only $3$; (A) ALN and (B) ZLN shift I by
+$3$ and leave N unchanged. Count carefully: ``$4$ places after'' means taking exactly $4$ steps, not counting the starting letter.\end{warnbox}
+\verify{Decrypt AMR by going back $4$ steps: A $\to$ Z $\to$ Y $\to$ X $\to$ W; \ M $\to$ I; \ R $\to$ N. We get WIN back.}
 So the answer is \textbf{(C)}.
-\ans{(C) CIY}
+\ans{(C) AMR}
 }
 
 % ---------------------------------------------------------------- Problem 3
 \begin{probbox}{3}{\relax}
-Five friends, Minh, Hùng, Phúc, Tâm and Quân, run a race; no two finish at the same time. Minh runs faster than Hùng and Phúc. Hùng runs
-slower than Phúc. Tâm runs faster than Minh but slower than Quân. Who finishes fourth?
-\choices{Phúc}{Hùng}{Quân}{Minh}{Tâm}
+Five friends, Ryan, Henry, Felix, Tom and Oscar, run a race; no two finish at the same time. Ryan runs faster than Henry and Felix. Henry runs
+slower than Felix. Tom runs faster than Ryan but slower than Oscar. Who finishes fourth?
+\choices{Felix}{Henry}{Oscar}{Ryan}{Tom}
 \end{probbox}
 \probsol{
 \textbf{Analysing the problem.} Five runners and several speed comparisons. We must find the finishing order and the fourth runner.
 Faster runners finish earlier.
 \step{1}{Use symbols ($>$ means ``faster than'')}
 \begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
-\item ``Minh is faster than Hùng and Phúc'': \ $M > H$ \ and \ $M > P$.
-\item ``Hùng is slower than Phúc'': \ $P > H$.
-\item ``Tâm is faster than Minh but slower than Quân'': \ $Q > T > M$.
+\item ``Ryan is faster than Henry and Felix'': \ $R > H$ \ and \ $R > F$.
+\item ``Henry is slower than Felix'': \ $F > H$.
+\item ``Tom is faster than Ryan but slower than Oscar'': \ $O > T > R$.
 \end{itemize}
 \step{2}{Chain them together (transitivity)}
-From $Q > T > M$, \ $M > P$ and $P > H$ we get: \quad $Q > T > M > P > H$.
+From $O > T > R$, \ $R > F$ and $F > H$ we get: \quad $O > T > R > F > H$.
 \begin{figC}
-  \foreach \x/\n/\k/\o in {0/Quân/1/1st,2/Tâm/2/2nd,4/Minh/3/3rd,6/Phúc/4/4th,8/Hùng/5/5th}{
+  \foreach \x/\n/\k/\o in {0/Oscar/1/1st,2/Tom/2/2nd,4/Ryan/3/3rd,6/Felix/4/4th,8/Henry/5/5th}{
     \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,minimum width=1.3cm,line width=0.8pt] (n\k) at (\x,0){\n};
     \node[font=\scriptsize,text=Slate] at (\x,-0.5){\o};}
   \foreach \a/\b in {1/2,2/3,3/4,4/5}{\draw[->,Navy,line width=0.8pt] (n\a)--(n\b);}
@@ -701,12 +696,12 @@ From $Q > T > M$, \ $M > P$ and $P > H$ we get: \quad $Q > T > M > P > H$.
   \draw[AnsRed,line width=1.2pt,rounded corners=4pt] (5.25,-0.8) rectangle (6.75,0.35);
 \end{figC}
 \step{3}{Read off the result}
-Finishing order: Quân (1st), Tâm (2nd), Minh (3rd), \textbf{Phúc (4th)}, Hùng (5th).
-\begin{warnbox}``Minh is faster than Hùng and Phúc'' does not tell us which of Hùng and Phúc is faster -- we need ``Hùng is slower than
-Phúc''. Do not skip any sentence!\end{warnbox}
-\verify{Minh (3rd) is faster than Hùng (5th) and Phúc (4th) \checkmark; Hùng is slower than Phúc \checkmark; Tâm (2nd) is faster than Minh and slower than Quân \checkmark.}
+Finishing order: Oscar (1st), Tom (2nd), Ryan (3rd), \textbf{Felix (4th)}, Henry (5th).
+\begin{warnbox}``Ryan is faster than Henry and Felix'' does not tell us which of Henry and Felix is faster -- we need ``Henry is slower than
+Felix''. Do not skip any sentence!\end{warnbox}
+\verify{Ryan (3rd) is faster than Henry (5th) and Felix (4th) \checkmark; Henry is slower than Felix \checkmark; Tom (2nd) is faster than Ryan and slower than Oscar \checkmark.}
 So the answer is \textbf{(A)}.
-\ans{(A) Phúc}
+\ans{(A) Felix}
 }
 
 % ---------------------------------------------------------------- Problem 4
@@ -780,37 +775,37 @@ So the answer is \textbf{(C)}.
 
 % ---------------------------------------------------------------- Problem 6
 \begin{probbox}{6}{\relax}
-Five friends, Giang, Khoa, Lan, Mai and Nam, sit on the $5$ chairs around a round table. Lan and Mai sit next to each other. Giang and Khoa
-do \emph{not} sit next to each other. The two people sitting on either side of Nam are
-\choicesII{Giang and Lan}{Giang and Khoa}{Khoa and Mai}{Lan and Mai}{Mai and Giang}
+Five friends, Jack, Kate, Leo, Mia and Noah, sit on the $5$ chairs around a round table. Leo and Mia sit next to each other. Jack and Kate
+do \emph{not} sit next to each other. The two people sitting on either side of Noah are
+\choicesII{Jack and Leo}{Jack and Kate}{Kate and Mia}{Leo and Mia}{Mia and Jack}
 \end{probbox}
 \probsol{
-\textbf{Analysing the problem.} Five people around a round table with $5$ chairs. Two conditions: Lan -- Mai are neighbours; Giang -- Khoa
-are not. We must find Nam's two neighbours.
+\textbf{Analysing the problem.} Five people around a round table with $5$ chairs. Two conditions: Leo -- Mia are neighbours; Jack -- Kate
+are not. We must find Noah's two neighbours.
 \begin{recallbox}Around a round table we may fix one person's seat (rotating the table does not change who sits next to whom). With $5$
 chairs, each person is not next to exactly $2$ people -- the two who are ``one seat away''.\end{recallbox}
-\step{1}{Start with the tightest condition: Giang and Khoa are not neighbours}
-Number the chairs $1$ to $5$ around the table. Put Giang on chair $1$. The chairs next to chair $1$ are chairs $2$ and $5$, so Khoa sits on
-chair $3$ or chair $4$. These two cases are mirror images of each other, so we consider Khoa on chair $3$.
-\step{2}{Seat Lan and Mai}
-Chairs $2$, $4$, $5$ are free. Lan and Mai need two chairs \emph{next to each other}. Of these three chairs, only chairs $4$ and $5$ are
-neighbours (chair $2$ is next to chairs $1$ and $3$, both taken). So Lan and Mai sit on chairs $4$ and $5$.
-\step{3}{Nam takes the remaining chair}
-Nam sits on chair $2$, between chair $1$ (Giang) and chair $3$ (Khoa).
+\step{1}{Start with the tightest condition: Jack and Kate are not neighbours}
+Number the chairs $1$ to $5$ around the table. Put Jack on chair $1$. The chairs next to chair $1$ are chairs $2$ and $5$, so Kate sits on
+chair $3$ or chair $4$. These two cases are mirror images of each other, so we consider Kate on chair $3$.
+\step{2}{Seat Leo and Mia}
+Chairs $2$, $4$, $5$ are free. Leo and Mia need two chairs \emph{next to each other}. Of these three chairs, only chairs $4$ and $5$ are
+neighbours (chair $2$ is next to chairs $1$ and $3$, both taken). So Leo and Mia sit on chairs $4$ and $5$.
+\step{3}{Noah takes the remaining chair}
+Noah sits on chair $2$, between chair $1$ (Jack) and chair $3$ (Kate).
 \begin{figC}
   \foreach \i in {1,...,5}{\coordinate (S\i) at ({90-(\i-1)*72}:1.35);}
   \draw[Navy!40,line width=5pt] (0,0) circle (0.75);
-  \foreach \i/\n/\c in {1/Giang/tmBlue,2/Nam/AnsRed,3/Khoa/tmBlue,4/Lan/tmGreen,5/Mai/tmGreen}{
+  \foreach \i/\n/\c in {1/Jack/tmBlue,2/Noah/AnsRed,3/Kate/tmBlue,4/Leo/tmGreen,5/Mia/tmGreen}{
     \node[circle,draw=\c,fill=\c!10,line width=0.9pt,minimum size=0.95cm,font=\scriptsize] at (S\i){\n};
     \node[font=\scriptsize,text=Slate] at ({90-(\i-1)*72}:2.4){chair \i};}
 \end{figC}
-(If Khoa is on chair $4$, it is similar: Lan and Mai are on chairs $2$, $3$ and Nam is on chair $5$ -- still between Giang and Khoa.)
-\begin{proofbox}Why is there no other arrangement? Giang and Khoa are not neighbours, so between them there is exactly one chair on one
-side and two chairs on the other side. Lan -- Mai need two adjacent chairs, so they must take the side with two chairs. The single chair
-between Giang and Khoa belongs to Nam.\end{proofbox}
-\verify{Lan -- Mai are neighbours \checkmark; Giang (chair $1$) and Khoa (chair $3$) are one chair apart \checkmark.}
+(If Kate is on chair $4$, it is similar: Leo and Mia are on chairs $2$, $3$ and Noah is on chair $5$ -- still between Jack and Kate.)
+\begin{proofbox}Why is there no other arrangement? Jack and Kate are not neighbours, so between them there is exactly one chair on one
+side and two chairs on the other side. Leo -- Mia need two adjacent chairs, so they must take the side with two chairs. The single chair
+between Jack and Kate belongs to Noah.\end{proofbox}
+\verify{Leo -- Mia are neighbours \checkmark; Jack (chair $1$) and Kate (chair $3$) are one chair apart \checkmark.}
 So the answer is \textbf{(B)}.
-\ans{(B) Giang and Khoa}
+\ans{(B) Jack and Kate}
 }
 
 % ---------------------------------------------------------------- Problem 7
@@ -847,7 +842,7 @@ So the answer is \textbf{(C)}.
 
 % ---------------------------------------------------------------- Problem 8
 \begin{probbox}{8}{\relax}
-Cường lies on Fridays, Saturdays and Sundays and tells the truth on the other days. Mạnh lies on Tuesdays, Wednesdays and Thursdays and
+Chris lies on Fridays, Saturdays and Sundays and tells the truth on the other days. Mark lies on Tuesdays, Wednesdays and Thursdays and
 tells the truth on the other days. On which day of the week could both of them say: ``Tomorrow I will lie''?
 \choices{Monday}{Thursday}{Friday}{Sunday}{Tuesday}
 \end{probbox}
@@ -859,125 +854,129 @@ tells the truth on the other days. On which day of the week could both of them s
 \end{itemize}
 In short: the person can say it when \textbf{today and tomorrow are of different types} (one truthful day, one lying day).
 \begin{recallbox}A truth-teller only says true things; a liar only says false things. After Sunday comes Monday (the week goes round).\end{recallbox}
-\step{1}{Table for Cường (L $=$ lies, T $=$ truthful)}
+\step{1}{Table for Chris (L $=$ lies, T $=$ truthful)}
 \begin{center}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} Day & Mon & Tue & Wed & Thu & Fri & Sat & Sun \\ \hline
-Cường today & T & T & T & T & L & L & L \\ \hline
-Cường tomorrow & T & T & T & L & L & L & T \\ \hline
+Chris today & T & T & T & T & L & L & L \\ \hline
+Chris tomorrow & T & T & T & L & L & L & T \\ \hline
 Can say it? & -- & -- & -- & \textbf{yes} & -- & -- & \textbf{yes} \\ \hline
 \end{tabular}
 \end{center}
-Cường can say it on \textbf{Thursday} and \textbf{Sunday} (the two ``switching'' days).
-\step{2}{Table for Mạnh}
+Chris can say it on \textbf{Thursday} and \textbf{Sunday} (the two ``switching'' days).
+\step{2}{Table for Mark}
 \begin{center}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} Day & Mon & Tue & Wed & Thu & Fri & Sat & Sun \\ \hline
-Mạnh today & T & L & L & L & T & T & T \\ \hline
-Mạnh tomorrow & L & L & L & T & T & T & T \\ \hline
+Mark today & T & L & L & L & T & T & T \\ \hline
+Mark tomorrow & L & L & L & T & T & T & T \\ \hline
 Can say it? & \textbf{yes} & -- & -- & \textbf{yes} & -- & -- & -- \\ \hline
 \end{tabular}
 \end{center}
-Mạnh can say it on \textbf{Monday} and \textbf{Thursday}.
+Mark can say it on \textbf{Monday} and \textbf{Thursday}.
 \step{3}{Find the common day}
 The day in both lists: \textbf{Thursday}.
-\begin{warnbox}Many students choose Friday, thinking ``Cường lies on Friday''. But on Friday Cường lies and tomorrow (Saturday) he lies too,
+\begin{warnbox}Many students choose Friday, thinking ``Chris lies on Friday''. But on Friday Chris lies and tomorrow (Saturday) he lies too,
 so ``Tomorrow I will lie'' is a \emph{true} statement -- and a person who is lying cannot say something true.\end{warnbox}
-\verify{Thursday: Cường tells the truth, and tomorrow (Friday) he lies -- the statement is true, so he can say it. Mạnh lies, and tomorrow
-(Friday) he tells the truth -- the statement is false, which fits Mạnh lying today.}
+\verify{Thursday: Chris tells the truth, and tomorrow (Friday) he lies -- the statement is true, so he can say it. Mark lies, and tomorrow
+(Friday) he tells the truth -- the statement is false, which fits Mark lying today.}
 So the answer is \textbf{(B)}.
 \ans{(B) Thursday}
 }
 
 % ---------------------------------------------------------------- Problem 9
 \begin{probbox}{9}{\relax}
-Both scales below are balanced. Fruits of the same kind have equal masses (\lgaApple\ apple, \lgaOrg\ orange, \lgaMango\ mango).
+Both scales below are balanced; identical shapes have equal masses.
 \begin{center}
-\lgaScale{\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple}{\lgaOrg\,\lgaOrg\,\lgaOrg}\hspace{1cm}\lgaScale{\lgaMango\,\lgaApple\,\lgaOrg}{\lgaMango\,\lgaMango}
+\lgaScale{\lgaCir\,\lgaCir\,\lgaCir}{\lgaTri\,\lgaTri}\hspace{1cm}\lgaScale{\lgaSq\,\lgaCir\,\lgaTri}{\lgaSq\,\lgaSq}
 \end{center}
-Which group of fruit has the same mass as $5$ apples and $1$ orange (\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple\,\lgaOrg)?
-\choicesII{$3$ mangoes}{$6$ oranges}{$2$ mangoes and $1$ apple}{$1$ mango and $3$ oranges}{$2$ mangoes and $2$ apples}
+Which of the following groups has the same mass as the group \ \lgaCir\,\lgaTri\,\lgaTri\,\lgaTri\ \ (one circle and three triangles)?
+\choicesII{\lgaSq\,\lgaSq\,\lgaSq}{\lgaTri\,\lgaTri\,\lgaSq\,\lgaSq}{\lgaCir\,\lgaCir\,\lgaCir\,\lgaCir}{\lgaCir\,\lgaCir\,\lgaCir\,\lgaSq}{\lgaCir\,\lgaCir\,\lgaCir}
 \end{probbox}
 \probsol{
-\textbf{Analysing the problem.} Let the masses of one apple, orange and mango be $T$, $C$, $X$. The two scales give two equalities. We
-must find the group of fruit whose mass equals $5T + C$.
-\begin{recallbox}A balanced scale means the two pans have equal mass. Removing identical fruit from \emph{both} pans keeps it balanced.\end{recallbox}
-\step{1}{Second scale: remove one mango from each pan}
-$X + T + C = X + X$. Remove one mango from each side: $T + C = X$. \emph{One mango weighs the same as one apple plus one orange.}
-\step{2}{First scale: convert to ``units''}
-$4T = 3C$. Let each apple weigh $3$ units; then $4$ apples weigh $12$ units; $3$ oranges also weigh $12$ units, so each orange weighs
-$4$ units. A mango then weighs $T + C = 3 + 4 = 7$ units.
+\textbf{Analysing the problem.} Let the masses of one circle, one triangle and one square be $O$, $T$ and $V$ (in the same unit). The
+two scales give two equations. We need the group whose mass equals $O + 3T$.
+\begin{recallbox}A balanced scale means the two pans have equal mass. Removing identical objects from \emph{both} pans (subtracting the
+same number from both sides) keeps the scale balanced.\end{recallbox}
+\step{1}{Write the two equations}
+First scale: \ $3O = 2T$. \qquad Second scale: \ $V + O + T = 2V$.
+\step{2}{Simplify the equation of the second scale}
+Remove one square from each pan (subtract $V$ from both sides): \ $O + T = V$. \emph{One square weighs as much as one circle and one
+triangle.}
+\step{3}{Introduce an unknown and express every mass in terms of it}
+Let $O = x$ \ ($x > 0$). From $2T = 3O = 3x$ we get $T = \dfrac{3x}{2}$. Then
+\[ V = O + T = x + \frac{3x}{2} = \frac{5x}{2}. \]
+\step{4}{The mass of the given group}
+$O + 3T = x + 3\cdot\dfrac{3x}{2} = \dfrac{2x}{2} + \dfrac{9x}{2} = \dfrac{11x}{2}$.
+\step{5}{The mass of each option (all written over the denominator $2$ for easy comparison)}
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|l|c|}
 \hline
-\rowcolor{tmBlue!10} Apple \lgaApple & Orange \lgaOrg & Mango \lgaMango \\ \hline
-$3$ units & $4$ units & $7$ units \\ \hline
+\rowcolor{tmBlue!10} Option & Mass & Result \\ \hline
+(A) & $3V = 3\cdot\dfrac{5x}{2}$ & $\dfrac{15x}{2}$ \\ \hline
+(B) & $2T + 2V = 3x + 5x = 8x$ & $\dfrac{16x}{2}$ \\ \hline
+(C) & $4O = 4x$ & $\dfrac{8x}{2}$ \\ \hline
+(D) & $3O + V = 3x + \dfrac{5x}{2}$ & $\mathbf{\dfrac{11x}{2}}$ \ \checkmark \\ \hline
+(E) & $3O = 3x$ & $\dfrac{6x}{2}$ \\ \hline
 \end{tabular}
 \end{center}
-\step{3}{The group in the question}
-$5T + C = 5\times 3 + 4 = 19$ units.
-\step{4}{Compute each option}
-\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
-\item (A) $3$ mangoes: $3\times 7 = 21$ units.
-\item (B) $6$ oranges: $6\times 4 = 24$ units.
-\item (C) $2$ mangoes and $1$ apple: $14 + 3 = 17$ units.
-\item (D) $1$ mango and $3$ oranges: $7 + 12 = \mathbf{19}$ units. \ \checkmark
-\item (E) $2$ mangoes and $2$ apples: $14 + 6 = 20$ units.
-\end{itemize}
-\step{5}{Reasoning by substitution (without units)}
-$5T + C = T + 4T + C = T + 3C + C = (T + C) + 3C = X + 3C$ \ (using $4T = 3C$ and then $T + C = X$).
-\begin{warnbox}Never ``remove'' fruit from one side without removing the same from the other. And note: scale $1$ says $4$ apples $=$ $3$
-oranges, so an apple is \emph{lighter} than an orange (not heavier) -- you need more apples to balance.\end{warnbox}
-\verify{Take an apple $300$ g, an orange $400$ g, a mango $700$ g: scale 1: $1200 = 1200$; scale 2: $700 + 300 + 400 = 1400 = 700 + 700$.
-Then $5$ apples $+ 1$ orange $= 1900$ g, and $1$ mango $+ 3$ oranges $= 700 + 1200 = 1900$ g.}
+Only option (D) has mass $\dfrac{11x}{2}$.
+\step{6}{Another way: substitution only}
+$O + 3T = (O + T) + 2T = V + 3O$ \ (replace $O + T$ by $V$ from Step 2, and $2T$ by $3O$ from the first scale). That is exactly three
+circles and one square.
+\begin{warnbox}The first scale gives $3O = 2T$: we need \emph{more} circles to balance \emph{fewer} triangles, so a circle is
+\emph{lighter} than a triangle. Writing $2O = 3T$ by mistake ruins everything from the start.\end{warnbox}
+\verify{Take $x = 20$ g: circle $20$ g, triangle $30$ g, square $50$ g. Scale 1: $3\cdot 20 = 60 = 2\cdot 30$; scale 2:
+$50 + 20 + 30 = 100 = 2\cdot 50$. Given group: $20 + 3\cdot 30 = 110$ g; option (D): $3\cdot 20 + 50 = 110$ g.}
 So the answer is \textbf{(D)}.
-\ans{(D) $1$ mango and $3$ oranges}
+\ans{(D) three circles and one square}
 }
 
 % ---------------------------------------------------------------- Problem 10
 \begin{probbox}{10}{\relax}
-Five friends, Hải, Long, Bảo, Kiều and Thảo, go strawberry picking; no two of them pick the same number of strawberries. Hải picks more than
-Long. Bảo picks fewer than Kiều. Kiều picks fewer than Long but more than Thảo. Who picks the second most?
-\choices{Bảo}{Hải}{Kiều}{Long}{Thảo}
+Five friends, Chris, Max, Brandon, Kayla and Tanya, go strawberry picking; no two of them pick the same number of strawberries. Chris picks more than
+Max. Brandon picks fewer than Kayla. Kayla picks fewer than Max but more than Tanya. Who picks the second most?
+\choices{Brandon}{Chris}{Kayla}{Max}{Tanya}
 \end{probbox}
 \probsol{
 \textbf{Analysing the problem.} Five friends, four comparisons of numbers of strawberries. We must find the person in second place (behind
 only one other person).
 \step{1}{Use symbols (``$>$'' means ``picked more than'')}
-$H > L$; \quad $K > B$; \quad $L > K$; \quad $K > Th$.
+$C > M$; \quad $K > B$; \quad $M > K$; \quad $K > T$.
 \step{2}{Chain the inequalities}
-$H > L > K$, and $K$ is more than both $B$ and $Th$.
+$C > M > K$, and $K$ is more than both $B$ and $T$.
 \begin{figC}
-  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (H) at (0,0){Hải};
-  \node[draw=AnsRed,fill=AnsRed!8,rounded corners=3pt,line width=1.1pt] (L) at (2,0){Long};
-  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (K) at (4,0){Kiều};
-  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (B) at (6,0.5){Bảo};
-  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (T) at (6,-0.5){Thảo};
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (H) at (0,0){Chris};
+  \node[draw=AnsRed,fill=AnsRed!8,rounded corners=3pt,line width=1.1pt] (L) at (2,0){Max};
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (K) at (4,0){Kayla};
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (B) at (6,0.5){Brandon};
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (T) at (6,-0.5){Tanya};
   \draw[->,Navy,line width=0.8pt] (H)--(L); \draw[->,Navy,line width=0.8pt] (L)--(K);
   \draw[->,Navy,line width=0.8pt] (K)--(B); \draw[->,Navy,line width=0.8pt] (K)--(T);
   \node[font=\scriptsize,text=Slate] at (3,0.75){arrow: ``more than''};
   \draw[<->,dashed,AnsRed!60] (B)--(T) node[midway,right,font=\scriptsize]{?};
 \end{figC}
 \step{3}{Read off the result}
-Hải picks the most (more than Long, who picks more than everyone else). Long is beaten only by Hải and beats Kiều, Bảo, Thảo. So
-\textbf{Long picks the second most}. We do not know whether Bảo or Thảo picked more, but that does not affect the question.
-\begin{warnbox}The sentence ``Kiều picks fewer than Long but more than Thảo'' contains \emph{two} pieces of information: $L > K$ and $K > Th$.
+Chris picks the most (more than Max, who picks more than everyone else). Max is beaten only by Chris and beats Kayla, Brandon, Tanya. So
+\textbf{Max picks the second most}. We do not know whether Brandon or Tanya picked more, but that does not affect the question.
+\begin{warnbox}The sentence ``Kayla picks fewer than Max but more than Tanya'' contains \emph{two} pieces of information: $M > K$ and $K > T$.
 Reading too fast, it is easy to miss one.\end{warnbox}
-\verify{For example Hải $30$, Long $25$, Kiều $20$, Bảo $12$, Thảo $10$ strawberries satisfies every condition; Long is second.}
+\verify{For example Chris $30$, Max $25$, Kayla $20$, Brandon $12$, Tanya $10$ strawberries satisfies every condition; Max is second.}
 So the answer is \textbf{(D)}.
-\ans{(D) Long}
+\ans{(D) Max}
 }
 
 % ---------------------------------------------------------------- Problem 11
 \begin{probbox}{11}{\relax}
-Three friends, An, Hà and Tú, count the comics and the science books they read over the summer (no two of them read the same number of
-comics, and no two read the same number of science books). An read more comics than Hà but fewer science books than Hà. Tú read more
-comics than Hà but fewer science books than An. Which of the following statements \textbf{must} be true?
-\choicesL{Tú read the most comics.}{An read the most comics.}{Hà read the fewest comics.}{An read the fewest science books.}{Tú read the most science books.}
+Three friends, Amy, Helen and Tom, count the comics and the science books they read over the summer (no two of them read the same number of
+comics, and no two read the same number of science books). Amy read more comics than Helen but fewer science books than Helen. Tom read more
+comics than Helen but fewer science books than Amy. Which of the following statements \textbf{must} be true?
+\choicesL{Tom read the most comics.}{Amy read the most comics.}{Helen read the fewest comics.}{Amy read the fewest science books.}{Tom read the most science books.}
 \end{probbox}
 \probsol{
 \textbf{Analysing the problem.} There are two completely separate comparisons: \emph{comics} and \emph{science books}. We split the
@@ -985,37 +984,37 @@ information into two groups, order each group, then examine each statement.
 \begin{recallbox}``Must be true'' $=$ true in \emph{every} situation satisfying the problem. A \emph{single} situation that satisfies the
 problem but makes a statement false is enough to rule that statement out.\end{recallbox}
 \step{1}{Comics}
-``An read more comics than Hà'': $A > H$. \quad ``Tú read more comics than Hà'': $T > H$.\\
-So Hà read the fewest comics. As for An and Tú: \emph{no sentence compares them}.
+``Amy read more comics than Helen'': $A > H$. \quad ``Tom read more comics than Helen'': $T > H$.\\
+So Helen read the fewest comics. As for Amy and Tom: \emph{no sentence compares them}.
 \step{2}{Science books}
-``An read fewer science books than Hà'': $H > A$. \quad ``Tú read fewer science books than An'': $A > T$.\\
-Chained: $H > A > T$. Hà read the most science books, Tú the fewest.
+``Amy read fewer science books than Helen'': $H > A$. \quad ``Tom read fewer science books than Amy'': $A > T$.\\
+Chained: $H > A > T$. Helen read the most science books, Tom the fewest.
 \begin{figC}
   \node[font=\small\bfseries,text=tmOrange!80!black] at (-1,0.6){Comics};
-  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (h) at (0.6,0.6){Hà};
-  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (a) at (2.4,1.1){An};
-  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (t) at (2.4,0.1){Tú};
+  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (h) at (0.6,0.6){Helen};
+  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (a) at (2.4,1.1){Amy};
+  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (t) at (2.4,0.1){Tom};
   \draw[->,tmOrange,line width=0.9pt] (h)--(a); \draw[->,tmOrange,line width=0.9pt] (h)--(t);
   \node[font=\scriptsize,text=Slate] at (4.1,0.6){(cannot compare)};
   \node[font=\small\bfseries,text=tmBlue] at (-1,-0.9){Science};
-  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (t2) at (0.6,-0.9){Tú};
-  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (a2) at (2.4,-0.9){An};
-  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (h2) at (4.2,-0.9){Hà};
+  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (t2) at (0.6,-0.9){Tom};
+  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (a2) at (2.4,-0.9){Amy};
+  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (h2) at (4.2,-0.9){Helen};
   \draw[->,tmBlue,line width=0.9pt] (t2)--(a2); \draw[->,tmBlue,line width=0.9pt] (a2)--(h2);
   \node[font=\scriptsize,text=Slate] at (6.4,0){arrows point towards ``more''};
 \end{figC}
 \step{3}{Examine each statement}
 \begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
-\item (A) ``Tú read the most comics'': not certain. For example An $5$, Tú $3$, Hà $1$ comics satisfies the problem, but An read the most.
-\item (B) ``An read the most comics'': not certain. For example An $3$, Tú $5$, Hà $1$ comics satisfies the problem, but Tú read the most.
-\item (C) ``Hà read the fewest comics'': \textbf{must be true} (Step 1: Hà read fewer than both An and Tú).
-\item (D) ``An read the fewest science books'': \textbf{false}, since Tú read fewer than An.
-\item (E) ``Tú read the most science books'': \textbf{false}, Tú read the fewest.
+\item (A) ``Tom read the most comics'': not certain. For example Amy $5$, Tom $3$, Helen $1$ comics satisfies the problem, but Amy read the most.
+\item (B) ``Amy read the most comics'': not certain. For example Amy $3$, Tom $5$, Helen $1$ comics satisfies the problem, but Tom read the most.
+\item (C) ``Helen read the fewest comics'': \textbf{must be true} (Step 1: Helen read fewer than both Amy and Tom).
+\item (D) ``Amy read the fewest science books'': \textbf{false}, since Tom read fewer than Amy.
+\item (E) ``Tom read the most science books'': \textbf{false}, Tom read the fewest.
 \end{itemize}
-\begin{warnbox}Do not mix the two kinds of books into one chain! ``An read more comics than Hà'' says nothing about science books. Draw
+\begin{warnbox}Do not mix the two kinds of books into one chain! ``Amy read more comics than Helen'' says nothing about science books. Draw
 \emph{two separate diagrams}.\end{warnbox}
 So the answer is \textbf{(C)}.
-\ans{(C) Hà read the fewest comics}
+\ans{(C) Helen read the fewest comics}
 }
 
 % ---------------------------------------------------------------- Problem 12

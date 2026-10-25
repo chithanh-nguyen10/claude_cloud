@@ -123,8 +123,10 @@ left is smaller. The opposite of $a$ is $-a$; we have $a+(-a)=0$.
 \begin{center}\begin{tikzpicture}[x=0.85cm,>=stealth]
 \draw[->,thick,Navy] (-5.5,0)--(5.5,0);
 \foreach \i in {-5,...,5}{\draw[Navy] (\i,0.08)--(\i,-0.08); \node[below,font=\small] at (\i,-0.1){$\i$};}
-\draw[->,tmOrange,line width=1pt] (2,0.25) to[bend left=35] node[above,font=\footnotesize]{$-5$} (-3,0.25);
 \fill[tmGreen] (2,0) circle (2.2pt); \fill[AnsRed] (-3,0) circle (2.2pt);
+% the "-5" jump: starts exactly at 2, arrow tip ends exactly at -3 (top of the arc at x=-0.5, y=0.775)
+\draw[->,tmOrange,line width=1pt] (2,0.1) .. controls (1.6,1.0) and (-2.6,1.0) .. (-3,0.1);
+\node[above,font=\footnotesize,text=tmOrange!80!black,inner sep=2pt] at (-0.5,0.775){$-5$};
 \end{tikzpicture}\end{center}
 \emph{Example:} $2+(-5)=-3$: starting at $2$, move $5$ steps to the left and arrive at $-3$.
 
@@ -139,7 +141,7 @@ left is smaller. The opposite of $a$ is $-a$; we have $a+(-a)=0$.
 $\to$ addition and subtraction (left to right). Example: $6+2\cdot 3=6+6=12$ (not $8\cdot 3$).
 
 \textbf{4. The distributive law.} $a(b+c)=ab+ac$ and $a(b-c)=ab-ac$.
-\emph{Examples:} $3(T+4)=3T+12$;\quad $20\cdot 9\,000-20\cdot 6\,750=20\cdot(9\,000-6\,750)$.
+\emph{Examples:} $3(T+4)=3T+12$;\quad $20\cdot 3-20\cdot 2.25=20\cdot(3-2.25)=20\cdot 0.75=15$.
 
 \textbf{5. Simplifying expressions.} Add ``like terms'': $3x+5x=8x$; \
 $(a+1)+(b+1)+(c+1)+(d+1)=(a+b+c+d)+4$.
@@ -241,9 +243,9 @@ $(a+b)+(b+c)+(c+a)=2(a+b+c)$, so \emph{the total of the three objects is half of
 \node[font=\footnotesize] at (4.55,0.22){$55^\circ$}; \node[font=\footnotesize] at (6.85,0.22){$55^\circ$}; \node[font=\footnotesize] at (5.7,1.85){$70^\circ$};
 \end{figC}
 
-\emph{b) Average price.} You buy $300$ g of type I candy for $15\,000$ dong and $200$ g of type II candy for $20\,000$ dong. The average price
-of $100$ g of candy is $(15\,000+20\,000)\div(300+200)\cdot 100=35\,000\div 500\cdot 100=7\,000$ dong.
-You must \emph{not} average the two prices $5\,000$ and $10\,000$ dong per $100$ g (that gives $7\,500$ dong, which is wrong), because different amounts of the two candies were bought.
+\emph{b) Average price.} You buy $300$ g of type I candy for $\$3$ and $200$ g of type II candy for $\$4$. The average price
+of $100$ g of candy is $(3+4)\div(300+200)\cdot 100=7\div 500\cdot 100=1.4$, that is, $\$1.40$.
+You must \emph{not} average the two prices $\$1$ and $\$2$ per $100$ g (that gives $\$1.50$, which is wrong), because different amounts of the two candies were bought.
 
 \begin{proofbox}
 \textbf{Three consecutive integers: the middle one equals the sum divided by $3$.} Call the three numbers $n-1$, $n$, $n+1$. Their sum is
@@ -348,7 +350,7 @@ The result is the number of seconds in one week.
 
 \begin{proofbox}
 \textbf{Why can we work out the difference ``per time'' and then multiply?} By the distributive law:
-$20\times 9\,000-20\times 6\,750=20\times(9\,000-6\,750)=20\times 2\,250$. Both ways always give the same result,
+$20\times 3-20\times 2.25=20\times(3-2.25)=20\times 0.75=15$. Both ways always give the same result,
 but the second is much quicker to do in your head.
 \end{proofbox}
 
@@ -395,15 +397,15 @@ Now every number is compared with the same reference point $k$; ordering the ``e
 \node[below,font=\footnotesize] at (2,-0.1){$k+2$}; \node[below,font=\footnotesize] at (3,-0.1){$k+3$};
 \end{tikzpicture}\end{center}
 
-\textbf{3. Logical reasoning about order.} For sentences like ``An owns more cats than Bình'', translate them into symbols ($A>B$),
+\textbf{3. Logical reasoning about order.} For sentences like ``Anna owns more cats than Ben'', translate them into symbols ($A>B$),
 write down all the conditions and link them with the transitive property. A statement that ``\emph{must be true}'' has to be true in
 \emph{every} situation that fits the problem; a single counter-example is enough to reject it.
 \end{knowbox}
 
 \begin{tipbox}
-\emph{A reasoning example.} An is taller than Bình; Chi is shorter than Bình; Dũng is taller than Chi. Who is the shortest?
-In symbols: $A>B$, \ $B>C$, \ $D>C$. From $A>B>C$ and $D>C$ we see that $A$, $B$ and $D$ are all taller than $C$: \textbf{Chi is the shortest}.
-But we do \emph{not} know whether Dũng is taller or shorter than An (for instance, if An is $1.6$ m, Bình $1.5$ m and Chi $1.2$ m, then Dũng being $1.7$ m or $1.3$ m both fit all the conditions), so the statement ``Dũng is the tallest'' is \emph{not necessarily} true.
+\emph{A reasoning example.} Anna is taller than Ben; Chloe is shorter than Ben; David is taller than Chloe. Who is the shortest?
+In symbols (each letter is one child's height): $A>B$, \ $B>C$, \ $D>C$. From $A>B>C$ and $D>C$ we see that $A$, $B$ and $D$ are all greater than $C$: \textbf{Chloe is the shortest}.
+But we do \emph{not} know whether David is taller or shorter than Anna (for instance, if Anna is $1.6$ m, Ben $1.5$ m and Chloe $1.2$ m, then David being $1.7$ m or $1.3$ m both fit all the conditions), so the statement ``David is the tallest'' is \emph{not necessarily} true.
 \end{tipbox}
 
 \begin{warnbox}
@@ -422,8 +424,8 @@ Let your child check with marbles. A concrete picture keeps the child from being
 \begin{exbox}{Example 1 \ (Translating words and evaluating an expression)}
 \textbf{a)} Evaluate the expression $A=2x^2-3x+1$ for $x=-2$.
 
-\textbf{b)} Hoa has $50\,000$ dong in her piggy bank. Every week she puts in another $20\,000$ dong.
-Write an expression for the amount in the piggy bank after $t$ weeks, then work out that amount after $6$ weeks.
+\textbf{b)} Emma has $\$50$ in her money box. Every week she puts in another $\$20$.
+Write an expression for the amount (in dollars) in the money box after $t$ weeks, then work out that amount after $6$ weeks.
 \guide
 \step{1}{Part a: substitute $x=-2$, remembering the brackets}
 \[A=2\cdot(-2)^2-3\cdot(-2)+1.\]
@@ -434,14 +436,14 @@ $(-2)^2=(-2)\cdot(-2)=4$, so $2\cdot 4=8$. \ $3\cdot(-2)=-6$, so $-3\cdot(-2)=+6
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} Weeks & $0$ & $1$ & $2$ & $t$\\ \hline
-Amount (dong) & $50\,000$ & $50\,000+20\,000$ & $50\,000+2\cdot 20\,000$ & $50\,000+20\,000t$\\ \hline
+Amount (dollars) & $50$ & $50+20$ & $50+2\cdot 20$ & $50+20t$\\ \hline
 \end{tabular}
 \end{center}
-The starting amount stays the same; the added part is $20\,000$ times the number of weeks. Expression: $50\,000+20\,000t$ (dong).
+The starting amount stays the same; the added part is $20$ times the number of weeks. Expression: $50+20t$ (dollars).
 \step{4}{Substitute $t=6$}
-$50\,000+20\,000\cdot 6=50\,000+120\,000=170\,000$ (dong).
-\begin{warnbox}Do not write $(50\,000+20\,000)\cdot t$: the starting amount is there only \emph{once}; it must not be multiplied by the number of weeks.\end{warnbox}
-\ans{a) $A=15$;\ \ b) $50\,000+20\,000t$ dong; after $6$ weeks there are $170\,000$ dong.}
+$50+20\cdot 6=50+120=170$ (dollars).
+\begin{warnbox}Do not write $(50+20)\cdot t$: the starting amount is there only \emph{once}; it must not be multiplied by the number of weeks.\end{warnbox}
+\ans{a) $A=15$;\ \ b) $50+20t$ (dollars); after $6$ weeks there is $\$170$.}
 \end{exbox}
 
 \begin{exbox}{Example 2 \ (Solving equations with the balance principle)}
@@ -479,25 +481,27 @@ The question asks for the \emph{largest} number: it is $32$.
 \end{exbox}
 
 \begin{exbox}{Example 4 \ (Weighing in pairs)}
-Three friends, Mai, Lan and Hoa, step on a scale two at a time. Mai and Lan weigh $72$ kg; Mai and Hoa weigh $78$ kg;
-Lan and Hoa weigh $80$ kg. How many kilograms does each girl weigh?
+Three friends, Anna, Ben and Chloe, step on a scale two at a time. Anna and Ben weigh $72$ kg; Anna and Chloe weigh $78$ kg;
+Ben and Chloe weigh $80$ kg. How many kilograms does each child weigh?
 \guide
-\step{1}{Add all three weighings}
-In the three weighings, each girl is weighed exactly \emph{twice}:
-$(M+L)+(M+H)+(L+H)=72+78+80=230$, that is, $2(M+L+H)=230$.
-\step{2}{Total mass of the three girls}
-$M+L+H=230\div 2=115$ (kg).
-\step{3}{Find each girl: subtract the pair that does not contain her from the total}
-Hoa $=115-(M+L)=115-72=43$ kg;\quad Lan $=115-(M+H)=115-78=37$ kg;\quad Mai $=115-(L+H)=115-80=35$ kg.
-\begin{figC}
-\foreach \y/\a/\b/\ca/\cb/\s in {0/Mai/Lan/tmBlue/tmOrange/72,-0.8/Mai/Hoa/tmBlue/tmGreen/78,-1.6/Lan/Hoa/tmOrange/tmGreen/80}{
-  \node[draw=\ca!80!black,fill=\ca!15,rounded corners=2pt,minimum width=1.4cm] at (0,\y){\a};
-  \node at (0.95,\y){$+$};
-  \node[draw=\cb!80!black,fill=\cb!15,rounded corners=2pt,minimum width=1.4cm] at (1.9,\y){\b};
-  \node[anchor=west] at (2.7,\y){$=\s$ kg};}
-\end{figC}
+\step{1}{Choose an unknown and express the other quantities with it}
+Let Anna's mass be $x$ (kg), $x>0$.
+Since Anna and Ben weigh $72$ kg, Ben weighs $72-x$ (kg).
+Since Anna and Chloe weigh $78$ kg, Chloe weighs $78-x$ (kg).
+\step{2}{Form an equation from the third weighing}
+Ben and Chloe weigh $80$ kg, so
+\[(72-x)+(78-x)=80.\]
+\step{3}{Solve the equation}
+Simplify the left side: $72+78-x-x=150-2x$. So $150-2x=80$.\\
+Move terms across: $150-80=2x$, that is, $2x=70$. Divide both sides by $2$: $x=35$.
+\step{4}{Find the masses of the other two children}
+Anna weighs $35$ kg;\quad Ben weighs $72-35=37$ (kg);\quad Chloe weighs $78-35=43$ (kg).
+\begin{tipbox}\textbf{Method 2 (add all three equations).} Let the three masses be $a$, $b$, $c$ (kg):
+$a+b=72$, \ $a+c=78$, \ $b+c=80$. Add side by side; each letter appears exactly \emph{twice}:
+$2a+2b+2c=72+78+80=230$, so $a+b+c=230\div 2=115$. Then
+$c=115-(a+b)=115-72=43$;\ \ $b=115-(a+c)=115-78=37$;\ \ $a=115-(b+c)=115-80=35$.\end{tipbox}
 \verify{$35+37=72$, \ $35+43=78$, \ $37+43=80$. All three weighings match.}
-\ans{Mai $35$ kg, Lan $37$ kg, Hoa $43$ kg.}
+\ans{Anna $35$ kg, Ben $37$ kg, Chloe $43$ kg.}
 \end{exbox}
 
 \begin{exbox}{Example 5 \ (Arithmetic sequences)}
@@ -525,13 +529,9 @@ How much longer (in hours and minutes) does the train need to reach its destinat
 $\dfrac{2}{3}$ of $360$ km is $360\div 3\cdot 2=120\cdot 2=240$ km.
 \step{2}{Distance left}
 $360-240=120$ km. (Or: the remaining part is $1-\dfrac{2}{3}=\dfrac{1}{3}$ of the route, $360\div 3=120$ km.)
-\begin{barfigC}
-\blk{0}{5}{0}{0.55}{tmBlue}{covered 240 km}
-\blk{5}{7.5}{0}{0.55}{tmOrange}{left 120 km}
-\brcup{0}{7.5}{0.55}{360 km}
-\end{barfigC}
 \step{3}{Time left}
-\begin{recallbox}$t=\dfrac{s}{v}$ (time $=$ distance $\div$ speed).\end{recallbox}
+\begin{recallbox}$s=v\cdot t$, so $t=\dfrac{s}{v}$ (time $=$ distance $\div$ speed).\end{recallbox}
+Let $t$ (hours) be the time the train still needs. Then $72\cdot t=120$, so
 $t=120\div 72=\dfrac{120}{72}=\dfrac{5}{3}$ hours $=1\dfrac{2}{3}$ hours.
 \step{4}{Convert to hours and minutes}
 $\dfrac{2}{3}$ hour $=\dfrac{2}{3}\cdot 60=40$ minutes. So $t=1$ hour $40$ minutes.
@@ -580,8 +580,8 @@ $k-5<k-3<k+1$, so $c<a<b$.
 
 % ---------------------------------------------------------------- Problem 1
 \begin{probbox}{1}{\relax}
-Mr Tâm drives a car at a constant speed of $85$ km/h on a $510$ km trip. He has now covered exactly
-half of the distance. How many more hours does he need to finish the trip?
+Carrie drives a car at a constant speed of $85$ km/h on a $510$ km trip. She has now covered exactly
+half of the distance. How many more hours does she need to finish the trip?
 \choices{$5$ hours}{$425$ hours}{$12$ hours}{$1.5$ hours}{$3$ hours}
 \end{probbox}
 \probsol{
@@ -589,14 +589,12 @@ half of the distance. How many more hours does he need to finish the trip?
 \emph{Find:} the time needed for the remaining part.
 \step{1}{Work out the distance left}
 Half has been covered, so exactly half is left: $510\div 2=255$ (km).
-\begin{barfigC}
-\blk{0}{3}{0}{0.55}{tmBlue}{covered 255 km}
-\blk{3}{6}{0}{0.55}{tmOrange}{left 255 km}
-\brcup{0}{6}{0.55}{510 km}
-\end{barfigC}
-\step{2}{Work out the time for the remaining distance}
-\begin{recallbox}Distance $=$ speed $\times$ time, so time $=$ distance $\div$ speed ($t=\dfrac{s}{v}$).\end{recallbox}
-$t=255\div 85=3$ (hours). (Mentally: $85\times 3=255$.)
+\step{2}{Choose an unknown and form an equation}
+\begin{recallbox}Distance $=$ speed $\times$ time ($s=v\cdot t$), so time $=$ distance $\div$ speed ($t=\dfrac{s}{v}$).\end{recallbox}
+Let $t$ (hours) be the time Carrie still needs ($t>0$). In $t$ hours, at $85$ km/h, she covers $85t$ km.
+This must equal the distance left: $85t=255$.
+\step{3}{Solve the equation}
+Divide both sides by $85$: $t=255\div 85=3$ (hours). (Mentally: $85\times 3=255$.)
 \begin{warnbox}Calculating $510\div 85=6$ hours gives the time for the \emph{whole} trip, which does not answer the question. And $510-85=425$ is a meaningless calculation (km minus km/h); that is the trap in option (B).\end{warnbox}
 \begin{tipbox}Another way: the whole trip takes $510\div 85=6$ hours; covering half the distance (at a constant speed) means half the time has passed, so $6\div 2=3$ hours are left.\end{tipbox}
 \verify{In $3$ hours the car covers $85\times 3=255$ km, exactly the distance left.}
@@ -611,7 +609,7 @@ $8$ cm and length $x$ cm. The perimeter of the triangle equals the perimeter of 
 \begin{figC}
 \draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,2.6)--(2.8,2.6)--(1.4,1.2)--cycle;
 \node[above] at (1.4,2.6){$14$ cm};
-\node[right] at (2.15,1.9){$12$ cm};
+\node[anchor=west] at (2.35,1.95){$12$ cm};
 \draw[tmBlue,line width=0.9pt] ($(0.7,1.9)+(-0.1,-0.1)$)--($(0.7,1.9)+(0.1,0.1)$);
 \draw[tmBlue,line width=0.9pt] ($(2.1,1.9)+(-0.1,0.1)$)--($(2.1,1.9)+(0.1,-0.1)$);
 \draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (0.4,0)rectangle(2.4,0.9);
@@ -695,16 +693,17 @@ One scoop of fish food can feed $8$ goldfish. How many goldfish can $4$ such sco
 \textbf{Understanding the problem.} $1$ scoop $\to$ $8$ fish. Asked: $4$ scoops $\to$ ? fish.
 When the number of scoops is multiplied by some number, the number of fish fed is multiplied by the same number (the quantities are directly proportional).
 \begin{recallbox}If $y$ is directly proportional to $x$ with constant $k$, then $y=k\cdot x$. Here $k=8$ (fish per scoop), so number of fish $=8\times$ number of scoops.\end{recallbox}
-\step{1}{Draw a diagram}
-\begin{barfigC}
-\blk{0}{1.5}{0}{0.55}{tmGreen}{8 fish}
-\blk{1.5}{3}{0}{0.55}{tmGreen}{8 fish}
-\blk{3}{4.5}{0}{0.55}{tmGreen}{8 fish}
-\blk{4.5}{6}{0}{0.55}{tmGreen}{8 fish}
-\brcup{0}{6}{0.55}{4 scoops}
-\end{barfigC}
-\step{2}{Calculate}
-$4\times 8=32$ (fish).
+\step{1}{Make a table of the two directly proportional quantities}
+Let $y$ be the number of fish fed with $x$ scoops of food. Then $y=8x$.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Scoops $x$ & $1$ & $2$ & $3$ & $4$\\ \hline
+Fish $y=8x$ & $8$ & $16$ & $24$ & $?$\\ \hline
+\end{tabular}
+\end{center}
+\step{2}{Substitute $x=4$}
+$y=8\cdot 4=32$ (fish).
 \begin{warnbox}Option (A) $12$ is $8+4$ (adding instead of multiplying), and option (D) $64$ is $8\times 8$. Each extra scoop feeds \emph{$8$ more fish}, so multiply $8$ by the number of scoops.\end{warnbox}
 \verify{$32\div 4=8$: exactly $8$ fish per scoop.}
 So the answer is \textbf{(E)}.
@@ -730,23 +729,23 @@ So the answer is \textbf{(A)}.
 
 % ---------------------------------------------------------------- Problem 7
 \begin{probbox}{7}{\relax}
-Each bus ride costs Lan $6\,750$ dong, while Minh pays $9\,000$ dong per ride (they use different routes).
-If each of them rides the bus $20$ times, how much less does Lan pay than Minh in total?
-\choicesII{$75\,000$ dong}{$30\,000$ dong}{$45\,000$ dong}{$135\,000$ dong}{$180\,000$ dong}
+Each bus ride costs Alex $\$2.25$, while Sam pays $\$3.00$ per ride (they use different routes).
+If each of them rides the bus $20$ times, how much less does Alex pay than Sam in total?
+\choices{$\$25$}{$\$10$}{$\$15$}{$\$45$}{$\$60$}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} Per ride: Lan $6\,750$ dong, Minh $9\,000$ dong. Each rides $20$ times. We want the \emph{difference} after $20$ rides.
-\step{1}{Method 1 -- Work out each total and subtract}
-Lan pays: $20\times 6\,750=135\,000$ (dong).\quad Minh pays: $20\times 9\,000=180\,000$ (dong).\\
-Difference: $180\,000-135\,000=45\,000$ (dong).
-\step{2}{Method 2 -- Work out the difference per ride and multiply (quicker)}
-Each ride, Lan pays less than Minh by: $9\,000-6\,750=2\,250$ (dong).\\
-After $20$ rides: $20\times 2\,250=45\,000$ (dong).
-\begin{recallbox}The distributive law: $20\times 9\,000-20\times 6\,750=20\times(9\,000-6\,750)$. That is why both methods always agree.\end{recallbox}
-\begin{warnbox}Option (D) $135\,000$ dong is \emph{Lan's total} and option (E) $180\,000$ dong is \emph{Minh's total}. The question asks how much \emph{less}, which is the difference.\end{warnbox}
-\verify{$135\,000+45\,000=180\,000$. Correct.}
+\textbf{Understanding the problem.} Per ride: Alex pays $\$2.25$, Sam pays $\$3.00$. Each rides $20$ times. We want the \emph{difference} after $20$ rides.
+\step{1}{Method 1 -- Work out each total, then subtract}
+Alex pays: $20\times 2.25=45$ (dollars).\quad Sam pays: $20\times 3=60$ (dollars).\\
+Difference: $60-45=15$ (dollars).
+\step{2}{Method 2 -- Find the difference per ride, then multiply (quicker)}
+Each ride, Alex pays less than Sam by: $3.00-2.25=0.75$ (dollars).\\
+After $20$ rides: $20\times 0.75=15$ (dollars).
+\begin{recallbox}The distributive law: $20\times 3-20\times 2.25=20\times(3-2.25)$. That is why both methods always agree.\end{recallbox}
+\begin{warnbox}Option (D) $\$45$ is \emph{Alex's total} and option (E) $\$60$ is \emph{Sam's total}. The question asks how much \emph{less}, which is the difference.\end{warnbox}
+\verify{$45+15=60$. Correct.}
 So the answer is \textbf{(C)}.
-\ans{(C) $45\,000$ dong}
+\ans{(C) $\$15$}
 }
 
 % ---------------------------------------------------------------- Problem 8
@@ -807,7 +806,7 @@ So $x=-37$.
 \end{tikzpicture}\end{center}
 On the number line: starting from $-37$ and moving $11$ steps to the right, we arrive at $-26$.
 \begin{warnbox}Forgetting to change the sign when moving a term across, and writing $x=-26+11=-15$, is wrong (option C). Check: $-15+11=-4\neq -26$.\end{warnbox}
-\begin{parentbox}You can explain it with a story about owing money: ``After someone gives you $11$ thousand, you still owe $26$ thousand. How much did you owe at first?'' At first you owed more: $26+11=37$ thousand, that is, $-37$.\end{parentbox}
+\begin{parentbox}You can explain it with a story about owing money: ``After someone gives you $\$11$ to pay back part of a debt, you still owe $\$26$. How much did you owe at first?'' At first you owed more: $26+11=37$ dollars, that is, $-37$.\end{parentbox}
 \verify{$(-37)+11=-26$. Correct.}
 So the answer is \textbf{(A)}.
 \ans{(A) $-37$}
@@ -815,22 +814,22 @@ So the answer is \textbf{(A)}.
 
 % ---------------------------------------------------------------- Problem 10
 \begin{probbox}{10}{\relax}
-Mr Hùng has $10\,000\,000$ dong, all in $50\,000$ dong notes. How many notes does he have?
+Mikhail has $\$10\,000$, all in $\$50$ bills. How many $\$50$ bills does he have?
 \choices{$1\,000$}{$200$}{$1\,250$}{$500$}{$2\,000$}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} The total amount is $10\,000\,000$ dong (ten million dong). Each note is worth $50\,000$ dong. We must find the number of notes.
-\begin{recallbox}Number of notes $=$ total amount $\div$ value of one note.\end{recallbox}
-\step{1}{Set up the division}
-Number of notes $=10\,000\,000\div 50\,000$.
-\step{2}{Simplify by removing zeros}
-Remove four zeros from both numbers (that is, divide both by $10\,000$; the quotient does not change): $10\,000\,000\div 50\,000=1\,000\div 5=200$.
+\textbf{Understanding the problem.} The total amount is $\$10\,000$ (ten thousand dollars). Each bill is worth $\$50$. We must find the number of bills.
+\begin{recallbox}Number of bills $=$ total amount $\div$ value of one bill.\end{recallbox}
+\step{1}{Choose an unknown and form an equation}
+Let $n$ be the number of $\$50$ bills ($n$ is a whole number). The $n$ bills are worth $50n$ dollars, so $50n=10\,000$.
+\step{2}{Solve: divide both sides by $50$, simplifying by removing zeros}
+$n=10\,000\div 50$. Remove one zero from both numbers (that is, divide both by $10$; the quotient does not change): $10\,000\div 50=1\,000\div 5=200$.
 \step{3}{Another way of thinking}
-$2$ notes of $50\,000$ dong make $100\,000$ dong. Ten million dong is $100$ times $100\,000$ dong, so there are $100\times 2=200$ notes.
-\verify{$200\times 50\,000=10\,000\,000$ dong. Correct.}
-\begin{warnbox}Miscounting the zeros is a very common mistake. Write numbers with a space between groups of three digits ($10\,000\,000$) to count accurately.\end{warnbox}
+$2$ bills of $\$50$ make $\$100$. Ten thousand dollars is $100$ times $\$100$, so there are $100\times 2=200$ bills.
+\verify{$200\times 50=10\,000$ dollars. Correct.}
+\begin{warnbox}Miscounting the zeros is a very common mistake: $10\,000\div 50$ is \emph{not} $2\,000$ (option E) or $1\,000$ (option A). Write numbers with a space between groups of three digits ($10\,000$) to count accurately.\end{warnbox}
 So the answer is \textbf{(B)}.
-\begin{parentbox}If you have real banknotes at home, let your child count $10$ notes of $50\,000$ dong ($500\,000$ dong), then ask: how many such bundles make $10$ million? ($20$ bundles, that is, $200$ notes.)\end{parentbox}
+\begin{parentbox}You can use play money: a bundle of $10$ bills of $\$50$ is $\$500$. Ask your child: how many such bundles make $\$10\,000$? ($20$ bundles, that is, $200$ bills.)\end{parentbox}
 \ans{(B) $200$}
 }
 
@@ -967,14 +966,8 @@ $a+b+c=40\div 2=20$ (kg).
 The lightest pumpkin $a$ is the one that is \emph{not} in the heaviest pair ($b+c=15$):
 $a=(a+b+c)-(b+c)=20-15=5$ (kg).
 (Similarly: $b=20-13=7$ kg, \ $c=20-12=8$ kg.)
-\begin{barfigC}
-\blk{0}{1.25}{0}{0.5}{tmGreen}{a}
-\blk{1.25}{3}{0}{0.5}{tmOrange}{b}
-\brcup{0}{3}{0.5}{12 kg}
-\blk{0}{1.25}{-0.9}{0.5}{tmGreen}{a}
-\blk{1.25}{3.25}{-0.9}{0.5}{tmPurple}{c}
-\brcdn{0}{3.25}{-1.35}{13 kg}
-\end{barfigC}
+\begin{tipbox}\textbf{Another way (substitution).} From $a+b=12$ we get $b=12-a$; from $a+c=13$ we get $c=13-a$. Substitute into $b+c=15$:
+$(12-a)+(13-a)=15$, that is, $25-2a=15$, so $2a=10$ and $a=5$.\end{tipbox}
 \verify{$5+7=12$, \ $5+8=13$, \ $7+8=15$. All three pairs are correct.}
 \begin{warnbox}Do not take $12\div 2=6$ kg and assume each pumpkin in the lightest pair weighs $6$ kg: the two pumpkins in a pair need not weigh the same. Option (E) $8$ kg is the \emph{heaviest} pumpkin.\end{warnbox}
 The lightest pumpkin weighs $5$ kg, which is option \textbf{(B)}.

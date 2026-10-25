@@ -99,30 +99,23 @@ Một phân số bằng phân số $\dfrac{5}{8}$. Tổng của tử số và m�
 \choices{$21$}{$3$}{$33$}{$13$}{$19$}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Phân số cần tìm bằng $\dfrac58$, nên tử số và mẫu số ``chia phần'' theo tỉ lệ $5:8$. Biết tử $+$ mẫu $=91$. Cần tìm mẫu $-$ tử.
+\textbf{Phân tích đề.} Phân số cần tìm bằng $\dfrac58$. Biết tử $+$ mẫu $=91$. Cần tìm mẫu $-$ tử.
 
-\begin{recallbox}Mọi phân số bằng $\dfrac{5}{8}$ đều có dạng $\dfrac{5k}{8k}$ với $k$ là số nguyên dương nào đó (nhân cả tử và mẫu với $k$).\end{recallbox}
+\begin{recallbox}Mọi phân số bằng $\dfrac{5}{8}$ đều có dạng $\dfrac{5k}{8k}$ với $k$ là số nguyên dương nào đó (nhân cả tử và mẫu của $\dfrac58$ với $k$; vì $\dfrac58$ đã tối giản nên không còn dạng nào khác).\end{recallbox}
 
-\step{1}{Vẽ sơ đồ đoạn thẳng}
-Coi tử số gồm $5$ phần bằng nhau, mẫu số gồm $8$ phần như thế.
-\begin{barfig}
-\rowlab{-0.15}{0.5}{Tử số}
-\foreach \i in {0,...,4}{\blk{\i*0.8}{\i*0.8+0.8}{0.5}{0.5}{tmBlue}{}}
-\rowlab{-0.15}{-0.3}{Mẫu số}
-\foreach \i in {0,...,7}{\blk{\i*0.8}{\i*0.8+0.8}{-0.3}{0.5}{tmOrange}{}}
-\brcup{0}{4}{0.9}{$5$ phần}
-\brcdn{0}{6.4}{-0.7}{$8$ phần}
-\vbrace{6.6}{0.75}{-0.55}{tổng $=91$}
-\end{barfig}
+\step{1}{Gọi ẩn}
+Gọi phân số cần tìm là $\dfrac{5k}{8k}$ ($k$ nguyên dương). Tử số là $5k$, mẫu số là $8k$.
 
-\step{2}{Tìm giá trị một phần}
-Tổng số phần là $5+8=13$ phần, ứng với $91$. Một phần là $91:13=7$.
+\step{2}{Lập phương trình từ điều kiện tổng bằng $91$}
+\[5k+8k=91\ \Longrightarrow\ 13k=91\ \Longrightarrow\ k=91:13=7.\]
 
 \step{3}{Tìm tử số, mẫu số và hiệu}
-Tử số $=5\times 7=35$; mẫu số $=8\times 7=56$. Phân số là $\dfrac{35}{56}$.\\
-Hiệu mẫu $-$ tử $=56-35=21$ (cũng chính là $3$ phần: $3\times 7=21$).
+Tử số $=5\cdot 7=35$; mẫu số $=8\cdot 7=56$. Phân số là $\dfrac{35}{56}$.\\
+Hiệu mẫu $-$ tử $=56-35=21$. (Cũng có thể tính gọn: $8k-5k=3k=3\cdot 7=21$.)
 
-\begin{warnbox}Phương án $3$ là hiệu $8-5$ của phân số $\dfrac58$ ban đầu, chưa nhân với giá trị một phần. Phương án $13$ là số phần, không phải hiệu.\end{warnbox}
+\begin{tipbox}Cách khác bằng hai ẩn: gọi tử số là $a$, mẫu số là $b$. Ta có $\dfrac{a}{b}=\dfrac58$ nên $8a=5b$, và $a+b=91$. Thế $b=91-a$: $8a=5(91-a)=455-5a$, suy ra $13a=455$, $a=35$, $b=56$.\end{tipbox}
+
+\begin{warnbox}Phương án $3$ là hiệu $8-5$ của phân số $\dfrac58$ ban đầu, chưa nhân với giá trị một phần. Phương án $13$ là tổng $5+8$ (hệ số của $k$ trong phương trình), không phải hiệu.\end{warnbox}
 
 \verify{$35+56=91$; rút gọn $\dfrac{35}{56}=\dfrac{35:7}{56:7}=\dfrac58$. Đúng.}
 Hiệu là $21$, ứng với phương án \textbf{(A)}.
@@ -130,7 +123,7 @@ Hiệu là $21$, ứng với phương án \textbf{(A)}.
 }
 
 \begin{probbox}{20}{\relax}
-Chị Lan lái ô tô với vận tốc $80$ km/h trên một con đường có các cột điện dựng cách đều nhau. Cứ $4$ giây xe lại đi qua một cột điện. Khoảng cách giữa hai cột điện liền nhau gần nhất với giá trị nào?
+Sally lái ô tô với vận tốc $80$ km/h trên một con đường có các cột điện dựng cách đều nhau. Cứ $4$ giây xe lại đi qua một cột điện. Khoảng cách giữa hai cột điện liền nhau gần nhất với giá trị nào?
 \choices{$50$ m}{$60$ m}{$70$ m}{$80$ m}{$90$ m}
 \end{probbox}
 \probsol{
@@ -441,34 +434,35 @@ Chọn phương án \textbf{(D)}.
 }
 
 \begin{probbox}{27}{\relax}
-Chị Mai đến một phiên chợ đồ cũ. Ở đó, cứ sau mỗi $15$ phút, giá của mọi món hàng lại được giảm $10\%$ so với giá \emph{hiện tại} của nó. Lúc $9\,$h$\,00$, một tấm thảm có giá $100\,000$ đồng. Lúc $9\,$h$\,15$, giá tấm thảm giảm còn $90\,000$ đồng. Ngay khi giá tấm thảm xuống \emph{dưới} $80\,000$ đồng, chị Mai mua nó. Chị Mai mua tấm thảm lúc mấy giờ?
+Emily đến một phiên chợ đồ cũ. Ở đó, cứ sau mỗi $15$ phút, giá của mọi món hàng lại được giảm $10\%$ so với giá \emph{hiện tại} của nó. Lúc $9\,$h$\,00$, một tấm thảm có giá $\$10{,}00$. Lúc $9\,$h$\,15$, giá tấm thảm giảm còn $\$9{,}00$. Ngay khi giá tấm thảm xuống \emph{dưới} $\$8{,}00$, Emily mua nó. Emily mua tấm thảm lúc mấy giờ?
 \choicesII{$9\,$h$\,45$}{$9\,$h$\,15$}{$9\,$h$\,30$}{$10\,$h$\,15$}{$10\,$h$\,00$}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Mỗi lần giảm giá là giảm $10\%$ của \emph{giá đang có} (không phải của giá ban đầu $100\,000$ đồng). Ta tính giá sau từng mốc $15$ phút cho đến khi giá nhỏ hơn $80\,000$ đồng.
+\textbf{Phân tích đề.} Mỗi lần giảm giá là giảm $10\%$ của \emph{giá đang có} (không phải của giá ban đầu $\$10{,}00$). Ta tính giá sau từng mốc $15$ phút cho đến khi giá nhỏ hơn $\$8{,}00$.
 
 \begin{recallbox}Giảm $10\%$ một số nghĩa là bớt đi $\dfrac{10}{100}=\dfrac1{10}$ của số đó; phần còn lại là $90\%$ số đó. Vậy: giá mới $=$ giá cũ $\times 0{,}9$ (hoặc giá cũ $-$ giá cũ $:10$).\end{recallbox}
 
 \step{1}{Lập bảng giá theo thời gian}
+Gọi $g_n$ là giá tấm thảm (đô la) sau $n$ lần giảm. Khi đó $g_0=10$ và $g_n=g_{n-1}\times 0{,}9$, tức $g_n=10\times 0{,}9^n$.
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
 \rowcolor{Tint}\textbf{Thời điểm} & \textbf{Giá trước khi giảm} & \textbf{Số tiền giảm ($10\%$)} & \textbf{Giá mới}\\
 \hline
-$9\,$h$\,00$ & -- & -- & $100\,000$\\
-$9\,$h$\,15$ & $100\,000$ & $10\,000$ & $90\,000$\\
-$9\,$h$\,30$ & $90\,000$ & $9\,000$ & $81\,000$\\
-$9\,$h$\,45$ & $81\,000$ & $8\,100$ & $\mathbf{72\,900}$\\
+$9\,$h$\,00$ & -- & -- & $\$10{,}00$\\
+$9\,$h$\,15$ & $\$10{,}00$ & $\$1{,}00$ & $\$9{,}00$\\
+$9\,$h$\,30$ & $\$9{,}00$ & $\$0{,}90$ & $\$8{,}10$\\
+$9\,$h$\,45$ & $\$8{,}10$ & $\$0{,}81$ & $\mathbf{\$7{,}29}$\\
 \hline
 \end{tabular}
 \end{center}
 
-\step{2}{Tìm lần đầu tiên giá dưới $80\,000$ đồng}
-Lúc $9\,$h$\,30$ giá là $81\,000$ đồng -- vẫn \emph{lớn hơn} $80\,000$ đồng, chị Mai chưa mua. Lúc $9\,$h$\,45$ giá là $72\,900$ đồng $<80\,000$ đồng: đây là lần đầu giá xuống dưới $80\,000$ đồng. Chị Mai mua lúc $9\,$h$\,45$.
+\step{2}{Tìm lần đầu tiên giá dưới $\$8{,}00$}
+Lúc $9\,$h$\,30$ giá là $\$8{,}10$ -- vẫn \emph{lớn hơn} $\$8{,}00$, Emily chưa mua. Lúc $9\,$h$\,45$ giá là $\$7{,}29<\$8{,}00$: đây là lần đầu giá xuống dưới $\$8{,}00$. Emily mua lúc $9\,$h$\,45$.
 
-\begin{warnbox}(1) Giảm $10\%$ \emph{của giá hiện tại}, nên số tiền giảm mỗi lần nhỏ dần ($10\,000$, rồi $9\,000$, rồi $8\,100$\dots), không phải lần nào cũng giảm $10\,000$ đồng. (2) Lúc $9\,$h$\,30$ giá $81\,000$ đồng ``rất gần'' $80\,000$ nhưng chưa \emph{dưới} $80\,000$, nên chưa phải lúc mua.\end{warnbox}
+\begin{warnbox}(1) Giảm $10\%$ \emph{của giá hiện tại}, nên số tiền giảm mỗi lần nhỏ dần ($\$1{,}00$, rồi $\$0{,}90$, rồi $\$0{,}81$\dots), không phải lần nào cũng giảm $\$1{,}00$. Nếu nghĩ mỗi lần giảm $\$1{,}00$, ta sẽ thấy giá $\$8{,}00$ lúc $9\,$h$\,30$ (chưa \emph{dưới} $\$8$) và $\$7{,}00$ lúc $9\,$h$\,45$ -- tình cờ cùng đáp án nhưng cách tính sai. (2) Lúc $9\,$h$\,30$ giá $\$8{,}10$ ``rất gần'' $\$8{,}00$ nhưng chưa \emph{dưới} $\$8{,}00$, nên chưa phải lúc mua.\end{warnbox}
 
-\verify{$100\,000\times 0{,}9\times 0{,}9\times 0{,}9=72\,900$ (sau $3$ lần giảm, tức $3\times 15=45$ phút kể từ $9\,$h$\,00$); còn sau $2$ lần giảm: $100\,000\times0{,}81=81\,000>80\,000$.}
+\verify{$10\times 0{,}9\times 0{,}9\times 0{,}9=7{,}29$ (sau $3$ lần giảm, tức $3\times 15=45$ phút kể từ $9\,$h$\,00$); còn sau $2$ lần giảm: $10\times0{,}81=8{,}1>8$.}
 Chọn phương án \textbf{(A)}.
 \ans{(A) $9\,$h$\,45$}
 }
@@ -564,11 +558,12 @@ Xếp $42,43,46,49$ cùng với $N$ theo thứ tự tăng dần:
 \item Nếu $N\ge 46$: thứ tự $42,43,46,\dots$ với $N$ ở hai vị trí cuối. Trung vị $=46$.
 \end{itemize}
 \begin{figC}
-\draw[->,thick,Navy] (0,0)--(10.6,0);
-\foreach \x/\lab in {0/0,6/42,6.6/43,8.4/46,10.2/50}{\draw[Navy] (\x,0.1)--(\x,-0.1); \node[below,font=\footnotesize] at (\x,-0.1) {$\lab$};}
-\draw[tmBlue,line width=3pt,opacity=0.5] (0,0.35)--(6.6,0.35); \node[above,font=\scriptsize,text=tmBlue] at (3.3,0.4) {trung vị $=43$};
-\draw[tmOrange,line width=3pt,opacity=0.6] (6.6,0.35)--(8.4,0.35); \node[above,font=\scriptsize,text=tmOrange!80!black] at (7.5,0.4) {trung vị $=N$};
-\draw[tmGreen,line width=3pt,opacity=0.5] (8.4,0.35)--(10.2,0.35); \node[above,font=\scriptsize,text=tmGreen!70!black] at (9.4,0.85) {trung vị $=46$};
+% x = (value - 38) * 0.8 ; only the part of the axis from about 38 to 51 is drawn
+\draw[<->,thick,Navy] (-0.3,0)--(10.5,0);
+\foreach \v in {42,43,46,50}{\draw[Navy] ({(\v-38)*0.8},0.1)--({(\v-38)*0.8},-0.1); \node[below,font=\footnotesize] at ({(\v-38)*0.8},-0.1) {$\v$};}
+\draw[tmBlue,line width=3pt] (-0.3,0.4)--(4,0.4); \node[above,font=\scriptsize,text=tmBlue!85!black] at (1.85,0.5) {$N\le 43$: trung vị $=43$};
+\draw[tmOrange,line width=3pt] (4,0.4)--(6.4,0.4); \node[above,font=\scriptsize,text=tmOrange!80!black] at (5.2,1.0) {$43\le N\le 46$: trung vị $=N$};
+\draw[tmGreen,line width=3pt] (6.4,0.4)--(9.6,0.4); \node[above,font=\scriptsize,text=tmGreen!70!black] at (8.0,0.5) {$N\ge 46$: trung vị $=46$};
 \end{figC}
 
 \step{3}{Giải từng trường hợp}

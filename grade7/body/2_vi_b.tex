@@ -12,32 +12,33 @@ Chu vi của mảnh vườn là $120$ m. Hỏi chiều rộng của mảnh vư�
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Ta biết hai điều: (1) chiều dài $=$ hai lần chiều rộng, cộng thêm $6$ m;
-(2) chu vi $=120$ m. Cần tìm chiều rộng.
+(2) chu vi $=120$ m. Cần tìm chiều rộng. Ta gọi ẩn và lập phương trình.
 
-\step{1}{Gọi chiều rộng là $r$ (m) và biểu diễn chiều dài theo $r$}
-``Hai lần chiều rộng'' là $2r$; ``hơn hai lần chiều rộng $6$ m'' nên chiều dài là $2r+6$ (m).
-Ta vẽ sơ đồ đoạn thẳng:
-\begin{barfigC}
-\rowlab{-0.15}{0}{Dài}
-\blk{0}{2}{0}{0.6}{tmBlue}{$r$}\blk{2}{4}{0}{0.6}{tmBlue}{$r$}\blk{4}{5.1}{0}{0.6}{tmOrange}{$6$}
-\rowlab{-0.15}{-0.9}{Rộng}
-\blk{0}{2}{-0.9}{0.6}{tmBlue}{$r$}
-\vbrace{5.3}{0.3}{-1.2}{nửa chu vi $=60$ m}
-\end{barfigC}
+\step{1}{Gọi ẩn và biểu diễn chiều dài theo ẩn}
+Gọi chiều rộng của mảnh vườn là $x$ (m), điều kiện $x>0$.
+``Hai lần chiều rộng'' là $2x$; chiều dài hơn hai lần chiều rộng $6$ m nên chiều dài là $2x+6$ (m).
+\begin{figC}
+\draw[Ink,thick,fill=tmGreen!10] (0,0) rectangle (4.2,1.8);
+\node[below] at (2.1,0){$2x+6$};
+\node[right] at (4.2,0.9){$x$};
+\end{figC}
 
-\begin{recallbox}Chu vi hình chữ nhật $=(\text{dài}+\text{rộng})\times 2$. Do đó
-$\text{dài}+\text{rộng}=$ chu vi $:2$ (gọi là \emph{nửa chu vi}).\end{recallbox}
+\begin{recallbox}Chu vi hình chữ nhật $=(\text{dài}+\text{rộng})\cdot 2$.\end{recallbox}
 
-\step{2}{Tính nửa chu vi}
-$120:2=60$ (m). Vậy chiều dài $+$ chiều rộng $=60$ m.
+\step{2}{Lập phương trình}
+Chu vi bằng $120$ m nên
+\[ \big((2x+6)+x\big)\cdot 2=120. \]
 
-\step{3}{Lập và giải phương trình}
-Nhìn sơ đồ: dài $+$ rộng gồm $3$ đoạn $r$ và một đoạn $6$ m:
-\[ (2r+6)+r=60 \;\Rightarrow\; 3r+6=60 \;\Rightarrow\; 3r=60-6=54 \;\Rightarrow\; r=54:3=18. \]
-Chiều rộng là $18$ m, chiều dài là $2\cdot 18+6=42$ (m).
+\step{3}{Giải phương trình}
+Chia hai vế cho $2$: $(2x+6)+x=60$.
+Thu gọn vế trái: $3x+6=60$.
+Chuyển $6$ sang vế phải: $3x=60-6=54$.
+Chia hai vế cho $3$: $x=54:3=18$ (thỏa mãn $x>0$).
 
-\begin{warnbox}Nhiều bạn quên chia đôi chu vi và viết $3r+6=120$, được $r=38$ -- đó chính là
-phương án (D) ``bẫy''. Hãy nhớ: chu vi gồm \emph{hai} chiều dài và \emph{hai} chiều rộng.\end{warnbox}
+Vậy chiều rộng là $18$ m, chiều dài là $2\cdot 18+6=42$ (m).
+
+\begin{warnbox}Nhiều bạn quên rằng chu vi gồm \emph{hai} chiều dài và \emph{hai} chiều rộng, nên viết
+$3x+6=120$ và được $x=38$ -- đó chính là phương án (D) ``bẫy''.\end{warnbox}
 
 \verify{Chiều dài $42$ m, chiều rộng $18$ m: $42=2\cdot 18+6$ (đúng) và chu vi
 $(42+18)\cdot 2=60\cdot 2=120$ m (đúng).}

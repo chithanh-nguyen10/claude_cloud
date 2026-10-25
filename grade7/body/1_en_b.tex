@@ -24,17 +24,17 @@
 
 % ------------------------------------------------------------------ 16
 \begin{probbox}{16}{\relax}
-Hồng is learning to save money. Today she has $120$ thousand dong in her savings account. From now on, every time she makes a deposit she will add exactly $30$ thousand dong. If Hồng makes $m$ such deposits, which expression correctly gives the amount of money (in thousands of dong) in her account?
+Rosie is learning to save money. Today she has $\$120$ in her savings account. From now on, every time she makes a deposit she will add exactly $\$30$. If Rosie makes $m$ such deposits, which expression correctly gives the amount of money (in dollars) in her account?
 \choices{$120+m$}{$30m$}{$30+120m$}{$150m$}{$120+30m$}
 \end{probbox}
 \probsol{
-\textbf{Analysis.} Given: at the start there are $120$ thousand dong; each deposit adds $30$ thousand dong; there are $m$ deposits. Find: an algebraic expression for the total after $m$ deposits.
+\textbf{Analysis.} Given: at the start there is $\$120$; each deposit adds $\$30$; there are $m$ deposits. Find: an algebraic expression for the total after $m$ deposits.
 
 \step{1}{Try a few concrete values of $m$ to see the pattern}
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-\rowcolor{tmBlue!10}\textbf{Deposits} & \textbf{Money added} & \textbf{Total (thousand dong)}\\ \hline
+\rowcolor{tmBlue!10}\textbf{Deposits} & \textbf{Money added} & \textbf{Total (dollars)}\\ \hline
 $0$ & $0$ & $120$\\ \hline
 $1$ & $30$ & $120+30=150$\\ \hline
 $2$ & $30+30=30\cdot 2=60$ & $120+60=180$\\ \hline
@@ -45,13 +45,13 @@ $m$ & $30\cdot m=30m$ & $120+30m$\\ \hline
 
 \step{2}{Write the expression}
 The money \emph{added} after $m$ deposits is $m$ times $30$, that is $30m$. Adding the $120$ already in the account gives
-\[ \text{Total} = 120 + 30m \ \text{(thousand dong)}. \]
+\[ \text{Total} = 120 + 30m \ \text{(dollars)}. \]
 \begin{recallbox}$30m$ means $30\cdot m$ (we may leave out the multiplication sign between a number and a letter). Adding a number $a$ to itself $m$ times gives $a\cdot m$.\end{recallbox}
 
 \step{3}{Rule out the wrong options}
 \begin{itemize}[leftmargin=1.3em,itemsep=1pt]
-\item (A) $120+m$: adds only $1$ thousand each time -- wrong.
-\item (B) $30m$: forgets the $120$ thousand already there. For $m=0$ it gives $0$ -- wrong.
+\item (A) $120+m$: adds only $\$1$ each time -- wrong.
+\item (B) $30m$: forgets the $\$120$ already there. For $m=0$ it gives $0$ -- wrong.
 \item (C) $30+120m$: swaps the roles of the two numbers. For $m=1$ it gives $150$ (the same!), but for $m=2$ it gives $270\ne 180$ -- wrong.
 \item (D) $150m$: for $m=2$ it gives $300\ne 180$ -- wrong.
 \end{itemize}
@@ -211,32 +211,27 @@ So the answer is \textbf{(B)}.
 
 % ------------------------------------------------------------------ 21
 \begin{probbox}{21}{\relax}
-Ánh is on a $6$-day kayak trip with a total distance of $168$~km. At the end of the third day she has covered $\frac{3}{7}$ of the total distance. How many kilometres per day must she average for the rest of the trip?
+Andrea is on a $6$-day kayak trip with a total distance of $168$~km. At the end of the third day she has covered $\frac{3}{7}$ of the total distance. How many kilometres per day must she average for the rest of the trip?
 \choices{$29$}{$24$}{$27$}{$32$}{$26$}
 \end{probbox}
 \probsol{
 \textbf{Analysis.} Given: total distance $168$~km; the trip lasts $6$ days; after $3$ days $\frac{3}{7}$ of the distance is done. Find: the average number of km per day for the remaining days.
 \begin{recallbox}To find $\frac{m}{n}$ of a number, multiply the number by $\frac{m}{n}$ (divide by $n$, then multiply by $m$).\end{recallbox}
 
-\step{1}{Draw a bar model: split the distance into 7 equal parts}
-\begin{barfigC}
-\foreach \i in {0,1,2}{\blk{\i*1.3}{\i*1.3+1.3}{0}{0.6}{tmGreen}{}}
-\foreach \i in {3,4,5,6}{\blk{\i*1.3}{\i*1.3+1.3}{0}{0.6}{tmOrange}{}}
-\brcup{0}{3.9}{0.55}{done: $3$ parts (3 days)}
-\brcup{3.9}{9.1}{0.55}{left: $4$ parts (3 days)}
-\brcdn{0}{9.1}{-0.55}{$168$ km}
-\end{barfigC}
-Each part is $168\div 7=24$~km long.
+\step{1}{Distance already covered}
+$\dfrac{3}{7}$ of $168$~km is $168\cdot\dfrac{3}{7}=168\div 7\cdot 3=24\cdot 3=72$~km.
 
-\step{2}{Distance done and distance left}
-Done: $3$ parts $=3\cdot 24=72$~km.\par
-Left: $168-72=96$~km (or $4$ parts $=4\cdot 24=96$~km).
-
-\step{3}{Days left}
+\step{2}{Days left}
 The trip lasts $6$ days and $3$ are over, so $6-3=3$ days remain.
 
-\step{4}{Average per day}
-$96\div 3=32$~km per day.
+\step{3}{Choose an unknown and form an equation}
+Let $x$ (km) be the average distance Andrea must paddle per day over the remaining $3$ days ($x>0$).
+In those $3$ days she paddles $3x$ km. The distance done plus the distance still to go equals the whole trip:
+\[ 72+3x=168. \]
+
+\step{4}{Solve the equation}
+Move $72$ across: $3x=168-72=96$. Divide both sides by $3$: $x=96\div 3=32$~km per day.
+\begin{tipbox}You can also think: the part left is $1-\frac{3}{7}=\frac{4}{7}$ of the distance, that is $168\div 7\cdot 4=96$~km, shared equally over $3$ days gives $32$~km per day.\end{tipbox}
 \begin{warnbox}Do not confuse ``the fraction of the distance left'' ($\frac{4}{7}$) with ``the number of days left'' ($3$ days). Option (B), $24$~km, is just the length of \emph{one seventh} of the distance.\end{warnbox}
 \verify{$72+3\cdot 32=72+96=168$~km \checkmark.}
 So the answer is \textbf{(D)}.
@@ -293,7 +288,7 @@ So the answer is \textbf{(B)}.
 
 % ------------------------------------------------------------------ 23
 \begin{probbox}{23}{\relax}
-Giang works as a server in a restaurant. On Saturday she gets up at 6:30 a.m., starts work at $x$ a.m. and finishes at $x$ p.m. (the same day). How long does Giang work on Saturday?
+Gail works as a server in a restaurant. On Saturday she gets up at 6:30 a.m., starts work at $x$ a.m. and finishes at $x$ p.m. (the same day). How long does Gail work on Saturday?
 \choicesII{$24-2x$ hours}{$12-x$ hours}{$2x$ hours}{$0$ hours}{$12$ hours}
 \end{probbox}
 \probsol{
@@ -310,8 +305,8 @@ Time $=$ finishing time $-$ starting time $=(x+12)-x=12$ hours.
 \begin{figC}
 \draw[Navy,line width=1pt,->] (0,0)--(8.4,0);
 \foreach \x/\l in {0/{$x$ a.m.},4/{12 noon},8/{$x$ p.m.}}{\draw[Navy,line width=1pt] (\x,0.12)--(\x,-0.12); \node[below,font=\footnotesize] at (\x,-0.12) {\l};}
-\brcup{0}{4}{0.25}{$12-x$ hours}
-\brcup{4}{8}{0.25}{$x$ hours}
+\draw[<->,tmBlue!72!black,line width=0.7pt] (0.06,0.35)--(3.94,0.35) node[midway,above,font=\footnotesize] {$12-x$ hours};
+\draw[<->,tmBlue!72!black,line width=0.7pt] (4.06,0.35)--(7.94,0.35) node[midway,above,font=\footnotesize] {$x$ hours};
 \end{figC}
 From $x$ a.m. to 12 noon is $12-x$ hours; from 12 noon to $x$ p.m. is $x$ hours. In total: $(12-x)+x=12$ hours. The result does not depend on $x$!
 \begin{warnbox}Option (B) $12-x$ is only the morning part. Option (D) $0$ hours comes from computing $x-x$ and forgetting that one time is ``a.m.'' and the other is ``p.m.''.\end{warnbox}
@@ -328,9 +323,9 @@ An $8\times 8\times n$ rectangular box ($n$ a positive integer) is built from $1
 \probsol{
 \textbf{Analysis.} We write $A$ and $B$ in terms of $n$, form the ratio $\frac{B}{A}$, find every positive integer $n$ making it an integer, and finally add those values of $n$.
 \begin{figC}\begin{scope}[scale=0.8]
-\draw[tmBlue,line width=1pt,fill=tmBlue!10] (0,0) rectangle (2.4,1.6);
-\draw[tmBlue,line width=1pt,fill=tmBlue!20] (0,1.6)--(0.9,2.3)--(3.3,2.3)--(2.4,1.6)--cycle;
-\draw[tmBlue,line width=1pt,fill=tmBlue!5] (2.4,0)--(3.3,0.7)--(3.3,2.3)--(2.4,1.6)--cycle;
+\draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,0) rectangle (2.4,1.6);
+\draw[tmBlue,line width=1pt,fill=tmBlue!8] (0,1.6)--(0.9,2.3)--(3.3,2.3)--(2.4,1.6)--cycle;
+\draw[tmBlue,line width=1pt,fill=tmBlue!8] (2.4,0)--(3.3,0.7)--(3.3,2.3)--(2.4,1.6)--cycle;
 \node[below,font=\footnotesize] at (1.2,0) {$8$};
 \node[right,font=\footnotesize] at (3.3,1.5) {$n$};
 \node[below right,font=\footnotesize] at (2.8,0.4) {$8$};
@@ -432,17 +427,17 @@ So the answer is \textbf{(A)}.
 
 % ------------------------------------------------------------------ 26
 \begin{probbox}{26}{\relax}
-Sơn starts at $7$ and counts forward by $3$, getting the list $7, 10, 13,\dots$ Dũng starts at $2026$ and counts backward by $5$, getting the list $2026, 2021, 2016,\dots$ Which of the following numbers appears in both lists?
+Steve starts at $7$ and counts forward by $3$, getting the list $7, 10, 13,\dots$ Dave starts at $2026$ and counts backward by $5$, getting the list $2026, 2021, 2016,\dots$ Which of the following numbers appears in both lists?
 \choices{$1009$}{$1006$}{$1003$}{$1001$}{$1011$}
 \end{probbox}
 \probsol{
 \textbf{Analysis.} Each list consists of equally spaced numbers. We find a ``test'' for a number to belong to each list, then check each option.
 
-\step{1}{The test for Sơn's list}
-$7=2\cdot 3+1$ leaves remainder $1$ when divided by $3$. Each time we add $3$, the remainder on division by $3$ does not change. So every number in Sơn's list \textbf{leaves remainder $1$ on division by $3$} (and is $\ge 7$). Conversely, every number $\ge 7$ with remainder $1$ appears, since it equals $7+3k$.
+\step{1}{The test for Steve's list}
+$7=2\cdot 3+1$ leaves remainder $1$ when divided by $3$. Each time we add $3$, the remainder on division by $3$ does not change. So every number in Steve's list \textbf{leaves remainder $1$ on division by $3$} (and is $\ge 7$). Conversely, every number $\ge 7$ with remainder $1$ appears, since it equals $7+3k$.
 
-\step{2}{The test for Dũng's list}
-$2026=405\cdot 5+1$ leaves remainder $1$ on division by $5$. Subtracting $5$ does not change the remainder on division by $5$. So every number in Dũng's list \textbf{leaves remainder $1$ on division by $5$} (and is $\le 2026$), that is, it \textbf{ends in the digit $1$ or $6$}.
+\step{2}{The test for Dave's list}
+$2026=405\cdot 5+1$ leaves remainder $1$ on division by $5$. Subtracting $5$ does not change the remainder on division by $5$. So every number in Dave's list \textbf{leaves remainder $1$ on division by $5$} (and is $\le 2026$), that is, it \textbf{ends in the digit $1$ or $6$}.
 \begin{recallbox}Adding or subtracting a multiple of $m$ does not change the remainder on division by $m$. A number leaves remainder $1$ on division by $5$ exactly when its last digit is $1$ or $6$. A number and the sum of its digits leave the same remainder on division by $3$.\end{recallbox}
 
 \step{3}{Check each option}
@@ -457,7 +452,7 @@ $1001$ & $2$; rem. $2$ $\times$ & $1$ \checkmark & no\\ \hline
 $1011$ & $3$; rem. $0$ $\times$ & $1$ \checkmark & no\\ \hline
 \end{tabular}
 \end{center}
-\verify{$1006=7+3\cdot 333$ (since $1006-7=999=3\cdot 333$), so $1006$ is the $334$th number in Sơn's list. $2026-1006=1020=5\cdot 204$, so $1006$ is in Dũng's list (after $204$ steps of $5$) \checkmark.}
+\verify{$1006=7+3\cdot 333$ (since $1006-7=999=3\cdot 333$), so $1006$ is the $334$th number in Steve's list. $2026-1006=1020=5\cdot 204$, so $1006$ is in Dave's list (after $204$ steps of $5$) \checkmark.}
 \begin{tipbox}Instead of writing out hundreds of numbers from each list, we only need the remainder -- a common ``signature'' of every number in the list.\end{tipbox}
 So the answer is \textbf{(B)}.
 \ans{(B) $1006$}
@@ -465,15 +460,15 @@ So the answer is \textbf{(B)}.
 
 % ------------------------------------------------------------------ 27
 \begin{probbox}{27}{\stars{1}}
-On a circular track, An stands at point $A$ and Bình stands at point $B$ directly opposite $A$ (segment $AB$ is a diameter). An runs counterclockwise and Bình runs clockwise. They run at constant but different speeds. After a while they notice that every time they pass each other, it is always at the same three places on the track. The ratio of their speeds is
+On a circular track, Anna stands at point $A$ and Ben stands at point $B$ directly opposite $A$ (segment $AB$ is a diameter). Anna runs counterclockwise and Ben runs clockwise. They run at constant but different speeds. After a while they notice that every time they pass each other, it is always at the same three places on the track. The ratio of their speeds is
 \begin{figC}
 \draw[Ink,line width=1.1pt] (0,0) circle (1.1);
 \fill[Ink] (0,1.1) circle (2pt) node[above right,font=\small\itshape] {$A$};
 \fill[Ink] (0,-1.1) circle (2pt) node[below right,font=\small\itshape] {$B$};
 \draw[tmBlue,line width=1pt,->] (-0.2,1.33)--(-0.75,1.18);
 \draw[tmOrange,line width=1pt,->] (-0.2,-1.33)--(-0.75,-1.18);
-\node[font=\scriptsize,text=tmBlue] at (-1.25,1.45) {An};
-\node[font=\scriptsize,text=tmOrange!85!black] at (-1.3,-1.45) {Bình};
+\node[font=\scriptsize,text=tmBlue] at (-1.25,1.45) {Anna};
+\node[font=\scriptsize,text=tmOrange!85!black] at (-1.3,-1.45) {Ben};
 \end{figC}
 \choicesII{$3:2$}{$3:1$}{$4:1$}{$2:1$}{$5:2$}
 \end{probbox}
@@ -483,19 +478,19 @@ On a circular track, An stands at point $A$ and Bình stands at point $B$ direct
 \step{1}{Between two consecutive meetings, together they run exactly 1 lap}
 \begin{proofbox}Just after meeting, the two separate in opposite directions. The distance between them (measured along the track) grows, and they meet again when the total distance the two have run just covers the whole circle. So between two consecutive meetings, the \emph{total} distance they run is exactly $1$ lap. (For the first meeting only: they start half a lap apart, so the total is $\frac12$ lap.)\end{proofbox}
 
-\step{2}{What fraction of a lap does An run each time?}
-In the same amount of time, distance is proportional to speed. If the ratio of speeds An : Bình is $p:q$, then during $1$ shared lap An runs $\dfrac{p}{p+q}$ of a lap and Bình runs $\dfrac{q}{p+q}$ of a lap.
+\step{2}{What fraction of a lap does Anna run each time?}
+In the same amount of time, distance is proportional to speed. If the ratio of speeds Anna : Ben is $p:q$, then during $1$ shared lap Anna runs $\dfrac{p}{p+q}$ of a lap and Ben runs $\dfrac{q}{p+q}$ of a lap.
 \begin{recallbox}Sharing a quantity in the ratio $p:q$: the first share is $\frac{p}{p+q}$ and the second share is $\frac{q}{p+q}$ of the total.\end{recallbox}
-So each meeting point is an arc of $\dfrac{p}{p+q}$ lap away from the previous one (in An's direction).
+So each meeting point is an arc of $\dfrac{p}{p+q}$ lap away from the previous one (in Anna's direction).
 
 \step{3}{Try the ratio $2:1$}
-Each time An runs $\frac{2}{3}$ of a lap. Let $M_1$ be the first meeting point. The next meeting points are $\frac23$, $\frac43$, $\frac63=2$ laps, \dots\ away from $M_1$. Since a full lap brings you back to the same place, $\frac43$ lap is the same as $\frac13$ lap, and $2$ laps is $M_1$ itself. There are only \textbf{three} meeting points: $M_1$ and the two points that divide the circle into three equal parts with it. (If Bình is faster, ratio $1:2$, the result is the same.)
+Each time Anna runs $\frac{2}{3}$ of a lap. Let $M_1$ be the first meeting point. The next meeting points are $\frac23$, $\frac43$, $\frac63=2$ laps, \dots\ away from $M_1$. Since a full lap brings you back to the same place, $\frac43$ lap is the same as $\frac13$ lap, and $2$ laps is $M_1$ itself. There are only \textbf{three} meeting points: $M_1$ and the two points that divide the circle into three equal parts with it. (If Ben is faster, ratio $1:2$, the result is the same.)
 
 \step{4}{How many points do the other ratios give?}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10}\textbf{Ratio} & \textbf{An runs each time} & \textbf{Meeting points (measured from $M_1$)} & \textbf{Points}\\ \hline
+\rowcolor{tmBlue!10}\textbf{Ratio} & \textbf{Anna runs each time} & \textbf{Meeting points (measured from $M_1$)} & \textbf{Points}\\ \hline
 (A) $3:2$ & $\frac35$ lap & $0,\frac35,\frac15,\frac45,\frac25$ then repeats & $5$\\ \hline
 (B) $3:1$ & $\frac34$ lap & $0,\frac34,\frac24,\frac14$ then repeats & $4$\\ \hline
 (C) $4:1$ & $\frac45$ lap & $0,\frac45,\frac35,\frac25,\frac15$ & $5$\\ \hline
@@ -513,7 +508,7 @@ Each time An runs $\frac{2}{3}$ of a lap. Let $M_1$ be the first meeting point. 
 \node[font=\scriptsize,text=AnsRed,anchor=west] at (330:1.25) {meet};
 \node[font=\scriptsize,text=AnsRed,anchor=south west] at (90:1.18) {meet};
 \end{figC}
-\verify{Let the track be $600$~m long, An run $200$~m per minute and Bình $100$~m per minute. They start $300$~m apart and first meet after $300\div 300=1$ minute, at the point $200$~m from $A$ (in An's direction). After that they meet every $600\div 300=2$ minutes, and An runs another $400$~m each time: positions $200\to 600$ (that is, $A$) $\to 1000$ (that is, $400$~m) $\to 1400$ (that is, $200$~m) \dots\ Exactly three points: $0$~m, $200$~m, $400$~m, dividing the circle into three equal parts -- as in the picture above.}
+\verify{Let the track be $600$~m long, Anna run $200$~m per minute and Ben $100$~m per minute. They start $300$~m apart and first meet after $300\div 300=1$ minute, at the point $200$~m from $A$ (in Anna's direction). After that they meet every $600\div 300=2$ minutes, and Anna runs another $400$~m each time: positions $200\to 600$ (that is, $A$) $\to 1000$ (that is, $400$~m) $\to 1400$ (that is, $200$~m) \dots\ Exactly three points: $0$~m, $200$~m, $400$~m, dividing the circle into three equal parts -- as in the picture above.}
 So the answer is \textbf{(D)}.
 \ans{(D) $2:1$}
 }
@@ -572,75 +567,78 @@ So the answer is \textbf{(E)}.
 
 % ------------------------------------------------------------------ 29
 \begin{probbox}{29}{\relax}
-Khánh owns more cats than Lan and more dogs than Bảo. Lan owns more dogs than Khánh but fewer cats than Bảo. Which of the following statements \textbf{must} be true?
-\choicesL{Bảo owns the fewest cats.}{Bảo owns the most cats.}{Khánh owns the most cats.}{Lan owns the most dogs.}{Khánh owns the fewest dogs.}
+Kathy owns more cats than Alice and more dogs than Bruce. Alice owns more dogs than Kathy but fewer cats than Bruce. Which of the following statements \textbf{must} be true?
+\choicesL{Bruce owns the fewest cats.}{Bruce owns the most cats.}{Kathy owns the most cats.}{Alice owns the most dogs.}{Kathy owns the fewest dogs.}
 \end{probbox}
 \probsol{
 \textbf{Analysis.} There are two separate kinds of comparison: comparing numbers of \emph{cats} and comparing numbers of \emph{dogs}. We split the information into two groups and put each in order.
 
 \step{1}{Information about cats}
-``Khánh owns more cats than Lan'': Lan $<$ Khánh.\quad ``Lan owns fewer cats than Bảo'': Lan $<$ Bảo.\par
-So Lan has the fewest cats. But between Khánh and Bảo, \emph{we do not know who has more}.
+``Kathy owns more cats than Alice'': Alice $<$ Kathy.\quad ``Alice owns fewer cats than Bruce'': Alice $<$ Bruce.\par
+So Alice has the fewest cats. But between Kathy and Bruce, \emph{we do not know who has more}.
 
 \step{2}{Information about dogs}
-``Khánh owns more dogs than Bảo'': Bảo $<$ Khánh.\quad ``Lan owns more dogs than Khánh'': Khánh $<$ Lan.\par
-Together: Bảo $<$ Khánh $<$ Lan. So \textbf{Lan has the most dogs}, and Bảo the fewest dogs.
+``Kathy owns more dogs than Bruce'': Bruce $<$ Kathy.\quad ``Alice owns more dogs than Kathy'': Kathy $<$ Alice.\par
+Together: Bruce $<$ Kathy $<$ Alice. So \textbf{Alice has the most dogs}, and Bruce the fewest dogs.
 \begin{figC}
 \node[font=\small\bfseries,text=tmOrange!85!black] at (-0.6,1.4) {Cats};
-\node[draw=tmOrange,rounded corners=3pt,font=\small] (L) at (1,1.4) {Lan};
-\node[draw=tmOrange,rounded corners=3pt,font=\small] (K) at (3,1.9) {Khánh};
-\node[draw=tmOrange,rounded corners=3pt,font=\small] (B) at (3,0.9) {Bảo};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (L) at (1,1.4) {Alice};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (K) at (3,1.9) {Kathy};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (B) at (3,0.9) {Bruce};
 \draw[->,tmOrange,line width=0.9pt] (L)--(K); \draw[->,tmOrange,line width=0.9pt] (L)--(B);
 \node[font=\scriptsize,text=Slate] at (4.6,1.4) {(cannot compare)};
 \node[font=\small\bfseries,text=tmBlue] at (-0.6,0) {Dogs};
-\node[draw=tmBlue,rounded corners=3pt,font=\small] (b) at (1,0) {Bảo};
-\node[draw=tmBlue,rounded corners=3pt,font=\small] (k) at (3,0) {Khánh};
-\node[draw=tmBlue,rounded corners=3pt,font=\small] (l) at (5,0) {Lan};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (b) at (1,0) {Bruce};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (k) at (3,0) {Kathy};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (l) at (5,0) {Alice};
 \draw[->,tmBlue,line width=0.9pt] (b)--(k); \draw[->,tmBlue,line width=0.9pt] (k)--(l);
 \node[font=\scriptsize,text=Slate] at (3,-0.55) {arrows point from fewer to more};
 \end{figC}
 
 \step{3}{Examine each statement}
 \begin{itemize}[leftmargin=1.3em,itemsep=1pt]
-\item (A) ``Bảo owns the fewest cats'': \textbf{false}, because Lan has fewer cats than Bảo.
-\item (B) ``Bảo owns the most cats'': \emph{may} be true, but not necessarily. For example, Lan $1$, Khánh $3$, Bảo $2$ cats satisfies every condition, yet Khánh has the most cats.
-\item (C) ``Khánh owns the most cats'': not necessarily either. For example, with Lan $1$, Khánh $2$, Bảo $3$ cats, Bảo has the most.
-\item (D) ``Lan owns the most dogs'': \textbf{must be true} (Step 2).
-\item (E) ``Khánh owns the fewest dogs'': \textbf{false}, because Bảo has fewer dogs than Khánh.
+\item (A) ``Bruce owns the fewest cats'': \textbf{false}, because Alice has fewer cats than Bruce.
+\item (B) ``Bruce owns the most cats'': \emph{may} be true, but not necessarily. For example, Alice $1$, Kathy $3$, Bruce $2$ cats satisfies every condition, yet Kathy has the most cats.
+\item (C) ``Kathy owns the most cats'': not necessarily either. For example, with Alice $1$, Kathy $2$, Bruce $3$ cats, Bruce has the most.
+\item (D) ``Alice owns the most dogs'': \textbf{must be true} (Step 2).
+\item (E) ``Kathy owns the fewest dogs'': \textbf{false}, because Bruce has fewer dogs than Kathy.
 \end{itemize}
 \begin{warnbox}``Must be true'' means true in \emph{every} situation that fits the problem. Finding a single situation in which a statement is false is enough to reject it.\end{warnbox}
 So the answer is \textbf{(D)}.
-\ans{(D) Lan owns the most dogs}
+\ans{(D) Alice owns the most dogs}
 }
 
 % ------------------------------------------------------------------ 30
 \begin{probbox}{30}{\relax}
-Linh bought $300$~g of candy A for $50$ thousand dong and $x$~g of candy B for $70$ thousand dong. She worked out that the average price of all the candy she bought was $15$ thousand dong per $100$~g. What is the value of $x$?
+Chloe bought $300$~g of candy A for $\$5.00$ and $x$~g of candy B for $\$7.00$. She worked out that the average price of all the candy she bought was $\$1.50$ per $100$~g. What is the value of $x$?
 \choices{$525$}{$600$}{$500$}{$450$}{$900$}
 \end{probbox}
 \probsol{
-\textbf{Analysis.} Given: the amounts paid for the two kinds of candy and the average price. Find: the mass of candy B. Idea: from the total cost and the average price, find the \emph{total mass}.
-\begin{recallbox}Average price $=$ total cost $\div$ total mass. Therefore total mass $=$ total cost $\div$ average price.\end{recallbox}
+\textbf{Analysis.} Given: the amount paid for each kind of candy, the mass of candy A and the average price. Find: the mass of candy B (in grams).
+\begin{recallbox}Average price $=$ total cost $\div$ total mass. Therefore total cost $=$ average price $\times$ total mass.\end{recallbox}
 
 \step{1}{Total cost}
-$50+70=120$ thousand dong.
+$5+7=12$ (dollars).
 
-\step{2}{Total mass}
-Every $100$~g costs $15$ thousand dong. With $120$ thousand dong one can buy $120\div 15=8$ ``portions of $100$ g''. So the total mass is $8\cdot 100=800$~g.
+\step{2}{Express the total mass and form an equation}
+The total mass of candy is $300+x$ (g), that is, $\dfrac{300+x}{100}$ ``portions of $100$~g''. Each $100$~g portion costs $\$1.50$ on average, so the total cost is
+\[ 1.5\cdot\frac{300+x}{100}=12. \]
 
-\step{3}{Mass of candy B}
-$x=800-300=500$~g.
+\step{3}{Solve the equation}
+Divide both sides by $1.5$: $\dfrac{300+x}{100}=12\div 1.5=8$.\par
+Multiply both sides by $100$: $300+x=800$.\par
+Move $300$ across: $x=800-300=500$ (g).
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} & \textbf{Candy A} & \textbf{Candy B} & \textbf{Both}\\ \hline
 Mass (g) & $300$ & $x=500$ & $800$\\ \hline
-Cost (thousand dong) & $50$ & $70$ & $120$\\ \hline
-Price per $100$~g (thousand dong) & $\approx 16.7$ & $14$ & $15$\\ \hline
+Cost (dollars) & $5$ & $7$ & $12$\\ \hline
+Price per $100$~g (dollars) & $\approx 1.67$ & $1.40$ & $1.50$\\ \hline
 \end{tabular}
 \end{center}
-\begin{warnbox}You cannot simply take the average of the two prices ($16.7$ and $14$), because the two masses are different. The average price must be computed as \emph{total cost divided by total mass}.\end{warnbox}
-\verify{$120$ thousand dong for $800$~g means $120\div 8=15$ thousand dong per $100$~g \checkmark.}
+\begin{warnbox}You cannot simply take the average of the two prices ($\$1.67$ and $\$1.40$), because the two masses are different. The average price must be computed as \emph{total cost divided by total mass}.\end{warnbox}
+\verify{$\$12$ for $800$~g means $12\div 8=1.5$ dollars per $100$~g \checkmark.}
 So the answer is \textbf{(C)}.
 \ans{(C) $500$}
 }

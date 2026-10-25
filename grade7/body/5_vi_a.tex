@@ -12,12 +12,6 @@
 \providecommand{\lgaSq}{\tikz[baseline=0pt]\draw[fill=tmBlue!65,draw=tmBlue!55!black,line width=0.6pt] (0,0) rectangle (0.3,0.3);}
 \providecommand{\lgaTri}{\tikz[baseline=0pt]\draw[fill=tmOrange!85,draw=tmOrange!55!black,line width=0.6pt] (0,0)--(0.34,0)--(0.17,0.31)--cycle;}
 \providecommand{\lgaCir}{\tikz[baseline=0pt]\draw[fill=tmGreen!65,draw=tmGreen!45!black,line width=0.6pt] (0.15,0.15) circle (0.15);}
-% trái cây: táo (đỏ, có cuống), cam (cam), xoài (xanh, bầu dục)
-\providecommand{\lgaApple}{\tikz[baseline=0pt]{\draw[fill=AnsRed!80,draw=AnsRed!55!black,line width=0.5pt] (0.15,0.15) circle (0.15);
-  \draw[tmGreen!50!black,line width=0.8pt] (0.15,0.29)--(0.2,0.39);}}
-\providecommand{\lgaOrg}{\tikz[baseline=0pt]{\draw[fill=tmOrange,draw=tmOrange!60!black,line width=0.5pt] (0.17,0.17) circle (0.17);
-  \fill[tmOrange!45!black] (0.17,0.3) circle (0.025);}}
-\providecommand{\lgaMango}{\tikz[baseline=0pt]{\draw[fill=tmGreen!70,draw=tmGreen!45!black,line width=0.5pt] (0.27,0.15) ellipse (0.27 and 0.15);}}
 % hộp màu (Bài 23)
 \providecommand{\lgaBox}[1]{\tikz[baseline=0pt]\draw[fill=#1!70,draw=#1!55!black,line width=0.6pt,rounded corners=1pt] (0,0) rectangle (0.34,0.3);}
 % \lgaMagic{a}{b}{c}{d}{e}{f}{g}{h}{i}: lưới 3x3 (đọc theo hàng)
@@ -100,7 +94,7 @@ Bốn thói quen vàng: \emph{(1) viết ra -- kí hiệu hoá; (2) vẽ ra -- s
 \needspace{9\baselineskip}\shead{Câu đúng, câu sai: người nói thật và người nói dối}
 \begin{knowbox}
 \textbf{1. Mệnh đề.} Một câu khẳng định hoặc \emph{đúng}, hoặc \emph{sai} (không thể vừa đúng vừa sai) gọi là một mệnh đề.
-Ví dụ: ``$7$ là số lẻ'' (đúng), ``Hà Nội ở phía nam TP.~Hồ Chí Minh'' (sai).
+Ví dụ: ``$7$ là số lẻ'' (đúng), ``Pa-ri là thủ đô của nước Ý'' (sai).
 
 \textbf{2. Người nói thật và người nói dối.} Trong các câu đố, \emph{người nói thật} thì mọi câu họ nói đều đúng;
 \emph{người nói dối} thì mọi câu họ nói đều sai. Vì vậy:
@@ -115,9 +109,9 @@ Ví dụ: ``$7$ là số lẻ'' (đúng), ``Hà Nội ở phía nam TP.~Hồ Ch�
 \begin{tabular}{|l|l|}
 \hline
 \rowcolor{tmBlue!10} Câu & Câu phủ định (đúng khi câu kia sai) \\ \hline
-An \emph{và} Bình đều nói dối & \emph{Ít nhất một} trong hai bạn nói thật \\ \hline
+Anna \emph{và} Ben đều nói dối & \emph{Ít nhất một} trong hai bạn nói thật \\ \hline
 \emph{Mọi} quả táo đều đỏ & \emph{Có ít nhất một} quả táo không đỏ \\ \hline
-Hoa là hoa hồng đỏ & Hoa không đỏ, \emph{hoặc} không phải hoa hồng (hoặc cả hai) \\ \hline
+Bông hoa này là hoa hồng đỏ & Hoa không đỏ, \emph{hoặc} không phải hoa hồng (hoặc cả hai) \\ \hline
 \end{tabular}
 \end{center}
 
@@ -134,7 +128,7 @@ vô lí. Nếu người nói là người nói dối thì câu đó phải sai, 
 mâu thuẫn, nên câu này không thể được nói ra (trên ``hòn đảo'' chỉ có người nói thật và người nói dối).
 \end{proofbox}
 \begin{warnbox}
-Phủ định của ``An và Bình đều nói dối'' \emph{không phải} là ``An và Bình đều nói thật''. Chỉ cần \emph{một} bạn nói thật là
+Phủ định của ``Anna và Ben đều nói dối'' \emph{không phải} là ``Anna và Ben đều nói thật''. Chỉ cần \emph{một} bạn nói thật là
 câu ban đầu đã sai rồi.
 \end{warnbox}
 \begin{tipbox}
@@ -152,8 +146,8 @@ chính là đáp án.
 \textbf{2. Phản chứng.} Muốn chứng tỏ một điều $P$ đúng, ta \emph{giả sử} $P$ sai, rồi suy luận tiếp. Nếu đi đến một điều
 vô lí thì giả sử là sai, vậy $P$ đúng.
 
-\textbf{3. Hai câu mâu thuẫn.} Nếu hai câu không thể cùng đúng và cũng không thể cùng sai (chẳng hạn Long nói ``Hà nói dối''
-về câu nói của Hà) thì \emph{đúng một} trong hai câu đúng. Đây là ``chìa khoá'' của rất nhiều câu đố: biết ngay được một câu đúng,
+\textbf{3. Hai câu mâu thuẫn.} Nếu hai câu không thể cùng đúng và cũng không thể cùng sai (chẳng hạn Leo nói ``Helen nói dối''
+về câu nói của Helen) thì \emph{đúng một} trong hai câu đúng. Đây là ``chìa khoá'' của rất nhiều câu đố: biết ngay được một câu đúng,
 một câu sai trong cặp đó.
 
 \textbf{4. Xếp chỗ quanh bàn tròn.} Khi xoay cả bàn, ai ngồi cạnh ai không thay đổi. Vì vậy ta có thể \emph{cố định} chỗ ngồi
@@ -176,15 +170,15 @@ Vì sao phản chứng là một lập luận đúng? Một mệnh đề chỉ c
 hoặc $P$ sai.
 \end{proofbox}
 \begin{tipbox}
-Hãy bắt đầu từ thông tin ``chặt'' nhất -- thông tin cho ít khả năng nhất. Chẳng hạn ``Giang và Khoa \emph{không} ngồi cạnh nhau''
+Hãy bắt đầu từ thông tin ``chặt'' nhất -- thông tin cho ít khả năng nhất. Chẳng hạn ``Jack và Kate \emph{không} ngồi cạnh nhau''
 quanh bàn $5$ chỗ nghĩa là giữa họ có \emph{đúng một} người ở một phía. Ít khả năng thì ít phải xét!
 \end{tipbox}
 
 % ---------------------------------------------------------------------
 \needspace{9\baselineskip}\shead{Sắp thứ tự; ``chắc chắn đúng'' và ``có thể đúng''}
 \begin{knowbox}
-\textbf{1. Kí hiệu hoá.} Dịch mỗi câu thành một bất đẳng thức: ``Minh chạy nhanh hơn Hùng'' viết $M > H$;
-``Kiều ăn ít hơn Long'' viết $K < L$ (hay $L > K$).
+\textbf{1. Kí hiệu hoá.} Dịch mỗi câu thành một bất đẳng thức: ``Ryan chạy nhanh hơn Henry'' viết $R > H$;
+``Kayla ăn ít hơn Max'' viết $K < M$ (hay $M > K$).
 
 \textbf{2. Tính bắc cầu.} Nếu $A > B$ và $B > C$ thì $A > C$. Nhờ đó ta nối các bất đẳng thức thành một dãy.
 
@@ -206,7 +200,7 @@ $k + m - 1$ người.
 \end{knowbox}
 \begin{figC}
   \begin{scope}
-  \foreach \y/\n in {2.4/Quân,1.8/Tâm,1.2/Minh,0.6/Phúc,0/Hùng}{\fill[tmBlue] (0,\y) circle (2.2pt); \node[right,font=\small] at (0.12,\y){\n};}
+  \foreach \y/\n in {2.4/Oscar,1.8/Tom,1.2/Ryan,0.6/Felix,0/Henry}{\fill[tmBlue] (0,\y) circle (2.2pt); \node[right,font=\small] at (0.12,\y){\n};}
   \draw[->,Navy,line width=0.8pt] (-0.35,-0.15)--(-0.35,2.6) node[above,font=\scriptsize,text=Slate]{nhanh hơn};
   \end{scope}
   \begin{scope}[xshift=5.2cm]
@@ -290,7 +284,7 @@ Với các số $1, \ldots, 9$, số ở giữa là $5$.
   \begin{scope}[xshift=4.2cm]
   \fill[tmOrange!25] (-1.35,-0.45) rectangle (1.35,0.45);
   \fill[tmOrange!25] (-0.45,-1.35) rectangle (0.45,1.35);
-  \draw[tmPurple,line width=1.4pt,opacity=0.7] (-1.25,1.25)--(1.25,-1.25) (-1.25,-1.25)--(1.25,1.25);
+  \draw[tmPurple!70,line width=1.4pt] (-1.25,1.25)--(1.25,-1.25) (-1.25,-1.25)--(1.25,1.25);
   \draw[Navy,line width=0.9pt] (-1.35,-1.35) grid[step=0.9] (1.35,1.35);
   \node[font=\bfseries] at (0,0){$c$};
   \node[font=\footnotesize,text=Slate,align=center] at (0,-1.75){$4$ đường đi qua ô giữa};
@@ -320,18 +314,17 @@ loại vật là một chữ, ta viết được một đẳng thức (phương 
 \textbf{3. Thay thế.} Nếu một nhóm vật $A$ cân bằng với nhóm $B$, thì ở bất kì chiếc cân nào ta cũng có thể thay $A$ bằng $B$
 mà cân vẫn thăng bằng.
 
-\textbf{4. Đổi ra ``đơn vị nhỏ''.} Nếu $4$ táo nặng bằng $3$ cam, hãy coi mỗi quả táo nặng $3$ phần và mỗi quả cam nặng $4$ phần
-(vì $4\times 3 = 3\times 4 = 12$ phần). Khi mọi vật đều đổi ra ``phần'', so sánh hai nhóm vật chỉ còn là so sánh hai số.
+\textbf{4. Đưa về một ẩn.} Gọi khối lượng của \emph{một} loại vật là $x$, rồi dùng các đẳng thức để biểu diễn khối lượng
+mọi vật khác theo $x$. Khi đó, so sánh hai nhóm vật chỉ còn là so sánh hai biểu thức chứa $x$.
 \end{knowbox}
 \begin{figC}
-  \node at (0,0){\lgaScale{\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple}{\lgaOrg\,\lgaOrg\,\lgaOrg}};
-  \node[font=\small,anchor=west,align=left] at (2.7,0){$4\cdot T = 3\cdot C$\\ $\Rightarrow$ táo $= 3$ phần, cam $= 4$ phần};
+  \node at (0,0){\lgaScale{\lgaCir\,\lgaCir\,\lgaCir\,\lgaCir}{\lgaTri\,\lgaTri\,\lgaTri}};
+  \node[font=\small,anchor=west,align=left] at (2.7,0){$4O = 3T$. \ Đặt $O = x$: \ $3T = 4x$, \ $T = \dfrac{4x}{3}$.};
 \end{figC}
 \begin{proofbox}
-Vì sao cách ``đổi ra phần'' đúng? Nếu táo nặng $3$ phần, cam nặng $4$ phần thì $4$ táo nặng $12$ phần và $3$ cam cũng nặng
-$12$ phần: cân thăng bằng. Hơn nữa, từ $4T = 3C$ suy ra $T = \dfrac{3}{4}C$, nghĩa là tỉ số khối lượng táo : cam \emph{luôn}
-bằng $3 : 4$ -- dù quả cam thật nặng bao nhiêu gam đi nữa. Vì chỉ có tỉ số là quan trọng, ta được phép chọn ``$1$ phần''
-làm đơn vị.
+Vì sao được làm như vậy? Cân thăng bằng nghĩa là hai vế của đẳng thức $4O = 3T$ bằng nhau. Chia cả hai vế cho cùng một số
+khác $0$ thì vẫn được đẳng thức đúng: $T = \dfrac{4O}{3}$. Vì vậy, dù một hình tròn thực sự nặng bao nhiêu gam, một hình tam
+giác luôn nặng bằng $\dfrac{4}{3}$ hình tròn. Chẳng hạn, nếu $x = 30$ g thì $T = 40$ g; thử lại: $4\cdot 30 = 120 = 3\cdot 40$.
 \end{proofbox}
 \begin{warnbox}
 Không được bỏ một vật ở \emph{một} đĩa mà không bỏ vật giống hệt ở đĩa kia. Và chỉ được bỏ những vật \emph{giống nhau}
@@ -408,40 +401,40 @@ Thói quen tự kiểm tra quý hơn bất kì mẹo giải nào.
 % VÍ DỤ MẪU
 % =====================================================================
 \begin{exbox}{Ví dụ 1 \ (Người nói thật -- người nói dối)}
-Trên một hòn đảo, mỗi người hoặc luôn nói thật, hoặc luôn nói dối. Em gặp hai người Phong và Quyên.
-Phong nói: ``Quyên là người nói dối.'' Quyên nói: ``Phong và tôi là cùng một loại người.''
+Trên một hòn đảo, mỗi người hoặc luôn nói thật, hoặc luôn nói dối. Em gặp hai người là Peter và Quinn.
+Peter nói: ``Quinn là người nói dối.'' Quinn nói: ``Peter và tôi là cùng một loại người.''
 Ai nói thật, ai nói dối?
 \guide
-\step{1}{Xét trường hợp Phong nói thật}
-Khi đó câu của Phong đúng: Quyên nói dối. Vậy câu của Quyên phải sai. Quyên nói ``hai chúng tôi cùng loại''; thực tế Phong thật,
-Quyên dối -- \emph{khác} loại, nên câu của Quyên đúng là sai. \textbf{Không có mâu thuẫn.}
-\step{2}{Xét trường hợp Phong nói dối}
-Khi đó câu của Phong sai: Quyên \emph{không} nói dối, tức Quyên nói thật. Vậy câu của Quyên phải đúng: ``Phong và Quyên cùng loại''.
-Nhưng Phong dối, Quyên thật -- khác loại. Câu của Quyên lại sai. \textbf{Mâu thuẫn!} Trường hợp này bị loại.
+\step{1}{Xét trường hợp Peter nói thật}
+Khi đó câu của Peter đúng: Quinn nói dối. Vậy câu của Quinn phải sai. Quinn nói ``hai chúng tôi cùng loại''; thực tế Peter thật,
+Quinn dối -- \emph{khác} loại, nên câu của Quinn đúng là sai. \textbf{Không có mâu thuẫn.}
+\step{2}{Xét trường hợp Peter nói dối}
+Khi đó câu của Peter sai: Quinn \emph{không} nói dối, tức Quinn nói thật. Vậy câu của Quinn phải đúng: ``Peter và Quinn cùng loại''.
+Nhưng Peter dối, Quinn thật -- khác loại. Câu của Quinn lại sai. \textbf{Mâu thuẫn!} Trường hợp này bị loại.
 \step{3}{Tóm tắt bằng bảng}
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Phong & Quyên & Câu của Phong & Câu của Quyên & Kết luận \\ \hline
+\rowcolor{tmBlue!10} Peter & Quinn & Câu của Peter & Câu của Quinn & Kết luận \\ \hline
 thật & dối & đúng (hợp lí) & sai (hợp lí) & \textcolor{tmGreen!70!black}{\textbf{được}} \\ \hline
 dối & thật & sai (hợp lí) & sai (vô lí!) & \textcolor{AnsRed}{loại} \\ \hline
 \end{tabular}
 \end{center}
-(Hai trường hợp ``cùng thật'' hoặc ``cùng dối'' bị loại ngay từ câu của Phong: nếu Phong thật thì Quyên phải dối; nếu Phong dối thì Quyên phải thật.)
-\ans{Phong nói thật, Quyên nói dối.}
+(Hai trường hợp ``cùng thật'' hoặc ``cùng dối'' bị loại ngay từ câu của Peter: nếu Peter thật thì Quinn phải dối; nếu Peter dối thì Quinn phải thật.)
+\ans{Peter nói thật, Quinn nói dối.}
 \end{exbox}
 
 \begin{exbox}{Ví dụ 2 \ (Mỗi người đoán đúng một nửa)}
 Ba đội Đỏ, Xanh, Vàng thi kéo co, không có hai đội nào cùng hạng. Trước trận, ba cổ động viên dự đoán:
 \begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=2pt]
-\item Hằng: ``Đỏ nhất, Xanh nhì.'' \quad Khôi: ``Xanh nhất, Vàng nhì.'' \quad Lâm: ``Xanh ba, Vàng nhất.''
+\item Grace: ``Đỏ nhất, Xanh nhì.'' \quad Jack: ``Xanh nhất, Vàng nhì.'' \quad Lucy: ``Xanh ba, Vàng nhất.''
 \end{itemize}
 Kết quả là mỗi người đoán đúng đúng một ý. Hãy tìm thứ hạng của ba đội.
 \guide
 \step{1}{Chọn một ý để xét trường hợp}
-Mỗi câu có đúng một ý đúng. Ta xét câu của Hằng: hoặc ``Đỏ nhất'' đúng, hoặc ``Xanh nhì'' đúng.
+Mỗi câu có đúng một ý đúng. Ta xét câu của Grace: hoặc ``Đỏ nhất'' đúng, hoặc ``Xanh nhì'' đúng.
 \step{2}{Trường hợp 1: ``Xanh nhì'' đúng (và ``Đỏ nhất'' sai)}
-Xanh nhì thì Xanh không nhất, nên ý ``Xanh nhất'' của Khôi sai; vậy ý còn lại ``Vàng nhì'' phải đúng. Nhưng Xanh đã nhì, Vàng
+Xanh nhì thì Xanh không nhất, nên ý ``Xanh nhất'' của Jack sai; vậy ý còn lại ``Vàng nhì'' phải đúng. Nhưng Xanh đã nhì, Vàng
 không thể cũng nhì. \textbf{Mâu thuẫn}, loại.
 \step{3}{Trường hợp 2: ``Đỏ nhất'' đúng (và ``Xanh nhì'' sai)}
 Xanh không nhất (Đỏ nhất), không nhì, nên \textbf{Xanh ba}. Còn lại Vàng nhì.
@@ -450,9 +443,9 @@ Xanh không nhất (Đỏ nhất), không nhì, nên \textbf{Xanh ba}. Còn lạ
 \begin{tabular}{|l|c|c|}
 \hline
 \rowcolor{tmBlue!10} Người & Ý thứ nhất & Ý thứ hai \\ \hline
-Hằng & Đỏ nhất: \textcolor{tmGreen!70!black}{đúng} & Xanh nhì: \textcolor{AnsRed}{sai} \\ \hline
-Khôi & Xanh nhất: \textcolor{AnsRed}{sai} & Vàng nhì: \textcolor{tmGreen!70!black}{đúng} \\ \hline
-Lâm & Xanh ba: \textcolor{tmGreen!70!black}{đúng} & Vàng nhất: \textcolor{AnsRed}{sai} \\ \hline
+Grace & Đỏ nhất: \textcolor{tmGreen!70!black}{đúng} & Xanh nhì: \textcolor{AnsRed}{sai} \\ \hline
+Jack & Xanh nhất: \textcolor{AnsRed}{sai} & Vàng nhì: \textcolor{tmGreen!70!black}{đúng} \\ \hline
+Lucy & Xanh ba: \textcolor{tmGreen!70!black}{đúng} & Vàng nhất: \textcolor{AnsRed}{sai} \\ \hline
 \end{tabular}
 \end{center}
 Mỗi người đúng đúng một ý.
@@ -491,7 +484,7 @@ Vậy câu ``Bút tím dài thứ hai'' chỉ \textbf{có thể đúng}, không 
 \end{exbox}
 
 \begin{exbox}{Ví dụ 4 \ (Mật mã dịch vòng -- tìm bước dịch)}
-Bạn Tùng mã hoá một từ bằng mật mã Caesar và nhận được \textbf{JOHV}. Tùng cho biết: với cách mã hoá này, chữ A biến thành chữ H.\\
+Bạn Tom mã hoá một từ bằng mật mã Caesar và nhận được \textbf{JVKL}. Tom cho biết: với cách mã hoá này, chữ A biến thành chữ H.\\
 a) Tìm từ ban đầu. \ b) Sau khi dịch như trên, phải dịch tiếp ít nhất bao nhiêu bước (theo cùng chiều) để mọi chữ quay về chữ ban đầu?
 \guide
 \step{1}{Tìm bước dịch}
@@ -500,17 +493,19 @@ A $= 0$, H $= 7$. A biến thành H nên bước dịch là $k = 7$.
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Chữ mã & J & O & H & V \\ \hline
-Số & $9$ & $14$ & $7$ & $21$ \\ \hline
-Trừ $7$ & $2$ & $7$ & $0$ & $14$ \\ \hline
-Chữ gốc & \textbf{C} & \textbf{H} & \textbf{A} & \textbf{O} \\ \hline
+\rowcolor{tmBlue!10} Chữ mã & J & V & K & L \\ \hline
+Số & $9$ & $21$ & $10$ & $11$ \\ \hline
+Trừ $7$ & $2$ & $14$ & $3$ & $4$ \\ \hline
+Chữ gốc & \textbf{C} & \textbf{O} & \textbf{D} & \textbf{E} \\ \hline
 \end{tabular}
 \end{center}
-Từ ban đầu là \textbf{CHAO} (``chào'').
+Từ ban đầu là \textbf{CODE} (tiếng Anh: ``mật mã'').
+\begin{warnbox}Không phải chữ nào trừ $7$ cũng ra số âm; chỉ khi số của chữ mã nhỏ hơn $7$ mới phải cộng thêm $26$ (quay vòng qua A).
+Ở bài này cả bốn chữ đều có số $\ge 7$ nên không cần quay vòng.\end{warnbox}
 \step{3}{Câu b}
 Dịch tổng cộng $26$ bước thì quay đủ một vòng. Đã dịch $7$ bước, cần thêm $26 - 7 = 19$ bước.
-\verify{Mã hoá lại CHAO với bước $7$: C$(2)\to 9 =$ J, H$(7)\to 14 =$ O, A$(0)\to 7 =$ H, O$(14)\to 21 =$ V. Được JOHV.}
-\ans{a) CHAO. \ b) $19$ bước.}
+\verify{Mã hoá lại CODE với bước $7$: C$(2)\to 9 =$ J, O$(14)\to 21 =$ V, D$(3)\to 10 =$ K, E$(4)\to 11 =$ L. Được JVKL.}
+\ans{a) CODE. \ b) $19$ bước.}
 \end{exbox}
 
 \begin{exbox}{Ví dụ 5 \ (Hoàn thành ma phương)}
@@ -595,8 +590,8 @@ Hàng $3$: $3, 4, \_, \_$ còn $\{1; 2\}$; cột $3$ đã có $1$ (hàng $2$) n�
 
 % ---------------------------------------------------------------- Bài 1
 \begin{probbox}{1}{\relax}
-Mẹ vừa mua một chậu hoa mới. Ba bạn đoán xem đó là hoa gì. An đoán: ``hoa hồng màu đỏ''. Bình đoán: ``hoa cúc màu tím''.
-Chi đoán: ``hoa thược dược màu đỏ''. Mẹ cho biết: mỗi bạn đoán đúng \emph{đúng một} trong hai điều -- hoặc màu hoa, hoặc loại hoa.
+Mẹ vừa mua một chậu hoa mới. Ba bạn đoán xem đó là hoa gì. Anna đoán: ``hoa hồng màu đỏ''. Ben đoán: ``hoa cúc màu tím''.
+Chloe đoán: ``hoa thược dược màu đỏ''. Mẹ cho biết: mỗi bạn đoán đúng \emph{đúng một} trong hai điều -- hoặc màu hoa, hoặc loại hoa.
 Chậu hoa mẹ mua là
 \choicesII{thược dược tím}{hồng tím}{thược dược đỏ}{hồng vàng}{cúc đỏ}
 \end{probbox}
@@ -605,25 +600,25 @@ Chậu hoa mẹ mua là
 Cần tìm màu và loại hoa thật.
 \begin{recallbox}Câu ``đúng một nửa'': nếu biết một ý đúng thì ý còn lại sai, và ngược lại.\end{recallbox}
 \step{1}{Xét màu hoa: có phải màu đỏ không?}
-\emph{Giả sử hoa không đỏ.} Khi đó ý ``màu đỏ'' của An sai, nên ý còn lại ``hoa hồng'' phải đúng. Cũng vậy, ý ``màu đỏ'' của Chi sai,
+\emph{Giả sử hoa không đỏ.} Khi đó ý ``màu đỏ'' của Anna sai, nên ý còn lại ``hoa hồng'' phải đúng. Cũng vậy, ý ``màu đỏ'' của Chloe sai,
 nên ``hoa thược dược'' phải đúng. Hoa vừa là hồng vừa là thược dược -- \textbf{vô lí}. Vậy \textbf{hoa màu đỏ}.
 \step{2}{Suy ra loại hoa}
-Hoa màu đỏ nên An đúng ý màu $\Rightarrow$ ý ``hoa hồng'' của An sai: hoa không phải hoa hồng.\\
-Chi cũng đúng ý màu $\Rightarrow$ ý ``thược dược'' của Chi sai: hoa không phải thược dược.\\
-Bình đoán ``màu tím'' -- sai (hoa đỏ), nên ý ``hoa cúc'' của Bình phải đúng: \textbf{hoa cúc}.
+Hoa màu đỏ nên Anna đúng ý màu $\Rightarrow$ ý ``hoa hồng'' của Anna sai: hoa không phải hoa hồng.\\
+Chloe cũng đúng ý màu $\Rightarrow$ ý ``thược dược'' của Chloe sai: hoa không phải thược dược.\\
+Ben đoán ``màu tím'' -- sai (hoa đỏ), nên ý ``hoa cúc'' của Ben phải đúng: \textbf{hoa cúc}.
 \step{3}{Thử lại bằng bảng}
 \begin{center}
 \begin{tabular}{|l|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} Bạn & Màu đoán & Loại đoán & Số ý đúng (hoa thật: cúc đỏ) \\ \hline
-An & đỏ \textcolor{tmGreen!70!black}{(đúng)} & hồng \textcolor{AnsRed}{(sai)} & $1$ \\ \hline
-Bình & tím \textcolor{AnsRed}{(sai)} & cúc \textcolor{tmGreen!70!black}{(đúng)} & $1$ \\ \hline
-Chi & đỏ \textcolor{tmGreen!70!black}{(đúng)} & thược dược \textcolor{AnsRed}{(sai)} & $1$ \\ \hline
+Anna & đỏ \textcolor{tmGreen!70!black}{(đúng)} & hồng \textcolor{AnsRed}{(sai)} & $1$ \\ \hline
+Ben & tím \textcolor{AnsRed}{(sai)} & cúc \textcolor{tmGreen!70!black}{(đúng)} & $1$ \\ \hline
+Chloe & đỏ \textcolor{tmGreen!70!black}{(đúng)} & thược dược \textcolor{AnsRed}{(sai)} & $1$ \\ \hline
 \end{tabular}
 \end{center}
-\begin{warnbox}Thử ngay phương án (B) ``hồng tím'': An đúng loại (hồng), Bình đúng màu (tím), nhưng Chi \emph{không đúng ý nào}
+\begin{warnbox}Thử ngay phương án (B) ``hồng tím'': Anna đúng loại (hồng), Ben đúng màu (tím), nhưng Chloe \emph{không đúng ý nào}
 -- trái với đề. Phải kiểm tra \emph{cả ba} bạn, không chỉ một hai bạn.\end{warnbox}
-\verify{Với ``cúc đỏ'' mỗi bạn đúng đúng một ý. Các phương án khác đều làm ít nhất một bạn đúng $0$ hoặc $2$ ý: (A) thược dược tím -- An đúng $0$ ý; (C) thược dược đỏ -- Chi đúng $2$ ý; (D) hồng vàng -- Bình đúng $0$ ý.}
+\verify{Với ``cúc đỏ'' mỗi bạn đúng đúng một ý. Các phương án khác đều làm ít nhất một bạn đúng $0$ hoặc $2$ ý: (A) thược dược tím -- Anna đúng $0$ ý; (C) thược dược đỏ -- Chloe đúng $2$ ý; (D) hồng vàng -- Ben đúng $0$ ý.}
 Vậy chọn \textbf{(E)}.
 \ans{(E) cúc đỏ}
 }
@@ -632,53 +627,54 @@ Vậy chọn \textbf{(E)}.
 \begin{probbox}{2}{\relax}
 $26$ chữ cái tiếng Anh được viết theo thứ tự A, B, C, \ldots, Z quanh một vòng tròn, theo chiều kim đồng hồ. Để \emph{mã hoá} một
 tin nhắn, ta thay mỗi chữ cái bằng chữ cái đứng sau nó $4$ vị trí theo chiều kim đồng hồ (đây gọi là \emph{mật mã Caesar}).
-Ví dụ, từ BOX được mã hoá thành FSB. Từ YEU được mã hoá thành
-\choices{CIZ}{BHX}{CIY}{UAQ}{DJZ}
+Ví dụ, từ ZAP được mã hoá thành DET. Từ WIN được mã hoá thành
+\choices{ALN}{ZLN}{AMR}{AMQ}{ZMQ}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Bước dịch là $4$, chiều xuôi (chiều kim đồng hồ). Cần mã hoá từng chữ Y, E, U.
+\textbf{Phân tích đề.} Bước dịch là $4$, chiều xuôi (chiều kim đồng hồ). Cần mã hoá lần lượt ba chữ W, I, N.
 \begin{recallbox}Đánh số A $= 0$, \ldots, Z $= 25$. Mã hoá: cộng $4$; nếu được số $\ge 26$ thì trừ $26$ (đi quá Z thì quay về A).\end{recallbox}
-\step{1}{Kiểm tra cách hiểu bằng ví dụ BOX $\to$ FSB}
-B$(1) + 4 = 5 =$ F; \ O$(14) + 4 = 18 =$ S; \ X$(23) + 4 = 27$, $27 - 26 = 1 =$ B. Đúng là FSB, và ta thấy chữ X ``quay vòng'' thành B.
-\step{2}{Mã hoá từng chữ của YEU}
+\step{1}{Kiểm tra cách hiểu bằng ví dụ ZAP $\to$ DET}
+Z$(25) + 4 = 29$, $29 - 26 = 3 =$ D; \ A$(0) + 4 = 4 =$ E; \ P$(15) + 4 = 19 =$ T. Đúng là DET, và ta thấy chữ Z ``quay vòng'' thành D.
+\step{2}{Mã hoá từng chữ của WIN}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Chữ gốc & Y & E & U \\ \hline
-Số & $24$ & $4$ & $20$ \\ \hline
-Cộng $4$ & $28 \to 28 - 26 = 2$ & $8$ & $24$ \\ \hline
-Chữ mã & \textbf{C} & \textbf{I} & \textbf{Y} \\ \hline
+\rowcolor{tmBlue!10} Chữ gốc & W & I & N \\ \hline
+Số & $22$ & $8$ & $13$ \\ \hline
+Cộng $4$ & $26 \to 26 - 26 = 0$ & $12$ & $17$ \\ \hline
+Chữ mã & \textbf{A} & \textbf{M} & \textbf{R} \\ \hline
 \end{tabular}
 \end{center}
 \begin{figC}
   \node at (0,0){\lgaWheel{4}};
-  \node[align=left,font=\small,anchor=west] at (2.5,0){Y $\to$ Z $\to$ A $\to$ B $\to$ \textbf{C}\\ E $\to$ F $\to$ G $\to$ H $\to$ \textbf{I}\\ U $\to$ V $\to$ W $\to$ X $\to$ \textbf{Y}};
+  \node[align=left,font=\small,anchor=west] at (2.5,0){W $\to$ X $\to$ Y $\to$ Z $\to$ \textbf{A}\\ I $\to$ J $\to$ K $\to$ L $\to$ \textbf{M}\\ N $\to$ O $\to$ P $\to$ Q $\to$ \textbf{R}};
 \end{figC}
-\begin{warnbox}(B) BHX là dịch $3$ bước (đếm thiếu một bước); (D) UAQ là dịch \emph{ngược} $4$ bước (giải mã thay vì mã hoá);
-(E) DJZ là dịch $5$ bước. Hãy đếm cẩn thận: ``sau $4$ vị trí'' nghĩa là đi $4$ bước, không tính chữ xuất phát.\end{warnbox}
-\verify{Giải mã CIY bằng cách lùi $4$ bước: C $\to$ B $\to$ A $\to$ Z $\to$ Y; \ I $\to$ E; \ Y $\to$ U. Được lại YEU.}
+\begin{warnbox}Các phương án sai đều có ít nhất một chữ bị dịch sai số bước: (B) ZLN và (E) ZMQ chỉ dịch W đi $3$ bước (dừng ở Z, quên
+rằng sau Z còn phải đi tiếp đến A); (D) AMQ và (E) ZMQ chỉ dịch N đi $3$ bước; (A) ALN và (B) ZLN dịch I đi $3$ bước và để nguyên N.
+Hãy đếm cẩn thận: ``sau $4$ vị trí'' nghĩa là đi đúng $4$ bước, không tính chữ xuất phát.\end{warnbox}
+\verify{Giải mã AMR bằng cách lùi $4$ bước: A $\to$ Z $\to$ Y $\to$ X $\to$ W; \ M $\to$ I; \ R $\to$ N. Được lại WIN.}
 Vậy chọn \textbf{(C)}.
-\ans{(C) CIY}
+\ans{(C) AMR}
 }
 
 % ---------------------------------------------------------------- Bài 3
 \begin{probbox}{3}{\relax}
-Năm bạn Minh, Hùng, Phúc, Tâm, Quân thi chạy, không có hai bạn nào về đích cùng lúc. Minh chạy nhanh hơn Hùng và Phúc. Hùng chạy
-chậm hơn Phúc. Tâm chạy nhanh hơn Minh nhưng chậm hơn Quân. Bạn nào về đích thứ tư?
-\choices{Phúc}{Hùng}{Quân}{Minh}{Tâm}
+Năm bạn Ryan, Henry, Felix, Tom, Oscar thi chạy, không có hai bạn nào về đích cùng lúc. Ryan chạy nhanh hơn Henry và Felix. Henry chạy
+chậm hơn Felix. Tom chạy nhanh hơn Ryan nhưng chậm hơn Oscar. Bạn nào về đích thứ tư?
+\choices{Felix}{Henry}{Oscar}{Ryan}{Tom}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Có năm bạn, các câu so sánh tốc độ. Cần sắp xếp thứ tự về đích và tìm người thứ tư. Ai nhanh hơn thì về trước.
 \step{1}{Kí hiệu hoá (dấu $>$ nghĩa là ``nhanh hơn'')}
 \begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
-\item ``Minh nhanh hơn Hùng và Phúc'': \ $M > H$ \ và \ $M > P$.
-\item ``Hùng chậm hơn Phúc'': \ $P > H$.
-\item ``Tâm nhanh hơn Minh nhưng chậm hơn Quân'': \ $Q > T > M$.
+\item ``Ryan nhanh hơn Henry và Felix'': \ $R > H$ \ và \ $R > F$.
+\item ``Henry chậm hơn Felix'': \ $F > H$.
+\item ``Tom nhanh hơn Ryan nhưng chậm hơn Oscar'': \ $O > T > R$.
 \end{itemize}
 \step{2}{Nối thành một dãy (tính bắc cầu)}
-Từ $Q > T > M$, \ $M > P$ và $P > H$ ta được: \quad $Q > T > M > P > H$.
+Từ $O > T > R$, \ $R > F$ và $F > H$ ta được: \quad $O > T > R > F > H$.
 \begin{figC}
-  \foreach \x/\n/\k in {0/Quân/1,2/Tâm/2,4/Minh/3,6/Phúc/4,8/Hùng/5}{
+  \foreach \x/\n/\k in {0/Oscar/1,2/Tom/2,4/Ryan/3,6/Felix/4,8/Henry/5}{
     \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,minimum width=1.3cm,line width=0.8pt] (n\k) at (\x,0){\n};
     \node[font=\scriptsize,text=Slate] at (\x,-0.5){thứ \k};}
   \foreach \a/\b in {1/2,2/3,3/4,4/5}{\draw[->,Navy,line width=0.8pt] (n\a)--(n\b);}
@@ -686,12 +682,12 @@ Từ $Q > T > M$, \ $M > P$ và $P > H$ ta được: \quad $Q > T > M > P > H$.
   \draw[AnsRed,line width=1.2pt,rounded corners=4pt] (5.25,-0.8) rectangle (6.75,0.35);
 \end{figC}
 \step{3}{Đọc kết quả}
-Thứ tự về đích: Quân (nhất), Tâm (nhì), Minh (ba), \textbf{Phúc (tư)}, Hùng (năm).
-\begin{warnbox}Câu ``Minh nhanh hơn Hùng và Phúc'' chưa cho biết Hùng và Phúc ai nhanh hơn -- phải dùng câu ``Hùng chậm hơn Phúc''.
+Thứ tự về đích: Oscar (nhất), Tom (nhì), Ryan (ba), \textbf{Felix (tư)}, Henry (năm).
+\begin{warnbox}Câu ``Ryan nhanh hơn Henry và Felix'' chưa cho biết Henry và Felix ai nhanh hơn -- phải dùng câu ``Henry chậm hơn Felix''.
 Đừng bỏ qua câu nào!\end{warnbox}
-\verify{Minh (ba) nhanh hơn Hùng (năm) và Phúc (tư) \checkmark; Hùng chậm hơn Phúc \checkmark; Tâm (nhì) nhanh hơn Minh, chậm hơn Quân \checkmark.}
+\verify{Ryan (ba) nhanh hơn Henry (năm) và Felix (tư) \checkmark; Henry chậm hơn Felix \checkmark; Tom (nhì) nhanh hơn Ryan, chậm hơn Oscar \checkmark.}
 Vậy chọn \textbf{(A)}.
-\ans{(A) Phúc}
+\ans{(A) Felix}
 }
 
 % ---------------------------------------------------------------- Bài 4
@@ -764,36 +760,36 @@ Vậy chọn \textbf{(C)}.
 
 % ---------------------------------------------------------------- Bài 6
 \begin{probbox}{6}{\relax}
-Năm bạn Giang, Khoa, Lan, Mai, Nam ngồi vào $5$ chiếc ghế quanh một chiếc bàn tròn. Lan và Mai ngồi cạnh nhau. Giang và Khoa
-\emph{không} ngồi cạnh nhau. Hai bạn ngồi hai bên cạnh Nam là
-\choicesII{Giang và Lan}{Giang và Khoa}{Khoa và Mai}{Lan và Mai}{Mai và Giang}
+Năm bạn Jack, Kate, Leo, Mia, Noah ngồi vào $5$ chiếc ghế quanh một chiếc bàn tròn. Leo và Mia ngồi cạnh nhau. Jack và Kate
+\emph{không} ngồi cạnh nhau. Hai bạn ngồi hai bên cạnh Noah là
+\choicesII{Jack và Leo}{Jack và Kate}{Kate và Mia}{Leo và Mia}{Mia và Jack}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Năm người quanh bàn tròn $5$ ghế. Có hai điều kiện: Lan -- Mai cạnh nhau; Giang -- Khoa không cạnh nhau. Cần tìm
-hai người ngồi cạnh Nam.
+\textbf{Phân tích đề.} Năm người quanh bàn tròn $5$ ghế. Có hai điều kiện: Leo -- Mia cạnh nhau; Jack -- Kate không cạnh nhau. Cần tìm
+hai người ngồi cạnh Noah.
 \begin{recallbox}Quanh bàn tròn có thể cố định chỗ của một người (xoay bàn không làm thay đổi ai cạnh ai). Với $5$ ghế, mỗi người
 không ngồi cạnh đúng $2$ người -- đó là hai người ``cách một ghế''.\end{recallbox}
-\step{1}{Bắt đầu từ điều kiện chặt nhất: Giang và Khoa không cạnh nhau}
-Đánh số ghế $1$ đến $5$ theo vòng. Đặt Giang ở ghế $1$. Hai ghế cạnh ghế $1$ là ghế $2$ và ghế $5$, nên Khoa ngồi ghế $3$ hoặc ghế $4$.
-Hai trường hợp này đối xứng nhau (lật bàn như soi gương), nên ta xét Khoa ở ghế $3$.
-\step{2}{Đặt Lan và Mai}
-Còn trống ghế $2$, $4$, $5$. Lan và Mai phải ngồi hai ghế \emph{cạnh nhau}. Trong ba ghế này chỉ có ghế $4$ và ghế $5$ cạnh nhau
-(ghế $2$ cạnh ghế $1$ và ghế $3$, đều đã có người). Vậy Lan, Mai ngồi ghế $4$ và $5$.
-\step{3}{Nam ngồi ghế còn lại}
-Nam ngồi ghế $2$, nằm giữa ghế $1$ (Giang) và ghế $3$ (Khoa).
+\step{1}{Bắt đầu từ điều kiện chặt nhất: Jack và Kate không cạnh nhau}
+Đánh số ghế $1$ đến $5$ theo vòng. Đặt Jack ở ghế $1$. Hai ghế cạnh ghế $1$ là ghế $2$ và ghế $5$, nên Kate ngồi ghế $3$ hoặc ghế $4$.
+Hai trường hợp này đối xứng nhau (lật bàn như soi gương), nên ta xét Kate ở ghế $3$.
+\step{2}{Đặt Leo và Mia}
+Còn trống ghế $2$, $4$, $5$. Leo và Mia phải ngồi hai ghế \emph{cạnh nhau}. Trong ba ghế này chỉ có ghế $4$ và ghế $5$ cạnh nhau
+(ghế $2$ cạnh ghế $1$ và ghế $3$, đều đã có người). Vậy Leo, Mia ngồi ghế $4$ và $5$.
+\step{3}{Noah ngồi ghế còn lại}
+Noah ngồi ghế $2$, nằm giữa ghế $1$ (Jack) và ghế $3$ (Kate).
 \begin{figC}
   \foreach \i in {1,...,5}{\coordinate (S\i) at ({90-(\i-1)*72}:1.35);}
   \draw[Navy!40,line width=5pt] (0,0) circle (0.75);
-  \foreach \i/\n/\c in {1/Giang/tmBlue,2/Nam/AnsRed,3/Khoa/tmBlue,4/Lan/tmGreen,5/Mai/tmGreen}{
+  \foreach \i/\n/\c in {1/Jack/tmBlue,2/Noah/AnsRed,3/Kate/tmBlue,4/Leo/tmGreen,5/Mia/tmGreen}{
     \node[circle,draw=\c,fill=\c!10,line width=0.9pt,minimum size=0.95cm,font=\scriptsize] at (S\i){\n};
     \node[font=\scriptsize,text=Slate] at ({90-(\i-1)*72}:2.4){ghế \i};}
 \end{figC}
-(Nếu Khoa ở ghế $4$ thì tương tự: Lan, Mai ở ghế $2$, $3$ và Nam ở ghế $5$ -- vẫn ngồi giữa Giang và Khoa.)
-\begin{proofbox}Vì sao không còn cách xếp nào khác? Giang và Khoa không cạnh nhau nên giữa họ có đúng một ghế ở một phía và hai ghế
-ở phía kia. Lan -- Mai cần hai ghế liền nhau, nên phải chiếm phía có hai ghế. Ghế lẻ loi giữa Giang và Khoa thuộc về Nam.\end{proofbox}
-\verify{Lan -- Mai cạnh nhau \checkmark; Giang (ghế $1$) và Khoa (ghế $3$) cách nhau một ghế \checkmark.}
+(Nếu Kate ở ghế $4$ thì tương tự: Leo, Mia ở ghế $2$, $3$ và Noah ở ghế $5$ -- vẫn ngồi giữa Jack và Kate.)
+\begin{proofbox}Vì sao không còn cách xếp nào khác? Jack và Kate không cạnh nhau nên giữa họ có đúng một ghế ở một phía và hai ghế
+ở phía kia. Leo -- Mia cần hai ghế liền nhau, nên phải chiếm phía có hai ghế. Ghế lẻ loi giữa Jack và Kate thuộc về Noah.\end{proofbox}
+\verify{Leo -- Mia cạnh nhau \checkmark; Jack (ghế $1$) và Kate (ghế $3$) cách nhau một ghế \checkmark.}
 Vậy chọn \textbf{(B)}.
-\ans{(B) Giang và Khoa}
+\ans{(B) Jack và Kate}
 }
 
 % ---------------------------------------------------------------- Bài 7
@@ -829,7 +825,7 @@ Vậy chọn \textbf{(C)}.
 
 % ---------------------------------------------------------------- Bài 8
 \begin{probbox}{8}{\relax}
-Cường nói dối vào các ngày thứ Sáu, thứ Bảy, Chủ nhật và nói thật vào các ngày còn lại. Mạnh nói dối vào các ngày thứ Ba, thứ Tư,
+Chris nói dối vào các ngày thứ Sáu, thứ Bảy, Chủ nhật và nói thật vào các ngày còn lại. Mark nói dối vào các ngày thứ Ba, thứ Tư,
 thứ Năm và nói thật vào các ngày còn lại. Vào ngày nào trong tuần thì cả hai bạn đều có thể nói câu: ``Ngày mai tôi sẽ nói dối''?
 \choices{Thứ Hai}{Thứ Năm}{Thứ Sáu}{Chủ nhật}{Thứ Ba}
 \end{probbox}
@@ -841,123 +837,126 @@ thứ Năm và nói thật vào các ngày còn lại. Vào ngày nào trong tu�
 \end{itemize}
 Nói gọn: người đó nói được câu này khi \textbf{hôm nay và ngày mai khác loại} (một ngày thật, một ngày dối).
 \begin{recallbox}Người nói thật chỉ nói câu đúng; người nói dối chỉ nói câu sai. Sau Chủ nhật là thứ Hai (tuần quay vòng).\end{recallbox}
-\step{1}{Lập bảng cho Cường (D $=$ dối, T $=$ thật)}
+\step{1}{Lập bảng cho Chris (D $=$ dối, T $=$ thật)}
 \begin{center}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} Ngày & T2 & T3 & T4 & T5 & T6 & T7 & CN \\ \hline
-Cường hôm nay & T & T & T & T & D & D & D \\ \hline
-Cường ngày mai & T & T & T & D & D & D & T \\ \hline
+Chris hôm nay & T & T & T & T & D & D & D \\ \hline
+Chris ngày mai & T & T & T & D & D & D & T \\ \hline
 Nói được? & -- & -- & -- & \textbf{có} & -- & -- & \textbf{có} \\ \hline
 \end{tabular}
 \end{center}
-Cường nói được câu đó vào \textbf{thứ Năm} và \textbf{Chủ nhật} (hai ngày ``đổi loại'').
-\step{2}{Lập bảng cho Mạnh}
+Chris nói được câu đó vào \textbf{thứ Năm} và \textbf{Chủ nhật} (hai ngày ``đổi loại'').
+\step{2}{Lập bảng cho Mark}
 \begin{center}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} Ngày & T2 & T3 & T4 & T5 & T6 & T7 & CN \\ \hline
-Mạnh hôm nay & T & D & D & D & T & T & T \\ \hline
-Mạnh ngày mai & D & D & D & T & T & T & T \\ \hline
+Mark hôm nay & T & D & D & D & T & T & T \\ \hline
+Mark ngày mai & D & D & D & T & T & T & T \\ \hline
 Nói được? & \textbf{có} & -- & -- & \textbf{có} & -- & -- & -- \\ \hline
 \end{tabular}
 \end{center}
-Mạnh nói được câu đó vào \textbf{thứ Hai} và \textbf{thứ Năm}.
+Mark nói được câu đó vào \textbf{thứ Hai} và \textbf{thứ Năm}.
 \step{3}{Tìm ngày chung}
 Ngày có mặt trong cả hai danh sách: \textbf{thứ Năm}.
-\begin{warnbox}Nhiều bạn chọn thứ Sáu vì nghĩ ``thứ Sáu Cường nói dối''. Nhưng thứ Sáu Cường nói dối mà ngày mai (thứ Bảy) cũng dối, nên
+\begin{warnbox}Nhiều bạn chọn thứ Sáu vì nghĩ ``thứ Sáu Chris nói dối''. Nhưng thứ Sáu Chris nói dối mà ngày mai (thứ Bảy) cũng dối, nên
 câu ``Ngày mai tôi sẽ nói dối'' là câu \emph{đúng} -- người đang nói dối không thể nói câu đúng.\end{warnbox}
-\verify{Thứ Năm: Cường nói thật, ngày mai (thứ Sáu) Cường dối -- câu đúng, Cường nói được. Mạnh nói dối, ngày mai (thứ Sáu) Mạnh nói thật
--- câu sai, đúng là Mạnh đang nói dối.}
+\verify{Thứ Năm: Chris nói thật, ngày mai (thứ Sáu) Chris dối -- câu đúng, Chris nói được. Mark nói dối, ngày mai (thứ Sáu) Mark nói thật
+-- câu sai, đúng là Mark đang nói dối.}
 Vậy chọn \textbf{(B)}.
 \ans{(B) Thứ Năm}
 }
 
 % ---------------------------------------------------------------- Bài 9
 \begin{probbox}{9}{\relax}
-Hai chiếc cân dưới đây đều thăng bằng. Các quả cùng loại nặng bằng nhau (\lgaApple\ táo, \lgaOrg\ cam, \lgaMango\ xoài).
+Hai chiếc cân dưới đây đều thăng bằng; các hình giống nhau thì nặng bằng nhau.
 \begin{center}
-\lgaScale{\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple}{\lgaOrg\,\lgaOrg\,\lgaOrg}\hspace{1cm}\lgaScale{\lgaMango\,\lgaApple\,\lgaOrg}{\lgaMango\,\lgaMango}
+\lgaScale{\lgaCir\,\lgaCir\,\lgaCir}{\lgaTri\,\lgaTri}\hspace{1cm}\lgaScale{\lgaSq\,\lgaCir\,\lgaTri}{\lgaSq\,\lgaSq}
 \end{center}
-Nhóm quả nào sau đây nặng bằng $5$ quả táo và $1$ quả cam (\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple\,\lgaOrg)?
-\choicesII{$3$ xoài}{$6$ cam}{$2$ xoài và $1$ táo}{$1$ xoài và $3$ cam}{$2$ xoài và $2$ táo}
+Nhóm hình nào sau đây nặng bằng nhóm \ \lgaCir\,\lgaTri\,\lgaTri\,\lgaTri\ \ (một hình tròn và ba hình tam giác)?
+\choicesII{\lgaSq\,\lgaSq\,\lgaSq}{\lgaTri\,\lgaTri\,\lgaSq\,\lgaSq}{\lgaCir\,\lgaCir\,\lgaCir\,\lgaCir}{\lgaCir\,\lgaCir\,\lgaCir\,\lgaSq}{\lgaCir\,\lgaCir\,\lgaCir}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Gọi khối lượng một quả táo, cam, xoài lần lượt là $T$, $C$, $X$. Hai chiếc cân cho hai đẳng thức. Cần tìm nhóm quả
-có khối lượng bằng $5T + C$.
-\begin{recallbox}Cân thăng bằng thì hai đĩa nặng bằng nhau. Bỏ đi những quả giống nhau ở \emph{cả hai} đĩa thì cân vẫn thăng bằng.\end{recallbox}
-\step{1}{Cân thứ hai: bỏ một quả xoài ở mỗi đĩa}
-$X + T + C = X + X$. Bỏ một quả xoài ở cả hai bên: $T + C = X$. \emph{Một quả xoài nặng bằng một táo và một cam.}
-\step{2}{Cân thứ nhất: đổi ra ``phần''}
-$4T = 3C$. Coi mỗi quả táo nặng $3$ phần thì $4$ táo nặng $12$ phần; $3$ cam cũng nặng $12$ phần nên mỗi quả cam nặng $4$ phần.
-Khi đó xoài nặng $T + C = 3 + 4 = 7$ phần.
+\textbf{Phân tích đề.} Gọi khối lượng một hình tròn, một hình tam giác, một hình vuông lần lượt là $O$, $T$, $V$ (cùng một đơn vị đo).
+Hai chiếc cân cho hai đẳng thức. Cần tìm nhóm hình có khối lượng bằng $O + 3T$.
+\begin{recallbox}Cân thăng bằng thì hai đĩa nặng bằng nhau. Bỏ đi những vật giống nhau ở \emph{cả hai} đĩa (trừ hai vế cho cùng một số)
+thì cân vẫn thăng bằng.\end{recallbox}
+\step{1}{Viết hai đẳng thức}
+Cân thứ nhất: \ $3O = 2T$. \qquad Cân thứ hai: \ $V + O + T = 2V$.
+\step{2}{Rút gọn đẳng thức của cân thứ hai}
+Bỏ một hình vuông ở cả hai đĩa (trừ hai vế cho $V$): \ $O + T = V$. \emph{Một hình vuông nặng bằng một hình tròn và một hình tam giác.}
+\step{3}{Đặt ẩn và biểu diễn mọi khối lượng theo ẩn}
+Đặt $O = x$ \ ($x > 0$). Từ $2T = 3O = 3x$ suy ra $T = \dfrac{3x}{2}$. Khi đó
+\[ V = O + T = x + \frac{3x}{2} = \frac{5x}{2}. \]
+\step{4}{Tính khối lượng nhóm hình đề cho}
+$O + 3T = x + 3\cdot\dfrac{3x}{2} = \dfrac{2x}{2} + \dfrac{9x}{2} = \dfrac{11x}{2}$.
+\step{5}{Tính khối lượng từng phương án (viết cùng mẫu số $2$ để dễ so sánh)}
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|l|c|}
 \hline
-\rowcolor{tmBlue!10} Táo \lgaApple & Cam \lgaOrg & Xoài \lgaMango \\ \hline
-$3$ phần & $4$ phần & $7$ phần \\ \hline
+\rowcolor{tmBlue!10} Phương án & Khối lượng & Kết quả \\ \hline
+(A) & $3V = 3\cdot\dfrac{5x}{2}$ & $\dfrac{15x}{2}$ \\ \hline
+(B) & $2T + 2V = 3x + 5x = 8x$ & $\dfrac{16x}{2}$ \\ \hline
+(C) & $4O = 4x$ & $\dfrac{8x}{2}$ \\ \hline
+(D) & $3O + V = 3x + \dfrac{5x}{2}$ & $\mathbf{\dfrac{11x}{2}}$ \ \checkmark \\ \hline
+(E) & $3O = 3x$ & $\dfrac{6x}{2}$ \\ \hline
 \end{tabular}
 \end{center}
-\step{3}{Tính nhóm quả đề hỏi}
-$5T + C = 5\times 3 + 4 = 19$ phần.
-\step{4}{Tính từng phương án}
-\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
-\item (A) $3$ xoài: $3\times 7 = 21$ phần.
-\item (B) $6$ cam: $6\times 4 = 24$ phần.
-\item (C) $2$ xoài và $1$ táo: $14 + 3 = 17$ phần.
-\item (D) $1$ xoài và $3$ cam: $7 + 12 = \mathbf{19}$ phần. \ \checkmark
-\item (E) $2$ xoài và $2$ táo: $14 + 6 = 20$ phần.
-\end{itemize}
-\step{5}{Lập luận bằng thay thế (không cần ``phần'')}
-$5T + C = T + 4T + C = T + 3C + C = (T + C) + 3C = X + 3C$ \ (dùng $4T = 3C$ rồi $T + C = X$).
-\begin{warnbox}Đừng ``bỏ'' vật ở một bên mà không bỏ ở bên kia. Và chú ý: cân $1$ cho $4$ táo $=$ $3$ cam, nên một quả táo \emph{nhẹ hơn}
-một quả cam (không phải nặng hơn) -- vì cần nhiều táo hơn mới cân bằng.\end{warnbox}
-\verify{Chọn táo $300$ g, cam $400$ g, xoài $700$ g: cân 1: $1200 = 1200$; cân 2: $700 + 300 + 400 = 1400 = 700 + 700$.
-Khi đó $5$ táo $+ 1$ cam $= 1900$ g, còn $1$ xoài $+ 3$ cam $= 700 + 1200 = 1900$ g.}
+Chỉ có phương án (D) có khối lượng bằng $\dfrac{11x}{2}$.
+\step{6}{Cách khác: chỉ dùng phép thay thế}
+$O + 3T = (O + T) + 2T = V + 3O$ \ (thay $O + T$ bằng $V$ theo Bước 2, và thay $2T$ bằng $3O$ theo cân thứ nhất). Đó chính là
+ba hình tròn và một hình vuông.
+\begin{warnbox}Cân thứ nhất cho $3O = 2T$: cần \emph{nhiều} hình tròn hơn mới cân bằng được ít tam giác hơn, nên một hình tròn
+\emph{nhẹ hơn} một hình tam giác. Viết nhầm thành $2O = 3T$ là sai ngay từ đầu.\end{warnbox}
+\verify{Chọn $x = 20$ g: hình tròn $20$ g, tam giác $30$ g, hình vuông $50$ g. Cân 1: $3\cdot 20 = 60 = 2\cdot 30$; cân 2:
+$50 + 20 + 30 = 100 = 2\cdot 50$. Nhóm đề cho: $20 + 3\cdot 30 = 110$ g; phương án (D): $3\cdot 20 + 50 = 110$ g.}
 Vậy chọn \textbf{(D)}.
-\ans{(D) $1$ xoài và $3$ cam}
+\ans{(D) ba hình tròn và một hình vuông}
 }
 
 % ---------------------------------------------------------------- Bài 10
 \begin{probbox}{10}{\relax}
-Năm bạn Hải, Long, Bảo, Kiều, Thảo đi hái dâu tây; không có hai bạn nào hái được số quả bằng nhau. Hải hái được nhiều hơn Long.
-Bảo hái được ít hơn Kiều. Kiều hái được ít hơn Long nhưng nhiều hơn Thảo. Bạn nào hái được nhiều thứ hai?
-\choices{Bảo}{Hải}{Kiều}{Long}{Thảo}
+Năm bạn Chris, Max, Brandon, Kayla, Tanya đi hái dâu tây; không có hai bạn nào hái được số quả bằng nhau. Chris hái được nhiều hơn Max.
+Brandon hái được ít hơn Kayla. Kayla hái được ít hơn Max nhưng nhiều hơn Tanya. Bạn nào hái được nhiều thứ hai?
+\choices{Brandon}{Chris}{Kayla}{Max}{Tanya}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Năm bạn, bốn câu so sánh số quả dâu. Cần tìm bạn đứng thứ hai về số quả (chỉ sau một bạn).
 \step{1}{Kí hiệu hoá (``$>$'' là ``hái nhiều hơn'')}
-$H > L$; \quad $K > B$; \quad $L > K$; \quad $K > Th$.
+$C > M$; \quad $K > B$; \quad $M > K$; \quad $K > T$.
 \step{2}{Nối các bất đẳng thức}
-$H > L > K$, và $K$ nhiều hơn cả $B$ lẫn $Th$.
+$C > M > K$, và $K$ nhiều hơn cả $B$ lẫn $T$.
 \begin{figC}
-  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (H) at (0,0){Hải};
-  \node[draw=AnsRed,fill=AnsRed!8,rounded corners=3pt,line width=1.1pt] (L) at (2,0){Long};
-  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (K) at (4,0){Kiều};
-  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (B) at (6,0.5){Bảo};
-  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (T) at (6,-0.5){Thảo};
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (H) at (0,0){Chris};
+  \node[draw=AnsRed,fill=AnsRed!8,rounded corners=3pt,line width=1.1pt] (L) at (2,0){Max};
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (K) at (4,0){Kayla};
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (B) at (6,0.5){Brandon};
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (T) at (6,-0.5){Tanya};
   \draw[->,Navy,line width=0.8pt] (H)--(L); \draw[->,Navy,line width=0.8pt] (L)--(K);
   \draw[->,Navy,line width=0.8pt] (K)--(B); \draw[->,Navy,line width=0.8pt] (K)--(T);
   \node[font=\scriptsize,text=Slate] at (3,0.75){mũi tên: ``nhiều hơn''};
   \draw[<->,dashed,AnsRed!60] (B)--(T) node[midway,right,font=\scriptsize]{?};
 \end{figC}
 \step{3}{Đọc kết quả}
-Hải nhiều nhất (hơn Long, mà Long hơn tất cả những bạn còn lại). Long chỉ thua Hải, hơn Kiều, Bảo, Thảo. Vậy \textbf{Long nhiều thứ hai}.
-Ta không biết Bảo hay Thảo hái nhiều hơn, nhưng điều đó không ảnh hưởng tới câu hỏi.
-\begin{warnbox}Câu ``Kiều hái được ít hơn Long nhưng nhiều hơn Thảo'' chứa \emph{hai} thông tin: $L > K$ và $K > Th$. Đọc vội dễ bỏ sót một.\end{warnbox}
-\verify{Ví dụ Hải $30$, Long $25$, Kiều $20$, Bảo $12$, Thảo $10$ quả thoả mọi điều kiện; Long đứng thứ hai.}
+Chris nhiều nhất (hơn Max, mà Max hơn tất cả những bạn còn lại). Max chỉ thua Chris, hơn Kayla, Brandon, Tanya. Vậy \textbf{Max nhiều thứ hai}.
+Ta không biết Brandon hay Tanya hái nhiều hơn, nhưng điều đó không ảnh hưởng tới câu hỏi.
+\begin{warnbox}Câu ``Kayla hái được ít hơn Max nhưng nhiều hơn Tanya'' chứa \emph{hai} thông tin: $M > K$ và $K > T$. Đọc vội dễ bỏ sót một.\end{warnbox}
+\verify{Ví dụ Chris $30$, Max $25$, Kayla $20$, Brandon $12$, Tanya $10$ quả thoả mọi điều kiện; Max đứng thứ hai.}
 Vậy chọn \textbf{(D)}.
-\ans{(D) Long}
+\ans{(D) Max}
 }
 
 % ---------------------------------------------------------------- Bài 11
 \begin{probbox}{11}{\relax}
-Ba bạn An, Hà, Tú thống kê số truyện tranh và số sách khoa học mình đã đọc trong hè (không có hai bạn nào đọc cùng số truyện tranh,
-cũng không có hai bạn nào đọc cùng số sách khoa học). An đọc nhiều truyện tranh hơn Hà nhưng ít sách khoa học hơn Hà. Tú đọc nhiều
-truyện tranh hơn Hà nhưng ít sách khoa học hơn An. Khẳng định nào sau đây \textbf{chắc chắn} đúng?
-\choicesL{Tú đọc nhiều truyện tranh nhất.}{An đọc nhiều truyện tranh nhất.}{Hà đọc ít truyện tranh nhất.}{An đọc ít sách khoa học nhất.}{Tú đọc nhiều sách khoa học nhất.}
+Ba bạn Amy, Helen, Tom thống kê số truyện tranh và số sách khoa học mình đã đọc trong hè (không có hai bạn nào đọc cùng số truyện tranh,
+cũng không có hai bạn nào đọc cùng số sách khoa học). Amy đọc nhiều truyện tranh hơn Helen nhưng ít sách khoa học hơn Helen. Tom đọc nhiều
+truyện tranh hơn Helen nhưng ít sách khoa học hơn Amy. Khẳng định nào sau đây \textbf{chắc chắn} đúng?
+\choicesL{Tom đọc nhiều truyện tranh nhất.}{Amy đọc nhiều truyện tranh nhất.}{Helen đọc ít truyện tranh nhất.}{Amy đọc ít sách khoa học nhất.}{Tom đọc nhiều sách khoa học nhất.}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Có hai loại so sánh hoàn toàn riêng: \emph{truyện tranh} và \emph{sách khoa học}. Ta tách thông tin thành hai
@@ -965,36 +964,36 @@ nhóm, sắp thứ tự từng nhóm rồi xét từng khẳng định.
 \begin{recallbox}``Chắc chắn đúng'' $=$ đúng trong \emph{mọi} trường hợp thoả đề. Chỉ cần \emph{một} trường hợp thoả đề mà khẳng định sai là
 loại khẳng định đó.\end{recallbox}
 \step{1}{Truyện tranh}
-``An nhiều truyện hơn Hà'': $A > H$. \quad ``Tú nhiều truyện hơn Hà'': $T > H$.\\
-Vậy Hà ít truyện nhất. Còn An và Tú: \emph{không có câu nào so sánh}.
+``Amy nhiều truyện hơn Helen'': $A > H$. \quad ``Tom nhiều truyện hơn Helen'': $T > H$.\\
+Vậy Helen ít truyện nhất. Còn Amy và Tom: \emph{không có câu nào so sánh}.
 \step{2}{Sách khoa học}
-``An ít sách khoa học hơn Hà'': $H > A$. \quad ``Tú ít sách khoa học hơn An'': $A > T$.\\
-Nối lại: $H > A > T$. Hà nhiều sách khoa học nhất, Tú ít nhất.
+``Amy ít sách khoa học hơn Helen'': $H > A$. \quad ``Tom ít sách khoa học hơn Amy'': $A > T$.\\
+Nối lại: $H > A > T$. Helen nhiều sách khoa học nhất, Tom ít nhất.
 \begin{figC}
   \node[font=\small\bfseries,text=tmOrange!80!black] at (-1,0.6){Truyện};
-  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (h) at (0.6,0.6){Hà};
-  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (a) at (2.4,1.1){An};
-  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (t) at (2.4,0.1){Tú};
+  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (h) at (0.6,0.6){Helen};
+  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (a) at (2.4,1.1){Amy};
+  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (t) at (2.4,0.1){Tom};
   \draw[->,tmOrange,line width=0.9pt] (h)--(a); \draw[->,tmOrange,line width=0.9pt] (h)--(t);
   \node[font=\scriptsize,text=Slate] at (4.1,0.6){(chưa so sánh được)};
   \node[font=\small\bfseries,text=tmBlue] at (-1,-0.9){Khoa học};
-  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (t2) at (0.6,-0.9){Tú};
-  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (a2) at (2.4,-0.9){An};
-  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (h2) at (4.2,-0.9){Hà};
+  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (t2) at (0.6,-0.9){Tom};
+  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (a2) at (2.4,-0.9){Amy};
+  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (h2) at (4.2,-0.9){Helen};
   \draw[->,tmBlue,line width=0.9pt] (t2)--(a2); \draw[->,tmBlue,line width=0.9pt] (a2)--(h2);
   \node[font=\scriptsize,text=Slate] at (6.4,0){mũi tên chỉ về phía ``nhiều hơn''};
 \end{figC}
 \step{3}{Xét từng khẳng định}
 \begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
-\item (A) ``Tú nhiều truyện nhất'': không chắc. Ví dụ An $5$, Tú $3$, Hà $1$ truyện thoả đề nhưng An mới nhiều nhất.
-\item (B) ``An nhiều truyện nhất'': không chắc. Ví dụ An $3$, Tú $5$, Hà $1$ truyện thoả đề nhưng Tú nhiều nhất.
-\item (C) ``Hà ít truyện nhất'': \textbf{chắc chắn đúng} (Bước 1: Hà ít hơn cả An và Tú).
-\item (D) ``An ít sách khoa học nhất'': \textbf{sai}, vì Tú ít hơn An.
-\item (E) ``Tú nhiều sách khoa học nhất'': \textbf{sai}, Tú ít nhất.
+\item (A) ``Tom nhiều truyện nhất'': không chắc. Ví dụ Amy $5$, Tom $3$, Helen $1$ truyện thoả đề nhưng Amy mới nhiều nhất.
+\item (B) ``Amy nhiều truyện nhất'': không chắc. Ví dụ Amy $3$, Tom $5$, Helen $1$ truyện thoả đề nhưng Tom nhiều nhất.
+\item (C) ``Helen ít truyện nhất'': \textbf{chắc chắn đúng} (Bước 1: Helen ít hơn cả Amy và Tom).
+\item (D) ``Amy ít sách khoa học nhất'': \textbf{sai}, vì Tom ít hơn Amy.
+\item (E) ``Tom nhiều sách khoa học nhất'': \textbf{sai}, Tom ít nhất.
 \end{itemize}
-\begin{warnbox}Đừng trộn hai loại sách vào một dãy! ``An đọc nhiều truyện hơn Hà'' không nói gì về sách khoa học. Phải vẽ \emph{hai sơ đồ riêng}.\end{warnbox}
+\begin{warnbox}Đừng trộn hai loại sách vào một dãy! ``Amy đọc nhiều truyện hơn Helen'' không nói gì về sách khoa học. Phải vẽ \emph{hai sơ đồ riêng}.\end{warnbox}
 Vậy chọn \textbf{(C)}.
-\ans{(C) Hà đọc ít truyện tranh nhất}
+\ans{(C) Helen đọc ít truyện tranh nhất}
 }
 
 % ---------------------------------------------------------------- Bài 12

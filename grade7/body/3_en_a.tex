@@ -20,6 +20,8 @@
 % helper: small square (diamond) between four octagons, centre (#1,#2)
 \providecommand{\cpDia}[2]{%
   \draw[Ink,line width=0.8pt,fill=tmOrange!35] (#1,#2+0.2929)--(#1+0.2929,#2)--(#1,#2-0.2929)--(#1-0.2929,#2)--cycle;}
+% helper: a flat marble (no 3D effect) centred at (#1,#2), colour #3
+\providecommand{\rvcaBall}[3]{\filldraw[fill=#3!55,draw=#3!75!black,line width=0.7pt] (#1,#2) circle (0.22);}
 
 
 \begin{knowbox}
@@ -77,9 +79,9 @@ Why a division? Suppose there are $n$ equally likely outcomes. The total ``chanc
 \end{scope}
 \begin{scope}[xshift=5cm]
 \draw[Ink,line width=1pt,rounded corners=6pt] (-1.3,1)--(-1.2,-1)--(1.2,-1)--(1.3,1);
-\foreach \x/\y/\c in {-0.8/-0.7/AnsRed,-0.3/-0.7/AnsRed,0.2/-0.7/tmOrange,0.7/-0.7/tmOrange,-0.55/-0.25/tmOrange,
-   -0.05/-0.25/tmOrange,0.45/-0.25/tmOrange,-0.3/0.2/tmBlue,0.2/0.2/tmBlue,0.7/0.2/tmBlue,-0.8/0.2/tmBlue}{
-  \shade[ball color=\c] (\x,\y) circle (0.22);}
+\foreach \x/\y/\c in {-0.75/-0.7/AnsRed,-0.25/-0.7/AnsRed,0.25/-0.7/StarGold,0.75/-0.7/StarGold,-0.5/-0.25/StarGold,
+   0/-0.25/StarGold,0.5/-0.25/StarGold,-0.75/0.2/tmBlue,-0.25/0.2/tmBlue,0.25/0.2/tmBlue,0.75/0.2/tmBlue}{
+  \rvcaBall{\x}{\y}{\c}}
 \node[font=\footnotesize,align=center] at (0,-1.55){Bag with $2$ red, $5$ yellow, $4$ blue:\\ $P(\text{red})=\frac{2}{11}$};
 \end{scope}
 \end{figC}
@@ -211,7 +213,7 @@ Why is the multiplication rule true? Draw a table with $m$ rows (the ways of doi
 \end{proofbox}
 
 \begin{knowbox}
-\textbf{Choosing two objects (order does not matter).} Choosing $2$ of $n$ students for classroom duty: if we care about order (first person, second person) there are $n\times(n-1)$ ways; but each pair is counted \emph{twice} (An--Bình and Bình--An), so the number of pairs is
+\textbf{Choosing two objects (order does not matter).} Choosing $2$ of $n$ students for classroom duty: if we care about order (first person, second person) there are $n\times(n-1)$ ways; but each pair is counted \emph{twice} (Anna--Ben and Ben--Anna), so the number of pairs is
 \[
 \frac{n\times(n-1)}{2}.
 \]
@@ -279,15 +281,15 @@ $\dfrac{a(a-1)}{2}\times\dfrac{b(b-1)}{2}$ rectangles (multiplication rule!).
 
 \begin{figC}
 \begin{scope}
+\fill[tmOrange!30] (1,0) rectangle (3,1);
 \foreach \i in {0,...,4}{\draw[Ink,line width=1pt] (\i,0)--(\i,1); \node[font=\footnotesize,text=tmBlue] at (\i,-0.3){\pgfmathtruncatemacro\k{\i+1}\k};}
 \draw[Ink,line width=1pt] (0,0)--(4,0) (0,1)--(4,1);
-\fill[tmOrange,opacity=0.3] (1,0) rectangle (3,1);
 \node[font=\footnotesize,align=center] at (2,-0.95){Choose vertical lines $2$ and $4$\\ $\Rightarrow$ the orange rectangle};
 \end{scope}
 \begin{scope}[xshift=6cm]
+\fill[tmGreen!30] (1,0) rectangle (3,2);
 \foreach \x in {0,1,2,3}{\draw[Ink,line width=1pt] (\x,0)--(\x,2);}
 \foreach \y in {0,1,2}{\draw[Ink,line width=1pt] (0,\y)--(3,\y);}
-\fill[tmGreen,opacity=0.3] (1,0) rectangle (3,2);
 \node[font=\footnotesize,align=center] at (1.5,-0.7){$3$ horizontal, $4$ vertical lines:\\ $3\times 6=18$ rectangles};
 \end{scope}
 \end{figC}
@@ -399,7 +401,7 @@ There are no purple marbles in the box: $0$ favourable outcomes. $P(\text{purple
 A bag contains $30$ sweets, some strawberry and some orange. If one sweet is drawn at random, the probability that it is strawberry is $\dfrac25$.
 \begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
 \item How many strawberry sweets and how many orange sweets are in the bag?
-\item An takes out $2$ strawberry sweets and eats them. Then Bình draws one sweet at random from the bag. Find the probability that Bình gets a strawberry sweet.
+\item Anna takes out $2$ strawberry sweets and eats them. Then Ben draws one sweet at random from the bag. Find the probability that Ben gets a strawberry sweet.
 \end{enumerate}
 \guide
 \step{1}{Find the number of strawberry sweets}
@@ -407,17 +409,17 @@ A bag contains $30$ sweets, some strawberry and some orange. If one sweet is dra
 Strawberry sweets: $30\times\dfrac25=\dfrac{30\times 2}{5}=\dfrac{60}{5}=12$. Orange sweets: $30-12=18$.
 
 \emph{Check:} $\dfrac{12}{30}=\dfrac{2}{5}$ \checkmark.
-\step{2}{Recount after An eats $2$ sweets}
+\step{2}{Recount after Anna eats $2$ sweets}
 \begin{center}
 \begin{tabular}{|l|c|c|c|}\hline
  & strawberry & orange & total \\ \hline
 At the start & $12$ & $18$ & $30$\\ \hline
-After An eats $2$ strawberry & $12-2=10$ & $18$ & $30-2=28$\\ \hline
+After Anna eats $2$ strawberry & $12-2=10$ & $18$ & $30-2=28$\\ \hline
 \end{tabular}
 \end{center}
-\step{3}{Compute the probability for Bình}
+\step{3}{Compute the probability for Ben}
 $P(\text{strawberry})=\dfrac{10}{28}=\dfrac{5}{14}$.
-\begin{warnbox}Do not answer $\dfrac{10}{30}$: An has eaten $2$ sweets, so the total number of sweets (the denominator) has gone down too.\end{warnbox}
+\begin{warnbox}Do not answer $\dfrac{10}{30}$: Anna has eaten $2$ sweets, so the total number of sweets (the denominator) has gone down too.\end{warnbox}
 \ans{a) $12$ strawberry, $18$ orange;\quad b) $\frac{5}{14}$.}
 \end{exbox}
 
@@ -491,23 +493,23 @@ $P(\text{even})=\dfrac{12}{24}=\dfrac12$.
 \end{exbox}
 
 \begin{exbox}{Example 6}
-Four friends An, Bình, Chi and Dũng sit on four chairs in a row, numbered $1,2,3,4$ from left to right. We know that: Dũng sits on chair $1$; Bình and Chi sit next to each other; An does not sit next to Bình; An does not sit on chair $4$. Who sits on chair $4$?
+Four friends Anna, Ben, Chloe and David sit on four chairs in a row, numbered $1,2,3,4$ from left to right. We know that: David sits on chair $1$; Ben and Chloe sit next to each other; Anna does not sit next to Ben; Anna does not sit on chair $4$. Who sits on chair $4$?
 \guide
-\step{1}{Place Dũng}
-Dũng is on chair $1$, leaving chairs $2,3,4$ for An, Bình and Chi.
-\step{2}{Consider An's position}
-An does not sit on chair $4$, so An sits on chair $2$ or chair $3$.
+\step{1}{Place David}
+David is on chair $1$, leaving chairs $2,3,4$ for Anna, Ben and Chloe.
+\step{2}{Consider Anna's position}
+Anna does not sit on chair $4$, so Anna sits on chair $2$ or chair $3$.
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
-\item \emph{If An sits on chair $3$:} Bình and Chi take chairs $2$ and $4$ -- these chairs are not next to each other, which breaks the condition ``Bình and Chi sit next to each other''. Rejected.
-\item \emph{If An sits on chair $2$:} Bình and Chi take chairs $3$ and $4$ (next to each other, good). An must not be next to Bình, and chair $3$ is next to chair $2$, so Bình is not on chair $3$. So Bình is on chair $4$ and Chi on chair $3$.
+\item \emph{If Anna sits on chair $3$:} Ben and Chloe take chairs $2$ and $4$ -- these chairs are not next to each other, which breaks the condition ``Ben and Chloe sit next to each other''. Rejected.
+\item \emph{If Anna sits on chair $2$:} Ben and Chloe take chairs $3$ and $4$ (next to each other, good). Anna must not be next to Ben, and chair $3$ is next to chair $2$, so Ben is not on chair $3$. So Ben is on chair $4$ and Chloe on chair $3$.
 \end{itemize}
 \begin{figC}
-\foreach \i/\n/\c in {1/Dũng/tmPurple,2/An/tmOrange,3/Chi/tmGreen,4/Bình/tmBlue}{
+\foreach \i/\n/\c in {1/David/tmPurple,2/Anna/tmOrange,3/Chloe/tmGreen,4/Ben/tmBlue}{
   \draw[\c,line width=1pt,fill=\c!12,rounded corners=3pt] (\i*1.6-0.65,0) rectangle (\i*1.6+0.65,0.7);
   \node[font=\bfseries] at (\i*1.6,0.35){\n};\node[font=\footnotesize] at (\i*1.6,-0.3){chair \i};}
 \end{figC}
-\verify{Dũng on chair $1$ \checkmark; Bình (chair $4$) next to Chi (chair $3$) \checkmark; An (chair $2$) is next to Dũng and Chi, not next to Bình \checkmark; An is not on chair $4$ \checkmark.}
-\ans{Bình sits on chair $4$.}
+\verify{David on chair $1$ \checkmark; Ben (chair $4$) next to Chloe (chair $3$) \checkmark; Anna (chair $2$) is next to David and Chloe, not next to Ben \checkmark; Anna is not on chair $4$ \checkmark.}
+\ans{Ben sits on chair $4$.}
 \end{exbox}
 
 \begin{exbox}{Example 7}
@@ -547,7 +549,7 @@ Toothpicks are used to make a row of joined squares as shown below.
   \node[font=\footnotesize] at (\x+\n*0.35,-0.35){\n\ sq.};}
 \end{figC}
 a) How many toothpicks are needed for a row of $20$ squares?\\
-b) Lan builds, one after another and separately, a row of $1$ square, a row of $2$ squares, \ldots, a row of $10$ squares. How many toothpicks does Lan use altogether?
+b) Lucy builds, one after another and separately, a row of $1$ square, a row of $2$ squares, \ldots, a row of $10$ squares. How many toothpicks does Lucy use altogether?
 \guide
 \step{1}{Find the pattern}
 \begin{center}
@@ -623,11 +625,11 @@ The answer $6$ is option \textbf{(A)}. (Option (B) $3$ is just the number of dig
 
 % ---------------------------------------------------------------- Problem 3
 \begin{probbox}{3}{\relax}
-An envelope contains $2$ sunflower seeds, $3$ mung bean seeds and $4$ pumpkin seeds. Chi takes one seed from the envelope at random. What is the probability that Chi takes a sunflower seed?
+An envelope contains $2$ sunflower seeds, $3$ mung bean seeds and $4$ pumpkin seeds. Carrie takes one seed from the envelope at random. What is the probability that Carrie takes a sunflower seed?
 \choices{$\dfrac{2}{9}$}{$\dfrac{5}{9}$}{$\dfrac{9}{7}$}{$\dfrac{7}{9}$}{$\dfrac{1}{9}$}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} The envelope has three kinds of seeds in different numbers. Chi takes \emph{one seed} at random: every seed has the same chance of being taken, so each \emph{seed} is one equally likely outcome.
+\textbf{Understanding the problem.} The envelope has three kinds of seeds in different numbers. Carrie takes \emph{one seed} at random: every seed has the same chance of being taken, so each \emph{seed} is one equally likely outcome.
 \step{1}{Count all possible outcomes}
 Total number of seeds: $2+3+4=9$, i.e.\ $9$ outcomes.
 \step{2}{Count the favourable outcomes}
@@ -652,14 +654,7 @@ A cinema has $11$ rows of seats, numbered from $1$ to $11$. Each odd-numbered ro
 Odd rows: $1,3,5,7,9,11$ -- $6$ rows.\\
 Even rows: $2,4,6,8,10$ -- $5$ rows.\\
 Check: $6+5=11$ rows \checkmark.
-\begin{figC}
-\foreach \i in {1,...,11}{\pgfmathtruncatemacro\m{mod(\i,2)}%
-  \ifnum\m=1 \def\cc{tmBlue}\else\def\cc{tmOrange}\fi
-  \draw[\cc,line width=0.9pt,fill=\cc!15,rounded corners=2pt] (\i*0.75-0.33,0) rectangle (\i*0.75+0.33,0.55);
-  \node[font=\footnotesize\bfseries] at (\i*0.75,0.275){\i};}
-\node[font=\footnotesize,text=tmBlue!80!black,anchor=west] at (9,0.55){odd row: $15$ seats};
-\node[font=\footnotesize,text=tmOrange!80!black,anchor=west] at (9,0.05){even row: $16$ seats};
-\end{figC}
+\begin{recallbox}Number of terms of an evenly spaced sequence $=\dfrac{\text{last}-\text{first}}{\text{step}}+1$. The odd numbers $1,3,\dots,11$ have step $2$: $\dfrac{11-1}{2}+1=6$ numbers. The even numbers $2,4,\dots,10$: $\dfrac{10-2}{2}+1=5$ numbers.\end{recallbox}
 \begin{warnbox}Do not split the $11$ rows into ``$5.5$ odd rows and $5.5$ even rows''. The list starts \emph{and} ends with an odd number ($1$ and $11$), so there is exactly $1$ more odd number than even numbers.\end{warnbox}
 \step{2}{Seats in the odd rows}
 $6\times15=90$ seats.
@@ -674,23 +669,18 @@ The answer $170$ is option \textbf{(D)}. (Mixing up and taking $5$ odd rows and 
 
 % ---------------------------------------------------------------- Problem 5
 \begin{probbox}{5}{\relax}
-At a class party, each student in turn draws a wrapped present at random from a bag. The presents are only books and calculators; there are $27$ presents in the bag altogether. Mai draws first. The probability that Mai draws a book is $\dfrac23$. How many books are in the bag?
+At a class party, each student in turn draws a wrapped present at random from a bag. The presents are only books and calculators; there are $27$ presents in the bag altogether. Meghan draws first. The probability that Meghan draws a book is $\dfrac23$. How many books are in the bag?
 \choices{$15$}{$9$}{$21$}{$7$}{$18$}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} A ``backwards'' problem: we know the \emph{probability} and the \emph{total} number of presents, and need the \emph{number of favourable outcomes} (the number of books). Since Mai draws first, all $27$ presents are still in the bag.
+\textbf{Understanding the problem.} A ``backwards'' problem: we know the \emph{probability} and the \emph{total} number of presents, and need the \emph{number of favourable outcomes} (the number of books). Since Meghan draws first, all $27$ presents are still in the bag.
 \begin{recallbox}From $P=\dfrac{\text{number of favourable outcomes}}{\text{number of all outcomes}}$ we get: number of favourable outcomes $=P\times$ number of all outcomes.\end{recallbox}
 \step{1}{Call the number of books an unknown}
 Let the number of books be $s$. The probability of drawing a book is $\dfrac{s}{27}$. By the problem: $\dfrac{s}{27}=\dfrac23$.
-\step{2}{Find $s$}
-$s=27\times\dfrac23=\dfrac{27\times2}{3}=\dfrac{54}{3}=18$.
-
-\emph{Thinking with a bar model:} $\dfrac23$ means splitting the $27$ presents into $3$ equal parts of $27\div3=9$ presents each; books take $2$ parts, i.e.\ $2\times 9=18$ books.
-\begin{figC}
-\blk{0}{3}{0}{0.6}{tmBlue}{9 books}\blk{3}{6}{0}{0.6}{tmBlue}{9 books}\blk{6}{9}{0}{0.6}{tmOrange}{9 calculators}
-\brcup{0}{9}{0.5}{$27$ presents}
-\brcdn{0}{6}{-0.5}{$\frac23$ are books: $18$ books}
-\end{figC}
+\step{2}{Solve the equation}
+Multiply both sides of $\dfrac{s}{27}=\dfrac23$ by $27$:
+\[s=27\times\frac23=\frac{27\times2}{3}=\frac{54}{3}=18.\]
+\emph{Another way -- find the number of calculators first:} let the number of calculators be $c$; then $s+c=27$. The event ``drawing a calculator'' is the complement of ``drawing a book'', so $\dfrac{c}{27}=1-\dfrac23=\dfrac13$, which gives $c=27\times\dfrac13=9$ and $s=27-c=27-9=18$. Both ways give the same result.
 \verify{There are $18$ books and $27-18=9$ calculators. Probability of drawing a book: $\dfrac{18}{27}=\dfrac{18\div9}{27\div9}=\dfrac23$ \checkmark.}
 \begin{warnbox}The $9$ in option (B) is the number of \emph{calculators}, not books -- read the question carefully before choosing.\end{warnbox}
 The answer $18$ is option \textbf{(E)}.
@@ -732,9 +722,9 @@ There are $5$ yellow balls.
 \begin{recallbox}$P=\dfrac{\text{number of favourable outcomes}}{\text{number of all outcomes}}$.\end{recallbox}
 $P(\text{yellow})=\dfrac{5}{11}$ (this fraction is already in lowest terms because $5$ and $11$ have no common factor other than $1$).
 \begin{figC}
-\foreach \i in {1,2}{\shade[ball color=AnsRed] (\i*0.6,0) circle (0.22);}
-\foreach \i in {3,...,7}{\shade[ball color=tmOrange] (\i*0.6+0.3,0) circle (0.22);\draw[tmOrange!70!black,line width=0.8pt] (\i*0.6+0.3,0) circle (0.27);}
-\foreach \i in {8,...,11}{\shade[ball color=tmBlue] (\i*0.6+0.6,0) circle (0.22);}
+\foreach \i in {1,2}{\rvcaBall{\i*0.6}{0}{AnsRed}}
+\foreach \i in {3,...,7}{\rvcaBall{\i*0.6+0.3}{0}{StarGold}\draw[StarGold!70!black,line width=0.8pt] (\i*0.6+0.3,0) circle (0.28);}
+\foreach \i in {8,...,11}{\rvcaBall{\i*0.6+0.6}{0}{tmBlue}}
 \node[font=\footnotesize] at (3.9,-0.55){$5$ of the $11$ balls are yellow};
 \end{figC}
 \verify{$\dfrac{2}{11}+\dfrac{5}{11}+\dfrac{4}{11}=\dfrac{11}{11}=1$ \checkmark.}
@@ -784,47 +774,47 @@ The answer is \textbf{(B)}.
 
 % ---------------------------------------------------------------- Problem 10
 \begin{probbox}{10}{\relax}
-Five friends An, Hà, Chi, Minh and Tùng sit in a row of five seats. An does \emph{not} sit next to Hà, and Chi sits next to Minh. Who \emph{cannot} sit in the middle seat?
-\choices{An}{Hà}{Chi}{Minh}{Tùng}
+Five friends Andy, Jen, Sally, Mike and Tom sit in a row of five seats. Andy does \emph{not} sit next to Jen, and Sally sits next to Mike. Who \emph{cannot} sit in the middle seat?
+\choices{Andy}{Jen}{Sally}{Mike}{Tom}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} The five seats are in a row, numbered $1,2,3,4,5$ from left to right; the middle seat is seat $3$. Two conditions: (i) An and Hà do \emph{not} sit next to each other; (ii) Chi and Minh sit next to each other. We must find the friend who can \emph{never} sit in seat $3$.
+\textbf{Understanding the problem.} The five seats are in a row, numbered $1,2,3,4,5$ from left to right; the middle seat is seat $3$. Two conditions: (i) Andy and Jen do \emph{not} sit next to each other; (ii) Sally and Mike sit next to each other. We must find the friend who can \emph{never} sit in seat $3$.
 \begin{recallbox}To show that a friend \emph{can} sit in the middle: just give \emph{one} arrangement satisfying every condition. To show that a friend \emph{cannot}: suppose they sit in the middle and show that every arrangement then breaks a condition (proof by contradiction).\end{recallbox}
-\step{1}{An, Hà, Chi and Minh can each sit in the middle}
+\step{1}{Andy, Jen, Sally and Mike can each sit in the middle}
 Here is one arrangement for each of them (seats $1\to5$):
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|l|}\hline
 In the middle & seat 1 & seat 2 & \textbf{seat 3} & seat 4 & seat 5 & check\\ \hline
-An & Chi & Minh & \textbf{An} & Tùng & Hà & An (3), Hà (5) not neighbours\\ \hline
-Hà & Chi & Minh & \textbf{Hà} & Tùng & An & Hà (3), An (5) not neighbours\\ \hline
-Chi & An & Minh & \textbf{Chi} & Tùng & Hà & Chi (3) next to Minh (2)\\ \hline
-Minh & An & Chi & \textbf{Minh} & Tùng & Hà & Minh (3) next to Chi (2)\\ \hline
+Andy & Sally & Mike & \textbf{Andy} & Tom & Jen & Andy (3), Jen (5) not neighbours\\ \hline
+Jen & Sally & Mike & \textbf{Jen} & Tom & Andy & Jen (3), Andy (5) not neighbours\\ \hline
+Sally & Andy & Mike & \textbf{Sally} & Tom & Jen & Sally (3) next to Mike (2)\\ \hline
+Mike & Andy & Sally & \textbf{Mike} & Tom & Jen & Mike (3) next to Sally (2)\\ \hline
 \end{tabular}
 \end{center}
-In all four arrangements Chi and Minh are always neighbours, and An and Hà are always apart (An in seat $1$ or $3$, Hà in seat $5$, or the other way round). So options (A), (B), (C), (D) are eliminated.
-\step{2}{Show that Tùng cannot sit in the middle}
-Suppose Tùng sits in seat $3$. The other four seats split into two pairs of neighbouring seats: the left pair (seats $1$--$2$) and the right pair (seats $4$--$5$). Note that seats $2$ and $4$ are \emph{not} neighbours (Tùng is between them).
+In all four arrangements Sally and Mike are always neighbours, and Andy and Jen are always apart (Andy in seat $1$ or $3$, Jen in seat $5$, or the other way round). So options (A), (B), (C), (D) are eliminated.
+\step{2}{Show that Tom cannot sit in the middle}
+Suppose Tom sits in seat $3$. The other four seats split into two pairs of neighbouring seats: the left pair (seats $1$--$2$) and the right pair (seats $4$--$5$). Note that seats $2$ and $4$ are \emph{not} neighbours (Tom is between them).
 \begin{figC}
-\foreach \i/\n/\c in {1/?/tmBlue,2/?/tmBlue,3/Tùng/tmOrange,4/?/tmGreen,5/?/tmGreen}{
+\foreach \i/\n/\c in {1/?/tmBlue,2/?/tmBlue,3/Tom/tmOrange,4/?/tmGreen,5/?/tmGreen}{
   \draw[\c,line width=1pt,fill=\c!12,rounded corners=3pt] (\i*1.5-0.6,0) rectangle (\i*1.5+0.6,0.65);
   \node[font=\bfseries] at (\i*1.5,0.33){\n};\node[font=\footnotesize] at (\i*1.5,-0.28){seat \i};}
 \draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (0.9,-0.5)--(3.6,-0.5) node[midway,below=5pt,font=\footnotesize]{left pair};
 \draw[decorate,decoration={brace,amplitude=5pt,mirror},Ink] (5.4,-0.5)--(8.1,-0.5) node[midway,below=5pt,font=\footnotesize]{right pair};
 \end{figC}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
-\item Chi and Minh must be neighbours, and the only neighbouring seats (not counting Tùng's) are seats $1$--$2$ or seats $4$--$5$. So Chi and Minh take up one whole pair.
-\item Then An and Hà are forced into the other pair -- that is, \emph{next to each other}. This contradicts the condition ``An does not sit next to Hà''.
+\item Sally and Mike must be neighbours, and the only neighbouring seats (not counting Tom's) are seats $1$--$2$ or seats $4$--$5$. So Sally and Mike take up one whole pair.
+\item Then Andy and Jen are forced into the other pair -- that is, \emph{next to each other}. This contradicts the condition ``Andy does not sit next to Jen''.
 \end{itemize}
-So the assumption is false: Tùng cannot sit in the middle seat.
+So the assumption is false: Tom cannot sit in the middle seat.
 \begin{warnbox}Do not choose an answer just because ``I tried a few ways and none worked''. For a ``cannot'' question you must argue that \emph{every} way fails, as in Step 2.\end{warnbox}
-\verify{You could check by listing all $5\times4\times3\times2\times1=120$ arrangements: no valid one puts Tùng in the middle, while each of the other friends has a valid one.}
+\verify{You could check by listing all $5\times4\times3\times2\times1=120$ arrangements: no valid one puts Tom in the middle, while each of the other friends has a valid one.}
 The answer is \textbf{(E)}.
-\ans{(E) Tùng}
+\ans{(E) Tom}
 }
 
 % ---------------------------------------------------------------- Problem 11
 \begin{probbox}{11}{\relax}
-A box of jelly beans contains $15$ red, $20$ blue and $16$ green jelly beans. Khoa takes a green jelly bean and eats it. Then he takes a blue jelly bean and eats it too. If each jelly bean left in the box is equally likely to be chosen, what is the probability that the next jelly bean Khoa takes is red?
+A box of jelly beans contains $15$ red, $20$ blue and $16$ green jelly beans. Jack takes a green jelly bean and eats it. Then he takes a blue jelly bean and eats it too. If each jelly bean left in the box is equally likely to be chosen, what is the probability that the next jelly bean Jack takes is red?
 \choices{$\dfrac{15}{31}$}{$\dfrac{34}{49}$}{$\dfrac{15}{49}$}{$\dfrac{2}{7}$}{$\dfrac{1}{15}$}
 \end{probbox}
 \probsol{
@@ -832,7 +822,7 @@ A box of jelly beans contains $15$ red, $20$ blue and $16$ green jelly beans. Kh
 \begin{recallbox}When objects are taken out and not replaced, update both the \emph{number of favourable outcomes} (numerator) and the \emph{total number of outcomes} (denominator) before computing the probability of the next draw.\end{recallbox}
 \step{1}{Jelly beans at the start}
 $15+20+16=51$.
-\step{2}{Jelly beans after Khoa eats $2$}
+\step{2}{Jelly beans after Jack eats $2$}
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|}\hline
  & red & blue & green & total\\ \hline
@@ -841,7 +831,7 @@ After eating $1$ green & $15$ & $20$ & $15$ & $50$\\ \hline
 After eating $1$ blue & $15$ & $19$ & $15$ & $49$\\ \hline
 \end{tabular}
 \end{center}
-The number of red jelly beans does not change ($15$) because Khoa has not eaten a red one; the total goes down to $49$.
+The number of red jelly beans does not change ($15$) because Jack has not eaten a red one; the total goes down to $49$.
 \step{3}{Compute the probability}
 $P(\text{red})=\dfrac{15}{49}$.
 \begin{warnbox}Two common wrong ways: (1) forgetting to subtract the eaten jelly beans, giving $\dfrac{15}{51}$ (not among the options -- a signal to check your work!); (2) comparing the red ones only with the remaining green ones, giving $\dfrac{15}{31}$ (option A). The denominator must be \emph{all} the jelly beans left in the box.\end{warnbox}
@@ -852,30 +842,32 @@ The answer is \textbf{(C)}.
 
 % ---------------------------------------------------------------- Problem 12
 \begin{probbox}{12}{\relax}
-Nam is counting the sheep in a flock as they cross a road. The sheep start crossing at $2$:$00$ p.m., at a steady rate of $3$ sheep per minute. After counting $42$ sheep, Nam falls asleep. He sleeps for exactly an hour and a half and then wakes up, and at that moment the number of sheep that have crossed since $2$:$00$ p.m.\ is exactly half of the whole flock. How many sheep are in the whole flock?
+Nicholas is counting the sheep in a flock as they cross a road. The sheep start crossing at $2$:$00$ p.m., at a steady rate of $3$ sheep per minute. After counting $42$ sheep, Nicholas falls asleep. He sleeps for exactly an hour and a half and then wakes up, and at that moment the number of sheep that have crossed since $2$:$00$ p.m.\ is exactly half of the whole flock. How many sheep are in the whole flock?
 \choices{$630$}{$621$}{$582$}{$624$}{$618$}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} The sheep cross \emph{steadily}, $3$ per minute. The time from $2$:$00$ p.m.\ until Nam wakes up has two parts: the time Nam spends counting $42$ sheep, and the time Nam sleeps ($1$ hour $30$ minutes). The number of sheep that cross in this whole period equals \emph{half the flock}.
+\textbf{Understanding the problem.} The sheep cross \emph{steadily}, $3$ per minute. The time from $2$:$00$ p.m.\ until Nicholas wakes up has two parts: the time Nicholas spends counting $42$ sheep, and the time Nicholas sleeps ($1$ hour $30$ minutes). The number of sheep that cross in this whole period equals \emph{half the flock}. We let the size of the flock be an unknown and form an equation.
 \begin{recallbox}Steady change: amount $=$ rate $\times$ time, so time $=$ amount $\div$ rate.\end{recallbox}
-\step{1}{Time Nam spends counting $42$ sheep}
-$42\div3=14$ minutes. So Nam falls asleep at $2$:$14$ p.m.
-\step{2}{Time Nam sleeps}
-An hour and a half $=60+30=90$ minutes. Nam wakes up at $2$:$14$ p.m.\ $+\ 90$ minutes $=3$:$44$ p.m.
+\step{1}{Choose the unknown}
+Let the whole flock have $x$ sheep ($x$ a whole number). When Nicholas wakes up, the number of sheep that have crossed since $2$:$00$ p.m.\ is $\dfrac{x}{2}$.
+\step{2}{Time Nicholas spends counting $42$ sheep}
+$42\div3=14$ minutes. So Nicholas falls asleep at $2$:$14$ p.m.
 \step{3}{Total time from $2$:$00$ p.m.\ to waking up}
-$14+90=104$ minutes.
+An hour and a half $=60+30=90$ minutes. Total time: $14+90=104$ minutes, so Nicholas wakes up at $2$:$00$ p.m.\ $+\ 104$ minutes $=3$:$44$ p.m.
 \begin{figC}
-\draw[->,line width=1pt,Ink] (0,0)--(10.8,0);
-\fill[tmBlue!25] (0,-0.15) rectangle (1.4,0.15);\fill[tmOrange!30] (1.4,-0.15) rectangle (10.4,0.15);
-\foreach \x/\t in {0/2{:}00,1.4/2{:}14,10.4/3{:}44}{\draw[Ink,line width=1pt] (\x,0.2)--(\x,-0.2);\node[below=3pt,font=\footnotesize] at (\x,-0.2){$\t$ p.m.};}
-\node[above,font=\footnotesize,text=tmBlue!80!black] at (0.7,0.2){counting: $14$ min};
-\node[above,font=\footnotesize,text=tmOrange!80!black] at (5.9,0.2){asleep: $90$ min};
+\draw[->,line width=1pt,Ink] (-0.4,0)--(12.2,0) node[right,font=\footnotesize]{min};
+\foreach \x/\m/\t in {0/0/2{:}00,1.54/14/2{:}14,11.44/104/3{:}44}{
+  \draw[Ink,line width=1pt] (\x,0.12)--(\x,-0.12);
+  \node[below=1pt,font=\footnotesize,align=center] at (\x,-0.12){$\m$\\ $\t$ p.m.};}
+\draw[decorate,decoration={brace,amplitude=4pt},tmBlue!80!black,line width=0.8pt] (0,0.22)--(1.54,0.22) node[midway,above=4pt,font=\footnotesize]{counting: $14$ min};
+\draw[decorate,decoration={brace,amplitude=5pt},tmOrange!80!black,line width=0.8pt] (1.54,0.22)--(11.44,0.22) node[midway,above=5pt,font=\footnotesize]{asleep: $90$ min};
 \end{figC}
-\step{4}{Sheep that crossed in $104$ minutes}
-$3\times104=312$ sheep. (Or: $42$ sheep while counting $+\ 3\times90=270$ sheep while asleep $=312$ sheep.)
-\step{5}{Sheep in the whole flock}
-$312$ sheep is half the flock, so the whole flock has $312\times2=624$ sheep.
-\begin{warnbox}Do not forget the $42$ sheep that crossed \emph{before} Nam fell asleep. Counting only the $270$ sheep while asleep and doubling gives $540$ -- which does not fit the problem, because it is the number of sheep crossed ``since $2$:$00$ p.m.'' that is half the flock.\end{warnbox}
+\step{4}{Form the equation}
+In $104$ minutes, $3\times104=312$ sheep cross. (Or: $42$ sheep while counting $+\ 3\times90=270$ sheep while asleep $=312$ sheep.) This is half the flock, so we have the equation
+\[\frac{x}{2}=312.\]
+\step{5}{Solve the equation}
+Multiply both sides by $2$: $x=312\times2=624$.
+\begin{warnbox}Do not forget the $42$ sheep that crossed \emph{before} Nicholas fell asleep. Counting only the $270$ sheep while asleep and doubling gives $540$ -- which does not fit the problem, because it is the number of sheep crossed ``since $2$:$00$ p.m.'' that is half the flock.\end{warnbox}
 \verify{Half the flock $=624\div2=312$ sheep, which takes $312\div3=104$ minutes, i.e.\ from $2$:$00$ p.m.\ to $3$:$44$ p.m.; subtracting the $14$ minutes of counting leaves exactly $90$ minutes of sleep \checkmark.}
 The answer is \textbf{(D)}.
 \ans{(D) $624$}

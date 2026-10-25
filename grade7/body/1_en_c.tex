@@ -1,5 +1,5 @@
 % ===================== Topic 1 -- Algebra and Equations -- part c (EN): Problems 31--40 =====================
-\providecommand{\aeaBox}[4]{\begin{tikzpicture}[baseline=-0.7ex,font=\small]
+\providecommand{\rvabBox}[4]{\begin{tikzpicture}[baseline=-0.7ex,font=\small]
   \draw[Navy,line width=0.8pt,fill=tmBlue!6] (-0.66,-0.32) rectangle (0.66,0.32);
   \draw[Navy,line width=0.8pt] (0,-0.32)--(0,0.32) (-0.66,0)--(0.66,0);
   \node[inner sep=0pt] at (-0.33,0.16){$#1$};\node[inner sep=0pt] at (0.33,0.16){$#2$};
@@ -10,7 +10,7 @@
 
 % ---------------------------------------------------------------- Problem 31
 \begin{probbox}{31}{\relax}
-The road from Mr Ba's home to the city is $180$ km long. He rides a motorbike at a constant speed, and after $3$ hours he has covered
+The road from Mr Henry's home to the city is $180$ km long. He rides a motorbike at a constant speed, and after $3$ hours he has covered
 $\dfrac{2}{3}$ of the distance.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
 \item Find the speed of the motorbike.
@@ -24,20 +24,15 @@ $\dfrac{2}{3}$ of the distance.
 \begin{recallbox}$s=v\cdot t$;\quad $v=\dfrac{s}{t}$;\quad $t=\dfrac{s}{v}$. \ \ $\dfrac{m}{n}$ of $A$ equals $A\div n\cdot m$.\end{recallbox}
 \step{1}{Distance covered and distance left}
 Covered: $\dfrac{2}{3}$ of $180$ km is $180\div 3\cdot 2=60\cdot 2=120$ (km). Left: $180-120=60$ (km).
-\begin{barfigC}
-\blk{0}{2}{0}{0.55}{tmBlue}{60 km}
-\blk{2}{4}{0}{0.55}{tmBlue}{60 km}
-\blk{4}{6}{0}{0.55}{tmOrange}{60 km}
-\brcup{0}{4}{0.55}{covered (3 hours)}
-\brcdn{4}{6}{-0.55}{left}
-\end{barfigC}
-\step{2}{Part a: the speed}
-$v=120\div 3=40$ (km/h).
+\step{2}{Part a: choose an unknown and write an equation}
+Let the speed of the motorbike be $v$ (km/h), $v>0$. In $3$ hours he covers $3v$ (km). By Step 1 this distance is $120$ km, so
+\[3v=120\quad\Rightarrow\quad v=120\div 3=40.\]
+So the speed of the motorbike is $40$ km/h.
 \step{3}{Part b: the time left}
-$t=60\div 40=1.5$ (hours) $=1$ hour $30$ minutes.
-\begin{tipbox}Look at the diagram: in $3$ hours he covered $2$ equal parts, so each part takes $1.5$ hours. Exactly $1$ part is left, so it takes $1.5$ hours. You get the answer even without the speed!\end{tipbox}
+Let $t$ (hours) be the time needed for the remaining $60$ km at $40$ km/h. Then $40t=60$, so $t=60\div 40=1.5$ (hours) $=1$ hour $30$ minutes.
+\begin{tipbox}Another way, using direct proportion: at a constant speed, time is directly proportional to distance. $120$ km takes $3$ hours; $60$ km is half of $120$ km, so it takes half of $3$ hours, that is $1.5$ hours.\end{tipbox}
 \step{4}{Part c: the new speed}
-New time: $1$ hour $30$ minutes $-\,30$ minutes $=1$ hour. To cover $60$ km in $1$ hour, the speed must be $60\div 1=60$ (km/h).
+New time: $1$ hour $30$ minutes $-\,30$ minutes $=1$ hour. Let the new speed be $u$ (km/h). Then $u\cdot 1=60$, so $u=60$ (km/h).
 \begin{warnbox}Do not just add to the speed, as in ``$30$ minutes earlier means $30$ km/h faster''. Recalculate: speed $=$ distance $\div$ new time.\end{warnbox}
 \verify{$40\cdot 3=120$ km; $40\cdot 1.5=60$ km; $60\cdot 1=60$ km. Total $120+60=180$ km.}
 \ans{a) $40$ km/h;\ \ b) $1$ hour $30$ minutes;\ \ c) $60$ km/h.}
@@ -48,12 +43,12 @@ New time: $1$ hour $30$ minutes $-\,30$ minutes $=1$ hour. To cover $60$ km in $
 An isosceles triangle has a base of $10$ cm and two equal sides of $2x$ cm each. A rectangle has length $(x+7)$ cm and width $5$ cm.
 The perimeter of the triangle equals the perimeter of the rectangle.
 \begin{figC}
-\draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,0)--(2.4,0)--(1.2,2.6)--cycle;
-\node[below] at (1.2,0){$10$ cm};
-\node[left] at (0.5,1.35){$2x$};\node[right] at (1.9,1.35){$2x$};
-\draw[tmBlue,line width=0.9pt] (0.48,1.4)--(0.72,1.2); \draw[tmBlue,line width=0.9pt] (1.68,1.2)--(1.92,1.4);
-\draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (3.6,0) rectangle (7.2,1.3);
-\node[below] at (5.4,0){$x+7$}; \node[right] at (7.2,0.65){$5$ cm};
+\draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,0)--(2,0)--(1,2.615)--cycle;
+\draw[tmBlue,line width=0.9pt] (0.388,1.351)--(0.612,1.265) (1.388,1.265)--(1.612,1.351);
+\node[below] at (1,0){$10$ cm};
+\node[anchor=east] at (0.3,1.45){$2x$ cm};\node[anchor=west] at (1.7,1.45){$2x$ cm};
+\draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (3.6,0) rectangle (6.4,1);
+\node[below] at (5,0){$(x+7)$ cm}; \node[right] at (6.4,0.5){$5$ cm};
 \end{figC}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
 \item Write an expression in $x$ for the perimeter of each shape.
@@ -79,17 +74,17 @@ Rectangle: length $x+7=14$ cm, width $5$ cm, area $14\cdot 5=70$ (cm$^2$).
 
 % ---------------------------------------------------------------- Problem 33
 \begin{probbox}{33}{\stars{1}}
-We use the rule of Problem 14 again:\quad \aeaBox{a}{b}{c}{d} $=a\cdot d+b\cdot c$.
+We use the rule of Problem 14 again:\quad \rvabBox{a}{b}{c}{d} $=a\cdot d+b\cdot c$.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=2pt,topsep=2pt]
-\item Evaluate \aeaBox{-3}{4}{5}{2}.
-\item Find $x$ if \aeaBox{x}{2}{3}{4} $=$ \aeaBox{1}{x}{5}{2}.
-\item Find all integers $x$ such that \aeaBox{x}{x}{x}{x} $=50$.
+\item Evaluate \rvabBox{-3}{4}{5}{2}.
+\item Find $x$ if \rvabBox{x}{2}{3}{4} $=$ \rvabBox{1}{x}{5}{2}.
+\item Find all integers $x$ such that \rvabBox{x}{x}{x}{x} $=50$.
 \end{enumerate}
 \end{probbox}
 \probsol{
 \textbf{Understanding the problem.} The rule: multiply the two numbers on each diagonal, then add the two products. Part a is an evaluation (with a negative number); parts b and c are equations.
 \step{1}{Part a}
-\aeaBox{-3}{4}{5}{2} $=(-3)\cdot 2+4\cdot 5=-6+20=14$.
+\rvabBox{-3}{4}{5}{2} $=(-3)\cdot 2+4\cdot 5=-6+20=14$.
 \begin{recallbox}The product of a negative number and a positive number is negative: $(-3)\cdot 2=-6$. Adding numbers with different signs: $-6+20=20-6=14$.\end{recallbox}
 \step{2}{Part b: write both sides using the rule}
 Left side: $x\cdot 4+2\cdot 3=4x+6$.\quad Right side: $1\cdot 2+x\cdot 5=2+5x$.\quad Equation: $4x+6=5x+2$.
@@ -97,7 +92,7 @@ Left side: $x\cdot 4+2\cdot 3=4x+6$.\quad Right side: $1\cdot 2+x\cdot 5=2+5x$.\
 Subtract $4x$ from both sides: $6=x+2$. Subtract $2$ from both sides: $x=4$.
 \verify{Left side $4\cdot 4+6=22$; right side $2+5\cdot 4=22$. Equal.}
 \step{4}{Part c}
-\aeaBox{x}{x}{x}{x} $=x\cdot x+x\cdot x=2x^2$. The equation is $2x^2=50$, that is, $x^2=25$.
+\rvabBox{x}{x}{x}{x} $=x\cdot x+x\cdot x=2x^2$. The equation is $2x^2=50$, that is, $x^2=25$.
 Which numbers squared give $25$? There is $5\cdot 5=25$, but also $(-5)\cdot(-5)=25$. So $x=5$ or $x=-5$.
 \begin{warnbox}Many students find only $x=5$ and forget $x=-5$. The product of two negative numbers is positive, so $(-5)^2=25$. The question asks for ``all integers'', which hints that there may be more than one answer.\end{warnbox}
 \verify{$x=-5$: $(-5)(-5)+(-5)(-5)=25+25=50$. Correct.}
@@ -108,7 +103,7 @@ Which numbers squared give $25$? There is $5\cdot 5=25$, but also $(-5)\cdot(-5)
 \begin{probbox}{34}{\stars{1}}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=0pt]
 \item The sum of five consecutive odd numbers is $155$. Find the five numbers.
-\item Nam says: ``I have found four consecutive odd numbers whose sum is $150$.'' Is Nam right or wrong? Why?
+\item Leo says: ``I have found four consecutive odd numbers whose sum is $150$.'' Is Leo right or wrong? Why?
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -124,7 +119,7 @@ Let the smallest odd number be $m$. The four numbers are $m,\ m+2,\ m+4,\ m+6$. 
 The number $34.5$ is not an integer, let alone an odd number. So there are \emph{no} four consecutive odd numbers with sum $150$.
 \begin{proofbox}Another explanation using even and odd: the sum of two odd numbers is even, so the sum of four odd numbers is even -- this is not yet a contradiction. But we can go further: $4m+12=4(m+3)$ is always \emph{divisible by $4$}, while $150$ is not divisible by $4$ ($150=4\cdot 37+2$). So the sum of four consecutive odd numbers can never be $150$.\end{proofbox}
 \begin{warnbox}Trying a few sets of numbers (such as $35+37+39+41=152$) and then concluding is not rigorous enough. We need a reason that works in \emph{every} case.\end{warnbox}
-\ans{a) $27,\ 29,\ 31,\ 33,\ 35$;\ \ b) Nam is wrong, because the sum of four consecutive odd numbers is always divisible by $4$, but $150$ is not.}
+\ans{a) $27,\ 29,\ 31,\ 33,\ 35$;\ \ b) Leo is wrong, because the sum of four consecutive odd numbers is always divisible by $4$, but $150$ is not.}
 }
 
 % ---------------------------------------------------------------- Problem 35
@@ -132,24 +127,28 @@ The number $34.5$ is not an integer, let alone an odd number. So there are \emph
 Every $2$ scoops of fish food are enough to feed $12$ fish for one day.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
 \item How many fish can $5$ scoops of food feed for one day?
-\item Hà's fish tank has $18$ fish. A box of food contains $60$ scoops. For how many days will the box feed the whole tank?
+\item Mia's fish tank has $18$ fish. A box of food contains $60$ scoops. For how many days will the box feed the whole tank?
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} The number of fish fed for one day is directly proportional to the number of scoops. We use the \emph{unit method}: find how many fish $1$ scoop feeds for one day.
-\begin{recallbox}Unit method: find the value for $1$ part, then multiply (or divide) according to the number of parts needed.\end{recallbox}
-\step{1}{How many fish does one scoop feed for one day?}
-$12\div 2=6$ (fish).
+\textbf{Understanding the problem.} For one day, more scoops feed more fish, and doubling the scoops doubles the fish: the number of fish fed for one day is \emph{directly proportional} to the number of scoops.
+\begin{recallbox}Two quantities $x$ and $y$ are directly proportional when $y=k\cdot x$ for some constant $k\neq 0$. Then the ratio $\dfrac{y}{x}$ is always $k$, so we can write the proportion $\dfrac{y_1}{x_1}=\dfrac{y_2}{x_2}$.\end{recallbox}
+\step{1}{Find the constant of proportionality}
+Let $y$ be the number of fish fed for one day and $x$ the number of scoops. When $x=2$, $y=12$, so $k=\dfrac{12}{2}=6$, that is $y=6x$: each scoop feeds $6$ fish for one day.
 \step{2}{Part a}
-$5$ scoops: $5\cdot 6=30$ (fish).
+For $x=5$: $y=6\cdot 5=30$ (fish).\\
+(Or write the proportion $\dfrac{12}{2}=\dfrac{y}{5}$, so $y=\dfrac{12\cdot 5}{2}=30$.)
 \step{3}{Part b: how many scoops does the tank need each day?}
-Each scoop feeds $6$ fish for one day, and the tank has $18$ fish, so each day it needs $18\div 6=3$ (scoops).
-\begin{figC}
-\foreach \i in {0,1,2}{\draw[tmBlue!80!black,fill=tmBlue!12,rounded corners=2pt] (2.3*\i,0) rectangle (2.3*\i+2,0.6); \node[font=\footnotesize] at (2.3*\i+1,0.3){1 scoop: 6 fish};}
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},Navy] (0,-0.1)--(6.6,-0.1) node[midway,below=6pt,font=\footnotesize]{$18$ fish, $3$ scoops a day};
-\end{figC}
+Let $z$ be the number of scoops needed for $18$ fish for one day. Then $6z=18$, so $z=18\div 6=3$ (scoops).
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Scoops $x$ & $2$ & $5$ & $z=3$\\ \hline
+Fish $y=6x$ & $12$ & $30$ & $18$\\ \hline
+\end{tabular}
+\end{center}
 \step{4}{Number of days}
-The box holds $60$ scoops and $3$ scoops are used each day: $60\div 3=20$ (days).
+The box holds $60$ scoops and $3$ scoops are used each day. Let the number of days be $d$: $3d=60$, so $d=60\div 3=20$ (days).
 \begin{warnbox}A common mistake is to calculate $60\div 18$ or $60\cdot 6\div 18$ without understanding what it means. Always ask yourself: ``How many scoops are used each day?'' and only then divide.\end{warnbox}
 \verify{$20$ days $\times$ $3$ scoops $=60$ scoops, exactly one box; and $3$ scoops $\times 6=18$ fish each day.}
 \begin{parentbox}The unit ``fish-day'' can help: each scoop provides $6$ ``fish-days''; the whole box provides $60\cdot 6=360$ fish-days; dividing by $18$ fish gives $20$ days.\end{parentbox}
@@ -158,31 +157,31 @@ The box holds $60$ scoops and $3$ scoops are used each day: $60\div 3=20$ (days)
 
 % ---------------------------------------------------------------- Problem 36
 \begin{probbox}{36}{\relax}
-Each bus ride costs Lan $7\,000$ dong. The bus company also sells a monthly pass for $200\,000$ dong with unlimited rides.
+Each bus ride costs Lucy \$2.50. The bus company also sells a monthly pass for \$72 with unlimited rides.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-\item Write an expression for the amount Lan pays if she makes $n$ rides in a month without a monthly pass.
+\item Write an expression for the amount (in dollars) Lucy pays if she makes $n$ rides in a month without a monthly pass.
 \item What is the smallest number of rides in a month for which the monthly pass is cheaper than paying per ride?
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} Paying per ride: the cost depends on the number of rides $n$. Monthly pass: always $200\,000$ dong. We want the smallest number of rides for which paying per ride is \emph{more expensive} than the pass.
+\textbf{Understanding the problem.} Paying per ride: the cost depends on the number of rides $n$. Monthly pass: always \$72. We want the smallest number of rides for which paying per ride is \emph{more expensive} than the pass.
 \step{1}{Part a}
-Each ride costs $7\,000$ dong, so $n$ rides cost $7\,000\cdot n=7\,000n$ (dong).
-\step{2}{Part b: compare the two options}
-The pass is cheaper when $7\,000n>200\,000$. Let us divide: $200\,000\div 7\,000=200\div 7\approx 28.57$.
-\step{3}{Make a table of values near $28.57$}
+Each ride costs \$2.50, so $n$ rides cost $2.5\cdot n=2.5n$ (dollars).
+\step{2}{Part b: write an inequality}
+The pass is cheaper when the cost of single rides is more than \$72, that is $2.5n>72$. Divide both sides by the positive number $2.5$: $n>72\div 2.5=28.8$.
+\step{3}{Choose the smallest whole number and check with a table}
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Rides $n$ & Per ride $7\,000n$ (dong) & Compared with the $200\,000$ dong pass\\ \hline
-$28$ & $196\,000$ & paying per ride is cheaper\\ \hline
-$29$ & $203\,000$ & \textbf{the pass is cheaper}\\ \hline
+\rowcolor{tmBlue!10} Rides $n$ & Per ride $2.5n$ (dollars) & Compared with the \$72 pass\\ \hline
+$28$ & $70$ & paying per ride is cheaper\\ \hline
+$29$ & $72.5$ & \textbf{the pass is cheaper}\\ \hline
 \end{tabular}
 \end{center}
-So she needs at least $29$ rides.
-\begin{warnbox}The number of rides is a whole number, so do not answer ``$28.57$ rides''. Do not ``round'' to $28$ either: with $28$ rides, paying per ride is still cheaper. We need the smallest whole number \emph{greater than} $28.57$, which is $29$.\end{warnbox}
+The smallest whole number greater than $28.8$ is $29$. So she needs at least $29$ rides.
+\begin{warnbox}The number of rides is a whole number, so do not answer ``$28.8$ rides''. Do not ``round'' to $28$ either: $28$ rides cost only \$70, which is still cheaper than the pass. We need the smallest whole number \emph{greater than} $28.8$, which is $29$.\end{warnbox}
 \begin{parentbox}This is a great ``real life'' problem to talk about with your child: phone plans, monthly swimming passes... can all be compared in this way.\end{parentbox}
-\ans{a) $7\,000n$ dong;\ \ b) at least $29$ rides.}
+\ans{a) $2.5n$ dollars;\ \ b) at least $29$ rides.}
 }
 
 % ---------------------------------------------------------------- Problem 37
@@ -304,13 +303,13 @@ $3(a+b+c+d)=7+8+9+10+11+12=57$, \ so $a+b+c+d=57\div 3=19$ (kg).
 \begin{proofbox}Subtract $a+b=7$ from $a+c=8$: $c-b=1$, that is, $c=b+1$. Then $b+c=b+(b+1)=2b+1$ is an \emph{odd number} (because $b$ is a whole number). Of the two numbers $9$ and $10$, only $9$ is odd. So $b+c=9$ and $a+d=10$.\end{proofbox}
 \step{3}{Find each bag}
 $2b+1=9\Rightarrow b=4$;\quad $c=b+1=5$;\quad $a=7-b=3$;\quad $d=12-c=7$.
-\begin{barfigC}
-\blk{0}{1.5}{0}{0.5}{tmGreen}{a=3}
-\blk{1.5}{3.5}{0}{0.5}{tmOrange}{b=4}
-\blk{3.5}{6}{0}{0.5}{tmPurple}{c=5}
-\blk{6}{9.5}{0}{0.5}{tmBlue}{d=7}
-\brcup{0}{9.5}{0.5}{total 19 kg}
-\end{barfigC}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Pair & $a+b$ & $a+c$ & $b+c$ & $a+d$ & $b+d$ & $c+d$\\ \hline
+Sum (kg) & $3+4=7$ & $3+5=8$ & $4+5=9$ & $3+7=10$ & $4+7=11$ & $5+7=12$\\ \hline
+\end{tabular}
+\end{center}
 \verify{$3+4=7$, $3+5=8$, $3+7=10$, $4+5=9$, $4+7=11$, $5+7=12$: exactly the six results $7,8,9,10,11,12$. Total $3+4+5+7=19$.}
 \begin{warnbox}Do not simply assume that the third result ($9$ kg) is $a+d$ or $b+c$. You need a reason! Without the ``whole number'' condition, the case $b+c=10$ giving $a=2.5$, $b=4.5$, $c=5.5$, $d=6.5$ would also work.\end{warnbox}
 \begin{parentbox}You can experiment with four slips of paper showing $3,4,5,7$: let your child pair them in all possible ways and add, and they will see for themselves that each number is used three times.\end{parentbox}

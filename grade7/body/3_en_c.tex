@@ -25,16 +25,20 @@ $P(\text{blue})=\dfrac{9}{20}$.
 $P(\text{black})=\dfrac{5}{20}=\dfrac14$, so $P(\text{not black})=1-\dfrac14=\dfrac34$.
 
 \emph{Check by counting directly:} the pens that are not black are $6+9=15$ pens, $\dfrac{15}{20}=\dfrac34$ \checkmark.
-\step{4}{Part c -- reasoning}
-A probability of $\dfrac12$ for black means that the black pens make up \emph{exactly half} of all the pens, that is, the number of black pens \emph{equals} the number of pens that are not black.
+\step{4}{Part c -- choose an unknown and form an equation}
+Let $x$ be the number of black pens to be added ($x$ is a natural number). Only black pens are added, so afterwards:
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt,topsep=1pt]
+\item the number of black pens is $5+x$;
+\item the total number of pens is $20+x$.
+\end{itemize}
+The condition in the problem: $P(\text{black})=\dfrac{5+x}{20+x}=\dfrac12$.
+\step{5}{Solve the equation}
+\begin{recallbox}For $b\ne0$, $d\ne0$: $\dfrac ab=\dfrac cd$ exactly when $a\times d=b\times c$ (property of proportions).\end{recallbox}
+From $\dfrac{5+x}{20+x}=\dfrac12$ we get $2\times(5+x)=1\times(20+x)$, that is
+\[10+2x=20+x\ \Rightarrow\ 2x-x=20-10\ \Rightarrow\ x=10.\]
+So $10$ black pens must be added.
 
-The number of non-black pens (red and blue) stays $15$, since we only add black pens. So after adding there must be $15$ black pens. There were $5$ black pens at the start, so we need to add $15-5=10$ pens.
-\begin{figC}
-\blk{0}{3}{0}{0.55}{AnsRed}{6 red}\blk{3}{7.5}{0}{0.55}{tmBlue}{9 blue}
-\blk{0}{2.5}{-0.8}{0.55}{Ink}{5 black}\blk{2.5}{7.5}{-0.8}{0.55}{Slate}{add 10 black}
-\brcup{0}{7.5}{0.45}{$15$ non-black pens}
-\brcdn{0}{7.5}{-1.25}{$15$ black pens}
-\end{figC}
+\emph{Remark:} $P(\text{black})=\dfrac12$ also means that the number of black pens \emph{equals} the number of non-black pens. There are always $15$ non-black pens, so there must be $15$ black pens, i.e.\ we add $15-5=10$ -- in agreement with the solution above.
 \begin{warnbox}Many students think ``to go from $\dfrac14$ to $\dfrac12$, double the black pens, so add $5$''. But when $5$ black pens are added the total also rises to $25$, and the probability is $\dfrac{10}{25}=\dfrac25$, not yet $\dfrac12$.\end{warnbox}
 \verify{Adding $10$ black pens: $15$ black pens out of $20+10=30$ pens; $P(\text{black})=\dfrac{15}{30}=\dfrac12$ \checkmark.}
 \ans{a) $\dfrac{9}{20}$;\quad b) $\dfrac34$;\quad c) add $10$ black pens.}
@@ -47,7 +51,7 @@ A spinner is divided into four sectors with central angles $180^\circ$ (red), $9
 \begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
 \item Find the probability that the arrow lands on blue.
 \item Find the probability that the arrow lands on yellow or purple.
-\item Hùng says: ``There are $4$ colours, so each colour has probability $\dfrac14$.'' Is Hùng right or wrong? Why?
+\item Leo says: ``There are $4$ colours, so each colour has probability $\dfrac14$.'' Is Leo right or wrong? Why?
 \end{enumerate}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}\vspace{0pt}
@@ -79,7 +83,7 @@ $P(\text{blue})=\dfrac{90}{360}=\dfrac14$.
 The yellow and purple sectors do not overlap, so their total angle is $60^\circ+30^\circ=90^\circ$.
 $P(\text{yellow or purple})=\dfrac{90}{360}=\dfrac14$ (or $\dfrac{2+1}{12}=\dfrac{3}{12}=\dfrac14$).
 \step{4}{Part c}
-Hùng is \textbf{wrong}. The formula ``favourable divided by all'' only works when the outcomes are \emph{equally likely}. Here the four colours are not equally likely: the red sector is half of the spinner, so $P(\text{red})=\dfrac{180}{360}=\dfrac12$, while $P(\text{purple})=\dfrac{30}{360}=\dfrac{1}{12}$ -- very different.
+Leo is \textbf{wrong}. The formula ``favourable divided by all'' only works when the outcomes are \emph{equally likely}. Here the four colours are not equally likely: the red sector is half of the spinner, so $P(\text{red})=\dfrac{180}{360}=\dfrac12$, while $P(\text{purple})=\dfrac{30}{360}=\dfrac{1}{12}$ -- very different.
 \verify{$P(\text{red})+P(\text{blue})+P(\text{yellow})+P(\text{purple})=\dfrac{6}{12}+\dfrac{3}{12}+\dfrac{2}{12}+\dfrac{1}{12}=1$ \checkmark.}
 \begin{parentbox}Cut a paper plate into $12$ equal ``slices of cake'' and colour them as in the problem. Counting the slices of each colour, your child will see at once why a big sector has a big probability.\end{parentbox}
 \ans{a) $\dfrac14$;\quad b) $\dfrac14$;\quad c) Wrong, because the sectors are not equal (e.g.\ $P(\text{red})=\dfrac12$, $P(\text{purple})=\dfrac1{12}$).}
@@ -87,11 +91,11 @@ Hùng is \textbf{wrong}. The formula ``favourable divided by all'' only works wh
 
 % ---------------------------------------------------------------- Problem 33
 \begin{probbox}{33}{\relax}
-The school canteen has this lunch menu: one main dish out of $3$ (chicken rice, phở, bún chả); one drink out of $2$ (iced tea, orange juice); one dessert out of $2$ (chè, yoghurt). Each lunch consists of one main dish, one drink and one dessert.
+The school canteen has this lunch menu: one main dish out of $3$ (chicken rice, spaghetti, pizza); one drink out of $2$ (apple juice, orange juice); one dessert out of $2$ (ice cream, yoghurt). Each lunch consists of one main dish, one drink and one dessert.
 \begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
 \item How many different lunches are there?
-\item Lan is given a lunch at random. Find the probability that it includes phở.
-\item Find the probability that Lan's lunch includes both phở and orange juice.
+\item Mia is given a lunch at random. Find the probability that it includes spaghetti.
+\item Find the probability that Mia's lunch includes both spaghetti and orange juice.
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -104,19 +108,19 @@ Number of lunches: $3\times2\times2=12$.
   level 1/.style={sibling distance=2.4cm},level 2/.style={sibling distance=1.2cm},level 3/.style={sibling distance=0.6cm},
   edge from parent/.style={draw=Ink!60}]
 \node[fill=Ink!10,draw=Ink]{Lunch}
-  child{node{chicken rice} child{node{iced tea} child{node{chè}} child{node{yoghurt}}} child{node{orange juice} child{node{chè}} child{node{yoghurt}}}}
-  child{node[fill=tmOrange!25,draw=tmOrange]{phở} child{node{iced tea} child{node{chè}} child{node{yoghurt}}} child{node[fill=tmOrange!25,draw=tmOrange]{orange juice} child{node[fill=tmOrange!25,draw=tmOrange]{chè}} child{node[fill=tmOrange!25,draw=tmOrange]{yoghurt}}}}
-  child{node{bún chả} child{node{iced tea} child{node{chè}} child{node{yoghurt}}} child{node{orange juice} child{node{chè}} child{node{yoghurt}}}};
+  child{node{chicken rice} child{node{apple juice} child{node{ice cream}} child{node{yoghurt}}} child{node{orange juice} child{node{ice cream}} child{node{yoghurt}}}}
+  child{node[fill=tmOrange!25,draw=tmOrange]{spaghetti} child{node{apple juice} child{node{ice cream}} child{node{yoghurt}}} child{node[fill=tmOrange!25,draw=tmOrange]{orange juice} child{node[fill=tmOrange!25,draw=tmOrange]{ice cream}} child{node[fill=tmOrange!25,draw=tmOrange]{yoghurt}}}}
+  child{node{pizza} child{node{apple juice} child{node{ice cream}} child{node{yoghurt}}} child{node{orange juice} child{node{ice cream}} child{node{yoghurt}}}};
 \end{tikzpicture}\end{center}
 The tree has $3$ big branches, each splitting into $2$ branches, each of which splits into $2$ again: $12$ end points, exactly $12$ lunches.
 \step{2}{Part b}
-Lunches with phở: the main dish is fixed as phở, drink $2$ ways, dessert $2$ ways: $1\times2\times2=4$ lunches (the middle branch of the tree).
-$P(\text{phở})=\dfrac{4}{12}=\dfrac13$.
-\begin{tipbox}A quick way to think: the main dish is chosen at random from $3$ dishes, and each dish appears in the same number of lunches, so $P(\text{phở})=\dfrac13$. The drink and dessert do not matter.\end{tipbox}
+Lunches with spaghetti: the main dish is fixed as spaghetti, drink $2$ ways, dessert $2$ ways: $1\times2\times2=4$ lunches (the middle branch of the tree).
+$P(\text{spaghetti})=\dfrac{4}{12}=\dfrac13$.
+\begin{tipbox}A quick way to think: the main dish is chosen at random from $3$ dishes, and each dish appears in the same number of lunches, so $P(\text{spaghetti})=\dfrac13$. The drink and dessert do not matter.\end{tipbox}
 \step{3}{Part c}
-Main dish phở, drink orange juice, only the dessert is left to choose: $1\times1\times2=2$ lunches (orange in the tree).
-$P(\text{phở and orange juice})=\dfrac{2}{12}=\dfrac16$.
-\verify{List them: (phở, orange juice, chè) and (phở, orange juice, yoghurt) -- exactly $2$ lunches \checkmark.}
+Main dish spaghetti, drink orange juice, only the dessert is left to choose: $1\times1\times2=2$ lunches (orange in the tree).
+$P(\text{spaghetti and orange juice})=\dfrac{2}{12}=\dfrac16$.
+\verify{List them: (spaghetti, orange juice, ice cream) and (spaghetti, orange juice, yoghurt) -- exactly $2$ lunches \checkmark.}
 \ans{a) $12$ lunches;\quad b) $\dfrac13$;\quad c) $\dfrac16$.}
 }
 
@@ -155,23 +159,22 @@ Total number of seats: $\dfrac{(12+50)\times20}{2}=\dfrac{62\times20}{2}=620$ se
 A box contains only red and blue marbles. If one marble is drawn at random, the probability that it is red is $\dfrac35$. If $5$ more blue marbles are put into the box, the probability of drawing a red marble drops to $\dfrac12$. How many red marbles and how many blue marbles were in the box at the start?
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} We do not know the total number of marbles, only \emph{proportions}. Adding blue marbles does not change the number of red marbles. Let us translate the two probabilities into the language of ``equal parts'' (a bar model).
-\step{1}{Translate the first condition}
-$P(\text{red})=\dfrac35$: if the marbles are split into $5$ equal parts, red takes $3$ parts and blue takes $5-3=2$ parts.
-\step{2}{Translate the second condition}
-After adding $5$ blue marbles, $P(\text{red})=\dfrac12$: red makes up exactly half, i.e.\ \emph{the number of red marbles equals the number of blue marbles}.
-\step{3}{Draw the model and compare}
-\begin{figC}
-\rowlab{-0.15}{0}{Red}
-\blk{0}{1.5}{0}{0.55}{AnsRed}{1 part}\blk{1.5}{3}{0}{0.55}{AnsRed}{1 part}\blk{3}{4.5}{0}{0.55}{AnsRed}{1 part}
-\rowlab{-0.15}{-0.8}{Blue}
-\blk{0}{1.5}{-0.8}{0.55}{tmBlue}{1 part}\blk{1.5}{3}{-0.8}{0.55}{tmBlue}{1 part}\blk{3}{4.5}{-0.8}{0.55}{tmTeal}{add 5}
-\brcdn{3}{4.5}{-1.25}{$1$ part $=5$ marbles}
-\end{figC}
-Red: $3$ parts. Blue after adding: $2$ parts $+\ 5$ marbles. These are equal, so the $5$ marbles are exactly $3-2=1$ part.
-\step{4}{Compute the numbers at the start}
-$1$ part $=5$ marbles. Red: $3\times5=15$ marbles. Blue: $2\times5=10$ marbles.
-\begin{tipbox}\emph{Algebra version (for those who like it):} let the number of red marbles be $3k$ and blue $2k$. After adding: $3k=2k+5$, so $k=5$.\end{tipbox}
+\textbf{Understanding the problem.} We do not know the numbers of marbles, only two probabilities (two ratios). We choose unknowns for the numbers of red and blue marbles at the start, turn each condition into an equation, and solve the system of two equations. Note: adding blue marbles does \emph{not} change the number of red marbles, while the total increases by $5$.
+\step{1}{Choose the unknowns}
+Let $x$ be the number of red marbles and $y$ the number of blue marbles at the start ($x$, $y$ non-zero natural numbers). At the start the box holds $x+y$ marbles.
+\step{2}{Turn the first condition into an equation}
+$P(\text{red})=\dfrac{x}{x+y}=\dfrac35$. Cross-multiplying: $5x=3(x+y)$, i.e.\ $5x=3x+3y$, or
+\[2x=3y.\qquad(1)\]
+\begin{recallbox}$\dfrac ab=\dfrac cd$ (with $b$, $d$ non-zero) exactly when $a\times d=b\times c$.\end{recallbox}
+\step{3}{Turn the second condition into an equation}
+After adding $5$ blue marbles there are still $x$ red marbles, and the total is $x+y+5$. So $\dfrac{x}{x+y+5}=\dfrac12$. Cross-multiplying: $2x=x+y+5$, or
+\[x=y+5.\qquad(2)\]
+(That is: after adding, the number of red marbles \emph{equals} the number of blue marbles.)
+\step{4}{Solve the system by substitution}
+Substitute $x=y+5$ from (2) into (1):
+\[2(y+5)=3y\ \Rightarrow\ 2y+10=3y\ \Rightarrow\ 3y-2y=10\ \Rightarrow\ y=10.\]
+Then $x=y+5=10+5=15$.
+\begin{tipbox}\emph{Using proportions:} from (1), $\dfrac x3=\dfrac y2$; put $\dfrac x3=\dfrac y2=k$, so $x=3k$, $y=2k$. Substituting into (2): $3k=2k+5$, so $k=5$, $x=15$, $y=10$.\end{tipbox}
 \verify{At the start: $15$ red, $10$ blue, $P(\text{red})=\dfrac{15}{25}=\dfrac35$ \checkmark. Adding $5$ blue: $15$ red, $15$ blue, $P(\text{red})=\dfrac{15}{30}=\dfrac12$ \checkmark.}
 \begin{warnbox}Do not try to ``subtract probabilities'': $\dfrac35-\dfrac12=\dfrac1{10}$ tells us nothing directly about the number of marbles. A probability is a \emph{ratio}; go back to actual quantities.\end{warnbox}
 \ans{At the start there were $15$ red and $10$ blue marbles.}
@@ -191,7 +194,11 @@ Recall: a palindrome is a number that reads the same forwards and backwards (for
 \textbf{Understanding the problem.} A four-digit number $\overline{abcd}$ is a palindrome when reading it backwards, $\overline{dcba}$, gives the same number: $d=a$ and $c=b$. So a four-digit palindrome has the form $\overline{abba}$, and only \emph{two} digits are chosen freely: $a$ and $b$.
 \step{1}{Part a}
 \begin{recallbox}Multiplication rule; the first digit of a number cannot be $0$.\end{recallbox}
-\countboxes{digit a/9/from 1 to 9/tmBlue,digit b/10/from 0 to 9/tmOrange,third/1/equals b/tmGreen,fourth/1/equals a/tmGreen}{90}
+\begin{center}\begin{tabular}{|l|c|c|c|c|}\hline
+Digit & first ($a$) & second ($b$) & third & fourth\\ \hline
+Condition & from $1$ to $9$ & from $0$ to $9$ & equals $b$ & equals $a$\\ \hline
+Number of choices & $9$ & $10$ & $1$ & $1$\\ \hline
+\end{tabular}\end{center}
 $a$: $9$ ways ($1$ to $9$); $b$: $10$ ways; the last two digits are forced to equal $b$ and $a$. There are $9\times10=90$ numbers.
 \step{2}{Part b}
 A number is even when its ones digit is even. The ones digit is $a$, so $a$ must be even \emph{and} non-zero: $a\in\{2,4,6,8\}$ -- $4$ ways. $b$ still has $10$ ways. There are $4\times10=40$ even palindromes.
@@ -221,7 +228,11 @@ Using the four digits $0,1,2,3$, four-digit numbers with all digits different ar
 \textbf{Understanding the problem.} Each number is an arrangement of the four digits $0,1,2,3$ in the four places (thousands, hundreds, tens, ones), with the condition that the thousands digit is not $0$.
 \step{1}{Part a -- choose the restricted position first}
 \begin{recallbox}Multiplication rule. A position with a condition is chosen first.\end{recallbox}
-\countboxes{thousands/3/1 2 or 3/tmBlue,hundreds/3/0 allowed/tmOrange,tens/2/remaining/tmGreen,ones/1/remaining/tmPurple}{18}
+\begin{center}\begin{tabular}{|l|c|c|c|c|}\hline
+Place & thousands & hundreds & tens & ones\\ \hline
+Condition & not $0$ & $3$ digits left & $2$ digits left & last digit\\ \hline
+Number of choices & $3$ & $3$ & $2$ & $1$\\ \hline
+\end{tabular}\end{center}
 Thousands: $3$ ways ($1$, $2$ or $3$). Hundreds: $3$ digits left (now $0$ may be used): $3$ ways. Tens: $2$ ways. Ones: $1$ way. There are $3\times3\times2\times1=18$ numbers.
 \begin{warnbox}Forgetting the condition ``thousands digit not $0$'' gives $4\times3\times2\times1=24$ -- which includes $6$ ``numbers'' starting with $0$, such as $0123$, that are really three-digit numbers.\end{warnbox}
 \step{2}{Part b -- split into cases by the ones digit}
@@ -284,11 +295,11 @@ $P(\text{square})=\dfrac{8}{18}=\dfrac49$.
 
 % ---------------------------------------------------------------- Problem 39
 \begin{probbox}{39}{\stars{1}}
-Four friends An, Bình, Chi and Dũng are seated at random on four chairs in a row.
+Four friends Anna, Ben, Chloe and David are seated at random on four chairs in a row.
 \begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
 \item How many seating arrangements are there?
-\item Find the probability that An and Bình sit next to each other.
-\item Find the probability that An and Bình sit at the two ends of the row.
+\item Find the probability that Anna and Ben sit next to each other.
+\item Find the probability that Anna and Ben sit at the two ends of the row.
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -296,32 +307,32 @@ Four friends An, Bình, Chi and Dũng are seated at random on four chairs in a r
 \step{1}{Part a}
 \begin{recallbox}Seating $n$ people on $n$ chairs: $n\times(n-1)\times\dots\times2\times1$ ways (multiplication rule; each next chair has one person fewer to choose from).\end{recallbox}
 Chair $1$: $4$ choices of person; chair $2$: $3$; chair $3$: $2$; chair $4$: $1$. There are $4\times3\times2\times1=24$ arrangements.
-\step{2}{Part b -- treat An and Bình as one ``block''}
-\begin{figC}
-\draw[tmOrange,line width=1.2pt,rounded corners=4pt,fill=tmOrange!12] (0,0) rectangle (2.4,0.7);
-\node[font=\bfseries] at (0.6,0.35){An};\node[font=\bfseries] at (1.8,0.35){Bình};
-\draw[tmBlue,line width=1pt,rounded corners=3pt,fill=tmBlue!10] (2.7,0) rectangle (3.9,0.7);\node[font=\bfseries] at (3.3,0.35){Chi};
-\draw[tmGreen,line width=1pt,rounded corners=3pt,fill=tmGreen!10] (4.2,0) rectangle (5.4,0.7);\node[font=\bfseries] at (4.8,0.35){Dũng};
-\node[font=\footnotesize,text=tmOrange!80!black] at (1.2,-0.3){one block, taking $2$ neighbouring chairs};
-\end{figC}
+\step{2}{Part b -- treat Anna and Ben as one ``block''}
+Glue Anna and Ben together into one ``block'' taking $2$ neighbouring chairs. The table shows that the block has only $3$ positions:
+\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+ & Chair $1$ & Chair $2$ & Chair $3$ & Chair $4$\\ \hline
+Position 1 & \cellcolor{tmOrange!20}block & \cellcolor{tmOrange!20}block & & \\ \hline
+Position 2 & & \cellcolor{tmOrange!20}block & \cellcolor{tmOrange!20}block & \\ \hline
+Position 3 & & & \cellcolor{tmOrange!20}block & \cellcolor{tmOrange!20}block\\ \hline
+\end{tabular}\end{center}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
-\item Position of the block (An, Bình): chairs $1$--$2$, $2$--$3$ or $3$--$4$: $3$ ways.
-\item Inside the block, An on the left or Bình on the left: $2$ ways.
-\item Chi and Dũng on the $2$ remaining chairs: $2\times1=2$ ways.
+\item Position of the block (Anna, Ben): chairs $1$--$2$, $2$--$3$ or $3$--$4$: $3$ ways.
+\item Inside the block, Anna on the left or Ben on the left: $2$ ways.
+\item Chloe and David on the $2$ remaining chairs: $2\times1=2$ ways.
 \end{itemize}
 Favourable arrangements: $3\times2\times2=12$. So $P(\text{next to each other})=\dfrac{12}{24}=\dfrac12$.
-\begin{warnbox}Do not forget to multiply by $2$ for swapping An and Bình inside the block: ``An--Bình'' and ``Bình--An'' are two different arrangements.\end{warnbox}
+\begin{warnbox}Do not forget to multiply by $2$ for swapping Anna and Ben inside the block: ``Anna--Ben'' and ``Ben--Anna'' are two different arrangements.\end{warnbox}
 \step{3}{Part c}
-An and Bình on chairs $1$ and $4$: An on chair $1$ and Bình on chair $4$, or the other way round -- $2$ ways. Chi and Dũng on chairs $2$, $3$: $2$ ways. Favourable arrangements: $2\times2=4$.
+Anna and Ben on chairs $1$ and $4$: Anna on chair $1$ and Ben on chair $4$, or the other way round -- $2$ ways. Chloe and David on chairs $2$, $3$: $2$ ways. Favourable arrangements: $2\times2=4$.
 $P(\text{both ends})=\dfrac{4}{24}=\dfrac16$.
-\verify{Part b, counted another way: if An sits at an end (chair $1$ or $4$, $2$ possibilities) there is only $1$ chair next to An; if An sits in the middle (chair $2$ or $3$) there are $2$ chairs next to An. Number of (An, Bình) neighbouring chair pairs: $2\times1+2\times2=6$; times $2$ ways to seat Chi and Dũng: $12$ \checkmark.}
-\begin{parentbox}With $4$ people, let your child use $4$ name cards and actually lay out all $24$ arrangements in order (starting with An, then starting with Bình\ldots). Listing once helps the child trust the multiplication rule.\end{parentbox}
+\verify{Part b, counted another way: if Anna sits at an end (chair $1$ or $4$, $2$ possibilities) there is only $1$ chair next to Anna; if Anna sits in the middle (chair $2$ or $3$) there are $2$ chairs next to Anna. Number of (Anna, Ben) neighbouring chair pairs: $2\times1+2\times2=6$; times $2$ ways to seat Chloe and David: $12$ \checkmark.}
+\begin{parentbox}With $4$ people, let your child use $4$ name cards and actually lay out all $24$ arrangements in order (starting with Anna, then starting with Ben\ldots). Listing once helps the child trust the multiplication rule.\end{parentbox}
 \ans{a) $24$ arrangements;\quad b) $\dfrac12$;\quad c) $\dfrac16$.}
 }
 
 % ---------------------------------------------------------------- Problem 40
 \begin{probbox}{40}{\stars{2}}
-A box contains $4$ red marbles and $6$ blue marbles of the same size. Hoa draws one marble at random, does \emph{not put it back}, and then draws a second marble at random.
+A box contains $4$ red marbles and $6$ blue marbles of the same size. Grace draws one marble at random, does \emph{not put it back}, and then draws a second marble at random.
 \begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
 \item Find the probability that both marbles are red.
 \item Find the probability that the two marbles have the same colour.
@@ -329,7 +340,7 @@ A box contains $4$ red marbles and $6$ blue marbles of the same size. Hoa draws 
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} Hoa draws two marbles \emph{one after the other} without replacement. Imagine the marbles numbered $1$ to $10$ (marbles $1$--$4$ red, marbles $5$--$10$ blue). Each \emph{ordered pair} (first marble, second marble) is one outcome, and these outcomes are equally likely.
+\textbf{Understanding the problem.} Grace draws two marbles \emph{one after the other} without replacement. Imagine the marbles numbered $1$ to $10$ (marbles $1$--$4$ red, marbles $5$--$10$ blue). Each \emph{ordered pair} (first marble, second marble) is one outcome, and these outcomes are equally likely.
 \step{1}{Count all outcomes}
 \begin{recallbox}Multiplication rule: the first draw has $10$ ways; for each of them, the second draw has $9$ marbles left, so $9$ ways.\end{recallbox}
 Number of outcomes: $10\times9=90$ ordered pairs.

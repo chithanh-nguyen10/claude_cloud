@@ -1,6 +1,6 @@
 % ================= Topic 3 (EN) -- part d: problems 41--50 (challenge) =================
 \begin{probbox}{41}{\stars{1}}
-On a square dot grid, Lan stands at dot $A$. She tosses a fair coin $6$ times; each time it shows heads she moves \emph{up} one dot, and
+On a square dot grid, Ruby stands at dot $A$. She tosses a fair coin $6$ times; each time it shows heads she moves \emph{up} one dot, and
 each time it shows tails she moves \emph{right} one dot (as in problem 16). The dots $M$, $N$, $B$ are marked in the figure.
 \begin{figC}\begin{scope}[scale=0.85]
   \foreach \x in {0,...,3}{\foreach \y in {0,...,3}{\fill[Navy] (\x,\y) circle (2.4pt);}}
@@ -10,9 +10,9 @@ each time it shows tails she moves \emph{right} one dot (as in problem 16). The 
   \fill[tmPurple] (3,3) circle (3.4pt);\node[above right] at (3,3) {$B$};
 \end{scope}\end{figC}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-\item Find the probability that after $6$ tosses Lan stops at dot $B$.
-\item Find the probability that Lan passes through dot $M$ \emph{and} stops at $B$.
-\item Find the probability that Lan stops at $B$ \emph{without} passing through dot $N$.
+\item Find the probability that after $6$ tosses Ruby stops at dot $B$.
+\item Find the probability that Ruby passes through dot $M$ \emph{and} stops at $B$.
+\item Find the probability that Ruby stops at $B$ \emph{without} passing through dot $N$.
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -59,8 +59,8 @@ We build grids of squares from toothpicks as in problem 17. An ``$m\times n$'' g
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
 \item Find a formula for the number of toothpicks needed for an $m\times n$ grid.
 \item A square $k\times k$ grid uses exactly $760$ toothpicks. Find $k$.
-\item Nam has exactly $2026$ toothpicks and wants to build an $m\times n$ grid (with $1\le m\le n$) that uses \emph{all} of them.
-Find all the grids Nam can build.
+\item Sam has exactly $2026$ toothpicks and wants to build an $m\times n$ grid (with $1\le m\le n$) that uses \emph{all} of them.
+Find all the grids Sam can build.
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -221,7 +221,7 @@ Three lights flash: the first flashes every $4$ seconds, the second every $6$ se
 \end{probbox}
 \probsol{
 \textbf{Understanding the problem.} The first light flashes at the seconds that are multiples of $4$; the second at multiples of $6$; the
-third at multiples of $10$ (as in problem 20, but here every multiple counts, not only odd multiples). We count multiples from $1$ to $600$.
+third at multiples of $10$ (the same idea as in problem 20: moments that ``coincide are found with common multiples). We count multiples from $1$ to $600$.
 
 \step{1}{Count how many times each light flashes}
 \begin{recallbox}The number of multiples of $d$ among $1$ to $N$ is the whole-number part of $N\div d$ (the quotient in division with
@@ -247,11 +247,9 @@ $40+20+10=70$.
 \step{4}{Part c: draw a Venn diagram and fill it in from the inside out}
 Only light 1: $150-40-20-10=80$; only light 2: $100-40-10-10=40$; only light 3: $60-20-10-10=20$.
 \begin{figC}
-  \fill[tmBlue,opacity=0.12] (0,0) circle (1.3);\fill[tmOrange,opacity=0.12] (1.6,0) circle (1.3);
-  \fill[tmGreen,opacity=0.12] (0.8,-1.3) circle (1.3);
   \draw[tmBlue,thick] (0,0) circle (1.3);\draw[tmOrange,thick] (1.6,0) circle (1.3);\draw[tmGreen!80!black,thick] (0.8,-1.3) circle (1.3);
-  \node[text=tmBlue] at (-0.9,1.25) {light 1};\node[text=tmOrange!80!black] at (2.6,1.25) {light 2};
-  \node[text=tmGreen!70!black] at (0.8,-2.85) {light 3};
+  \node[text=tmBlue,anchor=south east,inner sep=1pt] at (-0.95,0.95) {light 1};\node[text=tmOrange!80!black,anchor=south west,inner sep=1pt] at (2.55,0.95) {light 2};
+  \node[text=tmGreen!70!black,anchor=north,inner sep=2pt] at (0.8,-2.62) {light 3};
   \node at (-0.45,0.25) {$80$};\node at (2.05,0.25) {$40$};\node at (0.8,-1.95) {$20$};
   \node at (0.8,0.5) {$40$};\node at (0.05,-0.95) {$20$};\node at (1.55,-0.95) {$10$};
   \node[text=AnsRed,font=\bfseries\small] at (0.8,-0.45) {$10$};
@@ -275,8 +273,8 @@ the same if one can be rotated to look exactly like the other. How many differen
 \begin{figC}
   \begin{scope}
     \coordinate (A) at (0,0);\coordinate (B) at (2,0);\coordinate (C) at (2.7,0.6);\coordinate (D) at (0.7,0.6);\coordinate (S) at (1.35,2.1);
-    \draw[Ink,thick,dashed] (A)--(D)--(C);\draw[Ink,thick,dashed] (D)--(S);
     \fill[tmBlue!30] (A)--(B)--(S)--cycle;\fill[tmOrange!35] (B)--(C)--(S)--cycle;
+    \draw[Ink,thick,dashed] (A)--(D)--(C);\draw[Ink,thick,dashed] (D)--(S);
     \draw[Ink,thick] (A)--(B)--(C)--(S)--cycle;\draw[Ink,thick] (B)--(S);
     \node[font=\scriptsize] at (1.35,-0.3) {square pyramid};
   \end{scope}
@@ -395,7 +393,7 @@ For a two-digit number $n=\nd{ab}$, call $\nd{ba}$ the \emph{reversal} of $n$ (a
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
 \item Find all two-digit numbers $n$ such that $n$ plus its reversal is a perfect square.
 \item Find all two-digit numbers with both digits non-zero such that $n$ minus its reversal is a positive perfect square.
-\item Prove that every four-digit number of the form $\nd{abba}$ (a palindrome) is divisible by $11$.
+\item For a three-digit number $\nd{abc}$ ($a\ne0$, $c\ne0$), prove that the difference $\nd{abc}-\nd{cba}$ is always divisible by $99$.
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -424,12 +422,13 @@ Since $1\le b<a\le9$, we have $1\le a-b\le8$; the perfect squares in this range 
 There are $13$ numbers in all.
 
 \step{3}{Part c: split by place value}
-\[\nd{abba}=1000a+100b+10b+a=1001a+110b=11\times91\times a+11\times10\times b=11\times(91a+10b).\]
-So $\nd{abba}$ is always divisible by $11$.
+Write both numbers using place values: $\nd{abc}=100a+10b+c$ and $\nd{cba}=100c+10b+a$. Then
+\[\nd{abc}-\nd{cba}=(100a+10b+c)-(100c+10b+a)=100a-a+10b-10b+c-100c=99a-99c=99(a-c).\]
+Since $a-c$ is an integer, $99(a-c)$ is divisible by $99$. (The tens digit $b$ cancels out completely!)
 \begin{warnbox}$\nd{ab}$ denotes the number with digits $a$ and $b$, \emph{not} the product $a\times b$. Always rewrite $\nd{ab}$ as $10a+b$
 before calculating.\end{warnbox}
-\verify{a) $47+74=121=11^2$. b) $73-37=36=6^2$, $98-89=9=3^2$. c) $2332=11\times212$, $7007=11\times637$.}
-\ans{a) $29$, $38$, $47$, $56$, $65$, $74$, $83$, $92$;\quad b) $13$ numbers (listed in step 2);\quad c) see the proof.}
+\verify{a) $47+74=121=11^2$. b) $73-37=36=6^2$, $98-89=9=3^2$. c) $731-137=594=99\times6$; $205-502=-297=99\times(-3)$.}
+\ans{a) $29$, $38$, $47$, $56$, $65$, $74$, $83$, $92$;\quad b) $13$ numbers (listed in step 2);\quad c) $\nd{abc}-\nd{cba}=99(a-c)$.}
 }
 
 \begin{probbox}{49}{\stars{2}}
@@ -492,16 +491,16 @@ horizontal lines, $2\times2=4$ cover the middle row. Probability $=\dfrac{9}{15}
 }
 
 \begin{probbox}{50}{\stars{2}}
-A box contains $2026$ red marbles and $2027$ blue marbles. Outside the box there is a very large pile of blue marbles. Phong repeats the
+A box contains $2026$ red marbles and $2027$ blue marbles. Outside the box there is a very large pile of blue marbles. Felix repeats the
 following step: take $2$ marbles from the box at random.
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
 \item If the two marbles have the \emph{same colour} (both red or both blue): throw both away, then take $1$ blue marble from the pile
 outside and put it into the box.
 \item If the two marbles have \emph{different colours}: throw away the blue one and put the red one back into the box.
 \end{itemize}
-Phong stops when only $1$ marble is left in the box.
+Felix stops when only $1$ marble is left in the box.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-\item How many steps did Phong carry out?
+\item How many steps did Felix carry out?
 \item Find the probability that the last marble is red.
 \item If the box had started with $2025$ red marbles and $2027$ blue marbles, what would the probability in part b be?
 \end{enumerate}
@@ -527,7 +526,7 @@ red, blue & no change (the red is put back) & decreases by $1$\\\hline
 \end{tabular}\end{center}
 \begin{proofbox}The number of red marbles either stays the same or decreases by exactly $2$. Subtracting $2$ does not change parity (an even
 number minus $2$ is still even, an odd number minus $2$ is still odd). So \textbf{the parity of the number of red marbles never changes}, no
-matter which marbles Phong draws.\end{proofbox}
+matter which marbles Felix draws.\end{proofbox}
 
 \step{3}{Part b: $2026$ red marbles at the start (an even number)}
 The number of red marbles is always even. When only $1$ marble is left: if it were red, the number of red marbles would be $1$ (odd) --

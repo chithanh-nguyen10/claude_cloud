@@ -170,11 +170,11 @@ Do not confuse \emph{vertically opposite} angles (equal) with \emph{supplementar
   \node[below,font=\footnotesize] at (1.5,0){base};
   \begin{scope}[shift={(5,0)}]
     \draw[tmGreen!70!black,line width=2pt] (0,0)--(4,0);
-    \draw[tmBlue,line width=2pt] (0,0)--(1.6,1.6);
-    \draw[tmOrange,line width=2pt] (1.6,1.6)--(4,0);
+    \draw[tmBlue,line width=2pt] (0,0)--(1.719,1.023);
+    \draw[tmOrange,line width=2pt] (1.719,1.023)--(4,0);
     \node[below,font=\footnotesize] at (2,0){$8$};
-    \node[left,font=\footnotesize] at (0.8,0.9){$4$};
-    \node[right,font=\footnotesize] at (2.9,0.9){$5$};
+    \node[above left,font=\footnotesize] at (0.86,0.51){$4$};
+    \node[above right,font=\footnotesize] at (2.86,0.51){$5$};
     \node[font=\footnotesize,align=center] at (2,-0.85){$8<4+5$: a triangle exists};
   \end{scope}
 \end{gmFig}
@@ -223,9 +223,9 @@ Reflection in the $x$-axis \;/\; in the $y$-axis & $(x,\,y)\to(x,\,-y)$ \;/\; $(
   \fill[tmBlue!35,draw=tmBlue!80!black,thick] (0,0)--(2.2,0)--(2.2,0.9)--(0.9,0.9)--cycle;
   \fill[white,draw=tmOrange!90!black,thick] (0,0)--(0,2.2)--(-0.9,2.2)--(-0.9,0.9)--cycle;
   \fill (Z) circle (2.2pt) node[below left]{$Z$};
-  \draw[->,AnsRed,thick] (1.4,-0.15) arc[start angle=-6,end angle=-264,radius=1.4];
+  \draw[->,AnsRed,thick] (-6:1.4) arc[start angle=-6,end angle=-264,radius=1.4];
   \node[AnsRed,font=\footnotesize] at (0,-1.75){clockwise: $270^\circ$};
-  \draw[->,tmGreen!70!black,thick] (2.4,0.25) arc[start angle=6,end angle=84,radius=2.4];
+  \draw[->,tmGreen!70!black,thick] (6:2.4) arc[start angle=6,end angle=84,radius=2.4];
   \node[tmGreen!60!black,font=\footnotesize,align=left] at (3.5,2.1){counterclockwise:\\$90^\circ$};
   \node[font=\footnotesize] at (1.4,0.4){original};
   \node[font=\footnotesize,rotate=90] at (-0.45,1.6){image};
@@ -557,7 +557,7 @@ Triangle $OAB$ with $O(0,\,0)$, $A(3,\,0)$, $B(3,\,2)$ is rotated about the orig
   \node[below left] at (0,0){$O$};
   \node[below right] at (3,0){$A$}; \node[above right] at (3,2){$B$};
   \node[left] at (0,-3){$A'$}; \node[below right] at (2,-3){$B'$};
-  \draw[->,AnsRed,thick] (1.3,-0.1) arc[start angle=-4,end angle=-86,radius=1.3];
+  \draw[->,AnsRed,thick] (-4:1.3) arc[start angle=-4,end angle=-86,radius=1.3];
   \node[AnsRed,font=\footnotesize] at (1.55,-1.3){$90^\circ$};
 \end{gmFig}
 \step{1}{Choose a segment starting at the centre of rotation}
@@ -648,7 +648,12 @@ A circular spinner with centre $O$ is divided into four regions $A$, $B$, $C$, $
 The whole circle corresponds to $360^\circ$. Region $A$ (a semicircle) corresponds to $180^\circ$, region $B$ (a quarter) to $90^\circ$.
 
 \step{2}{Central angles of regions $C$ and $D$}
-The remainder: $360^\circ-180^\circ-90^\circ=90^\circ$. We must split $90^\circ$ into two parts with $C$ one and a half times $D$; that is, if $D$ is $2$ equal parts then $C$ is $3$ such parts. Together $5$ parts correspond to $90^\circ$, so one part is $90^\circ\div5=18^\circ$. Hence the angle of $D$ is $2\cdot18^\circ=36^\circ$ and the angle of $C$ is $3\cdot18^\circ=54^\circ$.
+Regions $C$ and $D$ share what is left: $360^\circ-180^\circ-90^\circ=90^\circ$.
+
+Let the central angle of region $D$ be $x$ (degrees). ``The angle of $C$ is one and a half times the angle of $D$'' means the angle of $C$ is $1.5x$. The two angles add up to $90^\circ$, so we get the equation
+\[ x+1.5x=90. \]
+Collecting like terms: $2.5x=90$, so $x=90\div2.5=36$.
+Hence the angle of $D$ is $36^\circ$ and the angle of $C$ is $1.5\cdot36^\circ=54^\circ$.
 
 \step{3}{Convert to percentages}
 \begin{recallbox}A sector with central angle $n^\circ$ is $\dfrac{n}{360}$ of the circle.\end{recallbox}
@@ -759,7 +764,7 @@ Rotating the shaded quadrilateral about point $Z$ \emph{clockwise} (in the direc
   \fill[white,draw=Ink,thick] (0,0)--(0,3)--(-1.47,1.87)--(-1.47,0.37)--cycle;
   \fill (0,0) circle (2.5pt);
   \node[below=6pt] at (0,0){$Z$};
-  \draw[->,thick] (0.75,-0.1) arc[start angle=-8,end angle=-200,radius=0.75];
+  \draw[->,thick] (-8:0.75) arc[start angle=-8,end angle=-200,radius=0.75];
 \end{gmFig}
 \choices{$180^\circ$}{$270^\circ$}{$360^\circ$}{$45^\circ$}{$135^\circ$}
 \end{probbox}
@@ -777,7 +782,7 @@ Going clockwise from 3 o'clock to 12 o'clock, we pass 6 o'clock (down) and 9 o'c
   \draw[->,tmOrange!90!black,thick] (0,0)--(0,1.6) node[above,font=\footnotesize]{12 o'clock (image)};
   \draw[Slate,dashed] (0,0)--(0,-1.3) node[below,font=\footnotesize]{6 o'clock};
   \draw[Slate,dashed] (0,0)--(-1.3,0) node[left,font=\footnotesize]{9 o'clock};
-  \draw[->,AnsRed,thick] (0.9,-0.1) arc[start angle=-6,end angle=-264,radius=0.9];
+  \draw[->,AnsRed,thick] (-6:0.9) arc[start angle=-6,end angle=-264,radius=0.9];
   \node[AnsRed,font=\footnotesize] at (1.3,-1.1){$270^\circ$};
 \end{gmFig}
 
@@ -965,7 +970,7 @@ So the answer is \textbf{(C)}.
 }
 
 \begin{probbox}{9}{\relax}
-Minh measures the length of his desk as $3.5$ m. How many centimetres is that?
+Ben measures a rope and finds that it is $3.5$ m long. How many centimetres is that?
 \choices{$350$}{$30.5$}{$3.05$}{$3.5$}{$305$}
 \end{probbox}
 \probsol{
@@ -992,7 +997,7 @@ So the answer is \textbf{(A)}.
 }
 
 \begin{probbox}{10}{\relax}
-An wants to build the solid rectangular box shown from small cubes measuring $1\text{ cm}\times1\text{ cm}\times1\text{ cm}$. How many small cubes does An need?
+Anna wants to build the solid rectangular box shown from small cubes measuring $1\text{ cm}\times1\text{ cm}\times1\text{ cm}$. How many small cubes does Anna need?
 \begin{gmFig}[scale=0.7]
   \draw[Ink,thick,fill=white] (0,0) rectangle (4,3);
   \draw[Ink,thick,fill=Tint] (0,3)--(1.5,4)--(5.5,4)--(4,3)--cycle;
@@ -1193,13 +1198,13 @@ So the answer is \textbf{(E)}.
 
 \begin{probbox}{15}{\relax}
 Triangle $PQR$ has area $27\text{ cm}^2$ and base $QR=6$ cm. The height $h$ of triangle $PQR$ (to the base $QR$) is
-\begin{gmFig}[scale=0.8]
-  \coordinate (Q) at (0,0); \coordinate (R) at (3,0); \coordinate (P) at (1.6,3.2);
+\begin{gmFig}[scale=0.62]
+  \coordinate (Q) at (0,0); \coordinate (R) at (3,0); \coordinate (P) at (1.6,4.5);
   \fill[tmBlue!10] (P)--(Q)--(R)--cycle;
   \draw[Ink,thick] (P)--(Q)--(R)--cycle;
-  \draw[Ink] (1.6,3.2)--(1.6,0); \draw[Ink] (1.6,0) rectangle (1.8,0.2);
+  \draw[Ink] (1.6,4.5)--(1.6,0); \draw[Ink] (1.6,0) rectangle (1.8,0.2);
   \node[above] at (P){$P$}; \node[below left] at (Q){$Q$}; \node[below right] at (R){$R$};
-  \node[right] at (1.6,1.4){$h$}; \node[below=6pt] at (1.5,0){$6$ cm};
+  \node[right] at (1.6,2.0){$h$}; \node[below=6pt] at (1.5,0){$6$ cm};
 \end{gmFig}
 \choices{$9$ cm}{$18$ cm}{$4.5$ cm}{$2.25$ cm}{$7$ cm}
 \end{probbox}
@@ -1215,13 +1220,13 @@ Multiply both sides by $2$: $6\cdot h=54$.
 \step{3}{Find $h$}
 $h=54\div6=9$ (cm).
 \begin{proofbox}Why double the area? The triangle is half of the rectangle with the same base $6$ cm and the same height $h$. That rectangle has area $2\cdot27=54\text{ cm}^2$ and one side $6$ cm, so its other side (which is $h$) is $54\div6=9$ cm.\end{proofbox}
-\begin{gmFig}[scale=0.55]
-  \fill[tmBlue!10] (0,0) rectangle (6,4.5);
-  \fill[tmBlue!35] (0,0)--(6,0)--(3.2,4.5)--cycle;
-  \draw[Ink,thick] (0,0) rectangle (6,4.5); \draw[Ink,thick] (0,0)--(3.2,4.5)--(6,0);
-  \draw[Ink,dashed] (3.2,4.5)--(3.2,0);
-  \node[below] at (3,0){$6$ cm}; \node[right] at (6,2.25){$h=9$ cm};
-  \node[font=\footnotesize,align=left,anchor=west] at (8.3,2.25){rectangle: $54\text{ cm}^2$\\ triangle: $27\text{ cm}^2$};
+\begin{gmFig}[scale=0.3]
+  \fill[tmBlue!10] (0,0) rectangle (6,9);
+  \fill[tmBlue!35] (0,0)--(6,0)--(3.2,9)--cycle;
+  \draw[Ink,thick] (0,0) rectangle (6,9); \draw[Ink,thick] (0,0)--(3.2,9)--(6,0);
+  \draw[Ink,dashed] (3.2,9)--(3.2,0);
+  \node[below] at (3,0){$6$ cm}; \node[right] at (6,4.5){$h=9$ cm};
+  \node[font=\footnotesize,align=left,anchor=west] at (13,4.5){rectangle: $54\text{ cm}^2$\\ triangle: $27\text{ cm}^2$};
 \end{gmFig}
 \begin{warnbox}Option (C) $4.5$ cm is the result of $27\div6$ -- forgetting that the area of a triangle is only \emph{half} of base times height.\end{warnbox}
 \verify{$\dfrac{6\cdot9}{2}=\dfrac{54}{2}=27\ (\text{cm}^2)$. Correct.}

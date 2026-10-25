@@ -346,11 +346,13 @@ hoà; (2) phân tích điểm của từng đội; (3) ``ghép cặp'' các tr�
 \step{1}{Số trận đấu}
 Mỗi cặp đội đá một trận: AB, AC, AD, BC, BD, CD -- tổng cộng $6$ trận. Mỗi đội đá $3$ trận.
 \step{2}{Câu a): tổng điểm và số trận hoà}
-Trận có thắng thua phát ra $3 + 0 = 3$ điểm; trận hoà phát ra $1 + 1 = 2$ điểm. Tổng điểm cả giải: $7 + 5 + 3 + 1 = 16$.\\
-Nếu cả $6$ trận đều có thắng thua thì tổng là $6\times 3 = 18$. Mỗi trận hoà làm tổng giảm $1$. Vì $18 - 16 = 2$, giải có
-\textbf{$2$ trận hoà} (và $4$ trận có thắng thua).
-\begin{recallbox}Đây là cách lập luận ``giả sử tất cả'' quen thuộc (giống bài toán gà -- chó): giả sử mọi trận đều có thắng thua, rồi
-xem tổng điểm thiếu bao nhiêu.\end{recallbox}
+Trận có thắng thua mang lại tổng cộng $3 + 0 = 3$ điểm cho hai đội; trận hoà mang lại $1 + 1 = 2$ điểm. Tổng điểm cả giải là
+$7 + 5 + 3 + 1 = 16$.\\
+Gọi $x$ là số trận hoà ($x$ là số tự nhiên, $0 \le x \le 6$). Khi đó có $6 - x$ trận có thắng thua, và tổng điểm cả giải là
+\[ 2x + 3(6 - x) = 16. \]
+Giải phương trình: $2x + 18 - 3x = 16$, \ $18 - x = 16$, \ $x = 2$. Vậy giải có \textbf{$2$ trận hoà} (và $6 - 2 = 4$ trận có
+thắng thua).
+\verify{$2$ trận hoà cho $2\cdot 2 = 4$ điểm, $4$ trận có thắng thua cho $4\cdot 3 = 12$ điểm; $4 + 12 = 16$, đúng.}
 \step{3}{Phân tích điểm của từng đội ($3$ trận, mỗi trận được $3$, $1$ hoặc $0$ điểm)}
 \begin{center}\small
 \begin{tabular}{|c|c|l|}
@@ -393,7 +395,7 @@ thử đủ $3^6 = 729$ khả năng kết quả cũng chỉ thấy đúng một 
 \begin{probbox}{47}{\stars{1}}
 \textbf{Đại lượng bất biến.}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-  \item Trên bảng viết các số $1, 2, 3, \dots, 10$. Mỗi lượt, bạn Quang xoá hai số bất kì $a$ và $b$ rồi viết thêm số $|a - b|$
+  \item Trên bảng viết các số $1, 2, 3, \dots, 10$. Mỗi lượt, bạn Oscar xoá hai số bất kì $a$ và $b$ rồi viết thêm số $|a - b|$
   (hiệu của số lớn trừ số bé). Sau $9$ lượt, trên bảng chỉ còn một số. Số đó có thể bằng $0$ không? Có thể bằng $1$ không?
   \item Từ bàn cờ vua $8\times 8$, người ta cắt bỏ hai ô ở hai góc đối diện (xem hình). Có thể phủ kín $62$ ô còn lại bằng
   $31$ quân đô-mi-nô, mỗi quân phủ đúng hai ô kề nhau, được không?
@@ -449,15 +451,15 @@ nhận ``mãi không xếp được'', rồi mới giải thích lí do bằng m
 % ---------------------------------------------------------------- Bài 48
 \begin{probbox}{48}{\stars{1}}
 \textbf{Câu đố kiểu Einstein.} Bốn ngôi nhà được đánh số $1, 2, 3, 4$ từ trái sang phải. Mỗi nhà sơn một màu khác nhau (đỏ, vàng,
-xanh, trắng), có một người ở (An, Bình, Cúc, Dũng) và người đó nuôi một con vật khác nhau (chó, mèo, cá, thỏ). Biết rằng:
+xanh, trắng), có một người ở (Anna, Ben, Chloe, David) và người đó nuôi một con vật khác nhau (chó, mèo, cá, thỏ). Biết rằng:
 \begin{enumerate}[label=(\arabic*),leftmargin=2em,itemsep=0pt,topsep=2pt]
-  \item An ở nhà màu đỏ.
+  \item Anna ở nhà màu đỏ.
   \item Nhà màu xanh ở \emph{ngay bên phải} nhà màu trắng.
-  \item Bình nuôi chó.
+  \item Ben nuôi chó.
   \item Người nuôi cá ở nhà số $1$.
-  \item Dũng ở ngay cạnh nhà của người nuôi mèo.
+  \item David ở ngay cạnh nhà của người nuôi mèo.
   \item Nhà số $2$ màu trắng.
-  \item An nuôi thỏ.
+  \item Anna nuôi thỏ.
 \end{enumerate}
 Ai nuôi mèo? Nhà màu vàng là nhà của ai?
 \end{probbox}
@@ -466,42 +468,42 @@ Ai nuôi mèo? Nhà màu vàng là nhà của ai?
 các gợi ý ``chắc chắn'' (gợi ý cho biết vị trí cụ thể), sau đó mới tới các gợi ý ``ghép đôi'' và ``bên cạnh''.
 \step{1}{Màu nhà: gợi ý (6) và (2)}
 Nhà $2$ màu trắng (6), nên nhà xanh ở ngay bên phải là nhà $3$ (2). Hai màu đỏ, vàng dành cho nhà $1$ và nhà $4$.
-\step{2}{An: gợi ý (1), (7), (4)}
-An ở nhà đỏ (1) và nuôi thỏ (7). Nhà đỏ là nhà $1$ hoặc nhà $4$. Nhưng nhà $1$ nuôi cá (4), mà An nuôi thỏ, nên An không ở nhà $1$.
-Vậy An ở nhà $4$, nhà $4$ màu đỏ, nuôi thỏ; nhà $1$ màu vàng, nuôi cá.
+\step{2}{Anna: gợi ý (1), (7), (4)}
+Anna ở nhà đỏ (1) và nuôi thỏ (7). Nhà đỏ là nhà $1$ hoặc nhà $4$. Nhưng nhà $1$ nuôi cá (4), mà Anna nuôi thỏ, nên Anna không ở nhà $1$.
+Vậy Anna ở nhà $4$, nhà $4$ màu đỏ, nuôi thỏ; nhà $1$ màu vàng, nuôi cá.
 \step{3}{Chó và mèo}
-Hai con còn lại là chó và mèo, ở nhà $2$ và nhà $3$. Bình nuôi chó (3), nên Bình ở nhà $2$ hoặc nhà $3$.
-\step{4}{Tìm chỗ của Dũng: gợi ý (5)}
-Dũng ở một trong các nhà $1, 2, 3$. Xét từng khả năng:
+Hai con còn lại là chó và mèo, ở nhà $2$ và nhà $3$. Ben nuôi chó (3), nên Ben ở nhà $2$ hoặc nhà $3$.
+\step{4}{Tìm chỗ của David: gợi ý (5)}
+David ở một trong các nhà $1, 2, 3$. Xét từng khả năng:
 \begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
-  \item Dũng ở nhà $2$: Dũng không nuôi chó (chó là của Bình), nên Dũng nuôi mèo. Hàng xóm của Dũng là nhà $1$ (cá) và nhà $3$ (chó)
+  \item David ở nhà $2$: David không nuôi chó (chó là của Ben), nên David nuôi mèo. Hàng xóm của David là nhà $1$ (cá) và nhà $3$ (chó)
   -- không ai nuôi mèo, trái với (5). \textbf{Loại.}
-  \item Dũng ở nhà $3$: tương tự Dũng nuôi mèo; hàng xóm là nhà $2$ (chó) và nhà $4$ (thỏ) -- trái với (5). \textbf{Loại.}
-  \item Dũng ở nhà $1$ (nuôi cá): hàng xóm duy nhất là nhà $2$, nên nhà $2$ nuôi mèo, nhà $3$ nuôi chó. \textbf{Được.}
+  \item David ở nhà $3$: tương tự David nuôi mèo; hàng xóm là nhà $2$ (chó) và nhà $4$ (thỏ) -- trái với (5). \textbf{Loại.}
+  \item David ở nhà $1$ (nuôi cá): hàng xóm duy nhất là nhà $2$, nên nhà $2$ nuôi mèo, nhà $3$ nuôi chó. \textbf{Được.}
 \end{itemize}
 \step{5}{Hoàn thành bảng}
-Nhà $3$ nuôi chó nên Bình ở nhà $3$; người còn lại là Cúc, ở nhà $2$.
+Nhà $3$ nuôi chó nên Ben ở nhà $3$; người còn lại là Chloe, ở nhà $2$.
 \begin{center}\small
 \begin{tabular}{|l|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} & Nhà 1 & Nhà 2 & Nhà 3 & Nhà 4\\ \hline
 Màu & vàng & trắng & xanh & đỏ\\ \hline
-Người & Dũng & Cúc & Bình & An\\ \hline
+Người & David & Chloe & Ben & Anna\\ \hline
 Con vật & cá & mèo & chó & thỏ\\ \hline
 \end{tabular}
 \end{center}
 \begin{tipbox}Mỗi khi có gợi ý dạng ``ở ngay cạnh'', hãy thử từng vị trí và loại dần -- thường chỉ còn lại một khả năng.\end{tipbox}
-\verify{Kiểm tra lần lượt: (1) An -- nhà đỏ \checkmark; (2) xanh (nhà 3) ngay phải trắng (nhà 2) \checkmark; (3) Bình -- chó
-\checkmark; (4) nhà 1 -- cá \checkmark; (5) Dũng (nhà 1) cạnh nhà 2 nuôi mèo \checkmark; (6) nhà 2 trắng \checkmark; (7) An -- thỏ
+\verify{Kiểm tra lần lượt: (1) Anna -- nhà đỏ \checkmark; (2) xanh (nhà 3) ngay phải trắng (nhà 2) \checkmark; (3) Ben -- chó
+\checkmark; (4) nhà 1 -- cá \checkmark; (5) David (nhà 1) cạnh nhà 2 nuôi mèo \checkmark; (6) nhà 2 trắng \checkmark; (7) Anna -- thỏ
 \checkmark. Máy tính thử đủ $24^3 = 13\,824$ cách sắp xếp cũng chỉ thấy lời giải này.}
-\ans{Cúc nuôi mèo; nhà màu vàng là nhà của Dũng}
+\ans{Chloe nuôi mèo; nhà màu vàng là nhà của David}
 }
 
 % ---------------------------------------------------------------- Bài 49
 \begin{probbox}{49}{\stars{1}}
 \textbf{Đồng hồ và lịch.}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-  \item Ngày $1/1/2026$ là thứ Năm. Hỏi ngày Quốc khánh $2/9/2026$ là thứ mấy? Ngày $1/1/2027$ là thứ mấy?
+  \item Ngày $1/1/2026$ là thứ Năm. Hỏi ngày $2/9/2026$ là thứ mấy? Ngày $1/1/2027$ là thứ mấy?
   \item Lúc $3$ giờ $40$ phút, kim giờ và kim phút tạo thành góc bao nhiêu độ (góc không vượt quá $180^\circ$)?
   \item Sau $3$ giờ đúng, bao nhiêu phút nữa thì kim phút đuổi kịp kim giờ lần đầu tiên?
   \item \stars{1} Chứng minh rằng năm nào cũng có ít nhất một ngày thứ Sáu là ngày $13$.
@@ -527,9 +529,9 @@ Kim giờ quay $30^\circ$ mỗi giờ, tức $0{,}5^\circ$ mỗi phút: lúc $3$
 Góc giữa hai kim: $240 - 110 = 130^\circ$.
 \begin{figC}
 \draw[Ink,line width=1pt] (0,0) circle (1.3);
-\foreach \h in {1,...,12}{\draw[Ink] ({90-30*\h}:1.15)--({90-30*\h}:1.3); \node[font=\tiny] at ({90-30*\h}:0.95){\h};}
-\draw[tmBlue,line width=1.6pt,->] (0,0)--({90-110}:0.6);
-\draw[tmOrange,line width=1.2pt,->] (0,0)--({90-240}:1.05);
+\foreach \h in {1,...,12}{\draw[Ink] ({90-30*\h}:1.15)--({90-30*\h}:1.3); \node[font=\tiny] at ({90-30*\h}:1.0){\h};}
+\draw[tmBlue,line width=1.6pt,->] (0,0)--({90-110}:0.55);
+\draw[tmOrange,line width=1.2pt,->] (0,0)--({90-240}:0.8);
 \draw[AnsRed,line width=0.7pt] ({90-110}:0.35) arc ({90-110}:{90-240}:0.35);
 \node[font=\scriptsize,text=AnsRed] at ({90-175}:0.55){$130^\circ$};
 \end{figC}

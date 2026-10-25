@@ -1,83 +1,81 @@
 % =====================================================================
 % Chapter 5 — Logic and Puzzles — part b: problems 14–30 (new problems, core level)
 % =====================================================================
-% pomelo (Problem 22) and a weight labelled with its mass
-\providecommand{\lgaPomelo}{\tikz[baseline=0pt]{\draw[fill=StarGold!70!tmGreen,draw=tmGreen!45!black,line width=0.5pt] (0.26,0.26) circle (0.26);
-  \draw[tmGreen!50!black,line width=0.8pt] (0.26,0.5)--(0.3,0.6);}}
+% a weight labelled with its mass (Problem 22)
 \providecommand{\lgaWeight}[1]{\tikz[baseline=(lgaw.south)]{\node[trapezium,trapezium angle=72,draw=Slate,fill=Slate!25,line width=0.6pt,
   rounded corners=1.5pt,inner xsep=1pt,inner ysep=2.5pt,font=\scriptsize\bfseries] (lgaw) {#1};}}
 
 % ---------------------------------------------------------------- Problem 14
 \begin{probbox}{14}{\relax}
-On an island, every person either always tells the truth or always lies. You meet two people, Ánh and Bảo. Ánh says:
+On an island, every person either always tells the truth or always lies. You meet two people, Alice and Ben. Alice says:
 ``We are both liars.'' Which of the following is correct?
-\choicesL{Both tell the truth.}{Both are liars.}{Ánh tells the truth, Bảo lies.}{Ánh lies, Bảo tells the truth.}{It cannot be determined.}
+\choicesL{Both tell the truth.}{Both are liars.}{Alice tells the truth, Ben lies.}{Alice lies, Ben tells the truth.}{It cannot be determined.}
 \end{probbox}
 \probsol{
-\textbf{Analysing the problem.} There is only one statement, Ánh's. We consider two cases, Ánh truthful or Ánh lying, and see which case
+\textbf{Analysing the problem.} There is only one statement, Alice's. We consider two cases, Alice truthful or Alice lying, and see which case
 gives no contradiction.
 \begin{recallbox}A truth-teller only says true things; a liar only says false things. The negation of ``both are liars'' is
 ``at least one of them tells the truth''.\end{recallbox}
-\step{1}{Case: Ánh tells the truth}
-Then Ánh's statement is true: both are liars -- so Ánh is a liar too. But we assumed Ánh tells the truth. \textbf{Contradiction}, ruled out.
-\step{2}{Case: Ánh lies}
-Then Ánh's statement is false: it is \emph{not} the case that both are liars, so at least one of them tells the truth. Ánh lies, so the
-truth-teller must be \textbf{Bảo}. No contradiction.
+\step{1}{Case: Alice tells the truth}
+Then Alice's statement is true: both are liars -- so Alice is a liar too. But we assumed Alice tells the truth. \textbf{Contradiction}, ruled out.
+\step{2}{Case: Alice lies}
+Then Alice's statement is false: it is \emph{not} the case that both are liars, so at least one of them tells the truth. Alice lies, so the
+truth-teller must be \textbf{Ben}. No contradiction.
 \step{3}{Conclusion}
-Ánh lies, Bảo tells the truth.
-\begin{proofbox}This is a version of ``I am a liar'': a truth-teller never calls himself a liar. So as soon as we hear Ánh say ``we are both
-liars'' (which includes Ánh), we know Ánh must be a liar.\end{proofbox}
-\begin{warnbox}Many students choose (B), thinking ``Ánh lies, so the opposite is true: both tell the truth''. Wrong! The opposite of ``both
+Alice lies, Ben tells the truth.
+\begin{proofbox}This is a version of ``I am a liar'': a truth-teller never calls himself a liar. So as soon as we hear Alice say ``we are both
+liars'' (which includes Alice), we know Alice must be a liar.\end{proofbox}
+\begin{warnbox}Many students choose (B), thinking ``Alice lies, so the opposite is true: both tell the truth''. Wrong! The opposite of ``both
 are liars'' is only ``at least one tells the truth''.\end{warnbox}
-\verify{Ánh lies, Bảo is truthful: the statement ``we are both liars'' is false (because Bảo tells the truth) -- indeed a lie, which fits Ánh.}
+\verify{Alice lies, Ben is truthful: the statement ``we are both liars'' is false (because Ben tells the truth) -- indeed a lie, which fits Alice.}
 So the answer is \textbf{(D)}.
-\ans{(D) Ánh lies, Bảo tells the truth}
+\ans{(D) Alice lies, Ben tells the truth}
 }
 
 % ---------------------------------------------------------------- Problem 15
 \begin{probbox}{15}{\relax}
-A vase has been broken. Exactly one of the four friends Dũng, Hà, Long and Mai broke it. When asked, they answer:
+A vase has been broken. Exactly one of the four friends David, Helen, Leo and Mia broke it. When asked, they answer:
 \begin{itemize}[leftmargin=1.6em,itemsep=0pt,topsep=2pt]
-\item Dũng: ``Hà broke it.'' \qquad Hà: ``Long broke it.''
-\item Long: ``Hà is lying.'' \qquad Mai: ``I did not break it.''
+\item David: ``Helen broke it.'' \qquad Helen: ``Leo broke it.''
+\item Leo: ``Helen is lying.'' \qquad Mia: ``I did not break it.''
 \end{itemize}
 We know that \textbf{exactly one} of them is telling the truth. Who broke the vase?
-\choices{Dũng}{Hà}{Long}{Mai}{Cannot tell}
+\choices{David}{Helen}{Leo}{Mia}{Cannot tell}
 \end{probbox}
 \probsol{
 \textbf{Analysing the problem.} Four statements, exactly one true, three false. We must find who broke the vase.
 \begin{recallbox}For two contradictory statements (they cannot both be true and cannot both be false), exactly one of them is true.\end{recallbox}
 \step{1}{Find a contradictory pair}
-Long says ``Hà is lying''. If Hà's statement is true, Long's is false; if Hà's statement is false, Long's is true. So among the statements of
-Hà and Long, \textbf{exactly one} is true.
-\step{2}{So Dũng and Mai are both lying}
-The whole group has only one true statement, and it lies in the pair Hà -- Long. Therefore the statements of Dũng and Mai are both \textbf{false}.
-\step{3}{Use Mai's false statement}
-Mai's ``I did not break it'' is false, so \textbf{Mai broke the vase}.
+Leo says ``Helen is lying''. If Helen's statement is true, Leo's is false; if Helen's statement is false, Leo's is true. So among the statements of
+Helen and Leo, \textbf{exactly one} is true.
+\step{2}{So David and Mia are both lying}
+The whole group has only one true statement, and it lies in the pair Helen -- Leo. Therefore the statements of David and Mia are both \textbf{false}.
+\step{3}{Use Mia's false statement}
+Mia's ``I did not break it'' is false, so \textbf{Mia broke the vase}.
 \step{4}{Check everything}
 \begin{center}
 \begin{tabular}{|l|l|c|}
 \hline
-\rowcolor{tmBlue!10} Friend & Statement & True / false (if Mai broke it) \\ \hline
-Dũng & ``Hà broke it'' & false \\ \hline
-Hà & ``Long broke it'' & false \\ \hline
-Long & ``Hà is lying'' & \textbf{true} (Hà indeed said something false) \\ \hline
-Mai & ``I did not'' & false \\ \hline
+\rowcolor{tmBlue!10} Friend & Statement & True / false (if Mia broke it) \\ \hline
+David & ``Helen broke it'' & false \\ \hline
+Helen & ``Leo broke it'' & false \\ \hline
+Leo & ``Helen is lying'' & \textbf{true} (Helen indeed said something false) \\ \hline
+Mia & ``I did not'' & false \\ \hline
 \end{tabular}
 \end{center}
-Exactly one true statement (Long's). This matches the problem.
-\begin{warnbox}Do not test people at random and stop as soon as something ``looks fine''. The sure way is to test all $4$ possibilities: if Dũng
-broke it, Long's and Mai's statements are both true ($2$ true statements); if Hà broke it, Dũng's and Mai's are true; if Long broke it, Hà's
-and Mai's are true. Only ``Mai broke it'' gives exactly one true statement.\end{warnbox}
+Exactly one true statement (Leo's). This matches the problem.
+\begin{warnbox}Do not test people at random and stop as soon as something ``looks fine''. The sure way is to test all $4$ possibilities: if David
+broke it, Leo's and Mia's statements are both true ($2$ true statements); if Helen broke it, David's, Leo's and Mia's are all true; if Leo broke it, Helen's
+and Mia's are true. Only ``Mia broke it'' gives exactly one true statement.\end{warnbox}
 So the answer is \textbf{(D)}.
-\ans{(D) Mai}
+\ans{(D) Mia}
 }
 
 % ---------------------------------------------------------------- Problem 16
 \begin{probbox}{16}{\relax}
-Khánh encrypts a greeting with a Caesar cipher with shift $5$ (each letter is replaced by the letter $5$ places after it on the circle of
-letters A--Z, where A follows Z). He gets: \textbf{CNS HMFT}. The original greeting is
-\choicesII{XIN CHAO}{HSX MRKY}{YJO DIBP}{XIN CHAP}{WHM BGZN}
+Kate encrypts a short wish with a Caesar cipher with shift $5$ (each letter is replaced by the letter $5$ places after it on the circle
+of letters A--Z, where A follows Z). She gets: \textbf{MFAJ KZS}. The original wish is
+\choicesII{HAVE FUN}{RKFO PEX}{IBWF GVO}{HAVE FUM}{GZUD ETM}
 \end{probbox}
 \probsol{
 \textbf{Analysing the problem.} We have the ciphertext and know the shift is $5$. To find the original we must \emph{decrypt}: shift
@@ -88,26 +86,26 @@ letters A--Z, where A follows Z). He gets: \textbf{CNS HMFT}. The original greet
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Cipher letter & C & N & S & H & M & F & T \\ \hline
-Number & $2$ & $13$ & $18$ & $7$ & $12$ & $5$ & $19$ \\ \hline
-Subtract $5$ & $-3 \to 23$ & $8$ & $13$ & $2$ & $7$ & $0$ & $14$ \\ \hline
-Original & \textbf{X} & \textbf{I} & \textbf{N} & \textbf{C} & \textbf{H} & \textbf{A} & \textbf{O} \\ \hline
+\rowcolor{tmBlue!10} Cipher letter & M & F & A & J & K & Z & S \\ \hline
+Number & $12$ & $5$ & $0$ & $9$ & $10$ & $25$ & $18$ \\ \hline
+Subtract $5$ & $7$ & $0$ & $-5 \to 21$ & $4$ & $5$ & $20$ & $13$ \\ \hline
+Original & \textbf{H} & \textbf{A} & \textbf{V} & \textbf{E} & \textbf{F} & \textbf{U} & \textbf{N} \\ \hline
 \end{tabular}
 \end{center}
-The letter C has to ``wrap around'': C $\to$ B $\to$ A $\to$ Z $\to$ Y $\to$ X (going back $5$ steps), which is exactly $-3 + 26 = 23 =$ X.
+The letter A has to ``wrap around'': A $\to$ Z $\to$ Y $\to$ X $\to$ W $\to$ V (going back $5$ steps), which is exactly $-5 + 26 = 21 =$ V.
 \step{2}{Read the result}
-The greeting is XIN CHAO (Vietnamese for ``hello'').
-\begin{warnbox}(B) HSX MRKY is what you get by shifting \emph{forwards} another $5$ -- encrypting once more instead of decrypting. (C) and (E)
-are shifts back by $4$ and by $6$ (miscounting). (D) is wrong in the last letter: T shifted back $5$ is O, not P.\end{warnbox}
-\verify{Encrypt XIN CHAO with shift $5$: X$(23) + 5 = 28 - 26 = 2 =$ C, I $\to$ N, N $\to$ S, C $\to$ H, H $\to$ M, A $\to$ F, O $\to$ T.
-We get CNS HMFT.}
+The wish is HAVE FUN.
+\begin{warnbox}(B) RKFO PEX is what you get by shifting \emph{forwards} another $5$ -- encrypting once more instead of decrypting. (C) and (E)
+are shifts back by $4$ and by $6$ (miscounting). (D) is wrong in the last letter: S shifted back $5$ is N, not M.\end{warnbox}
+\verify{Encrypt HAVE FUN with shift $5$: H $\to$ M, A $\to$ F, V$(21) + 5 = 26 - 26 = 0 =$ A, E $\to$ J, F $\to$ K, U $\to$ Z, N $\to$ S.
+We get MFAJ KZS.}
 So the answer is \textbf{(A)}.
-\ans{(A) XIN CHAO}
+\ans{(A) HAVE FUN}
 }
 
 % ---------------------------------------------------------------- Problem 17
 \begin{probbox}{17}{\relax}
-Ngân encrypts the letter M with a Caesar cipher three times in a row: first with shift $9$, then with shift $11$ (applied to the result of
+Nora encrypts the letter M with a Caesar cipher three times in a row: first with shift $9$, then with shift $11$ (applied to the result of
 the first step), and finally with shift $9$ again. After the three steps, which letter has M become?
 \choices{V}{G}{J}{P}{O}
 \end{probbox}
@@ -136,9 +134,9 @@ So the answer is \textbf{(D)}.
 
 % ---------------------------------------------------------------- Problem 18
 \begin{probbox}{18}{\relax}
-Five friends, Nga, Oanh, Phương, Quỳnh and Sơn, all have different heights. Nga is taller than Oanh. Phương is shorter than Quỳnh but
-taller than Nga. Sơn is shorter than Oanh. When the five friends line up by height, who stands \emph{exactly in the middle}?
-\choices{Nga}{Oanh}{Phương}{Quỳnh}{Sơn}
+Five friends, Nina, Olivia, Peter, Quinn and Sam, all have different heights. Nina is taller than Olivia. Peter is shorter than Quinn but
+taller than Nina. Sam is shorter than Olivia. When the five friends line up by height, who stands \emph{exactly in the middle}?
+\choices{Nina}{Olivia}{Peter}{Quinn}{Sam}
 \end{probbox}
 \probsol{
 \textbf{Analysing the problem.} There are five friends; ``in the middle'' is the third tallest (two taller and two shorter).
@@ -147,45 +145,44 @@ $N > O$; \quad $Q > P > N$; \quad $O > S$.
 \step{2}{Chain them}
 $Q > P > N$ and $N > O > S$ give: \quad $Q > P > N > O > S$.
 \begin{figC}
-  \foreach \i/\n/\h in {0/Quỳnh/2.2,1/Phương/1.9,2/Nga/1.6,3/Oanh/1.3,4/Sơn/1.0}{
-    \fill[tmBlue!25,draw=tmBlue,line width=0.7pt,rounded corners=2pt] (\i*1.3,0) rectangle (\i*1.3+0.8,\h);
-    \node[font=\scriptsize] at (\i*1.3+0.4,-0.25){\n};}
-  \draw[AnsRed,line width=1.2pt,rounded corners=3pt] (2*1.3-0.12,-0.5) rectangle (2*1.3+0.92,1.75);
-  \draw[Navy,line width=0.8pt] (-0.2,0)--(6.2,0);
+  \draw[->,Navy,line width=0.8pt] (0,-0.3)--(0,2.8) node[above,font=\scriptsize,text=Slate]{taller};
+  \foreach \y/\n in {2.4/Quinn,1.8/Peter,1.2/Nina,0.6/Olivia,0/Sam}{
+    \fill[tmBlue] (0,\y) circle (2.2pt); \node[right,font=\small] at (0.15,\y){\n};}
+  \node[anchor=west,font=\small\bfseries,text=AnsRed] at (1.45,1.2){$\leftarrow$ in the middle (3rd)};
 \end{figC}
 \step{3}{Read off the result}
-From tallest to shortest: Quỳnh, Phương, \textbf{Nga}, Oanh, Sơn. The person in the middle is Nga.
-\begin{warnbox}``Phương is shorter than Quỳnh but taller than Nga'' contains \emph{two} facts. Many students write only $Q > P$ and forget
+From tallest to shortest: Quinn, Peter, \textbf{Nina}, Olivia, Sam. The person in the middle is Nina.
+\begin{warnbox}``Peter is shorter than Quinn but taller than Nina'' contains \emph{two} facts. Many students write only $Q > P$ and forget
 $P > N$; then the chain cannot be completed.\end{warnbox}
-\verify{Nga (3rd) is taller than Oanh (4th) \checkmark; Phương (2nd) is shorter than Quỳnh and taller than Nga \checkmark; Sơn (5th) is shorter than Oanh \checkmark.}
+\verify{Nina (3rd) is taller than Olivia (4th) \checkmark; Peter (2nd) is shorter than Quinn and taller than Nina \checkmark; Sam (5th) is shorter than Olivia \checkmark.}
 So the answer is \textbf{(A)}.
-\ans{(A) Nga}
+\ans{(A) Nina}
 }
 
 % ---------------------------------------------------------------- Problem 19
 \begin{probbox}{19}{\relax}
-In a queue for tickets, Huy is $7$th from the front and $12$th from the back. How many people are in the queue?
+In a queue for tickets, Henry is $7$th from the front and $12$th from the back. How many people are in the queue?
 \choices{$17$}{$18$}{$19$}{$20$}{$5$}
 \end{probbox}
 \probsol{
-\textbf{Analysing the problem.} We know Huy's position counted from both ends. We must find the total number of people in the queue.
+\textbf{Analysing the problem.} We know Henry's position counted from both ends. We must find the total number of people in the queue.
 \step{1}{Draw a diagram}
 \begin{figC}
   \foreach \i in {1,...,18}{\fill[tmBlue!60] (\i*0.5,0) circle (0.15);}
   \fill[AnsRed] (3.5,0) circle (0.17);
-  \node[font=\scriptsize,text=AnsRed] at (3.5,0.4){Huy};
-  \draw[decorate,decoration={brace,amplitude=4pt,mirror},tmGreen!60!black,line width=0.8pt] (0.35,-0.3)--(3.65,-0.3) node[midway,below=4pt,font=\scriptsize]{$7$ people (including Huy)};
-  \draw[decorate,decoration={brace,amplitude=4pt},tmOrange!80!black,line width=0.8pt] (3.35,0.75)--(9.15,0.75) node[midway,above=4pt,font=\scriptsize]{$12$ people (including Huy)};
+  \node[font=\scriptsize,text=AnsRed] at (3.5,0.4){Henry};
+  \draw[decorate,decoration={brace,amplitude=4pt,mirror},tmGreen!60!black,line width=0.8pt] (0.35,-0.3)--(3.65,-0.3) node[midway,below=4pt,font=\scriptsize]{$7$ people (including Henry)};
+  \draw[decorate,decoration={brace,amplitude=4pt},tmOrange!80!black,line width=0.8pt] (3.35,0.75)--(9.15,0.75) node[midway,above=4pt,font=\scriptsize]{$12$ people (including Henry)};
   \node[font=\scriptsize,text=Slate] at (0.5,0.4){front}; \node[font=\scriptsize,text=Slate] at (9,0.4){back};
 \end{figC}
 \step{2}{Count}
-Counting from the front to Huy: $7$ people. Counting from Huy to the back: $12$ people. Adding gives $7 + 12 = 19$, but Huy has been counted
+Counting from the front to Henry: $7$ people. Counting from Henry to the back: $12$ people. Adding gives $7 + 12 = 19$, but Henry has been counted
 \textbf{twice}. So the queue has $19 - 1 = 18$ people.
 \begin{recallbox}Being $k$-th from the front and $m$-th from the back means the line has $k + m - 1$ people.\end{recallbox}
 \step{3}{Another way}
-In front of Huy there are $7 - 1 = 6$ people, behind him $12 - 1 = 11$ people. The whole queue: $6 + 1 + 11 = 18$ people.
-\begin{warnbox}Option (C) $19 = 7 + 12$ counts Huy twice; option (E) $5 = 12 - 7$ takes the difference -- which means nothing here.\end{warnbox}
-\verify{In a queue of $18$ people, if Huy is $7$th from the front, then from the back he is $18 - 7 + 1 = 12$th. Correct.}
+In front of Henry there are $7 - 1 = 6$ people, behind him $12 - 1 = 11$ people. The whole queue: $6 + 1 + 11 = 18$ people.
+\begin{warnbox}Option (C) $19 = 7 + 12$ counts Henry twice; option (E) $5 = 12 - 7$ takes the difference -- which means nothing here.\end{warnbox}
+\verify{In a queue of $18$ people, if Henry is $7$th from the front, then from the back he is $18 - 7 + 1 = 12$th. Correct.}
 So the answer is \textbf{(B)}.
 \ans{(B) $18$}
 }
@@ -256,27 +253,29 @@ So the answer is \textbf{(C)}.
 
 % ---------------------------------------------------------------- Problem 22
 \begin{probbox}{22}{\relax}
-Both scales below are balanced. The apples all have the same mass.
+Both scales below are balanced. The circles all have the same mass.
 \begin{center}
-\lgaScale{\lgaApple\,\lgaApple\,\lgaApple}{\lgaPomelo}\hspace{1cm}\lgaScale{\lgaPomelo\,\lgaApple}{\lgaWeight{800 g}}
+\lgaScale{\lgaCir\,\lgaCir\,\lgaCir}{\lgaSq}\hspace{1cm}\lgaScale{\lgaSq\,\lgaCir}{\lgaWeight{800 g}}
 \end{center}
-How many grams does the pomelo \lgaPomelo\ weigh?
+How many grams does the square \lgaSq\ weigh?
 \end{probbox}
 \probsol{
-\textbf{Analysing the problem.} Let the mass of one apple be $T$ (grams) and of the pomelo $B$ (grams). Scale 1: $3T = B$. Scale 2: $B + T = 800$.
-\begin{recallbox}If a group of objects $A$ balances a group $B$, then on another scale we may replace $A$ by $B$.\end{recallbox}
-\step{1}{Replace the pomelo on scale 2 by $3$ apples}
-Scale 1 tells us the pomelo weighs as much as $3$ apples. On scale 2, replace the pomelo by $3$ apples: \ $3T + T = 800$, i.e.\ $4T = 800$.
-\begin{figC}
-  \node at (0,0){\lgaScale{\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple}{\lgaWeight{800 g}}};
-\end{figC}
-\step{2}{Mass of one apple}
-$T = 800 \div 4 = 200$ (g).
-\step{3}{Mass of the pomelo}
-$B = 3T = 3\times 200 = 600$ (g).
-\begin{warnbox}The question asks for the mass of the \emph{pomelo}, not the apple. Stopping at $200$ g answers the wrong question.\end{warnbox}
-\verify{Scale 1: $3\times 200 = 600$ g $=$ the pomelo \checkmark. Scale 2: $600 + 200 = 800$ g \checkmark.}
-\ans{The pomelo weighs $600$ g.}
+\textbf{Analysing the problem.} There are two unknown quantities: the mass of one circle and the mass of the square. The two scales give
+two equalities.
+\begin{recallbox}If a group of objects $A$ balances a group $B$, then on another scale we may replace $A$ by $B$ (substitution).\end{recallbox}
+\step{1}{Choose the unknown}
+Let the mass of one circle be $x$ grams, $x > 0$. The first scale tells us that the square weighs as much as three circles, so the square
+weighs $3x$ grams.
+\step{2}{Form an equation from the second scale}
+The left pan holds the square and one circle: $3x + x$ grams; the right pan holds the $800$ g weight. So
+\[ 3x + x = 800, \qquad\text{that is,}\qquad 4x = 800. \]
+\step{3}{Solve the equation}
+$x = 800 \div 4 = 200$. One circle weighs $200$ g.
+\step{4}{Answer the question}
+The square weighs $3x = 3\cdot 200 = 600$ g.
+\begin{warnbox}The question asks for the mass of the \emph{square}, not the circle. Stopping at $x = 200$ answers the wrong question.\end{warnbox}
+\verify{Scale 1: $3\cdot 200 = 600$ g, the mass of the square \checkmark. Scale 2: $600 + 200 = 800$ g \checkmark.}
+\ans{The square weighs $600$ g.}
 }
 
 % ---------------------------------------------------------------- Problem 23
@@ -456,8 +455,8 @@ So the answer is \textbf{(D)}.
 
 % ---------------------------------------------------------------- Problem 28
 \begin{probbox}{28}{\relax}
-In class 7A, \emph{all} members of the chess club can swim. Lâm cannot swim. Na can swim. Which of the following statements \textbf{must} be true?
-\choicesL{Lâm is in the chess club.}{Lâm is not in the chess club.}{Na is in the chess club.}{Na is not in the chess club.}{Everyone in the class who can swim is in the chess club.}
+In class 7A, \emph{all} members of the chess club can swim. Leo cannot swim. Nora can swim. Which of the following statements \textbf{must} be true?
+\choicesL{Leo is in the chess club.}{Leo is not in the chess club.}{Nora is in the chess club.}{Nora is not in the chess club.}{Everyone in the class who can swim is in the chess club.}
 \end{probbox}
 \probsol{
 \textbf{Analysing the problem.} ``All members of the chess club can swim'' has the form ``every A is a B'' (A: in the chess club, B: can swim).
@@ -468,22 +467,22 @@ In class 7A, \emph{all} members of the chess club can swim. Lâm cannot swim. Na
   \draw[tmOrange,line width=1pt,fill=tmOrange!15] (0.45,1.0) ellipse (0.85 and 0.62);
   \node[font=\scriptsize,text=tmOrange!70!black] at (0.45,1.05){chess club};
   \node[font=\scriptsize,text=tmBlue!80!black] at (2.0,1.95){can swim};
-  \fill[tmGreen!60!black] (2.0,0.75) circle (2.2pt) node[below,font=\scriptsize]{Na?};
-  \fill[tmGreen!60!black] (0.5,0.7) circle (2.2pt) node[below,font=\scriptsize]{Na?};
-  \fill[AnsRed] (3.6,1.1) circle (2.2pt) node[right,font=\scriptsize]{Lâm};
+  \fill[tmGreen!60!black] (2.0,0.75) circle (2.2pt) node[below,font=\scriptsize]{Nora?};
+  \fill[tmGreen!60!black] (0.5,0.7) circle (2.2pt) node[below,font=\scriptsize]{Nora?};
+  \fill[AnsRed] (3.6,1.1) circle (2.2pt) node[right,font=\scriptsize]{Leo};
 \end{figC}
 The ``chess club'' oval lies entirely inside the ``can swim'' oval.
-\step{2}{Lâm}
-Lâm cannot swim, so Lâm is \emph{outside} the big oval, and therefore certainly outside the small one: \textbf{Lâm is not in the chess club}.
-If Lâm were in the club, Lâm would have to be able to swim -- contradicting the problem (proof by contradiction).
-\step{3}{Na}
-Na can swim: Na is inside the big oval, but may be inside or outside the small one. So (C) and (D) are each only \emph{possibly} true, not certain.
+\step{2}{Leo}
+Leo cannot swim, so Leo is \emph{outside} the big oval, and therefore certainly outside the small one: \textbf{Leo is not in the chess club}.
+If Leo were in the club, Leo would have to be able to swim -- contradicting the problem (proof by contradiction).
+\step{3}{Nora}
+Nora can swim: Nora is inside the big oval, but may be inside or outside the small one. So (C) and (D) are each only \emph{possibly} true, not certain.
 \step{4}{Statement (E)}
 (E) reverses the given statement. The problem says nothing about pupils who can swim but do not play chess, so (E) is not certainly true.
 \begin{warnbox}A very common mistake: from ``chess players can all swim'' concluding ``swimmers all play chess''. Think of an example: ``every cat
 has four legs'' does not mean ``every four-legged animal is a cat''!\end{warnbox}
 So the answer is \textbf{(B)}.
-\ans{(B) Lâm is not in the chess club}
+\ans{(B) Leo is not in the chess club}
 }
 
 % ---------------------------------------------------------------- Problem 29
@@ -522,40 +521,40 @@ So the answer is \textbf{(C)}.
 
 % ---------------------------------------------------------------- Problem 30
 \begin{probbox}{30}{\relax}
-Four friends, An, Bách, Cúc and Dung, run a race; no two finish at the same time. Three spectators make predictions:
+Four friends, Amy, Ben, Chloe and David, run a race; no two finish at the same time. Three spectators make predictions:
 \begin{itemize}[leftmargin=1.6em,itemsep=0pt,topsep=2pt]
-\item Hiếu: ``An comes first, Bách comes second.''
-\item Khoa: ``Cúc comes first, Dung comes fourth.''
-\item Lan: ``Bách comes third, Dung comes second.''
+\item Henry: ``Amy comes first, Ben comes second.''
+\item Kate: ``Chloe comes first, David comes fourth.''
+\item Lucy: ``Ben comes third, David comes second.''
 \end{itemize}
 In the end, each spectator got \emph{exactly one} part right. Find the finishing order of the four friends.
 \end{probbox}
 \probsol{
-\textbf{Analysing the problem.} Each prediction has two parts, exactly one of them right. We split into cases using Hiếu's prediction.
+\textbf{Analysing the problem.} Each prediction has two parts, exactly one of them right. We split into cases using Henry's prediction.
 \begin{recallbox}``Half-true'' statement: if one part is true the other is false, and if one part is false the other is true.\end{recallbox}
-\step{1}{Case 1: ``Bách second'' is true (and ``An first'' is false)}
-Look at Lan's prediction. Bách is second, so ``Bách third'' is false; hence the other part ``Dung second'' must be true. But Bách is already
-second, so Dung cannot be second too. \textbf{Contradiction} -- this case is ruled out.
-\step{2}{Case 2: ``An first'' is true (and ``Bách second'' is false)}
+\step{1}{Case 1: ``Ben second'' is true (and ``Amy first'' is false)}
+Look at Lucy's prediction. Ben is second, so ``Ben third'' is false; hence the other part ``David second'' must be true. But Ben is already
+second, so David cannot be second too. \textbf{Contradiction} -- this case is ruled out.
+\step{2}{Case 2: ``Amy first'' is true (and ``Ben second'' is false)}
 \begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
-\item Khoa: An is first, so ``Cúc first'' is false $\Rightarrow$ ``Dung fourth'' is true.
-\item Lan: Dung is fourth, so ``Dung second'' is false $\Rightarrow$ ``Bách third'' is true.
-\item Second place is left for Cúc.
+\item Kate: Amy is first, so ``Chloe first'' is false $\Rightarrow$ ``David fourth'' is true.
+\item Lucy: David is fourth, so ``David second'' is false $\Rightarrow$ ``Ben third'' is true.
+\item Second place is left for Chloe.
 \end{itemize}
-Order: An (1st), Cúc (2nd), Bách (3rd), Dung (4th).
+Order: Amy (1st), Chloe (2nd), Ben (3rd), David (4th).
 \step{3}{Check}
 \begin{center}
 \begin{tabular}{|l|c|c|}
 \hline
 \rowcolor{tmBlue!10} Spectator & First part & Second part \\ \hline
-Hiếu & An first: \textcolor{tmGreen!70!black}{true} & Bách second: \textcolor{AnsRed}{false} \\ \hline
-Khoa & Cúc first: \textcolor{AnsRed}{false} & Dung fourth: \textcolor{tmGreen!70!black}{true} \\ \hline
-Lan & Bách third: \textcolor{tmGreen!70!black}{true} & Dung second: \textcolor{AnsRed}{false} \\ \hline
+Henry & Amy first: \textcolor{tmGreen!70!black}{true} & Ben second: \textcolor{AnsRed}{false} \\ \hline
+Kate & Chloe first: \textcolor{AnsRed}{false} & David fourth: \textcolor{tmGreen!70!black}{true} \\ \hline
+Lucy & Ben third: \textcolor{tmGreen!70!black}{true} & David second: \textcolor{AnsRed}{false} \\ \hline
 \end{tabular}
 \end{center}
-\begin{tipbox}Choose the prediction to split on so that each case ``triggers'' as many other parts as possible. Here ``Bách second'' clashes
-immediately with Lan's ``Dung second'', so case 1 is ruled out very quickly.\end{tipbox}
+\begin{tipbox}Choose the prediction to split on so that each case ``triggers'' as many other parts as possible. Here ``Ben second'' clashes
+immediately with Lucy's ``David second'', so case 1 is ruled out very quickly.\end{tipbox}
 \begin{parentbox}You can use four slips of paper with the names, line them up as ``1st -- 2nd -- 3rd -- 4th'' and swap them around to test.
 Then ask your child: ``Have we tried every case? How can we be sure there is no other answer?'' -- the answer is Step 1.\end{parentbox}
-\ans{An 1st, Cúc 2nd, Bách 3rd, Dung 4th.}
+\ans{Amy 1st, Chloe 2nd, Ben 3rd, David 4th.}
 }

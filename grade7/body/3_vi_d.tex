@@ -1,7 +1,7 @@
 % ================= Topic 3 (VI) -- part d: problems 41--50 (nâng cao) =================
 \begin{probbox}{41}{\stars{1}}
-Trên một lưới điểm vuông, bạn Lan đứng ở điểm $A$. Lan tung một đồng xu cân đối $6$ lần; mỗi lần ra mặt sấp thì Lan đi
-\emph{lên} một điểm, ra mặt ngửa thì Lan đi \emph{sang phải} một điểm (như bài 16). Các điểm $M$, $N$, $B$ được đánh dấu
+Trên một lưới điểm vuông, bạn Ruby đứng ở điểm $A$. Ruby tung một đồng xu cân đối $6$ lần; mỗi lần ra mặt sấp thì Ruby đi
+\emph{lên} một điểm, ra mặt ngửa thì Ruby đi \emph{sang phải} một điểm (như bài 16). Các điểm $M$, $N$, $B$ được đánh dấu
 trên hình.
 \begin{figC}\begin{scope}[scale=0.85]
   \foreach \x in {0,...,3}{\foreach \y in {0,...,3}{\fill[Navy] (\x,\y) circle (2.4pt);}}
@@ -11,9 +11,9 @@ trên hình.
   \fill[tmPurple] (3,3) circle (3.4pt);\node[above right] at (3,3) {$B$};
 \end{scope}\end{figC}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-\item Tính xác suất để sau $6$ lần tung, Lan dừng ở điểm $B$.
-\item Tính xác suất để Lan đi qua điểm $M$ \emph{và} dừng ở $B$.
-\item Tính xác suất để Lan dừng ở $B$ mà \emph{không} đi qua điểm $N$.
+\item Tính xác suất để sau $6$ lần tung, Ruby dừng ở điểm $B$.
+\item Tính xác suất để Ruby đi qua điểm $M$ \emph{và} dừng ở $B$.
+\item Tính xác suất để Ruby dừng ở $B$ mà \emph{không} đi qua điểm $N$.
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -59,8 +59,8 @@ Ta xếp các lưới ô vuông bằng que tăm như ở bài 17. Một lưới 
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
 \item Lập công thức tính số que tăm cần dùng cho lưới $m\times n$.
 \item Một lưới hình vuông $k\times k$ dùng hết đúng $760$ que tăm. Tìm $k$.
-\item Bạn Nam có đúng $2026$ que tăm và muốn xếp một lưới $m\times n$ (với $1\le m\le n$) dùng \emph{hết} số que này.
-Tìm tất cả các lưới Nam có thể xếp.
+\item Bạn Sam có đúng $2026$ que tăm và muốn xếp một lưới $m\times n$ (với $1\le m\le n$) dùng \emph{hết} số que này.
+Tìm tất cả các lưới Sam có thể xếp.
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -219,7 +219,7 @@ Ba ngọn đèn nhấp nháy: đèn thứ nhất cứ $4$ giây nháy một lầ
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Đèn thứ nhất nháy ở các giây là bội của $4$; đèn thứ hai ở các bội của $6$; đèn thứ ba ở các bội của $10$
-(giống bài 20, nhưng ở đây là mọi bội, không chỉ bội lẻ). Ta đếm các bội trong khoảng từ $1$ đến $600$.
+(ý tưởng giống bài 20: các thời điểm ``trùng nhau được tìm bằng bội chung). Ta đếm các bội trong khoảng từ $1$ đến $600$.
 
 \step{1}{Đếm số lần mỗi đèn nháy}
 \begin{recallbox}Số bội của $d$ trong các số từ $1$ đến $N$ là phần nguyên của $N:d$ (thương trong phép chia có dư).\end{recallbox}
@@ -244,11 +244,9 @@ $40+20+10=70$.
 \step{4}{Câu c: vẽ sơ đồ Ven và điền số từ trong ra ngoài}
 Chỉ đèn 1: $150-40-20-10=80$; chỉ đèn 2: $100-40-10-10=40$; chỉ đèn 3: $60-20-10-10=20$.
 \begin{figC}
-  \fill[tmBlue,opacity=0.12] (0,0) circle (1.3);\fill[tmOrange,opacity=0.12] (1.6,0) circle (1.3);
-  \fill[tmGreen,opacity=0.12] (0.8,-1.3) circle (1.3);
   \draw[tmBlue,thick] (0,0) circle (1.3);\draw[tmOrange,thick] (1.6,0) circle (1.3);\draw[tmGreen!80!black,thick] (0.8,-1.3) circle (1.3);
-  \node[text=tmBlue] at (-0.9,1.25) {đèn 1};\node[text=tmOrange!80!black] at (2.6,1.25) {đèn 2};
-  \node[text=tmGreen!70!black] at (0.8,-2.85) {đèn 3};
+  \node[text=tmBlue,anchor=south east,inner sep=1pt] at (-0.95,0.95) {đèn 1};\node[text=tmOrange!80!black,anchor=south west,inner sep=1pt] at (2.55,0.95) {đèn 2};
+  \node[text=tmGreen!70!black,anchor=north,inner sep=2pt] at (0.8,-2.62) {đèn 3};
   \node at (-0.45,0.25) {$80$};\node at (2.05,0.25) {$40$};\node at (0.8,-1.95) {$20$};
   \node at (0.8,0.5) {$40$};\node at (0.05,-0.95) {$20$};\node at (1.55,-0.95) {$10$};
   \node[text=AnsRed,font=\bfseries\small] at (0.8,-0.45) {$10$};
@@ -271,8 +269,8 @@ coi là giống nhau nếu có thể xoay hình này để được hình kia (m
 \begin{figC}
   \begin{scope}
     \coordinate (A) at (0,0);\coordinate (B) at (2,0);\coordinate (C) at (2.7,0.6);\coordinate (D) at (0.7,0.6);\coordinate (S) at (1.35,2.1);
-    \draw[Ink,thick,dashed] (A)--(D)--(C);\draw[Ink,thick,dashed] (D)--(S);
     \fill[tmBlue!30] (A)--(B)--(S)--cycle;\fill[tmOrange!35] (B)--(C)--(S)--cycle;
+    \draw[Ink,thick,dashed] (A)--(D)--(C);\draw[Ink,thick,dashed] (D)--(S);
     \draw[Ink,thick] (A)--(B)--(C)--(S)--cycle;\draw[Ink,thick] (B)--(S);
     \node[font=\scriptsize] at (1.35,-0.3) {hình chóp tứ giác};
   \end{scope}
@@ -387,7 +385,7 @@ Với một số có hai chữ số $n=\nd{ab}$, gọi $\nd{ba}$ là \emph{số 
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
 \item Tìm tất cả các số có hai chữ số $n$ sao cho $n$ cộng với số đảo của nó là một số chính phương.
 \item Tìm tất cả các số có hai chữ số, cả hai chữ số đều khác $0$, sao cho $n$ trừ số đảo của nó là một số chính phương dương.
-\item Chứng minh rằng mọi số có bốn chữ số dạng $\nd{abba}$ (số đối xứng) đều chia hết cho $11$.
+\item Với số có ba chữ số $\nd{abc}$ ($a\ne0$, $c\ne0$), chứng minh rằng hiệu $\nd{abc}-\nd{cba}$ luôn chia hết cho $99$.
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -416,11 +414,12 @@ Do $1\le b<a\le9$ nên $1\le a-b\le8$; các số chính phương trong khoảng 
 Tất cả có $13$ số.
 
 \step{3}{Câu c: tách theo hàng}
-\[\nd{abba}=1000a+100b+10b+a=1001a+110b=11\times91\times a+11\times10\times b=11\times(91a+10b).\]
-Vậy $\nd{abba}$ luôn chia hết cho $11$.
+Viết hai số theo giá trị các hàng: $\nd{abc}=100a+10b+c$ và $\nd{cba}=100c+10b+a$. Khi đó
+\[\nd{abc}-\nd{cba}=(100a+10b+c)-(100c+10b+a)=100a-a+10b-10b+c-100c=99a-99c=99(a-c).\]
+Vì $a-c$ là một số nguyên nên $99(a-c)$ chia hết cho $99$. (Chữ số hàng chục $b$ triệt tiêu hoàn toàn!)
 \begin{warnbox}$\nd{ab}$ là cách viết số có chữ số $a$ và $b$, \emph{không phải} tích $a\times b$. Luôn đổi $\nd{ab}$ thành $10a+b$ trước khi tính.\end{warnbox}
-\verify{a) $47+74=121=11^2$. b) $73-37=36=6^2$, $98-89=9=3^2$. c) $2332=11\times212$, $7007=11\times637$.}
-\ans{a) $29$, $38$, $47$, $56$, $65$, $74$, $83$, $92$;\quad b) $13$ số (liệt kê ở bước 2);\quad c) xem chứng minh.}
+\verify{a) $47+74=121=11^2$. b) $73-37=36=6^2$, $98-89=9=3^2$. c) $731-137=594=99\times6$; $205-502=-297=99\times(-3)$.}
+\ans{a) $29$, $38$, $47$, $56$, $65$, $74$, $83$, $92$;\quad b) $13$ số (liệt kê ở bước 2);\quad c) $\nd{abc}-\nd{cba}=99(a-c)$.}
 }
 
 \begin{probbox}{49}{\stars{2}}
@@ -482,15 +481,15 @@ ngang, có $2\times2=4$ cách trùm hàng giữa. Xác suất $=\dfrac{9}{15}\ti
 }
 
 \begin{probbox}{50}{\stars{2}}
-Trong một cái hộp có $2026$ viên bi đỏ và $2027$ viên bi xanh. Bên ngoài hộp có một đống bi xanh rất lớn. Bạn Phong lặp lại thao tác
+Trong một cái hộp có $2026$ viên bi đỏ và $2027$ viên bi xanh. Bên ngoài hộp có một đống bi xanh rất lớn. Bạn Felix lặp lại thao tác
 sau: lấy ngẫu nhiên $2$ viên bi trong hộp ra.
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
 \item Nếu hai viên \emph{cùng màu} (cùng đỏ hoặc cùng xanh): bỏ cả hai viên ra ngoài, rồi lấy $1$ viên bi xanh từ đống bên ngoài bỏ vào hộp.
 \item Nếu hai viên \emph{khác màu}: bỏ viên xanh ra ngoài và trả viên đỏ vào hộp.
 \end{itemize}
-Phong dừng lại khi trong hộp chỉ còn $1$ viên bi.
+Felix dừng lại khi trong hộp chỉ còn $1$ viên bi.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-\item Phong đã thực hiện bao nhiêu lần thao tác?
+\item Felix đã thực hiện bao nhiêu lần thao tác?
 \item Tính xác suất để viên bi cuối cùng là bi đỏ.
 \item Nếu lúc đầu hộp có $2025$ viên bi đỏ và $2027$ viên bi xanh thì xác suất ở câu b bằng bao nhiêu?
 \end{enumerate}
@@ -514,7 +513,7 @@ xanh, xanh & không đổi & giảm $2$, tăng $1$: giảm $1$\\\hline
 đỏ, xanh & không đổi (trả viên đỏ lại) & giảm $1$\\\hline
 \end{tabular}\end{center}
 \begin{proofbox}Số bi đỏ hoặc giữ nguyên, hoặc giảm đúng $2$. Bớt đi $2$ không làm thay đổi tính chẵn lẻ (số chẵn trừ $2$ vẫn chẵn,
-số lẻ trừ $2$ vẫn lẻ). Vậy \textbf{tính chẵn lẻ của số bi đỏ không bao giờ thay đổi}, dù Phong lấy được những viên nào.\end{proofbox}
+số lẻ trừ $2$ vẫn lẻ). Vậy \textbf{tính chẵn lẻ của số bi đỏ không bao giờ thay đổi}, dù Felix lấy được những viên nào.\end{proofbox}
 
 \step{3}{Câu b: lúc đầu có $2026$ bi đỏ (số chẵn)}
 Số bi đỏ luôn là số chẵn. Khi hộp chỉ còn $1$ viên: nếu viên đó đỏ thì số bi đỏ là $1$ (số lẻ) -- vô lí. Vậy viên cuối cùng chắc chắn

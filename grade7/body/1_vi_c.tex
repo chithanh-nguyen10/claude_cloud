@@ -1,5 +1,5 @@
 % ===================== Chủ đề 1 -- Đại số và Phương trình -- phần c (VI): Bài 31--40 =====================
-\providecommand{\aeaBox}[4]{\begin{tikzpicture}[baseline=-0.7ex,font=\small]
+\providecommand{\rvabBox}[4]{\begin{tikzpicture}[baseline=-0.7ex,font=\small]
   \draw[Navy,line width=0.8pt,fill=tmBlue!6] (-0.66,-0.32) rectangle (0.66,0.32);
   \draw[Navy,line width=0.8pt] (0,-0.32)--(0,0.32) (-0.66,0)--(0.66,0);
   \node[inner sep=0pt] at (-0.33,0.16){$#1$};\node[inner sep=0pt] at (0.33,0.16){$#2$};
@@ -10,12 +10,12 @@
 
 % ---------------------------------------------------------------- Bài 31
 \begin{probbox}{31}{\relax}
-Quãng đường từ nhà bác Ba đến thành phố dài $180$ km. Bác đi xe máy với vận tốc không đổi và sau $3$ giờ thì đi được
+Quãng đường từ nhà ông Henry đến thành phố dài $180$ km. Ông đi xe máy với vận tốc không đổi và sau $3$ giờ thì đi được
 $\dfrac{2}{3}$ quãng đường.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
 \item Tính vận tốc của xe máy.
-\item Nếu giữ nguyên vận tốc đó, bác cần đi thêm bao lâu nữa thì đến thành phố?
-\item Nếu bác muốn đến sớm hơn dự kiến ở câu b) $30$ phút thì trên phần đường còn lại bác phải đi với vận tốc bao nhiêu?
+\item Nếu giữ nguyên vận tốc đó, ông cần đi thêm bao lâu nữa thì đến thành phố?
+\item Nếu ông muốn đến sớm hơn dự kiến ở câu b) $30$ phút thì trên phần đường còn lại ông phải đi với vận tốc bao nhiêu?
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -24,20 +24,15 @@ $\dfrac{2}{3}$ quãng đường.
 \begin{recallbox}$s=v\cdot t$;\quad $v=\dfrac{s}{t}$;\quad $t=\dfrac{s}{v}$. \ \ $\dfrac{m}{n}$ của $A$ bằng $A:n\cdot m$.\end{recallbox}
 \step{1}{Quãng đường đã đi và quãng đường còn lại}
 Đã đi: $\dfrac{2}{3}$ của $180$ km là $180:3\cdot 2=60\cdot 2=120$ (km). Còn lại: $180-120=60$ (km).
-\begin{barfigC}
-\blk{0}{2}{0}{0.55}{tmBlue}{60 km}
-\blk{2}{4}{0}{0.55}{tmBlue}{60 km}
-\blk{4}{6}{0}{0.55}{tmOrange}{60 km}
-\brcup{0}{4}{0.55}{đã đi (3 giờ)}
-\brcdn{4}{6}{-0.55}{còn lại}
-\end{barfigC}
-\step{2}{Câu a: vận tốc}
-$v=120:3=40$ (km/h).
+\step{2}{Câu a: gọi ẩn và lập phương trình}
+Gọi vận tốc của xe máy là $v$ (km/h), $v>0$. Trong $3$ giờ, xe đi được $3v$ (km). Theo Bước 1, quãng đường này là $120$ km, nên
+\[3v=120\quad\Rightarrow\quad v=120:3=40.\]
+Vậy vận tốc của xe máy là $40$ km/h.
 \step{3}{Câu b: thời gian còn lại}
-$t=60:40=1{,}5$ (giờ) $=1$ giờ $30$ phút.
-\begin{tipbox}Nhìn sơ đồ: $3$ giờ đi được $2$ đoạn bằng nhau, vậy mỗi đoạn mất $1{,}5$ giờ. Phần còn lại đúng $1$ đoạn nên mất $1{,}5$ giờ. Không cần tính vận tốc vẫn ra!\end{tipbox}
+Gọi $t$ (giờ) là thời gian đi hết $60$ km còn lại với vận tốc $40$ km/h. Ta có $40t=60$, suy ra $t=60:40=1{,}5$ (giờ) $=1$ giờ $30$ phút.
+\begin{tipbox}Cách khác, dùng tỉ lệ thuận: khi vận tốc không đổi, thời gian tỉ lệ thuận với quãng đường. $120$ km mất $3$ giờ; $60$ km bằng một nửa của $120$ km nên mất một nửa của $3$ giờ, tức là $1{,}5$ giờ.\end{tipbox}
 \step{4}{Câu c: vận tốc mới}
-Thời gian mới: $1$ giờ $30$ phút $-\,30$ phút $=1$ giờ. Để đi $60$ km trong $1$ giờ, vận tốc phải là $60:1=60$ (km/h).
+Thời gian mới: $1$ giờ $30$ phút $-\,30$ phút $=1$ giờ. Gọi vận tốc mới là $u$ (km/h). Ta có $u\cdot 1=60$, nên $u=60$ (km/h).
 \begin{warnbox}Không được cộng thêm vào vận tốc theo kiểu ``bớt $30$ phút thì tăng $30$ km/h''. Phải tính lại: vận tốc $=$ quãng đường $:$ thời gian mới.\end{warnbox}
 \verify{$40\cdot 3=120$ km; $40\cdot 1{,}5=60$ km; $60\cdot 1=60$ km. Tổng $120+60=180$ km.}
 \ans{a) $40$ km/h;\ \ b) $1$ giờ $30$ phút;\ \ c) $60$ km/h.}
@@ -48,12 +43,12 @@ Thời gian mới: $1$ giờ $30$ phút $-\,30$ phút $=1$ giờ. Để đi $60$
 Một tam giác cân có cạnh đáy $10$ cm và hai cạnh bên, mỗi cạnh dài $2x$ cm. Một hình chữ nhật có chiều dài $(x+7)$ cm và chiều rộng $5$ cm.
 Biết chu vi tam giác bằng chu vi hình chữ nhật.
 \begin{figC}
-\draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,0)--(2.4,0)--(1.2,2.6)--cycle;
-\node[below] at (1.2,0){$10$ cm};
-\node[left] at (0.5,1.35){$2x$};\node[right] at (1.9,1.35){$2x$};
-\draw[tmBlue,line width=0.9pt] (0.48,1.4)--(0.72,1.2); \draw[tmBlue,line width=0.9pt] (1.68,1.2)--(1.92,1.4);
-\draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (3.6,0) rectangle (7.2,1.3);
-\node[below] at (5.4,0){$x+7$}; \node[right] at (7.2,0.65){$5$ cm};
+\draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,0)--(2,0)--(1,2.615)--cycle;
+\draw[tmBlue,line width=0.9pt] (0.388,1.351)--(0.612,1.265) (1.388,1.265)--(1.612,1.351);
+\node[below] at (1,0){$10$ cm};
+\node[anchor=east] at (0.3,1.45){$2x$ cm};\node[anchor=west] at (1.7,1.45){$2x$ cm};
+\draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (3.6,0) rectangle (6.4,1);
+\node[below] at (5,0){$(x+7)$ cm}; \node[right] at (6.4,0.5){$5$ cm};
 \end{figC}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
 \item Viết biểu thức tính chu vi của mỗi hình theo $x$.
@@ -79,17 +74,17 @@ Hình chữ nhật: dài $x+7=14$ cm, rộng $5$ cm, diện tích $14\cdot 5=70$
 
 % ---------------------------------------------------------------- Bài 33
 \begin{probbox}{33}{\stars{1}}
-Ta dùng lại quy tắc của Bài 14:\quad \aeaBox{a}{b}{c}{d} $=a\cdot d+b\cdot c$.
+Ta dùng lại quy tắc của Bài 14:\quad \rvabBox{a}{b}{c}{d} $=a\cdot d+b\cdot c$.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=2pt,topsep=2pt]
-\item Tính \aeaBox{-3}{4}{5}{2}.
-\item Tìm $x$ biết \aeaBox{x}{2}{3}{4} $=$ \aeaBox{1}{x}{5}{2}.
-\item Tìm tất cả các số nguyên $x$ sao cho \aeaBox{x}{x}{x}{x} $=50$.
+\item Tính \rvabBox{-3}{4}{5}{2}.
+\item Tìm $x$ biết \rvabBox{x}{2}{3}{4} $=$ \rvabBox{1}{x}{5}{2}.
+\item Tìm tất cả các số nguyên $x$ sao cho \rvabBox{x}{x}{x}{x} $=50$.
 \end{enumerate}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Quy tắc: nhân hai số trên mỗi đường chéo rồi cộng hai tích. Câu a là tính giá trị (có số âm), câu b và c là giải phương trình.
 \step{1}{Câu a}
-\aeaBox{-3}{4}{5}{2} $=(-3)\cdot 2+4\cdot 5=-6+20=14$.
+\rvabBox{-3}{4}{5}{2} $=(-3)\cdot 2+4\cdot 5=-6+20=14$.
 \begin{recallbox}Tích của một số âm và một số dương là số âm: $(-3)\cdot 2=-6$. Cộng hai số khác dấu: $-6+20=20-6=14$.\end{recallbox}
 \step{2}{Câu b: viết hai vế theo quy tắc}
 Vế trái: $x\cdot 4+2\cdot 3=4x+6$.\quad Vế phải: $1\cdot 2+x\cdot 5=2+5x$.\quad Phương trình: $4x+6=5x+2$.
@@ -97,7 +92,7 @@ Vế trái: $x\cdot 4+2\cdot 3=4x+6$.\quad Vế phải: $1\cdot 2+x\cdot 5=2+5x$
 Trừ $4x$ ở hai vế: $6=x+2$. Trừ $2$ ở hai vế: $x=4$.
 \verify{Vế trái $4\cdot 4+6=22$; vế phải $2+5\cdot 4=22$. Bằng nhau.}
 \step{4}{Câu c}
-\aeaBox{x}{x}{x}{x} $=x\cdot x+x\cdot x=2x^2$. Phương trình $2x^2=50$, tức là $x^2=25$.
+\rvabBox{x}{x}{x}{x} $=x\cdot x+x\cdot x=2x^2$. Phương trình $2x^2=50$, tức là $x^2=25$.
 Số nào bình phương lên bằng $25$? Có $5\cdot 5=25$, nhưng cũng có $(-5)\cdot(-5)=25$. Vậy $x=5$ hoặc $x=-5$.
 \begin{warnbox}Rất nhiều bạn chỉ tìm được $x=5$ mà quên $x=-5$. Tích hai số âm là số dương, nên $(-5)^2=25$. Đề hỏi ``tất cả các số nguyên'' là một gợi ý: có thể có nhiều hơn một đáp số.\end{warnbox}
 \verify{$x=-5$: $(-5)(-5)+(-5)(-5)=25+25=50$. Đúng.}
@@ -108,7 +103,7 @@ Số nào bình phương lên bằng $25$? Có $5\cdot 5=25$, nhưng cũng có $
 \begin{probbox}{34}{\stars{1}}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=0pt]
 \item Tổng của năm số lẻ liên tiếp bằng $155$. Tìm năm số đó.
-\item Bạn Nam nói: ``Tớ tìm được bốn số lẻ liên tiếp có tổng bằng $150$.'' Nam nói đúng hay sai? Vì sao?
+\item Bạn Leo nói: ``Tớ tìm được bốn số lẻ liên tiếp có tổng bằng $150$.'' Nam nói đúng hay sai? Vì sao?
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -124,7 +119,7 @@ Gọi số lẻ bé nhất là $m$. Bốn số là $m,\ m+2,\ m+4,\ m+6$. Tổng
 Số $34{,}5$ không phải là số nguyên, càng không phải số lẻ. Vậy \emph{không có} bốn số lẻ liên tiếp nào có tổng $150$.
 \begin{proofbox}Một cách giải thích khác bằng tính chẵn -- lẻ: tổng của hai số lẻ là số chẵn, nên tổng bốn số lẻ là số chẵn -- điều này chưa mâu thuẫn. Nhưng ta có thể đi xa hơn: $4m+12=4(m+3)$ luôn \emph{chia hết cho $4$}, trong khi $150$ không chia hết cho $4$ ($150=4\cdot 37+2$). Vậy tổng bốn số lẻ liên tiếp không bao giờ bằng $150$.\end{proofbox}
 \begin{warnbox}Chỉ thử vài bộ số (như $35+37+39+41=152$) rồi kết luận là chưa đủ chặt chẽ. Ta cần một lí do đúng với \emph{mọi} trường hợp.\end{warnbox}
-\ans{a) $27,\ 29,\ 31,\ 33,\ 35$;\ \ b) Nam nói sai, vì tổng bốn số lẻ liên tiếp luôn chia hết cho $4$ mà $150$ không chia hết cho $4$.}
+\ans{a) $27,\ 29,\ 31,\ 33,\ 35$;\ \ b) Leo nói sai, vì tổng bốn số lẻ liên tiếp luôn chia hết cho $4$ mà $150$ không chia hết cho $4$.}
 }
 
 % ---------------------------------------------------------------- Bài 35
@@ -132,24 +127,28 @@ Số $34{,}5$ không phải là số nguyên, càng không phải số lẻ. V�
 Cứ $2$ thìa thức ăn thì đủ cho $12$ con cá ăn trong một ngày.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
 \item $5$ thìa thức ăn đủ cho bao nhiêu con cá ăn trong một ngày?
-\item Bể cá nhà Hà có $18$ con cá. Một hộp thức ăn có $60$ thìa. Hộp thức ăn đó đủ cho cả bể ăn trong bao nhiêu ngày?
+\item Bể cá nhà Mia có $18$ con cá. Một hộp thức ăn có $60$ thìa. Hộp thức ăn đó đủ cho cả bể ăn trong bao nhiêu ngày?
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Số cá được cho ăn trong một ngày tỉ lệ thuận với số thìa. Ta \emph{rút về đơn vị}: tính xem $1$ thìa đủ cho mấy con cá trong một ngày.
-\begin{recallbox}Rút về đơn vị: tìm giá trị ứng với $1$ phần, rồi nhân lên (hoặc chia ra) theo số phần cần tìm.\end{recallbox}
-\step{1}{Một thìa đủ cho bao nhiêu con cá một ngày?}
-$12:2=6$ (con cá).
+\textbf{Phân tích đề.} Với cùng một ngày, số thìa thức ăn càng nhiều thì nuôi được càng nhiều cá, và gấp đôi số thìa thì gấp đôi số cá: số cá được cho ăn trong một ngày \emph{tỉ lệ thuận} với số thìa.
+\begin{recallbox}Hai đại lượng $x$ và $y$ tỉ lệ thuận khi $y=k\cdot x$ với $k$ là một hằng số khác $0$. Khi đó tỉ số $\dfrac{y}{x}$ luôn bằng $k$, nên ta có thể lập tỉ lệ thức $\dfrac{y_1}{x_1}=\dfrac{y_2}{x_2}$.\end{recallbox}
+\step{1}{Tìm hệ số tỉ lệ}
+Gọi $y$ là số cá được cho ăn trong một ngày, $x$ là số thìa. Khi $x=2$ thì $y=12$, nên $k=\dfrac{12}{2}=6$, tức $y=6x$: mỗi thìa đủ cho $6$ con cá trong một ngày.
 \step{2}{Câu a}
-$5$ thìa: $5\cdot 6=30$ (con cá).
+Với $x=5$: $y=6\cdot 5=30$ (con cá).\\
+(Hoặc lập tỉ lệ thức: $\dfrac{12}{2}=\dfrac{y}{5}$, suy ra $y=\dfrac{12\cdot 5}{2}=30$.)
 \step{3}{Câu b: mỗi ngày bể cần bao nhiêu thìa?}
-Mỗi thìa đủ cho $6$ con trong một ngày, bể có $18$ con nên mỗi ngày cần $18:6=3$ (thìa).
-\begin{figC}
-\foreach \i in {0,1,2}{\draw[tmBlue!80!black,fill=tmBlue!12,rounded corners=2pt] (2.3*\i,0) rectangle (2.3*\i+2,0.6); \node[font=\footnotesize] at (2.3*\i+1,0.3){1 thìa: 6 con};}
-\draw[decorate,decoration={brace,amplitude=5pt,mirror},Navy] (0,-0.1)--(6.6,-0.1) node[midway,below=6pt,font=\footnotesize]{$18$ con cá, mỗi ngày $3$ thìa};
-\end{figC}
+Gọi $z$ là số thìa cần cho $18$ con cá trong một ngày. Ta có $6z=18$, nên $z=18:6=3$ (thìa).
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Số thìa $x$ & $2$ & $5$ & $z=3$\\ \hline
+Số cá $y=6x$ & $12$ & $30$ & $18$\\ \hline
+\end{tabular}
+\end{center}
 \step{4}{Số ngày}
-Hộp có $60$ thìa, mỗi ngày dùng $3$ thìa: $60:3=20$ (ngày).
+Hộp có $60$ thìa, mỗi ngày dùng $3$ thìa. Gọi số ngày là $d$: $3d=60$, nên $d=60:3=20$ (ngày).
 \begin{warnbox}Một lỗi hay gặp là lấy $60:18$ hoặc $60\cdot 6:18$ mà không hiểu ý nghĩa. Hãy luôn tự hỏi: ``Mỗi ngày dùng hết bao nhiêu thìa?'' rồi mới chia.\end{warnbox}
 \verify{$20$ ngày $\times$ $3$ thìa $=60$ thìa, đúng bằng một hộp; và $3$ thìa $\times 6=18$ con mỗi ngày.}
 \begin{parentbox}Có thể dùng đơn vị ``con-ngày'' cho dễ hình dung: mỗi thìa nuôi được $6$ ``con-ngày''; cả hộp nuôi được $60\cdot 6=360$ con-ngày; chia cho $18$ con được $20$ ngày.\end{parentbox}
@@ -158,31 +157,31 @@ Hộp có $60$ thìa, mỗi ngày dùng $3$ thìa: $60:3=20$ (ngày).
 
 % ---------------------------------------------------------------- Bài 36
 \begin{probbox}{36}{\relax}
-Mỗi lượt đi xe buýt, bạn Lan phải trả $7\,000$ đồng. Công ty xe buýt bán vé tháng giá $200\,000$ đồng, đi bao nhiêu lượt trong tháng cũng được.
+Mỗi lượt đi xe buýt, bạn Lucy phải trả \$2{,}50. Công ty xe buýt còn bán vé tháng giá \$72, đi bao nhiêu lượt trong tháng cũng được.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-\item Viết biểu thức biểu thị số tiền Lan phải trả nếu đi $n$ lượt trong tháng mà không mua vé tháng.
-\item Trong một tháng, Lan phải đi ít nhất bao nhiêu lượt thì mua vé tháng sẽ rẻ hơn mua vé lượt?
+\item Viết biểu thức biểu thị số tiền (đô la) Lucy phải trả nếu đi $n$ lượt trong tháng mà không mua vé tháng.
+\item Trong một tháng, Lucy phải đi ít nhất bao nhiêu lượt thì mua vé tháng sẽ rẻ hơn mua vé lượt?
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Mua vé lượt: số tiền phụ thuộc vào số lượt $n$. Mua vé tháng: luôn $200\,000$ đồng. Cần tìm số lượt nhỏ nhất để vé lượt \emph{đắt hơn} vé tháng.
+\textbf{Phân tích đề.} Mua vé lượt: số tiền phụ thuộc vào số lượt $n$. Mua vé tháng: luôn là \$72. Cần tìm số lượt nhỏ nhất để vé lượt \emph{đắt hơn} vé tháng.
 \step{1}{Câu a}
-Mỗi lượt $7\,000$ đồng, $n$ lượt: $7\,000\cdot n=7\,000n$ (đồng).
-\step{2}{Câu b: so sánh hai cách}
-Vé tháng rẻ hơn khi $7\,000n>200\,000$. Ta thử chia: $200\,000:7\,000=200:7\approx 28{,}57$.
-\step{3}{Lập bảng thử những giá trị gần $28{,}57$}
+Mỗi lượt \$2{,}50, nên $n$ lượt hết $2{,}5\cdot n=2{,}5n$ (đô la).
+\step{2}{Câu b: lập bất đẳng thức}
+Vé tháng rẻ hơn khi số tiền vé lượt lớn hơn \$72, tức là $2{,}5n>72$. Chia cả hai vế cho số dương $2{,}5$: $n>72:2{,}5=28{,}8$.
+\step{3}{Chọn số tự nhiên nhỏ nhất và kiểm tra bằng bảng}
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} Số lượt $n$ & Vé lượt $7\,000n$ (đồng) & So với vé tháng $200\,000$ đồng\\ \hline
-$28$ & $196\,000$ & vé lượt rẻ hơn\\ \hline
-$29$ & $203\,000$ & \textbf{vé tháng rẻ hơn}\\ \hline
+\rowcolor{tmBlue!10} Số lượt $n$ & Vé lượt $2{,}5n$ (đô la) & So với vé tháng \$72\\ \hline
+$28$ & $70$ & vé lượt rẻ hơn\\ \hline
+$29$ & $72{,}5$ & \textbf{vé tháng rẻ hơn}\\ \hline
 \end{tabular}
 \end{center}
-Vậy cần đi ít nhất $29$ lượt.
-\begin{warnbox}Số lượt phải là số tự nhiên, nên không trả lời ``$28{,}57$ lượt''. Cũng không ``làm tròn'' thành $28$: với $28$ lượt, vé lượt vẫn rẻ hơn. Ta phải lấy số tự nhiên nhỏ nhất \emph{lớn hơn} $28{,}57$, đó là $29$.\end{warnbox}
+Số tự nhiên nhỏ nhất lớn hơn $28{,}8$ là $29$. Vậy cần đi ít nhất $29$ lượt.
+\begin{warnbox}Số lượt phải là số tự nhiên, nên không trả lời ``$28{,}8$ lượt''. Cũng không ``làm tròn'' thành $28$: với $28$ lượt, vé lượt chỉ hết \$70, vẫn rẻ hơn vé tháng. Ta phải lấy số tự nhiên nhỏ nhất \emph{lớn hơn} $28{,}8$, đó là $29$.\end{warnbox}
 \begin{parentbox}Đây là bài toán ``đời thường'' rất tốt để trò chuyện với con: gói cước điện thoại, vé bơi theo tháng... đều có thể so sánh theo cách này.\end{parentbox}
-\ans{a) $7\,000n$ đồng;\ \ b) ít nhất $29$ lượt.}
+\ans{a) $2{,}5n$ đô la;\ \ b) ít nhất $29$ lượt.}
 }
 
 % ---------------------------------------------------------------- Bài 37
@@ -304,13 +303,13 @@ $3(a+b+c+d)=7+8+9+10+11+12=57$, \ nên $a+b+c+d=57:3=19$ (kg).
 \begin{proofbox}Lấy $a+c=8$ trừ $a+b=7$: $c-b=1$, tức $c=b+1$. Khi đó $b+c=b+(b+1)=2b+1$ là một \emph{số lẻ} (vì $b$ là số nguyên). Trong hai số $9$ và $10$, chỉ có $9$ là số lẻ. Vậy $b+c=9$ và $a+d=10$.\end{proofbox}
 \step{3}{Tìm từng túi}
 $2b+1=9\Rightarrow b=4$;\quad $c=b+1=5$;\quad $a=7-b=3$;\quad $d=12-c=7$.
-\begin{barfigC}
-\blk{0}{1.5}{0}{0.5}{tmGreen}{a=3}
-\blk{1.5}{3.5}{0}{0.5}{tmOrange}{b=4}
-\blk{3.5}{6}{0}{0.5}{tmPurple}{c=5}
-\blk{6}{9.5}{0}{0.5}{tmBlue}{d=7}
-\brcup{0}{9.5}{0.5}{tổng 19 kg}
-\end{barfigC}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Cặp & $a+b$ & $a+c$ & $b+c$ & $a+d$ & $b+d$ & $c+d$\\ \hline
+Tổng (kg) & $3+4=7$ & $3+5=8$ & $4+5=9$ & $3+7=10$ & $4+7=11$ & $5+7=12$\\ \hline
+\end{tabular}
+\end{center}
 \verify{$3+4=7$, $3+5=8$, $3+7=10$, $4+5=9$, $4+7=11$, $5+7=12$: đúng sáu kết quả $7,8,9,10,11,12$. Tổng $3+4+5+7=19$.}
 \begin{warnbox}Không được tự ý cho rằng kết quả thứ ba ($9$ kg) là $a+d$ hay $b+c$. Phải có lí do! Nếu không có điều kiện ``số nguyên'' thì trường hợp $b+c=10$ cho $a=2{,}5$; $b=4{,}5$; $c=5{,}5$; $d=6{,}5$ cũng thoả mãn.\end{warnbox}
 \begin{parentbox}Có thể làm thí nghiệm bằng bốn mẩu giấy ghi số $3,4,5,7$: cho con ghép đôi tất cả các cách và cộng lại, con sẽ tự thấy mỗi số được dùng ba lần.\end{parentbox}

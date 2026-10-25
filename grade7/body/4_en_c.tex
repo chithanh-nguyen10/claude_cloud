@@ -5,6 +5,7 @@
 \dividerbar{Extension and challenge}
 
 % ---------------------------------------------------------------- Problem 31
+\needspace{9\baselineskip}
 \begin{probbox}{31}{\relax}
 Consider the numbers: $-1.5;\quad 0.25;\quad -0.75;\quad 1.2;\quad -2$.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
@@ -27,10 +28,11 @@ Distance from $0$: $-2$ is $2$ away; \ $-1.5$ is $1.5$ away; \ $-0.75$ is $0.75$
 $0.25 < 1.2$ (whole parts $0 < 1$). Negative numbers first, positive numbers after:
 \[ -2 < -1.5 < -0.75 < 0.25 < 1.2. \]
 \begin{figC}\begin{scope}[x=1.6cm]
+  \draw[tmGreen!35,line width=3pt] (-1,0)--(1,0);
   \draw[->,thick,Navy] (-2.5,0)--(1.7,0);
-  \foreach \x in {-2,-1,0,1}{\draw[Navy] (\x,0.08)--(\x,-0.08); \node[below,font=\scriptsize] at (\x,-0.1) {$\x$};}
+  \foreach \x in {-2,-1,0,1}{\draw[Navy] (\x,0.08)--(\x,-0.08);}
+  \foreach \x in {-1,0,1}{\node[below,font=\scriptsize] at (\x,-0.1) {$\x$};}
   \foreach \x/\l in {-2/{-2},-1.5/{-1.5},-0.75/{-0.75},0.25/{0.25},1.2/{1.2}}{\fill[tmOrange] (\x,0) circle (2.6pt); \node[above,font=\scriptsize] at (\x,0.1) {$\l$};}
-  \draw[tmGreen!70!black,line width=2pt,opacity=0.35] (-1,0)--(1,0);
 \end{scope}\end{figC}
 \step{4}{The numbers between $-1$ and $1$}
 On the number line, the green segment from $-1$ to $1$ contains $-0.75$ and $0.25$. ($-1.5$ is to the left of $-1$; $1.2$ is
@@ -46,6 +48,7 @@ the sign of the number farther from $0$.\end{recallbox}
 }
 
 % ---------------------------------------------------------------- Problem 32
+\needspace{9\baselineskip}
 \begin{probbox}{32}{\relax}
 Consider the expression $2 + 3 \times 4 - 1$.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
@@ -86,9 +89,10 @@ But to be sure, the best way is still to list every case, as in the table.\end{t
 }
 
 % ---------------------------------------------------------------- Problem 33
+\needspace{9\baselineskip}
 \begin{probbox}{33}{\relax}
-An's storybook has $360$ pages. On the first day An reads $\dfrac{1}{4}$ of the book. On the second day An reads
-$\dfrac{1}{3}$ \emph{of the remaining pages}. After two days, how many pages has An not read yet, and what fraction of the
+Anna's storybook has $360$ pages. On the first day Anna reads $\dfrac{1}{4}$ of the book. On the second day Anna reads
+$\dfrac{1}{3}$ \emph{of the remaining pages}. After two days, how many pages has Anna not read yet, and what fraction of the
 book is that?
 \end{probbox}
 \probsol{
@@ -96,21 +100,11 @@ book is that?
 pages}, not of the whole book. This is a ``two-step'' version of Problem 9.
 \begin{recallbox}$\dfrac{m}{n}$ of $a$ equals $a \div n \times m$.\end{recallbox}
 \step{1}{First day}
-An reads $360 \div 4 = 90$ (pages). Remaining: $360 - 90 = 270$ (pages).
+Anna reads $360 \div 4 = 90$ (pages). Remaining: $360 - 90 = 270$ (pages).
 \step{2}{Second day (taken of $270$ pages)}
-An reads $270 \div 3 = 90$ (pages). Remaining: $270 - 90 = 180$ (pages).
+Anna reads $270 \div 3 = 90$ (pages). Remaining: $270 - 90 = 180$ (pages).
 \step{3}{Fraction of the book left}
-$\dfrac{180}{360} = \dfrac12$.
-\begin{barfigC}
-  \blk{0}{2}{0}{0.6}{tmBlue}{$90$}
-  \blk{2}{4}{0}{0.6}{tmGreen}{$90$}
-  \blk{4}{6}{0}{0.6}{tmOrange}{$90$}
-  \blk{6}{8}{0}{0.6}{tmOrange}{$90$}
-  \brcup{0}{2}{0.5}{day 1}
-  \brcup{2}{4}{0.5}{day 2}
-  \brcup{4}{8}{0.5}{not read}
-  \brcdn{2}{8}{-0.5}{left after day 1: $270$ pages, split into $3$ parts}
-\end{barfigC}
+The unread pages make up $\dfrac{180}{360} = \dfrac{180\div 180}{360\div 180} = \dfrac12$ of the book.
 \begin{warnbox}A common mistake: adding $\dfrac14 + \dfrac13 = \dfrac{7}{12}$ and saying $\dfrac{5}{12}$ of the book
 ($150$ pages) is left. Wrong, because $\dfrac13$ is of the \emph{remaining part} ($270$ pages), not of the whole book ($360$ pages).\end{warnbox}
 \step{4}{Another way: multiply the ``remaining'' fractions}
@@ -121,11 +115,12 @@ of the book, which is $360 \div 2 = 180$ pages.
 }
 
 % ---------------------------------------------------------------- Problem 34
+\needspace{9\baselineskip}
 \begin{probbox}{34}{\relax}
-The first test has $40$ questions, and Bình answers $32$ of them correctly.
+The first test has $40$ questions, and Ben answers $32$ of them correctly.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
-  \item What percentage of the questions in the first test did Bình answer correctly?
-  \item The second test has $60$ questions. At least how many questions must Bình answer correctly in the second test so
+  \item What percentage of the questions in the first test did Ben answer correctly?
+  \item The second test has $60$ questions. At least how many questions must Ben answer correctly in the second test so
   that, over both tests together, his correct answers make up at least $85\%$ of all the questions?
 \end{enumerate}
 \end{probbox}
@@ -139,7 +134,7 @@ $40 + 60 = 100$ (questions).
 \step{3}{Correct answers needed overall}
 $85\%$ of $100$ questions is $100\times\dfrac{85}{100} = 85$ (questions).
 \step{4}{Correct answers needed in the second test}
-Bình already has $32$ correct answers, so he needs at least $85 - 32 = 53$ (questions) in the second test.
+Ben already has $32$ correct answers, so he needs at least $85 - 32 = 53$ (questions) in the second test.
 \begin{warnbox}Do not take ``the average of the two percentages'': solving $(80\% + x) \div 2 = 85\%$ gives $x = 90\%$ of $60$
 questions, i.e.\ $54$ questions -- wrong! The tests have different numbers of questions, so we must work with the
 \emph{total number of questions}.\end{warnbox}
@@ -148,11 +143,12 @@ questions, i.e.\ $54$ questions -- wrong! The tests have different numbers of qu
 }
 
 % ---------------------------------------------------------------- Problem 35
+\needspace{9\baselineskip}
 \begin{probbox}{35}{\relax}
-A shop sells cashew nuts in packs: a $3$ kg pack costs $255$ thousand dong, a $5$ kg pack costs $410$ thousand dong (no loose sales).
+A shop sells cashew nuts in packs: a $3$ kg pack costs \$45, a $5$ kg pack costs \$70 (no loose sales).
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
   \item Which pack is cheaper per kilogram?
-  \item Ms Hằng needs to buy \emph{exactly} $15$ kg. How should she buy them to spend as little as possible? How much does it cost?
+  \item Grace needs to buy \emph{exactly} $15$ kg. How should she buy them to spend as little as possible? How much does it cost?
   \item How much does it cost to buy \emph{exactly} $13$ kg?
 \end{enumerate}
 \end{probbox}
@@ -160,32 +156,34 @@ A shop sells cashew nuts in packs: a $3$ kg pack costs $255$ thousand dong, a $5
 \textbf{Understanding the problem.} This extends Problem 6: compare unit prices, then find how to combine packs to get the exact mass.
 \begin{recallbox}Unit price $=$ total cost $\div$ quantity.\end{recallbox}
 \step{1}{Unit price of each pack}
-$3$ kg pack: $255 \div 3 = 85$ (thousand dong/kg). \quad $5$ kg pack: $410 \div 5 = 82$ (thousand dong/kg).\\
-So the $5$ kg pack is cheaper ($82 < 85$).
+$3$ kg pack: $45 \div 3 = 15$ (dollars/kg). \quad $5$ kg pack: $70 \div 5 = 14$ (dollars/kg).\\
+So the $5$ kg pack is cheaper ($14 < 15$).
 \step{2}{Ways to make exactly $15$ kg}
-Let $a$ be the number of $3$ kg packs and $b$ the number of $5$ kg packs: $3a + 5b = 15$. Try $b = 0, 1, 2, 3$:
+Let $a$ be the number of $3$ kg packs and $b$ the number of $5$ kg packs ($a$, $b$ whole numbers). We need $3a + 5b = 15$, i.e.\ $3a = 15 - 5b$.
+Since $5b \le 15$, $b \in \{0,1,2,3\}$. Try each value:
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\rowcolor{tmBlue!10} $b$ & $15 - 5b$ & $a$ & Cost (thousand dong)\\ \hline
-$0$ & $15$ & $5$ & $5\times 255 = 1275$\\ \hline
+\rowcolor{tmBlue!10} $b$ & $15 - 5b$ & $a$ & Cost (dollars)\\ \hline
+$0$ & $15$ & $5$ & $5\times 45 = 225$\\ \hline
 $1$ & $10$ & not divisible by $3$ & --\\ \hline
 $2$ & $5$ & not divisible by $3$ & --\\ \hline
-$3$ & $0$ & $0$ & $3\times 410 = \mathbf{1230}$\\ \hline
+$3$ & $0$ & $0$ & $3\times 70 = \mathbf{210}$\\ \hline
 \end{tabular}
 \end{center}
-Buying $3$ packs of $5$ kg is cheapest: $1\,230$ thousand dong $= 1\,230\,000$ dong.
+Buying $3$ packs of $5$ kg is cheapest: \$210.
 \step{3}{Exactly $13$ kg}
-$3a + 5b = 13$: \ $b = 0 \Rightarrow 13$ (not divisible by $3$); \ $b = 1 \Rightarrow 8$ (not divisible by $3$);
-\ $b = 2 \Rightarrow 3$, $a = 1$. There is only one way: $1$ pack of $3$ kg and $2$ packs of $5$ kg.\\
-Cost: $255 + 2\times 410 = 255 + 820 = 1075$ (thousand dong) $= 1\,075\,000$ dong.
-\begin{warnbox}Part c) cannot be answered by computing $13\times 82$, because the shop does not sell loose nuts: the packs
+$3a + 5b = 13$, and $5b \le 13$ gives $b \in \{0,1,2\}$: \ $b = 0 \Rightarrow 3a = 13$ (not divisible by $3$); \ $b = 1 \Rightarrow 3a = 8$ (not divisible by $3$);
+\ $b = 2 \Rightarrow 3a = 3$, $a = 1$. There is only one way: $1$ pack of $3$ kg and $2$ packs of $5$ kg.\\
+Cost: $45 + 2\times 70 = 45 + 140 = 185$ (dollars).
+\begin{warnbox}Part c) cannot be answered by computing $13\times 14 = 182$ dollars, because the shop does not sell loose nuts: the packs
 must add up to exactly $13$ kg.\end{warnbox}
-\verify{$3 + 5 + 5 = 13$ kg; $5 + 5 + 5 = 15$ kg.}
-\ans{a) the $5$ kg pack ($82$ thousand dong/kg);\quad b) $3$ packs of $5$ kg, $1\,230\,000$ dong;\quad c) $1\,075\,000$ dong}
+\verify{$3 + 5 + 5 = 13$ kg and $45 + 70 + 70 = 185$; \ $5 + 5 + 5 = 15$ kg and $70 + 70 + 70 = 210 < 225$.}
+\ans{a) the $5$ kg pack (\$14/kg);\quad b) $3$ packs of $5$ kg, \$210;\quad c) \$185}
 }
 
 % ---------------------------------------------------------------- Problem 36
+\needspace{9\baselineskip}
 \begin{probbox}{36}{\relax}
 The five members of a group weigh (in kg) $38;\ 41;\ 40;\ 37$ and $x$. Their mean weight is $40$ kg.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
@@ -214,54 +212,56 @@ the new member must weigh $40 + 6 = 46$ kg.\end{tipbox}
 }
 
 % ---------------------------------------------------------------- Problem 37
+\needspace{9\baselineskip}
 \begin{probbox}{37}{\stars{1}}
-A running track around the schoolyard is $200$ m long. Mai runs $6$ laps in $4$ minutes. Tú runs at a constant $18$ km/h.
+A running track around the schoolyard is $200$ m long. Mia runs $6$ laps in $4$ minutes. Tom runs at a constant $18$ km/h.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]
   \item Who is faster?
   \item Keeping the same speeds, how many minutes does each of them need to run $3$ km?
   \item They start at the same time from the same point of the track, but run in \emph{opposite directions}. After how many
   seconds do they meet for the first time?
-  \item One day Tú increases his speed to $21.6$ km/h while Mai runs as before. They start at the same time from the same
-  point, running in the \emph{same direction}. How long is it until Tú is exactly one lap ahead of Mai?
+  \item One day Tom increases his speed to $21.6$ km/h while Mia runs as before. They start at the same time from the same
+  point, running in the \emph{same direction}. How long is it until Tom is exactly one lap ahead of Mia?
 \end{enumerate}
 \end{probbox}
 \probsol{
 \textbf{Understanding the problem.} This extends Problem 12: find a speed from laps run, convert km/h to m/s, then study two
 runners on the same circular track.
 \begin{recallbox}$v = s \div t$, \ $t = s \div v$. \ $1$ km/h $= \dfrac{5}{18}$ m/s, so to convert km/h to m/s multiply by $5$ and divide by $18$.\end{recallbox}
-\step{1}{Mai's speed}
-Distance: $6\times 200 = 1200$ (m). Time: $4$ minutes $= 240$ seconds. \ $v_{\text{Mai}} = 1200 \div 240 = 5$ (m/s).
-\step{2}{Tú's speed (in m/s)}
-$v_{\text{Tú}} = 18\times\dfrac{5}{18} = 5$ (m/s). They run \textbf{equally fast}!
+\step{1}{Mia's speed}
+Distance: $6\times 200 = 1200$ (m). Time: $4$ minutes $= 240$ seconds. \ $v_{\text{Mia}} = 1200 \div 240 = 5$ (m/s).
+\step{2}{Tom's speed (in m/s)}
+$v_{\text{Tom}} = 18\times\dfrac{5}{18} = 5$ (m/s). They run \textbf{equally fast}!
 \begin{warnbox}Comparing ``$5$'' with ``$18$'' directly is meaningless, because the units differ (m/s and km/h). Convert to the
 same unit first.\end{warnbox}
 \step{3}{Time to run $3$ km}
 $3$ km $= 3000$ m. \ $t = 3000 \div 5 = 600$ (seconds) $= 600 \div 60 = 10$ (minutes). Both need $10$ minutes.
 \step{4}{Opposite directions}
-Every second Mai runs $5$ m and Tú runs $5$ m the other way, so the ``combined'' distance they cover grows by
+Every second Mia runs $5$ m and Tom runs $5$ m the other way, so the ``combined'' distance they cover grows by
 $5 + 5 = 10$ m per second. They first meet when the \emph{total} of their distances is exactly one lap, $200$ m:
 \[ t = 200 \div 10 = 20 \text{ (seconds)}. \]
 \begin{figC}
   \draw[Slate!60,line width=4pt] (0,0) circle (1.1);
-  \fill[Navy] (0,1.1) circle (2.5pt); \node[above=4pt,font=\scriptsize] at (0,1.35) {start};
+  \fill[Navy] (0,1.1) circle (2.5pt); \node[above,font=\scriptsize] at (0,1.5) {start};
   \draw[->,tmBlue,thick] (95:1.4) arc (95:265:1.4);
   \draw[->,tmOrange,thick] (85:1.4) arc (85:-85:1.4);
-  \node[left,font=\scriptsize,text=tmBlue!80!black] at (-1.5,0) {Mai: $100$ m};
-  \node[right,font=\scriptsize,text=tmOrange!80!black] at (1.5,0) {Tú: $100$ m};
+  \node[left,font=\scriptsize,text=tmBlue!80!black] at (-1.5,0) {Mia: $100$ m};
+  \node[right,font=\scriptsize,text=tmOrange!80!black] at (1.5,0) {Tom: $100$ m};
   \fill[AnsRed] (0,-1.1) circle (2.5pt); \node[below,font=\scriptsize,text=AnsRed] at (0,-1.5) {they meet after $20$ s};
 \end{figC}
 After $20$ seconds each has run $5\times 20 = 100$ m, exactly half a lap: they meet at the point opposite the start.
-\step{5}{Same direction, Tú faster}
-$v_{\text{Tú}} = 21.6\times\dfrac{5}{18} = \dfrac{108}{18} = 6$ (m/s). Every second Tú runs $6 - 5 = 1$ m more than Mai. Tú is
-exactly one lap ahead when he has run $200$ m more than Mai:
+\step{5}{Same direction, Tom faster}
+$v_{\text{Tom}} = 21.6\times\dfrac{5}{18} = \dfrac{108}{18} = 6$ (m/s). Every second Tom runs $6 - 5 = 1$ m more than Mia. Tom is
+exactly one lap ahead when he has run $200$ m more than Mia:
 \[ t = 200 \div 1 = 200 \text{ (seconds)} = 3 \text{ minutes } 20 \text{ seconds}. \]
-\verify{After $200$ seconds: Tú has run $6\times 200 = 1200$ m ($6$ laps), Mai $5\times 200 = 1000$ m ($5$ laps). Tú is exactly $1$ lap ahead.}
+\verify{After $200$ seconds: Tom has run $6\times 200 = 1200$ m ($6$ laps), Mia $5\times 200 = 1000$ m ($5$ laps). Tom is exactly $1$ lap ahead.}
 \begin{parentbox}You can act out parts c) and d) with two coins on a round plate: in opposite directions the ``gap to close''
 shrinks by the \emph{sum} of the speeds; in the same direction it shrinks by the \emph{difference} of the speeds.\end{parentbox}
 \ans{a) equally fast ($5$ m/s);\quad b) $10$ minutes;\quad c) $20$ seconds;\quad d) $200$ seconds ($3$ minutes $20$ seconds)}
 }
 
 % ---------------------------------------------------------------- Problem 38
+\needspace{9\baselineskip}
 \begin{probbox}{38}{\stars{1}}
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=0pt]
   \item Find the digits $a$, $b$ such that the number $\nd{4a7b}$ is divisible by $2$, $5$ and $9$.
@@ -294,15 +294,17 @@ In total: $2 + 9 = 11$ numbers:
 }
 
 % ---------------------------------------------------------------- Problem 39
+\needspace{9\baselineskip}
 \begin{probbox}{39}{\stars{1}}
 In the addition below, $M$ and $N$ are two different non-zero digits. Find all pairs $(M;N)$ that work.
-\[ \begin{array}{r@{\;}c@{\;}c} & M & N\\ & N & M\\ + & N & N\\ \hline 1 & 8 & 7 \end{array} \]
+\[ \begin{array}{c@{\;\;}c@{\;\;}c@{\;\;}c} & & M & N\\ & & N & M\\ + & & N & N\\ \hline & 1 & 8 & 7 \end{array} \]
 \end{probbox}
 \probsol{
 \textbf{Understanding the problem.} This extends Problem 13. This time, instead of trying column by column, we use place value
 to get one simple equation, and then find \emph{all} solutions.
 \begin{recallbox}$\nd{MN} = 10M + N$, \ $\nd{NM} = 10N + M$, \ $\nd{NN} = 10N + N = 11N$.\end{recallbox}
 \step{1}{Write the sum using place value}
+Using place value for the three addends, we get:
 \[ \nd{MN} + \nd{NM} + \nd{NN} = (10M + N) + (10N + M) + 11N = 11M + 22N = 11\times(M + 2N). \]
 \step{2}{Set up the equation}
 $11\times(M + 2N) = 187$, so $M + 2N = 187 \div 11 = 17$.
@@ -325,6 +327,7 @@ factor ($11$ here) that makes the problem much simpler.\end{tipbox}
 }
 
 % ---------------------------------------------------------------- Problem 40
+\needspace{9\baselineskip}
 \begin{probbox}{40}{\stars{2}}
 A sequence is built by the Fibonacci rule: from the third number on, each number is the sum of the two numbers just before it.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=2pt]

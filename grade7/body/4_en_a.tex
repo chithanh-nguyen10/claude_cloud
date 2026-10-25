@@ -81,8 +81,8 @@ right}. Therefore:
   \item every negative number is less than every positive number;
   \item of two negative numbers, the one \emph{farther from $0$} is \emph{smaller}: $-8 < -2$ because $8 > 2$.
 \end{itemize}
-\textbf{3. Everyday pictures.} A temperature of $-8^\circ$C is colder than $-2^\circ$C; owing $8$ thousand dong
-leaves you ``poorer'' than owing $2$ thousand dong.
+\textbf{3. Everyday pictures.} A temperature of $-8^\circ$C is colder than $-2^\circ$C; owing $8$ dollars
+leaves you ``poorer'' than owing $2$ dollars (an amount of $-8$ compared with $-2$).
 
 \textbf{4. The coordinate plane.} A point is given by a pair of numbers $(x;y)$: $x$ is the horizontal coordinate
 (moving right/left), $y$ is the vertical coordinate (moving up/down). A horizontal move changes only $x$; a vertical
@@ -151,8 +151,10 @@ same non-zero number gives an equal fraction:
 \textbf{5. Simplifying a fraction:} divide the numerator and the denominator by their greatest common divisor to get a
 fraction in lowest terms.
 
-\textbf{6. ``Sum and ratio'' problems.} If two numbers are in the ratio $\dfrac{5}{8}$, we can think of the first number as
-$5$ equal parts and the second as $8$ such parts. Knowing the sum (or the difference) gives the value of one part.
+\textbf{6. Two numbers with a known ratio and sum (or difference).} If $\dfrac{x}{y} = \dfrac{5}{8}$, then there is a
+number $k$ with $x = 5k$ and $y = 8k$ (because $\dfrac{5k}{8k} = \dfrac58$). Knowing the sum $x + y$ (or the difference
+$y - x$), we form an equation in $k$ and solve it. Example: $x + y = 91$ gives $5k + 8k = 91$, i.e.\ $13k = 91$, $k = 7$;
+hence $x = 35$, $y = 56$.
 
 \textbf{7. A fraction of a fraction.} ``Half of a quarter'' is $\dfrac12\times\dfrac14 = \dfrac18$: multiply numerator by
 numerator, denominator by denominator. This happens often when a shape is halved several times in a row: each halving
@@ -161,13 +163,6 @@ multiplies the area fraction by $\dfrac12$ again.
 \textbf{8. Comparing fractions.} Bring them to a common denominator and compare numerators, or convert them to
 decimals. Examples: $\dfrac23 = \dfrac{8}{12} > \dfrac{7}{12}$; \ $\dfrac35 = 0.6 < \dfrac34 = 0.75$.
 \end{knowbox}
-\begin{barfigC}
-  \rowlab{-0.2}{0}{First number}
-  \foreach \i in {0,...,4}{\blk{\i*0.9}{\i*0.9+0.9}{0}{0.55}{tmBlue}{}}
-  \rowlab{-0.2}{-0.8}{Second number}
-  \foreach \i in {0,...,7}{\blk{\i*0.9}{\i*0.9+0.9}{-0.8}{0.55}{tmOrange}{}}
-  \vbrace{7.35}{0.3}{-1.1}{sum $= 13$ parts}
-\end{barfigC}
 \begin{proofbox}
 Why does multiplying the numerator and denominator by the same number leave the fraction unchanged? $\dfrac{3}{7}$ is
 ``cut the cake into $7$ parts, take $3$''. If we cut \emph{each} part into $9$ smaller pieces, the cake has
@@ -180,8 +175,10 @@ $\dfrac13$ of $396$ to be $132$ and circle it straight away, while the question 
 $396 - 132 = 264$.
 \end{warnbox}
 \begin{parentbox}
-With fractions, a picture beats any explanation. Draw a strip (a chocolate bar) split into equal parts and shade the
-part used; your child will see the part left by themselves. This is the familiar ``bar model'' from primary school.
+In Grade 7, encourage your child to \emph{use an unknown}: let $x$ stand for the quantity we do not know, write the
+conditions of the problem as an equation, solve it and check. For example, ``read $\dfrac13$ of a $396$-page book, $x$
+pages left'' becomes $132 + x = 396$. This works for every problem, even when the numbers are ``awkward'' and a picture
+would not help.
 \end{parentbox}
 
 % ---------------------------------------------------------------------
@@ -201,13 +198,13 @@ $40$ questions is $\dfrac{32}{40}\times 100\% = 80\%$.
 leaves $90\%$: multiply by $0.9$.
 
 \textbf{6. Successive discounts.} Each time the price is reduced by $10\%$ \emph{of the current price}, we multiply by
-$0.9$ once more. Example: a price of $100$ thousand dong after two reductions: $100 \to 90 \to 81$ (thousand dong),
+$0.9$ once more. Example: a price of $100$ dollars after two reductions: $100 \to 90 \to 81$ (dollars),
 \emph{not} $80$.
 \end{knowbox}
 \begin{proofbox}
 Why are two $10\%$ reductions not the same as one $20\%$ reduction? The second reduction is $10\%$ of $90$ (that is $9$),
 not $10\%$ of $100$ (that is $10$). Since the price has already dropped, the next reduction is smaller too: in total the
-price drops by only $10 + 9 = 19$ thousand dong, i.e.\ $19\%$.
+price drops by only $10 + 9 = 19$ dollars, i.e.\ $19\%$.
 \end{proofbox}
 \begin{tipbox}
 Finding $10\%$ very fast: just divide by $10$ (move the decimal point one place to the left). From $10\%$ you get
@@ -230,11 +227,10 @@ safest way: compute each person's speed in the same unit (for example m/s) and c
 \[ 1 \text{ km/h} = \frac{1000 \text{ m}}{3600 \text{ s}} = \frac{5}{18} \text{ m/s}, \qquad
    18 \text{ km/h} = 18\times\frac{5}{18} = 5 \text{ m/s}, \qquad 1 \text{ m/s} = 3.6 \text{ km/h}. \]
 \end{knowbox}
-\begin{figC}
-  \draw[tmBlue,line width=1.2pt,rounded corners=8pt] (0,0) rectangle (3.6,1.6);
-  \node[draw=tmOrange,fill=tmOrange!15,rounded corners=3pt,minimum width=1.6cm] at (1.8,0.8) {$s = v\times t$};
-  \node[text=Ink,align=left,anchor=west] at (4.2,0.8) {Cover the quantity you want:\\ $v = s \div t$ \quad and \quad $t = s \div v$};
-\end{figC}
+\begin{proofbox}
+Why $v = s \div t$ and $t = s \div v$? It is just finding an unknown factor in the equation $s = v\times t$: dividing
+both sides by $t$ (non-zero) gives $v = \dfrac{s}{t}$; dividing both sides by $v$ (non-zero) gives $t = \dfrac{s}{v}$.
+\end{proofbox}
 \begin{warnbox}
 The quantities must use \emph{matching units}: if the distance is in metres and the time in seconds, the speed comes
 out in m/s; do not divide metres by hours. Before comparing two speeds, convert them to the same unit.
@@ -374,24 +370,22 @@ So the increasing order is: $0.054 < 0.405 < 0.45 < 0.5 < 0.54$.
 \end{exbox}
 
 \begin{exbox}{Example 2}
-Hoa cycles along a $45$ km route. In the morning she covers $\dfrac{2}{5}$ of the route. How many kilometres does she
+Emma cycles along a $45$ km route. In the morning she covers $\dfrac{2}{5}$ of the route. How many kilometres does Emma
 still have to ride in the afternoon, and what fraction of the whole route is that?
 \guide
-\step{1}{Draw a bar model}
-Split the route into $5$ equal parts; the morning covers $2$ parts, the afternoon $3$ parts.
-\begin{barfigC}
-  \foreach \i in {0,1}{\blk{\i*1.6}{\i*1.6+1.6}{0}{0.6}{tmBlue}{$9$ km}}
-  \foreach \i in {2,3,4}{\blk{\i*1.6}{\i*1.6+1.6}{0}{0.6}{tmOrange}{$9$ km}}
-  \brcup{0}{3.2}{0.5}{morning}
-  \brcup{3.2}{8}{0.5}{afternoon}
-  \brcdn{0}{8}{-0.5}{$45$ km}
-\end{barfigC}
-\step{2}{Find the value of one part}
-One part is $45 \div 5 = 9$ (km).
-\step{3}{Morning and afternoon distances}
-Morning: $2\times 9 = 18$ (km). Afternoon: $45 - 18 = 27$ (km), which is also $3\times 9 = 27$ (km).
+\step{1}{Distance covered in the morning}
+\begin{recallbox}To find $\dfrac{m}{n}$ of a number $a$, compute $a\times\dfrac{m}{n}$.\end{recallbox}
+Morning: $45 \times \dfrac{2}{5} = \dfrac{45\times 2}{5} = \dfrac{90}{5} = 18$ (km).
+\step{2}{Introduce an unknown and form an equation}
+Let $x$ (km) be the distance still to ride in the afternoon ($x > 0$). The morning distance plus the afternoon distance is
+the whole route:
+\[ 18 + x = 45. \]
+\step{3}{Solve the equation}
+$x = 45 - 18 = 27$ (km).
 \step{4}{The fraction left}
-$1 - \dfrac{2}{5} = \dfrac{5}{5} - \dfrac{2}{5} = \dfrac{3}{5}$. Check: $\dfrac{27}{45} = \dfrac{27\div 9}{45\div 9} = \dfrac{3}{5}$.
+Method 1: $1 - \dfrac{2}{5} = \dfrac{5}{5} - \dfrac{2}{5} = \dfrac{3}{5}$.\quad
+Method 2: $\dfrac{27}{45} = \dfrac{27\div 9}{45\div 9} = \dfrac{3}{5}$. Both methods give the same result.
+\verify{$18 + 27 = 45$ km and $45\times\dfrac35 = 27$ km. Correct.}
 \ans{$27$ km, which is $\dfrac{3}{5}$ of the route}
 \end{exbox}
 
@@ -413,46 +407,48 @@ $101 \times 49 = (100 + 1)\times 49 = 4900 + 49 = 4949$, indeed very close to $5
 \end{exbox}
 
 \begin{exbox}{Example 4}
-a) Rice costs $18$ thousand dong per kilogram. Mum buys $15$ kg and gets a $10\%$ discount on the whole bill. How much does she pay?\\
-b) A shirt costs $400$ thousand dong. After every week the shop reduces the \emph{current price} by $10\%$. After at least how
-many weeks is the price of the shirt below $300$ thousand dong?
+a) Apples cost $\$1.80$ per kilogram. Grace buys $15$ kg and gets a $10\%$ discount on the whole bill. How much
+does Grace pay?\\
+b) A shirt costs $\$40$. After every week the shop reduces the \emph{current price} by $10\%$. After at least how
+many weeks is the price of the shirt below $\$30$?
 \guide
 \step{1}{Total before the discount}
-Total cost $=$ unit price $\times$ quantity $= 18 \times 15 = 270$ (thousand dong).
+Total cost $=$ unit price $\times$ quantity $= 1.80 \times 15 = 27$ (dollars).
 \step{2}{Subtract $10\%$}
-$10\%$ of $270$ is $270 \div 10 = 27$ (thousand dong). Mum pays $270 - 27 = 243$ (thousand dong) $= 243\,000$ dong.
-(Or: $90\%$ remains, i.e.\ $270 \times 0.9 = 243$.)
+$10\%$ of $27$ is $27 \div 10 = 2.70$ (dollars). Grace pays $27 - 2.70 = 24.30$ (dollars).
+(Or: $90\%$ remains, i.e.\ $27 \times 0.9 = 24.3$.)
 \step{3}{Successive discounts: multiply by $0.9$ every week}
+Let $g_n$ be the price of the shirt (in dollars) after $n$ weeks. Then $g_0 = 40$ and $g_{n} = g_{n-1}\times 0.9$.
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} Time & Start & After 1 week & After 2 weeks & After 3 weeks\\ \hline
-Price (thousand dong) & $400$ & $360$ & $324$ & $291.6$\\ \hline
-Reduction & -- & $40$ & $36$ & $32.4$\\ \hline
+Price (dollars) & $40$ & $36$ & $32.40$ & $29.16$\\ \hline
+Reduction (dollars) & -- & $4$ & $3.60$ & $3.24$\\ \hline
 \end{tabular}
 \end{center}
-After $2$ weeks the price is $324 > 300$; after $3$ weeks it is $291.6 < 300$.
+After $2$ weeks the price is $\$32.40 > \$30$; after $3$ weeks it is $\$29.16 < \$30$.
 \begin{warnbox}
-Do not think ``the price drops by $40$ thousand every week'' (because $10\%$ of $400$ is $40$). Each week the reduction is
-$10\%$ of \emph{the price at that time}, so the reductions get smaller and smaller: $40$, then $36$, then $32.4$, \ldots
+Do not think ``the price drops by $\$4$ every week'' (because $10\%$ of $40$ is $4$). Each week the reduction is
+$10\%$ of \emph{the price at that time}, so the reductions get smaller and smaller: $4$, then $3.60$, then $3.24$, \ldots
 \end{warnbox}
-\ans{a) $243\,000$ dong;\quad b) $3$ weeks}
+\ans{a) $\$24.30$;\quad b) $3$ weeks}
 \end{exbox}
 
 \begin{exbox}{Example 5}
-a) Bình cycles $3$ laps around a stadium with a perimeter of $400$ m in $4$ minutes. An cycles at $15$ km/h. Who is faster?\\
+a) Leo cycles $3$ laps around a stadium with a perimeter of $400$ m in $4$ minutes. Mia cycles at $15$ km/h. Who is faster?\\
 b) A car travels at $72$ km/h. How many metres does it travel in $3$ seconds?
 \guide
-\step{1}{Bình's speed (m/s)}
+\step{1}{Leo's speed (m/s)}
 Distance: $3 \times 400 = 1200$ (m). Time: $4$ minutes $= 4\times 60 = 240$ (seconds).
-\[ v_{\text{Bình}} = 1200 \div 240 = 5 \text{ (m/s)}. \]
-\step{2}{Convert An's speed to m/s}
+\[ v_{\text{Leo}} = 1200 \div 240 = 5 \text{ (m/s)}. \]
+\step{2}{Convert Mia's speed to m/s}
 \begin{recallbox}$1$ km/h $= \dfrac{1000 \text{ m}}{3600 \text{ s}} = \dfrac{5}{18}$ m/s.\end{recallbox}
-$v_{\text{An}} = 15 \times \dfrac{5}{18} = \dfrac{75}{18} \approx 4.17$ (m/s). Since $5 > 4.17$, \textbf{Bình is faster}.
+$v_{\text{Mia}} = 15 \times \dfrac{5}{18} = \dfrac{75}{18} \approx 4.17$ (m/s). Since $5 > 4.17$, \textbf{Leo is faster}.
 (Another way: $5$ m/s $= 5\times 3.6 = 18$ km/h $> 15$ km/h.)
 \step{3}{The car}
 $72$ km/h $= 72 \times \dfrac{5}{18} = 20$ m/s. In $3$ seconds it travels $20 \times 3 = 60$ (m).
-\ans{a) Bình is faster ($5$ m/s against about $4.17$ m/s);\quad b) $60$ m}
+\ans{a) Leo is faster ($5$ m/s against about $4.17$ m/s);\quad b) $60$ m}
 \end{exbox}
 
 \begin{exbox}{Example 6}
@@ -492,18 +488,19 @@ hence $B = 0$ or $B = 5$.
 \end{exbox}
 
 \begin{exbox}{Example 8}
-a) Nam's four test scores are $6$; $9$; $10$ and $x$. The mean of the four scores is $8$. Find $x$.\\
+a) Noah's four test scores are $6$; $9$; $10$ and $x$. The mean of the four scores is $8$. Find $x$.\\
 b) The mean of five consecutive whole numbers is $30$. Find the smallest of them.
 \guide
-\step{1}{Using the sum}
-\begin{recallbox}Sum $=$ mean $\times$ how many numbers.\end{recallbox}
-The four scores add up to $8 \times 4 = 32$. So $x = 32 - 6 - 9 - 10 = 7$.
+\step{1}{Form an equation from the definition of the mean}
+\begin{recallbox}Mean $=$ sum $\div$ how many numbers, so sum $=$ mean $\times$ how many numbers.\end{recallbox}
+\[ \frac{6 + 9 + 10 + x}{4} = 8 \;\Rightarrow\; 25 + x = 32 \;\Rightarrow\; x = 32 - 25 = 7. \]
 \step{2}{Using deviations (faster)}
 Compared with $8$: the $6$ is $2$ short, the $9$ is $1$ over, the $10$ is $2$ over. Sum of deviations: $-2 + 1 + 2 = +1$.
 For all deviations to add up to $0$, the fourth score must be $1$ short: $x = 8 - 1 = 7$.
 \step{3}{Five consecutive numbers}
-For five consecutive numbers, the mean is the middle number. The middle number is $30$, so the five numbers are
-$28, 29, 30, 31, 32$. The smallest is $28$.
+Let the smallest number be $n$; the five numbers are $n, n+1, n+2, n+3, n+4$, with sum $5n + 10$. So
+$5n + 10 = 5\times 30 = 150$, hence $5n = 140$, $n = 28$. (Note: the middle number $n + 2 = 30$ is exactly the mean.)
+The five numbers are $28, 29, 30, 31, 32$; the smallest is $28$.
 \verify{$28 + 29 + 30 + 31 + 32 = 150 = 5\times 30$. Correct.}
 \ans{a) $x = 7$;\quad b) $28$}
 \end{exbox}
@@ -537,28 +534,21 @@ The number $2.23$ is option \textbf{(D)}.
 
 % ---------------------------------------------------------------- Problem 2
 \begin{probbox}{2}{\relax}
-Minh goes on a $36$ km kayak trip. Before lunch he paddles the first $12$ km. After lunch, what fraction of the whole
-trip does Minh still have to paddle?
+Keegan goes on a $36$ km kayak trip. Before lunch he paddles the first $12$ km. After lunch, what fraction of the whole
+trip does Keegan still have to paddle?
 \choices{$\dfrac{1}{2}$}{$\dfrac{5}{6}$}{$\dfrac{3}{4}$}{$\dfrac{2}{3}$}{$\dfrac{3}{5}$}
 \end{probbox}
 \probsol{
 \textbf{Understanding the problem.} The whole trip is $36$ km and $12$ km are done. We are asked for the part \emph{left}
 (not yet paddled), as a fraction.
 \step{1}{Distance left}
-$36 - 12 = 24$ (km).
+Let $x$ (km) be the distance still to paddle after lunch. Then $12 + x = 36$, so $x = 36 - 12 = 24$ (km).
 \step{2}{Form the fraction ``part left over the whole''}
 \begin{recallbox}The fraction ``what part of the whole'' $=\dfrac{\text{the part}}{\text{the whole}}$. Simplify by dividing
 numerator and denominator by their greatest common divisor.\end{recallbox}
 \[ \frac{24}{36} = \frac{24 \div 12}{36 \div 12} = \frac{2}{3}. \]
-\step{3}{Picture it}
-Split the $36$ km into $3$ sections of $12$ km: Minh has done $1$ section, $2$ sections are left.
-\begin{barfigC}
-  \blk{0}{2.4}{0}{0.6}{tmBlue}{$12$ km}
-  \blk{2.4}{4.8}{0}{0.6}{tmOrange}{$12$ km}
-  \blk{4.8}{7.2}{0}{0.6}{tmOrange}{$12$ km}
-  \brcup{0}{2.4}{0.5}{before lunch}
-  \brcup{2.4}{7.2}{0.5}{after lunch: $\frac{2}{3}$}
-\end{barfigC}
+\step{3}{Another way: find the part done and subtract it from $1$}
+Part done: $\dfrac{12}{36} = \dfrac{1}{3}$. Part left: $1 - \dfrac13 = \dfrac33 - \dfrac13 = \dfrac23$. Both ways give the same result.
 \begin{warnbox}The fraction $\dfrac{12}{36} = \dfrac{1}{3}$ is the part \emph{done}. The question asks for the part
 \emph{left}, so the answer is $1 - \dfrac13 = \dfrac23$.\end{warnbox}
 \verify{$\dfrac{2}{3}\times 36 = 24$ km; $24 + 12 = 36$ km. Correct.}
@@ -583,7 +573,7 @@ number is less than $0$ and less than every positive number. Of two negative num
   \foreach \x in {-9,...,10}{\draw[Navy] (\x*0.6,0.08)--(\x*0.6,-0.08);}
   \foreach \x in {-8,-5,-3,-2,-1,0,7,10}{\node[below,font=\scriptsize] at (\x*0.6,-0.1) {$\x$};}
   \foreach \x in {-8,-2}{\fill[tmOrange] (\x*0.6,0) circle (3pt);}
-  \draw[->,tmGreen!70!black,thick] (-8*0.6,0.35) to[bend left=30] node[above,font=\scriptsize]{$6$ units to the right} (-2*0.6,0.35);
+  \draw[->,tmGreen!70!black,thick,shorten <=3.5pt,shorten >=3.5pt] (-8*0.6,0) to[bend left=50] node[above,font=\scriptsize]{$6$ units to the right} (-2*0.6,0);
 \end{figC}
 \step{2}{Check each option}
 (A) $0$ is less than $-5$? False: $-5$ is to the left of $0$, so $-5 < 0$.\\
@@ -619,11 +609,11 @@ The value $9$ is option \textbf{(A)}.
 
 % ---------------------------------------------------------------- Problem 5
 \begin{probbox}{5}{\relax}
-A test is marked out of $50$. Mai scores $80\%$. How many marks does Mai get?
+A test is marked out of $50$. Mukesh scores $80\%$. How many marks does Mukesh get?
 \choices{$40$}{$62.5$}{$10$}{$45$}{$35$}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} The maximum is $50$ marks; Mai gets $80\%$ of $50$. We need Mai's marks.
+\textbf{Understanding the problem.} The maximum is $50$ marks; Mukesh gets $80\%$ of $50$. We need Mukesh's marks.
 \begin{recallbox}To find $p\%$ of a number $a$, compute $a \times \dfrac{p}{100}$.\end{recallbox}
 \step{1}{Write the calculation}
 $80\%$ of $50$ is $50 \times \dfrac{80}{100}$.
@@ -632,7 +622,7 @@ $50 \times \dfrac{80}{100} = \dfrac{50\times 80}{100} = \dfrac{4000}{100} = 40$.
 \step{3}{A quick mental method}
 $10\%$ of $50$ is $5$; so $80\% = 8\times 10\%$ is $8\times 5 = 40$.
 \begin{warnbox}Option (B) $62.5$ comes from dividing $50 \div 0.8$ -- wrong, since $62.5$ is even more than the maximum $50$!
-Option (C) $10$ is the number of marks Mai \emph{lost} ($20\%$ of $50$).\end{warnbox}
+Option (C) $10$ is the number of marks Mukesh \emph{lost} ($20\%$ of $50$).\end{warnbox}
 \verify{$\dfrac{40}{50} = \dfrac{80}{100} = 80\%$. Correct.}
 The value $40$ is option \textbf{(A)}.
 \ans{(A) $40$}
@@ -640,24 +630,23 @@ The value $40$ is option \textbf{(A)}.
 
 % ---------------------------------------------------------------- Problem 6
 \begin{probbox}{6}{\relax}
-Minced beef sells for $120\,000$ dong per kilogram. How much do $12$ kg of minced beef cost?
-\choicesII{$120\,000$ dong}{$12\,000$ dong}{$1\,440\,000$ dong}{$132\,000$ dong}{$10\,000$ dong}
+Ground beef sells for $\$5.00$ per kilogram. How much do $12$ kg of ground beef cost?
+\choices{$\$5.00$}{$\$12.00$}{$\$60.00$}{$\$17.00$}{$\$2.40$}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} The unit price (price of $1$ kg) is $120\,000$ dong; the quantity is $12$ kg. We need the total cost.
+\textbf{Understanding the problem.} The unit price (price of $1$ kg) is $\$5.00$; the quantity is $12$ kg. We need the total cost.
 \begin{recallbox}Total cost $=$ unit price $\times$ quantity.\end{recallbox}
 \step{1}{Write the calculation}
-Total cost $= 120\,000 \times 12$ (dong).
-\step{2}{Calculate (split $12 = 10 + 2$)}
-$120\,000\times 10 = 1\,200\,000$; \quad $120\,000 \times 2 = 240\,000$.\\
-$120\,000 \times 12 = 1\,200\,000 + 240\,000 = 1\,440\,000$ (dong).
+Let $T$ (dollars) be the amount to pay. Then $T = 5 \times 12$.
+\step{2}{Calculate}
+$T = 5\times 12 = 60$ (dollars), i.e.\ $\$60.00$.
 \step{3}{Estimate to check}
-$12$ kg at more than $100$ thousand dong per kg must cost more than $1\,200\,000$ dong. Only option (C) fits.
-\begin{warnbox}The wrong options come from using the wrong operation: (A) is the price of $1$ kg; (D) is $120\,000 + 12\,000$
-(adding instead of multiplying); (E) is $120\,000 \div 12$ (dividing instead of multiplying).\end{warnbox}
-\verify{$1\,440\,000 \div 12 = 120\,000$ dong per kg. Correct.}
-The amount $1\,440\,000$ dong is option \textbf{(C)}.
-\ans{(C) $1\,440\,000$ dong}
+Each kilogram costs $\$5$ and we buy more than $10$ kg, so the cost is more than $5\times 10 = 50$ dollars. Only option (C) fits.
+\begin{warnbox}The wrong options come from using the wrong operation: (A) is the price of $1$ kg; (B) is just the number of
+kilograms written as money; (D) is $5 + 12$ (adding instead of multiplying); (E) is $12 \div 5$ (dividing instead of multiplying).\end{warnbox}
+\verify{$60 \div 12 = 5$ dollars per kilogram. Correct.}
+The amount $\$60.00$ is option \textbf{(C)}.
+\ans{(C) $\$60.00$}
 }
 
 % ---------------------------------------------------------------- Problem 7
@@ -701,8 +690,9 @@ The other options ($10$; $10\,000$; $100\,000$) are much farther away. So $1000$
   \draw[->,thick,Navy] (-0.3,0)--(10.6,0);
   \foreach \x/\l in {0/0,1/100,10/1000}{\draw[Navy] (\x,0.1)--(\x,-0.1); \node[below,font=\scriptsize] at (\x,-0.1) {$\l$};}
   \fill[tmOrange] (8.91,0) circle (3pt); \node[above,font=\scriptsize] at (8.91,0.1) {$891$};
-  \draw[<->,tmGreen!70!black] (8.91,-0.55)--(10,-0.55) node[midway,below,font=\scriptsize]{$109$};
-  \draw[<->,AnsRed!70] (1,-0.55)--(8.91,-0.55) node[midway,below,font=\scriptsize]{$791$};
+  \draw[Slate!60,densely dotted] (1,-0.5)--(1,-0.95) (8.91,-0.1)--(8.91,-0.95) (10,-0.5)--(10,-0.95);
+  \draw[<->,tmGreen!70!black] (8.91,-0.85)--(10,-0.85) node[midway,below,font=\scriptsize]{$109$};
+  \draw[<->,AnsRed!70] (1,-0.85)--(8.91,-0.85) node[midway,below,font=\scriptsize]{$791$};
 \end{figC}
 \verify{$891 \div 9 = 99$. Correct.}
 The number $1000$ is option \textbf{(D)}.
@@ -711,28 +701,21 @@ The number $1000$ is option \textbf{(D)}.
 
 % ---------------------------------------------------------------- Problem 9
 \begin{probbox}{9}{\relax}
-Huy is reading a $396$-page book. He has read only the first $\dfrac{1}{3}$ of the book. How many pages does he still
+Joshua is reading a $396$-page book. He has read only the first $\dfrac{1}{3}$ of the book. How many pages does he still
 have to read to finish the book?
 \choices{$264$}{$124$}{$250$}{$199$}{$244$}
 \end{probbox}
 \probsol{
 \textbf{Understanding the problem.} The whole book: $396$ pages. Read so far: $\dfrac13$ of the book. Asked: the number of
 pages \emph{left}.
-\begin{recallbox}To find $\dfrac{m}{n}$ of a number, divide it by $n$ and multiply by $m$.\end{recallbox}
+\begin{recallbox}To find $\dfrac{m}{n}$ of a number $a$, compute $a\times\dfrac{m}{n}$ (divide $a$ by $n$ and multiply by $m$).\end{recallbox}
 \step{1}{Pages read}
-$\dfrac13$ of $396$ is $396 \div 3 = 132$ (pages).
-\step{2}{Pages left}
-$396 - 132 = 264$ (pages).
+$\dfrac13$ of $396$ is $396\times\dfrac13 = 396 \div 3 = 132$ (pages).
+\step{2}{Introduce an unknown and form an equation}
+Let $x$ be the number of pages Joshua still has to read. Pages read plus pages left make the whole book:
+\[ 132 + x = 396 \;\Rightarrow\; x = 396 - 132 = 264. \]
 \step{3}{Another way: compute the part left directly}
-The part left is $1 - \dfrac13 = \dfrac23$ of the book, i.e.\ $396 \div 3 \times 2 = 132\times 2 = 264$ (pages).
-\begin{barfigC}
-  \blk{0}{2.6}{0}{0.6}{tmBlue}{$132$ pages}
-  \blk{2.6}{5.2}{0}{0.6}{tmOrange}{$132$ pages}
-  \blk{5.2}{7.8}{0}{0.6}{tmOrange}{$132$ pages}
-  \brcup{0}{2.6}{0.5}{read}
-  \brcup{2.6}{7.8}{0.5}{still to read}
-  \brcdn{0}{7.8}{-0.5}{$396$ pages}
-\end{barfigC}
+The part left is $1 - \dfrac13 = \dfrac23$ of the book, i.e.\ $396 \times \dfrac23 = \dfrac{396\times 2}{3} = \dfrac{792}{3} = 264$ (pages).
 \begin{warnbox}Stopping at $132$ answers the wrong question (that is the number of pages \emph{read}; and $132$ is not even
 among the options). Always re-read the question before choosing an answer.\end{warnbox}
 \verify{$264 + 132 = 396$, and $132\times 3 = 396$. Correct.}
@@ -800,35 +783,35 @@ The sum $0.464$ is option \textbf{(D)}.
 
 % ---------------------------------------------------------------- Problem 12
 \begin{probbox}{12}{\relax}
-Lan and Hà run on a circular track $150$ m long. Lan runs $3$ laps in $120$ seconds, and Hà runs $5$ laps in $160$
+Keiko and Leah run on a circular track $150$ m long. Keiko runs $3$ laps in $120$ seconds, and Leah runs $5$ laps in $160$
 seconds. Who is the faster runner, and approximately what is her speed?
-\choicesII{Lan, $3.75$ m/s}{Lan, $2.4$ m/s}{Hà, $3.3$ m/s}{Hà, $4.69$ m/s}{Hà, $3.75$ m/s}
+\choicesII{Keiko, $3.75$ m/s}{Keiko, $2.4$ m/s}{Leah, $3.3$ m/s}{Leah, $4.69$ m/s}{Leah, $3.75$ m/s}
 \end{probbox}
 \probsol{
-\textbf{Understanding the problem.} One lap is $150$ m. Lan: $3$ laps in $120$ s. Hà: $5$ laps in $160$ s. We compute
+\textbf{Understanding the problem.} One lap is $150$ m. Keiko: $3$ laps in $120$ s. Leah: $5$ laps in $160$ s. We compute
 each girl's speed (m/s), compare, and choose the option.
 \begin{recallbox}Speed $=$ distance $\div$ time. The distance of $n$ laps $= n\times$ the length of one lap.\end{recallbox}
 \step{1}{Distance run by each girl}
-Lan: $3\times 150 = 450$ (m). \quad Hà: $5\times 150 = 750$ (m).
-\step{2}{Lan's speed}
-$v_{\text{Lan}} = 450 \div 120 = 3.75$ (m/s).
-\step{3}{Hà's speed}
-$v_{\text{Hà}} = 750 \div 160 = 4.6875 \approx 4.69$ (m/s).
+Keiko: $3\times 150 = 450$ (m). \quad Leah: $5\times 150 = 750$ (m).
+\step{2}{Keiko's speed}
+$v_{\text{Keiko}} = 450 \div 120 = 3.75$ (m/s).
+\step{3}{Leah's speed}
+$v_{\text{Leah}} = 750 \div 160 = 4.6875 \approx 4.69$ (m/s).
 \step{4}{Compare}
-$4.69 > 3.75$, so \textbf{Hà is faster}, running at about $4.69$ m/s.
+$4.69 > 3.75$, so \textbf{Leah is faster}, running at about $4.69$ m/s.
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
 \rowcolor{tmBlue!10} & Distance & Time & Speed\\ \hline
-Lan & $450$ m & $120$ s & $3.75$ m/s\\ \hline
-Hà & $750$ m & $160$ s & $\approx 4.69$ m/s\\ \hline
+Keiko & $450$ m & $120$ s & $3.75$ m/s\\ \hline
+Leah & $750$ m & $160$ s & $\approx 4.69$ m/s\\ \hline
 \end{tabular}
 \end{center}
-\begin{warnbox}Option (E) ``Hà, $3.75$ m/s'' pairs the right name with the slower girl's speed. Option (B) $2.4$ m/s comes from
+\begin{warnbox}Option (E) ``Leah, $3.75$ m/s'' pairs the right name with the slower girl's speed. Option (B) $2.4$ m/s comes from
 the reversed calculation $120 \div 50$ (time divided by distance). Always write the units: m $\div$ s $=$ m/s.\end{warnbox}
 \verify{$4.6875 \times 160 = 750$ m $= 5$ laps; $3.75\times 120 = 450$ m $= 3$ laps. Correct.}
-The conclusion ``Hà, $4.69$ m/s'' is option \textbf{(D)}.
-\ans{(D) Hà, $4.69$ m/s}
+The conclusion ``Leah, $4.69$ m/s'' is option \textbf{(D)}.
+\ans{(D) Leah, $4.69$ m/s}
 }
 
 % ---------------------------------------------------------------- Problem 13
@@ -866,10 +849,10 @@ The mean (average) of the four integers $78$; $83$; $82$ and $x$ is $80$. Which 
 \probsol{
 \textbf{Understanding the problem.} We know the mean of four numbers is $80$ and we know three of them. Find $x$ and compare it with $80$.
 \begin{recallbox}Sum of the numbers $=$ mean $\times$ how many numbers.\end{recallbox}
-\step{1}{Sum of the four numbers}
-$80\times 4 = 320$.
-\step{2}{Find $x$}
-$78 + 83 + 82 = 243$, so $x = 320 - 243 = 77$.
+\step{1}{Form an equation}
+By the definition of the mean: $\dfrac{78 + 83 + 82 + x}{4} = 80$, i.e.\ $78 + 83 + 82 + x = 80\times 4 = 320$.
+\step{2}{Solve the equation for $x$}
+$78 + 83 + 82 = 243$, so $243 + x = 320$, hence $x = 320 - 243 = 77$.
 \step{3}{Compare with the mean}
 $80 - 77 = 3$: $x$ is $3$ less than the mean.
 \step{4}{A faster way -- the deviation method}

@@ -23,13 +23,14 @@ Mirroring in the $y$-axis: the $y$-coordinate is unchanged, the $x$-coordinate c
 \step{3}{Point $D$ -- reflection in the origin $O$}
 Both coordinates change sign: $D(3,\,-2)$, of the form $(+,-)$: quadrant IV.
 \begin{gmFig}[scale=0.55]
+  \fill[tmBlue!12] (-3,-2) rectangle (3,2);
   \draw[Line,line width=0.3pt] (-4.5,-3.5) grid (4.5,3.5);
   \draw[->,Navy,thick] (-4.8,0)--(4.9,0) node[right,text=Ink]{$x$};
   \draw[->,Navy,thick] (0,-3.8)--(0,3.9) node[above,text=Ink]{$y$};
-  \foreach \t in {-4,...,-1,1,2,3,4}{\node[below,font=\scriptsize] at (\t,0){$\t$};}
-  \foreach \t in {-3,...,-1,1,2,3}{\node[left,font=\scriptsize] at (0,\t){$\t$};}
-  \fill[tmBlue!15] (-3,2) rectangle (3,-2);
-  \draw[tmBlue,thick] (-3,2) rectangle (3,-2);
+  \foreach \t in {-4,...,-1,1,2,3,4}{\node[below left,font=\scriptsize,inner sep=1.5pt] at (\t,0){$\t$};}
+  \foreach \t in {-3,...,-1,1,2,3}{\node[below left,font=\scriptsize,inner sep=1.5pt] at (0,\t){$\t$};}
+  \node[below left,font=\scriptsize,inner sep=1.5pt] at (0,0){$O$};
+  \draw[tmBlue,thick] (-3,-2) rectangle (3,2);
   \fill[AnsRed] (-3,2) circle (3pt) node[above left]{$A$};
   \fill[tmPurple] (-3,-2) circle (3pt) node[below left]{$B$};
   \fill[tmGreen!70!black] (3,2) circle (3pt) node[above right]{$C$};
@@ -99,19 +100,12 @@ So the answer is \textbf{(B)}.
 \probsol{
 \textbf{Understanding the problem.} All three parts rest on two facts: an isosceles triangle has two equal base angles, and the three angles add up to $180^\circ$.
 \begin{recallbox}Isosceles triangle: apex angle $d$, each base angle $g$, then $d+2g=180^\circ$.\end{recallbox}
-\step{1}{Part a -- using ``equal parts''}
-Let each base angle be $1$ part. The apex angle is $4$ times as large, so it is $4$ parts. The three angles together make $1+1+4=6$ parts, corresponding to $180^\circ$.
-\begin{barfigC}
-  \blk{0}{1}{0}{0.6}{tmBlue}{$g$}
-  \blk{1}{2}{0}{0.6}{tmBlue}{$g$}
-  \blk{2}{3}{0}{0.6}{tmOrange}{}
-  \blk{3}{4}{0}{0.6}{tmOrange}{}
-  \blk{4}{5}{0}{0.6}{tmOrange}{}
-  \blk{5}{6}{0}{0.6}{tmOrange}{}
-  \brcup{2}{6}{0.5}{apex angle $=4g$}
-  \brcdn{0}{6}{-0.5}{$180^\circ$}
-\end{barfigC}
-One part: $180^\circ\div6=30^\circ$. So each base angle is $30^\circ$ and the apex angle is $4\cdot30^\circ=120^\circ$.
+\step{1}{Part a -- introduce an unknown and form an equation}
+Let each base angle measure $x$ degrees, with $0<x<90$. The apex angle is $4$ times each base angle, so it measures $4x$.
+The three angles of a triangle add up to $180^\circ$, which gives the equation
+\[ x+x+4x=180. \]
+Collect the left-hand side: $6x=180$. Divide both sides by $6$: $x=180\div6=30$.
+So each base angle is $30^\circ$ and the apex angle is $4\cdot30^\circ=120^\circ$.
 
 \step{2}{Part b -- two cases}
 \emph{Case 1: $36^\circ$ is the apex angle.} Each base angle: $(180^\circ-36^\circ)\div2=144^\circ\div2=72^\circ$. Triangle $36^\circ,\,72^\circ,\,72^\circ$. Difference between largest and smallest: $72^\circ-36^\circ=36^\circ$.
@@ -144,17 +138,17 @@ $A(4,\,1)\to B(-1,\,4)\to C(-4,\,-1)\to E(1,\,-4)$.
 \step{2}{Part b}
 Rotating $270^\circ$ clockwise is the same as rotating $360^\circ-270^\circ=90^\circ$ counterclockwise, so we get exactly the point $B(-1,\,4)$.
 
+\needspace{14\baselineskip}
 \step{3}{Part c -- put the square in a frame}
 \begin{gmFig}[scale=0.42]
+  \fill[tmOrange!22] (-4,-4) rectangle (4,4);
+  \fill[tmBlue!18] (4,1)--(-1,4)--(-4,-1)--(1,-4)--cycle;
   \draw[Line,line width=0.3pt] (-4,-4) grid (4,4);
   \draw[->,Navy] (-4.6,0)--(4.7,0) node[right,text=Ink]{$x$};
   \draw[->,Navy] (0,-4.6)--(0,4.7) node[above,text=Ink]{$y$};
   \draw[tmOrange!90!black,thick,dashed] (-4,-4) rectangle (4,4);
-  \fill[tmOrange!25] (4,1)--(4,4)--(-1,4)--cycle;
-  \fill[tmOrange!25] (-1,4)--(-4,4)--(-4,-1)--cycle;
-  \fill[tmOrange!25] (-4,-1)--(-4,-4)--(1,-4)--cycle;
-  \fill[tmOrange!25] (1,-4)--(4,-4)--(4,1)--cycle;
-  \fill[tmBlue!25,draw=tmBlue,thick] (4,1)--(-1,4)--(-4,-1)--(1,-4)--cycle;
+  \draw[tmBlue,thick] (4,1)--(-1,4)--(-4,-1)--(1,-4)--cycle;
+  \foreach \p in {(4,1),(-1,4),(-4,-1),(1,-4)}{\fill[tmBlue] \p circle (3pt);}
   \node[right] at (4,1){$A$}; \node[above] at (-1,4){$B$}; \node[left] at (-4,-1){$C$}; \node[below] at (1,-4){$E$};
   \node[font=\scriptsize] at (2.9,3.2){$5\times3$};
 \end{gmFig}
@@ -200,11 +194,9 @@ In $\text{m}^2$: $6000\div10\,000=0.6\ (\text{m}^2)$.
 }
 
 \begin{probbox}{36}{\stars{1}}
-An built a $4\text{ cm}\times3\text{ cm}\times3\text{ cm}$ box from $36$ small cubes of edge $1$ cm (as in Problem 10). An paints all the outside faces of the box and then takes the small cubes apart. How many small cubes have exactly $3$ painted faces? Exactly $2$? Exactly $1$? No painted face?
+Anna built a $4\text{ cm}\times3\text{ cm}\times3\text{ cm}$ box from $36$ small cubes of edge $1$ cm (as in Problem 10). Anna paints all the outside faces of the box and then takes the small cubes apart. How many small cubes have exactly $3$ painted faces? Exactly $2$? Exactly $1$? No painted face?
 \begin{gmFig}[scale=0.55]
-  \fill[tmBlue!20] (0,0) rectangle (4,3);
-  \fill[tmBlue!10] (0,3)--(1.5,4)--(5.5,4)--(4,3)--cycle;
-  \fill[tmBlue!30] (4,0)--(5.5,1)--(5.5,4)--(4,3)--cycle;
+  \fill[tmBlue!12] (0,0)--(4,0)--(5.5,1)--(5.5,4)--(1.5,4)--(0,3)--cycle;
   \draw[Ink] (0,0) grid (4,3);
   \foreach \t in {1,2}{\draw[Ink] (4+0.5*\t,0.333*\t)--(4+0.5*\t,3+0.333*\t); \draw[Ink] (0.5*\t,3+0.333*\t)--(4+0.5*\t,3+0.333*\t);}
   \foreach \t in {1,2}{\draw[Ink] (4,\t)--(5.5,\t+1);}
@@ -236,13 +228,11 @@ So $4+4+2=\mathbf{10}$ cubes have $1$ painted face.
 
 \step{4}{Cubes completely inside -- unpainted}
 Removing one layer of ``skin'' on each side, the inner core measures $(4-2)\times(3-2)\times(3-2)=2\times1\times1$, i.e.\ $\mathbf{2}$ cubes.
-\begin{gmFig}[scale=0.8]
-  \foreach \x/\y/\c/\l in {0/0/AnsRed/3,1.6/0/tmOrange/2,3.2/0/tmGreen/1,4.8/0/Slate/0}{
-    \fill[\c!30,draw=\c!80!black] (\x,\y) rectangle ++(0.8,0.8);
-    \node[font=\footnotesize,below] at (\x+0.4,\y){$\l$ faces};}
-  \node[font=\footnotesize] at (0.4,1.1){$8$}; \node[font=\footnotesize] at (2.0,1.1){$16$};
-  \node[font=\footnotesize] at (3.6,1.1){$10$}; \node[font=\footnotesize] at (5.2,1.1){$2$};
-\end{gmFig}
+Summary of the results:
+\begin{center}\begin{tabular}{|l|c|c|c|c|c|}\hline
+Painted faces & $3$ & $2$ & $1$ & $0$ & Total\\\hline
+Small cubes & $8$ & $16$ & $10$ & $2$ & $36$\\\hline
+\end{tabular}\end{center}
 \begin{parentbox}If you have a set of toy cubes (or a Rubik's-type cube), build the $4\times3\times3$ box with your child, stick coloured paper on the outside faces, then take it apart and count. Your child will see for themselves why a corner cube has $3$ coloured faces.\end{parentbox}
 \verify{The four types must add up to the number of cubes: $8+16+10+2=36=4\cdot3\cdot3$. Correct.}
 \ans{$3$ faces: $8$ cubes; $2$ faces: $16$ cubes; $1$ face: $10$ cubes; unpainted: $2$ cubes.}
@@ -264,17 +254,12 @@ Perimeter of the square $=4\cdot9=36$ cm, which is also the perimeter of the rec
 \step{3}{Sum of length and width}
 Half-perimeter of the rectangle: $36\div2=18$ cm $=$ length $+$ width.
 
-\step{4}{Split in the given ratio}
-The length is twice the width: width is $1$ part, length is $2$ parts, $3$ parts in all corresponding to $18$ cm.
-\begin{barfigC}
-  \rowlab{-0.2}{0}{width}
-  \blk{0}{2}{0}{0.55}{tmBlue}{$6$}
-  \rowlab{-0.2}{-0.8}{length}
-  \blk{0}{2}{-0.8}{0.55}{tmOrange}{$6$}
-  \blk{2}{4}{-0.8}{0.55}{tmOrange}{$6$}
-  \vbrace{4.2}{0.3}{-1.1}{total $18$ cm}
-\end{barfigC}
-One part $=18\div3=6$ cm. Width $6$ cm, length $12$ cm.
+\step{4}{Introduce an unknown and form an equation}
+Let the width of the rectangle be $x$ cm, with $x>0$. The length is twice the width, so it is $2x$ cm.
+By step 3, length $+$ width $=18$, which gives the equation
+\[ x+2x=18. \]
+Collect terms: $3x=18$, so $x=18\div3=6$.
+So the width is $6$ cm and the length is $2\cdot6=12$ cm.
 
 \step{5}{Area}
 $S=12\cdot6=72\ (\text{cm}^2)$.

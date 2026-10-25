@@ -25,16 +25,20 @@ $P(\text{xanh})=\dfrac{9}{20}$.
 $P(\text{đen})=\dfrac{5}{20}=\dfrac14$, nên $P(\text{không đen})=1-\dfrac14=\dfrac34$.
 
 \emph{Kiểm tra bằng cách đếm trực tiếp:} bút không đen gồm $6+9=15$ chiếc, $\dfrac{15}{20}=\dfrac34$ \checkmark.
-\step{4}{Câu c -- lập luận}
-Xác suất lấy được bút đen bằng $\dfrac12$ nghĩa là bút đen chiếm \emph{đúng một nửa} số bút, tức là số bút đen \emph{bằng} số bút không đen.
+\step{4}{Câu c -- gọi ẩn và lập phương trình}
+Gọi $x$ là số bút đen cần bỏ thêm vào hộp ($x$ là số tự nhiên). Chỉ có bút đen được thêm vào, nên sau khi thêm:
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt,topsep=1pt]
+\item số bút đen là $5+x$;
+\item tổng số bút là $20+x$.
+\end{itemize}
+Điều kiện của đề bài: $P(\text{đen})=\dfrac{5+x}{20+x}=\dfrac12$.
+\step{5}{Giải phương trình}
+\begin{recallbox}Với $b\ne0$, $d\ne0$: $\dfrac ab=\dfrac cd$ khi và chỉ khi $a\times d=b\times c$ (tính chất của tỉ lệ thức).\end{recallbox}
+Từ $\dfrac{5+x}{20+x}=\dfrac12$ ta có $2\times(5+x)=1\times(20+x)$, tức là
+\[10+2x=20+x\ \Rightarrow\ 2x-x=20-10\ \Rightarrow\ x=10.\]
+Vậy cần bỏ thêm $10$ bút đen.
 
-Số bút không đen (đỏ và xanh) luôn là $15$ chiếc, vì ta chỉ thêm bút đen. Vậy sau khi thêm phải có $15$ bút đen. Lúc đầu có $5$ bút đen, nên cần thêm $15-5=10$ chiếc.
-\begin{figC}
-\blk{0}{3}{0}{0.55}{AnsRed}{6 đỏ}\blk{3}{7.5}{0}{0.55}{tmBlue}{9 xanh}
-\blk{0}{2.5}{-0.8}{0.55}{Ink}{5 đen}\blk{2.5}{7.5}{-0.8}{0.55}{Slate}{thêm 10 đen}
-\brcup{0}{7.5}{0.45}{$15$ bút không đen}
-\brcdn{0}{7.5}{-1.25}{$15$ bút đen}
-\end{figC}
+\emph{Nhận xét:} $P(\text{đen})=\dfrac12$ cũng có nghĩa là số bút đen \emph{bằng} số bút không đen. Số bút không đen luôn là $15$, nên phải có $15$ bút đen, tức là thêm $15-5=10$ chiếc -- khớp với lời giải trên.
 \begin{warnbox}Nhiều bạn nghĩ ``muốn từ $\dfrac14$ lên $\dfrac12$ thì gấp đôi số bút đen, thêm $5$ chiếc''. Nhưng khi thêm $5$ bút đen thì tổng cũng tăng lên $25$, xác suất là $\dfrac{10}{25}=\dfrac25$, chưa bằng $\dfrac12$.\end{warnbox}
 \verify{Thêm $10$ bút đen: có $15$ bút đen trong tổng số $20+10=30$ bút; $P(\text{đen})=\dfrac{15}{30}=\dfrac12$ \checkmark.}
 \ans{a) $\dfrac{9}{20}$;\quad b) $\dfrac34$;\quad c) thêm $10$ bút đen.}
@@ -47,7 +51,7 @@ Một bánh xe quay được chia thành bốn ô có góc ở tâm lần lượ
 \begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
 \item Tính xác suất kim chỉ vào ô xanh.
 \item Tính xác suất kim chỉ vào ô vàng hoặc ô tím.
-\item Bạn Hùng nói: ``Có $4$ màu nên xác suất mỗi màu là $\dfrac14$.'' Hùng nói đúng hay sai? Vì sao?
+\item Bạn Leo nói: ``Có $4$ màu nên xác suất mỗi màu là $\dfrac14$.'' Leo nói đúng hay sai? Vì sao?
 \end{enumerate}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}\vspace{0pt}
@@ -79,7 +83,7 @@ $P(\text{xanh})=\dfrac{90}{360}=\dfrac14$.
 Ô vàng và ô tím không chồng lên nhau, nên góc tổng là $60^\circ+30^\circ=90^\circ$.
 $P(\text{vàng hoặc tím})=\dfrac{90}{360}=\dfrac14$ (hoặc $\dfrac{2+1}{12}=\dfrac{3}{12}=\dfrac14$).
 \step{4}{Câu c}
-Hùng nói \textbf{sai}. Công thức ``thuận lợi chia tất cả'' chỉ dùng được khi các kết quả \emph{đồng khả năng}. Ở đây bốn màu không đồng khả năng: ô đỏ chiếm nửa bánh xe nên $P(\text{đỏ})=\dfrac{180}{360}=\dfrac12$, còn $P(\text{tím})=\dfrac{30}{360}=\dfrac{1}{12}$ -- khác xa nhau.
+Leo nói \textbf{sai}. Công thức ``thuận lợi chia tất cả'' chỉ dùng được khi các kết quả \emph{đồng khả năng}. Ở đây bốn màu không đồng khả năng: ô đỏ chiếm nửa bánh xe nên $P(\text{đỏ})=\dfrac{180}{360}=\dfrac12$, còn $P(\text{tím})=\dfrac{30}{360}=\dfrac{1}{12}$ -- khác xa nhau.
 \verify{$P(\text{đỏ})+P(\text{xanh})+P(\text{vàng})+P(\text{tím})=\dfrac{6}{12}+\dfrac{3}{12}+\dfrac{2}{12}+\dfrac{1}{12}=1$ \checkmark.}
 \begin{parentbox}Có thể cắt một đĩa giấy thành $12$ ``miếng bánh'' bằng nhau rồi tô màu như đề bài. Trẻ đếm số miếng của mỗi màu sẽ hiểu ngay vì sao ô to thì xác suất lớn.\end{parentbox}
 \ans{a) $\dfrac14$;\quad b) $\dfrac14$;\quad c) Sai, vì các ô không bằng nhau (ví dụ $P(\text{đỏ})=\dfrac12$, $P(\text{tím})=\dfrac1{12}$).}
@@ -87,11 +91,11 @@ Hùng nói \textbf{sai}. Công thức ``thuận lợi chia tất cả'' chỉ d�
 
 % ---------------------------------------------------------------- Bài 33
 \begin{probbox}{33}{\relax}
-Căng tin trường có thực đơn bữa trưa: món chính chọn một trong $3$ món (cơm gà, phở, bún chả); đồ uống chọn một trong $2$ loại (trà đá, nước cam); tráng miệng chọn một trong $2$ món (chè, sữa chua). Mỗi suất ăn gồm một món chính, một đồ uống và một món tráng miệng.
+Căng tin trường có thực đơn bữa trưa: món chính chọn một trong $3$ món (cơm gà, mì Ý, pizza); đồ uống chọn một trong $2$ loại (nước táo, nước cam); tráng miệng chọn một trong $2$ món (kem, sữa chua). Mỗi suất ăn gồm một món chính, một đồ uống và một món tráng miệng.
 \begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
 \item Có bao nhiêu suất ăn khác nhau?
-\item Bạn Lan được phát ngẫu nhiên một suất ăn. Tính xác suất suất ăn đó có phở.
-\item Tính xác suất suất ăn của Lan có cả phở và nước cam.
+\item Bạn Mia được phát ngẫu nhiên một suất ăn. Tính xác suất suất ăn đó có mì Ý.
+\item Tính xác suất suất ăn của Mia có cả mì Ý và nước cam.
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -104,19 +108,19 @@ Số suất ăn: $3\times2\times2=12$.
   level 1/.style={sibling distance=2.4cm},level 2/.style={sibling distance=1.2cm},level 3/.style={sibling distance=0.6cm},
   edge from parent/.style={draw=Ink!60}]
 \node[fill=Ink!10,draw=Ink]{Suất}
-  child{node{cơm gà} child{node{trà đá} child{node{chè}} child{node{sữa chua}}} child{node{nước cam} child{node{chè}} child{node{sữa chua}}}}
-  child{node[fill=tmOrange!25,draw=tmOrange]{phở} child{node{trà đá} child{node{chè}} child{node{sữa chua}}} child{node[fill=tmOrange!25,draw=tmOrange]{nước cam} child{node[fill=tmOrange!25,draw=tmOrange]{chè}} child{node[fill=tmOrange!25,draw=tmOrange]{sữa chua}}}}
-  child{node{bún chả} child{node{trà đá} child{node{chè}} child{node{sữa chua}}} child{node{nước cam} child{node{chè}} child{node{sữa chua}}}};
+  child{node{cơm gà} child{node{nước táo} child{node{kem}} child{node{sữa chua}}} child{node{nước cam} child{node{kem}} child{node{sữa chua}}}}
+  child{node[fill=tmOrange!25,draw=tmOrange]{mì Ý} child{node{nước táo} child{node{kem}} child{node{sữa chua}}} child{node[fill=tmOrange!25,draw=tmOrange]{nước cam} child{node[fill=tmOrange!25,draw=tmOrange]{kem}} child{node[fill=tmOrange!25,draw=tmOrange]{sữa chua}}}}
+  child{node{pizza} child{node{nước táo} child{node{kem}} child{node{sữa chua}}} child{node{nước cam} child{node{kem}} child{node{sữa chua}}}};
 \end{tikzpicture}\end{center}
 Sơ đồ cây có $3$ nhánh lớn, mỗi nhánh lớn tỏa $2$ nhánh, mỗi nhánh đó lại tỏa $2$ nhánh: $12$ ngọn, đúng $12$ suất ăn.
 \step{2}{Câu b}
-Các suất có phở: món chính cố định là phở, đồ uống $2$ cách, tráng miệng $2$ cách: $1\times2\times2=4$ suất (nhánh giữa của sơ đồ cây).
-$P(\text{có phở})=\dfrac{4}{12}=\dfrac13$.
-\begin{tipbox}Cũng có thể nghĩ nhanh: món chính được chọn ngẫu nhiên trong $3$ món, mỗi món xuất hiện trong số suất ăn như nhau, nên $P(\text{phở})=\dfrac13$. Đồ uống và tráng miệng không ảnh hưởng.\end{tipbox}
+Các suất có mì Ý: món chính cố định là mì Ý, đồ uống $2$ cách, tráng miệng $2$ cách: $1\times2\times2=4$ suất (nhánh giữa của sơ đồ cây).
+$P(\text{có mì Ý})=\dfrac{4}{12}=\dfrac13$.
+\begin{tipbox}Cũng có thể nghĩ nhanh: món chính được chọn ngẫu nhiên trong $3$ món, mỗi món xuất hiện trong số suất ăn như nhau, nên $P(\text{mì Ý})=\dfrac13$. Đồ uống và tráng miệng không ảnh hưởng.\end{tipbox}
 \step{3}{Câu c}
-Món chính là phở, đồ uống là nước cam, chỉ còn chọn tráng miệng: $1\times1\times2=2$ suất (tô cam trên sơ đồ).
-$P(\text{phở và nước cam})=\dfrac{2}{12}=\dfrac16$.
-\verify{Liệt kê: (phở, nước cam, chè) và (phở, nước cam, sữa chua) -- đúng $2$ suất \checkmark.}
+Món chính là mì Ý, đồ uống là nước cam, chỉ còn chọn tráng miệng: $1\times1\times2=2$ suất (tô cam trên sơ đồ).
+$P(\text{mì Ý và nước cam})=\dfrac{2}{12}=\dfrac16$.
+\verify{Liệt kê: (mì Ý, nước cam, kem) và (mì Ý, nước cam, sữa chua) -- đúng $2$ suất \checkmark.}
 \ans{a) $12$ suất;\quad b) $\dfrac13$;\quad c) $\dfrac16$.}
 }
 
@@ -155,23 +159,22 @@ Tổng số ghế: $\dfrac{(12+50)\times20}{2}=\dfrac{62\times20}{2}=620$ ghế.
 Một hộp chỉ chứa bi đỏ và bi xanh. Lấy ngẫu nhiên một viên thì xác suất được bi đỏ là $\dfrac35$. Nếu bỏ thêm vào hộp $5$ viên bi xanh thì xác suất lấy được bi đỏ chỉ còn $\dfrac12$. Hỏi lúc đầu trong hộp có bao nhiêu bi đỏ, bao nhiêu bi xanh?
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Ta chưa biết tổng số bi, chỉ biết \emph{tỉ lệ}. Thêm bi xanh thì số bi đỏ không đổi. Hãy dịch hai xác suất sang ngôn ngữ ``phần bằng nhau'' (sơ đồ đoạn thẳng).
-\step{1}{Dịch điều kiện thứ nhất}
-$P(\text{đỏ})=\dfrac35$: nếu chia số bi thành $5$ phần bằng nhau thì bi đỏ chiếm $3$ phần, bi xanh chiếm $5-3=2$ phần.
-\step{2}{Dịch điều kiện thứ hai}
-Sau khi thêm $5$ bi xanh, $P(\text{đỏ})=\dfrac12$: bi đỏ chiếm đúng một nửa, tức là \emph{số bi đỏ bằng số bi xanh}.
-\step{3}{Vẽ sơ đồ và so sánh}
-\begin{figC}
-\rowlab{-0.15}{0}{Đỏ}
-\blk{0}{1.5}{0}{0.55}{AnsRed}{1 phần}\blk{1.5}{3}{0}{0.55}{AnsRed}{1 phần}\blk{3}{4.5}{0}{0.55}{AnsRed}{1 phần}
-\rowlab{-0.15}{-0.8}{Xanh}
-\blk{0}{1.5}{-0.8}{0.55}{tmBlue}{1 phần}\blk{1.5}{3}{-0.8}{0.55}{tmBlue}{1 phần}\blk{3}{4.5}{-0.8}{0.55}{tmTeal}{thêm 5}
-\brcdn{3}{4.5}{-1.25}{$1$ phần $=5$ viên}
-\end{figC}
-Bi đỏ: $3$ phần. Bi xanh sau khi thêm: $2$ phần $+\ 5$ viên. Hai số này bằng nhau, nên $5$ viên chính là $3-2=1$ phần.
-\step{4}{Tính số bi lúc đầu}
-$1$ phần $=5$ viên. Bi đỏ: $3\times5=15$ viên. Bi xanh: $2\times5=10$ viên.
-\begin{tipbox}\emph{Cách đại số (cho bạn nào thích):} gọi số bi đỏ là $3k$, bi xanh là $2k$. Sau khi thêm: $3k=2k+5$, nên $k=5$.\end{tipbox}
+\textbf{Phân tích đề.} Ta chưa biết số bi, chỉ biết hai xác suất (hai tỉ số). Ta gọi ẩn cho số bi đỏ và số bi xanh lúc đầu, dịch mỗi điều kiện thành một phương trình, rồi giải hệ hai phương trình. Lưu ý: thêm bi xanh thì số bi đỏ \emph{không đổi}, còn tổng số bi tăng thêm $5$.
+\step{1}{Gọi ẩn}
+Gọi $x$ là số bi đỏ và $y$ là số bi xanh lúc đầu ($x$, $y$ là số tự nhiên khác $0$). Lúc đầu hộp có $x+y$ viên bi.
+\step{2}{Dịch điều kiện thứ nhất thành phương trình}
+$P(\text{đỏ})=\dfrac{x}{x+y}=\dfrac35$. Nhân chéo: $5x=3(x+y)$, tức $5x=3x+3y$, hay
+\[2x=3y.\qquad(1)\]
+\begin{recallbox}$\dfrac ab=\dfrac cd$ (với $b$, $d$ khác $0$) khi và chỉ khi $a\times d=b\times c$.\end{recallbox}
+\step{3}{Dịch điều kiện thứ hai thành phương trình}
+Sau khi thêm $5$ bi xanh: vẫn có $x$ bi đỏ, tổng số bi là $x+y+5$. Ta có $\dfrac{x}{x+y+5}=\dfrac12$. Nhân chéo: $2x=x+y+5$, hay
+\[x=y+5.\qquad(2)\]
+(Nghĩa là: sau khi thêm, số bi đỏ \emph{bằng} số bi xanh.)
+\step{4}{Giải hệ bằng phương pháp thế}
+Thay $x=y+5$ từ (2) vào (1):
+\[2(y+5)=3y\ \Rightarrow\ 2y+10=3y\ \Rightarrow\ 3y-2y=10\ \Rightarrow\ y=10.\]
+Khi đó $x=y+5=10+5=15$.
+\begin{tipbox}\emph{Cách dùng tỉ lệ:} từ (1), $\dfrac x3=\dfrac y2$; đặt $\dfrac x3=\dfrac y2=k$ thì $x=3k$, $y=2k$. Thay vào (2): $3k=2k+5$, nên $k=5$, $x=15$, $y=10$.\end{tipbox}
 \verify{Lúc đầu: $15$ đỏ, $10$ xanh, $P(\text{đỏ})=\dfrac{15}{25}=\dfrac35$ \checkmark. Thêm $5$ xanh: $15$ đỏ, $15$ xanh, $P(\text{đỏ})=\dfrac{15}{30}=\dfrac12$ \checkmark.}
 \begin{warnbox}Đừng giải bằng cách ``trừ xác suất'': $\dfrac35-\dfrac12=\dfrac1{10}$ không cho biết gì trực tiếp về số bi. Xác suất là \emph{tỉ số}, phải quay về số lượng cụ thể.\end{warnbox}
 \ans{Lúc đầu có $15$ bi đỏ và $10$ bi xanh.}
@@ -191,7 +194,11 @@ Nhắc lại: số đối xứng là số đọc xuôi hay đọc ngược đề
 \textbf{Phân tích đề.} Số có bốn chữ số $\overline{abcd}$ là số đối xứng khi đọc ngược $\overline{dcba}$ vẫn là nó: $d=a$ và $c=b$. Vậy số đối xứng có bốn chữ số có dạng $\overline{abba}$, và chỉ có \emph{hai} chữ số được chọn tự do: $a$ và $b$.
 \step{1}{Câu a}
 \begin{recallbox}Quy tắc nhân; chữ số đầu tiên của một số không được là $0$.\end{recallbox}
-\countboxes{chữ số a/9/từ 1 đến 9/tmBlue,chữ số b/10/từ 0 đến 9/tmOrange,thứ ba/1/bằng b/tmGreen,thứ tư/1/bằng a/tmGreen}{90}
+\begin{center}\begin{tabular}{|l|c|c|c|c|}\hline
+Chữ số & thứ nhất ($a$) & thứ hai ($b$) & thứ ba & thứ tư\\ \hline
+Điều kiện & từ $1$ đến $9$ & từ $0$ đến $9$ & bằng $b$ & bằng $a$\\ \hline
+Số cách chọn & $9$ & $10$ & $1$ & $1$\\ \hline
+\end{tabular}\end{center}
 $a$: $9$ cách ($1$ đến $9$); $b$: $10$ cách; hai chữ số sau bị ép bằng $b$ và $a$. Có $9\times10=90$ số.
 \step{2}{Câu b}
 Số chẵn khi chữ số hàng đơn vị chẵn. Chữ số hàng đơn vị chính là $a$, nên $a$ phải chẵn \emph{và} khác $0$: $a\in\{2;4;6;8\}$ -- $4$ cách. $b$ vẫn có $10$ cách. Có $4\times10=40$ số chẵn.
@@ -221,7 +228,11 @@ Từ bốn chữ số $0;1;2;3$, lập các số có bốn chữ số đôi mộ
 \textbf{Phân tích đề.} Mỗi số là một cách xếp bốn chữ số $0;1;2;3$ vào bốn hàng (nghìn, trăm, chục, đơn vị), với điều kiện chữ số hàng nghìn khác $0$.
 \step{1}{Câu a -- chọn vị trí có điều kiện trước}
 \begin{recallbox}Quy tắc nhân. Vị trí nào có điều kiện thì chọn trước.\end{recallbox}
-\countboxes{hàng nghìn/3/1 2 hoặc 3/tmBlue,hàng trăm/3/kể cả 0/tmOrange,hàng chục/2/còn lại/tmGreen,đơn vị/1/còn lại/tmPurple}{18}
+\begin{center}\begin{tabular}{|l|c|c|c|c|}\hline
+Hàng & nghìn & trăm & chục & đơn vị\\ \hline
+Điều kiện & khác $0$ & $3$ chữ số còn lại & $2$ chữ số còn lại & chữ số cuối\\ \hline
+Số cách chọn & $3$ & $3$ & $2$ & $1$\\ \hline
+\end{tabular}\end{center}
 Hàng nghìn: $3$ cách ($1$, $2$ hoặc $3$). Hàng trăm: còn $3$ chữ số (bây giờ được dùng $0$): $3$ cách. Hàng chục: $2$ cách. Hàng đơn vị: $1$ cách. Có $3\times3\times2\times1=18$ số.
 \begin{warnbox}Nếu quên điều kiện ``hàng nghìn khác $0$'' sẽ được $4\times3\times2\times1=24$ -- trong đó có $6$ ``số'' bắt đầu bằng $0$ như $0123$, thực chất chỉ là số có ba chữ số.\end{warnbox}
 \step{2}{Câu b -- chia trường hợp theo chữ số hàng đơn vị}
@@ -284,11 +295,11 @@ $P(\text{hình vuông})=\dfrac{8}{18}=\dfrac49$.
 
 % ---------------------------------------------------------------- Bài 39
 \begin{probbox}{39}{\stars{1}}
-Bốn bạn An, Bình, Chi, Dũng được xếp ngẫu nhiên vào bốn chiếc ghế xếp thành một hàng ngang.
+Bốn bạn Anna, Ben, Chloe và David được xếp ngẫu nhiên vào bốn chiếc ghế xếp thành một hàng ngang.
 \begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
 \item Có bao nhiêu cách xếp chỗ?
-\item Tính xác suất An và Bình ngồi cạnh nhau.
-\item Tính xác suất An và Bình ngồi ở hai đầu hàng.
+\item Tính xác suất Anna và Ben ngồi cạnh nhau.
+\item Tính xác suất Anna và Ben ngồi ở hai đầu hàng.
 \end{enumerate}
 \end{probbox}
 \probsol{
@@ -296,32 +307,32 @@ Bốn bạn An, Bình, Chi, Dũng được xếp ngẫu nhiên vào bốn chiế
 \step{1}{Câu a}
 \begin{recallbox}Xếp $n$ người vào $n$ ghế: $n\times(n-1)\times\dots\times2\times1$ cách (quy tắc nhân, mỗi ghế sau còn ít hơn một người để chọn).\end{recallbox}
 Ghế $1$: $4$ cách chọn người; ghế $2$: $3$ cách; ghế $3$: $2$ cách; ghế $4$: $1$ cách. Có $4\times3\times2\times1=24$ cách.
-\step{2}{Câu b -- xem An và Bình là một ``khối''}
-\begin{figC}
-\draw[tmOrange,line width=1.2pt,rounded corners=4pt,fill=tmOrange!12] (0,0) rectangle (2.4,0.7);
-\node[font=\bfseries] at (0.6,0.35){An};\node[font=\bfseries] at (1.8,0.35){Bình};
-\draw[tmBlue,line width=1pt,rounded corners=3pt,fill=tmBlue!10] (2.7,0) rectangle (3.9,0.7);\node[font=\bfseries] at (3.3,0.35){Chi};
-\draw[tmGreen,line width=1pt,rounded corners=3pt,fill=tmGreen!10] (4.2,0) rectangle (5.4,0.7);\node[font=\bfseries] at (4.8,0.35){Dũng};
-\node[font=\footnotesize,text=tmOrange!80!black] at (1.2,-0.3){một khối, chiếm $2$ ghế liền nhau};
-\end{figC}
+\step{2}{Câu b -- xem Anna và Ben là một ``khối''}
+Ghép Anna và Ben thành một ``khối'' chiếm $2$ ghế liền nhau. Bảng dưới đây cho thấy khối chỉ có $3$ vị trí:
+\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+ & Ghế $1$ & Ghế $2$ & Ghế $3$ & Ghế $4$\\ \hline
+Vị trí 1 & \cellcolor{tmOrange!20}khối & \cellcolor{tmOrange!20}khối & & \\ \hline
+Vị trí 2 & & \cellcolor{tmOrange!20}khối & \cellcolor{tmOrange!20}khối & \\ \hline
+Vị trí 3 & & & \cellcolor{tmOrange!20}khối & \cellcolor{tmOrange!20}khối\\ \hline
+\end{tabular}\end{center}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
-\item Vị trí của khối (An, Bình): chiếm ghế $1$--$2$, $2$--$3$ hoặc $3$--$4$: $3$ cách.
-\item Trong khối, An bên trái hoặc Bình bên trái: $2$ cách.
-\item Chi và Dũng xếp vào $2$ ghế còn lại: $2\times1=2$ cách.
+\item Vị trí của khối (Anna, Ben): chiếm ghế $1$--$2$, $2$--$3$ hoặc $3$--$4$: $3$ cách.
+\item Trong khối, Anna bên trái hoặc Ben bên trái: $2$ cách.
+\item Chloe và David xếp vào $2$ ghế còn lại: $2\times1=2$ cách.
 \end{itemize}
 Số cách thuận lợi: $3\times2\times2=12$. Vậy $P(\text{cạnh nhau})=\dfrac{12}{24}=\dfrac12$.
-\begin{warnbox}Đừng quên nhân $2$ cho việc đổi chỗ An và Bình bên trong khối: ``An--Bình'' và ``Bình--An'' là hai cách xếp khác nhau.\end{warnbox}
+\begin{warnbox}Đừng quên nhân $2$ cho việc đổi chỗ Anna và Ben bên trong khối: ``Anna--Ben'' và ``Ben--Anna'' là hai cách xếp khác nhau.\end{warnbox}
 \step{3}{Câu c}
-An và Bình ở ghế $1$ và ghế $4$: An ở ghế $1$, Bình ở ghế $4$ hoặc ngược lại -- $2$ cách. Chi và Dũng vào ghế $2$, $3$: $2$ cách. Số cách thuận lợi: $2\times2=4$.
+Anna và Ben ở ghế $1$ và ghế $4$: Anna ở ghế $1$, Ben ở ghế $4$ hoặc ngược lại -- $2$ cách. Chloe và David vào ghế $2$, $3$: $2$ cách. Số cách thuận lợi: $2\times2=4$.
 $P(\text{hai đầu})=\dfrac{4}{24}=\dfrac16$.
-\verify{Câu b, đếm theo cách khác: An ngồi ở đầu hàng (ghế $1$ hoặc $4$, $2$ khả năng) thì chỉ có $1$ ghế cạnh An; An ngồi ở giữa (ghế $2$ hoặc $3$) thì có $2$ ghế cạnh An. Số cặp ghế (An, Bình) cạnh nhau: $2\times1+2\times2=6$; nhân với $2$ cách xếp Chi, Dũng: $12$ \checkmark.}
-\begin{parentbox}Với bài $4$ người, có thể cho trẻ dùng $4$ tấm thẻ ghi tên và thật sự xếp hết $24$ cách theo thứ tự (bắt đầu bằng An, rồi bắt đầu bằng Bình\ldots). Liệt kê một lần giúp trẻ tin vào quy tắc nhân.\end{parentbox}
+\verify{Câu b, đếm theo cách khác: Anna ngồi ở đầu hàng (ghế $1$ hoặc $4$, $2$ khả năng) thì chỉ có $1$ ghế cạnh Anna; Anna ngồi ở giữa (ghế $2$ hoặc $3$) thì có $2$ ghế cạnh Anna. Số cặp ghế (Anna, Ben) cạnh nhau: $2\times1+2\times2=6$; nhân với $2$ cách xếp Chloe, David: $12$ \checkmark.}
+\begin{parentbox}Với bài $4$ người, có thể cho trẻ dùng $4$ tấm thẻ ghi tên và thật sự xếp hết $24$ cách theo thứ tự (bắt đầu bằng Anna, rồi bắt đầu bằng Ben\ldots). Liệt kê một lần giúp trẻ tin vào quy tắc nhân.\end{parentbox}
 \ans{a) $24$ cách;\quad b) $\dfrac12$;\quad c) $\dfrac16$.}
 }
 
 % ---------------------------------------------------------------- Bài 40
 \begin{probbox}{40}{\stars{2}}
-Một hộp có $4$ viên bi đỏ và $6$ viên bi xanh có cùng kích thước. Bạn Hoa lấy ngẫu nhiên một viên bi, \emph{không trả lại}, rồi lấy ngẫu nhiên tiếp viên thứ hai.
+Một hộp có $4$ viên bi đỏ và $6$ viên bi xanh có cùng kích thước. Bạn Grace lấy ngẫu nhiên một viên bi, \emph{không trả lại}, rồi lấy ngẫu nhiên tiếp viên thứ hai.
 \begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
 \item Tính xác suất cả hai viên đều là bi đỏ.
 \item Tính xác suất hai viên bi cùng màu.
@@ -329,7 +340,7 @@ Một hộp có $4$ viên bi đỏ và $6$ viên bi xanh có cùng kích thướ
 \end{enumerate}
 \end{probbox}
 \probsol{
-\textbf{Phân tích đề.} Hoa lấy \emph{lần lượt} hai viên và không trả lại. Hãy tưởng tượng các viên bi được đánh số $1$ đến $10$ (bi $1$--$4$ đỏ, bi $5$--$10$ xanh). Mỗi \emph{cặp có thứ tự} (viên thứ nhất, viên thứ hai) là một kết quả, và các kết quả này đồng khả năng.
+\textbf{Phân tích đề.} Grace lấy \emph{lần lượt} hai viên và không trả lại. Hãy tưởng tượng các viên bi được đánh số $1$ đến $10$ (bi $1$--$4$ đỏ, bi $5$--$10$ xanh). Mỗi \emph{cặp có thứ tự} (viên thứ nhất, viên thứ hai) là một kết quả, và các kết quả này đồng khả năng.
 \step{1}{Đếm tất cả các kết quả}
 \begin{recallbox}Quy tắc nhân: lần $1$ có $10$ cách; với mỗi cách đó, lần $2$ còn $9$ viên nên có $9$ cách.\end{recallbox}
 Số kết quả: $10\times9=90$ cặp có thứ tự.
