@@ -158,7 +158,7 @@ neighbours, and exactly $2$ people who are \emph{not} next to them.
 \end{knowbox}
 \begin{figC}
   \foreach \i in {0,...,4}{\coordinate (P\i) at ({90-\i*72}:1.35);}
-  \draw[Navy!40,line width=5pt] (0,0) circle (0.75);
+  \draw[Navy!50,fill=tmBlue!6,line width=0.8pt] (0,0) circle (0.7);
   \foreach \i/\n in {0/1,1/2,2/3,3/4,4/5}{\node[circle,draw=Navy,fill=tmBlue!8,line width=0.8pt,minimum size=0.55cm] at (P\i){\n};}
   \draw[tmGreen!70!black,line width=1pt] (P0) to[bend left=25] (P1);
   \draw[tmGreen!70!black,line width=1pt] (P0) to[bend right=25] (P4);
@@ -209,9 +209,9 @@ conclude ``whoever is a B is an A''.
   \end{scope}
   \begin{scope}[xshift=5.2cm]
   \draw[tmBlue,line width=1pt,fill=tmBlue!8] (0.9,1.1) ellipse (1.7 and 1.15);
-  \draw[tmOrange,line width=1pt,fill=tmOrange!15] (0.55,1.0) ellipse (0.75 and 0.6);
-  \node[font=\scriptsize,text=tmOrange!70!black] at (0.55,1.0){chess club};
-  \node[font=\scriptsize,text=tmBlue!80!black] at (1.75,1.85){can swim};
+  \draw[tmOrange,line width=1pt,fill=tmOrange!15] (0.35,1.0) ellipse (0.95 and 0.55);
+  \node[font=\scriptsize,text=tmOrange!70!black] at (0.35,1.0){chess club};
+  \node[font=\scriptsize,text=tmBlue!80!black] at (1.95,1.1){can swim};
   \fill[AnsRed] (3.2,1.1) circle (2pt) node[right,font=\scriptsize]{cannot swim};
   \end{scope}
 \end{figC}
@@ -331,8 +331,8 @@ every other object in terms of $x$. Comparing two groups of objects then becomes
 \end{figC}
 \begin{proofbox}
 Why may we do this? A balanced scale means that the two sides of the equation $4O = 3T$ are equal. Dividing both sides by the same
-non-zero number still gives a true equation: $T = \dfrac{4O}{3}$. So however many grams a circle really weighs, a triangle always
-weighs $\dfrac{4}{3}$ of a circle. For instance, if $x = 30$ g then $T = 40$ g; check: $4\cdot 30 = 120 = 3\cdot 40$.
+non-zero number still gives a true equation\div $T = 4O \div 3$. So however many grams a circle really weighs, a triangle always
+weighs $4/3$ of a circle. For instance, if $x = 30$ g then $T = 40$ g; check: $4\cdot 30 = 120 = 3\cdot 40$.
 \end{proofbox}
 \begin{warnbox}
 Never remove an object from \emph{one} pan without removing an identical object from the other. And only remove objects that are
@@ -479,7 +479,7 @@ Call the lengths $R, B, Y, P$. We are told: $R > B$; \ $B > Y$; \ $P > Y$; \ $R 
   \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (D) at (4.4,0){Red};
   \draw[->,Navy,line width=0.9pt] (V)--(X); \draw[->,Navy,line width=0.9pt] (V)--(T);
   \draw[->,Navy,line width=0.9pt] (X)--(D); \draw[->,Navy,line width=0.9pt] (T)--(D);
-  \draw[<->,dashed,AnsRed!70] (X)--(T) node[midway,right,font=\scriptsize]{?};
+  \draw[<->,dashed,AnsRed!70] (X)--(T) node[midway,right=3pt,font=\scriptsize]{?};
 \end{figC}
 \step{3}{Answer part a}
 From $R > B > Y$ and $R > P > Y$: the red pencil is longer than all three others and the yellow pencil is shorter than all three others.
@@ -601,7 +601,7 @@ Row $3$: $3, 4, \_, \_$ needs $\{1, 2\}$; column $3$ already has a $1$ (row $2$)
 \dividerbar{Core practice}
 
 % ---------------------------------------------------------------- Problem 1
-\begin{probbox}{1}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{1}{\relax}
 Mum has just bought a new pot of flowers. Three children guess what flower it is. Anna guesses: ``a red rose''. Ben guesses: ``a purple
 daisy''. Chloe guesses: ``a red dahlia''. Mum says that each child got \emph{exactly one} of the two things right -- either the colour
 or the kind of flower. The flower Mum bought is a
@@ -637,7 +637,7 @@ So the answer is \textbf{(E)}.
 }
 
 % ---------------------------------------------------------------- Problem 2
-\begin{probbox}{2}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{2}{\relax}
 The $26$ letters of the English alphabet are written in order A, B, C, \ldots, Z clockwise around a circle. To \emph{encrypt} a message,
 each letter is replaced by the letter $4$ places after it, clockwise (this is called a \emph{Caesar cipher}). For example, the word ZAP
 is encrypted as DET. The word WIN is encrypted as
@@ -658,10 +658,9 @@ Add $4$ & $26 \to 26 - 26 = 0$ & $12$ & $17$ \\ \hline
 Cipher letter & \textbf{A} & \textbf{M} & \textbf{R} \\ \hline
 \end{tabular}
 \end{center}
-\begin{figC}
-  \node at (0,0){\lgaWheel{4}};
-  \node[align=left,font=\small,anchor=west] at (2.5,0){W $\to$ X $\to$ Y $\to$ Z $\to$ \textbf{A}\\ I $\to$ J $\to$ K $\to$ L $\to$ \textbf{M}\\ N $\to$ O $\to$ P $\to$ Q $\to$ \textbf{R}};
-\end{figC}
+\begin{center}
+W $\to$ X $\to$ Y $\to$ Z $\to$ \textbf{A}; \qquad I $\to$ J $\to$ K $\to$ L $\to$ \textbf{M}; \qquad N $\to$ O $\to$ P $\to$ Q $\to$ \textbf{R}.
+\end{center}
 \begin{warnbox}Each wrong option has at least one letter shifted by the wrong number of steps: (B) ZLN and (E) ZMQ shift W by only $3$
 (stopping at Z and forgetting that after Z we carry on to A); (D) AMQ and (E) ZMQ shift N by only $3$; (A) ALN and (B) ZLN shift I by
 $3$ and leave N unchanged. Count carefully: ``$4$ places after'' means taking exactly $4$ steps, not counting the starting letter.\end{warnbox}
@@ -671,7 +670,7 @@ So the answer is \textbf{(C)}.
 }
 
 % ---------------------------------------------------------------- Problem 3
-\begin{probbox}{3}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{3}{\relax}
 Five friends, Ryan, Henry, Felix, Tom and Oscar, run a race; no two finish at the same time. Ryan runs faster than Henry and Felix. Henry runs
 slower than Felix. Tom runs faster than Ryan but slower than Oscar. Who finishes fourth?
 \choices{Felix}{Henry}{Oscar}{Ryan}{Tom}
@@ -705,7 +704,7 @@ So the answer is \textbf{(A)}.
 }
 
 % ---------------------------------------------------------------- Problem 4
-\begin{probbox}{4}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{4}{\relax}
 \begin{minipage}[t]{0.62\linewidth}
 In a magic square, the numbers in every row, every column and both diagonals have the same sum. The magic square shown uses each of the
 integers from $-6$ to $2$ exactly once. The value of $Y$ is
@@ -738,7 +737,7 @@ So the answer is \textbf{(A)}.
 }
 
 % ---------------------------------------------------------------- Problem 5
-\begin{probbox}{5}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{5}{\relax}
 A game is called \emph{fair} if your chance of winning equals your chance of losing. You roll a fair six-sided die. How many of the
 following four games are fair?
 \begin{itemize}[leftmargin=1.6em,itemsep=0pt,topsep=2pt]
@@ -774,7 +773,7 @@ So the answer is \textbf{(C)}.
 }
 
 % ---------------------------------------------------------------- Problem 6
-\begin{probbox}{6}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{6}{\relax}
 Five friends, Jack, Kate, Leo, Mia and Noah, sit on the $5$ chairs around a round table. Leo and Mia sit next to each other. Jack and Kate
 do \emph{not} sit next to each other. The two people sitting on either side of Noah are
 \choicesII{Jack and Leo}{Jack and Kate}{Kate and Mia}{Leo and Mia}{Mia and Jack}
@@ -794,7 +793,7 @@ neighbours (chair $2$ is next to chairs $1$ and $3$, both taken). So Leo and Mia
 Noah sits on chair $2$, between chair $1$ (Jack) and chair $3$ (Kate).
 \begin{figC}
   \foreach \i in {1,...,5}{\coordinate (S\i) at ({90-(\i-1)*72}:1.35);}
-  \draw[Navy!40,line width=5pt] (0,0) circle (0.75);
+  \draw[Navy!50,fill=tmBlue!6,line width=0.8pt] (0,0) circle (0.7);
   \foreach \i/\n/\c in {1/Jack/tmBlue,2/Noah/AnsRed,3/Kate/tmBlue,4/Leo/tmGreen,5/Mia/tmGreen}{
     \node[circle,draw=\c,fill=\c!10,line width=0.9pt,minimum size=0.95cm,font=\scriptsize] at (S\i){\n};
     \node[font=\scriptsize,text=Slate] at ({90-(\i-1)*72}:2.4){chair \i};}
@@ -809,7 +808,7 @@ So the answer is \textbf{(B)}.
 }
 
 % ---------------------------------------------------------------- Problem 7
-\begin{probbox}{7}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{7}{\relax}
 \begin{minipage}[t]{0.62\linewidth}
 On each die, the numbers of pips on opposite faces always add up to $7$. Two dice stand on a table as shown. The total number of pips on
 all the faces of the two dice that \emph{cannot be seen} is
@@ -841,7 +840,7 @@ So the answer is \textbf{(C)}.
 }
 
 % ---------------------------------------------------------------- Problem 8
-\begin{probbox}{8}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{8}{\relax}
 Chris lies on Fridays, Saturdays and Sundays and tells the truth on the other days. Mark lies on Tuesdays, Wednesdays and Thursdays and
 tells the truth on the other days. On which day of the week could both of them say: ``Tomorrow I will lie''?
 \choices{Monday}{Thursday}{Friday}{Sunday}{Tuesday}
@@ -889,7 +888,7 @@ So the answer is \textbf{(B)}.
 }
 
 % ---------------------------------------------------------------- Problem 9
-\begin{probbox}{9}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{9}{\relax}
 Both scales below are balanced; identical shapes have equal masses.
 \begin{center}
 \lgaScale{\lgaCir\,\lgaCir\,\lgaCir}{\lgaTri\,\lgaTri}\hspace{1cm}\lgaScale{\lgaSq\,\lgaCir\,\lgaTri}{\lgaSq\,\lgaSq}
@@ -914,7 +913,7 @@ Let $O = x$ \ ($x > 0$). From $2T = 3O = 3x$ we get $T = \dfrac{3x}{2}$. Then
 $O + 3T = x + 3\cdot\dfrac{3x}{2} = \dfrac{2x}{2} + \dfrac{9x}{2} = \dfrac{11x}{2}$.
 \step{5}{The mass of each option (all written over the denominator $2$ for easy comparison)}
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{2.2}
 \begin{tabular}{|c|l|c|}
 \hline
 \rowcolor{tmBlue!10} Option & Mass & Result \\ \hline
@@ -938,7 +937,7 @@ So the answer is \textbf{(D)}.
 }
 
 % ---------------------------------------------------------------- Problem 10
-\begin{probbox}{10}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{10}{\relax}
 Five friends, Chris, Max, Brandon, Kayla and Tanya, go strawberry picking; no two of them pick the same number of strawberries. Chris picks more than
 Max. Brandon picks fewer than Kayla. Kayla picks fewer than Max but more than Tanya. Who picks the second most?
 \choices{Brandon}{Chris}{Kayla}{Max}{Tanya}
@@ -959,7 +958,7 @@ $C > M > K$, and $K$ is more than both $B$ and $T$.
   \draw[->,Navy,line width=0.8pt] (H)--(L); \draw[->,Navy,line width=0.8pt] (L)--(K);
   \draw[->,Navy,line width=0.8pt] (K)--(B); \draw[->,Navy,line width=0.8pt] (K)--(T);
   \node[font=\scriptsize,text=Slate] at (3,0.75){arrow: ``more than''};
-  \draw[<->,dashed,AnsRed!60] (B)--(T) node[midway,right,font=\scriptsize]{?};
+  \draw[<->,dashed,AnsRed!60] (B)--(T) node[midway,right=3pt,font=\scriptsize]{?};
 \end{figC}
 \step{3}{Read off the result}
 Chris picks the most (more than Max, who picks more than everyone else). Max is beaten only by Chris and beats Kayla, Brandon, Tanya. So
@@ -972,7 +971,7 @@ So the answer is \textbf{(D)}.
 }
 
 % ---------------------------------------------------------------- Problem 11
-\begin{probbox}{11}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{11}{\relax}
 Three friends, Amy, Helen and Tom, count the comics and the science books they read over the summer (no two of them read the same number of
 comics, and no two read the same number of science books). Amy read more comics than Helen but fewer science books than Helen. Tom read more
 comics than Helen but fewer science books than Amy. Which of the following statements \textbf{must} be true?
@@ -1001,7 +1000,7 @@ Chained: $H > A > T$. Helen read the most science books, Tom the fewest.
   \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (a2) at (2.4,-0.9){Amy};
   \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (h2) at (4.2,-0.9){Helen};
   \draw[->,tmBlue,line width=0.9pt] (t2)--(a2); \draw[->,tmBlue,line width=0.9pt] (a2)--(h2);
-  \node[font=\scriptsize,text=Slate] at (6.4,0){arrows point towards ``more''};
+  \node[font=\scriptsize,text=Slate] at (1.6,-1.55){(arrows point towards ``more'')};
 \end{figC}
 \step{3}{Examine each statement}
 \begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
@@ -1018,7 +1017,7 @@ So the answer is \textbf{(C)}.
 }
 
 % ---------------------------------------------------------------- Problem 12
-\begin{probbox}{12}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{12}{\relax}
 \begin{minipage}[t]{0.63\linewidth}
 Each of the numbers $1, 2, 3, 4, 5, 6, 7, 8$ is placed in a different circle of the triangle shown, so that the sums of the numbers on the
 three sides of the triangle (the two slanted sides have $4$ circles each, the base has $3$ circles) are all equal to the same number $S$.
@@ -1069,7 +1068,7 @@ So the answer is \textbf{(E)}.
 }
 
 % ---------------------------------------------------------------- Problem 13
-\begin{probbox}{13}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{13}{\relax}
 \begin{minipage}[t]{0.62\linewidth}
 The $4\times 4$ grid shown is to be filled so that each row and each column contains the digits $1, 2, 3, 4$. The grid is divided into four
 $2\times 2$ squares (thick borders), and each of these squares must also contain the digits $1, 2, 3, 4$. Which digit goes in cell $P$?

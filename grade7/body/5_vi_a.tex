@@ -156,7 +156,7 @@ và đúng $2$ người \emph{không} ngồi cạnh.
 \end{knowbox}
 \begin{figC}
   \foreach \i in {0,...,4}{\coordinate (P\i) at ({90-\i*72}:1.35);}
-  \draw[Navy!40,line width=5pt] (0,0) circle (0.75);
+  \draw[Navy!50,fill=tmBlue!6,line width=0.8pt] (0,0) circle (0.7);
   \foreach \i/\n in {0/1,1/2,2/3,3/4,4/5}{\node[circle,draw=Navy,fill=tmBlue!8,line width=0.8pt,minimum size=0.55cm] at (P\i){\n};}
   \draw[tmGreen!70!black,line width=1pt] (P0) to[bend left=25] (P1);
   \draw[tmGreen!70!black,line width=1pt] (P0) to[bend right=25] (P4);
@@ -205,9 +205,9 @@ $k + m - 1$ người.
   \end{scope}
   \begin{scope}[xshift=5.2cm]
   \draw[tmBlue,line width=1pt,fill=tmBlue!8] (0.9,1.1) ellipse (1.7 and 1.15);
-  \draw[tmOrange,line width=1pt,fill=tmOrange!15] (0.55,1.0) ellipse (0.75 and 0.6);
-  \node[font=\scriptsize,text=tmOrange!70!black] at (0.55,1.0){CLB cờ vua};
-  \node[font=\scriptsize,text=tmBlue!80!black] at (1.75,1.85){biết bơi};
+  \draw[tmOrange,line width=1pt,fill=tmOrange!15] (0.35,1.0) ellipse (0.95 and 0.55);
+  \node[font=\scriptsize,text=tmOrange!70!black] at (0.35,1.0){CLB cờ vua};
+  \node[font=\scriptsize,text=tmBlue!80!black] at (1.95,1.1){biết bơi};
   \fill[AnsRed] (3.2,1.1) circle (2pt) node[right,font=\scriptsize]{không biết bơi};
   \end{scope}
 \end{figC}
@@ -323,8 +323,8 @@ mọi vật khác theo $x$. Khi đó, so sánh hai nhóm vật chỉ còn là so
 \end{figC}
 \begin{proofbox}
 Vì sao được làm như vậy? Cân thăng bằng nghĩa là hai vế của đẳng thức $4O = 3T$ bằng nhau. Chia cả hai vế cho cùng một số
-khác $0$ thì vẫn được đẳng thức đúng: $T = \dfrac{4O}{3}$. Vì vậy, dù một hình tròn thực sự nặng bao nhiêu gam, một hình tam
-giác luôn nặng bằng $\dfrac{4}{3}$ hình tròn. Chẳng hạn, nếu $x = 30$ g thì $T = 40$ g; thử lại: $4\cdot 30 = 120 = 3\cdot 40$.
+khác $0$ thì vẫn được đẳng thức đúng: $T = 4O : 3$. Vì vậy, dù một hình tròn thực sự nặng bao nhiêu gam, một hình tam
+giác luôn nặng bằng $4/3$ hình tròn. Chẳng hạn, nếu $x = 30$ g thì $T = 40$ g; thử lại: $4\cdot 30 = 120 = 3\cdot 40$.
 \end{proofbox}
 \begin{warnbox}
 Không được bỏ một vật ở \emph{một} đĩa mà không bỏ vật giống hệt ở đĩa kia. Và chỉ được bỏ những vật \emph{giống nhau}
@@ -459,7 +459,7 @@ a) Bút nào chắc chắn dài nhất? Bút nào chắc chắn ngắn nhất?\\
 b) Câu ``Bút tím dài thứ hai'' chắc chắn đúng, có thể đúng hay chắc chắn sai?
 \guide
 \step{1}{Kí hiệu hoá}
-Gọi độ dài là $Đ, X, V, T$. Đề cho: $Đ > X$; \ $X > V$; \ $T > V$; \ $Đ > T$.
+Gọi độ dài là $D, X, V, T$. Đề cho: $D > X$; \ $X > V$; \ $T > V$; \ $D > T$.
 \step{2}{Vẽ sơ đồ mũi tên (mũi tên chỉ từ bút ngắn hơn đến bút dài hơn)}
 \begin{figC}
   \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (V) at (0,0){Vàng};
@@ -468,10 +468,10 @@ Gọi độ dài là $Đ, X, V, T$. Đề cho: $Đ > X$; \ $X > V$; \ $T > V$; \
   \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (D) at (4.4,0){Đỏ};
   \draw[->,Navy,line width=0.9pt] (V)--(X); \draw[->,Navy,line width=0.9pt] (V)--(T);
   \draw[->,Navy,line width=0.9pt] (X)--(D); \draw[->,Navy,line width=0.9pt] (T)--(D);
-  \draw[<->,dashed,AnsRed!70] (X)--(T) node[midway,right,font=\scriptsize]{?};
+  \draw[<->,dashed,AnsRed!70] (X)--(T) node[midway,right=3pt,font=\scriptsize]{?};
 \end{figC}
 \step{3}{Trả lời câu a}
-Từ $Đ > X > V$ và $Đ > T > V$: bút đỏ dài hơn cả ba bút kia, bút vàng ngắn hơn cả ba bút kia. Vậy bút \textbf{đỏ chắc chắn dài nhất},
+Từ $D > X > V$ và $D > T > V$: bút đỏ dài hơn cả ba bút kia, bút vàng ngắn hơn cả ba bút kia. Vậy bút \textbf{đỏ chắc chắn dài nhất},
 bút \textbf{vàng chắc chắn ngắn nhất}.
 \step{4}{Trả lời câu b: tìm hai trường hợp}
 Không có điều kiện nào so sánh Xanh với Tím. Thử hai bộ độ dài (cm) đều thoả mọi điều kiện:
@@ -589,7 +589,7 @@ Hàng $3$: $3, 4, \_, \_$ còn $\{1; 2\}$; cột $3$ đã có $1$ (hàng $2$) n�
 \dividerbar{Luyện tập cơ bản}
 
 % ---------------------------------------------------------------- Bài 1
-\begin{probbox}{1}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{1}{\relax}
 Mẹ vừa mua một chậu hoa mới. Ba bạn đoán xem đó là hoa gì. Anna đoán: ``hoa hồng màu đỏ''. Ben đoán: ``hoa cúc màu tím''.
 Chloe đoán: ``hoa thược dược màu đỏ''. Mẹ cho biết: mỗi bạn đoán đúng \emph{đúng một} trong hai điều -- hoặc màu hoa, hoặc loại hoa.
 Chậu hoa mẹ mua là
@@ -624,7 +624,7 @@ Vậy chọn \textbf{(E)}.
 }
 
 % ---------------------------------------------------------------- Bài 2
-\begin{probbox}{2}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{2}{\relax}
 $26$ chữ cái tiếng Anh được viết theo thứ tự A, B, C, \ldots, Z quanh một vòng tròn, theo chiều kim đồng hồ. Để \emph{mã hoá} một
 tin nhắn, ta thay mỗi chữ cái bằng chữ cái đứng sau nó $4$ vị trí theo chiều kim đồng hồ (đây gọi là \emph{mật mã Caesar}).
 Ví dụ, từ ZAP được mã hoá thành DET. Từ WIN được mã hoá thành
@@ -645,10 +645,9 @@ Cộng $4$ & $26 \to 26 - 26 = 0$ & $12$ & $17$ \\ \hline
 Chữ mã & \textbf{A} & \textbf{M} & \textbf{R} \\ \hline
 \end{tabular}
 \end{center}
-\begin{figC}
-  \node at (0,0){\lgaWheel{4}};
-  \node[align=left,font=\small,anchor=west] at (2.5,0){W $\to$ X $\to$ Y $\to$ Z $\to$ \textbf{A}\\ I $\to$ J $\to$ K $\to$ L $\to$ \textbf{M}\\ N $\to$ O $\to$ P $\to$ Q $\to$ \textbf{R}};
-\end{figC}
+\begin{center}
+W $\to$ X $\to$ Y $\to$ Z $\to$ \textbf{A}; \qquad I $\to$ J $\to$ K $\to$ L $\to$ \textbf{M}; \qquad N $\to$ O $\to$ P $\to$ Q $\to$ \textbf{R}.
+\end{center}
 \begin{warnbox}Các phương án sai đều có ít nhất một chữ bị dịch sai số bước: (B) ZLN và (E) ZMQ chỉ dịch W đi $3$ bước (dừng ở Z, quên
 rằng sau Z còn phải đi tiếp đến A); (D) AMQ và (E) ZMQ chỉ dịch N đi $3$ bước; (A) ALN và (B) ZLN dịch I đi $3$ bước và để nguyên N.
 Hãy đếm cẩn thận: ``sau $4$ vị trí'' nghĩa là đi đúng $4$ bước, không tính chữ xuất phát.\end{warnbox}
@@ -658,7 +657,7 @@ Vậy chọn \textbf{(C)}.
 }
 
 % ---------------------------------------------------------------- Bài 3
-\begin{probbox}{3}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{3}{\relax}
 Năm bạn Ryan, Henry, Felix, Tom, Oscar thi chạy, không có hai bạn nào về đích cùng lúc. Ryan chạy nhanh hơn Henry và Felix. Henry chạy
 chậm hơn Felix. Tom chạy nhanh hơn Ryan nhưng chậm hơn Oscar. Bạn nào về đích thứ tư?
 \choices{Felix}{Henry}{Oscar}{Ryan}{Tom}
@@ -691,7 +690,7 @@ Vậy chọn \textbf{(A)}.
 }
 
 % ---------------------------------------------------------------- Bài 4
-\begin{probbox}{4}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{4}{\relax}
 \begin{minipage}[t]{0.62\linewidth}
 Trong một ma phương, tổng các số trên mỗi hàng, mỗi cột và mỗi đường chéo đều bằng nhau. Ma phương bên cạnh dùng mỗi số
 nguyên từ $-6$ đến $2$ đúng một lần. Giá trị của $Y$ là
@@ -723,7 +722,7 @@ Vậy chọn \textbf{(A)}.
 }
 
 % ---------------------------------------------------------------- Bài 5
-\begin{probbox}{5}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{5}{\relax}
 Một trò chơi được gọi là \emph{công bằng} nếu khả năng thắng bằng khả năng thua. Gieo một con xúc xắc $6$ mặt cân đối. Trong
 bốn trò chơi sau, có bao nhiêu trò chơi công bằng?
 \begin{itemize}[leftmargin=1.6em,itemsep=0pt,topsep=2pt]
@@ -759,7 +758,7 @@ Vậy chọn \textbf{(C)}.
 }
 
 % ---------------------------------------------------------------- Bài 6
-\begin{probbox}{6}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{6}{\relax}
 Năm bạn Jack, Kate, Leo, Mia, Noah ngồi vào $5$ chiếc ghế quanh một chiếc bàn tròn. Leo và Mia ngồi cạnh nhau. Jack và Kate
 \emph{không} ngồi cạnh nhau. Hai bạn ngồi hai bên cạnh Noah là
 \choicesII{Jack và Leo}{Jack và Kate}{Kate và Mia}{Leo và Mia}{Mia và Jack}
@@ -779,7 +778,7 @@ Còn trống ghế $2$, $4$, $5$. Leo và Mia phải ngồi hai ghế \emph{cạ
 Noah ngồi ghế $2$, nằm giữa ghế $1$ (Jack) và ghế $3$ (Kate).
 \begin{figC}
   \foreach \i in {1,...,5}{\coordinate (S\i) at ({90-(\i-1)*72}:1.35);}
-  \draw[Navy!40,line width=5pt] (0,0) circle (0.75);
+  \draw[Navy!50,fill=tmBlue!6,line width=0.8pt] (0,0) circle (0.7);
   \foreach \i/\n/\c in {1/Jack/tmBlue,2/Noah/AnsRed,3/Kate/tmBlue,4/Leo/tmGreen,5/Mia/tmGreen}{
     \node[circle,draw=\c,fill=\c!10,line width=0.9pt,minimum size=0.95cm,font=\scriptsize] at (S\i){\n};
     \node[font=\scriptsize,text=Slate] at ({90-(\i-1)*72}:2.4){ghế \i};}
@@ -793,7 +792,7 @@ Vậy chọn \textbf{(B)}.
 }
 
 % ---------------------------------------------------------------- Bài 7
-\begin{probbox}{7}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{7}{\relax}
 \begin{minipage}[t]{0.62\linewidth}
 Trên mỗi con xúc xắc, tổng số chấm trên hai mặt đối diện luôn bằng $7$. Hai con xúc xắc được đặt trên bàn như hình bên. Tổng số
 chấm trên tất cả các mặt \emph{không nhìn thấy} của hai con xúc xắc là
@@ -824,7 +823,7 @@ Vậy chọn \textbf{(C)}.
 }
 
 % ---------------------------------------------------------------- Bài 8
-\begin{probbox}{8}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{8}{\relax}
 Chris nói dối vào các ngày thứ Sáu, thứ Bảy, Chủ nhật và nói thật vào các ngày còn lại. Mark nói dối vào các ngày thứ Ba, thứ Tư,
 thứ Năm và nói thật vào các ngày còn lại. Vào ngày nào trong tuần thì cả hai bạn đều có thể nói câu: ``Ngày mai tôi sẽ nói dối''?
 \choices{Thứ Hai}{Thứ Năm}{Thứ Sáu}{Chủ nhật}{Thứ Ba}
@@ -872,7 +871,7 @@ Vậy chọn \textbf{(B)}.
 }
 
 % ---------------------------------------------------------------- Bài 9
-\begin{probbox}{9}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{9}{\relax}
 Hai chiếc cân dưới đây đều thăng bằng; các hình giống nhau thì nặng bằng nhau.
 \begin{center}
 \lgaScale{\lgaCir\,\lgaCir\,\lgaCir}{\lgaTri\,\lgaTri}\hspace{1cm}\lgaScale{\lgaSq\,\lgaCir\,\lgaTri}{\lgaSq\,\lgaSq}
@@ -896,7 +895,7 @@ Bỏ một hình vuông ở cả hai đĩa (trừ hai vế cho $V$): \ $O + T = 
 $O + 3T = x + 3\cdot\dfrac{3x}{2} = \dfrac{2x}{2} + \dfrac{9x}{2} = \dfrac{11x}{2}$.
 \step{5}{Tính khối lượng từng phương án (viết cùng mẫu số $2$ để dễ so sánh)}
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{2.2}
 \begin{tabular}{|c|l|c|}
 \hline
 \rowcolor{tmBlue!10} Phương án & Khối lượng & Kết quả \\ \hline
@@ -920,7 +919,7 @@ Vậy chọn \textbf{(D)}.
 }
 
 % ---------------------------------------------------------------- Bài 10
-\begin{probbox}{10}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{10}{\relax}
 Năm bạn Chris, Max, Brandon, Kayla, Tanya đi hái dâu tây; không có hai bạn nào hái được số quả bằng nhau. Chris hái được nhiều hơn Max.
 Brandon hái được ít hơn Kayla. Kayla hái được ít hơn Max nhưng nhiều hơn Tanya. Bạn nào hái được nhiều thứ hai?
 \choices{Brandon}{Chris}{Kayla}{Max}{Tanya}
@@ -940,7 +939,7 @@ $C > M > K$, và $K$ nhiều hơn cả $B$ lẫn $T$.
   \draw[->,Navy,line width=0.8pt] (H)--(L); \draw[->,Navy,line width=0.8pt] (L)--(K);
   \draw[->,Navy,line width=0.8pt] (K)--(B); \draw[->,Navy,line width=0.8pt] (K)--(T);
   \node[font=\scriptsize,text=Slate] at (3,0.75){mũi tên: ``nhiều hơn''};
-  \draw[<->,dashed,AnsRed!60] (B)--(T) node[midway,right,font=\scriptsize]{?};
+  \draw[<->,dashed,AnsRed!60] (B)--(T) node[midway,right=3pt,font=\scriptsize]{?};
 \end{figC}
 \step{3}{Đọc kết quả}
 Chris nhiều nhất (hơn Max, mà Max hơn tất cả những bạn còn lại). Max chỉ thua Chris, hơn Kayla, Brandon, Tanya. Vậy \textbf{Max nhiều thứ hai}.
@@ -952,7 +951,7 @@ Vậy chọn \textbf{(D)}.
 }
 
 % ---------------------------------------------------------------- Bài 11
-\begin{probbox}{11}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{11}{\relax}
 Ba bạn Amy, Helen, Tom thống kê số truyện tranh và số sách khoa học mình đã đọc trong hè (không có hai bạn nào đọc cùng số truyện tranh,
 cũng không có hai bạn nào đọc cùng số sách khoa học). Amy đọc nhiều truyện tranh hơn Helen nhưng ít sách khoa học hơn Helen. Tom đọc nhiều
 truyện tranh hơn Helen nhưng ít sách khoa học hơn Amy. Khẳng định nào sau đây \textbf{chắc chắn} đúng?
@@ -981,7 +980,7 @@ Nối lại: $H > A > T$. Helen nhiều sách khoa học nhất, Tom ít nhất.
   \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (a2) at (2.4,-0.9){Amy};
   \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (h2) at (4.2,-0.9){Helen};
   \draw[->,tmBlue,line width=0.9pt] (t2)--(a2); \draw[->,tmBlue,line width=0.9pt] (a2)--(h2);
-  \node[font=\scriptsize,text=Slate] at (6.4,0){mũi tên chỉ về phía ``nhiều hơn''};
+  \node[font=\scriptsize,text=Slate] at (1.6,-1.55){(mũi tên chỉ về phía ``nhiều hơn'')};
 \end{figC}
 \step{3}{Xét từng khẳng định}
 \begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
@@ -997,7 +996,7 @@ Vậy chọn \textbf{(C)}.
 }
 
 % ---------------------------------------------------------------- Bài 12
-\begin{probbox}{12}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{12}{\relax}
 \begin{minipage}[t]{0.63\linewidth}
 Điền các số $1, 2, 3, 4, 5, 6, 7, 8$, mỗi số vào một vòng tròn khác nhau trên hình tam giác bên cạnh, sao cho tổng các số trên mỗi
 cạnh của tam giác (mỗi cạnh có $4$ vòng tròn ở hai cạnh bên, $3$ vòng tròn ở cạnh đáy) đều bằng cùng một số $S$. Tổng của tất cả
@@ -1047,7 +1046,7 @@ Vậy chọn \textbf{(E)}.
 }
 
 % ---------------------------------------------------------------- Bài 13
-\begin{probbox}{13}{\relax}
+\needspace{12\baselineskip}\begin{probbox}{13}{\relax}
 \begin{minipage}[t]{0.62\linewidth}
 Cần điền vào lưới $4\times 4$ bên cạnh sao cho mỗi hàng và mỗi cột có đủ các chữ số $1, 2, 3, 4$. Lưới được chia thành bốn ô vuông
 $2\times 2$ (viền đậm), mỗi ô vuông này cũng phải có đủ các chữ số $1, 2, 3, 4$. Chữ số nào được điền vào ô $P$?

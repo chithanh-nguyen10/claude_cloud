@@ -128,6 +128,7 @@ $89$ & $89^\circ;\,89^\circ;\,2^\circ$ & $2$\\ \hline
 }
 
 % ------------------------------------------------------------------ 43
+\needspace{14\baselineskip}
 \begin{probbox}{43}{\stars{2}}
 Một chấm tròn xuất phát tại gốc tọa độ $O(0;0)$ và di chuyển theo luật như Bài 22: bước thứ nhất dài $1$ đơn vị theo phương ngang hoặc dọc; mỗi bước sau dài hơn bước trước $1$ đơn vị và vuông góc với bước ngay trước nó (chiều đi tùy ý).
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt]
@@ -172,7 +173,7 @@ Vậy $n$ nhỏ nhất là $7$.
 
 \step{4}{Câu c -- $n=8$}
 Nhóm lẻ: $\{1,3,5,7\}$, vẫn chọn $+1-3-5+7=0$. Nhóm chẵn: $\{2,4,6,8\}$, chọn $+2-4-6+8=0$. Vậy \textbf{có thể}: phải $1$, lên $2$, trái $3$, xuống $4$, trái $5$, xuống $6$, phải $7$, lên $8$; các vị trí: $(1;0)$, $(1;2)$, $(-2;2)$, $(-2;-2)$, $(-7;-2)$, $(-7;-8)$, $(0;-8)$, $(0;0)$.
-\begin{proofbox}Một tổng có dấu $\pm a_1\pm a_2\pm\dots$ bằng $0$ khi và chỉ khi ta chia được các số $a_1,a_2,\dots$ thành hai nhóm có tổng bằng nhau (nhóm mang dấu $+$ và nhóm mang dấu $-$). Ví dụ $\{1,3,5,7\}$: $1+7=3+5=8$. Vì vậy điều kiện cần là tổng tất cả các số phải \emph{chẵn}.\end{proofbox}
+\begin{proofbox}Một tổng có dấu $\pm a_1\pm a_2\pm\dots$ bằng $0$ khi và chỉ khi ta chia được các số $a_1,a_2,\dots$ thành hai nhóm có tổng bằng nhau (nhóm mang dấu $+$ và nhóm mang dấu $-$). Ví dụ $\{1,3,5,7\}$: $1+7=3+5=8$. Vì vậy, tổng của tất cả các số phải là một số \emph{chẵn}.\end{proofbox}
 \begin{warnbox}Không được quên rằng \emph{cả hai} nhóm đều phải có tổng bằng $0$. Với $n=5$: nhóm chẵn $\{2,4\}$ không thể cho $0$, và nhóm lẻ $\{1,3,5\}$ cũng không -- chỉ cần một nhóm hỏng là đủ để loại.\end{warnbox}
 \verify{Kiểm tra bằng máy tính mọi cách chọn chiều với $n=1,2,\dots,15$: chấm về được $O$ khi $n=7$, $n=8$ và $n=15$; mọi $n\le 6$ đều không được.}
 \ans{a) Tổng có dấu của $1,3,5,7,9$ luôn lẻ nên khác $0$;\ b) $n=7$ (ví dụ: phải 1, lên 2, trái 3, lên 4, trái 5, xuống 6, phải 7);\ c) Có.}
