@@ -1,0 +1,876 @@
+\begingroup\setbox0=\vbox{\section*{Sum--Ratio and Difference--Ratio Problems}}\endgroup
+\chapterhead{5}{Sum--Ratio and Difference--Ratio Problems}
+
+\shead{The ratio of two numbers}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item The ratio of $a$ to $b$ is $\ a:b\ $ or $\ \dfrac ab\ $ ($b\ne0$; $a$ and $b$ in the same unit), usually in lowest terms.
+\item A ratio may be given as a decimal or as ``times'': $\ 0.75=\dfrac34;\quad 1.5=\dfrac32;\quad$ ``$a$ is $3$ times $b$'' means $\dfrac ab=\dfrac31$.
+\item ``$\dfrac13$ of the first number equals $\dfrac16$ of the second'' means the first is $3$ equal parts and the second $6$ such parts: the ratio is $\dfrac36=\dfrac12$.
+\end{itemize}\end{knowbox}
+\gap
+\shead{Two problem types, solved with bar models}
+\begin{knowbox}
+\textbf{Sum--ratio:} find two numbers given their sum $T$ and their ratio $\dfrac ab$.\par
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{First:}
+\foreach \i in {0,1,2}{\blk{\i*0.7}{\i*0.7+0.7}{0.62}{0.42}{tmBlue}{}}
+\rowlab{-0.15}{0}{Second:}
+\foreach \i in {0,1,2,3,4}{\blk{\i*0.7}{\i*0.7+0.7}{0}{0.42}{tmGreen}{}}
+\node[font=\footnotesize,anchor=west] at (2.2,0.62){$a$ parts};
+\node[font=\footnotesize,anchor=west] at (3.6,0){$b$ parts};
+\vbrace{4.7}{0.85}{-0.22}{sum $T$}
+\end{barfigC}
+Step 1: total number of equal parts $a+b$. \ Step 2: one part $=T:(a+b)$. \ Step 3: first number $=$ one part $\times a$; second number $=T-$ first.\par\medskip
+\textbf{Difference--ratio:} find two numbers given their difference $H$ and ratio $\dfrac ab$ ($a>b$). Work the same way, but $H$ matches the \emph{difference in parts} $a-b$; one part is $H:(a-b)$.\par\smallskip
+\textbf{Note:} draw equal parts with equal lengths, and read carefully to see \emph{whether the sum or the difference stays the same} when the numbers change (for instance, the age gap between two people never changes).
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+A rectangular stadium has perimeter $400$ m, and its width is $\dfrac35$ of its length. Find its area.
+\guide
+Half the perimeter (length $+$ width): $400:2=200$ (m).
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Width:}
+\foreach \i in {0,1,2}{\blk{\i*0.75}{\i*0.75+0.75}{0.62}{0.42}{tmBlue}{}}
+\rowlab{-0.15}{0}{Length:}
+\foreach \i in {0,...,4}{\blk{\i*0.75}{\i*0.75+0.75}{0}{0.42}{tmGreen}{}}
+\vbrace{3.95}{0.85}{-0.22}{$200$ m}
+\end{barfigC}
+Total parts: $3+5=8$; one part: $200:8=25$ (m).\par
+Width: $25\times3=75$ (m); length: $200-75=125$ (m).\par Area: $125\times75=9\,375$ (m$^2$).
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Mum is $28$ years older than her child. In $4$ years she will be $3$ times as old as the child. How old is each of them now?
+\guide
+The age gap never changes; in $4$ years Mum is still $28$ years older.\par Ages in $4$ years:
+\begin{barfigC}
+\rowlab{-0.15}{0.62}{Child:}
+\blk{0}{1.1}{0.62}{0.42}{tmBlue}{}
+\rowlab{-0.15}{0}{Mum:}
+\foreach \i in {0,1,2}{\blk{\i*1.1}{\i*1.1+1.1}{0}{0.42}{tmGreen}{}}
+\brcdn{1.1}{3.3}{-0.32}{$28$ years}
+\end{barfigC}
+Difference in parts: $3-1=2$.\par The child's age in $4$ years: $28:2=14$.\par
+The child now: $14-4=10$; Mum now: $10+28=38$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+The average of two natural numbers is $135$, and $\dfrac13$ of the first equals $\dfrac16$ of the second. Find the two numbers.
+\guide
+Sum: $135\times2=270$.\par As $\dfrac13$ of the first equals $\dfrac16$ of the second, the first is $3$ parts and the second $6$ such parts.\par
+Total parts: $3+6=9$; one part: $270:9=30$.\par First: $30\times3=90$; second: $270-90=180$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Two numbers add up to $84$. The second is $0.75$ of the first. Find them.
+\guide
+Change $0.75=\dfrac34$: the second is $3$ parts, the first $4$ parts; $7$ parts in all; one part: $84:7=12$.\par
+First: $12\times4=48$; second: $84-48=36$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Find two numbers whose difference is $24$ and whose ratio (smaller to larger) is $0.7$.
+\guide
+$0.7=\dfrac7{10}$: smaller $7$ parts, larger $10$ parts; difference $3$ parts $=24$, so one part is $8$.\par
+Smaller: $8\times7=56$; larger: $56+24=80$.
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+The average of two numbers is $168$, and their ratio is $\dfrac59$. Find them.
+\end{probbox}
+\probsol{
+Sum: $168\times2=336$.\par Parts: $5+9=14$; one part: $336:14=24$.\par Numbers: $24\times5=120$ and $336-120=216$.
+\dapso{$120$ and $216$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Find two numbers with sum $252$ such that $8$ times the smaller is the larger.
+\end{probbox}
+\probsol{
+Smaller $1$ part, larger $8$ parts; $9$ parts in all.\par Smaller: $252:9=28$; larger: $28\times8=224$.
+\dapso{$28$ and $224$.}}
+\gap
+\begin{probbox}{3}{\relax}
+In an exact division, the dividend plus the divisor is $342$ and the quotient is $8$. Find the dividend and the divisor.
+\end{probbox}
+\probsol{
+The quotient is $8$, so the dividend is $8$ times the divisor: divisor $1$ part, dividend $8$ parts, $9$ in all.\par
+Divisor: $342:9=38$; dividend: $38\times8=304$.
+\dapso{dividend $304$, divisor $38$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Two numbers add up to $286$. Writing $0$ on the right of the first number gives the second. Find them.
+\end{probbox}
+\probsol{
+Writing $0$ on the right multiplies by $10$: first $1$ part, second $10$ parts, $11$ in all.\par
+First: $286:11=26$; second: $260$.
+\dapso{$26$ and $260$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Barn A holds $180$ tonnes of rice more than barn B. If barn B receives $30$ more tonnes, then barn A holds $\dfrac65$ of barn B. How much did each barn hold at first?
+\end{probbox}
+\probsol{
+After barn B receives the rice, A has $180-30=150$ tonnes more, matching $6-5=1$ part.\par
+Barn B then: $150\times5=750$ t; at first: $750-30=720$ t; barn A: $720+180=900$ t.
+\dapso{A $900$ t, B $720$ t.}}
+\gap
+\begin{probbox}{6}{\relax}
+Mum and her child are $46$ years old in total. In $4$ years the child's age will be $\dfrac27$ of Mum's. How old is each now?
+\end{probbox}
+\probsol{
+In $4$ years each is $4$ years older; the total is $46+4\times2=54$.\par
+Parts: $2+7=9$; one part: $54:9=6$.\par Then the child is $12$ and Mum $42$.\par
+Now: child $12-4=8$, Mum $42-4=38$.
+\dapso{child $8$, Mum $38$.}}
+\gap
+\begin{probbox}{7}{\relax}
+What natural number must be added to both the numerator and the denominator of $\dfrac{13}{29}$ to get a fraction equal to $\dfrac35$?
+\end{probbox}
+\probsol{
+Adding the same number to both keeps the \emph{difference} between denominator and numerator: $29-13=16$.\par
+The new fraction has numerator $3$ parts and denominator $5$; the $2$-part difference is $16$, so a part is $8$: the new fraction is $\dfrac{24}{40}$.\par
+The number to add: $24-13=11$.
+\dapso{$11$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Subtract a natural number from the numerator of $\dfrac{11}{25}$ and add the same number to its denominator, to get a fraction equal to $\dfrac15$. Find the number.
+\end{probbox}
+\probsol{
+Moving the same amount from numerator to denominator keeps the \emph{sum}: $11+25=36$.\par
+New fraction: numerator $1$ part, denominator $5$; $6$ parts $=36$, so a part is $6$: the new fraction is $\dfrac6{30}$.\par
+The number: $11-6=5$.
+\dapso{$5$.}}
+\gap
+\begin{probbox}{9}{\relax}
+Two sacks hold $160$ kg of rice together. Moving $6$ kg from the first sack to the second makes the first $\dfrac35$ of the second. How much was in each sack at first?
+\end{probbox}
+\probsol{
+Moving rice keeps the total ($160$ kg).\par Afterwards: $3+5=8$ parts; one part: $160:8=20$ kg.\par
+First sack afterwards $60$ kg, so at first $60+6=66$ kg; second sack at first: $160-66=94$ kg.
+\dapso{$66$ kg and $94$ kg.}}
+\gap
+\begin{probbox}{10}{\relax}
+A rectangle has perimeter $180$ cm. Adding $6$ cm to its length and taking $6$ cm off its width gives a rectangle whose length is twice its width. Find the area of the original rectangle.
+\end{probbox}
+\probsol{
+Half the perimeter: $90$ cm, and it stays $90$ cm after the change.\par
+New rectangle: width $1$ part, length $2$ parts; a part is $90:3=30$ cm: width $30$ cm, length $60$ cm.\par
+Original: width $30+6=36$ cm, length $60-6=54$ cm; area $54\times36=1\,944$ cm$^2$.
+\dapso{$1\,944$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Grade 5 of a school has $315$ pupils, and $\dfrac14$ of the girls equals $\dfrac15$ of the boys. How many girls and boys are there?
+\end{probbox}
+\probsol{
+Girls are $4$ equal parts and boys $5$; $9$ parts in all; one part: $315:9=35$.\par
+Girls: $35\times4=140$; boys: $35\times5=175$.
+\dapso{$140$ girls, $175$ boys.}}
+\gap
+\begin{probbox}{12}{\relax}
+Find two numbers whose difference is the largest two-digit number and whose ratio is $\dfrac47$.
+\end{probbox}
+\probsol{
+The difference is $99$.\par Difference in parts: $7-4=3$; one part: $99:3=33$.\par Numbers: $33\times4=132$ and $33\times7=231$.
+\dapso{$132$ and $231$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Dad is $32$ years older than his son. This year Dad is $5$ times as old as the son. How old is the son?
+\end{probbox}
+\probsol{
+Difference in parts: $5-1=4$; the son: $32:4=8$.
+\dapso{$8$ years old.}}
+\gap
+\begin{probbox}{14}{\relax}
+Find two numbers whose difference is $516$, given that the larger divided by the smaller gives quotient $7$ and remainder $12$.
+\end{probbox}
+\probsol{
+The larger is $7$ times the smaller plus $12$.\par Taking $12$ off it makes it exactly $7$ times the smaller, and the difference becomes $516-12=504$.\par
+Difference in parts $7-1=6$; smaller: $504:6=84$; larger: $84+516=600$.
+\dapso{$84$ and $600$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Find a number such that deleting the $0$ at its right end makes it $1\,845$ smaller.
+\end{probbox}
+\probsol{
+Deleting the final $0$ divides the number by $10$: new $1$ part, old $10$ parts; the $9$-part difference is $1\,845$.\par
+New number: $1\,845:9=205$; the number is $2\,050$.
+\dapso{$2\,050$.}}
+\gap
+\begin{probbox}{16}{\relax}
+The difference of two numbers is $\dfrac14$ of the smaller number. Their sum is $162$. Find them.
+\end{probbox}
+\probsol{
+If the smaller is $4$ parts, the difference is $1$ part and the larger $5$ parts.\par Sum $9$ parts; one part: $162:9=18$.\par
+Smaller: $72$; larger: $90$.
+\dapso{$72$ and $90$.}}
+\gap
+\begin{probbox}{17}{\relax}
+Find two numbers with sum $12.4$, the first being $\dfrac23$ of the second.
+\end{probbox}
+\probsol{
+Parts: $2+3=5$; one part: $12.4:5=2.48$.\par First: $2.48\times2=4.96$; second: $12.4-4.96=7.44$.
+\dapso{$4.96$ and $7.44$.}}
+\gap
+\begin{probbox}{18}{\relax}
+Grade 5 has $288$ pupils. The ratio of girls to boys is $0.6$. How many girls and boys are there?
+\end{probbox}
+\probsol{
+$0.6=\dfrac35$.\par Parts: $3+5=8$; one part: $288:8=36$.\par Girls: $36\times3=108$; boys: $36\times5=180$.
+\dapso{$108$ girls, $180$ boys.}}
+\gap
+\begin{probbox}{19}{\relax}
+A rectangular plot has perimeter $168$ m; its length is $1.8$ times its width. Find its area.
+\end{probbox}
+\probsol{
+$1.8=\dfrac95$: width $5$ parts, length $9$ parts.\par Half the perimeter, $84$ m, is $14$ parts; one part: $6$ m.\par
+Width $30$ m, length $54$ m; area $54\times30=1\,620$ m$^2$.
+\dapso{$1\,620$ m$^2$.}}
+\gap
+\begin{probbox}{20}{\relax}
+Two numbers add up to $150$ and are in the ratio $\dfrac23$. Find them.
+\end{probbox}
+\probsol{
+$2+3=5$ parts.\par One part: $150:5=30$.\par The numbers: $30\times2=60$ and $30\times3=90$.
+\dapso{$60$ and $90$.}}
+\gap
+\begin{probbox}{21}{\relax}
+Two numbers differ by $45$ and are in the ratio $\dfrac38$. Find them.
+\end{probbox}
+\probsol{
+$8-3=5$ parts.\par One part: $45:5=9$.\par Smaller: $27$; larger: $72$.
+\dapso{$27$ and $72$.}}
+\gap
+\begin{probbox}{22}{\relax}
+Two tanks hold $120$ litres; the first holds $\dfrac35$ as much as the second. How much does each hold?
+\end{probbox}
+\probsol{
+$8$ parts; one part: $120:8=15$ litres.\par First: $45$ l; second: $75$ l.
+\dapso{$45$ l and $75$ l.}}
+\gap
+\begin{probbox}{23}{\relax}
+A rectangular garden has perimeter $96$ m, and its width is $\dfrac13$ of its length. Find its area.
+\end{probbox}
+\probsol{
+Half the perimeter: $48$ m.\par Width $1$ part, length $3$ parts: width $48:4=12$ m, length $36$ m.\par Area: $36\times12=432$ m$^2$.
+\dapso{$432$ m$^2$.}}
+\gap
+\begin{probbox}{24}{\relax}
+This year a child's age is $\dfrac27$ of the mother's, and she is $25$ years older. Find both ages.
+\end{probbox}
+\probsol{
+$7-2=5$ parts; one part: $25:5=5$ years.\par Child: $10$; mother: $35$.
+\dapso{Child $10$, mother $35$ years.}}
+\gap
+\begin{probbox}{25}{\relax}
+The larger number is $5$ times the smaller, and they differ by $72$. Find them.
+\end{probbox}
+\probsol{
+$5-1=4$ parts; smaller: $72:4=18$.\par Larger: $18\times5=90$.
+\dapso{$18$ and $90$.}}
+\gap
+\begin{probbox}{26}{\relax}
+Two numbers add up to $7.2$; the first is $3$ times the second. Find them.
+\end{probbox}
+\probsol{
+$4$ parts; second: $7.2:4=1.8$.\par First: $1.8\times3=5.4$.
+\dapso{$5.4$ and $1.8$.}}
+\gap
+\begin{probbox}{27}{\relax}
+Class 5E has $35$ pupils, with boys to girls in the ratio $\dfrac34$. How many boys and girls are there?
+\end{probbox}
+\probsol{
+$7$ parts; one part: $35:7=5$.\par Boys: $15$; girls: $20$.
+\dapso{$15$ boys, $20$ girls.}}
+\gap
+\begin{probbox}{28}{\relax}
+Two numbers have average $60$; the smaller is $\dfrac14$ of the larger. Find them.
+\end{probbox}
+\probsol{
+Sum: $60\times2=120$.\par $5$ parts; smaller: $120:5=24$; larger: $96$.
+\dapso{$24$ and $96$.}}
+\gap
+\begin{probbox}{29}{\relax}
+Two numbers differ by $30$; the larger is $2.5$ times the smaller. Find them.
+\end{probbox}
+\probsol{
+The smaller is $1$ part and the larger $2.5$ parts; the difference is $1.5$ parts.\par Smaller: $30:1.5=20$; larger: $50$.
+\dapso{$20$ and $50$.}}
+\gap
+\begin{probbox}{30}{\relax}
+A rectangular garden is $15$ m longer than it is wide, and its width is $\dfrac25$ of its length. Find its area.
+\end{probbox}
+\probsol{
+$3$ parts; one part: $15:3=5$ m.\par Width: $10$ m; length: $25$ m.\par Area: $250$ m$^2$.
+\dapso{$250$ m$^2$.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+Two cans hold $160.5$ litres of oil. After $9.5$ litres are poured from the first can into the second, the second holds $1.5$ times as much as the first. How much did each can hold at first?
+\end{probbox}
+\probsol{
+The total stays the same.\par Afterwards: first can $2$ parts, second $3$ parts ($1.5=\dfrac32$); one part: $160.5:5=32.1$ litres.\par
+First can afterwards: $64.2$ l; at first $64.2+9.5=73.7$ l.\par Second can at first: $160.5-73.7=86.8$ l.
+\dapso{$73.7$ l and $86.8$ l.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+The first sack has $20.4$ kg more rice than the second. If $1.8$ kg is added to each sack, the first will hold $3$ times as much as the second. How much did each hold at first?
+\end{probbox}
+\probsol{
+Adding the same amount to each keeps the difference ($20.4$ kg).\par Afterwards the difference is $3-1=2$ parts; the second sack then holds $20.4:2=10.2$ kg.\par
+Second sack at first: $10.2-1.8=8.4$ kg; first sack at first: $8.4+20.4=28.8$ kg.
+\dapso{$28.8$ kg and $8.4$ kg.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+The son's age is $\dfrac14$ of his dad's. In $10$ years it will be $0.4$ of his dad's. How old is each now?
+\end{probbox}
+\probsol{
+The age gap stays the same.\par Now: son $1$ part, dad $4$, gap $3$ parts.\par In $10$ years ($0.4=\dfrac25$): son $2$ parts, dad $5$, gap also $3$ parts.\par
+The gaps are equal, so the parts are the same size: the son grows from $1$ part to $2$ parts, so $1$ part $=10$ years.\par
+Now: son $10$, dad $40$. (\emph{Check:} $20:50=0.4$.)
+}
+\gap
+\begin{probbox}{34}{\stars{2}}
+In spring tree planting, Grade 4 plants $\dfrac35$ as many trees as Grade 5. If each grade planted $20$ more, Grade 4 would have $\dfrac23$ as many as Grade 5. How many trees did each grade plant?
+\end{probbox}
+\probsol{
+The difference stays the same.\par At first: Grade 4 has $3$ parts, Grade 5 has $5$, difference $2$.\par Afterwards: $\dfrac23=\dfrac46$, so $4$ and $6$ parts, difference still $2$ parts of the same size.\par
+Grade 4 goes from $3$ parts to $4$, so $1$ part $=20$ trees: Grade 4 planted $60$ and Grade 5 planted $100$.
+\dapso{Grade 4: $60$; Grade 5: $100$.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+The ratio of books on the top shelf to the bottom shelf is $0.5$. Moving $9$ books from the bottom to the top makes the ratio $0.8$. How many books were on each shelf at first?
+\end{probbox}
+\probsol{
+The total stays the same.\par At first the top shelf holds $\dfrac1{1+2}=\dfrac13$ of all books; afterwards ($0.8=\dfrac45$) it holds $\dfrac4{4+5}=\dfrac49$.\par
+The $9$ books are $\dfrac49-\dfrac13=\dfrac19$ of the total, so the total is $9:\dfrac19=81$.\par
+Top shelf at first: $81:3=27$; bottom: $54$.
+\dapso{top $27$, bottom $54$.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Three numbers add up to $210$. The first is $\dfrac12$ of the second, and the third is twice the second. Find them.
+\end{probbox}
+\probsol{
+First $1$ part, second $2$ parts, third $4$ parts; $7$ parts in all.\par One part: $210:7=30$.\par The numbers: $30,\ 60,\ 120$.
+\dapso{$30;\ 60;\ 120$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Two numbers add up to $357$. Crossing out the units digit $5$ of the larger gives the smaller. Find them.
+\end{probbox}
+\probsol{
+The larger is $10$ times the smaller plus $5$.\par So $11$ times the smaller plus $5$ is $357$; $11$ times the smaller is $352$.\par Smaller: $32$; larger: $325$.
+\dapso{$32$ and $325$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Two numbers differ by $33.3$. Moving the point of the smaller one place right gives the larger. Find them.
+\end{probbox}
+\probsol{
+The larger is $10$ times the smaller; difference $9$ parts.\par Smaller: $33.3:9=3.7$; larger: $37$.
+\dapso{$3.7$ and $37$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+A father is $30$ years older than his son. In $5$ years he will be $3$ times as old. How old is each now?
+\end{probbox}
+\probsol{
+The age gap stays $30$.\par In $5$ years: $3-1=2$ parts are $30$ years.\par The son will be $15$, so he is $10$ now.\par The father is $40$.
+\dapso{Son $10$, father $40$ years.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+A grandfather and grandchild have ages totalling $78$. The child's age in months equals the grandfather's age in years. Find both ages.
+\end{probbox}
+\probsol{
+A year has $12$ months, so the grandfather is $12$ times as old.\par $13$ parts; child: $78:13=6$.\par Grandfather: $72$.
+\dapso{Child $6$, grandfather $72$ years.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+An has $3$ times as many marbles as Binh. If An gives Binh $12$, they will have the same. How many does each have?
+\end{probbox}
+\probsol{
+For giving $12$ to make them equal, An must have $24$ more.\par $2$ parts are $24$; Binh: $12$; An: $36$.
+\dapso{An $36$, Binh $12$ marbles.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Barn A holds $3$ times as much paddy as barn B. Moving $20$ tonnes from A to B makes A hold twice as much as B. How much does each hold?
+\end{probbox}
+\probsol{
+The total is fixed.\par A is $\dfrac34$ of it before and $\dfrac23$ after.\par So $20$ t is $\dfrac34-\dfrac23=\dfrac1{12}$ of the total, which is $240$ t.\par A: $180$ t; B: $60$ t.
+\dapso{$180$ t and $60$ t.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Two numbers add up to $216$. Dividing the larger by the smaller gives $4$ remainder $6$. Find them.
+\end{probbox}
+\probsol{
+The larger is $4$ times the smaller plus $6$, so the sum is $5$ times the smaller plus $6$.\par Smaller: $(216-6):5=42$.\par Larger: $216-42=174$.
+\dapso{$42$ and $174$.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Two numbers differ by $87$. Dividing the larger by the smaller gives $3$ remainder $5$. Find them.
+\end{probbox}
+\probsol{
+The larger is $3$ times the smaller plus $5$, so the difference is $2$ times the smaller plus $5$.\par Smaller: $(87-5):2=41$.\par Larger: $41+87=128$.
+\dapso{$41$ and $128$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+A fraction's numerator and denominator add up to $120$. Moving $10$ from the denominator to the numerator gives a fraction equal to $1$. Find it.
+\end{probbox}
+\probsol{
+The sum stays $120$; afterwards top and bottom are equal, $60$ each.\par At first: numerator $60-10=50$, denominator $60+10=70$.
+\dapso{$\dfrac{50}{70}$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Adding $5$ m to the width of a rectangle makes it a square and adds $60$ m$^2$. Find the rectangle's area.
+\end{probbox}
+\probsol{
+The added strip is $5$ m wide and as long as the rectangle: length $60:5=12$ m.\par Width: $12-5=7$ m.\par Area: $12\times7=84$ m$^2$.
+\dapso{$84$ m$^2$.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+A mother is $36$ and her child $8$. In how many years will she be $3$ times as old?
+\end{probbox}
+\probsol{
+The gap is always $28$.\par When she is $3$ times as old, the gap is $2$ parts.\par The child will be $28:2=14$.\par Years: $14-8=6$.
+\dapso{$6$ years.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+In an exact division the dividend, divisor and quotient add up to $195$, and the quotient is $6$. Find the dividend and divisor.
+\end{probbox}
+\probsol{
+Dividend plus divisor: $195-6=189$.\par The dividend is $6$ times the divisor: $7$ parts.\par Divisor: $189:7=27$; dividend: $162$.
+\dapso{$162$ and $27$.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+A shop's sticky rice is $\dfrac25$ of its plain rice. After $30$ kg of plain rice is sold, the sticky rice is $\dfrac12$ of the plain rice left. How much of each was there?
+\end{probbox}
+\probsol{
+The sticky rice is fixed; call it $2$ parts.\par Plain rice: $5$ parts before, $4$ parts after.\par So $30$ kg is $1$ part: sticky $60$ kg, plain $150$ kg.
+\dapso{Sticky $60$ kg, plain $150$ kg.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Two whole numbers add up to $1\,001$. The larger ends in $0$, and crossing out that $0$ gives the smaller. Find them.
+\end{probbox}
+\probsol{
+The larger is $10$ times the smaller; $11$ parts in all.\par Smaller: $1\,001:11=91$; larger: $910$.
+\dapso{$91$ and $910$.}}
+\clearpage
+\titlehead
+\begingroup\setbox0=\vbox{\section*{(*) Problems with Two Ratios}}\endgroup
+\chapterhead{6}{(*) Problems with Two Ratios}
+
+\shead{Look for the quantity that does not change}
+\begin{knowbox}
+In many problems two numbers change and so does their ratio (the problem gives \emph{two ratios}: before and after). The key is to find a quantity that \textbf{does not change} and use it as the ``unit'' of comparison:
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item The \textbf{sum is constant} when an amount moves from one number to the other. Write each number as a \emph{fraction of the sum}.
+\item The \textbf{difference is constant} when the same amount is added to (or taken from) both; age gaps are an example. Write each number as a \emph{fraction of the difference}.
+\item \textbf{One number is constant} when only the other changes. Compare everything with the unchanged number.
+\end{itemize}
+The known change then matches the \emph{difference of two fractions}, which gives the unchanged quantity.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Find two numbers in the ratio $\dfrac37$ such that adding $6$ to the first and taking $6$ from the second gives two numbers in the ratio $\dfrac23$.
+\guide
+Whatever is added to one is taken from the other, so \textbf{the sum is constant}.\par
+At first the first number is $\dfrac3{3+7}=\dfrac3{10}$ of the sum; afterwards $\dfrac2{2+3}=\dfrac25=\dfrac4{10}$ of the sum.\par
+The first number grows by $6$, which is $\dfrac4{10}-\dfrac3{10}=\dfrac1{10}$ of the sum.\par Sum: $6:\dfrac1{10}=60$.\par
+First: $60\times\dfrac3{10}=18$; second: $60-18=42$. \ (\emph{Check:} $24:36=\dfrac23$.)
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+The first number is $\dfrac38$ of the second. Taking $5$ from each makes the second $3$ times the first. Find the numbers.
+\guide
+The same amount is taken from both, so \textbf{the difference is constant}.\par
+At first: first $3$ parts, second $8$ parts, difference $5$ parts; the first is $\dfrac35$ of the difference.\par
+Afterwards: first $1$ part, second $3$ parts, difference $2$ parts; the first is $\dfrac12$ of the difference.\par
+The $5$ is $\dfrac35-\dfrac12=\dfrac1{10}$ of the difference.\par Difference: $5:\dfrac1{10}=50$.\par First: $50\times\dfrac35=30$; second: $80$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+On a bus there are $3$ times as many men as women. At the first stop $3$ men get on and $3$ women get off; now there are $5$ times as many men as women. How many men and women were there at first?
+\guide
+$3$ get on and $3$ get off, so \textbf{the total is constant}.\par
+Women were $\dfrac1{1+3}=\dfrac14$ of the total, and later $\dfrac1{1+5}=\dfrac16$.\par The $3$ women who left are $\dfrac14-\dfrac16=\dfrac1{12}$ of the total.\par
+Total: $3:\dfrac1{12}=36$.\par At first: $9$ women and $27$ men.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+If Nam gives Giang $3$ sweets, Nam will have $2$ times as many as Giang. If instead Giang gives Nam $3$ sweets, Nam will have $5$ times as many. How many sweets does each have?
+\guide
+Giving sweets keeps \textbf{the total $T$ constant}.\par
+-- Case 1: after giving, Nam has $\dfrac2{2+1}=\dfrac23\,T$; so Nam has $\dfrac23\,T+3$.\par
+-- Case 2: after receiving, Nam has $\dfrac5{5+1}=\dfrac56\,T$; so Nam has $\dfrac56\,T-3$.\par
+Comparing: $\dfrac56\,T-\dfrac23\,T=3+3$, i.e.\par $\dfrac16\,T=6$ and $T=36$.\par
+Nam has $\dfrac23\times36+3=27$; Giang has $36-27=9$.
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+Find two numbers in the ratio $\dfrac23$ such that adding $4$ to the first and taking $4$ from the second gives the ratio $\dfrac32$.
+\end{probbox}
+\probsol{
+The sum is constant.\par The first number: $\dfrac25$ of the sum before, $\dfrac35$ after.\par So $4$ is $\dfrac15$ of the sum, and the sum is $20$.\par
+The numbers: $8$ and $12$.
+\dapso{$8$ and $12$.}}
+\gap
+\begin{probbox}{2}{\relax}
+A fraction equals $\dfrac25$. Adding $9$ to its numerator and taking $9$ from its denominator gives a fraction equal to $\dfrac52$. Find the original fraction.
+\end{probbox}
+\probsol{
+The numerator plus denominator is constant.\par The numerator is $\dfrac27$ of it before, $\dfrac57$ after; so $9$ is $\dfrac37$ of the sum, which is $21$.\par
+The original fraction: $\dfrac6{15}$.
+\dapso{$\dfrac6{15}$.}}
+\gap
+\begin{probbox}{3}{\relax}
+The ratio of books on shelf I to shelf II is $\dfrac57$. Moving $10$ books from shelf I to shelf II makes shelf II hold $3$ times as many as shelf I. How many books were on each shelf at first?
+\end{probbox}
+\probsol{
+The total is constant.\par Shelf I is $\dfrac5{12}$ of it before and $\dfrac14=\dfrac3{12}$ after.\par The $10$ books are $\dfrac2{12}=\dfrac16$ of the total, which is $60$.\par
+Shelf I: $25$; shelf II: $35$.
+\dapso{$25$ and $35$ books.}}
+\gap
+\begin{probbox}{4}{\relax}
+Class 5A has twice as many boys as girls. If $3$ girls join and $3$ boys leave, the girls make up $\dfrac5{12}$ of the class. How many pupils are in class 5A?
+\end{probbox}
+\probsol{
+The class size stays the same.\par Girls are $\dfrac13=\dfrac4{12}$ of it before and $\dfrac5{12}$ after, so $3$ pupils are $\dfrac1{12}$ of the class.\par
+Class size: $3\times12=36$.
+\dapso{$36$ pupils.}}
+\gap
+\begin{probbox}{5}{\relax}
+The first number is $\dfrac27$ of the second. Adding $12$ to each makes the first $\dfrac12$ of the second. Find the numbers.
+\end{probbox}
+\probsol{
+The difference is constant.\par The first number is $\dfrac2{7-2}=\dfrac25$ of the difference before and $\dfrac1{2-1}=1$ difference after.\par
+So $12$ is $1-\dfrac25=\dfrac35$ of the difference, which is $20$.\par The numbers: $8$ and $28$.
+\dapso{$8$ and $28$.}}
+\gap
+\begin{probbox}{6}{\relax}
+This year the son's age is $\dfrac13$ of the age gap between him and his dad. Six years ago it was $\dfrac15$ of the gap. How much older is the dad?
+\end{probbox}
+\probsol{
+The age gap is constant.\par The $6$ years are $\dfrac13-\dfrac15=\dfrac2{15}$ of the gap.\par
+The gap: $6:\dfrac2{15}=45$ years. (The son is $15$ and the dad $60$.)
+\dapso{$45$ years.}}
+\gap
+\begin{probbox}{7}{\relax}
+The masses of corn in two sacks are in the ratio $\dfrac38$. Adding $4$ kg to each makes the ratio $\dfrac25$. How much corn was in each sack at first?
+\end{probbox}
+\probsol{
+The difference is constant.\par The smaller sack is $\dfrac35$ of it before and $\dfrac23$ after; $4$ kg is $\dfrac23-\dfrac35=\dfrac1{15}$ of the difference, which is $60$ kg.\par
+Smaller sack: $60\times\dfrac35=36$ kg; larger: $36+60=96$ kg.
+\dapso{$36$ kg and $96$ kg.}}
+\gap
+\begin{probbox}{8}{\relax}
+Mum is now $5$ times as old as her child. In six years she will be $3$ times as old. How old is each now?
+\end{probbox}
+\probsol{
+The gap is constant.\par The child is $\dfrac14$ of it now and $\dfrac12$ of it in six years; $6$ years is $\dfrac14$ of the gap, which is $24$ years.\par
+Child: $24:4=6$; Mum: $30$.
+\dapso{child $6$, Mum $30$.}}
+\gap
+\begin{probbox}{9}{\relax}
+A fraction equals $\dfrac34$. Taking $6$ from both its numerator and denominator gives a fraction equal to $\dfrac57$. Find the original fraction.
+\end{probbox}
+\probsol{
+Denominator minus numerator is constant.\par The numerator is $3$ times it before and $\dfrac52$ of it after; $6$ is $3-\dfrac52=\dfrac12$ of it, so it is $12$.\par
+Numerator $36$, denominator $48$: the fraction $\dfrac{36}{48}$.
+\dapso{$\dfrac{36}{48}$.}}
+\gap
+\begin{probbox}{10}{\relax}
+In class 5A the boys are $\dfrac34$ of the girls. If $3$ boys and $3$ girls leave, the boys make up $\dfrac5{12}$ of the class. How many pupils were there at first?
+\end{probbox}
+\probsol{
+Both lose $3$, so (girls $-$ boys) is constant.\par At first boys $3$ parts, girls $4$: the boys are $3$ times the difference.\par
+Afterwards boys $5$ parts, girls $7$: the boys are $\dfrac52$ of the difference.\par $3$ pupils are $\dfrac12$ of it, so it is $6$.\par
+At first: $18$ boys, $24$ girls, $42$ pupils.
+\dapso{$42$ pupils.}}
+\gap
+\begin{probbox}{11}{\relax}
+There are two barns. If $3$ tonnes are added to barn A and $3$ tonnes removed from barn B, the ratio of rice is $\dfrac37$. If instead $5$ tonnes are removed from A and $5$ added to B, the ratio is $\dfrac14$. How much does each barn hold?
+\end{probbox}
+\probsol{
+In both cases the total $T$ is unchanged.\par Barn A then holds $\dfrac3{10}\,T$ (case 1) or $\dfrac15\,T=\dfrac2{10}\,T$ (case 2).\par
+The two cases differ by $3+5=8$ tonnes, which is $\dfrac1{10}\,T$; so $T=80$ tonnes.\par
+Barn A: $80\times\dfrac3{10}-3=21$ t; barn B: $80-21=59$ t.
+\dapso{A $21$ t, B $59$ t.}}
+\gap
+\begin{probbox}{12}{\relax}
+A fraction equals $\dfrac58$. Adding $6$ to both its numerator and denominator gives a fraction equal to $\dfrac23$. Find the original fraction.
+\end{probbox}
+\probsol{
+The difference is constant.\par The numerator is $\dfrac53$ of it before and $2$ times it after; $6$ is $\dfrac13$ of it, so it is $18$.\par
+The original fraction: $\dfrac{30}{48}$.
+\dapso{$\dfrac{30}{48}$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Two numbers are in the ratio $\dfrac12$. Taking $5$ from the second and adding it to the first gives the ratio $\dfrac45$. Find them.
+\end{probbox}
+\probsol{
+The sum is fixed.\par The first is $\dfrac13=\dfrac39$ of it before and $\dfrac49$ after.\par So $5$ is $\dfrac19$ of the sum, which is $45$.\par The numbers: $15$ and $30$.
+\dapso{$15$ and $30$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Drum I holds $\dfrac35$ as much oil as drum II. Pouring $6$ litres from II into I makes them equal. How much does each hold?
+\end{probbox}
+\probsol{
+The total is fixed.\par Drum I is $\dfrac38$ of it before and $\dfrac12=\dfrac48$ after.\par So $6$ l is $\dfrac18$ of the total, which is $48$ l.\par Drum I: $18$ l; drum II: $30$ l.
+\dapso{$18$ l and $30$ l.}}
+\gap
+\begin{probbox}{15}{\relax}
+A fraction equals $\dfrac37$. Moving $4$ from the denominator to the numerator gives a fraction equal to $1$. Find it.
+\end{probbox}
+\probsol{
+Top plus bottom is fixed.\par The numerator is $\dfrac3{10}$ of it before and $\dfrac12=\dfrac5{10}$ after.\par So $4$ is $\dfrac2{10}$ of the sum, which is $20$.\par The fraction: $\dfrac6{14}$.
+\dapso{$\dfrac6{14}$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Barns I and II hold paddy in the ratio $\dfrac79$. Moving $10$ tonnes from I to II gives the ratio $\dfrac35$. How much did each hold?
+\end{probbox}
+\probsol{
+The total is fixed.\par Barn I is $\dfrac7{16}$ of it before and $\dfrac38=\dfrac6{16}$ after.\par So $10$ t is $\dfrac1{16}$ of the total, which is $160$ t.\par Barn I: $70$ t; barn II: $90$ t.
+\dapso{$70$ t and $90$ t.}}
+\gap
+\begin{probbox}{17}{\relax}
+A fraction equals $\dfrac45$. Taking $6$ from the numerator and adding $6$ to the denominator gives $\dfrac12$. Find it.
+\end{probbox}
+\probsol{
+The sum is fixed.\par The numerator is $\dfrac49$ of it before and $\dfrac13=\dfrac39$ after.\par So $6$ is $\dfrac19$ of the sum, which is $54$.\par The fraction: $\dfrac{24}{30}$.
+\dapso{$\dfrac{24}{30}$.}}
+\gap
+\begin{probbox}{18}{\relax}
+The first number is $\dfrac25$ of the second. Adding $9$ to each makes the first $\dfrac12$ of the second. Find them.
+\end{probbox}
+\probsol{
+The difference is fixed.\par The first is $\dfrac23$ of it before and $1$ times it after.\par So $9$ is $\dfrac13$ of the difference, which is $27$.\par The numbers: $18$ and $45$.
+\dapso{$18$ and $45$.}}
+\gap
+\begin{probbox}{19}{\relax}
+Two numbers are in the ratio $\dfrac34$. Taking $10$ from each gives the ratio $\dfrac12$. Find them.
+\end{probbox}
+\probsol{
+The difference is fixed.\par The first is $3$ times it before and $1$ times it after.\par So $10$ is $2$ times the difference, which is $5$.\par The numbers: $15$ and $20$.
+\dapso{$15$ and $20$.}}
+\gap
+\begin{probbox}{20}{\relax}
+A child is $\dfrac14$ of the mother's age now and will be $\dfrac25$ of it in $8$ years. Find both ages now.
+\end{probbox}
+\probsol{
+The age gap is fixed.\par The child is $\dfrac13$ of it now and $\dfrac23$ of it in $8$ years.\par So $8$ years is $\dfrac13$ of the gap, which is $24$.\par Child: $8$; mother: $32$.
+\dapso{Child $8$, mother $32$ years.}}
+\gap
+\begin{probbox}{21}{\relax}
+Four years ago the elder brother was $3$ times as old as the younger; now he is $2$ times as old. Find both ages now.
+\end{probbox}
+\probsol{
+The gap is fixed.\par The younger was $\dfrac12$ of it four years ago and is $1$ times it now.\par So $4$ years is $\dfrac12$ of the gap, which is $8$.\par Younger: $8$; elder: $16$.
+\dapso{Younger $8$, elder $16$ years.}}
+\gap
+\begin{probbox}{22}{\relax}
+A fraction equals $\dfrac23$. Adding $5$ to its top and bottom gives $\dfrac34$. Find it.
+\end{probbox}
+\probsol{
+The difference is fixed.\par The numerator is $2$ times it before and $3$ times it after.\par So $5$ equals the difference.\par The fraction: $\dfrac{10}{15}$.
+\dapso{$\dfrac{10}{15}$.}}
+\gap
+\begin{probbox}{23}{\relax}
+A fraction equals $\dfrac57$. Taking $3$ from its top and bottom gives $\dfrac23$. Find it.
+\end{probbox}
+\probsol{
+The difference is fixed.\par The numerator is $\dfrac52$ of it before and $2$ times it after.\par So $3$ is $\dfrac12$ of the difference, which is $6$.\par The fraction: $\dfrac{15}{21}$.
+\dapso{$\dfrac{15}{21}$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Mr Ba's hens are $\dfrac35$ as many as his ducks. After buying $12$ more hens, the hens are $\dfrac9{10}$ as many as the ducks. How many of each did he have?
+\end{probbox}
+\probsol{
+The ducks do not change.\par The $12$ hens are $\dfrac9{10}-\dfrac35=\dfrac3{10}$ of the ducks.\par Ducks: $12:\dfrac3{10}=40$.\par Hens: $40\times\dfrac35=24$.
+\dapso{$24$ hens, $40$ ducks.}}
+\gap
+\begin{probbox}{25}{\relax}
+The top shelf holds $\dfrac47$ as many books as the bottom shelf. Adding $15$ books to the top makes them equal. How many were on each?
+\end{probbox}
+\probsol{
+The bottom shelf does not change.\par The $15$ books are $1-\dfrac47=\dfrac37$ of it.\par Bottom: $15:\dfrac37=35$; top: $20$.
+\dapso{Top $20$, bottom $35$ books.}}
+\gap
+\begin{probbox}{26}{\relax}
+A fraction equals $\dfrac34$. Keeping the numerator and adding $6$ to the denominator gives $\dfrac35$. Find it.
+\end{probbox}
+\probsol{
+The numerator is fixed; in both fractions it is $3$ parts.\par The denominator grows from $4$ parts to $5$ parts, so $1$ part is $6$.\par The fraction: $\dfrac{18}{24}$.
+\dapso{$\dfrac{18}{24}$.}}
+\gap
+\begin{probbox}{27}{\relax}
+On a coach the women are $\dfrac23$ as many as the men. At a stop $4$ men get off and $4$ women get on, and then there are equal numbers. How many men and women were there at first?
+\end{probbox}
+\probsol{
+The total is fixed.\par Women are $\dfrac25$ of it before and $\dfrac12$ after.\par So $4$ people are $\dfrac12-\dfrac25=\dfrac1{10}$ of the total, which is $40$.\par Women: $16$; men: $24$.
+\dapso{$24$ men, $16$ women.}}
+\gap
+\begin{probbox}{28}{\relax}
+An has $\dfrac57$ as many marbles as Binh. If Binh gives An $4$, they have the same. How many does each have?
+\end{probbox}
+\probsol{
+The total is fixed.\par An has $\dfrac5{12}$ of it before and $\dfrac6{12}$ after.\par So $4$ is $\dfrac1{12}$ of the total, which is $48$.\par An: $20$; Binh: $28$.
+\dapso{An $20$, Binh $28$ marbles.}}
+\gap
+\begin{probbox}{29}{\relax}
+A father is $4$ times as old as his son now and will be $2$ times as old in $20$ years. Find both ages now.
+\end{probbox}
+\probsol{
+The gap is fixed.\par The son is $\dfrac13$ of it now and $1$ times it in $20$ years.\par So $20$ years is $\dfrac23$ of the gap, which is $30$.\par Son: $10$; father: $40$.
+\dapso{Son $10$, father $40$ years.}}
+\gap
+\begin{probbox}{30}{\relax}
+A shop has sugar equal to $\dfrac38$ of its rice. After selling $40$ kg of rice, the sugar is $\dfrac12$ of the rice left. How much of each was there?
+\end{probbox}
+\probsol{
+The sugar is fixed; call it $3$ parts.\par Rice: $8$ parts before, $6$ parts after.\par So $40$ kg is $2$ parts; one part: $20$ kg.\par Sugar: $60$ kg; rice: $160$ kg.
+\dapso{Sugar $60$ kg, rice $160$ kg.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+Three years ago a dad was $7$ times as old as his son. In five years he will be $3$ times as old. How old is each now?
+\end{probbox}
+\probsol{
+The age gap is constant.\par The son was $\dfrac16$ of it three years ago, and will be $\dfrac12$ of it in five years.\par
+From three years ago to five years ahead is $8$ years, which is $\dfrac12-\dfrac16=\dfrac13$ of the gap; the gap is $24$ years.\par
+Three years ago the son was $4$; now he is $7$ and his dad is $31$.
+\dapso{son $7$, dad $31$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+If An gives Binh $5$ marbles they will have the same number. If Binh gives An $5$ marbles, An will have $3$ times as many as Binh. How many marbles does each have?
+\end{probbox}
+\probsol{
+Giving $5$ makes them equal, so An has $10$ more than Binh.\par
+If Binh gives An $5$, An has $10+5+5=20$ more; the difference is $3-1=2$ parts, so Binh then has $20:2=10$.\par
+Binh has $10+5=15$; An has $15+10=25$.
+\dapso{An $25$, Binh $15$.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+The top shelf holds $\dfrac25$ as many books as the bottom shelf. Moving $6$ books from the bottom to the top makes the top hold $\dfrac12$ as many as the bottom. How many books are there in all?
+\end{probbox}
+\probsol{
+The total is constant.\par The top shelf is $\dfrac27$ of it before and $\dfrac13$ after; $6$ books are $\dfrac13-\dfrac27=\dfrac1{21}$ of the total.\par
+Total: $6\times21=126$ books.
+\dapso{$126$ books.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Adding $3$ to the numerator of a fraction gives a fraction equal to $1$. Adding $3$ to its denominator instead gives a fraction equal to $\dfrac12$. Find the fraction.
+\end{probbox}
+\probsol{
+Adding $3$ to the numerator gives $1$, so the denominator is $3$ more than the numerator.\par
+Adding $3$ to the denominator makes it $3+3=6$ more than the numerator, and twice the numerator; so the numerator is $6$ and the denominator $9$.
+\dapso{$\dfrac69$.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+A shop has $4$ times as much plain rice as sticky rice. After selling $30$ kg of plain rice and $5$ kg of sticky rice, the plain rice left is $3$ times the sticky rice left. How much of each was there at first?
+\end{probbox}
+\probsol{
+After selling, plain rice left $=3\times$(sticky $-5$) $=3\times$ sticky $-15$.\par
+Also, plain rice left $=4\times$ sticky $-30$.\par Comparing the two: sticky rice $=30-15=15$ kg.\par
+Sticky: $15$ kg; plain: $60$ kg. (\emph{Check:} $30=3\times10$.)
+\dapso{$60$ kg plain, $15$ kg sticky.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+If An gives Binh $6$ marbles, Binh has twice as many as An. If Binh gives An $6$, they have the same. How many does each have?
+\end{probbox}
+\probsol{
+The total $T$ is fixed.\par First case: after giving, An has $\dfrac13T$, so An has $\dfrac13T+6$.\par Second case: after receiving, An has $\dfrac12T$, so An has $\dfrac12T-6$.\par Comparing: $\dfrac12T-\dfrac13T=12$, i.e.\par $\dfrac16T=12$ and $T=72$.\par An: $30$; Binh: $42$.
+\dapso{An $30$, Binh $42$ marbles.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+A mother is $4$ times as old as her child now; five years ago she was $7$ times as old. Find both ages now.
+\end{probbox}
+\probsol{
+The gap is fixed.\par The child is $\dfrac13$ of it now and was $\dfrac16$ of it five years ago.\par So $5$ years is $\dfrac13-\dfrac16=\dfrac16$ of the gap, which is $30$.\par Child: $10$; mother: $40$.
+\dapso{Child $10$, mother $40$ years.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+In class 5G the boys are $\dfrac56$ as many as the girls. If $3$ boys leave, the boys are $\dfrac34$ as many as the girls. How many boys and girls were there?
+\end{probbox}
+\probsol{
+The girls do not change.\par The $3$ boys are $\dfrac56-\dfrac34=\dfrac1{12}$ of the girls.\par Girls: $36$; boys: $36\times\dfrac56=30$.
+\dapso{$30$ boys, $36$ girls.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+A fraction equals $\dfrac38$ and its denominator is $10$ more than its numerator. Adding the same whole number to top and bottom gives $\dfrac12$. Find the fraction and the number added.
+\end{probbox}
+\probsol{
+The difference $10$ is $8-3=5$ parts; one part is $2$.\par The fraction is $\dfrac6{16}$.\par The difference stays $10$; the new fraction is $\dfrac12$, so the new numerator equals the difference, $10$.\par Number added: $10-6=4$.
+\dapso{$\dfrac6{16}$; $4$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+In class 5H the top pupils are $\dfrac14$ as many as the rest. By the end of the year $3$ more reach the top level, and the top pupils are $\dfrac25$ as many as the rest. How many pupils are in the class?
+\end{probbox}
+\probsol{
+The class size is fixed.\par Top pupils are $\dfrac15$ of it before and $\dfrac27$ after.\par So $3$ pupils are $\dfrac27-\dfrac15=\dfrac3{35}$ of the class.\par Class: $3:\dfrac3{35}=35$.
+\dapso{$35$ pupils.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+The younger brother is $\dfrac23$ of the elder's age now and was $\dfrac12$ of it five years ago. Find both ages now.
+\end{probbox}
+\probsol{
+The gap is fixed.\par The younger is $2$ times it now and was $1$ times it five years ago.\par So the gap is $5$ years.\par Younger: $10$; elder: $15$.
+\dapso{Younger $10$, elder $15$ years.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Two tanks hold water in the ratio $\dfrac23$. After $40$ litres are used from each, the ratio is $\dfrac12$. How much did each hold?
+\end{probbox}
+\probsol{
+The difference is fixed.\par The first tank is $2$ times it before and $1$ times it after.\par So the difference is $40$ l.\par First: $80$ l; second: $120$ l.
+\dapso{$80$ l and $120$ l.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Classes 5A and 5B are in the ratio $\dfrac78$. Moving $3$ pupils from 5B to 5A makes 5A $3$ larger than 5B. How many pupils are in each class?
+\end{probbox}
+\probsol{
+At first 5B has $1$ part more than 5A.\par Moving $3$ pupils changes the difference by $6$.\par From ``5B ahead by $1$ part'' to ``5A ahead by $3$'': $1$ part $+3=6$, so $1$ part $=3$.\par 5A: $21$; 5B: $24$.
+\dapso{5A $21$, 5B $24$ pupils.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+An has $\dfrac35$ as many marbles as Binh. An buys $8$ more and Binh gives $8$ away; then they have the same. How many did each have?
+\end{probbox}
+\probsol{
+An gains $8$ and Binh loses $8$, so the total is fixed.\par An is $\dfrac38$ of it before and $\dfrac48$ after; $8$ is $\dfrac18$ of the total.\par Total: $64$; An: $24$; Binh: $40$.
+\dapso{An $24$, Binh $40$ marbles.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Barn A holds $3$ times as much paddy as barn B. If B takes in $30$ more tonnes, A holds $\dfrac32$ as much as B. How much did each hold?
+\end{probbox}
+\probsol{
+Barn A is fixed.\par B is $\dfrac13$ of A before and $\dfrac23$ of A after.\par So $30$ t is $\dfrac13$ of A, which is $90$ t.\par B: $30$ t.
+\dapso{A $90$ t, B $30$ t.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+A father is $3$ times as old as his son now and was $5$ times as old ten years ago. How old was he when his son was born?
+\end{probbox}
+\probsol{
+The gap is fixed.\par The son is $\dfrac12$ of it now and was $\dfrac14$ of it ten years ago.\par So $10$ years is $\dfrac14$ of the gap, which is $40$.\par When the son was born, the father's age was exactly the gap: $40$.
+\dapso{$40$ years old.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+Adding $2$ to the numerator of a fraction gives $\dfrac12$; taking $2$ from the numerator gives $\dfrac14$ (same denominator). Find the fraction.
+\end{probbox}
+\probsol{
+The denominator is fixed.\par The two new numerators differ by $4$, which is $\dfrac12-\dfrac14=\dfrac14$ of the denominator.\par Denominator: $16$.\par Numerator: $16\times\dfrac12-2=6$.\par The fraction: $\dfrac6{16}$.
+\dapso{$\dfrac6{16}$.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+If An gives Binh $4$ sweets, An has $3$ times as many as Binh. If Binh gives An $4$, An has $7$ times as many. How many does each have?
+\end{probbox}
+\probsol{
+The total $T$ is fixed.\par First case: An keeps $\dfrac34T$, so An has $\dfrac34T+4$.\par Second case: An has $\dfrac78T$ after receiving, so An has $\dfrac78T-4$.\par Comparing: $\dfrac18T=8$, so $T=64$.\par An: $52$; Binh: $12$.
+\dapso{An $52$, Binh $12$ sweets.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Find a fraction such that adding $1$ to top and bottom gives $\dfrac12$, and taking $1$ from top and bottom gives $\dfrac13$.
+\end{probbox}
+\probsol{
+The difference $d$ between bottom and top is fixed.\par For $\dfrac12$ the new numerator is $d$; for $\dfrac13$ it is $\dfrac d2$.\par The two new numerators differ by $2$, which is $\dfrac d2$; so $d=4$.\par Numerator: $4-1=3$; denominator: $7$.\par The fraction is $\dfrac37$.
+\dapso{$\dfrac37$.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+This year An is $\dfrac13$ of his father's age. In three years their ages will total $54$. How old is each now?
+\end{probbox}
+\probsol{
+Total now: $54-3\times2=48$.\par An $1$ part, father $3$ parts; one part: $48:4=12$.\par An: $12$; father: $36$.
+\dapso{An $12$, father $36$ years.}}
+\clearpage
+\titlehead

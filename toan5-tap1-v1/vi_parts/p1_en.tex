@@ -1,0 +1,967 @@
+\begingroup\setbox0=\vbox{\section*{Natural Numbers}}\endgroup
+\chapterhead{1}{Natural Numbers}
+
+\shead{Arithmetic sequences}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item An \textbf{arithmetic sequence} is a list of numbers in which, from the second term on, each term is greater (or smaller) than the term before it by the same amount, called the \textbf{common difference}.
+\item Examples: $3,\ 7,\ 11,\ 15,\ \dots$ increases with difference $4$; \ $90,\ 80,\ 70,\ \dots$ decreases with difference $10$.
+\item When the first term, the last term and the difference are known:
+\[\text{Number of terms}=(\text{Last}-\text{First}):\text{Difference}+1,\]
+\[\text{Sum}=(\text{First}+\text{Last})\times\text{Number of terms}:2.\]
+\item The $n$-th term of an increasing sequence is $\ \text{First}+(n-1)\times\text{Difference}$; \ of a decreasing one, $\ \text{First}-(n-1)\times\text{Difference}$.
+\end{itemize}\end{knowbox}
+\gap
+\shead{Counting digits -- Forming numbers from given digits}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item There are $9$ one-digit numbers ($1$ to $9$), $90$ two-digit numbers ($10$ to $99$) and $900$ three-digit numbers ($100$ to $999$).
+\item \textbf{Multiplication rule:} to form a number we choose a digit for each place in turn. If the first place has $m$ choices, the second $n$ choices, the third $p$ choices,\,\dots\ then there are $m\times n\times p\times\dots$ numbers in all.
+\item The digit $0$ cannot be the leading digit. If the digits must be \emph{different}, a digit already used cannot be chosen again.
+\item To add up all the numbers formed, count \emph{how many times each digit appears in each place}.
+\end{itemize}\end{knowbox}
+\gap
+\shead{Place value: writing an extra digit onto a number}
+\begin{knowbox}
+Writing numbers by place value links the old number to the new one. For a two-digit number $\nd{ab}$:\par\smallskip
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item writing a digit $c$ on the \textbf{right}: $\ \nd{abc}=\nd{ab}\times10+c$ (ten times the old number, plus $c$);
+\item writing a digit $c$ on the \textbf{left}: $\ \nd{cab}=c\times100+\nd{ab}$;
+\item writing $0$ \textbf{in the middle}: $\ \nd{a0b}=a\times100+b$.
+\end{itemize}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Consider the arithmetic sequence $3,\ 7,\ 11,\ 15,\ \dots,\ 199$.
+\begin{cols2}
+\pa{a} How many terms does it have? & \pa{b} Find the sum of all its terms.
+\end{cols2}
+\guide
+The common difference is $7-3=4$.\par
+\pa{a} Number of terms: $(199-3):4+1=50$.\par
+\pa{b} Sum of the terms: $(3+199)\times50:2=5\,050$.
+\note{Remember: pair the first term with the last, the second with the second-to-last,\dots\ every pair adds up to $202$, and there are $50:2=25$ pairs.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+How many digits are needed to number the pages of a $234$-page book, starting from page $1$?
+\guide
+Split the pages into three groups by the number of digits:\par
+Pages $1$ to $9$: $9$ pages, using $9\times1=9$ digits.\par
+Pages $10$ to $99$: $90$ pages, using $90\times2=180$ digits.\par
+Pages $100$ to $234$: $234-100+1=135$ pages, using $135\times3=405$ digits.\par
+Total: $9+180+405=594$ digits.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Using the digits $0,\ 3,\ 5,\ 9$, how many three-digit numbers can be formed? How many with three different digits?
+\guide
+Let the number be $\nd{abc}$ ($a\ne0$).\par
+\textbf{Digits may repeat:} $a$ has $3$ choices ($3,5,9$), $b$ has $4$, $c$ has $4$.\par That gives $3\times4\times4=48$ numbers.\par
+\textbf{Different digits:} $a$ has $3$ choices; $b$ must differ from $a$, so $3$ choices (now $0$ is allowed); $c$ must differ from both, so $2$ choices.\par That gives $3\times3\times2=18$ numbers.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Find the sum of all three-digit numbers with different digits that can be formed from $2,\ 3,\ 5,\ 7$.
+\guide
+There are $4\times3\times2=24$ numbers.\par The four digits play the same role, so in each place every digit appears $24:4=6$ times.\par
+The digits in each place add up to $(2+3+5+7)\times6=102$.\par Hence the required sum is:
+\[102\times100+102\times10+102\times1=102\times111=11\,322.\]
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+Find a two-digit number such that writing the digit $5$ on its right gives a new number that is $293$ more than it.
+\guide
+Let the number be $\nd{ab}$.\par Writing $5$ on the right gives $\nd{ab5}=\nd{ab}\times10+5$.\par
+By the problem: $\ \nd{ab}\times10+5=\nd{ab}+293$.\par
+Take $\nd{ab}$ from both sides: $\ \nd{ab}\times9+5=293$, \ so $\ \nd{ab}\times9=288$ and $\nd{ab}=32$.\par
+\emph{Check:} $325-32=293$.\par So the number is $32$.
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+Consider the sequence $2,\ 5,\ 8,\ 11,\ 14,\ \dots$
+\begin{cols2}
+\pa{a} State the rule and write the next three terms. & \pa{b} Find the $100$th term.\\
+\multicolumn{2}{@{}l@{}}{\pa{c} Do $2\,024$ and $2\,025$ belong to the sequence? If so, which term is it?}
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} Each term is $3$ more than the one before.\par Next three terms: $17,\ 20,\ 23$.\par
+\pa{b} The $100$th term: $2+(100-1)\times3=299$.\par
+\pa{c} Every term leaves remainder $2$ when divided by $3$.\par Since $2\,024:3=674$ remainder $2$, the number $2\,024$ is a term: the $(2\,024-2):3+1=675$th.\par But $2\,025$ is divisible by $3$, so it is not a term.
+}
+\gap
+\begin{probbox}{2}{\relax}
+For the sequence $4,\ 9,\ 14,\ 19,\ \dots,\ 499$, find the number of terms and their sum.
+\end{probbox}
+\probsol{
+Difference: $5$.\par Number of terms: $(499-4):5+1=100$.\par
+Sum: $(4+499)\times100:2=25\,150$.
+\dapso{$100$ terms; sum $25\,150$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Find the sum of $80$ consecutive natural numbers starting from $25$.
+\end{probbox}
+\probsol{
+The last number: $25+(80-1)\times1=104$.\par
+Sum: $(25+104)\times80:2=5\,160$.
+\dapso{$5\,160$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Find the sum of the first $40$ terms of the sequence $3,\ 7,\ 11,\ 15,\ \dots$
+\end{probbox}
+\probsol{
+The $40$th term: $3+39\times4=159$.\par Sum: $(3+159)\times40:2=3\,240$.
+\dapso{$3\,240$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Find the sum of all odd two-digit numbers.
+\end{probbox}
+\probsol{
+The odd two-digit numbers form the sequence $11,\ 13,\ \dots,\ 99$ (difference $2$).\par
+Number of terms: $(99-11):2+1=45$.\par Sum: $(11+99)\times45:2=2\,475$.
+\dapso{$2\,475$.}}
+\gap
+\begin{probbox}{6}{\relax}
+How many digits are needed to number the pages of a $208$-page storybook, starting from page $1$?
+\end{probbox}
+\probsol{
+Pages $1$--$9$: $9$ digits; pages $10$--$99$: $90\times2=180$ digits.\par
+Pages $100$--$208$: $109$ pages, using $109\times3=327$ digits.\par
+Total: $9+180+327=516$ digits.
+\dapso{$516$ digits.}}
+\gap
+\begin{probbox}{7}{\relax}
+Exactly $435$ digits were used to number the pages of a book, starting from page $1$. How many pages does the book have?
+\end{probbox}
+\probsol{
+The first $99$ pages use $9+180=189$ digits.\par
+Remaining digits: $435-189=246$, for three-digit pages: $246:3=82$ pages.\par
+The book has $99+82=181$ pages.
+\dapso{$181$ pages.}}
+\gap
+\begin{probbox}{8}{\relax}
+Writing the natural numbers one after another from $1$ gives $A=123456789101112\dots$ What is the $150$th digit of $A$, and which number does it belong to?
+\end{probbox}
+\probsol{
+The numbers $1$ to $9$ take $9$ digits; the other $150-9=141$ digits belong to two-digit numbers.\par
+$141:2=70$ remainder $1$: after the first $70$ two-digit numbers ($10$ to $79$) there is one more digit, the first digit of $80$.
+\dapso{the digit $8$, belonging to $80$.}}
+\gap
+\begin{probbox}{9}{\relax}
+Using the digits $1,\ 4,\ 6,\ 9$, how many natural numbers can be written that
+\begin{cols3}
+\pa{a} have three digits? & \pa{b} have three different digits? & \pa{c} have three different digits and are even?
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $4\times4\times4=64$. \qquad \pa{b} $4\times3\times2=24$.\par
+\pa{c} The ones digit is $4$ or $6$: $2$ choices; then the hundreds has $3$ choices and the tens $2$.\par That gives $2\times3\times2=12$ numbers.
+}
+\gap
+\begin{probbox}{10}{\relax}
+Using the digits $0,\ 2,\ 5,\ 7$, how many three-digit numbers can be written? How many with three different digits?
+\end{probbox}
+\probsol{
+The hundreds digit cannot be $0$, so it has $3$ choices.\par
+Digits may repeat: $3\times4\times4=48$.\par Different digits: $3\times3\times2=18$.
+\dapso{$48$ and $18$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Using the digits $0,\ 1,\ 3,\ 6,\ 8$, how many four-digit numbers with different digits can be written? How many of them are even?
+\end{probbox}
+\probsol{
+\textbf{All of them:} the thousands digit has $4$ choices (not $0$), then $4$, $3$, $2$ choices: $4\times4\times3\times2=96$.\par
+\textbf{Even numbers} (ending in $0$, $6$ or $8$):\par
+-- Ending in $0$: $4\times3\times2=24$.\par
+-- Ending in $6$ (or $8$): the thousands digit has $3$ choices (not $0$, not the last digit), then $3$ and $2$: $3\times3\times2=18$.\par Both cases give $36$.\par
+Even numbers: $24+36=60$.
+\dapso{$96$ numbers, of which $60$ are even.}}
+\gap
+\begin{probbox}{12}{\relax}
+Find the sum of all three-digit numbers with different digits formed from $1,\ 3,\ 5,\ 7$.
+\end{probbox}
+\probsol{
+There are $4\times3\times2=24$ numbers; in each place, each digit appears $24:4=6$ times.\par
+Sum: $(1+3+5+7)\times6\times111=16\times6\times111=10\,656$.
+\dapso{$10\,656$.}}
+\gap
+\begin{probbox}{13}{\relax}
+How many three-digit numbers contain exactly one digit $5$?
+\end{probbox}
+\probsol{
+-- $5$ in the hundreds: the tens and ones each have $9$ choices (not $5$): $9\times9=81$.\par
+-- $5$ in the tens: the hundreds has $8$ choices (not $0$, not $5$), the ones $9$: $8\times9=72$.\par
+-- $5$ in the ones: likewise $8\times9=72$.\par
+Total: $81+72+72=225$.
+\dapso{$225$ numbers.}}
+\gap
+\begin{probbox}{14}{\relax}
+How many four-digit numbers with different digits have $3$ as the thousands digit?
+\end{probbox}
+\probsol{
+The thousands digit is fixed as $3$.\par The hundreds has $9$ choices (any digit except $3$), the tens $8$, the ones $7$: $9\times8\times7=504$.
+\dapso{$504$ numbers.}}
+\gap
+\begin{probbox}{15}{\relax}
+Find a two-digit number such that writing $4$ on its right gives a number $571$ more than it.
+\end{probbox}
+\probsol{
+Let the number be $\nd{ab}$.\par Then $\nd{ab}\times10+4=\nd{ab}+571$, so $\nd{ab}\times9=567$ and $\nd{ab}=63$.\par
+\emph{Check:} $634-63=571$.
+\dapso{$63$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Find a three-digit number such that writing $9$ on its right gives a number $1\,350$ more than it.
+\end{probbox}
+\probsol{
+Let the number be $x$.\par The new number is $x\times10+9$, so $x\times10+9=x+1\,350$, giving $x\times9=1\,341$ and $x=149$.\par
+\emph{Check:} $1\,499-149=1\,350$.
+\dapso{$149$.}}
+\gap
+\begin{probbox}{17}{\relax}
+Find a three-digit number such that writing $4$ on its left gives a number $17$ times as large.
+\end{probbox}
+\probsol{
+Let the number be $x$.\par The new number is $4\,000+x$, so $4\,000+x=17\times x$, giving $16\times x=4\,000$ and $x=250$.\par
+\emph{Check:} $4\,250=17\times250$.
+\dapso{$250$.}}
+\gap
+\begin{probbox}{18}{\relax}
+Find a two-digit number such that writing $0$ between its two digits gives a number $7$ times as large.
+\end{probbox}
+\probsol{
+Let the number be $\nd{ab}$.\par Then $\nd{a0b}=7\times\nd{ab}$, i.e.\par $a\times100+b=a\times70+b\times7$.\par
+Hence $a\times30=b\times6$, i.e.\par $b=a\times5$.\par As $b$ is a digit, $a=1$ and $b=5$.\par
+\emph{Check:} $105=7\times15$.
+\dapso{$15$.}}
+\gap
+\begin{probbox}{19}{\relax}
+Consider $5,\ 10,\ 15,\ \dots,\ 500$. How many terms are there? Find their sum.
+\end{probbox}
+\probsol{
+Number of terms: $(500-5):5+1=100$.\par Sum: $(5+500)\times100:2=25\,250$.
+\dapso{$100$ terms; $25\,250$.}}
+\gap
+\begin{probbox}{20}{\relax}
+Consider $1,\ 4,\ 7,\ 10,\ \dots$ \ \pa{a} Find the $50$th term. \ \pa{b} Is $2\,026$ a term? If so, which one?
+\end{probbox}
+\probsol{
+\pa{a} The $50$th term: $1+(50-1)\times3=148$.\par
+\pa{b} Every term leaves remainder $1$ when divided by $3$; $2\,026=3\times675+1$, so it is a term.\par It is term number $(2\,026-1):3+1=676$.
+\dapso{\pa{a} $148$;\par \pa{b} yes, term $676$.}}
+\gap
+\begin{probbox}{21}{\relax}
+Find the sum of the even numbers from $2$ to $200$.
+\end{probbox}
+\probsol{
+Number of terms: $(200-2):2+1=100$.\par Sum: $(2+200)\times100:2=10\,100$.
+\dapso{$10\,100$.}}
+\gap
+\begin{probbox}{22}{\relax}
+Find the sum of all three-digit multiples of $10$.
+\end{probbox}
+\probsol{
+The list $100,\ 110,\ \dots,\ 990$ has $(990-100):10+1=90$ terms.\par Sum: $(100+990)\times90:2=49\,050$.
+\dapso{$49\,050$.}}
+\gap
+\begin{probbox}{23}{\relax}
+How many two-digit numbers are multiples of $3$?
+\end{probbox}
+\probsol{
+They are $12,\ 15,\ \dots,\ 99$.\par Count: $(99-12):3+1=30$.
+\dapso{$30$ numbers.}}
+\gap
+\begin{probbox}{24}{\relax}
+How many digits are needed to number the pages of a $120$-page book, starting from page $1$?
+\end{probbox}
+\probsol{
+Pages $1$ -- $9$: $9$ digits.\par Pages $10$ -- $99$: $90\times2=180$ digits.\par Pages $100$ -- $120$: $21\times3=63$ digits.\par In all: $9+180+63=252$ digits.
+\dapso{$252$ digits.}}
+\gap
+\begin{probbox}{25}{\relax}
+A street has $75$ houses numbered $1$ to $75$. How many digits are used to number them?
+\end{probbox}
+\probsol{
+One-digit numbers: $9$, using $9$ digits.\par Two-digit numbers: $75-9=66$, using $66\times2=132$ digits.\par In all: $9+132=141$ digits.
+\dapso{$141$ digits.}}
+\gap
+\begin{probbox}{26}{\relax}
+Using the digits $2,\ 4,\ 6$, write every three-digit number with different digits, then add them up.
+\end{probbox}
+\probsol{
+The numbers: $246,\ 264,\ 426,\ 462,\ 624,\ 642$ ($6$ numbers).\par Each digit appears in each place exactly $2$ times.\par Sum: $(2+4+6)\times2\times111=2\,664$.
+\dapso{$2\,664$.}}
+\gap
+\begin{probbox}{27}{\relax}
+Using $1,\ 2,\ 3,\ 4$, how many two-digit numbers with different digits can be written?
+\end{probbox}
+\probsol{
+Tens digit: $4$ choices.\par Units digit: $3$ choices (different from the tens).\par Count: $4\times3=12$.
+\dapso{$12$ numbers.}}
+\gap
+\begin{probbox}{28}{\relax}
+Find a two-digit number that increases by $362$ when the digit $2$ is written on its right.
+\end{probbox}
+\probsol{
+The new number is $10$ times the old one plus $2$.\par So $9$ times the old number is $362-2=360$.\par The number is $360:9=40$.
+\dapso{$40$.}}
+\gap
+\begin{probbox}{29}{\relax}
+Find a three-digit number such that writing $1$ on its left gives a number $9$ times as large.
+\end{probbox}
+\probsol{
+Writing $1$ on the left adds $1\,000$.\par The new number is $9$ times as large, so $1\,000$ is $9-1=8$ times the number.\par The number is $1\,000:8=125$.
+\dapso{$125$.}}
+\gap
+\begin{probbox}{30}{\relax}
+A whole number ends in $7$. Crossing out that $7$ makes it $1\,789$ smaller. Find the number.
+\end{probbox}
+\probsol{
+Call the number after crossing out A; the original is $10\times A+7$.\par The difference is $9\times A+7=1\,789$, so $9\times A=1\,782$ and $A=198$.\par The number is $1\,987$.
+\dapso{$1\,987$.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+Using $1,\ 2,\ 5,\ 8,\ 9$, how many four-digit numbers with different digits have the digits $2$ and $5$ next to each other?
+\end{probbox}
+\probsol{
+Treat $2$ and $5$ as one ``block'', written $(25)$ or $(52)$: $2$ ways.\par
+Choose $2$ more digits from $1,\ 8,\ 9$: $3$ ways (leave one out).\par
+Arrange the block and the two digits (three ``items''): $3\times2\times1=6$ ways.\par
+Total: $2\times3\times6=36$.
+\dapso{$36$ numbers.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+A three-digit number has hundreds digit $7$. Moving this $7$ to the far right gives a number $324$ less than the original. Find the number.
+\end{probbox}
+\probsol{
+Let the number be $\nd{7bc}=700+\nd{bc}$.\par The new number is $\nd{bc7}=\nd{bc}\times10+7$.\par
+So $700+\nd{bc}-(\nd{bc}\times10+7)=324$, i.e.\par $693-\nd{bc}\times9=324$.\par
+Hence $\nd{bc}\times9=369$ and $\nd{bc}=41$.\par The number is $741$ (\emph{check:} $741-417=324$).
+\dapso{$741$.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Find a two-digit number such that writing $12$ between its two digits gives a number $76$ times as large.
+\end{probbox}
+\probsol{
+Let the number be $\nd{ab}$.\par The new number is $\nd{a12b}=a\times1\,000+120+b$.\par
+So $a\times1\,000+120+b=76\times(a\times10+b)=a\times760+b\times76$.\par
+Hence $a\times240+120=b\times75$; dividing by $15$: $a\times16+8=b\times5$.\par
+The right side is at most $45$, so $a\le2$; $a=1$ gives $24$, not a multiple of $5$; $a=2$ gives $40=b\times5$, $b=8$.\par
+\emph{Check:} $2\,128=76\times28$.
+\dapso{$28$.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Writing the even numbers one after another from $2$ gives $\ 2468101214\dots$ What is the $200$th digit?
+\end{probbox}
+\probsol{
+The one-digit evens ($2,4,6,8$) use $4$ digits.\par The two-digit evens ($10$ to $98$) are $45$ numbers, using $90$ digits.\par So far: $94$ digits.\par
+Remaining: $200-94=106$ digits; $106:3=35$ remainder $1$.\par After $35$ three-digit evens ($100$ to $168$) comes the first digit of $170$.
+\dapso{the digit $1$ (of $170$).}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+An increasing arithmetic sequence has $30$ terms, first term $9$, and sum $2\,445$. Find its common difference and its last term.
+\end{probbox}
+\probsol{
+From the sum formula: $(9+\text{last})\times30:2=2\,445$, so $9+\text{last}=2\,445\times2:30=163$ and the last term is $154$.\par
+From the first to the last term there are $29$ steps: $(154-9):29=5$.
+\dapso{difference $5$, last term $154$.}}
+\gap
+\begin{probbox}{36}{\stars{2}}
+Find the largest natural number with all digits different whose digit sum is $20$.
+\end{probbox}
+\probsol{
+More digits means a larger number.\par Seven different digits add up to at least $0+1+\dots+6=21>20$, so the number has at most $6$ digits.\par
+To be largest, the leading digit should be as large as possible: take $9$.\par The other five different digits must add up to $11$; the smallest five add up to $0+1+2+3+4=10$, so they can only be $0,1,2,3,5$.\par
+Arrange the digits in decreasing order: $953\,210$.
+\dapso{$953\,210$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+An writes the natural numbers from $1$ to $100$ on the board. How many times does An write the digit $1$?
+\end{probbox}
+\probsol{
+-- In the ones place: $1,\ 11,\ 21,\ \dots,\ 91$: $10$ times.\par
+-- In the tens place: $10,\ 11,\ \dots,\ 19$: $10$ times.\par
+-- In the hundreds place: the number $100$: once.\par
+Total: $10+10+1=21$ times.
+\dapso{$21$ times.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Find the whole number $n$ such that $1+2+3+\dots+n=210$.
+\end{probbox}
+\probsol{
+The sum is $(1+n)\times n:2$, so $n\times(n+1)=420$.\par Two consecutive numbers multiply to $420=20\times21$.\par So $n=20$.
+\dapso{$n=20$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+In $1,\ 3,\ 6,\ 10,\ 15,\ \dots$ each term is the previous one plus its position number. Find the $20$th term.
+\end{probbox}
+\probsol{
+The $n$th term is $1+2+\dots+n$.\par The $20$th term: $1+2+\dots+20=(1+20)\times20:2=210$.
+\dapso{$210$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Find $S=1+2+4+8+16+\dots+512$ (each term is double the one before).
+\end{probbox}
+\probsol{
+$S\times2=2+4+8+\dots+512+1\,024$.\par Subtracting $S$ from $S\times2$, the shared terms cancel: $S=1\,024-1=1\,023$.
+\dapso{$1\,023$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Writing the numbers $1$ to $50$ one after another gives a long number. \ \pa{a} How many digits does it have? \ \pa{b} What is its $50$th digit from the left?
+\end{probbox}
+\probsol{
+\pa{a} $9+41\times2=91$ digits.\par
+\pa{b} The first $9$ digits are $1$ -- $9$; the other $50-9=41$ digits come from two-digit numbers.\par $41=20\times2+1$, so $20$ numbers ($10$ -- $29$) are complete and we reach the first digit of $30$.\par The $50$th digit is $3$.
+\dapso{\pa{a} $91$;\par \pa{b} $3$.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+How many three-digit numbers have digits adding up to $5$?
+\end{probbox}
+\probsol{
+Go by the hundreds digit:\par
+Hundreds digit $1$: the other two add to $4$, giving $5$ numbers ($104,\ 113,\ 122,\ 131,\ 140$).\par Hundreds digit $2,\ 3,\ 4,\ 5$: $4,\ 3,\ 2,\ 1$ numbers.\par In all: $5+4+3+2+1=15$.
+\dapso{$15$ numbers.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+How many three-digit numbers are multiples of $5$?
+\end{probbox}
+\probsol{
+They are $100,\ 105,\ \dots,\ 995$.\par Count: $(995-100):5+1=180$.
+\dapso{$180$ numbers.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Using $0,\ 1,\ 2,\ 3,\ 4$, how many even three-digit numbers with different digits can be written?
+\end{probbox}
+\probsol{
+\emph{Units digit $0$:} $4$ choices for hundreds, $3$ for tens: $12$ numbers.\par
+\emph{Units digit $2$ or $4$:} $3$ choices for hundreds (not $0$, not the units digit), $3$ for tens: $2\times3\times3=18$.\par In all: $12+18=30$.
+\dapso{$30$ numbers.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Find every two-digit number that is $4$ times the sum of its digits.
+\end{probbox}
+\probsol{
+$\nd{ab}=a\times10+b$ and $4\times(a+b)=a\times4+b\times4$.\par They are equal when $a\times6=b\times3$, i.e.\par $b=a\times2$.\par The numbers: $12,\ 24,\ 36,\ 48$.
+\dapso{$12;\ 24;\ 36;\ 48$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+A two-digit number has digits adding up to $10$. Swapping its digits gives a number $36$ larger. Find it.
+\end{probbox}
+\probsol{
+Swapping changes the number by $9$ times the difference of the digits.\par The difference is $36:9=4$, with the larger digit in the units.\par Tens digit: $(10-4):2=3$; units digit: $7$.
+\dapso{$37$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+$1\,092$ digits are used to number the pages of a book from page $1$. How many pages are there?
+\end{probbox}
+\probsol{
+Pages $1$ -- $99$ use $9+180=189$ digits.\par The remaining $1\,092-189=903$ digits number $903:3=301$ three-digit pages.\par Pages: $99+301=400$.
+\dapso{$400$ pages.}}
+\gap
+\begin{probbox}{48}{\stars{2}}
+Writing the numbers $1$ to $200$, how many times is the digit $2$ written?
+\end{probbox}
+\probsol{
+Units place: $2,\ 12,\ \dots,\ 192$, $20$ times.\par Tens place: $20$ -- $29$ and $120$ -- $129$, $20$ times.\par Hundreds place: only $200$, once.\par In all: $20+20+1=41$ times.
+\dapso{$41$ times.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Find the smallest whole number whose digits add up to $30$.
+\end{probbox}
+\probsol{
+To be smallest it needs as few digits as possible; each digit is at most $9$, and $9\times3=27<30$, so it needs at least $4$ digits.\par The leading digit should be as small as possible with three $9$s after it: $30-27=3$.\par The number is $3\,999$.
+\dapso{$3\,999$.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Five consecutive whole numbers add up to $2\,025$. Find them.
+\end{probbox}
+\probsol{
+The middle number is the average: $2\,025:5=405$.\par The numbers: $403,\ 404,\ 405,\ 406,\ 407$.
+\dapso{$403;\ 404;\ 405;\ 406;\ 407$.}}
+\clearpage
+\titlehead
+\begingroup\setbox0=\vbox{\section*{Fractions and Mixed Numbers}}\endgroup
+\chapterhead{2}{Fractions and Mixed Numbers}
+
+\shead{Fractions -- the basic property}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item A fraction has the form $\dfrac{a}{b}$, where $a,\ b$ are natural numbers and $b\ne0$; $a$ is the \textbf{numerator}, $b$ the \textbf{denominator}. The quotient $a:b$ is the value of the fraction $\dfrac{a}{b}$.
+\item \textbf{Basic property:} multiplying (or dividing) the numerator and the denominator by the same non-zero number gives an equal fraction:
+\[\frac{a}{b}=\frac{a\times n}{b\times n}=\frac{a:m}{b:m}\qquad(n,\ m\ne0).\]
+\item This lets us \textbf{simplify} a fraction (to lowest terms) and bring fractions to a \textbf{common denominator}.
+\item Two fractions are equal, $\ \dfrac{a}{b}=\dfrac{c}{d}$, exactly when $\ a\times d=b\times c$ (cross-multiplying).
+\end{itemize}\end{knowbox}
+\gap
+\shead{Mixed numbers}
+\begin{knowbox}
+When the numerator of $\dfrac{a}{b}$ is larger than the denominator, divide $a$ by $b$ to get a quotient $q$ and a remainder $r$ ($0\le r<b$). Then
+\[\frac{a}{b}=q\frac{r}{b}\quad\text{(read ``$q$ and $\tfrac{r}{b}$'')},\qquad\text{for example }\ \frac{17}{5}=3\frac{2}{5}.\]
+$q\dfrac{r}{b}$ is a \textbf{mixed number}: a \emph{whole part} $q$ and a \emph{fraction part} $\dfrac{r}{b}$ (less than $1$). Conversely, $\ q\dfrac{r}{b}=\dfrac{q\times b+r}{b}$.
+\end{knowbox}
+\gap
+\shead{Properties of the operations -- clever calculation}
+\begin{knowbox}
+For fractions (or mixed numbers) $A,\ B,\ C$:\par\smallskip
+\begin{cols2}
+\textbf{Commutative:} $A+B=B+A$;\ \ $A\times B=B\times A$ & \textbf{Associative:} $(A+B)+C=A+(B+C)$\\
+\textbf{Subtracting a sum:} $A-(B+C)=A-B-C$ & \textbf{Distributive:} $A\times(B\pm C)=A\times B\pm A\times C$\\
+\textbf{Subtracting a difference:} $A-(B-C)=A-B+C$ & \textbf{Dividing by a product:} $A:(B\times C)=A:B:C$
+\end{cols2}
+\smallskip To calculate quickly, \emph{group terms whose sum (or difference) is a whole number}, or \emph{take out a common factor}.
+\end{knowbox}
+\gap
+\shead{Patterned sums of fractions}
+\begin{knowbox}\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Splitting a fraction into a difference:} for $b>a$,
+\[\frac{b-a}{a\times b}=\frac{1}{a}-\frac{1}{b},\qquad\text{for example }\ \frac{1}{2\times3}=\frac12-\frac13;\quad \frac{3}{4\times7}=\frac14-\frac17.\]
+When such fractions are added, the middle terms \emph{cancel out}, leaving only the first and the last.
+\item \textbf{Sums with a constant ratio} (each term is the previous one times the same number), e.g. $\dfrac12+\dfrac14+\dfrac18+\dots$: multiply the sum by that number and subtract the original sum.
+\end{itemize}\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Calculate in the most convenient way:
+\begin{cols3}
+$A=\dfrac35+2\dfrac14+\dfrac25+\dfrac34$ & $B=4\dfrac27-\left(1\dfrac38+\dfrac27\right)$ & $C=\dfrac74\times3\dfrac13-\dfrac74\times1\dfrac13$
+\end{cols3}
+\guide
+\pa{A} Group terms with whole-number sums: $A=\left(\dfrac35+\dfrac25\right)+\left(2\dfrac14+\dfrac34\right)=1+3=4.$\par
+\pa{B} Subtracting a sum: $B=4\dfrac27-\dfrac27-1\dfrac38=4-1\dfrac38=2\dfrac58.$\par
+\pa{C} Take out the common factor: $C=\dfrac74\times\left(3\dfrac13-1\dfrac13\right)=\dfrac74\times2=\dfrac72.$
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Calculate:
+\begin{cols2}
+$A=\dfrac{1}{1\times2}+\dfrac{1}{2\times3}+\dfrac{1}{3\times4}+\dots+\dfrac{1}{9\times10}$ & $B=\dfrac16+\dfrac1{12}+\dfrac1{20}+\dots+\dfrac1{110}$
+\end{cols2}
+\guide
+\pa{A} Split each fraction: $\dfrac{1}{1\times2}=\dfrac11-\dfrac12$, \ $\dfrac{1}{2\times3}=\dfrac12-\dfrac13$, \dots
+\[A=1-\frac12+\frac12-\frac13+\dots+\frac19-\frac1{10}=1-\frac1{10}=\frac9{10}.\]
+\pa{B} Notice: $6=2\times3$, $12=3\times4$, $20=4\times5$,\,\dots, $110=10\times11$.\par Hence
+\[B=\frac12-\frac13+\frac13-\frac14+\dots+\frac1{10}-\frac1{11}=\frac12-\frac1{11}=\frac9{22}.\]
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Calculate $D=\dfrac13+\dfrac19+\dfrac1{27}+\dfrac1{81}+\dfrac1{243}$.
+\guide
+Each term is the previous one times $\dfrac13$.\par Multiply $D$ by $3$:
+\[3\times D=1+\frac13+\frac19+\frac1{27}+\frac1{81}.\]
+Subtracting, the common terms cancel: $\ 3\times D-D=1-\dfrac1{243}$, so $\ 2\times D=\dfrac{242}{243}$.\par
+Therefore $D=\dfrac{242}{243}:2=\dfrac{121}{243}$.
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Calculate the product $\ P=\left(1-\dfrac12\right)\times\left(1-\dfrac13\right)\times\left(1-\dfrac14\right)\times\dots\times\left(1-\dfrac1{20}\right)$.
+\guide
+Work out each factor, then cancel diagonally (each numerator cancels the previous denominator):
+\[P=\frac12\times\frac23\times\frac34\times\dots\times\frac{19}{20}=\frac{1\times2\times3\times\dots\times19}{2\times3\times4\times\dots\times20}=\frac1{20}.\]
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+Simplify to lowest terms:
+\[\frac{18}{24};\qquad\frac{45}{60};\qquad\frac{56}{98};\qquad\frac{125}{1\,000}.\]
+\end{probbox}
+\probsol{
+Divide the numerator and the denominator by their greatest common factor:
+\[\frac{18}{24}=\frac{18:6}{24:6}=\frac34;\quad\frac{45}{60}=\frac{45:15}{60:15}=\frac34;\quad\frac{56}{98}=\frac{56:14}{98:14}=\frac47;\quad\frac{125}{1\,000}=\frac{125:125}{1\,000:125}=\frac18.\]
+}
+\gap
+\begin{probbox}{2}{\relax}
+Fill in $<,\ >,\ =$ and explain:
+\begin{cols3}
+\pa{a} $\dfrac58\ \square\ \dfrac7{12}$ & \pa{b} $\dfrac{17}{19}\ \square\ \dfrac{17}{23}$ & \pa{c} $\dfrac{2\,024}{2\,025}\ \square\ \dfrac{2\,025}{2\,026}$
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} Common denominator: $\dfrac58=\dfrac{15}{24}$, $\dfrac7{12}=\dfrac{14}{24}$.\par Since $15>14$, $\dfrac58>\dfrac7{12}$.\par
+\pa{b} Same numerator: the one with the smaller denominator is larger, so $\dfrac{17}{19}>\dfrac{17}{23}$.\par
+\pa{c} Compare the ``gaps'' to $1$: $1-\dfrac{2\,024}{2\,025}=\dfrac1{2\,025}$ is larger than $1-\dfrac{2\,025}{2\,026}=\dfrac1{2\,026}$.\par The larger gap belongs to the smaller fraction, so $\dfrac{2\,024}{2\,025}<\dfrac{2\,025}{2\,026}$.
+}
+\gap
+\begin{probbox}{3}{\relax}
+Calculate:
+\begin{cols3}
+$A=\dfrac79-\dfrac4{15}+\dfrac16$ & $B=\dfrac{38}{15}-\left(\dfrac23+\dfrac8{15}\right)$ & $C=\dfrac{16}{11}-\dfrac56+\dfrac6{11}-\dfrac16$
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{A} Common denominator $90$: $A=\dfrac{70}{90}-\dfrac{24}{90}+\dfrac{15}{90}=\dfrac{61}{90}$.\par
+\pa{B} $B=\dfrac{38}{15}-\dfrac8{15}-\dfrac23=2-\dfrac23=\dfrac43$.\par
+\pa{C} $C=\left(\dfrac{16}{11}+\dfrac6{11}\right)-\left(\dfrac56+\dfrac16\right)=2-1=1$.
+}
+\gap
+\begin{probbox}{4}{\relax}
+Calculate:
+\begin{cols3}
+$A=2\dfrac35-1\dfrac13+1\dfrac7{15}$ & $B=5\dfrac14+2\dfrac56-3\dfrac1{12}$ & $C=6\dfrac27-\left(2\dfrac13+1\dfrac27\right)$
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{A} $A=\dfrac{39}{15}-\dfrac{20}{15}+\dfrac{22}{15}=\dfrac{41}{15}=2\dfrac{11}{15}$.\par
+\pa{B} $B=\dfrac{63}{12}+\dfrac{34}{12}-\dfrac{37}{12}=\dfrac{60}{12}=5$.\par
+\pa{C} $C=\left(6\dfrac27-1\dfrac27\right)-2\dfrac13=5-2\dfrac13=2\dfrac23$.
+}
+\gap
+\begin{probbox}{5}{\relax}
+Calculate in the most convenient way:
+\begin{cols2}
+$A=\dfrac57\times\dfrac38+\dfrac57\times\dfrac58$ & $B=\dfrac34\times\dfrac{12}5\times\dfrac59\times\dfrac43$\\
+$C=\dfrac79\times\dfrac56-\dfrac79\times\dfrac13$ & $D=2\dfrac13:1\dfrac16$
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{A} $A=\dfrac57\times\left(\dfrac38+\dfrac58\right)=\dfrac57\times1=\dfrac57$.\par
+\pa{B} $B=\left(\dfrac34\times\dfrac43\right)\times\left(\dfrac{12}5\times\dfrac59\right)=1\times\dfrac43=\dfrac43$.\par
+\pa{C} $C=\dfrac79\times\left(\dfrac56-\dfrac13\right)=\dfrac79\times\dfrac12=\dfrac7{18}$.\par
+\pa{D} $D=\dfrac73:\dfrac76=\dfrac73\times\dfrac67=2$.
+}
+\gap
+\begin{probbox}{6}{\relax}
+Find $y$:
+\begin{cols3}
+\pa{a} $y\times\dfrac35=\dfrac9{10}$ & \pa{b} $y+\dfrac56=2\dfrac14$ & \pa{c} $\dfrac47:y=\dfrac23$\\
+\pa{d} $\left(y-\dfrac12\right)\times\dfrac45=\dfrac25$ & \pa{e} $y\times1\dfrac14+y\times\dfrac34=6$ & \pa{g} $y:\dfrac23+y:\dfrac13=18$
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $y=\dfrac9{10}:\dfrac35=\dfrac9{10}\times\dfrac53=\dfrac32$. \qquad \pa{b} $y=\dfrac94-\dfrac56=\dfrac{27}{12}-\dfrac{10}{12}=\dfrac{17}{12}$.\par
+\pa{c} $y=\dfrac47:\dfrac23=\dfrac47\times\dfrac32=\dfrac67$. \qquad \pa{d} $y-\dfrac12=\dfrac25:\dfrac45=\dfrac12$, \ $y=1$.\par
+\pa{e} $y\times\left(1\dfrac14+\dfrac34\right)=6$, i.e.\par $y\times2=6$, \ $y=3$.\par
+\pa{g} $y\times\dfrac32+y\times3=18$, i.e.\par $y\times\dfrac92=18$, \ $y=4$.
+}
+\gap
+\begin{probbox}{7}{\relax}
+Find the natural number $y$:
+\begin{cols2}
+\pa{a} $\dfrac{y-1}{4}=\dfrac{15}{20}$ & \pa{b} $\dfrac8{12}=\dfrac{10}{y+3}$\\
+\pa{c} $\dfrac14<\dfrac2y<\dfrac12$ & \pa{d} $\dfrac37<\dfrac{y}{14}<\dfrac57$
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $\dfrac{15}{20}=\dfrac34$, so $y-1=3$, $y=4$. \qquad \pa{b} $\dfrac8{12}=\dfrac23=\dfrac{10}{15}$, so $y+3=15$, $y=12$.\par
+\pa{c} Use the same numerator $2$: $\dfrac28<\dfrac2y<\dfrac24$, so $4<y<8$: $\ y\in\{5;6;7\}$.\par
+\pa{d} Use the same denominator $14$: $\dfrac6{14}<\dfrac y{14}<\dfrac{10}{14}$, so $y\in\{7;8;9\}$.
+}
+\gap
+\begin{probbox}{8}{\relax}
+A rectangular cloth is $\dfrac74$ m long, and its width is $\dfrac5{12}$ m less than its length. Find its perimeter and area.
+\end{probbox}
+\probsol{
+Width: $\dfrac74-\dfrac5{12}=\dfrac{21}{12}-\dfrac5{12}=\dfrac43$ (m).\par
+Perimeter: $\left(\dfrac74+\dfrac43\right)\times2=\dfrac{37}{12}\times2=\dfrac{37}6$ (m). \quad Area: $\dfrac74\times\dfrac43=\dfrac73$ (m$^2$).
+\dapso{perimeter $\dfrac{37}6$ m; area $\dfrac73$ m$^2$.}}
+\gap
+\begin{probbox}{9}{\relax}
+A rectangle has area $\dfrac58$ m$^2$ and length $\dfrac54$ m. Find its perimeter.
+\end{probbox}
+\probsol{
+Width: $\dfrac58:\dfrac54=\dfrac58\times\dfrac45=\dfrac12$ (m). \quad Perimeter: $\left(\dfrac54+\dfrac12\right)\times2=\dfrac72$ (m).
+\dapso{$\dfrac72$ m.}}
+\gap
+\begin{probbox}{10}{\relax}
+From a $15$ m rope, $6$ pieces of $1\dfrac34$ m each are cut. The rest is cut into $3$ equal pieces. How long is each of these pieces?
+\end{probbox}
+\probsol{
+The $6$ pieces: $1\dfrac34\times6=\dfrac74\times6=\dfrac{21}2$ (m).\par Left: $15-\dfrac{21}2=\dfrac92$ (m).\par
+Each later piece: $\dfrac92:3=\dfrac32$ (m).
+\dapso{$1\dfrac12$ m.}}
+\gap
+\begin{probbox}{11}{\relax}
+Calculate:
+\begin{cols2}
+$A=\dfrac1{2\times3}+\dfrac1{3\times4}+\dots+\dfrac1{11\times12}$ & $B=\dfrac3{2\times5}+\dfrac3{5\times8}+\dots+\dfrac3{17\times20}$
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{A} $A=\dfrac12-\dfrac13+\dfrac13-\dfrac14+\dots+\dfrac1{11}-\dfrac1{12}=\dfrac12-\dfrac1{12}=\dfrac5{12}$.\par
+\pa{B} Each denominator is a product of two numbers that differ by $3$, the numerator: $B=\dfrac12-\dfrac15+\dfrac15-\dfrac18+\dots+\dfrac1{17}-\dfrac1{20}=\dfrac12-\dfrac1{20}=\dfrac9{20}$.
+}
+\gap
+\begin{probbox}{12}{\relax}
+Calculate:
+\begin{cols2}
+$C=\dfrac2{3\times5}+\dfrac2{5\times7}+\dots+\dfrac2{23\times25}$ & $D=\dfrac12+\dfrac14+\dfrac18+\dots+\dfrac1{512}$
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{C} $C=\dfrac13-\dfrac15+\dfrac15-\dfrac17+\dots+\dfrac1{23}-\dfrac1{25}=\dfrac13-\dfrac1{25}=\dfrac{22}{75}$.\par
+\pa{D} $2\times D=1+\dfrac12+\dfrac14+\dots+\dfrac1{256}$;\par $2\times D-D=1-\dfrac1{512}$, \ so $D=\dfrac{511}{512}$.
+}
+\gap
+\begin{probbox}{13}{\relax}
+Find a fraction equal to $\dfrac35$ whose denominator is $26$ more than its numerator.
+\end{probbox}
+\probsol{
+The fraction is $\dfrac{3\times k}{5\times k}$.\par The denominator minus the numerator is $2\times k=26$, so $k=13$.\par
+The fraction is $\dfrac{39}{65}$.
+\dapso{$\dfrac{39}{65}$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Write in simplest form: \ \pa{a} $\dfrac{18}{27}$; \ \pa{b} $\dfrac{56}{70}$; \ \pa{c} $\dfrac{125}{1\,000}$.
+\end{probbox}
+\probsol{
+\pa{a} Divide top and bottom by $9$: $\dfrac23$.\par \pa{b} Divide by $14$: $\dfrac45$.\par \pa{c} Divide by $125$: $\dfrac18$.
+\dapso{$\dfrac23$; $\dfrac45$; $\dfrac18$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Rewrite $\dfrac23,\ \dfrac34,\ \dfrac56$ with the lowest common denominator.
+\end{probbox}
+\probsol{
+Lowest common denominator: $12$.\par $\dfrac23=\dfrac8{12}$;\par $\dfrac34=\dfrac9{12}$;\par $\dfrac56=\dfrac{10}{12}$.
+\dapso{$\dfrac8{12};\ \dfrac9{12};\ \dfrac{10}{12}$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Put in order from smallest to largest: $\dfrac35,\ \dfrac23,\ \dfrac47,\ \dfrac7{10}$.
+\end{probbox}
+\probsol{
+Common denominator $210$: $\dfrac{126}{210},\ \dfrac{140}{210},\ \dfrac{120}{210},\ \dfrac{147}{210}$.\par Compare the numerators: $120<126<140<147$.
+\dapso{$\dfrac47<\dfrac35<\dfrac23<\dfrac7{10}$.}}
+\gap
+\begin{probbox}{17}{\relax}
+Compare $\dfrac5{12}$ and $\dfrac7{13}$ using $\dfrac12$ as a stepping stone.
+\end{probbox}
+\probsol{
+$\dfrac5{12}<\dfrac6{12}=\dfrac12$.\par $\dfrac7{13}>\dfrac{6.5}{13}=\dfrac12$.\par So $\dfrac5{12}<\dfrac12<\dfrac7{13}$.
+\dapso{$\dfrac5{12}<\dfrac7{13}$.}}
+\gap
+\begin{probbox}{18}{\relax}
+Compare $\dfrac{2\,023}{2\,024}$ and $\dfrac{2\,024}{2\,025}$.
+\end{probbox}
+\probsol{
+Gap to $1$: $1-\dfrac{2\,023}{2\,024}=\dfrac1{2\,024}$;\par $1-\dfrac{2\,024}{2\,025}=\dfrac1{2\,025}$.\par Since $\dfrac1{2\,024}>\dfrac1{2\,025}$, the first fraction is smaller.
+\dapso{$\dfrac{2\,023}{2\,024}<\dfrac{2\,024}{2\,025}$.}}
+\gap
+\begin{probbox}{19}{\relax}
+\pa{a} Write as fractions: $3\dfrac25$; \ $5\dfrac38$. \quad \pa{b} Write as mixed numbers: $\dfrac{29}6$; \ $\dfrac{47}9$.
+\end{probbox}
+\probsol{
+\pa{a} $3\dfrac25=\dfrac{17}5$;\par $5\dfrac38=\dfrac{43}8$.\par \pa{b} $29=6\times4+5$, so $\dfrac{29}6=4\dfrac56$;\par $47=9\times5+2$, so $\dfrac{47}9=5\dfrac29$.
+\dapso{$\dfrac{17}5$; $\dfrac{43}8$; $4\dfrac56$; $5\dfrac29$.}}
+\gap
+\begin{probbox}{20}{\relax}
+Calculate: \ \pa{a} $3\dfrac14+2\dfrac23$; \ \pa{b} $4\dfrac12-1\dfrac56$.
+\end{probbox}
+\probsol{
+\pa{a} $=\dfrac{13}4+\dfrac83=\dfrac{39}{12}+\dfrac{32}{12}=\dfrac{71}{12}=5\dfrac{11}{12}$.\par \pa{b} $=\dfrac{27}6-\dfrac{11}6=\dfrac{16}6=\dfrac83=2\dfrac23$.
+\dapso{$5\dfrac{11}{12}$; $2\dfrac23$.}}
+\gap
+\begin{probbox}{21}{\relax}
+Calculate: \ \pa{a} $\dfrac34\times2\dfrac23$; \ \pa{b} $1\dfrac12:\dfrac34$.
+\end{probbox}
+\probsol{
+\pa{a} $=\dfrac34\times\dfrac83=\dfrac{24}{12}=2$.\par \pa{b} $=\dfrac32\times\dfrac43=\dfrac{12}6=2$.
+\dapso{$2$; $2$.}}
+\gap
+\begin{probbox}{22}{\relax}
+Calculate cleverly: $\dfrac37\times\dfrac59+\dfrac37\times\dfrac49$.
+\end{probbox}
+\probsol{
+$=\dfrac37\times\left(\dfrac59+\dfrac49\right)$\par $=\dfrac37\times1=\dfrac37$.
+\dapso{$\dfrac37$.}}
+\gap
+\begin{probbox}{23}{\relax}
+Calculate: $\left(1-\dfrac14\right)\times\left(1+\dfrac13\right)$.
+\end{probbox}
+\probsol{
+$=\dfrac34\times\dfrac43$\par $=1$.
+\dapso{$1$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Find $x$: \ \pa{a} $x\times\dfrac35=\dfrac9{10}$; \ \pa{b} $x:\dfrac23=\dfrac94$.
+\end{probbox}
+\probsol{
+\pa{a} $x=\dfrac9{10}:\dfrac35=\dfrac9{10}\times\dfrac53=\dfrac32$.\par \pa{b} $x=\dfrac94\times\dfrac23=\dfrac32$.
+\dapso{$x=\dfrac32$; $x=\dfrac32$.}}
+\gap
+\begin{probbox}{25}{\relax}
+Find $x$: \ \pa{a} $x+\dfrac13=\dfrac56$; \ \pa{b} $\dfrac78-x=\dfrac14$.
+\end{probbox}
+\probsol{
+\pa{a} $x=\dfrac56-\dfrac13=\dfrac56-\dfrac26=\dfrac12$.\par \pa{b} $x=\dfrac78-\dfrac14=\dfrac78-\dfrac28=\dfrac58$.
+\dapso{$x=\dfrac12$; $x=\dfrac58$.}}
+\gap
+\begin{probbox}{26}{\relax}
+A tank is full. First $\dfrac25$ of the tank is used, then $\dfrac13$ of the tank. What fraction of the tank is left?
+\end{probbox}
+\probsol{
+Used: $\dfrac25+\dfrac13=\dfrac{11}{15}$ of the tank.\par Left: $1-\dfrac{11}{15}=\dfrac4{15}$.
+\dapso{$\dfrac4{15}$ of the tank.}}
+\gap
+\begin{probbox}{27}{\relax}
+A rectangle is $\dfrac56$ m long and $\dfrac23$ m wide. Find its perimeter and area.
+\end{probbox}
+\probsol{
+Perimeter: $\left(\dfrac56+\dfrac23\right)\times2=\dfrac96\times2=3$ m.\par Area: $\dfrac56\times\dfrac23=\dfrac{10}{18}=\dfrac59$ m$^2$.
+\dapso{$3$ m; $\dfrac59$ m$^2$.}}
+\gap
+\begin{probbox}{28}{\relax}
+Find a fraction equal to $\dfrac35$ whose numerator and denominator add up to $40$.
+\end{probbox}
+\probsol{
+Numerator $3$ parts, denominator $5$ parts; $8$ parts make $40$.\par One part: $40:8=5$.\par Numerator $15$, denominator $25$.
+\dapso{$\dfrac{15}{25}$.}}
+\gap
+\begin{probbox}{29}{\relax}
+Find a fraction equal to $\dfrac27$ whose numerator and denominator add up to $54$.
+\end{probbox}
+\probsol{
+$2+7=9$ parts; one part: $54:9=6$.\par Numerator $12$, denominator $42$.
+\dapso{$\dfrac{12}{42}$.}}
+\gap
+\begin{probbox}{30}{\relax}
+A rope $7\dfrac12$ m long is cut into pieces $\dfrac34$ m long. How many pieces are there?
+\end{probbox}
+\probsol{
+$7\dfrac12=\dfrac{15}2$.\par Pieces: $\dfrac{15}2:\dfrac34=\dfrac{15}2\times\dfrac43=10$.
+\dapso{$10$ pieces.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+Calculate:
+\begin{cols2}
+$E=\dfrac16+\dfrac1{12}+\dfrac1{20}+\dots+\dfrac1{420}$ & $F=\dfrac5{3\times8}+\dfrac5{8\times13}+\dots+\dfrac5{48\times53}$
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{E} $420=20\times21$, so $E=\dfrac1{2\times3}+\dots+\dfrac1{20\times21}=\dfrac12-\dfrac1{21}=\dfrac{19}{42}$.\par
+\pa{F} $F=\dfrac13-\dfrac18+\dfrac18-\dfrac1{13}+\dots+\dfrac1{48}-\dfrac1{53}=\dfrac13-\dfrac1{53}=\dfrac{50}{159}$.
+}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Calculate $\ G=\dfrac14+\dfrac1{28}+\dfrac1{70}+\dfrac1{130}+\dfrac1{208}$.
+\end{probbox}
+\probsol{
+Notice: $4=1\times4$, $28=4\times7$, $70=7\times10$, $130=10\times13$, $208=13\times16$ (factors differ by $3$).\par Multiply $G$ by $3$:
+\[3\times G=\frac3{1\times4}+\frac3{4\times7}+\dots+\frac3{13\times16}=1-\frac1{16}=\frac{15}{16}.\]
+So $G=\dfrac{15}{16}:3=\dfrac5{16}$.
+}
+\gap
+\begin{probbox}{33}{\stars{1}}
+Calculate $\ H=\dfrac23+\dfrac29+\dfrac2{27}+\dfrac2{81}+\dfrac2{243}+\dfrac2{729}$.
+\end{probbox}
+\probsol{
+$3\times H=2+\dfrac23+\dfrac29+\dots+\dfrac2{243}$.\par Subtract $H$: $\ 2\times H=2-\dfrac2{729}=\dfrac{1\,456}{729}$, so $H=\dfrac{728}{729}$.
+}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Calculate $\ K=\left(1-\dfrac13\right)\times\left(1-\dfrac14\right)\times\left(1-\dfrac15\right)\times\dots\times\left(1-\dfrac1{50}\right)$.
+\end{probbox}
+\probsol{
+\[K=\frac23\times\frac34\times\frac45\times\dots\times\frac{49}{50}=\frac2{50}=\frac1{25}.\]
+}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Calculate $\ M=\left(1-\dfrac14\right)\times\left(1-\dfrac19\right)\times\left(1-\dfrac1{16}\right)\times\dots\times\left(1-\dfrac1{100}\right)$.
+\end{probbox}
+\probsol{
+The denominators are $2\times2$, $3\times3$, \dots, $10\times10$, and $1-\dfrac1{n\times n}=\dfrac{(n-1)\times(n+1)}{n\times n}$.\par Hence
+\[M=\frac{1\times3}{2\times2}\times\frac{2\times4}{3\times3}\times\frac{3\times5}{4\times4}\times\dots\times\frac{9\times11}{10\times10}.\]
+Split into two products: $\ \dfrac{1\times2\times\dots\times9}{2\times3\times\dots\times10}\times\dfrac{3\times4\times\dots\times11}{2\times3\times\dots\times10}=\dfrac1{10}\times\dfrac{11}2=\dfrac{11}{20}$.
+}
+\gap
+\begin{probbox}{36}{\stars{2}}
+Find the natural number $y$: $\ \dfrac1{5\times6}+\dfrac1{6\times7}+\dfrac1{7\times8}+\dots+\dfrac1{y\times(y+1)}=\dfrac1{10}$.
+\end{probbox}
+\probsol{
+The left side equals $\dfrac15-\dfrac1{y+1}$.\par So $\dfrac15-\dfrac1{y+1}=\dfrac1{10}$, giving $\dfrac1{y+1}=\dfrac15-\dfrac1{10}=\dfrac1{10}$.\par
+Hence $y+1=10$ and $y=9$.
+\dapso{$y=9$.}}
+\gap
+\begin{probbox}{37}{\stars{2}}
+Without adding, compare $\ S=\dfrac1{11}+\dfrac1{12}+\dfrac1{13}+\dots+\dfrac1{20}\ $ with $\ \dfrac12$.
+\end{probbox}
+\probsol{
+$S$ has $10$ terms.\par Each of $\dfrac1{11},\dots,\dfrac1{19}$ is greater than $\dfrac1{20}$, and the last term equals $\dfrac1{20}$.\par
+Therefore $S>\dfrac1{20}\times10=\dfrac12$.
+\dapso{$S>\dfrac12$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Calculate: $\dfrac1{1\times2}+\dfrac1{2\times3}+\dfrac1{3\times4}+\dots+\dfrac1{99\times100}$.
+\end{probbox}
+\probsol{
+Each term $\dfrac1{n\times(n+1)}=\dfrac1n-\dfrac1{n+1}$.\par Sum $=1-\dfrac12+\dfrac12-\dfrac13+\dots+\dfrac1{99}-\dfrac1{100}$.\par $=1-\dfrac1{100}=\dfrac{99}{100}$.
+\dapso{$\dfrac{99}{100}$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+Calculate: $\dfrac2{1\times3}+\dfrac2{3\times5}+\dfrac2{5\times7}+\dots+\dfrac2{19\times21}$.
+\end{probbox}
+\probsol{
+$\dfrac2{n\times(n+2)}=\dfrac1n-\dfrac1{n+2}$.\par Sum $=1-\dfrac13+\dfrac13-\dfrac15+\dots+\dfrac1{19}-\dfrac1{21}$.\par $=1-\dfrac1{21}=\dfrac{20}{21}$.
+\dapso{$\dfrac{20}{21}$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Calculate: $\dfrac12+\dfrac14+\dfrac18+\dots+\dfrac1{1\,024}$.
+\end{probbox}
+\probsol{
+Each term is a difference: $\dfrac12=1-\dfrac12$;\par $\dfrac14=\dfrac12-\dfrac14$; \ldots;\par $\dfrac1{1\,024}=\dfrac1{512}-\dfrac1{1\,024}$.\par Adding: $1-\dfrac1{1\,024}=\dfrac{1\,023}{1\,024}$.
+\dapso{$\dfrac{1\,023}{1\,024}$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Calculate: $\left(1+\dfrac12\right)\times\left(1+\dfrac13\right)\times\left(1+\dfrac14\right)\times\dots\times\left(1+\dfrac1{99}\right)$.
+\end{probbox}
+\probsol{
+$=\dfrac32\times\dfrac43\times\dfrac54\times\dots\times\dfrac{100}{99}$.\par Each numerator cancels the next denominator, leaving $\dfrac{100}2=50$.
+\dapso{$50$.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Compare $\dfrac{13}{27}$ and $\dfrac{27}{55}$ without a common denominator.
+\end{probbox}
+\probsol{
+Both are less than $\dfrac12$.\par Look at how far short they fall:\par $\dfrac12-\dfrac{13}{27}=\dfrac{27-26}{54}=\dfrac1{54}$;\par $\dfrac12-\dfrac{27}{55}=\dfrac{55-54}{110}=\dfrac1{110}$.\par Since $\dfrac1{54}>\dfrac1{110}$, $\dfrac{13}{27}$ is further below $\dfrac12$, so it is smaller.
+\dapso{$\dfrac{13}{27}<\dfrac{27}{55}$.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Write three different fractions greater than $\dfrac13$ and less than $\dfrac12$.
+\end{probbox}
+\probsol{
+With denominator $24$: $\dfrac13=\dfrac8{24}$ and $\dfrac12=\dfrac{12}{24}$.\par Three fractions: $\dfrac9{24},\ \dfrac{10}{24},\ \dfrac{11}{24}$.
+\dapso{For example: $\dfrac9{24};\ \dfrac{10}{24};\ \dfrac{11}{24}$.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Find every whole number $x$ with $\dfrac13<\dfrac x{12}<\dfrac34$.
+\end{probbox}
+\probsol{
+$\dfrac13=\dfrac4{12}$;\par $\dfrac34=\dfrac9{12}$.\par So $4<x<9$, giving $x=5,\ 6,\ 7,\ 8$.
+\dapso{$x=5;\ 6;\ 7;\ 8$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Which whole number added to both the top and bottom of $\dfrac5{11}$ gives a fraction equal to $\dfrac35$?
+\end{probbox}
+\probsol{
+Adding the same number keeps the difference $11-5=6$.\par The new fraction is $\dfrac35$: the difference of $2$ parts is $6$, so one part is $3$.\par New numerator $9$; the number added is $9-5=4$.
+\dapso{$4$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Which whole number, taken from the top of $\dfrac{23}{37}$ and added to the bottom, gives a fraction equal to $\dfrac13$?
+\end{probbox}
+\probsol{
+The sum stays $23+37=60$.\par The new fraction is $\dfrac13$: numerator $1$ part out of $4$; new numerator $60:4=15$.\par The number is $23-15=8$.
+\dapso{$8$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Calculate: $\dfrac13+\dfrac1{15}+\dfrac1{35}+\dfrac1{63}+\dfrac1{99}$.
+\end{probbox}
+\probsol{
+Write the denominators as products: $\dfrac1{1\times3}+\dfrac1{3\times5}+\dfrac1{5\times7}+\dfrac1{7\times9}+\dfrac1{9\times11}$.\par Twice the sum is $1-\dfrac1{11}=\dfrac{10}{11}$.\par So the sum is $\dfrac{10}{11}:2=\dfrac5{11}$.
+\dapso{$\dfrac5{11}$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Write $\dfrac7{12}$ as the sum of two different fractions with numerator $1$.
+\end{probbox}
+\probsol{
+Split $7$ into two factors of $12$: $7=3+4$.\par $\dfrac7{12}=\dfrac3{12}+\dfrac4{12}=\dfrac14+\dfrac13$.
+\dapso{$\dfrac7{12}=\dfrac13+\dfrac14$ (or $\dfrac12+\dfrac1{12}$).}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+Calculate: $1+\dfrac13+\dfrac16+\dfrac1{10}+\dfrac1{15}+\dots+\dfrac1{45}$ (the denominators are $1,\ 3,\ 6,\ 10,\ 15,\ \dots$).
+\end{probbox}
+\probsol{
+Each term is $\dfrac2{n\times(n+1)}$: $1=\dfrac2{1\times2}$, $\dfrac13=\dfrac2{2\times3}$, \ldots, $\dfrac1{45}=\dfrac2{9\times10}$.\par Sum $=2\times\left(1-\dfrac1{10}\right)=\dfrac95$.
+\dapso{$\dfrac95=1\dfrac45$.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Find a fraction with denominator $13$ such that adding $6$ to its numerator (same denominator) makes it $3$ times as large.
+\end{probbox}
+\probsol{
+The denominator is fixed, so the new numerator is $3$ times the old.\par So $6$ is $3-1=2$ times the old numerator, which is $6:2=3$.\par The fraction is $\dfrac3{13}$.
+\dapso{$\dfrac3{13}$.}}
+\clearpage
+\titlehead

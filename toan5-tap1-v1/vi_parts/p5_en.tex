@@ -1,0 +1,831 @@
+\begingroup\setbox0=\vbox{\section*{(*) The Method of Two Differences}}\endgroup
+\chapterhead{9}{(*) The Method of Two Differences}
+
+\shead{Compare two ways of sharing}
+\begin{knowbox}
+Many problems describe \emph{the same amount} shared out (or arranged) in \textbf{two different ways}. Compare:
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{The difference per share:} how much more each share (each child, each bench, each hour,\ldots) gets in one way than in the other.
+\item \textbf{The total difference:} how much more is needed in one way than in the other. If one way has some \emph{left over} and the other is \emph{short}, the total difference is \emph{left over $+$ short}; if both are left over (or both short), subtract the smaller from the larger.
+\end{itemize}
+\textbf{Number of shares} $=$ (total difference) $:$ (difference per share). From it, find the amount asked for.\par
+\smallskip
+The \emph{method of supposition} rests on the same idea: suppose for a moment that everything is of one kind, then compare with what really happens.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+A teacher shares sweets among a group. Giving $5$ to each child leaves $8$ over; giving $7$ to each child is $4$ short. How many children and how many sweets are there?
+\guide
+The second time each child gets $7-5=2$ more.\par
+The second way needs $8+4=12$ more sweets (the $8$ left over, plus $4$ more).\par
+Children: $12:2=6$.\par Sweets: $5\times6+8=38$. \ (\emph{Check:} $7\times6-4=38$.)
+\dapso{$6$ children, $38$ sweets.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+Class 5B sets out benches for a meeting. With $3$ pupils per bench, $6$ pupils have no seat. With $4$ per bench, $2$ benches are left empty. How many benches and how many pupils are there?
+\guide
+Two empty benches in the second way means $4\times2=8$ more pupils would be needed to fill every bench.\par
+Difference per bench: $4-3=1$ pupil.\par Total difference: $6+8=14$ pupils.\par
+Benches: $14:1=14$.\par Pupils: $3\times14+6=48$.
+\dapso{$14$ benches, $48$ pupils.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+Some chickens and dogs have $36$ heads and $100$ legs altogether. How many chickens and how many dogs are there?
+\guide
+\emph{Suppose} all $36$ animals were chickens: there would be $36\times2=72$ legs, which is $100-72=28$ too few.\par
+Swapping one chicken for one dog adds $4-2=2$ legs.\par Dogs: $28:2=14$; chickens: $36-14=22$.
+\dapso{$22$ chickens, $14$ dogs.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Someone travels from home to town. Going $12$ km each hour, they arrive $1$ hour later than planned; going $15$ km each hour, $1$ hour early. Find the distance and the planned time.
+\guide
+In exactly the planned time, at $12$ km an hour they would be $12$ km short (the late hour); at $15$ km an hour they would go $15$ km too far.\par
+Difference per hour: $15-12=3$ km; total difference: $12+15=27$ km.\par Planned time: $27:3=9$ hours.\par
+Distance: $12\times(9+1)=120$ km.
+\dapso{$120$ km; $9$ hours.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+Sharing notebooks: $4$ each leaves $5$ over; $5$ each is $3$ short. Find the number of pupils and of notebooks.
+\end{probbox}
+\probsol{
+Difference per pupil: $1$; total difference: $5+3=8$.\par Pupils: $8$; notebooks: $4\times8+5=37$.
+\dapso{$8$ pupils, $37$ notebooks.}}
+\gap
+\begin{probbox}{2}{\relax}
+Sharing cakes: $3$ each leaves $16$ over; $5$ each still leaves $4$ over. How many children and cakes are there?
+\end{probbox}
+\probsol{
+Both ways leave some over: total difference $16-4=12$; per child $2$.\par Children: $6$; cakes: $3\times6+16=34$.
+\dapso{$6$ children, $34$ cakes.}}
+\gap
+\begin{probbox}{3}{\relax}
+Sharing oranges: $6$ each is $2$ short; $8$ each is $14$ short. Find the number of children and of oranges.
+\end{probbox}
+\probsol{
+Both ways are short: total difference $14-2=12$; per child $2$.\par Children: $6$; oranges: $6\times6-2=34$.
+\dapso{$6$ children, $34$ oranges.}}
+\gap
+\begin{probbox}{4}{\relax}
+A school hires buses for a trip. With $40$ pupils per bus, $10$ have no seat; with $45$ per bus, $15$ seats are spare. How many buses and pupils are there?
+\end{probbox}
+\probsol{
+Per bus: $5$ seats; in total: $10+15=25$.\par Buses: $25:5=5$.\par Pupils: $40\times5+10=210$.
+\dapso{$5$ buses, $210$ pupils.}}
+\gap
+\begin{probbox}{5}{\relax}
+Mum takes some money to the market. $5$ kg of apples would be $20\,000$ dong too much; $4$ kg would leave $10\,000$ dong over. Find the price of $1$ kg and how much money she has.
+\end{probbox}
+\probsol{
+One extra kilogram makes the difference $20\,000+10\,000=30\,000$ dong, so $1$ kg costs $30\,000$.\par Money: $30\,000\times4+10\,000=130\,000$ dong.
+\dapso{$30\,000$ dong; $130\,000$ dong.}}
+\gap
+\begin{probbox}{6}{\relax}
+With $5$ people per bench, $4$ must stand; with $6$ per bench, $1$ bench is empty. How many benches and people are there?
+\end{probbox}
+\probsol{
+The empty bench means $6$ people short.\par Total difference: $4+6=10$; per bench $1$.\par Benches: $10$; people: $5\times10+4=54$.
+\dapso{$10$ benches, $54$ people.}}
+\gap
+\begin{probbox}{7}{\relax}
+A group arrives at a guesthouse. With $4$ per room, $6$ guests have no room; with $6$ per room, $2$ rooms are empty. How many rooms and guests are there?
+\end{probbox}
+\probsol{
+Two empty rooms mean $12$ guests short.\par Total difference $6+12=18$; per room $2$.\par Rooms: $9$; guests: $4\times9+6=42$.
+\dapso{$9$ rooms, $42$ guests.}}
+\gap
+\begin{probbox}{8}{\relax}
+Find a number such that $7$ times it is $13$ more than $50$, and $5$ times it is $5$ less than $50$.
+\end{probbox}
+\probsol{
+The two products differ by $13+5=18$, and the multipliers by $7-5=2$.\par The number is $18:2=9$.
+\dapso{$9$.}}
+\gap
+\begin{probbox}{9}{\relax}
+$3$ pens and $5$ notebooks cost $49\,000$ dong; $3$ pens and $8$ notebooks of the same kind cost $64\,000$ dong. Find the price of a pen and of a notebook.
+\end{probbox}
+\probsol{
+The two purchases differ by $3$ notebooks and $64\,000-49\,000=15\,000$ dong, so a notebook costs $5\,000$ dong.\par
+$3$ pens cost $49\,000-25\,000=24\,000$ dong, so a pen costs $8\,000$ dong.
+\dapso{Pen: $8\,000$ dong; notebook: $5\,000$ dong.}}
+\gap
+\begin{probbox}{10}{\relax}
+$4$ pencils and $3$ rubbers cost $22\,000$ dong; $2$ pencils and $3$ rubbers cost $14\,000$ dong. Find the price of each.
+\end{probbox}
+\probsol{
+$2$ pencils cost $22\,000-14\,000=8\,000$, so one costs $4\,000$ dong.\par $3$ rubbers cost $14\,000-8\,000=6\,000$, so one costs $2\,000$ dong.
+\dapso{Pencil: $4\,000$ dong; rubber: $2\,000$ dong.}}
+\gap
+\begin{probbox}{11}{\relax}
+The $30$ pupils of class 5C buy $100$ notebooks; each boy buys $4$ and each girl buys $3$. How many boys and girls are there?
+\end{probbox}
+\probsol{
+If all $30$ were girls they would buy $90$, which is $10$ too few.\par Each boy buys $1$ more than a girl, so there are $10$ boys and $20$ girls.
+\dapso{$10$ boys, $20$ girls.}}
+\gap
+\begin{probbox}{12}{\relax}
+A cyclist rides from A to B. At $10$ km an hour they arrive $1$ hour late; at $15$ km an hour, $1$ hour early. Find the distance AB.
+\end{probbox}
+\probsol{
+In the planned time, at $10$ km an hour they would be $10$ km short; at $15$, $15$ km too far.\par Planned time: $(10+15):(15-10)=5$ hours.\par
+Distance: $10\times(5+1)=60$ km.
+\dapso{$60$ km.}}
+\gap
+\begin{probbox}{13}{\relax}
+Sharing sweets in a group: $4$ each leaves $6$ over; $6$ each is $4$ short. How many children and how many sweets are there?
+\end{probbox}
+\probsol{
+The two sharings differ by $6+4=10$ sweets.\par Each child differs by $6-4=2$.\par Children: $10:2=5$.\par Sweets: $4\times5+6=26$.
+\dapso{$5$ children; $26$ sweets.}}
+\gap
+\begin{probbox}{14}{\relax}
+Sharing notebooks: $3$ each leaves $12$ over; $5$ each still leaves $2$ over. Find the number of pupils and of notebooks.
+\end{probbox}
+\probsol{
+The leftovers differ by $12-2=10$.\par Each pupil differs by $5-3=2$.\par Pupils: $10:2=5$.\par Notebooks: $3\times5+12=27$.
+\dapso{$5$ pupils; $27$ notebooks.}}
+\gap
+\begin{probbox}{15}{\relax}
+Sharing tangerines: $7$ each is $3$ short; $9$ each is $15$ short. Find the number of children and of tangerines.
+\end{probbox}
+\probsol{
+The shortfalls differ by $15-3=12$.\par Each child differs by $9-7=2$.\par Children: $12:2=6$.\par Tangerines: $7\times6-3=39$.
+\dapso{$6$ children; $39$ tangerines.}}
+\gap
+\begin{probbox}{16}{\relax}
+There are $30$ chickens and rabbits with $84$ legs in all. How many of each are there?
+\end{probbox}
+\probsol{
+Suppose all $30$ are chickens: $2\times30=60$ legs.\par Missing legs: $84-60=24$.\par Each rabbit has $2$ more legs, so rabbits: $24:2=12$.\par Chickens: $30-12=18$.
+\dapso{$18$ chickens, $12$ rabbits.}}
+\gap
+\begin{probbox}{17}{\relax}
+A car park holds $25$ bicycles ($2$ wheels) and pedicabs ($3$ wheels), with $62$ wheels in all. How many of each are there?
+\end{probbox}
+\probsol{
+Suppose all $25$ are bicycles: $2\times25=50$ wheels.\par Missing: $62-50=12$ wheels.\par Each pedicab has $1$ more wheel, so pedicabs: $12$.\par Bicycles: $25-12=13$.
+\dapso{$13$ bicycles, $12$ pedicabs.}}
+\gap
+\begin{probbox}{18}{\relax}
+Lan has $20$ notes of $2\,000$ and $5\,000$ dong, worth $64\,000$ dong in all. How many of each are there?
+\end{probbox}
+\probsol{
+Suppose all are $2\,000$ notes: $2\,000\times20=40\,000$ dong.\par Missing: $64\,000-40\,000=24\,000$ dong.\par A $5\,000$ note is worth $3\,000$ more.\par $5\,000$ notes: $24\,000:3\,000=8$.\par $2\,000$ notes: $20-8=12$.
+\dapso{$12$ notes of $2\,000$, $8$ notes of $5\,000$.}}
+\gap
+\begin{probbox}{19}{\relax}
+$2$ pens and $3$ notebooks cost $34\,000$ dong; $2$ pens and $5$ notebooks cost $46\,000$ dong. Find the price of each.
+\end{probbox}
+\probsol{
+The second buys $2$ more notebooks for $12\,000$ dong more.\par One notebook: $12\,000:2=6\,000$ dong.\par $2$ pens: $34\,000-6\,000\times3=16\,000$ dong.\par One pen: $8\,000$ dong.
+\dapso{Pen $8\,000$ dong, notebook $6\,000$ dong.}}
+\gap
+\begin{probbox}{20}{\relax}
+$3$ kg of oranges and $2$ kg of apples cost $150\,000$ dong; $5$ kg of oranges and $2$ kg of apples cost $200\,000$ dong. Find the price per kg of each.
+\end{probbox}
+\probsol{
+$2$ kg of oranges cost $200\,000-150\,000=50\,000$ dong.\par $1$ kg of oranges: $25\,000$ dong.\par $2$ kg of apples: $150\,000-25\,000\times3=75\,000$ dong.\par $1$ kg of apples: $37\,500$ dong.
+\dapso{Oranges $25\,000$ dong/kg, apples $37\,500$ dong/kg.}}
+\gap
+\begin{probbox}{21}{\relax}
+Find a number such that $6$ times it is $14$ more than $40$, and $4$ times it is $4$ less than $40$.
+\end{probbox}
+\probsol{
+The two products differ by $14+4=18$.\par The multipliers differ by $6-4=2$.\par The number: $18:2=9$.\par Check: $9\times6=54=40+14$; $9\times4=36=40-4$.
+\dapso{$9$.}}
+\gap
+\begin{probbox}{22}{\relax}
+With $4$ people on each bench, $3$ must stand; with $5$ on each bench, $2$ benches are empty. How many benches and people are there?
+\end{probbox}
+\probsol{
+The $2$ empty benches could seat $5\times2=10$.\par The two arrangements differ by $3+10=13$ people.\par Each bench differs by $5-4=1$.\par Benches: $13$.\par People: $4\times13+3=55$.
+\dapso{$13$ benches, $55$ people.}}
+\gap
+\begin{probbox}{23}{\relax}
+Pupils stand in rows. With $6$ per row, $4$ are left over; with $7$ per row (same number of rows), $3$ are missing. How many rows and pupils are there?
+\end{probbox}
+\probsol{
+The two ways differ by $4+3=7$ pupils.\par Each row differs by $1$.\par Rows: $7$.\par Pupils: $6\times7+4=46$.
+\dapso{$7$ rows, $46$ pupils.}}
+\gap
+\begin{probbox}{24}{\relax}
+A rider goes from A to B. At $15$ km per hour he arrives $2$ hours late; at $20$ km per hour he arrives $1$ hour early. Find the planned time and the distance AB.
+\end{probbox}
+\probsol{
+At $15$ km/h in the planned time he is $15\times2=30$ km short.\par At $20$ km/h in the planned time he goes $20\times1=20$ km too far.\par The difference is $30+20=50$ km, and $20-15=5$ km per hour.\par Planned time: $50:5=10$ hours.\par AB: $15\times(10+2)=180$ km.
+\dapso{$10$ hours; $180$ km.}}
+\gap
+\begin{probbox}{25}{\relax}
+A test has $10$ questions: $10$ points for a right answer, $5$ points off for a wrong one. Minh answers all and scores $70$. How many are right?
+\end{probbox}
+\probsol{
+All right would give $10\times10=100$ points.\par He is $100-70=30$ points down.\par Each wrong answer costs $10+5=15$ points.\par Wrong: $30:15=2$; right: $10-2=8$.
+\dapso{$8$ questions.}}
+\gap
+\begin{probbox}{26}{\relax}
+$20$ spiders ($8$ legs) and beetles ($6$ legs) have $136$ legs in all. How many of each are there?
+\end{probbox}
+\probsol{
+Suppose all are beetles: $6\times20=120$ legs.\par Missing: $136-120=16$.\par Each spider has $2$ more, so spiders: $16:2=8$.\par Beetles: $20-8=12$.
+\dapso{$8$ spiders, $12$ beetles.}}
+\gap
+\begin{probbox}{27}{\relax}
+$10$ boats, large ones carrying $6$ and small ones carrying $4$, carry exactly $48$ people. How many of each are there?
+\end{probbox}
+\probsol{
+Suppose all are small: $4\times10=40$ people.\par Missing: $48-40=8$.\par A large boat carries $2$ more, so large boats: $8:2=4$.\par Small boats: $10-4=6$.
+\dapso{$4$ large, $6$ small.}}
+\gap
+\begin{probbox}{28}{\relax}
+Binh buys $16$ stamps at $3\,000$ and $5\,000$ dong, paying $62\,000$ dong. How many of each does he buy?
+\end{probbox}
+\probsol{
+Suppose all cost $3\,000$: $3\,000\times16=48\,000$ dong.\par Missing: $62\,000-48\,000=14\,000$ dong.\par A $5\,000$ stamp costs $2\,000$ more.\par $5\,000$ stamps: $14\,000:2\,000=7$.\par $3\,000$ stamps: $16-7=9$.
+\dapso{$9$ at $3\,000$, $7$ at $5\,000$.}}
+\gap
+\begin{probbox}{29}{\relax}
+$4$ notebooks and $2$ pens cost $40\,000$ dong; $2$ notebooks and $3$ pens cost $36\,000$ dong. Find the price of each.
+\end{probbox}
+\probsol{
+Double the second purchase: $4$ notebooks and $6$ pens cost $72\,000$ dong.\par Compared with the first, that is $4$ more pens for $32\,000$ dong more.\par One pen: $32\,000:4=8\,000$ dong.\par One notebook: $(40\,000-8\,000\times2):4=6\,000$ dong.
+\dapso{Notebook $6\,000$ dong, pen $8\,000$ dong.}}
+\gap
+\begin{probbox}{30}{\relax}
+Sharing balls among classes: $5$ each leaves $3$ over; $7$ each is $5$ short. Find the number of classes and of balls.
+\end{probbox}
+\probsol{
+The two ways differ by $3+5=8$ balls.\par Each class differs by $2$.\par Classes: $8:2=4$.\par Balls: $5\times4+3=23$.
+\dapso{$4$ classes, $23$ balls.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+Sharing sweets: $3$ each leaves $2$ over; $4$ each means one child gets only $2$. How many children and sweets are there?
+\end{probbox}
+\probsol{
+The second way is $4-2=2$ short.\par Total difference $2+2=4$; per child $1$.\par Children: $4$; sweets: $3\times4+2=14$.
+\dapso{$4$ children, $14$ sweets.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Pupils line up in rows. With $8$ per row, $3$ are left over; with $9$ per row (same number of rows), the last row is $5$ short. How many pupils are there?
+\end{probbox}
+\probsol{
+Total difference $3+5=8$; per row $1$.\par Rows: $8$; pupils: $8\times8+3=67$.
+\dapso{$67$ pupils.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+A team planned to make $30$ items a day. In fact it made $36$ a day, finished $2$ days early and made $12$ extra items. How many items were planned?
+\end{probbox}
+\probsol{
+Working all the planned days at $36$ a day would make $36\times2+12=84$ more than planned.\par
+Each day gives $6$ extra, so the plan was $84:6=14$ days, i.e.\par $30\times14=420$ items.
+\dapso{$420$ items.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+An buys $5$ blue pens and $3$ red pens for $33\,000$ dong. Binh buys $3$ blue and $5$ red pens of the same kinds for $31\,000$ dong. Find the price of each kind.
+\end{probbox}
+\probsol{
+Together: $8$ blue and $8$ red cost $64\,000$, so $1$ blue $+$ $1$ red cost $8\,000$ dong.\par
+Compared with Binh, An has $2$ more blue and $2$ fewer red and pays $2\,000$ more, so a blue pen costs $1\,000$ more than a red one.\par
+Blue: $(8\,000+1\,000):2=4\,500$ dong; red: $3\,500$ dong.
+\dapso{Blue: $4\,500$ dong; red: $3\,500$ dong.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+A worker is hired for $30$ days. Each working day pays $200\,000$ dong and each day off costs a $50\,000$ dong deduction. After $30$ days the worker receives $4\,750\,000$ dong. How many days off were taken?
+\end{probbox}
+\probsol{
+Working all $30$ days would pay $6\,000\,000$, which is $1\,250\,000$ more than received.\par
+Each day off lowers the pay by $200\,000+50\,000=250\,000$, so the days off are $1\,250\,000:250\,000=5$.
+\dapso{$5$ days.}}
+\gap
+\begin{probbox}{36}{\stars{2}}
+A contest has $20$ problems. Each correct answer scores $5$ points; each wrong or skipped one loses $2$ points. Minh scores $72$. How many did Minh get right?
+\end{probbox}
+\probsol{
+All $20$ correct would give $100$, which is $28$ more.\par Each wrong answer costs $5+2=7$, so $28:7=4$ are wrong and $16$ right.
+\dapso{$16$ problems.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Sharing sweets: $5$ each leaves $7$ over; $6$ each means one child gets only $2$. Find the number of children and of sweets.
+\end{probbox}
+\probsol{
+With $6$ each, the last child is $6-2=4$ short.\par The two ways differ by $7+4=11$; each child differs by $1$.\par Children: $11$.\par Sweets: $5\times11+7=62$.
+\dapso{$11$ children, $62$ sweets.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+There are $38$ chickens and dogs. The chickens have $16$ more legs than the dogs. How many of each are there?
+\end{probbox}
+\probsol{
+If all $38$ were chickens, the difference would be $2\times38=76$ legs.\par That is $76-16=60$ too many.\par Swapping a chicken for a dog lowers the difference by $2+4=6$.\par Dogs: $60:6=10$; chickens: $38-10=28$.\par Check: $56-40=16$.
+\dapso{$28$ chickens, $10$ dogs.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+A worker is hired for $26$ days: paid $300\,000$ dong for each working day and fined $100\,000$ dong for each day off. He receives $6\,200\,000$ dong. How many days off did he take?
+\end{probbox}
+\probsol{
+Working all $26$ days: $300\,000\times26=7\,800\,000$ dong.\par Shortfall: $7\,800\,000-6\,200\,000=1\,600\,000$ dong.\par Each day off costs $300\,000+100\,000=400\,000$ dong.\par Days off: $1\,600\,000:400\,000=4$.
+\dapso{$4$ days.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+A car leaves A. At $40$ km/h it reaches B at $11$ o'clock; at $50$ km/h at $10$ o'clock. Find AB and the departure time.
+\end{probbox}
+\probsol{
+At $40$ km/h the trip takes $11-10=1$ hour longer.\par If the fast car drove on for that hour after B, it would pass B by $50\times1=50$ km.\par So in the same time the fast car covers $50$ km more, gaining $50-40=10$ km each hour.\par Time at $40$ km/h: $50:10=5$ hours.\par AB: $40\times5=200$ km.\par Departure: $11-5=6$ o'clock.
+\dapso{$200$ km; leaves at $6$ o'clock.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Pupils sit at desks. With $2$ per desk, $8$ have no seat; with $3$ per desk, $1$ desk is empty and one desk has only $1$ pupil. Find the number of desks and pupils.
+\end{probbox}
+\probsol{
+With $3$ per desk, the empty desk is $3$ short and the other $2$ short: $5$ short in all.\par The two ways differ by $8+5=13$ pupils; each desk differs by $1$.\par Desks: $13$.\par Pupils: $2\times13+8=34$.
+\dapso{$13$ desks, $34$ pupils.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+A test has $25$ questions: $4$ points for each right answer, $1$ off for each wrong one. Hoa answers all and scores $70$. How many are wrong?
+\end{probbox}
+\probsol{
+All right gives $4\times25=100$.\par Shortfall: $100-70=30$.\par Each wrong answer costs $4+1=5$.\par Wrong: $30:5=6$.
+\dapso{$6$ questions.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+$2$ shirts and $3$ trousers cost $1\,100\,000$ dong; $3$ shirts and $2$ trousers cost $1\,150\,000$ dong. Find each price.
+\end{probbox}
+\probsol{
+Together: $5$ shirts and $5$ trousers cost $2\,250\,000$ dong.\par One of each: $2\,250\,000:5=450\,000$ dong.\par The second buys one more shirt and one fewer trousers for $50\,000$ more, so a shirt costs $50\,000$ more.\par Shirt: $(450\,000+50\,000):2=250\,000$ dong.\par Trousers: $450\,000-250\,000=200\,000$ dong.
+\dapso{Shirt $250\,000$ dong, trousers $200\,000$ dong.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Mum buys some oranges. Selling at $30\,000$ dong/kg she gains $40\,000$ dong; at $25\,000$ dong/kg she loses $10\,000$ dong. Find the amount of oranges and the cost.
+\end{probbox}
+\probsol{
+The two prices give totals differing by $40\,000+10\,000=50\,000$ dong.\par Per kg: $30\,000-25\,000=5\,000$ dong.\par Oranges: $50\,000:5\,000=10$ kg.\par Cost: $30\,000\times10-40\,000=260\,000$ dong.
+\dapso{$10$ kg; cost $260\,000$ dong.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+$18$ spiders ($8$ legs, no wings) and dragonflies ($6$ legs, $2$ pairs of wings) have $124$ legs. How many pairs of wings are there?
+\end{probbox}
+\probsol{
+If all were dragonflies: $6\times18=108$ legs.\par Missing $124-108=16$; a spider has $2$ more.\par Spiders: $8$; dragonflies: $10$.\par Pairs of wings: $2\times10=20$.
+\dapso{$20$ pairs.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+A shop has $45$ boxes of cakes, holding $6$ or $10$ each, $350$ cakes in all. How many boxes of each are there?
+\end{probbox}
+\probsol{
+If all held $6$: $6\times45=270$.\par Missing $80$; a box of $10$ has $4$ more.\par Boxes of $10$: $80:4=20$.\par Boxes of $6$: $25$.
+\dapso{$25$ boxes of $6$, $20$ boxes of $10$.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+An cycles to school. At $12$ km/h he is $5$ minutes late; at $15$ km/h he is $5$ minutes early. How far is the school?
+\end{probbox}
+\probsol{
+$5$ minutes $=\dfrac1{12}$ hour.\par At $12$ km/h in the set time he is $12\times\dfrac1{12}=1$ km short.\par At $15$ km/h he goes $15\times\dfrac1{12}=1.25$ km too far.\par Difference: $2.25$ km, at $3$ km per hour.\par Set time: $2.25:3=0.75$ hour.\par Distance: $12\times0.75+1=10$ km.
+\dapso{$10$ km.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+A car park has $50$ vehicles: cars ($4$ wheels) and motorbikes ($2$ wheels). The cars have $20$ more wheels than the motorbikes. How many of each are there?
+\end{probbox}
+\probsol{
+If all $50$ were cars, the difference would be $4\times50=200$.\par That is $180$ too many.\par Swapping a car for a motorbike lowers it by $4+2=6$.\par Motorbikes: $180:6=30$; cars: $20$.\par Check: $80-60=20$.
+\dapso{$20$ cars, $30$ motorbikes.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+A test has $30$ questions: $5$ points for right, $2$ off for wrong, $0$ for skipped. Binh scores $112$, and has twice as many wrong as skipped. How many are right?
+\end{probbox}
+\probsol{
+Group $1$ skipped with $2$ wrong into a block of $3$.\par All right: $5\times30=150$; shortfall: $150-112=38$.\par Each block costs $5+(5+2)\times2=19$.\par Blocks: $38:19=2$, i.e.\par $2$ skipped and $4$ wrong.\par Right: $30-2-4=24$.
+\dapso{$24$ questions.}}
+\gap
+\begin{probbox}{50}{\stars{1}}
+Hung takes some money to buy notebooks. Buying $8$ leaves $4\,000$ dong; buying $10$ is $6\,000$ dong short. How much money does he have?
+\end{probbox}
+\probsol{
+The two purchases differ by $4\,000+6\,000=10\,000$ dong for $2$ notebooks.\par One notebook: $5\,000$ dong.\par Money: $5\,000\times8+4\,000=44\,000$ dong.
+\dapso{$44\,000$ dong.}}
+\clearpage
+\titlehead
+\begingroup\setbox0=\vbox{\section*{Working Backwards}}\endgroup
+\chapterhead{10}{Working Backwards}
+
+\shead{Start from the final result}
+\begin{knowbox}
+When a problem gives the \textbf{final result} of a chain of operations (or a chain of changes), start from that result and \textbf{go backwards} one step at a time, using the \emph{inverse operation} at each step:
+\begin{center}
+add \ $\longleftrightarrow$ \ subtract \qquad\qquad multiply \ $\longleftrightarrow$ \ divide
+\end{center}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item Draw a \textbf{flow diagram} of the steps so that none is missed or taken out of order.
+\item For ``take away a fraction, then add (or remove) a few more'' problems, undo the \emph{extra units} first and then the \emph{fraction} at each backward step.
+\item For problems where amounts pass between several people (or jars), make a \textbf{table} of the amounts after each transfer and work from the bottom row up.
+\end{itemize}
+Always \textbf{check} by working forwards again.
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Find a number such that adding $15$, multiplying by $3$, subtracting $12$ and finally dividing by $4$ gives $18$.
+\guide
+The diagram (forwards on top, backwards below):
+\begin{center}
+\begin{tikzpicture}[x=2.25cm,box/.style={draw=tmBlue!70!black,line width=0.8pt,rounded corners=2pt,minimum width=1.05cm,minimum height=0.62cm,font=\small}]
+\foreach \v [count=\i from 0] in {?,28+15,84,72,18}{\node[box] (n\i) at (\i,0) {};}
+\node at (n0) {$\mathbf{13}$}; \node at (n1) {$28$}; \node at (n2) {$84$}; \node at (n3) {$72$}; \node[box,fill=tmOrange!25] at (n4) {$18$};
+\foreach \a/\b/\f/\g in {0/1/+15/-15,1/2/\times3/:3,2/3/-12/+12,3/4/:4/\times4}{
+  \draw[-{Stealth},line width=0.7pt] ([yshift=3pt]n\a.east) to[bend left=28] node[above,font=\footnotesize]{$\f$} ([yshift=3pt]n\b.west);
+  \draw[-{Stealth},line width=0.7pt,tmOrange!80!black] ([yshift=-3pt]n\b.west) to[bend left=28] node[below,font=\footnotesize]{$\g$} ([yshift=-3pt]n\a.east);}
+\end{tikzpicture}
+\end{center}
+Backwards: $18\times4=72$;\par $72+12=84$;\par $84:3=28$;\par $28-15=13$.\par
+\emph{Check:} $(13+15)\times3=84$;\par $84-12=72$;\par $72:4=18$.
+\dapso{$13$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+A woman takes eggs to market. First she sells half of them and $1$ more. Then she sells half of what is left and $1$ more. She has $10$ eggs left. How many did she bring?
+\guide
+\emph{Undo the second sale:} without the extra egg she would have $10+1=11$ left, which is half of what she had before.\par So before the second sale: $11\times2=22$ eggs.\par
+\emph{Undo the first sale:} $(22+1)\times2=46$ eggs.
+\dapso{$46$ eggs.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+On day one, $\dfrac13$ of the water in a tank is used; on day two, $\dfrac25$ of what is left. Now $120$ litres remain. How much water was in the tank at first?
+\guide
+After day two, $1-\dfrac25=\dfrac35$ of the day-one remainder is left.\par That remainder was $120:\dfrac35=200$ litres.\par
+$200$ litres is $1-\dfrac13=\dfrac23$ of the original.\par At first: $200:\dfrac23=300$ litres.
+\dapso{$300$ litres.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Three drums hold $240$ litres of oil. First, drum I pours into drum II as much as drum II holds. Then drum II pours into drum III as much as drum III holds. Then drum III pours into drum I as much as drum I holds. Now all three drums hold the same. How much did each hold at first?
+\guide
+At the end each drum holds $240:3=80$ litres.\par A drum that ``receives as much as it holds'' doubles; going back, we \emph{halve} the receiving drum and \emph{give} that amount back to the pouring drum.
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|l|c|c|c|}
+\hline
+ & Drum I & Drum II & Drum III\\\hline
+At the end & $80$ & $80$ & $80$\\\hline
+Before step 3 & $40$ & $80$ & $120$\\\hline
+Before step 2 & $40$ & $140$ & $60$\\\hline
+At first & $\mathbf{110}$ & $\mathbf{70}$ & $\mathbf{60}$\\\hline
+\end{tabular}
+\end{center}
+\dapso{Drum I: $110$ litres; drum II: $70$ litres; drum III: $60$ litres.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+Find a number such that multiplying it by $4$, subtracting $18$ and dividing by $2$ gives $25$.
+\end{probbox}
+\probsol{
+$25\times2=50$;\par $50+18=68$;\par $68:4=17$.
+\dapso{$17$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Nam thinks of a number. He multiplies it by $6$, adds $8$, divides by $2$ and subtracts $14$, getting $20$. What was his number?
+\end{probbox}
+\probsol{
+$20+14=34$;\par $34\times2=68$;\par $68-8=60$;\par $60:6=10$.
+\dapso{$10$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Find a number such that adding $\dfrac12$ and then multiplying by $\dfrac23$ gives $3$.
+\end{probbox}
+\probsol{
+$3:\dfrac23=\dfrac92$;\par $\dfrac92-\dfrac12=4$.
+\dapso{$4$.}}
+\gap
+\begin{probbox}{4}{\relax}
+If An's age is doubled, $5$ is added and the result is divided by $3$, the answer is $9$. How old is An?
+\end{probbox}
+\probsol{
+$9\times3=27$;\par $27-5=22$;\par $22:2=11$.
+\dapso{$11$ years old.}}
+\gap
+\begin{probbox}{5}{\relax}
+Lan spends $\dfrac12$ of her money on books and $\dfrac13$ of the rest on pens, leaving $20\,000$ dong. How much did she have at first?
+\end{probbox}
+\probsol{
+$20\,000$ is $\dfrac23$ of what was left after the books, i.e.\par $30\,000$.\par At first: $30\,000\times2=60\,000$ dong.
+\dapso{$60\,000$ dong.}}
+\gap
+\begin{probbox}{6}{\relax}
+Hoa reads $\dfrac14$ of a book on day one, $\dfrac13$ of the remaining pages on day two, and the last $60$ pages on day three. How many pages does the book have?
+\end{probbox}
+\probsol{
+$60$ pages are $\dfrac23$ of what was left after day one: $60:\dfrac23=90$.\par And $90$ pages are $\dfrac34$ of the book: $90:\dfrac34=120$.
+\dapso{$120$ pages.}}
+\gap
+\begin{probbox}{7}{\relax}
+Mr Ba sells half his hens and $2$ more, then half of the rest and $2$ more, and has $8$ left. How many hens did he have?
+\end{probbox}
+\probsol{
+Before the second sale: $(8+2)\times2=20$.\par At first: $(20+2)\times2=44$.
+\dapso{$44$ hens.}}
+\gap
+\begin{probbox}{8}{\relax}
+At the market Mum first spends half her money and $5\,000$ dong more, then half the rest and $5\,000$ more, leaving $10\,000$ dong. How much did she take?
+\end{probbox}
+\probsol{
+Before the second purchase: $(10\,000+5\,000)\times2=30\,000$.\par At first: $(30\,000+5\,000)\times2=70\,000$ dong.
+\dapso{$70\,000$ dong.}}
+\gap
+\begin{probbox}{9}{\relax}
+$15$ litres are poured from tank A into tank B, then $5$ litres from B back into A. Now each holds $40$ litres. How much did each hold at first?
+\end{probbox}
+\probsol{
+Tank A: $40-5+15=50$ litres; tank B: $40+5-15=30$ litres.
+\dapso{A: $50$ litres; B: $30$ litres.}}
+\gap
+\begin{probbox}{10}{\relax}
+$6$ oranges move from basket I to basket II, then $2$ move from II back to I. Now basket I has $20$ and basket II has $30$. How many were in each at first?
+\end{probbox}
+\probsol{
+Basket I: $20-2+6=24$; basket II: $30+2-6=26$.
+\dapso{$24$ and $26$ oranges.}}
+\gap
+\begin{probbox}{11}{\relax}
+Jar I pours half its water into jar II; then jar II pours $\dfrac13$ of what it holds into jar I. Now jar I has $8$ litres and jar II $12$. How much did each have at first?
+\end{probbox}
+\probsol{
+Before the second pour, jar II kept $\dfrac23$, so it had $12:\dfrac23=18$ and gave $6$; jar I had $8-6=2$.\par
+At first jar I had $2\times2=4$ and gave $2$; jar II had $18-2=16$.
+\dapso{Jar I: $4$ litres; jar II: $16$ litres.}}
+\gap
+\begin{probbox}{12}{\relax}
+Find a number: add $7$, multiply by $5$, then subtract $10$ to get $65$.
+\end{probbox}
+\probsol{
+Before subtracting $10$: $65+10=75$.\par Before multiplying by $5$: $75:5=15$.\par Before adding $7$: $15-7=8$.
+\dapso{$8$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Find a number: multiply by $3$, add $12$, then divide by $5$ to get $9$.
+\end{probbox}
+\probsol{
+Before dividing by $5$: $9\times5=45$.\par Before adding $12$: $45-12=33$.\par The number: $33:3=11$.
+\dapso{$11$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Find a number: subtract $4$, multiply by $6$, then add $3$ to get $51$.
+\end{probbox}
+\probsol{
+Before adding $3$: $51-3=48$.\par Before multiplying by $6$: $48:6=8$.\par The number: $8+4=12$.
+\dapso{$12$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Find a number: divide by $2$, add $15$, then multiply by $4$ to get $100$.
+\end{probbox}
+\probsol{
+Before multiplying by $4$: $100:4=25$.\par Before adding $15$: $25-15=10$.\par The number: $10\times2=20$.
+\dapso{$20$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Find $x$: multiply by $2.5$, then subtract $1.5$ to get $8.5$.
+\end{probbox}
+\probsol{
+Before subtracting $1.5$: $8.5+1.5=10$.\par $x=10:2.5=4$.
+\dapso{$x=4$.}}
+\gap
+\begin{probbox}{17}{\relax}
+Find a decimal: add $2.4$, then multiply by $3$ to get $12.6$.
+\end{probbox}
+\probsol{
+Before multiplying by $3$: $12.6:3=4.2$.\par The number: $4.2-2.4=1.8$.
+\dapso{$1.8$.}}
+\gap
+\begin{probbox}{18}{\relax}
+Mai spends $25\,000$ dong on a book, gets $10\,000$ dong from Mum, then spends $8\,000$ dong on a pen and has $17\,000$ dong left. How much did she start with?
+\end{probbox}
+\probsol{
+Before the pen: $17\,000+8\,000=25\,000$ dong.\par Before Mum's gift: $25\,000-10\,000=15\,000$ dong.\par At first: $15\,000+25\,000=40\,000$ dong.
+\dapso{$40\,000$ dong.}}
+\gap
+\begin{probbox}{19}{\relax}
+A bus leaves the depot. At the first stop $6$ get off and $4$ get on; at the second $10$ get off and $3$ get on. Now $21$ passengers are aboard. How many were there at the start?
+\end{probbox}
+\probsol{
+Before the second stop: $21-3+10=28$.\par Before the first stop: $28-4+6=30$.
+\dapso{$30$ passengers.}}
+\gap
+\begin{probbox}{20}{\relax}
+Dad's age divided by $4$, plus $3$, gives $13$. How old is Dad?
+\end{probbox}
+\probsol{
+Before adding $3$: $13-3=10$.\par Dad's age: $10\times4=40$.
+\dapso{$40$ years old.}}
+\gap
+\begin{probbox}{21}{\relax}
+Lan spends $\dfrac13$ of her money, then $\dfrac12$ of the rest, and has $25\,000$ dong left. How much did she have?
+\end{probbox}
+\probsol{
+$25\,000$ dong is $\dfrac12$ of what was left after the first spend.\par So $25\,000\times2=50\,000$ dong was left.\par That is $\dfrac23$ of the original.\par Original: $50\,000:\dfrac23=75\,000$ dong.
+\dapso{$75\,000$ dong.}}
+\gap
+\begin{probbox}{22}{\relax}
+On day one $\dfrac14$ of a tank's water is used; on day two $\dfrac13$ of the rest. $300$ litres remain. How much was there?
+\end{probbox}
+\probsol{
+$300$ litres is $\dfrac23$ of what was left after day one.\par After day one: $300:\dfrac23=450$ litres.\par That is $\dfrac34$ of the original.\par Original: $450:\dfrac34=600$ litres.
+\dapso{$600$ litres.}}
+\gap
+\begin{probbox}{23}{\relax}
+A seller first sells half her eggs plus $2$, then half the rest plus $1$, leaving $9$. How many eggs were there?
+\end{probbox}
+\probsol{
+Before the extra $1$: $9+1=10$, which is half of what was left after the first sale.\par After the first sale: $10\times2=20$.\par Likewise $20+2=22$ is half the original.\par Original: $22\times2=44$.
+\dapso{$44$ eggs.}}
+\gap
+\begin{probbox}{24}{\relax}
+Move $8$ pomelos from basket A to B, then $3$ from B to A. Now A has $25$ and B has $35$. How many did each have at first?
+\end{probbox}
+\probsol{
+Before the second move: A $25-3=22$, B $35+3=38$.\par At first: A $22+8=30$, B $38-8=30$.
+\dapso{$30$ in each.}}
+\gap
+\begin{probbox}{25}{\relax}
+A shop sells $\dfrac25$ of its rice on day one and half the rest on day two, leaving $45$ kg. How much rice was there?
+\end{probbox}
+\probsol{
+After day one: $45\times2=90$ kg.\par That is $\dfrac35$ of the original.\par Original: $90:\dfrac35=150$ kg.
+\dapso{$150$ kg.}}
+\gap
+\begin{probbox}{26}{\relax}
+Find $x$ if $\left(x-\dfrac13\right)\times\dfrac34=\dfrac12$.
+\end{probbox}
+\probsol{
+$x-\dfrac13=\dfrac12:\dfrac34=\dfrac23$.\par $x=\dfrac23+\dfrac13=1$.
+\dapso{$x=1$.}}
+\gap
+\begin{probbox}{27}{\relax}
+An gives Binh $\dfrac13$ of his marbles, then gives Chi $4$, and has $12$ left. How many did An have?
+\end{probbox}
+\probsol{
+Before giving Chi: $12+4=16$.\par That is $\dfrac23$ of the original.\par Original: $16:\dfrac23=24$.
+\dapso{$24$ marbles.}}
+\gap
+\begin{probbox}{28}{\relax}
+Find a number: multiply by $4$, add $0.6$, then divide by $2$ to get $5.3$.
+\end{probbox}
+\probsol{
+Before dividing by $2$: $5.3\times2=10.6$.\par Before adding $0.6$: $10$.\par The number: $10:4=2.5$.
+\dapso{$2.5$.}}
+\gap
+\begin{probbox}{29}{\relax}
+From a roll of cloth, first $\dfrac14$ is cut, then $5$ m, then half of what remains, leaving $8$ m. How long was the roll?
+\end{probbox}
+\probsol{
+Before the third cut: $8\times2=16$ m.\par Before the second: $16+5=21$ m.\par That is $\dfrac34$ of the roll.\par Roll: $21:\dfrac34=28$ m.
+\dapso{$28$ m.}}
+\gap
+\begin{probbox}{30}{\relax}
+Uncle Tu sells $\dfrac13$ of his ducks, then buys $15$ more and has $75$. How many ducks did he have?
+\end{probbox}
+\probsol{
+Before buying: $75-15=60$.\par That is $\dfrac23$ of the flock.\par Original: $60:\dfrac23=90$.
+\dapso{$90$ ducks.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+A shop sells $\dfrac13$ of a roll of cloth and $2$ m more, then half of the rest and $3$ m more, leaving $12$ m. How long was the roll?
+\end{probbox}
+\probsol{
+Before the second sale: $(12+3)\times2=30$ m.\par Then $30+2=32$ m is $\dfrac23$ of the roll, so the roll is $32:\dfrac23=48$ m.
+\dapso{$48$ m.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+A monkey picks some peaches. Each day it eats half of what it has and $1$ more. On the morning of day five it has just $1$ left. How many peaches did it pick?
+\end{probbox}
+\probsol{
+The monkey ate for $4$ days.\par Undo each day with (number left $+1$)$\times2$.\par
+$1\to4\to10\to22\to46$.
+\dapso{$46$ peaches.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+An, Binh and Cuong have $96$ marbles. An gives Binh as many as Binh has; then Binh gives Cuong as many as Cuong has; finally Cuong gives An as many as An has. Now they all have the same. How many did each have at first?
+\end{probbox}
+\probsol{
+At the end each has $32$.\par Work backwards (as in Example $4$):\par
+Before step 3: An $16$, Binh $32$, Cuong $48$.\par Before step 2: An $16$, Binh $56$, Cuong $24$.\par At first: An $44$, Binh $28$, Cuong $24$.
+\dapso{An: $44$; Binh: $28$; Cuong: $24$ marbles.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+A, B and C play three rounds of a game. After each round the loser must give each of the others as many marbles as they already have. A loses round 1, B round 2 and C round 3. Afterwards each has $24$ marbles. How many did each have at first?
+\end{probbox}
+\probsol{
+Total: $72$ marbles.\par Going back, in each round the two winners halve and the loser gets those marbles back.\par
+Before round 3: A $12$, B $12$, C $48$.\par Before round 2: A $6$, B $42$, C $24$.\par At first: A $39$, B $21$, C $12$.
+\dapso{A: $39$; B: $21$; C: $12$ marbles.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+Each day a monkey eats half its peaches plus $2$ more. After $3$ days it has $3$ left. How many did it start with?
+\end{probbox}
+\probsol{
+Start of day three: $(3+2)\times2=10$.\par Start of day two: $(10+2)\times2=24$.\par At first: $(24+2)\times2=52$.
+\dapso{$52$ peaches.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+Pour from jar A into jar B as much as B holds; then from B into A as much as A holds. Now each has $24$ litres. How much did each have at first?
+\end{probbox}
+\probsol{
+The second pour doubled A, so before it A had $24:2=12$ and B $24+12=36$.\par The first pour doubled B, so before it B had $36:2=18$ and A $12+18=30$.
+\dapso{A $30$ litres, B $18$ litres.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+A shop sells half its rice plus $5$ kg, then $\dfrac13$ of the rest plus $4$ kg, then $\dfrac14$ of the rest plus $3$ kg, leaving $15$ kg. How much was there?
+\end{probbox}
+\probsol{
+Before the third sale: $15+3=18$ kg is $\dfrac34$, so $18:\dfrac34=24$ kg.\par Before the second: $24+4=28$ kg is $\dfrac23$, so $42$ kg.\par At first: $(42+5)\times2=94$ kg.
+\dapso{$94$ kg.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+Nam thinks of a number. Three times over he doubles it and subtracts $3$, ending with $19$. What was the number?
+\end{probbox}
+\probsol{
+Before the third round: $(19+3):2=11$.\par Before the second: $(11+3):2=7$.\par The number: $(7+3):2=5$.
+\dapso{$5$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+A team repairs a road: in week one $\dfrac14$ of it plus $3$ km; in week two $\dfrac13$ of the rest plus $1$ km; in week three the last $9$ km. How long is the road?
+\end{probbox}
+\probsol{
+After week one, $9+1=10$ km is $\dfrac23$ of what was left, so $15$ km was left.\par $15+3=18$ km is $\dfrac34$ of the road.\par Road: $18:\dfrac34=24$ km.
+\dapso{$24$ km.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+Ms Hanh spends $\dfrac25$ of her pay on food, $\dfrac13$ of the rest on schooling and saves half of what remains, keeping $1\,200\,000$ dong. What is her pay?
+\end{probbox}
+\probsol{
+Before saving: $1\,200\,000\times2=2\,400\,000$ dong.\par Before schooling: $2\,400\,000:\dfrac23=3\,600\,000$ dong.\par Pay: $3\,600\,000:\dfrac35=6\,000\,000$ dong.
+\dapso{$6\,000\,000$ dong.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+Grandpa's age minus $4$, divided by $7$, plus $2$, times $5$ is $60$. How old is he?
+\end{probbox}
+\probsol{
+Before $\times5$: $12$.\par Before $+2$: $10$.\par Before $:7$: $70$.\par Age: $70+4=74$.
+\dapso{$74$ years old.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Duckweed doubles its area every day and covers the whole pond at the end of day $10$. On which day did it cover $\dfrac14$ of the pond?
+\end{probbox}
+\probsol{
+At the end of day $9$ it covered $\dfrac12$ (doubling gives the whole).\par At the end of day $8$ it covered $\dfrac14$.
+\dapso{Day $8$.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+Three drums hold $180$ litres. Pour $10$ l from I to II, then $20$ l from II to III, then $5$ l from III to I. Now all are equal. How much did each hold?
+\end{probbox}
+\probsol{
+Finally each has $180:3=60$ l.\par Before the third pour: I $55$, III $65$.\par Before the second: II $80$, III $45$.\par At first: I $65$, II $70$, III $45$.
+\dapso{I $65$ l, II $70$ l, III $45$ l.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Find $x$ if $(x\times1.5-2.25):0.5=7.5$.
+\end{probbox}
+\probsol{
+$x\times1.5-2.25=7.5\times0.5=3.75$.\par $x\times1.5=6$.\par $x=4$.
+\dapso{$x=4$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Grandma spends half her money plus $3\,000$ dong, then half the rest plus $2\,000$, then half the rest plus $1\,000$, and has nothing left. How much did she take?
+\end{probbox}
+\probsol{
+Before the third spend: $(0+1\,000)\times2=2\,000$ dong.\par Before the second: $(2\,000+2\,000)\times2=8\,000$ dong.\par At first: $(8\,000+3\,000)\times2=22\,000$ dong.
+\dapso{$22\,000$ dong.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Two baskets hold $60$ oranges. Move $\dfrac13$ of basket I into II, then $\dfrac14$ of basket II (as it is then) into I. Now they are equal. How many were in each?
+\end{probbox}
+\probsol{
+Finally each has $30$.\par Before the second move, II had $30:\dfrac34=40$, so I had $20$.\par Before the first, I had $20:\dfrac23=30$, so II had $30$.
+\dapso{$30$ in each.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+Ha does maths for $45$ minutes, rests $15$ minutes, then reads for $1$ hour $20$ minutes, finishing at $21{:}05$. When did she start?
+\end{probbox}
+\probsol{
+Reading began at $21{:}05-1{:}20=19{:}45$.\par Rest began at $19{:}30$.\par Maths began at $18{:}45$.
+\dapso{$18{:}45$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Think of any number, multiply by $9$, add $18$, divide by $9$, then subtract the number you thought of. Show the result is always $2$.
+\end{probbox}
+\probsol{
+Call the number $a$.\par $a\times9+18=(a+2)\times9$.\par Divide by $9$: $a+2$.\par Subtract $a$: $2$, whatever $a$ is.
+\dapso{Always $2$.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+A snail at the bottom of a $10$ m well climbs $3$ m each day and slips $2$ m each night. On which day does it reach the top?
+\end{probbox}
+\probsol{
+Work back from the last day: it climbs $3$ m and reaches the top, so it started that day at $10-3=7$ m.\par Each day and night it gains $3-2=1$ m.\par Reaching $7$ m takes $7$ days and nights.\par So it gets out on day $8$.
+\dapso{Day $8$.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+Grandma has some apples. The eldest takes half plus half an apple; the second takes half the rest plus half an apple; the youngest takes half the rest plus half an apple, and none are left. No apple is cut. How many were there?
+\end{probbox}
+\probsol{
+Before the youngest: $\left(0+\dfrac12\right)\times2=1$.\par Before the second: $\left(1+\dfrac12\right)\times2=3$.\par At first: $\left(3+\dfrac12\right)\times2=7$.\par Check: they take $4$, $2$ and $1$ whole apples.
+\dapso{$7$ apples.}}
+\clearpage
+\titlehead

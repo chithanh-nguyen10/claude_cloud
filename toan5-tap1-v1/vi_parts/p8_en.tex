@@ -1,0 +1,826 @@
+\begingroup\setbox0=\vbox{\section*{Mixed Practice on Area}}\endgroup
+\chapterhead{15}{Mixed Practice on Area}
+
+\shead{Split, add on, cut away}
+\begin{knowbox}
+To find the area of a composite shape, reduce it to shapes whose formulas we know:
+\begin{center}\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|c||l|c|}\hline
+Rectangle & $a\times b$ & Triangle & $a\times h:2$\\\hline
+Square & $a\times a$ & Trapezium & $(a+b)\times h:2$\\\hline
+Circle & $r\times r\times3.14$ & Semicircle & $r\times r\times3.14:2$\\\hline
+\end{tabular}\end{center}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Split:} cut the shape into familiar pieces and \emph{add} their areas.
+\item \textbf{Complete and subtract:} fill it out to a large familiar shape and \emph{subtract} what was added.
+\item Always change measurements to \textbf{the same unit} first; $1$ m$^2=100$ dm$^2=10\,000$ cm$^2$.
+\end{itemize}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+\begin{minipage}[t]{0.62\linewidth}
+A plot of land is shaped as shown: a rectangle $20$ m by $12$ m with a triangle on top whose base is the rectangle's length and whose height is $8$ m. Find the area of the plot.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.14]
+\fill[tmBlue!12] (0,0)--(20,0)--(20,12)--(10,20)--(0,12)--cycle;
+\draw[geo] (0,0)--(20,0)--(20,12)--(10,20)--(0,12)--cycle; \draw[geo] (0,12)--(20,12);
+\draw[dashed,Slate] (10,12)--(10,20);
+\node[dim] at (10,-2){$20$ m}; \node[dim,right] at (20,6){$12$ m}; \node[dim,right] at (10,15.5){$8$ m};
+\end{tikzpicture}
+\end{minipage}
+\guide
+\textbf{Split} it into a rectangle and a triangle:\par
+$S_\text{rectangle}=20\times12=240$ m$^2$;\par $S_\text{triangle}=20\times8:2=80$ m$^2$.\par Plot: $240+80=320$ m$^2$.
+\dapso{$320$ m$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+\begin{minipage}[t]{0.62\linewidth}
+A semicircle whose diameter is the width of a $16$ cm by $10$ cm wooden board is cut out of it (see the figure). Find the area of the wood that is left.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.16]
+\fill[tmBlue!12] (0,0)--(16,0)--(16,10)--(0,10)--cycle; \fill[white] (16,0) arc (-90:-270:5);
+\draw[geo] (16,0)--(0,0)--(0,10)--(16,10); \draw[geo] (16,10)--(16,0); \draw[geo] (16,0) arc (-90:-270:5);
+\node[dim] at (8,-1.8){$16$ cm}; \node[dim,left] at (0,5){$10$ cm};
+\end{tikzpicture}
+\end{minipage}
+\guide
+$S_\text{board}=16\times10=160$ cm$^2$.\par The semicircle has $r=5$ cm: $5\times5\times3.14:2=39.25$ cm$^2$.\par
+Wood left: $160-39.25=120.75$ cm$^2$.
+\dapso{$120.75$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+On a map with scale $1:1\,000$, a trapezium-shaped garden has bases $5$ cm and $3$ cm and height $4$ cm. Find the real area of the garden.
+\guide
+Real lengths: $5$ cm $\to5\,000$ cm $=50$ m;\par $3$ cm $\to30$ m;\par $4$ cm $\to40$ m.\par
+Real area: $(50+30)\times40:2=1\,600$ m$^2$.\par
+\emph{Note:} change to real lengths \emph{first}, then compute the area.
+\dapso{$1\,600$ m$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+A rectangular floor is $8$ m by $6$ m. It is tiled with square tiles of side $40$ cm costing $25\,000$ dong each. How many tiles are needed, and what do they cost? (Ignore the grout.)
+\guide
+Floor: $8\times6=48$ m$^2$ $=480\,000$ cm$^2$.\par One tile: $40\times40=1\,600$ cm$^2$.\par
+Tiles: $480\,000:1\,600=300$.\par Cost: $25\,000\times300=7\,500\,000$ dong.
+\dapso{$300$ tiles; $7\,500\,000$ dong.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+\begin{minipage}[t]{0.66\linewidth}
+Find the area of the L-shape (measurements in centimetres).
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.22]
+\fill[tmBlue!12] (0,0)--(10,0)--(10,5)--(6,5)--(6,8)--(0,8)--cycle;
+\draw[geo] (0,0)--(10,0)--(10,5)--(6,5)--(6,8)--(0,8)--cycle;
+\node[dim,below] at (5,0){$10$}; \node[dim,left] at (0,4){$8$}; \node[dim,above] at (8,5){$4$}; \node[dim,right] at (6,6.5){$3$};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\emph{Complete and subtract:} $10\times8-4\times3=80-12=68$ cm$^2$.
+\dapso{$68$ cm$^2$.}}
+\gap
+\begin{probbox}{2}{\relax}
+A rectangular plot is $25$ m long, and its width is $\dfrac35$ of its length. A house with a square base of side $10$ m is built on it. Find the area left.
+\end{probbox}
+\probsol{
+Width: $25\times\dfrac35=15$ m.\par Left: $25\times15-10\times10=375-100=275$ m$^2$.
+\dapso{$275$ m$^2$.}}
+\gap
+\begin{probbox}{3}{\relax}
+A rectangular schoolyard is $50$ m by $30$ m. A round flower bed of radius $3$ m is in the middle. Find the rest of the yard's area.
+\end{probbox}
+\probsol{
+$50\times30-3\times3\times3.14=1\,500-28.26=1\,471.74$ m$^2$.
+\dapso{$1\,471.74$ m$^2$.}}
+\gap
+\begin{probbox}{4}{\relax}
+A trapezium-shaped garden has bases $30$ m and $20$ m and height $16$ m. A quarter of it is dug out for a pond and the rest is planted. Find the planted area.
+\end{probbox}
+\probsol{
+$S=(30+20)\times16:2=400$ m$^2$.\par Planted: $400\times\dfrac34=300$ m$^2$.
+\dapso{$300$ m$^2$.}}
+\gap
+\begin{probbox}{5}{\relax}
+On a $1:500$ map a rectangular pitch is $6$ cm by $4$ cm. Find its real area.
+\end{probbox}
+\probsol{
+Real size: $6\times500=3\,000$ cm $=30$ m;\par $4\times500=2\,000$ cm $=20$ m.\par Area: $30\times20=600$ m$^2$.
+\dapso{$600$ m$^2$.}}
+\gap
+\begin{probbox}{6}{\relax}
+A classroom $6$ m by $4$ m is tiled with square tiles of side $50$ cm. How many tiles are needed?
+\end{probbox}
+\probsol{
+Room: $24$ m$^2$ $=240\,000$ cm$^2$; one tile: $2\,500$ cm$^2$.\par Tiles: $240\,000:2\,500=96$.
+\dapso{$96$ tiles.}}
+\gap
+\begin{probbox}{7}{\relax}
+Four equal squares of side $0.2$ m are cut from the corners of a $2$ m by $1.5$ m metal sheet. Find the area of metal left.
+\end{probbox}
+\probsol{
+$2\times1.5-4\times0.2\times0.2=3-0.16=2.84$ m$^2$.
+\dapso{$2.84$ m$^2$.}}
+\gap
+\begin{probbox}{8}{\relax}
+A shape is made of a square of side $6$ cm and a semicircle drawn outwards on one side of the square. Find its area and perimeter.
+\end{probbox}
+\probsol{
+Area: $6\times6+3\times3\times3.14:2=36+14.13=50.13$ cm$^2$.\par
+The perimeter is three sides of the square plus the half circle: $6\times3+6\times3.14:2=18+9.42=27.42$ cm.
+\dapso{$50.13$ cm$^2$; $27.42$ cm.}}
+\gap
+\begin{probbox}{9}{\relax}
+The diagonals of rectangle ABCD ($AB=12$ cm, $BC=8$ cm) cross at O. Show that triangles OAB, OBC, OCD and ODA have equal areas, and find each area.
+\end{probbox}
+\probsol{
+O is the midpoint of each diagonal.\par In triangle ABC, BO joins B to the midpoint of AC, so $S_{OAB}=S_{OBC}$; likewise $S_{OBC}=S_{OCD}$ and $S_{OCD}=S_{ODA}$.\par
+Each triangle: $12\times8:4=24$ cm$^2$.
+\dapso{$24$ cm$^2$.}}
+\gap
+\begin{probbox}{10}{\relax}
+On a map at scale $1:1\,000$, a rectangular plot is $6$ cm by $4$ cm. Find its real area.
+\end{probbox}
+\probsol{
+Real length: $6\times1\,000=6\,000$ cm $=60$ m.\par Real width: $4\times1\,000=4\,000$ cm $=40$ m.\par Area: $60\times40=2\,400$ m$^2$.
+\dapso{$2\,400$ m$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+On a map at scale $1:2\,000$, a rectangular plot is $5$ cm by $3$ cm. Find its real area.
+\end{probbox}
+\probsol{
+Real length: $5\times2\,000=10\,000$ cm $=100$ m.\par Real width: $3\times2\,000=6\,000$ cm $=60$ m.\par Area: $100\times60=6\,000$ m$^2$.
+\dapso{$6\,000$ m$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+On a map at scale $1:500$, a rectangular plot is $8$ cm by $5$ cm. Find its real area.
+\end{probbox}
+\probsol{
+Real length: $8\times500=4\,000$ cm $=40$ m.\par Real width: $5\times500=2\,500$ cm $=25$ m.\par Area: $40\times25=1\,000$ m$^2$.
+\dapso{$1\,000$ m$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+A room floor is $6$ m by $4$ m, tiled with square tiles of side $40$ cm costing $20\,000$ dong each. Find the number of tiles and their cost (ignore the joints).
+\end{probbox}
+\probsol{
+Floor: $6\times4=24$ m$^2$.\par One tile: $40\times40=1600$ cm$^2$ $=0.16$ m$^2$.\par Tiles: $24:0.16=150$.\par Cost: $20\,000\times150=3\,000\,000$ dong.
+\dapso{$150$ tiles; $3\,000\,000$ dong.}}
+\gap
+\begin{probbox}{14}{\relax}
+A room floor is $8$ m by $5$ m, tiled with square tiles of side $50$ cm costing $35\,000$ dong each. Find the number of tiles and their cost (ignore the joints).
+\end{probbox}
+\probsol{
+Floor: $8\times5=40$ m$^2$.\par One tile: $50\times50=2500$ cm$^2$ $=0.25$ m$^2$.\par Tiles: $40:0.25=160$.\par Cost: $35\,000\times160=5\,600\,000$ dong.
+\dapso{$160$ tiles; $5\,600\,000$ dong.}}
+\gap
+\begin{probbox}{15}{\relax}
+A room floor is $4.8$ m by $3.6$ m, tiled with square tiles of side $60$ cm costing $45\,000$ dong each. Find the number of tiles and their cost (ignore the joints).
+\end{probbox}
+\probsol{
+Floor: $4.8\times3.6=17.28$ m$^2$.\par One tile: $60\times60=3600$ cm$^2$ $=0.36$ m$^2$.\par Tiles: $17.28:0.36=48$.\par Cost: $45\,000\times48=2\,160\,000$ dong.
+\dapso{$48$ tiles; $2\,160\,000$ dong.}}
+\gap
+\begin{probbox}{16}{\relax}
+A rectangular plot is $30$ m long and its width is $\dfrac{2}{3}$ of the length. A $12$ m $\times$ $8$ m house is built on it. Find the remaining area.
+\end{probbox}
+\probsol{
+Width: $30\times\dfrac{2}{3}=20$ m.\par Plot: $600$ m$^2$.\par House: $96$ m$^2$.\par Remaining: $504$ m$^2$.
+\dapso{$504$ m$^2$.}}
+\gap
+\begin{probbox}{17}{\relax}
+A rectangular plot is $40$ m long and its width is $\dfrac{3}{4}$ of the length. A $15$ m $\times$ $10$ m house is built on it. Find the remaining area.
+\end{probbox}
+\probsol{
+Width: $40\times\dfrac{3}{4}=30$ m.\par Plot: $1\,200$ m$^2$.\par House: $150$ m$^2$.\par Remaining: $1\,050$ m$^2$.
+\dapso{$1\,050$ m$^2$.}}
+\gap
+\begin{probbox}{18}{\relax}
+A playground is $40$ m by $25$ m with a round sandpit of radius $3$ m in the middle. Find the area of the rest.
+\end{probbox}
+\probsol{
+Playground: $1000$ m$^2$.\par Sandpit: $3\times3\times3.14=28.26$ m$^2$.\par Rest: $971.74$ m$^2$.
+\dapso{$971.74$ m$^2$.}}
+\gap
+\begin{probbox}{19}{\relax}
+A playground is $30$ m by $20$ m with a round sandpit of radius $5$ m in the middle. Find the area of the rest.
+\end{probbox}
+\probsol{
+Playground: $600$ m$^2$.\par Sandpit: $5\times5\times3.14=78.5$ m$^2$.\par Rest: $521.5$ m$^2$.
+\dapso{$521.5$ m$^2$.}}
+\gap
+\begin{probbox}{20}{\relax}
+A shape is a square of side $8$ cm with a semicircle on one side (diameter $=$ that side), outward. Find its area.
+\end{probbox}
+\probsol{
+Square: $64$ cm$^2$.\par Semicircle of radius $4$ cm: $25.12$ cm$^2$.\par Total: $89.12$ cm$^2$.
+\dapso{$89.12$ cm$^2$.}}
+\gap
+\begin{probbox}{21}{\relax}
+A shape is a square of side $10$ cm with a semicircle on one side (diameter $=$ that side), outward. Find its area.
+\end{probbox}
+\probsol{
+Square: $100$ cm$^2$.\par Semicircle of radius $5$ cm: $39.25$ cm$^2$.\par Total: $139.25$ cm$^2$.
+\dapso{$139.25$ cm$^2$.}}
+\gap
+\begin{probbox}{22}{\relax}
+From a $3$ dm $\times$ $2$ dm card, a square of side $0.4$ dm is cut from each corner. Find the area left.
+\end{probbox}
+\probsol{
+Card: $6$ dm$^2$.\par Four squares: $0.64$ dm$^2$.\par Left: $5.36$ dm$^2$.
+\dapso{$5.36$ dm$^2$.}}
+\gap
+\begin{probbox}{23}{\relax}
+From a $5$ dm $\times$ $4$ dm card, a square of side $0.5$ dm is cut from each corner. Find the area left.
+\end{probbox}
+\probsol{
+Card: $20$ dm$^2$.\par Four squares: $1$ dm$^2$.\par Left: $19$ dm$^2$.
+\dapso{$19$ dm$^2$.}}
+\gap
+\begin{probbox}{24}{\relax}
+A trapezium-shaped garden has bases $40$ m and $30$ m and height $20$ m. $\dfrac{1}{5}$ of it is a pond; vegetables grow on the rest at $3$ kg per m$^2$. Find the harvest.
+\end{probbox}
+\probsol{
+Garden: $700$ m$^2$.\par Pond: $140$ m$^2$.\par Vegetables: $560$ m$^2$.\par Harvest: $560\times3=1\,680$ kg.
+\dapso{$1\,680$ kg.}}
+\gap
+\begin{probbox}{25}{\relax}
+A trapezium-shaped garden has bases $60$ m and $40$ m and height $30$ m. $\dfrac{1}{3}$ of it is a pond; vegetables grow on the rest at $2$ kg per m$^2$. Find the harvest.
+\end{probbox}
+\probsol{
+Garden: $1\,500$ m$^2$.\par Pond: $500$ m$^2$.\par Vegetables: $1\,000$ m$^2$.\par Harvest: $1\,000\times2=2\,000$ kg.
+\dapso{$2\,000$ kg.}}
+\gap
+\begin{probbox}{26}{\relax}
+An L-shaped plot is a $20$ m $\times$ $15$ m rectangle with a $8$ m $\times$ $6$ m corner removed. Find its area.
+\end{probbox}
+\probsol{
+Big rectangle: $300$ m$^2$.\par Cut-out: $48$ m$^2$.\par Area: $252$ m$^2$.
+\dapso{$252$ m$^2$.}}
+\gap
+\begin{probbox}{27}{\relax}
+An L-shaped plot is a $30$ m $\times$ $24$ m rectangle with a $12$ m $\times$ $10$ m corner removed. Find its area.
+\end{probbox}
+\probsol{
+Big rectangle: $720$ m$^2$.\par Cut-out: $120$ m$^2$.\par Area: $600$ m$^2$.
+\dapso{$600$ m$^2$.}}
+\gap
+\begin{probbox}{28}{\relax}
+A rectangular garden has perimeter $60$ m, and its width is $\dfrac{2}{3}$ of its length. Find its area.
+\end{probbox}
+\probsol{
+Half perimeter: $30$ m.\par $5$ parts; one part: $6$ m.\par Length $18$ m, width $12$ m.\par Area: $216$ m$^2$.
+\dapso{$216$ m$^2$.}}
+\gap
+\begin{probbox}{29}{\relax}
+A rectangular garden has perimeter $84$ m, and its width is $\dfrac{3}{4}$ of its length. Find its area.
+\end{probbox}
+\probsol{
+Half perimeter: $42$ m.\par $7$ parts; one part: $6$ m.\par Length $24$ m, width $18$ m.\par Area: $432$ m$^2$.
+\dapso{$432$ m$^2$.}}
+\gap
+\begin{probbox}{30}{\relax}
+A rectangular garden has perimeter $100$ m, and its width is $\dfrac{1}{4}$ of its length. Find its area.
+\end{probbox}
+\probsol{
+Half perimeter: $50$ m.\par $5$ parts; one part: $10$ m.\par Length $40$ m, width $10$ m.\par Area: $400$ m$^2$.
+\dapso{$400$ m$^2$.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+A rectangular garden has perimeter $56$ m. Adding $4$ m to its width and taking $4$ m from its length makes it a square. Find its area.
+\end{probbox}
+\probsol{
+The length is $4+4=8$ m more than the width; half the perimeter is $28$ m.\par Length: $(28+8):2=18$ m; width: $10$ m.\par Area: $180$ m$^2$.
+\dapso{$180$ m$^2$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+Adding $5$ m to the length of a rectangular garden adds $60$ m$^2$; taking $3$ m from its width removes $75$ m$^2$. Find its area.
+\end{probbox}
+\probsol{
+The added strip is $5$ m by the width, so the width is $60:5=12$ m.\par The removed strip is $3$ m by the length, so the length is $75:3=25$ m.\par
+Area: $25\times12=300$ m$^2$.
+\dapso{$300$ m$^2$.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+\begin{minipage}[t]{0.62\linewidth}
+A $40$ m by $25$ m vegetable garden has two paths $2$ m wide crossing at right angles, running the full length and width (see the figure). Find the planted area.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.085]
+\fill[tmGreen!25] (0,0) rectangle (40,25);
+\fill[white] (0,11.5) rectangle (40,13.5); \fill[white] (24,0) rectangle (26,25);
+\draw[geo] (0,0) rectangle (40,25);
+\draw[Slate] (0,11.5)--(40,11.5) (0,13.5)--(40,13.5) (24,0)--(24,25) (26,0)--(26,25);
+\node[dim] at (20,-3){$40$ m}; \node[dim,left] at (0,6){$25$ m};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Pushing the planted pieces together gives a rectangle $40-2=38$ m long and $25-2=23$ m wide.\par
+Planted area: $38\times23=874$ m$^2$.
+\dapso{$874$ m$^2$.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+The two largest possible non-overlapping circles are cut from a $20$ cm by $10$ cm card. Find the area of card left over.
+\end{probbox}
+\probsol{
+Each circle has diameter $10$ cm ($r=5$ cm), and two fit side by side along the $20$ cm length.\par
+Left over: $20\times10-2\times5\times5\times3.14=200-157=43$ cm$^2$.
+\dapso{$43$ cm$^2$.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+Triangle ABC has a right angle at A, $AB=12$ cm, $AC=16$ cm and $BC=20$ cm. Semicircles are drawn outwards on AB, AC and BC. Show that the semicircle on BC has the same area as the other two together.
+\end{probbox}
+\probsol{
+Semicircle on AB ($r=6$): $6\times6\times3.14:2=56.52$ cm$^2$.\par
+Semicircle on AC ($r=8$): $8\times8\times3.14:2=100.48$ cm$^2$.\par
+Semicircle on BC ($r=10$): $10\times10\times3.14:2=157$ cm$^2$ $=56.52+100.48$.
+\dapso{$157=56.52+100.48$ (cm$^2$).}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+A rectangular garden has perimeter $64$ m. Adding $5$ m to the width and taking $5$ m off the length makes it a square. Find its area.
+\end{probbox}
+\probsol{
+Then length and width are equal, so the length is $5+5=10$ m longer.\par Half perimeter: $32$ m.\par Length: $(32+10):2=21$ m; width: $11$ m.\par Area: $231$ m$^2$.
+\dapso{$231$ m$^2$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+A rectangular garden has perimeter $80$ m. Adding $3$ m to the width and taking $3$ m off the length makes it a square. Find its area.
+\end{probbox}
+\probsol{
+Then length and width are equal, so the length is $3+3=6$ m longer.\par Half perimeter: $40$ m.\par Length: $(40+6):2=23$ m; width: $17$ m.\par Area: $391$ m$^2$.
+\dapso{$391$ m$^2$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+For a rectangular garden, adding $6$ m to the length adds $84$ m$^2$; taking $4$ m off the width removes $72$ m$^2$. Find its area.
+\end{probbox}
+\probsol{
+The added strip is $6$ m by the width, so width $=84:6=14$ m.\par The removed strip is $4$ m by the length, so length $=72:4=18$ m.\par Area: $18\times14=252$ m$^2$.
+\dapso{$252$ m$^2$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+For a rectangular garden, adding $4$ m to the length adds $40$ m$^2$; taking $2$ m off the width removes $48$ m$^2$. Find its area.
+\end{probbox}
+\probsol{
+The added strip is $4$ m by the width, so width $=40:4=10$ m.\par The removed strip is $2$ m by the length, so length $=48:2=24$ m.\par Area: $24\times10=240$ m$^2$.
+\dapso{$240$ m$^2$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+A garden is $30$ m by $20$ m. Two paths $2$ m wide cross it, one parallel to each side. Find the area left for planting.
+\end{probbox}
+\probsol{
+Long path: $60$ m$^2$; short path: $40$ m$^2$.\par The $2\times2=4$ m$^2$ crossing is counted twice.\par Paths: $60+40-4=96$ m$^2$.\par Left: $600-96=504$ m$^2$.
+\dapso{$504$ m$^2$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+A garden is $45$ m by $32$ m. Two paths $3$ m wide cross it, one parallel to each side. Find the area left for planting.
+\end{probbox}
+\probsol{
+Long path: $135$ m$^2$; short path: $96$ m$^2$.\par The $3\times3=9$ m$^2$ crossing is counted twice.\par Paths: $135+96-9=222$ m$^2$.\par Left: $1440-222=1\,218$ m$^2$.
+\dapso{$1\,218$ m$^2$.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+A $25$ m by $10$ m pool has a paved strip $2$ m wide all round. Find the area of the strip.
+\end{probbox}
+\probsol{
+Outer size: $29$ m by $14$ m.\par Outer area: $406$ m$^2$.\par Pool: $250$ m$^2$.\par Strip: $156$ m$^2$.
+\dapso{$156$ m$^2$.}}
+\gap
+\begin{probbox}{43}{\stars{2}}
+Rectangle ABCD has $AB=12$ cm, $BC=8$ cm. A semicircle on AB is drawn inside it. Find the area of the rectangle outside the semicircle.
+\end{probbox}
+\probsol{
+Radius $6$ cm $<8$ cm, so the semicircle fits inside.\par Semicircle: $6\times6\times3.14:2=56.52$ cm$^2$.\par Rectangle: $96$ cm$^2$.\par Required: $96-56.52=39.48$ cm$^2$.
+\dapso{$39.48$ cm$^2$.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+Square ABCD has side $10$ cm. Joining the midpoints of its sides gives square MNPQ. Find its area.
+\end{probbox}
+\probsol{
+Each corner is a right triangle with legs $5$ cm: $12.5$ cm$^2$.\par Four of them: $50$ cm$^2$.\par $S_{MNPQ}=100-50=50$ cm$^2$, half the original.
+\dapso{$50$ cm$^2$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+A rectangle is cut into four smaller rectangles by one line parallel to each side. Three have areas $12$, $18$ and $20$ cm$^2$ ($12$ and $18$ side by side on top, $20$ below the $12$). Find the fourth.
+\end{probbox}
+\probsol{
+The top two share a height, so their widths are in the ratio $12:18=\dfrac23$.\par The bottom two share a height and have the same widths.\par So the fourth is $20:\dfrac23=30$ cm$^2$.
+\dapso{$30$ cm$^2$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+A $40$ cm by $30$ cm picture has a frame $5$ cm wide all round. Find the area of the frame.
+\end{probbox}
+\probsol{
+Outer size: $50$ cm by $40$ cm.\par Outer area: $2\,000$ cm$^2$.\par Picture: $1\,200$ cm$^2$.\par Frame: $800$ cm$^2$.
+\dapso{$800$ cm$^2$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+A \emph{flower} shape is a square of side $4$ cm with four outward semicircles on its sides. Find its area.
+\end{probbox}
+\probsol{
+Square: $16$ cm$^2$.\par Each semicircle (radius $2$ cm): $6.28$ cm$^2$.\par Four: $25.12$ cm$^2$.\par Flower: $41.12$ cm$^2$.
+\dapso{$41.12$ cm$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+A plot has a real area of $4\,800$ m$^2$. What is its area in cm$^2$ on a $1:2\,000$ map?
+\end{probbox}
+\probsol{
+Lengths shrink $2\,000$ times, so areas shrink $2\,000\times2\,000=4\,000\,000$ times.\par $4\,800$ m$^2$ $=48\,000\,000$ cm$^2$.\par On the map: $12$ cm$^2$.
+\dapso{$12$ cm$^2$.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+A rectangular garden has perimeter $120$ m and its length is twice its width. Vegetables grow on $\dfrac34$ of it at $2$ kg per m$^2$. How much is harvested?
+\end{probbox}
+\probsol{
+Half perimeter $60$ m; width $60:3=20$ m; length $40$ m.\par Area: $800$ m$^2$.\par Vegetables: $800\times\dfrac34=600$ m$^2$.\par Harvest: $1\,200$ kg.
+\dapso{$1\,200$ kg.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+A right-trapezium field has bases $50$ m and $30$ m. Extending the shorter base by $20$ m turns it into a rectangle and adds $400$ m$^2$. Find the original area.
+\end{probbox}
+\probsol{
+The added part is a right triangle with legs $20$ m and the height.\par Height: $400\times2:20=40$ m.\par Original area: $(50+30)\times40:2=1\,600$ m$^2$.
+\dapso{$1\,600$ m$^2$.}}
+\clearpage
+\begingroup\setbox0=\vbox{\section*{Mixed Review -- Paper 1}}\endgroup\renewcommand{\CurTopic}{Mixed Review -- Paper 1}\setcounter{seccnt}{0}\phantomsection\pdfbookmark[0]{Mixed Review -- Paper 1}{rev1}\label{toc:rev1}\par\vspace{0.1cm}\noindent\begin{tikzpicture}[baseline=-0.5ex]\node[circle,fill=tmOrange,text=white,font=\large\bfseries,minimum size=0.95cm,inner sep=0pt](cn){\faPen};\node[anchor=west,font=\LARGE\bfseries,text=tmOrange] at ([xshift=12pt]cn.east){Mixed Review -- Paper 1};\end{tikzpicture}\par\vspace{4pt}\noindent\textcolor{tmOrange}{\rule{\linewidth}{2pt}}\par\vspace{0.5cm}
+
+\begin{knowbox}
+\textbf{Covers:} Chapters 1 -- 8 (whole numbers, fractions, decimals, standard word problems, proportion, work problems). \quad \textbf{Suggested time:} $60$ minutes.
+\end{knowbox}
+\gap
+\begin{probbox}{1}{\relax}
+Consider $4,\ 7,\ 10,\ \ldots,\ 301$. \ \pa{a} How many terms are there? \ \pa{b} Find their sum.
+\end{probbox}
+\probsol{
+\pa{a} $(301-4):3+1=100$ terms.\par \pa{b} $(4+301)\times100:2=15\,250$.
+\dapso{$100$; $15\,250$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Calculate cleverly: $25\times37\times4+63\times100$.
+\end{probbox}
+\probsol{
+$=37\times100+63\times100=(37+63)\times100=10\,000$.
+\dapso{$10\,000$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Compare $\dfrac79$ and $\dfrac9{11}$ without finding a common denominator.
+\end{probbox}
+\probsol{
+$1-\dfrac79=\dfrac29$ and $1-\dfrac9{11}=\dfrac2{11}$.\par Since $\dfrac29>\dfrac2{11}$, $\dfrac79<\dfrac9{11}$.
+\dapso{$\dfrac79<\dfrac9{11}$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Calculate: $\dfrac12+\dfrac16+\dfrac1{12}+\dfrac1{20}+\dfrac1{30}$.
+\end{probbox}
+\probsol{
+$=\left(1-\dfrac12\right)+\left(\dfrac12-\dfrac13\right)+\cdots+\left(\dfrac15-\dfrac16\right)=1-\dfrac16=\dfrac56$.
+\dapso{$\dfrac56$.}}
+\gap
+\begin{probbox}{5}{\relax}
+Calculate: $2\dfrac34+1\dfrac56$.
+\end{probbox}
+\probsol{
+$=\dfrac{11}4+\dfrac{11}6=\dfrac{33}{12}+\dfrac{22}{12}=\dfrac{55}{12}=4\dfrac7{12}$.
+\dapso{$4\dfrac7{12}$.}}
+\gap
+\begin{probbox}{6}{\relax}
+Write as decimals: \ \pa{a} $3$ m $5$ cm $=\ldots$ m; \ \pa{b} $2$ kg $75$ g $=\ldots$ kg; \ \pa{c} $4$ t $300$ kg $=\ldots$ t.
+\end{probbox}
+\probsol{
+\pa{a} $3.05$ m;\par \pa{b} $2.075$ kg;\par \pa{c} $4.3$ t.
+\dapso{$3.05$; $2.075$; $4.3$.}}
+\gap
+\begin{probbox}{7}{\relax}
+Moving the decimal point of A one place to the right gives B. If $A+B=69.3$, find A.
+\end{probbox}
+\probsol{
+$B=10\times A$, so $11\times A=69.3$ and $A=69.3:11=6.3$.
+\dapso{$A=6.3$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Class 5A has $35$ pupils, and $\dfrac25$ of them are girls. How many boys are there?
+\end{probbox}
+\probsol{
+Girls: $35\times\dfrac25=14$.\par Boys: $35-14=21$.
+\dapso{$21$ boys.}}
+\gap
+\begin{probbox}{9}{\relax}
+$\dfrac34$ of Ha's notebooks is $36$. How many notebooks does Ha have?
+\end{probbox}
+\probsol{
+$36:\dfrac34=48$.
+\dapso{$48$ notebooks.}}
+\gap
+\begin{probbox}{10}{\relax}
+Two numbers add up to $96$, and the smaller is $\dfrac35$ of the larger. Find them.
+\end{probbox}
+\probsol{
+$8$ parts in all.\par Smaller: $96:8\times3=36$; larger: $60$.
+\dapso{$36$ and $60$.}}
+\gap
+\begin{probbox}{11}{\relax}
+A mother is $28$ years older than her child, whose age is $\dfrac15$ of hers. Find both ages.
+\end{probbox}
+\probsol{
+The difference is $5-1=4$ parts.\par Child: $28:4=7$; mother: $35$.
+\dapso{Child $7$, mother $35$ years.}}
+\gap
+\begin{probbox}{12}{\relax}
+A class has girls equal to $\dfrac34$ of the boys. If $2$ girls join, the girls are $\dfrac56$ of the boys. How many boys and girls were there at first?
+\end{probbox}
+\probsol{
+The boys do not change.\par The $2$ girls are $\dfrac56-\dfrac34=\dfrac1{12}$ of the boys, so there are $24$ boys and $24\times\dfrac34=18$ girls.
+\dapso{$24$ boys, $18$ girls.}}
+\gap
+\begin{probbox}{13}{\relax}
+$8$ people build a stretch of dyke in $15$ days. How long would $12$ people take? (Everyone works at the same rate.)
+\end{probbox}
+\probsol{
+$8\times15=120$ worker-days;\par $120:12=10$ days.
+\dapso{$10$ days.}}
+\gap
+\begin{probbox}{14}{\relax}
+Pipe I fills a tank in $3$ hours, pipe II in $6$ hours. Starting empty with both open, how long until it is full?
+\end{probbox}
+\probsol{
+Each hour: $\dfrac13+\dfrac16=\dfrac12$ of the tank.\par Full after $2$ hours.
+\dapso{$2$ hours.}}
+\gap
+\begin{probbox}{15}{\stars{1}}
+Find a whole number that increases by $230$ when the digit $5$ is written on its right.
+\end{probbox}
+\probsol{
+The new number is $10$ times the old plus $5$, so $9$ times the old is $230-5=225$.\par The number is $225:9=25$.
+\dapso{$25$.}}
+\gap
+\begin{probbox}{16}{\stars{1}}
+Tam alone finishes a job in $12$ days. Tam and Hung work together for $4$ days; then Tam stops, and Hung needs $6$ more days to finish. How long would Hung take alone?
+\end{probbox}
+\probsol{
+In $4$ days Tam does $\dfrac4{12}=\dfrac13$.\par Hung works $4+6=10$ days for the other $\dfrac23$, i.e.\par $\dfrac1{15}$ a day.\par Alone: $15$ days.
+\dapso{$15$ days.}}
+\clearpage
+\begingroup\setbox0=\vbox{\section*{Mixed Review -- Paper 2}}\endgroup\renewcommand{\CurTopic}{Mixed Review -- Paper 2}\setcounter{seccnt}{0}\phantomsection\pdfbookmark[0]{Mixed Review -- Paper 2}{rev2}\label{toc:rev2}\par\vspace{0.1cm}\noindent\begin{tikzpicture}[baseline=-0.5ex]\node[circle,fill=tmOrange,text=white,font=\large\bfseries,minimum size=0.95cm,inner sep=0pt](cn){\faPen};\node[anchor=west,font=\LARGE\bfseries,text=tmOrange] at ([xshift=12pt]cn.east){Mixed Review -- Paper 2};\end{tikzpicture}\par\vspace{4pt}\noindent\textcolor{tmOrange}{\rule{\linewidth}{2pt}}\par\vspace{0.5cm}
+
+\begin{knowbox}
+\textbf{Covers:} Chapters 9 -- 15 (two differences, working backwards, triangles, trapezia, circles, composite area). \quad \textbf{Suggested time:} $60$ minutes.
+\end{knowbox}
+\gap
+\begin{probbox}{1}{\relax}
+Sharing marbles: $3$ each leaves $5$ over; $5$ each is $7$ short. Find the number of children and of marbles.
+\end{probbox}
+\probsol{
+Children: $(5+7):(5-3)=6$.\par Marbles: $3\times6+5=23$.
+\dapso{$6$ children, $23$ marbles.}}
+\gap
+\begin{probbox}{2}{\relax}
+Chickens and dogs: $30$ heads and $84$ legs. How many of each?
+\end{probbox}
+\probsol{
+If all were chickens: $60$ legs, $24$ too few.\par Dogs: $24:2=12$; chickens: $18$.
+\dapso{$18$ chickens, $12$ dogs.}}
+\gap
+\begin{probbox}{3}{\relax}
+Find a number such that subtracting $7$, multiplying by $3$ and adding $12$ gives $60$.
+\end{probbox}
+\probsol{
+$60-12=48$;\par $48:3=16$;\par $16+7=23$.
+\dapso{$23$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Lan gives her brother half her sweets and $2$ more, keeping $8$. How many did she have?
+\end{probbox}
+\probsol{
+$(8+2)\times2=20$.
+\dapso{$20$ sweets.}}
+\gap
+\begin{probbox}{5}{\relax}
+Find the area of a triangle with base $2.4$ dm and height $1.5$ dm.
+\end{probbox}
+\probsol{
+$2.4\times1.5:2=1.8$ dm$^2$.
+\dapso{$1.8$ dm$^2$.}}
+\gap
+\begin{probbox}{6}{\relax}
+A triangle has area $27$ cm$^2$ and base $9$ cm. Find its height.
+\end{probbox}
+\probsol{
+$27\times2:9=6$ cm.
+\dapso{$6$ cm.}}
+\gap
+\begin{probbox}{7}{\relax}
+Triangle ABC has area $48$ cm$^2$; M is on BC with $BM=\dfrac14BC$. Find the areas of ABM and AMC.
+\end{probbox}
+\probsol{
+$S_{ABM}=48:4=12$ cm$^2$;\par $S_{AMC}=48-12=36$ cm$^2$.
+\dapso{$12$ cm$^2$; $36$ cm$^2$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Find the area of a trapezium with bases $3.2$ m and $2.4$ m and height $1.5$ m.
+\end{probbox}
+\probsol{
+$(3.2+2.4)\times1.5:2=4.2$ m$^2$.
+\dapso{$4.2$ m$^2$.}}
+\gap
+\begin{probbox}{9}{\relax}
+A trapezium has area $98$ cm$^2$ and height $7$ cm; the shorter base is $\dfrac34$ of the longer. Find both bases.
+\end{probbox}
+\probsol{
+Sum of bases: $98\times2:7=28$ cm.\par Shorter: $28:7\times3=12$ cm; longer: $16$ cm.
+\dapso{$12$ cm and $16$ cm.}}
+\gap
+\begin{probbox}{10}{\relax}
+Find the circumference and area of a circle of radius $2.5$ cm.
+\end{probbox}
+\probsol{
+$C=2.5\times2\times3.14=15.7$ cm;\par $S=2.5\times2.5\times3.14=19.625$ cm$^2$.
+\dapso{$15.7$ cm; $19.625$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+A circle has circumference $31.4$ m. Find its area.
+\end{probbox}
+\probsol{
+$d=31.4:3.14=10$ m, $r=5$ m;\par $S=5\times5\times3.14=78.5$ m$^2$.
+\dapso{$78.5$ m$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+A $12$ cm by $8$ cm card has a round hole of radius $3$ cm. Find the area of card left.
+\end{probbox}
+\probsol{
+$12\times8-3\times3\times3.14=96-28.26=67.74$ cm$^2$.
+\dapso{$67.74$ cm$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+On a $1:2\,000$ map, a square plot has side $3$ cm. Find its real area.
+\end{probbox}
+\probsol{
+Real side: $3\times2\,000=6\,000$ cm $=60$ m.\par Area: $60\times60=3\,600$ m$^2$.
+\dapso{$3\,600$ m$^2$.}}
+\gap
+\begin{probbox}{14}{\stars{1}}
+A rectangle has perimeter $48$ cm, and its length is $3$ times its width. Find its area.
+\end{probbox}
+\probsol{
+Half the perimeter: $24$ cm.\par Width: $24:4=6$ cm; length: $18$ cm.\par Area: $108$ cm$^2$.
+\dapso{$108$ cm$^2$.}}
+\gap
+\begin{probbox}{15}{\stars{1}}
+A circle sits inside a square, touching all four sides. The square's area is $64$ cm$^2$. Find the circle's area.
+\end{probbox}
+\probsol{
+The square's side is $8$ cm (since $8\times8=64$), so $d=8$ cm and $r=4$ cm.\par $S=4\times4\times3.14=50.24$ cm$^2$.
+\dapso{$50.24$ cm$^2$.}}
+\gap
+\begin{probbox}{16}{\stars{2}}
+Seating pupils: with $4$ per bench, $3$ have no seat; with $5$ per bench, $1$ bench is empty and the last occupied bench has only $3$ pupils. Find the number of benches and pupils.
+\end{probbox}
+\probsol{
+The second way is $5+2=7$ pupils short of full.\par Total difference $3+7=10$; per bench $1$.\par Benches: $10$; pupils: $4\times10+3=43$.
+\dapso{$10$ benches, $43$ pupils.}}
+\clearpage
+\begingroup\setbox0=\vbox{\section*{End-of-Book 1 Test}}\endgroup\renewcommand{\CurTopic}{End-of-Book 1 Test}\setcounter{seccnt}{0}\phantomsection\pdfbookmark[0]{End-of-Book 1 Test}{test1}\label{toc:test1}\par\vspace{0.1cm}\noindent\begin{tikzpicture}[baseline=-0.5ex]\node[circle,fill=tmOrange,text=white,font=\large\bfseries,minimum size=0.95cm,inner sep=0pt](cn){\faClipboardCheck};\node[anchor=west,font=\LARGE\bfseries,text=tmOrange] at ([xshift=12pt]cn.east){End-of-Book 1 Test};\end{tikzpicture}\par\vspace{4pt}\noindent\textcolor{tmOrange}{\rule{\linewidth}{2pt}}\par\vspace{0.5cm}
+
+\begin{knowbox}
+\textbf{Time:} $60$ minutes. \quad \textbf{Total:} $10$ marks. \quad \textbf{Questions:} $19$.\\[2pt]\emph{Part A -- $0.4$ mark each. \quad Part B -- $0.5$ mark each. \quad Part C -- $1$ mark each.}
+\end{knowbox}
+\gap
+\dividerbar{Part A -- Quick answers (4 marks)}
+\begin{probbox}{1}{\relax}
+Write $\dfrac{36}{48}$ in its simplest form.
+\end{probbox}
+\probsol{
+Divide top and bottom by $12$: $\dfrac34$.
+\dapso{$\dfrac34$.}}
+\gap
+\begin{probbox}{2}{\relax}
+Work out mentally: $3.75\times10=\ldots$ \quad and \quad $42.5:100=\ldots$
+\end{probbox}
+\probsol{
+Move the decimal point: $37.5$ \ and \ $0.425$.
+\dapso{$37.5$; $0.425$.}}
+\gap
+\begin{probbox}{3}{\relax}
+Write $4\dfrac78$ as a fraction.
+\end{probbox}
+\probsol{
+$\dfrac{4\times8+7}8=\dfrac{39}8$.
+\dapso{$\dfrac{39}8$.}}
+\gap
+\begin{probbox}{4}{\relax}
+Which is the largest of $4.503,\ 4.53,\ 4.5,\ 4.35$?
+\end{probbox}
+\probsol{
+Compare tenths, then hundredths: $4.53$.
+\dapso{$4.53$.}}
+\gap
+\begin{probbox}{5}{\relax}
+$5$ m$^2$ $8$ dm$^2=\ldots$ m$^2$.
+\end{probbox}
+\probsol{
+$8$ dm$^2=0.08$ m$^2$, so the answer is $5.08$ m$^2$.
+\dapso{$5.08$ m$^2$.}}
+\gap
+\begin{probbox}{6}{\relax}
+What is $\dfrac23$ of $45$?
+\end{probbox}
+\probsol{
+$45\times\dfrac23=30$.
+\dapso{$30$.}}
+\gap
+\begin{probbox}{7}{\relax}
+Find a number given that $\dfrac25$ of it is $16$.
+\end{probbox}
+\probsol{
+$16:\dfrac25=40$.
+\dapso{$40$.}}
+\gap
+\begin{probbox}{8}{\relax}
+What is the circumference of a circle with diameter $4$ cm?
+\end{probbox}
+\probsol{
+$4\times3.14=12.56$ cm.
+\dapso{$12.56$ cm.}}
+\gap
+\begin{probbox}{9}{\relax}
+What is the area of a triangle with base $6$ cm and height $5$ cm?
+\end{probbox}
+\probsol{
+$6\times5:2=15$ cm$^2$.
+\dapso{$15$ cm$^2$.}}
+\gap
+\begin{probbox}{10}{\relax}
+What is the area of a trapezium with bases $7$ cm and $5$ cm and height $4$ cm?
+\end{probbox}
+\probsol{
+$(7+5)\times4:2=24$ cm$^2$.
+\dapso{$24$ cm$^2$.}}
+\dividerbar{Part B -- Working out (3 marks)}
+\begin{probbox}{11}{\relax}
+Calculate: $\dfrac34\times\dfrac89:\dfrac23$.
+\end{probbox}
+\probsol{
+$=\dfrac23:\dfrac23=1$.
+\dapso{$1$.}}
+\gap
+\begin{probbox}{12}{\relax}
+Find $x$: \ $x-2\dfrac13=1\dfrac34$.
+\end{probbox}
+\probsol{
+$x=\dfrac73+\dfrac74=\dfrac{28}{12}+\dfrac{21}{12}=\dfrac{49}{12}=4\dfrac1{12}$.
+\dapso{$x=4\dfrac1{12}$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Two numbers add up to $120$ and are in the ratio $\dfrac35$. Find them.
+\end{probbox}
+\probsol{
+$120:8=15$; the numbers are $15\times3=45$ and $15\times5=75$.
+\dapso{$45$ and $75$.}}
+\gap
+\begin{probbox}{14}{\relax}
+$6$ people finish a job in $10$ days. How long would $15$ people take? (Same rate.)
+\end{probbox}
+\probsol{
+$6\times10=60$ worker-days;\par $60:15=4$ days.
+\dapso{$4$ days.}}
+\gap
+\begin{probbox}{15}{\relax}
+Pipe I fills a tank in $6$ hours, pipe II in $12$ hours. Together, starting empty, how long do they take?
+\end{probbox}
+\probsol{
+$\dfrac16+\dfrac1{12}=\dfrac14$ of the tank each hour, so $4$ hours.
+\dapso{$4$ hours.}}
+\gap
+\begin{probbox}{16}{\relax}
+Find the area of a circle of radius $6$ cm.
+\end{probbox}
+\probsol{
+$6\times6\times3.14=113.04$ cm$^2$.
+\dapso{$113.04$ cm$^2$.}}
+\dividerbar{Part C -- Problem solving (3 marks)}
+\begin{probbox}{17}{\stars{1}}
+An and Binh have $54$ marbles in all. If An gives Binh $6$, Binh will have twice as many as An. How many does each have now?
+\end{probbox}
+\probsol{
+The total is unchanged.\par Afterwards An has $54:3=18$ and Binh $36$.\par
+At first: An $18+6=24$; Binh $36-6=30$.
+\dapso{An $24$, Binh $30$ marbles.}}
+\gap
+\begin{probbox}{18}{\stars{1}}
+A shop sells half a roll of cloth and $3$ m more, then $\dfrac13$ of what is left, and $20$ m remain. How long was the roll?
+\end{probbox}
+\probsol{
+$20$ m is $\dfrac23$ of what was left after the first sale, so $20:\dfrac23=30$ m were left.\par
+The roll was $(30+3)\times2=66$ m.
+\dapso{$66$ m.}}
+\gap
+\begin{probbox}{19}{\stars{2}}
+Rectangle ABCD has $AB=24$ cm and $AD=10$ cm; M is the midpoint of CD. \ \pa{a} Find the area of triangle ABM. \ \pa{b} Find the area of trapezium ABMD.
+\end{probbox}
+\probsol{
+\pa{a} ABM has base AB and height AD: $24\times10:2=120$ cm$^2$.\par
+\pa{b} $DM=12$ cm;\par $S_{ABMD}=(24+12)\times10:2=180$ cm$^2$.
+\dapso{\pa{a} $120$ cm$^2$;\par \pa{b} $180$ cm$^2$.}}

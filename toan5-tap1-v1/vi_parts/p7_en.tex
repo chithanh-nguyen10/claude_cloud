@@ -1,0 +1,861 @@
+\begingroup\setbox0=\vbox{\section*{Trapezia and Their Area}}\endgroup
+\chapterhead{13}{Trapezia and Their Area}
+
+\shead{Two parallel bases}
+\begin{knowbox}
+\begin{minipage}[t]{0.6\linewidth}
+A \textbf{trapezium} is a quadrilateral with \emph{one pair of parallel opposite sides}: the \textbf{longer base} and the \textbf{shorter base}. The other two sides are the \textbf{legs}. A trapezium with one leg perpendicular to the bases is a \textbf{right trapezium}.\par
+\smallskip
+The \textbf{height} is the distance between the bases.
+\[S=\frac{(a+b)\times h}{2}\qquad h=\frac{S\times2}{a+b}\qquad a+b=\frac{S\times2}{h}\]
+\textbf{The diagonals.} In trapezium ABCD (AB parallel to CD), triangles ACD and BCD share base CD and have equal heights, so $S_{ACD}=S_{BCD}$; removing the common part gives $S_{AOD}=S_{BOC}$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{4pt}\centering
+\begin{tikzpicture}[scale=0.85]
+\coordinate (D) at (0,0); \coordinate (C) at (4.2,0); \coordinate (A) at (0.9,2.2); \coordinate (B) at (2.9,2.2); \coordinate (H) at (0.9,0);
+\coordinate (O) at (intersection of A--C and B--D);
+\fill[tmBlue!18] (A)--(O)--(D)--cycle; \fill[tmBlue!18] (B)--(O)--(C)--cycle;
+\draw[geo] (A)--(B)--(C)--(D)--cycle; \draw[geo] (A)--(C) (B)--(D);
+\draw[dashed,tmOrange!80!black,line width=0.7pt] (A)--(H); \ramark{H}{C}{A}
+\node[lbl,above] at (A){A}; \node[lbl,above] at (B){B}; \node[lbl,below right] at (C){C}; \node[lbl,below left] at (D){D}; \node[lbl,below=2pt] at (O){O};
+\node[dim,left] at (0.9,1.1){$h$}; \node[dim,above=7pt] at (1.9,2.2){$b$}; \node[dim,below=7pt] at (2.6,0){$a$};
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Find the area of a trapezium with bases $12$ cm and $8$ cm and height $5$ cm.
+\guide
+$S=(12+8)\times5:2=50$ cm$^2$.
+\dapso{$50$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+A trapezium-shaped field has a longer base of $120$ m; the shorter base is $\dfrac23$ of the longer, and the height is the mean of the two bases. Every $100$ m$^2$ yields $64$ kg of paddy. How much paddy does the field yield?
+\guide
+Shorter base: $120\times\dfrac23=80$ m.\par Height: $(120+80):2=100$ m.\par
+Area: $(120+80)\times100:2=10\,000$ m$^2$.\par Paddy: $64\times(10\,000:100)=6\,400$ kg.
+\dapso{$6\,400$ kg.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+A trapezium has area $60$ cm$^2$ and height $6$ cm; the longer base is $4$ cm longer than the shorter. Find both bases.
+\guide
+Sum of the bases: $60\times2:6=20$ cm.\par This is a sum-and-difference problem: longer base $(20+4):2=12$ cm, shorter $8$ cm.
+\dapso{$12$ cm and $8$ cm.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+Trapezium ABCD has shorter base $AB=6$ cm, longer base $CD=9$ cm and height $4$ cm. Find the areas of triangles ABD and BCD, and show that $S_{AOD}=S_{BOC}$ (O is where the diagonals cross).
+\guide
+Both triangles have the trapezium's height: $S_{ABD}=6\times4:2=12$ cm$^2$ and $S_{BCD}=9\times4:2=18$ cm$^2$.\par
+$S_{ACD}=S_{BCD}=18$ cm$^2$ (same base CD, same height).\par Removing their common part, triangle OCD, gives $S_{AOD}=S_{BOC}$.
+\dapso{$12$ cm$^2$; $18$ cm$^2$.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+Find the area of a trapezium with bases $a$, $b$ and height $h$:
+\begin{cols2}
+\pa{a} $a=14$ cm, $b=6$ cm, $h=7$ cm; & \pa{b} $a=2.8$ m, $b=1.6$ m, $h=0.5$ m;\\
+\pa{c} $a=\dfrac34$ dm, $b=\dfrac12$ dm, $h=\dfrac23$ dm; & \pa{d} $a=1.5$ dm, $b=9$ cm, $h=8$ cm.
+\end{cols2}
+\end{probbox}
+\probsol{
+\pa{a} $(14+6)\times7:2=70$ cm$^2$.\par \pa{b} $(2.8+1.6)\times0.5:2=1.1$ m$^2$.\par \pa{c} $\left(\dfrac34+\dfrac12\right)\times\dfrac23:2=\dfrac5{12}$ dm$^2$.\par \pa{d} $1.5$ dm $=15$ cm; $(15+9)\times8:2=96$ cm$^2$.
+\dapso{$70$ cm$^2$; $1.1$ m$^2$; $\dfrac5{12}$ dm$^2$; $96$ cm$^2$.}}
+\gap
+\begin{probbox}{2}{\relax}
+A right trapezium has bases $10$ cm and $7$ cm, and the leg perpendicular to them is $6$ cm. Find its area.
+\end{probbox}
+\probsol{
+The perpendicular leg is the height: $S=(10+7)\times6:2=51$ cm$^2$.
+\dapso{$51$ cm$^2$.}}
+\gap
+\begin{probbox}{3}{\relax}
+A trapezium has area $72$ cm$^2$ and bases $10$ cm and $14$ cm. Find its height.
+\end{probbox}
+\probsol{
+$h=72\times2:(10+14)=6$ cm.
+\dapso{$6$ cm.}}
+\gap
+\begin{probbox}{4}{\relax}
+A trapezium has area $45$ m$^2$, height $5$ m and shorter base $7$ m. Find the longer base.
+\end{probbox}
+\probsol{
+Sum of bases: $45\times2:5=18$ m.\par Longer base: $18-7=11$ m.
+\dapso{$11$ m.}}
+\gap
+\begin{probbox}{5}{\relax}
+A trapezium-shaped field has bases $60$ m and $40$ m and height $30$ m. Every $100$ m$^2$ yields $70$ kg of paddy. How much paddy does the field yield?
+\end{probbox}
+\probsol{
+Area: $(60+40)\times30:2=1\,500$ m$^2$.\par Paddy: $70\times15=1\,050$ kg.
+\dapso{$1\,050$ kg.}}
+\gap
+\begin{probbox}{6}{\relax}
+A trapezium's bases add up to $48$ cm; the shorter is $\dfrac35$ of the longer, and the height is $\dfrac14$ of the longer base. Find its area.
+\end{probbox}
+\probsol{
+Longer base: $48:(3+5)\times5=30$ cm; height: $30\times\dfrac14=7.5$ cm.\par $S=48\times7.5:2=180$ cm$^2$.
+\dapso{$180$ cm$^2$.}}
+\gap
+\begin{probbox}{7}{\relax}
+A trapezium has bases $25$ cm and $15$ cm. Lengthening the longer base by $5$ cm adds $20$ cm$^2$ to the area. Find the original area.
+\end{probbox}
+\probsol{
+The added part is a triangle with base $5$ cm and the trapezium's height: $h=20\times2:5=8$ cm.\par $S=(25+15)\times8:2=160$ cm$^2$.
+\dapso{$160$ cm$^2$.}}
+\gap
+\begin{probbox}{8}{\relax}
+Rectangle ABCD has $AB=20$ cm and $BC=12$ cm. M is on AB with $AM=8$ cm. Find the area of trapezium MBCD.
+\end{probbox}
+\probsol{
+MBCD has bases $MB=12$ cm and $CD=20$ cm and height $BC=12$ cm: $S=(12+20)\times12:2=192$ cm$^2$.\par
+\emph{Another way:} $20\times12-8\times12:2=240-48=192$ cm$^2$.
+\dapso{$192$ cm$^2$.}}
+\gap
+\begin{probbox}{9}{\relax}
+Trapezium ABCD has $AB=4$ cm, $CD=10$ cm and height $6$ cm. Find the areas of triangles ABC and ACD.
+\end{probbox}
+\probsol{
+$S_{ABC}=4\times6:2=12$ cm$^2$;\par $S_{ACD}=10\times6:2=30$ cm$^2$.\par \emph{Check:} $12+30=42=(4+10)\times6:2$.
+\dapso{$12$ cm$^2$; $30$ cm$^2$.}}
+\gap
+\begin{probbox}{10}{\relax}
+Find the area of a trapezium with bases $15$ cm and $9$ cm and height $6$ cm.
+\end{probbox}
+\probsol{
+$S=(15+9)\times6:2=72$ cm$^2$.
+\dapso{$72$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Find the area of a trapezium with bases $6.5$ cm and $3.5$ cm and height $4.2$ cm.
+\end{probbox}
+\probsol{
+$S=(6.5+3.5)\times4.2:2=21$ cm$^2$.
+\dapso{$21$ cm$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+Find the area of a trapezium with bases $\dfrac34$ m and $\dfrac12$ m and height $\dfrac23$ m.
+\end{probbox}
+\probsol{
+$S=\left(\dfrac34+\dfrac12\right)\times\dfrac23:2=\dfrac54\times\dfrac23:2=\dfrac5{12}$ m$^2$.
+\dapso{$\dfrac5{12}$ m$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Find the area of a trapezium with bases $14$ dm and $10$ dm and height $7.5$ dm.
+\end{probbox}
+\probsol{
+$S=(14+10)\times7.5:2=90$ dm$^2$.
+\dapso{$90$ dm$^2$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Find the area of a trapezium with bases $1.2$ m and $80$ cm and height $5$ dm.
+\end{probbox}
+\probsol{
+In decimetres: $1.2$ m $=12$ dm; $80$ cm $=8$ dm.\par $S=(12+8)\times5:2=50$ dm$^2$.
+\dapso{$50$ dm$^2$.}}
+\gap
+\begin{probbox}{15}{\relax}
+A trapezium has area $84$ cm$^2$ and bases $16$ cm and $12$ cm. Find its height.
+\end{probbox}
+\probsol{
+Height $=$ area $\times2\,:$ sum of bases.\par $h=84\times2:(16+12)=6$ cm.
+\dapso{$6$ cm.}}
+\gap
+\begin{probbox}{16}{\relax}
+A trapezium has area $45$ cm$^2$ and bases $8.5$ cm and $6.5$ cm. Find its height.
+\end{probbox}
+\probsol{
+Height $=$ area $\times2\,:$ sum of bases.\par $h=45\times2:(8.5+6.5)=6$ cm.
+\dapso{$6$ cm.}}
+\gap
+\begin{probbox}{17}{\relax}
+A trapezium has area $150$ cm$^2$ and bases $23$ cm and $17$ cm. Find its height.
+\end{probbox}
+\probsol{
+Height $=$ area $\times2\,:$ sum of bases.\par $h=150\times2:(23+17)=7.5$ cm.
+\dapso{$7.5$ cm.}}
+\gap
+\begin{probbox}{18}{\relax}
+A trapezium has area $96$ cm$^2$, height $8$ cm and shorter base $10$ cm. Find the longer base.
+\end{probbox}
+\probsol{
+Sum of bases: $96\times2:8=24$ cm.\par Longer base: $24-10=14$ cm.
+\dapso{$14$ cm.}}
+\gap
+\begin{probbox}{19}{\relax}
+A trapezium has area $63$ cm$^2$, height $7$ cm and shorter base $7.5$ cm. Find the longer base.
+\end{probbox}
+\probsol{
+Sum of bases: $63\times2:7=18$ cm.\par Longer base: $18-7.5=10.5$ cm.
+\dapso{$10.5$ cm.}}
+\gap
+\begin{probbox}{20}{\relax}
+A trapezium has area $110$ cm$^2$, height $10$ cm and shorter base $9$ cm. Find the longer base.
+\end{probbox}
+\probsol{
+Sum of bases: $110\times2:10=22$ cm.\par Longer base: $22-9=13$ cm.
+\dapso{$13$ cm.}}
+\gap
+\begin{probbox}{21}{\relax}
+A trapezium-shaped field has bases $80$ m and $50$ m and height $40$ m. Every $100$ m$^2$ yields $65$ kg of paddy. What is the total yield?
+\end{probbox}
+\probsol{
+Area: $(80+50)\times40:2=2\,600$ m$^2$.\par Yield: $2\,600:100\times65=1\,690$ kg.
+\dapso{$1\,690$ kg.}}
+\gap
+\begin{probbox}{22}{\relax}
+A trapezium-shaped field has bases $150$ m and $90$ m and height $60$ m. Every $100$ m$^2$ yields $60$ kg of paddy. What is the total yield?
+\end{probbox}
+\probsol{
+Area: $(150+90)\times60:2=7\,200$ m$^2$.\par Yield: $7\,200:100\times60=4\,320$ kg.
+\dapso{$4\,320$ kg.}}
+\gap
+\begin{probbox}{23}{\relax}
+A trapezium's bases add up to $36$ cm and differ by $8$ cm; its height is $10$ cm. Find each base and the area.
+\end{probbox}
+\probsol{
+Longer base: $(36+8):2=22$ cm; shorter: $14$ cm.\par Area: $36\times10:2=180$ cm$^2$.
+\dapso{Bases $22$ cm and $14$ cm; $180$ cm$^2$.}}
+\gap
+\begin{probbox}{24}{\relax}
+A trapezium's bases add up to $50$ cm and differ by $14$ cm; its height is $12$ cm. Find each base and the area.
+\end{probbox}
+\probsol{
+Longer base: $(50+14):2=32$ cm; shorter: $18$ cm.\par Area: $50\times12:2=300$ cm$^2$.
+\dapso{Bases $32$ cm and $18$ cm; $300$ cm$^2$.}}
+\gap
+\begin{probbox}{25}{\relax}
+A trapezium-shaped plot has longer base $60$ m; the shorter base is $\dfrac{2}{3}$ of it and the height is $\dfrac{1}{2}$ of it. Find the area.
+\end{probbox}
+\probsol{
+Shorter base: $60\times\dfrac{2}{3}=40$ m.\par Height: $60\times\dfrac{1}{2}=30$ m.\par Area: $(60+40)\times30:2=1\,500$ m$^2$.
+\dapso{$1\,500$ m$^2$.}}
+\gap
+\begin{probbox}{26}{\relax}
+A trapezium-shaped plot has longer base $48$ m; the shorter base is $\dfrac{3}{4}$ of it and the height is $\dfrac{5}{8}$ of it. Find the area.
+\end{probbox}
+\probsol{
+Shorter base: $48\times\dfrac{3}{4}=36$ m.\par Height: $48\times\dfrac{5}{8}=30$ m.\par Area: $(48+36)\times30:2=1\,260$ m$^2$.
+\dapso{$1\,260$ m$^2$.}}
+\gap
+\begin{probbox}{27}{\relax}
+Trapezium ABCD has right angles at A and D, $AB=9$ cm, $CD=15$ cm and $AD=8$ cm. Find its area.
+\end{probbox}
+\probsol{
+AD is perpendicular to both bases, so it is the height.\par $S=(9+15)\times8:2=96$ cm$^2$.
+\dapso{$96$ cm$^2$.}}
+\gap
+\begin{probbox}{28}{\relax}
+Trapezium ABCD has right angles at A and D, $AB=4.5$ cm, $CD=7.5$ cm and $AD=6$ cm. Find its area.
+\end{probbox}
+\probsol{
+AD is perpendicular to both bases, so it is the height.\par $S=(4.5+7.5)\times6:2=36$ cm$^2$.
+\dapso{$36$ cm$^2$.}}
+\gap
+\begin{probbox}{29}{\relax}
+Rectangle ABCD has $AB=25$ cm and $BC=14$ cm. M on AB has $AM=9$ cm. Find the areas of trapezium MBCD and triangle AMD.
+\end{probbox}
+\probsol{
+MBCD has bases $MB=16$ cm and $CD=25$ cm and height $BC=14$ cm.\par $S_{MBCD}=(16+25)\times14:2=287$ cm$^2$.\par $S_{AMD}=9\times14:2=63$ cm$^2$.
+\dapso{$S_{MBCD}=287$ cm$^2$, $S_{AMD}=63$ cm$^2$.}}
+\gap
+\begin{probbox}{30}{\relax}
+Rectangle ABCD has $AB=30$ cm and $BC=16$ cm. M on AB has $AM=12$ cm. Find the areas of trapezium MBCD and triangle AMD.
+\end{probbox}
+\probsol{
+MBCD has bases $MB=18$ cm and $CD=30$ cm and height $BC=16$ cm.\par $S_{MBCD}=(18+30)\times16:2=384$ cm$^2$.\par $S_{AMD}=12\times16:2=96$ cm$^2$.
+\dapso{$S_{MBCD}=384$ cm$^2$, $S_{AMD}=96$ cm$^2$.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+A trapezium has bases $12$ cm and $18$ cm. Lengthening the shorter base by $6$ cm turns it into a rectangle and adds $27$ cm$^2$. Find the trapezium's area.
+\end{probbox}
+\probsol{
+The added part is a triangle with side $6$ cm and the trapezium's height: $h=27\times2:6=9$ cm.\par $S=(12+18)\times9:2=135$ cm$^2$.
+\dapso{$135$ cm$^2$.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+A trapezium-shaped field has bases adding up to $140$ m, the longer $20$ m longer than the shorter. Lengthening each base by $10$ m adds $500$ m$^2$. Find the original area and both bases.
+\end{probbox}
+\probsol{
+The bases grow by $20$ m in total, so $h=500\times2:20=50$ m.\par $S=140\times50:2=3\,500$ m$^2$.\par
+Longer base: $(140+20):2=80$ m; shorter: $60$ m.
+\dapso{$3\,500$ m$^2$; $80$ m and $60$ m.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+In trapezium ABCD, the shorter base AB is $\dfrac13$ of the longer base CD, and $S_{ABD}=15$ cm$^2$. Find the area of the trapezium.
+\end{probbox}
+\probsol{
+ABD and BCD both have the trapezium's height, and $CD=3\times AB$, so $S_{BCD}=15\times3=45$ cm$^2$.\par $S_{ABCD}=15+45=60$ cm$^2$.
+\dapso{$60$ cm$^2$.}}
+\gap
+\begin{probbox}{34}{\stars{2}}
+Right trapezium ABCD has right angles at A and D, $AB=6$ cm, $CD=12$ cm and $AD=8$ cm. M is the midpoint of AD. Find $S_{MBC}$.
+\end{probbox}
+\probsol{
+$S_{ABCD}=(6+12)\times8:2=72$;\par $S_{ABM}=6\times4:2=12$;\par $S_{MDC}=12\times4:2=24$ cm$^2$.\par
+$S_{MBC}=72-12-24=36$ cm$^2$, exactly half the trapezium.
+\dapso{$36$ cm$^2$.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+In trapezium ABCD (AB parallel to CD), the diagonals cross at O. $S_{AOB}=4$ cm$^2$ and $S_{BOC}=8$ cm$^2$. Find the area of the trapezium.
+\end{probbox}
+\probsol{
+AOB and BOC share the height from B, so $OC=2\times OA$.\par
+By the trapezium property, $S_{AOD}=S_{BOC}=8$ cm$^2$.\par COD and AOD share the height from D and $OC=2\times OA$, so $S_{COD}=16$ cm$^2$.\par
+$S_{ABCD}=4+8+8+16=36$ cm$^2$.
+\dapso{$36$ cm$^2$.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+A trapezium has bases $30$ cm and $18$ cm. Lengthening the longer base by $6$ cm (same height) adds $27$ cm$^2$. Find the original area.
+\end{probbox}
+\probsol{
+The extra part is a triangle with base $6$ cm and the trapezium's height.\par Height: $27\times2:6=9$ cm.\par Area: $(30+18)\times9:2=216$ cm$^2$.
+\dapso{$216$ cm$^2$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+A trapezium has bases $22$ cm and $14$ cm. Lengthening the longer base by $4$ cm (same height) adds $18$ cm$^2$. Find the original area.
+\end{probbox}
+\probsol{
+The extra part is a triangle with base $4$ cm and the trapezium's height.\par Height: $18\times2:4=9$ cm.\par Area: $(22+14)\times9:2=162$ cm$^2$.
+\dapso{$162$ cm$^2$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+A trapezium-shaped garden has bases summing to $90$ m, differing by $30$ m. Adding $5$ m to each base (same height) adds $200$ m$^2$. Find the original area.
+\end{probbox}
+\probsol{
+The extra part is a trapezium with bases $5$ m and $5$ m and the same height.\par Height: $200\times2:(5+5)=40$ m.\par Original area: $90\times40:2=1\,800$ m$^2$.
+\dapso{$1\,800$ m$^2$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+A trapezium-shaped garden has bases summing to $120$ m, differing by $40$ m. Adding $8$ m to each base (same height) adds $320$ m$^2$. Find the original area.
+\end{probbox}
+\probsol{
+The extra part is a trapezium with bases $8$ m and $8$ m and the same height.\par Height: $320\times2:(8+8)=40$ m.\par Original area: $120\times40:2=2\,400$ m$^2$.
+\dapso{$2\,400$ m$^2$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+In trapezium ABCD the shorter base AB is $\dfrac{1}{2}$ of the longer base CD. Triangle ABD has area $12$ cm$^2$. Find the area of the trapezium.
+\end{probbox}
+\probsol{
+ABD and BCD have the same height (the trapezium's height).\par So $S_{ABD}=\dfrac{1}{2}S_{BCD}$.\par $S_{BCD}=12:\dfrac{1}{2}=24$ cm$^2$.\par $S_{ABCD}=36$ cm$^2$.
+\dapso{$36$ cm$^2$.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+In trapezium ABCD the shorter base AB is $\dfrac{2}{3}$ of the longer base CD. Triangle ABD has area $18$ cm$^2$. Find the area of the trapezium.
+\end{probbox}
+\probsol{
+ABD and BCD have the same height (the trapezium's height).\par So $S_{ABD}=\dfrac{2}{3}S_{BCD}$.\par $S_{BCD}=18:\dfrac{2}{3}=27$ cm$^2$.\par $S_{ABCD}=45$ cm$^2$.
+\dapso{$45$ cm$^2$.}}
+\gap
+\begin{probbox}{42}{\stars{2}}
+Trapezium ABCD (AB parallel to CD) has diagonals meeting at O. $S_{AOB}=4$ cm$^2$ and $S_{BOC}=6$ cm$^2$. Find the area of the trapezium.
+\end{probbox}
+\probsol{
+$S_{ABD}=S_{ABC}$ (same base AB, same height); removing AOB gives $S_{AOD}=S_{BOC}=6$ cm$^2$.\par AOB and BOC share the height from B, so $\dfrac{OA}{OC}=\dfrac{4}{6}$.\par AOD and COD share the height from D, so $S_{COD}=6\times\dfrac{6}{4}=9$ cm$^2$.\par $S_{ABCD}=4+6+6+9=25$ cm$^2$.
+\dapso{$25$ cm$^2$.}}
+\gap
+\begin{probbox}{43}{\stars{2}}
+Trapezium ABCD (AB parallel to CD) has diagonals meeting at O. $S_{AOB}=9$ cm$^2$ and $S_{BOC}=12$ cm$^2$. Find the area of the trapezium.
+\end{probbox}
+\probsol{
+$S_{ABD}=S_{ABC}$ (same base AB, same height); removing AOB gives $S_{AOD}=S_{BOC}=12$ cm$^2$.\par AOB and BOC share the height from B, so $\dfrac{OA}{OC}=\dfrac{9}{12}$.\par AOD and COD share the height from D, so $S_{COD}=12\times\dfrac{12}{9}=16$ cm$^2$.\par $S_{ABCD}=9+12+12+16=49$ cm$^2$.
+\dapso{$49$ cm$^2$.}}
+\gap
+\begin{probbox}{44}{\stars{2}}
+Trapezium ABCD (AB parallel to CD) has diagonals meeting at O. $S_{AOB}=2$ cm$^2$ and $S_{BOC}=6$ cm$^2$. Find the area of the trapezium.
+\end{probbox}
+\probsol{
+$S_{ABD}=S_{ABC}$ (same base AB, same height); removing AOB gives $S_{AOD}=S_{BOC}=6$ cm$^2$.\par AOB and BOC share the height from B, so $\dfrac{OA}{OC}=\dfrac{2}{6}$.\par AOD and COD share the height from D, so $S_{COD}=6\times\dfrac{6}{2}=18$ cm$^2$.\par $S_{ABCD}=2+6+6+18=32$ cm$^2$.
+\dapso{$32$ cm$^2$.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Trapezium ABCD has right angles at A and D, $AB=8$ cm, $CD=14$ cm, $AD=10$ cm. M is the midpoint of AD. Find the area of triangle MBC.
+\end{probbox}
+\probsol{
+$S_{ABCD}=(8+14)\times10:2=110$ cm$^2$.\par $AM=MD=5$ cm.\par $S_{MAB}=20$, $S_{MDC}=35$ cm$^2$.\par $S_{MBC}=110-20-35=55$ cm$^2$.
+\dapso{$55$ cm$^2$.}}
+\gap
+\begin{probbox}{46}{\stars{1}}
+Trapezium ABCD has right angles at A and D, $AB=5$ cm, $CD=11$ cm, $AD=12$ cm. M is the midpoint of AD. Find the area of triangle MBC.
+\end{probbox}
+\probsol{
+$S_{ABCD}=(5+11)\times12:2=96$ cm$^2$.\par $AM=MD=6$ cm.\par $S_{MAB}=15$, $S_{MDC}=33$ cm$^2$.\par $S_{MBC}=96-15-33=48$ cm$^2$.
+\dapso{$48$ cm$^2$.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+A right trapezium has bases $10$ cm and $16$ cm. Lengthening the shorter base by $6$ cm makes a rectangle $24$ cm$^2$ larger. Find the trapezium's area.
+\end{probbox}
+\probsol{
+The added piece is a right triangle with legs $6$ cm and the height.\par Height: $24\times2:6=4$ cm.\par Area: $(10+16)\times4:2=52$ cm$^2$.
+\dapso{$52$ cm$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+A right trapezium has bases $14$ cm and $20$ cm. Lengthening the shorter base by $6$ cm makes a rectangle $27$ cm$^2$ larger. Find the trapezium's area.
+\end{probbox}
+\probsol{
+The added piece is a right triangle with legs $6$ cm and the height.\par Height: $27\times2:6=4.5$ cm.\par Area: $(14+20)\times4.5:2=76.5$ cm$^2$.
+\dapso{$76.5$ cm$^2$.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+A trapezium with bases $20$ cm and $16$ cm has the same area as a square of side $12$ cm. Find its height.
+\end{probbox}
+\probsol{
+Square: $12\times12=144$ cm$^2$.\par Height: $144\times2:(20+16)=8$ cm.
+\dapso{$8$ cm.}}
+\gap
+\begin{probbox}{50}{\stars{1}}
+Diagonal AC splits trapezium ABCD (AB parallel to CD) into triangles with $S_{ABC}=24$ cm$^2$ and $S_{ACD}=40$ cm$^2$. The height is $8$ cm. Find both bases.
+\end{probbox}
+\probsol{
+Both triangles have the trapezium's height, $8$ cm.\par $AB=24\times2:8=6$ cm.\par $CD=40\times2:8=10$ cm.
+\dapso{$AB=6$ cm, $CD=10$ cm.}}
+\clearpage
+\titlehead
+\begingroup\setbox0=\vbox{\section*{Circles: Circumference and Area}}\endgroup
+\chapterhead{14}{Circles: Circumference and Area}
+
+\shead{Centre, radius, diameter}
+\begin{knowbox}
+\begin{minipage}[t]{0.64\linewidth}
+Every point on a \textbf{circle} is the same distance from the \textbf{centre} O. A segment from the centre to the circle is a \textbf{radius} $r$; a segment through the centre joining two points of the circle is a \textbf{diameter} $d$, and $d=r\times2$.\par
+\smallskip
+We use the number $3.14$ (called ``pi'') to calculate:
+\[C=d\times3.14=r\times2\times3.14\qquad\qquad S=r\times r\times3.14\]
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item Given the circumference: $d=C:3.14$.
+\item Given the area: find $r\times r=S:3.14$, then the number $r$.
+\item If the radius is multiplied by $k$, the circumference is multiplied by $k$ and the area by $k\times k$.
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}\vspace{6pt}\centering
+\begin{tikzpicture}[scale=0.85]
+\fill[tmBlue!12] (0,0) circle (1.5); \draw[geo] (0,0) circle (1.5);
+\draw[line width=0.8pt,tmOrange!80!black] (-1.5,0)--(1.5,0);
+\draw[line width=0.8pt,tmGreen!70!black] (0,0)--(60:1.5);
+\fill (0,0) circle (1.5pt); \node[lbl,below] at (0,0){O};
+\node[dim,above left] at (40:0.7){$r$}; \node[dim,below] at (-0.8,0){$d$};
+\end{tikzpicture}
+\end{minipage}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+Find the circumference and area of a circle of radius $5$ cm.
+\guide
+$C=5\times2\times3.14=31.4$ cm.\par $S=5\times5\times3.14=78.5$ cm$^2$.
+\dapso{$31.4$ cm; $78.5$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+A circle has circumference $18.84$ dm. Find its area.
+\guide
+Diameter: $18.84:3.14=6$ dm; radius: $3$ dm.\par $S=3\times3\times3.14=28.26$ dm$^2$.
+\dapso{$28.26$ dm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+\begin{minipage}[t]{0.66\linewidth}
+A square has side $10$ cm. A circle inside it touches all four sides. Find the shaded area (the part of the square outside the circle).
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.22]
+\fill[shade] (0,0) rectangle (10,10); \fill[white] (5,5) circle (5);
+\draw[geo] (0,0) rectangle (10,10); \draw[geo] (5,5) circle (5);
+\draw[|<->|,Slate] (0,-1.2)--node[fill=white,dim]{$10$ cm}(10,-1.2);
+\end{tikzpicture}
+\end{minipage}
+\guide
+The circle's diameter equals the side of the square: $d=10$ cm, $r=5$ cm.\par
+$S_\text{square}=10\times10=100$ cm$^2$;\par $S_\text{circle}=5\times5\times3.14=78.5$ cm$^2$.\par
+Shaded part: $100-78.5=21.5$ cm$^2$.
+\dapso{$21.5$ cm$^2$.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+A cart wheel has a diameter of $0.6$ m. How far does the cart travel when the wheel turns $100$ times?
+\guide
+Each turn moves the cart by the wheel's circumference: $0.6\times3.14=1.884$ m.\par
+$100$ turns: $1.884\times100=188.4$ m.
+\dapso{$188.4$ m.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+Find the circumference and area of a circle with:
+\begin{cols3}
+\pa{a} $r=3$ cm; & \pa{b} $r=0.5$ dm; & \pa{c} $d=8$ m.
+\end{cols3}
+\end{probbox}
+\probsol{
+\pa{a} $C=18.84$ cm; $S=28.26$ cm$^2$.\par \pa{b} $C=3.14$ dm; $S=0.785$ dm$^2$.\par \pa{c} $C=25.12$ m; $r=4$ m, $S=50.24$ m$^2$.
+\dapso{See above.}}
+\gap
+\begin{probbox}{2}{\relax}
+A circle has circumference $12.56$ cm. Find its radius and area.
+\end{probbox}
+\probsol{
+$d=12.56:3.14=4$ cm; $r=2$ cm.\par $S=2\times2\times3.14=12.56$ cm$^2$.
+\dapso{$r=2$ cm; $S=12.56$ cm$^2$.}}
+\gap
+\begin{probbox}{3}{\relax}
+A bicycle wheel has a diameter of $65$ cm. How many kilometres does the bicycle travel in $1\,000$ turns of the wheel?
+\end{probbox}
+\probsol{
+Each turn: $65\times3.14=204.1$ cm.\par $1\,000$ turns: $204\,100$ cm $=2.041$ km.
+\dapso{$2.041$ km.}}
+\gap
+\begin{probbox}{4}{\relax}
+A car wheel travels $1\,099$ m in $500$ turns. Find its diameter.
+\end{probbox}
+\probsol{
+Circumference: $1\,099:500=2.198$ m.\par Diameter: $2.198:3.14=0.7$ m.
+\dapso{$0.7$ m.}}
+\gap
+\begin{probbox}{5}{\relax}
+The minute hand of a clock is $10$ cm long. How far does its tip travel in $1$ hour? In $15$ minutes?
+\end{probbox}
+\probsol{
+In $1$ hour the tip goes once round: $10\times2\times3.14=62.8$ cm.\par In $15$ minutes, a quarter turn: $62.8:4=15.7$ cm.
+\dapso{$62.8$ cm; $15.7$ cm.}}
+\gap
+\begin{probbox}{6}{\relax}
+Find the area and perimeter of a semicircle with diameter $8$ cm.
+\end{probbox}
+\probsol{
+$S=4\times4\times3.14:2=25.12$ cm$^2$.\par The perimeter is half the circle plus the diameter: $8\times3.14:2+8=20.56$ cm.
+\dapso{$25.12$ cm$^2$; $20.56$ cm.}}
+\gap
+\begin{probbox}{7}{\relax}
+A round flower bed has a radius of $10$ m. A path $1$ m wide is built all round it. Find the area of the path.
+\end{probbox}
+\probsol{
+The outer circle has radius $11$ m.\par Path: $11\times11\times3.14-10\times10\times3.14=(121-100)\times3.14=65.94$ m$^2$.
+\dapso{$65.94$ m$^2$.}}
+\gap
+\begin{probbox}{8}{\relax}
+A square sits inside a circle of radius $5$ cm with its four corners on the circle. Find the area of the part of the circle outside the square.
+\end{probbox}
+\probsol{
+The square's diagonals are diameters, $10$ cm long, and split it into $4$ right-angled triangles with sides $5$ cm: $S_\text{square}=4\times5\times5:2=50$ cm$^2$.\par
+$S_\text{circle}=78.5$ cm$^2$.\par Required part: $78.5-50=28.5$ cm$^2$.
+\dapso{$28.5$ cm$^2$.}}
+\gap
+\begin{probbox}{9}{\relax}
+If the radius of a circle is multiplied by $3$, by how many times are its circumference and area multiplied? Check with $r=1$ cm.
+\end{probbox}
+\probsol{
+The circumference is multiplied by $3$ and the area by $3\times3=9$.\par Example: $r=1$: $C=6.28$, $S=3.14$; $r=3$: $C=18.84=6.28\times3$, $S=28.26=3.14\times9$.
+\dapso{$3$ times; $9$ times.}}
+\gap
+\begin{probbox}{10}{\relax}
+Find the circumference and area of a circle of radius $3$ cm.
+\end{probbox}
+\probsol{
+$C=3\times2\times3.14=18.84$ cm.\par $S=3\times3\times3.14=28.26$ cm$^2$.
+\dapso{$C=18.84$ cm; $S=28.26$ cm$^2$.}}
+\gap
+\begin{probbox}{11}{\relax}
+Find the circumference and area of a circle of radius $2.5$ cm.
+\end{probbox}
+\probsol{
+$C=2.5\times2\times3.14=15.7$ cm.\par $S=2.5\times2.5\times3.14=19.625$ cm$^2$.
+\dapso{$C=15.7$ cm; $S=19.625$ cm$^2$.}}
+\gap
+\begin{probbox}{12}{\relax}
+Find the circumference and area of a circle of radius $0.8$ m.
+\end{probbox}
+\probsol{
+$C=0.8\times2\times3.14=5.024$ m.\par $S=0.8\times0.8\times3.14=2.0096$ m$^2$.
+\dapso{$C=5.024$ m; $S=2.0096$ m$^2$.}}
+\gap
+\begin{probbox}{13}{\relax}
+Find the circumference and area of a circle of radius $12$ dm.
+\end{probbox}
+\probsol{
+$C=12\times2\times3.14=75.36$ dm.\par $S=12\times12\times3.14=452.16$ dm$^2$.
+\dapso{$C=75.36$ dm; $S=452.16$ dm$^2$.}}
+\gap
+\begin{probbox}{14}{\relax}
+Find the circumference and area of a circle of diameter $10$ cm.
+\end{probbox}
+\probsol{
+$C=10\times3.14=31.4$ cm.\par Radius: $10:2=5$ cm.\par $S=5\times5\times3.14=78.5$ cm$^2$.
+\dapso{$C=31.4$ cm; $S=78.5$ cm$^2$.}}
+\gap
+\begin{probbox}{15}{\relax}
+Find the circumference and area of a circle of diameter $4.2$ cm.
+\end{probbox}
+\probsol{
+$C=4.2\times3.14=13.188$ cm.\par Radius: $4.2:2=2.1$ cm.\par $S=2.1\times2.1\times3.14=13.8474$ cm$^2$.
+\dapso{$C=13.188$ cm; $S=13.8474$ cm$^2$.}}
+\gap
+\begin{probbox}{16}{\relax}
+Find the circumference and area of a circle of diameter $2.4$ m.
+\end{probbox}
+\probsol{
+$C=2.4\times3.14=7.536$ m.\par Radius: $2.4:2=1.2$ m.\par $S=1.2\times1.2\times3.14=4.5216$ m$^2$.
+\dapso{$C=7.536$ m; $S=4.5216$ m$^2$.}}
+\gap
+\begin{probbox}{17}{\relax}
+A circle has circumference $43.96$ cm. Find its radius and area.
+\end{probbox}
+\probsol{
+Diameter: $43.96:3.14=14$ cm.\par Radius: $14:2=7$ cm.\par $S=7\times7\times3.14=153.86$ cm$^2$.
+\dapso{$r=7$ cm; $S=153.86$ cm$^2$.}}
+\gap
+\begin{probbox}{18}{\relax}
+A circle has circumference $21.98$ cm. Find its radius and area.
+\end{probbox}
+\probsol{
+Diameter: $21.98:3.14=7$ cm.\par Radius: $7:2=3.5$ cm.\par $S=3.5\times3.5\times3.14=38.465$ cm$^2$.
+\dapso{$r=3.5$ cm; $S=38.465$ cm$^2$.}}
+\gap
+\begin{probbox}{19}{\relax}
+A circle has circumference $6.28$ m. Find its radius and area.
+\end{probbox}
+\probsol{
+Diameter: $6.28:3.14=2$ m.\par Radius: $2:2=1$ m.\par $S=1\times1\times3.14=3.14$ m$^2$.
+\dapso{$r=1$ m; $S=3.14$ m$^2$.}}
+\gap
+\begin{probbox}{20}{\relax}
+A circle has area $113.04$ cm$^2$. Find its radius and circumference.
+\end{probbox}
+\probsol{
+$r\times r=113.04:3.14=36$.\par Since $6\times6=36$, $r=6$ cm.\par $C=6\times2\times3.14=37.68$ cm.
+\dapso{$r=6$ cm; $C=37.68$ cm.}}
+\gap
+\begin{probbox}{21}{\relax}
+A circle has area $12.56$ m$^2$. Find its radius and circumference.
+\end{probbox}
+\probsol{
+$r\times r=12.56:3.14=4$.\par Since $2\times2=4$, $r=2$ m.\par $C=2\times2\times3.14=12.56$ m.
+\dapso{$r=2$ m; $C=12.56$ m.}}
+\gap
+\begin{probbox}{22}{\relax}
+A wheel has diameter $0.5$ m. How far does it travel in $200$ turns?
+\end{probbox}
+\probsol{
+One turn: $0.5\times3.14=1.57$ m.\par $200$ turns: $1.57\times200=314$ m.
+\dapso{$314$ m.}}
+\gap
+\begin{probbox}{23}{\relax}
+A wheel has diameter $0.7$ m. How far does it travel in $1\,000$ turns?
+\end{probbox}
+\probsol{
+One turn: $0.7\times3.14=2.198$ m.\par $1\,000$ turns: $2.198\times1\,000=2\,198$ m.
+\dapso{$2\,198$ m.}}
+\gap
+\begin{probbox}{24}{\relax}
+A bicycle wheel travels $816.4$ m in $400$ turns. Find its diameter.
+\end{probbox}
+\probsol{
+One turn: $816.4:400=2.041$ m.\par Diameter: $2.041:3.14=0.65$ m.
+\dapso{$0.65$ m.}}
+\gap
+\begin{probbox}{25}{\relax}
+Find the area and perimeter of a semicircle with diameter $10$ cm.
+\end{probbox}
+\probsol{
+Area: $5\times5\times3.14:2=39.25$ cm$^2$.\par Arc: $10\times3.14:2=15.7$ cm.\par Perimeter (with the diameter): $15.7+10=25.7$ cm.
+\dapso{$S=39.25$ cm$^2$; perimeter $25.7$ cm.}}
+\gap
+\begin{probbox}{26}{\relax}
+Find the area and perimeter of a semicircle with diameter $6$ cm.
+\end{probbox}
+\probsol{
+Area: $3\times3\times3.14:2=14.13$ cm$^2$.\par Arc: $6\times3.14:2=9.42$ cm.\par Perimeter (with the diameter): $9.42+6=15.42$ cm.
+\dapso{$S=14.13$ cm$^2$; perimeter $15.42$ cm.}}
+\gap
+\begin{probbox}{27}{\relax}
+A ceiling-fan blade is $0.6$ m long from the centre. Find the area of the circle its tip sweeps out.
+\end{probbox}
+\probsol{
+Radius $r=0.6$ m.\par $S=0.6\times0.6\times3.14=1.1304$ m$^2$.
+\dapso{$1.1304$ m$^2$.}}
+\gap
+\begin{probbox}{28}{\relax}
+A round pond has diameter $20$ m. Fencing costs $50\,000$ dong per metre. How much does it cost to fence the pond?
+\end{probbox}
+\probsol{
+Circumference: $20\times3.14=62.8$ m.\par Cost: $50\,000\times62.8=3\,140\,000$ dong.
+\dapso{$3\,140\,000$ dong.}}
+\gap
+\begin{probbox}{29}{\relax}
+Find the area of a quarter circle of radius $4$ cm.
+\end{probbox}
+\probsol{
+Whole circle: $4\times4\times3.14=50.24$ cm$^2$.\par Quarter: $50.24:4=12.56$ cm$^2$.
+\dapso{$12.56$ cm$^2$.}}
+\gap
+\begin{probbox}{30}{\relax}
+Find the area of a quarter circle of radius $10$ cm.
+\end{probbox}
+\probsol{
+Whole circle: $10\times10\times3.14=314$ cm$^2$.\par Quarter: $314:4=78.5$ cm$^2$.
+\dapso{$78.5$ cm$^2$.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+A circle has area $50.24$ cm$^2$. Find its circumference.
+\end{probbox}
+\probsol{
+$r\times r=50.24:3.14=16$, so $r=4$ cm.\par $C=4\times2\times3.14=25.12$ cm.
+\dapso{$25.12$ cm.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+If a circle's radius grows by $2$ cm, by how much does its circumference grow? Does the answer depend on the original radius?
+\end{probbox}
+\probsol{
+The increase is $(r+2)\times2\times3.14-r\times2\times3.14=2\times2\times3.14=12.56$ cm, whatever the original radius.
+\dapso{$12.56$ cm; it does not depend on it.}}
+\gap
+\begin{probbox}{33}{\stars{1}}
+A large semicircle has diameter $AB=12$ cm. M is the midpoint of AB, and two small semicircles are drawn on AM and MB. Compare the length of the large arc with the total length of the two small arcs.
+\end{probbox}
+\probsol{
+Large arc: $12\times3.14:2=18.84$ cm.\par Each small arc: $6\times3.14:2=9.42$ cm; together $18.84$ cm.\par They are equal.
+\dapso{Equal ($18.84$ cm).}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Two circles share centre O, with radii $3$ cm and $5$ cm. Find the area between them (the ring).
+\end{probbox}
+\probsol{
+$S=5\times5\times3.14-3\times3\times3.14=(25-9)\times3.14=50.24$ cm$^2$.
+\dapso{$50.24$ cm$^2$.}}
+\gap
+\begin{probbox}{35}{\stars{2}}
+\begin{minipage}[t]{0.66\linewidth}
+Square ABCD has side $8$ cm. Four quarter circles of radius $4$ cm are drawn with centres at the four corners. Find the shaded area.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.24]
+\fill[shade] (0,0) rectangle (8,8);
+\foreach \x/\y/\a in {0/0/0,8/0/90,8/8/180,0/8/270}{\fill[white] (\x,\y) -- ++(\a:4) arc (\a:\a+90:4) -- cycle; \draw[geo] (\x,\y) ++(\a:4) arc (\a:\a+90:4);}
+\draw[geo] (0,0) rectangle (8,8);
+\node[lbl,below left] at (0,0){D}; \node[lbl,below right] at (8,0){C}; \node[lbl,above right] at (8,8){B}; \node[lbl,above left] at (0,8){A};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+The four quarter circles of radius $4$ cm make one whole circle: $4\times4\times3.14=50.24$ cm$^2$.\par
+Shaded part: $8\times8-50.24=13.76$ cm$^2$.
+\dapso{$13.76$ cm$^2$.}}
+\gap
+\begin{probbox}{36}{\stars{2}}
+\begin{minipage}[t]{0.66\linewidth}
+Square ABCD has side $10$ cm. Two quarter circles of radius $10$ cm are drawn with centres B and D; they overlap in the shaded ``leaf''. Find the area of the leaf.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.24]
+\fill[shade] (10,0) arc (0:90:10) arc (180:270:10);
+\draw[geo] (0,0) rectangle (10,10);
+\draw[geo] (10,0) arc (0:90:10); \draw[geo] (0,10) arc (180:270:10);
+\draw[dashed,Slate] (0,10)--(10,0);
+\node[lbl,below left] at (0,0){D}; \node[lbl,below right] at (10,0){C}; \node[lbl,above right] at (10,10){B}; \node[lbl,above left] at (0,10){A};
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+Diagonal AC splits the leaf into two equal halves.\par Each half is a quarter circle minus a right-angled triangle:\par
+$10\times10\times3.14:4-10\times10:2=78.5-50=28.5$ cm$^2$.\par
+Leaf: $28.5\times2=57$ cm$^2$.
+\dapso{$57$ cm$^2$.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+Two circles with the same centre have radii $4$ m and $6$ m. Find the area of the ring between them.
+\end{probbox}
+\probsol{
+Large circle: $6\times6\times3.14=113.04$ m$^2$.\par Small circle: $4\times4\times3.14=50.24$ m$^2$.\par Required area: $113.04-50.24=62.8$ m$^2$.
+\dapso{$62.8$ m$^2$.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+A round flower bed has radius $8$ m, with a path $2$ m wide around it. Find the area of the path.
+\end{probbox}
+\probsol{
+Large circle: $10\times10\times3.14=314$ m$^2$.\par Small circle: $8\times8\times3.14=200.96$ m$^2$.\par Required area: $314-200.96=113.04$ m$^2$.
+\dapso{$113.04$ m$^2$.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+A square has its four corners on a circle of radius $6$ cm. Find the area of the circle outside the square.
+\end{probbox}
+\probsol{
+The square's diagonals are diameters, $12$ cm long and perpendicular.\par It is $4$ right triangles with legs $6$ cm: $6\times6:2\times4=72$ cm$^2$.\par Circle: $6\times6\times3.14=113.04$ cm$^2$.\par Required: $113.04-72=41.04$ cm$^2$.
+\dapso{$41.04$ cm$^2$.}}
+\gap
+\begin{probbox}{40}{\stars{1}}
+A small wheel of radius $0.3$ m makes $150$ turns. A large wheel covers the same distance in $90$ turns. Find its radius.
+\end{probbox}
+\probsol{
+Distance: $0.3\times2\times3.14\times150=282.6$ m.\par One large turn: $282.6:90=3.14$ m.\par Radius: $3.14:3.14:2=0.5$ m.
+\dapso{$0.5$ m.}}
+\gap
+\begin{probbox}{41}{\stars{1}}
+A circle has the same perimeter as a square of side $15.7$ cm. Which has the larger area, and by how much?
+\end{probbox}
+\probsol{
+Square perimeter: $62.8$ cm.\par Circle radius: $62.8:3.14:2=10$ cm; area $314$ cm$^2$.\par Square area: $15.7\times15.7=246.49$ cm$^2$.\par The circle is larger by $67.51$ cm$^2$.
+\dapso{The circle, by $67.51$ cm$^2$.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+A circle has area $12.56$ cm$^2$. If its radius is doubled, what is the new area?
+\end{probbox}
+\probsol{
+Doubling $r$ multiplies $r\times r$ by $2\times2=4$.\par New area: $12.56\times4=50.24$ cm$^2$.
+\dapso{$50.24$ cm$^2$.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+A circle's radius grows by $1.5$ cm. By how much does its circumference grow?
+\end{probbox}
+\probsol{
+$C=r\times2\times3.14$, so $C$ grows by $1.5\times2\times3.14=9.42$ cm.\par This does not depend on the original radius.
+\dapso{$9.42$ cm.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+An old bicycle has a front wheel of diameter $0.5$ m and a back wheel of diameter $1$ m. When the back wheel turns $100$ times, how many times does the front wheel turn?
+\end{probbox}
+\probsol{
+Distance: $1\times3.14\times100=314$ m.\par One front turn: $0.5\times3.14=1.57$ m.\par Front turns: $314:1.57=200$.
+\dapso{$200$ turns.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+A running track has two straights of $100$ m and two semicircular ends of diameter $60$ m. Find the length of one lap and the area inside.
+\end{probbox}
+\probsol{
+Two semicircles make one circle: $60\times3.14=188.4$ m.\par One lap: $100\times2+188.4=388.4$ m.\par Rectangle: $6\,000$ m$^2$; circle: $30\times30\times3.14=2\,826$ m$^2$.\par Inside area: $8\,826$ m$^2$.
+\dapso{$388.4$ m; $8\,826$ m$^2$.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+A quarter (bounded by two perpendicular radii) is cut from a circular card of radius $10$ cm. Find the area and perimeter of what is left.
+\end{probbox}
+\probsol{
+Circle: $314$ cm$^2$; three quarters: $235.5$ cm$^2$.\par Circumference $62.8$ cm; the remaining arc: $47.1$ cm.\par Perimeter: arc plus two radii, $47.1+20=67.1$ cm.
+\dapso{$235.5$ cm$^2$; $67.1$ cm.}}
+\gap
+\begin{probbox}{47}{\stars{2}}
+A goat is tied to an outside corner of a square pen of side $6$ m with a $4$ m rope. It cannot enter the pen. Find the area it can graze.
+\end{probbox}
+\probsol{
+The rope is shorter than the side, so the goat only swings round that corner.\par The pen blocks $\dfrac14$ of the circle, leaving $\dfrac34$ of a circle of radius $4$ m.\par Area: $4\times4\times3.14\times\dfrac34=37.68$ m$^2$.
+\dapso{$37.68$ m$^2$.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+Two circles' circumferences differ by $12.56$ cm, and the larger radius is $3$ times the smaller. Find the area of the larger circle.
+\end{probbox}
+\probsol{
+Difference of radii: $12.56:2:3.14=2$ cm.\par $3-1=2$ parts make $2$ cm, so the radii are $1$ cm and $3$ cm.\par Larger area: $3\times3\times3.14=28.26$ cm$^2$.
+\dapso{$28.26$ cm$^2$.}}
+\gap
+\begin{probbox}{49}{\stars{1}}
+A minute hand is $12$ cm long. What area does it sweep in $20$ minutes?
+\end{probbox}
+\probsol{
+$20$ minutes is $\dfrac13$ of a turn.\par Circle: $12\times12\times3.14=452.16$ cm$^2$.\par Swept area: $452.16:3=150.72$ cm$^2$.
+\dapso{$150.72$ cm$^2$.}}
+\gap
+\begin{probbox}{50}{\stars{1}}
+A tractor wheel of diameter $0.7$ m makes $120$ turns a minute. How far does the tractor go in $10$ minutes?
+\end{probbox}
+\probsol{
+One turn: $0.7\times3.14=2.198$ m.\par Turns in $10$ minutes: $1\,200$.\par Distance: $2.198\times1\,200=2\,637.6$ m.
+\dapso{$2\,637.6$ m.}}
+\clearpage
+\titlehead
