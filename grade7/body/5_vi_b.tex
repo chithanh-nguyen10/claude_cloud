@@ -1,0 +1,556 @@
+% =====================================================================
+% Chủ đề 5 — Tư duy logic và Câu đố — phần b: bài 14–30 (bài mới, mức cơ bản)
+% =====================================================================
+% quả bưởi (Bài 22) và quả cân có ghi khối lượng
+\providecommand{\lgaPomelo}{\tikz[baseline=0pt]{\draw[fill=StarGold!70!tmGreen,draw=tmGreen!45!black,line width=0.5pt] (0.26,0.26) circle (0.26);
+  \draw[tmGreen!50!black,line width=0.8pt] (0.26,0.5)--(0.3,0.6);}}
+\providecommand{\lgaWeight}[1]{\tikz[baseline=(lgaw.south)]{\node[trapezium,trapezium angle=72,draw=Slate,fill=Slate!25,line width=0.6pt,
+  rounded corners=1.5pt,inner xsep=1pt,inner ysep=2.5pt,font=\scriptsize\bfseries] (lgaw) {#1};}}
+
+% ---------------------------------------------------------------- Bài 14
+\begin{probbox}{14}{\relax}
+Trên một hòn đảo, mỗi người hoặc luôn nói thật, hoặc luôn nói dối. Em gặp hai người là Ánh và Bảo. Ánh nói:
+``Cả hai chúng tôi đều là người nói dối.'' Khẳng định nào sau đây đúng?
+\choicesL{Cả hai đều nói thật.}{Cả hai đều nói dối.}{Ánh nói thật, Bảo nói dối.}{Ánh nói dối, Bảo nói thật.}{Không xác định được.}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Chỉ có một câu nói, của Ánh. Ta xét hai trường hợp: Ánh nói thật hoặc Ánh nói dối, rồi xem trường hợp nào
+không mâu thuẫn.
+\begin{recallbox}Người nói thật chỉ nói câu đúng; người nói dối chỉ nói câu sai. Phủ định của ``cả hai đều nói dối'' là
+``ít nhất một người nói thật''.\end{recallbox}
+\step{1}{Trường hợp Ánh nói thật}
+Khi đó câu của Ánh đúng: cả hai đều nói dối -- tức là Ánh cũng nói dối. Nhưng ta đang giả sử Ánh nói thật. \textbf{Mâu thuẫn}, loại.
+\step{2}{Trường hợp Ánh nói dối}
+Khi đó câu của Ánh sai: \emph{không phải} cả hai đều nói dối, tức là có ít nhất một người nói thật. Ánh nói dối, nên người nói thật
+phải là \textbf{Bảo}. Không có mâu thuẫn.
+\step{3}{Kết luận}
+Ánh nói dối, Bảo nói thật.
+\begin{proofbox}Đây là một dạng của câu ``Tôi là người nói dối'': một người nói thật không bao giờ tự nhận mình nói dối. Vì vậy ngay khi
+nghe Ánh nói ``chúng tôi đều nói dối'' (có cả Ánh trong đó), ta biết Ánh phải là người nói dối.\end{proofbox}
+\begin{warnbox}Nhiều bạn chọn (B) vì nghĩ ``Ánh nói dối nên điều ngược lại là cả hai đều nói thật''. Sai! Điều ngược lại của ``cả hai đều
+nói dối'' chỉ là ``ít nhất một người nói thật''.\end{warnbox}
+\verify{Ánh dối, Bảo thật: câu ``cả hai đều nói dối'' sai (vì Bảo nói thật) -- đúng là một câu nói dối, phù hợp với Ánh.}
+Vậy chọn \textbf{(D)}.
+\ans{(D) Ánh nói dối, Bảo nói thật}
+}
+
+% ---------------------------------------------------------------- Bài 15
+\begin{probbox}{15}{\relax}
+Một chiếc bình hoa bị vỡ. Có đúng một trong bốn bạn Dũng, Hà, Long, Mai đã làm vỡ bình. Khi được hỏi, các bạn trả lời:
+\begin{itemize}[leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+\item Dũng: ``Hà làm vỡ.'' \qquad Hà: ``Long làm vỡ.''
+\item Long: ``Hà nói dối.'' \qquad Mai: ``Không phải tôi làm vỡ.''
+\end{itemize}
+Biết rằng chỉ có \textbf{đúng một} bạn nói thật. Ai đã làm vỡ bình hoa?
+\choices{Dũng}{Hà}{Long}{Mai}{Không biết được}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Bốn câu nói, đúng một câu đúng, ba câu sai. Cần tìm người làm vỡ bình.
+\begin{recallbox}Hai câu mâu thuẫn (không thể cùng đúng, không thể cùng sai) thì đúng một trong hai câu đúng.\end{recallbox}
+\step{1}{Tìm cặp câu mâu thuẫn}
+Long nói ``Hà nói dối''. Nếu câu của Hà đúng thì câu của Long sai; nếu câu của Hà sai thì câu của Long đúng. Vậy trong hai câu của
+Hà và Long có \textbf{đúng một} câu đúng.
+\step{2}{Suy ra Dũng và Mai đều nói dối}
+Cả nhóm chỉ có một câu đúng, và câu đúng đó nằm trong cặp Hà -- Long. Do đó câu của Dũng và câu của Mai đều \textbf{sai}.
+\step{3}{Dùng câu sai của Mai}
+Mai nói ``Không phải tôi làm vỡ'' là câu sai, nên \textbf{Mai đã làm vỡ bình}.
+\step{4}{Thử lại toàn bộ}
+\begin{center}
+\begin{tabular}{|l|l|c|}
+\hline
+\rowcolor{tmBlue!10} Bạn & Câu nói & Đúng / sai (khi Mai làm vỡ) \\ \hline
+Dũng & ``Hà làm vỡ'' & sai \\ \hline
+Hà & ``Long làm vỡ'' & sai \\ \hline
+Long & ``Hà nói dối'' & \textbf{đúng} (Hà đúng là nói sai) \\ \hline
+Mai & ``Không phải tôi'' & sai \\ \hline
+\end{tabular}
+\end{center}
+Đúng một câu đúng (của Long). Khớp với đề.
+\begin{warnbox}Đừng thử ngẫu nhiên từng người rồi dừng lại khi thấy ``có vẻ ổn''. Cách chắc chắn là thử đủ $4$ khả năng: nếu Dũng làm vỡ
+thì câu của Long và Mai đều đúng ($2$ câu đúng); nếu Hà làm vỡ thì câu của Dũng và Mai đúng; nếu Long làm vỡ thì câu của Hà và Mai đúng.
+Chỉ ``Mai làm vỡ'' cho đúng một câu đúng.\end{warnbox}
+Vậy chọn \textbf{(D)}.
+\ans{(D) Mai}
+}
+
+% ---------------------------------------------------------------- Bài 16
+\begin{probbox}{16}{\relax}
+Bạn Khánh mã hoá một lời chào bằng mật mã Caesar với bước dịch $5$ (mỗi chữ cái được thay bằng chữ cái đứng sau nó $5$ vị trí trên
+vòng chữ cái A--Z, sau Z lại đến A). Khánh nhận được: \textbf{CNS HMFT}. Lời chào ban đầu là
+\choicesII{XIN CHAO}{HSX MRKY}{YJO DIBP}{XIN CHAP}{WHM BGZN}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta có bản mã và biết bước dịch $5$. Muốn tìm bản gốc, ta phải \emph{giải mã}: dịch \emph{ngược} $5$ vị trí.
+\begin{recallbox}Giải mã: lấy số thứ tự của chữ (A $= 0$, \ldots, Z $= 25$) trừ đi $5$; nếu được số âm thì cộng thêm $26$.\end{recallbox}
+\step{1}{Giải mã từng chữ}
+\begin{center}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Chữ mã & C & N & S & H & M & F & T \\ \hline
+Số & $2$ & $13$ & $18$ & $7$ & $12$ & $5$ & $19$ \\ \hline
+Trừ $5$ & $-3 \to 23$ & $8$ & $13$ & $2$ & $7$ & $0$ & $14$ \\ \hline
+Chữ gốc & \textbf{X} & \textbf{I} & \textbf{N} & \textbf{C} & \textbf{H} & \textbf{A} & \textbf{O} \\ \hline
+\end{tabular}
+\end{center}
+Chữ C phải ``quay vòng'': C $\to$ B $\to$ A $\to$ Z $\to$ Y $\to$ X (lùi $5$ bước), đúng bằng $-3 + 26 = 23 =$ X.
+\step{2}{Đọc kết quả}
+Lời chào là XIN CHAO (``xin chào'').
+\begin{warnbox}(B) HSX MRKY là kết quả khi dịch \emph{xuôi} thêm $5$ bước -- tức là mã hoá thêm một lần, chứ không phải giải mã. (C) và (E)
+là dịch ngược $4$ và $6$ bước (đếm sai). (D) sai ở chữ cuối: T lùi $5$ bước là O, không phải P.\end{warnbox}
+\verify{Mã hoá XIN CHAO với bước $5$: X$(23) + 5 = 28 - 26 = 2 =$ C, I $\to$ N, N $\to$ S, C $\to$ H, H $\to$ M, A $\to$ F, O $\to$ T.
+Được CNS HMFT.}
+Vậy chọn \textbf{(A)}.
+\ans{(A) XIN CHAO}
+}
+
+% ---------------------------------------------------------------- Bài 17
+\begin{probbox}{17}{\relax}
+Bạn Ngân mã hoá chữ M bằng mật mã Caesar ba lần liên tiếp: lần thứ nhất với bước dịch $9$, lần thứ hai với bước dịch $11$ (dịch tiếp
+từ kết quả lần một), lần thứ ba lại với bước dịch $9$. Sau ba lần, chữ M trở thành chữ nào?
+\choices{V}{G}{J}{P}{O}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ba lần dịch theo cùng chiều. Ta có thể dịch từng lần, hoặc gộp lại thành một lần dịch.
+\begin{recallbox}Dịch $a$ bước rồi dịch $b$ bước giống như dịch $a + b$ bước. Dịch $26$ bước thì về chỗ cũ, nên chỉ cần số dư khi chia
+số bước cho $26$.\end{recallbox}
+\step{1}{Gộp ba lần dịch}
+Tổng số bước: $9 + 11 + 9 = 29$. Vì $29 = 26 + 3$, dịch $29$ bước giống hệt dịch $3$ bước.
+\step{2}{Dịch chữ M đi $3$ bước}
+M $= 12$; $12 + 3 = 15 =$ P. (M $\to$ N $\to$ O $\to$ P.)
+\step{3}{Kiểm tra bằng cách dịch từng lần}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Ban đầu & Sau lần 1 ($+9$) & Sau lần 2 ($+11$) & Sau lần 3 ($+9$) \\ \hline
+M $(12)$ & $21 =$ V & $32 - 26 = 6 =$ G & $15 =$ P \\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Các phương án (A) V và (B) G là kết quả \emph{giữa chừng} (sau lần $1$ và lần $2$). Đọc kĩ: đề hỏi kết quả sau \emph{cả ba} lần.
+(C) J là dịch \emph{ngược} $3$ bước.\end{warnbox}
+\verify{Từ P lùi $29$ bước, tức lùi $3$ bước (vì lùi $26$ bước là về chỗ cũ): P $\to$ O $\to$ N $\to$ M. Đúng.}
+Vậy chọn \textbf{(D)}.
+\ans{(D) P}
+}
+
+% ---------------------------------------------------------------- Bài 18
+\begin{probbox}{18}{\relax}
+Năm bạn Nga, Oanh, Phương, Quỳnh, Sơn có chiều cao khác nhau. Nga cao hơn Oanh. Phương thấp hơn Quỳnh nhưng cao hơn Nga. Sơn thấp
+hơn Oanh. Khi xếp năm bạn theo chiều cao, bạn nào đứng \emph{chính giữa}?
+\choices{Nga}{Oanh}{Phương}{Quỳnh}{Sơn}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Có năm bạn; ``chính giữa'' là bạn cao thứ ba (có hai bạn cao hơn và hai bạn thấp hơn).
+\step{1}{Kí hiệu hoá (``$>$'' là ``cao hơn'')}
+$N > O$; \quad $Q > P > N$; \quad $O > S$.
+\step{2}{Nối thành một dãy}
+$Q > P > N$ và $N > O > S$ cho: \quad $Q > P > N > O > S$.
+\begin{figC}
+  \foreach \i/\n/\h in {0/Quỳnh/2.2,1/Phương/1.9,2/Nga/1.6,3/Oanh/1.3,4/Sơn/1.0}{
+    \fill[tmBlue!25,draw=tmBlue,line width=0.7pt,rounded corners=2pt] (\i*1.3,0) rectangle (\i*1.3+0.8,\h);
+    \node[font=\scriptsize] at (\i*1.3+0.4,-0.25){\n};}
+  \draw[AnsRed,line width=1.2pt,rounded corners=3pt] (2*1.3-0.12,-0.5) rectangle (2*1.3+0.92,1.75);
+  \draw[Navy,line width=0.8pt] (-0.2,0)--(6.2,0);
+\end{figC}
+\step{3}{Đọc kết quả}
+Thứ tự từ cao đến thấp: Quỳnh, Phương, \textbf{Nga}, Oanh, Sơn. Bạn đứng giữa là Nga.
+\begin{warnbox}Câu ``Phương thấp hơn Quỳnh nhưng cao hơn Nga'' có \emph{hai} thông tin. Nhiều bạn chỉ ghi $Q > P$ mà quên $P > N$, khi đó
+không xếp được dãy.\end{warnbox}
+\verify{Nga (thứ $3$) cao hơn Oanh (thứ $4$) \checkmark; Phương (thứ $2$) thấp hơn Quỳnh, cao hơn Nga \checkmark; Sơn (thứ $5$) thấp hơn Oanh \checkmark.}
+Vậy chọn \textbf{(A)}.
+\ans{(A) Nga}
+}
+
+% ---------------------------------------------------------------- Bài 19
+\begin{probbox}{19}{\relax}
+Trong một hàng người xếp hàng mua vé, bạn Huy đứng thứ $7$ tính từ đầu hàng và đứng thứ $12$ tính từ cuối hàng. Hàng đó có bao nhiêu người?
+\choices{$17$}{$18$}{$19$}{$20$}{$5$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Biết vị trí của Huy khi đếm từ hai đầu. Cần tìm tổng số người trong hàng.
+\step{1}{Vẽ sơ đồ}
+\begin{figC}
+  \foreach \i in {1,...,18}{\fill[tmBlue!60] (\i*0.5,0) circle (0.15);}
+  \fill[AnsRed] (3.5,0) circle (0.17);
+  \node[font=\scriptsize,text=AnsRed] at (3.5,0.4){Huy};
+  \draw[decorate,decoration={brace,amplitude=4pt,mirror},tmGreen!60!black,line width=0.8pt] (0.35,-0.3)--(3.65,-0.3) node[midway,below=4pt,font=\scriptsize]{$7$ người (tính cả Huy)};
+  \draw[decorate,decoration={brace,amplitude=4pt},tmOrange!80!black,line width=0.8pt] (3.35,0.75)--(9.15,0.75) node[midway,above=4pt,font=\scriptsize]{$12$ người (tính cả Huy)};
+  \node[font=\scriptsize,text=Slate] at (0.5,0.4){đầu}; \node[font=\scriptsize,text=Slate] at (9,0.4){cuối};
+\end{figC}
+\step{2}{Đếm}
+Đếm từ đầu đến Huy: $7$ người. Đếm từ Huy đến cuối: $12$ người. Cộng lại $7 + 12 = 19$, nhưng Huy được đếm \textbf{hai lần}.
+Vậy số người trong hàng là $19 - 1 = 18$.
+\begin{recallbox}Đứng thứ $k$ từ đầu và thứ $m$ từ cuối thì hàng có $k + m - 1$ người.\end{recallbox}
+\step{3}{Cách khác}
+Phía trước Huy có $7 - 1 = 6$ người, phía sau Huy có $12 - 1 = 11$ người. Cả hàng: $6 + 1 + 11 = 18$ người.
+\begin{warnbox}Phương án (C) $19 = 7 + 12$ là lỗi đếm Huy hai lần; phương án (E) $5 = 12 - 7$ là lấy hiệu -- không có ý nghĩa gì ở đây.\end{warnbox}
+\verify{Hàng $18$ người, Huy đứng thứ $7$ từ đầu thì tính từ cuối là thứ $18 - 7 + 1 = 12$. Đúng.}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $18$}
+}
+
+% ---------------------------------------------------------------- Bài 20
+\begin{probbox}{20}{\relax}
+\begin{minipage}[t]{0.63\linewidth}
+Điền các số $1, 2, 3, \ldots, 9$ (mỗi số một lần) vào bảng bên cạnh để được một ma phương (tổng các số trên mỗi hàng, mỗi cột, mỗi đường
+chéo đều bằng nhau). Ba số đã được điền sẵn. Hãy hoàn thành bảng. Số ở góc dưới bên trái là bao nhiêu?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{-4pt}\centering
+\lgaMagic{$2$}{$7$}{}{}{}{$1$}{}{}{}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ma phương $3\times 3$ với các số $1$ đến $9$; đã biết ô góc trên trái ($2$), ô giữa hàng trên ($7$), ô bên phải
+hàng giữa ($1$). Cần điền đủ $6$ ô còn lại.
+\step{1}{Tổng ma phương và số ở giữa}
+\begin{recallbox}$S = (\text{tổng } 9 \text{ số}) : 3$; số ở giữa $= S : 3$.\end{recallbox}
+$1 + 2 + \cdots + 9 = 45$, nên $S = 45 : 3 = 15$; số ở giữa $= 15 : 3 = 5$.
+\step{2}{Điền lần lượt những đường đã có hai số}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item Hàng trên: $2 + 7 + \square = 15$ $\Rightarrow$ góc trên phải $= 6$.
+\item Hàng giữa: $\square + 5 + 1 = 15$ $\Rightarrow$ ô trái hàng giữa $= 9$.
+\item Đường chéo $2$ -- $5$ -- ?: góc dưới phải $= 15 - 2 - 5 = 8$.
+\item Đường chéo $6$ -- $5$ -- ?: góc dưới trái $= 15 - 6 - 5 = \mathbf{4}$.
+\item Cột giữa: $7 + 5 + \square = 15$ $\Rightarrow$ ô giữa hàng dưới $= 3$.
+\end{itemize}
+\begin{center}\lgaMagic{$2$}{$7$}{\textcolor{tmGreen!60!black}{$6$}}{\textcolor{tmGreen!60!black}{$9$}}{\textcolor{tmGreen!60!black}{$5$}}{$1$}{\textcolor{AnsRed}{$\mathbf{4}$}}{\textcolor{tmGreen!60!black}{$3$}}{\textcolor{tmGreen!60!black}{$8$}}\end{center}
+\verify{Hàng: $2 + 7 + 6 = 15$, $9 + 5 + 1 = 15$, $4 + 3 + 8 = 15$. Cột: $2 + 9 + 4 = 15$, $7 + 5 + 3 = 15$, $6 + 1 + 8 = 15$.
+Chéo: $2 + 5 + 8 = 15$, $6 + 5 + 4 = 15$. Các số $1$ đến $9$ dùng đúng một lần.}
+\begin{warnbox}Phải thử lại \emph{tất cả} tám đường (ba hàng, ba cột, hai chéo) và kiểm tra không có số nào bị lặp. Một bảng chỉ đúng
+hàng và cột nhưng sai đường chéo thì chưa phải ma phương.\end{warnbox}
+\ans{Bảng: $2, 7, 6$ / $9, 5, 1$ / $4, 3, 8$. Số ở góc dưới bên trái là $4$.}
+}
+
+% ---------------------------------------------------------------- Bài 21
+\begin{probbox}{21}{\relax}
+\begin{minipage}[t]{0.63\linewidth}
+Các số $3, 4, 5, \ldots, 11$ (chín số tự nhiên liên tiếp) được điền vào bảng bên cạnh, mỗi số một lần, để được một ma phương.
+Số $x$ ở góc dưới bên phải là
+\choicesII{$6$}{$8$}{$10$}{$3$}{$5$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{-4pt}\centering
+\lgaMagic{$4$}{$9$}{}{$11$}{}{}{}{}{$x$}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Chín số từ $3$ đến $11$. Đã biết ba ô; ô $x$ nằm trên đường chéo chính cùng với ô $4$ và ô giữa.
+\step{1}{Tìm tổng ma phương}
+Tổng chín số: $3 + 4 + \cdots + 11$. Ghép cặp đầu -- cuối: $(3 + 11) + (4 + 10) + (5 + 9) + (6 + 8) + 7 = 4\times 14 + 7 = 63$.
+Vậy $S = 63 : 3 = 21$.
+\step{2}{Số ở giữa}
+\begin{recallbox}Trong ma phương $3\times 3$, số ở giữa $= S : 3$.\end{recallbox}
+Số ở giữa $= 21 : 3 = 7$ (cũng chính là số đứng giữa dãy $3, 4, \ldots, 11$).
+\step{3}{Tìm $x$ trên đường chéo chính}
+$4 + 7 + x = 21$ $\Rightarrow$ $x = 21 - 11 = 10$.
+\step{4}{Hoàn thành bảng để thử lại}
+Hàng trên: $21 - 4 - 9 = 8$. Hàng giữa: $21 - 11 - 7 = 3$. Cột trái: $21 - 4 - 11 = 6$. Hàng dưới: $21 - 6 - 10 = 5$.
+\begin{center}\lgaMagic{$4$}{$9$}{\textcolor{tmGreen!60!black}{$8$}}{$11$}{\textcolor{tmGreen!60!black}{$7$}}{\textcolor{tmGreen!60!black}{$3$}}{\textcolor{tmGreen!60!black}{$6$}}{\textcolor{tmGreen!60!black}{$5$}}{\textcolor{AnsRed}{$\mathbf{10}$}}\end{center}
+\verify{Cột giữa $9 + 7 + 5 = 21$; cột phải $8 + 3 + 10 = 21$; chéo phụ $8 + 7 + 6 = 21$. Chín số $3$ đến $11$ dùng đủ, không lặp.}
+\begin{warnbox}Nếu nhầm tổng ma phương là $15$ (như với các số $1$ đến $9$) thì sẽ ra $x = 4$ -- trùng với số đã có! Tổng ma phương
+phụ thuộc vào các số được dùng.\end{warnbox}
+Vậy chọn \textbf{(C)}.
+\ans{(C) $10$}
+}
+
+% ---------------------------------------------------------------- Bài 22
+\begin{probbox}{22}{\relax}
+Hai chiếc cân dưới đây đều thăng bằng. Các quả táo nặng bằng nhau.
+\begin{center}
+\lgaScale{\lgaApple\,\lgaApple\,\lgaApple}{\lgaPomelo}\hspace{1cm}\lgaScale{\lgaPomelo\,\lgaApple}{\lgaWeight{800 g}}
+\end{center}
+Hỏi quả bưởi \lgaPomelo\ nặng bao nhiêu gam?
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Gọi khối lượng một quả táo là $T$ (gam), quả bưởi là $B$ (gam). Cân 1: $3T = B$. Cân 2: $B + T = 800$.
+\begin{recallbox}Nếu nhóm vật $A$ cân bằng với nhóm $B$ thì ở cân khác có thể thay $A$ bằng $B$.\end{recallbox}
+\step{1}{Thay quả bưởi ở cân 2 bằng $3$ quả táo}
+Cân 1 cho biết quả bưởi nặng bằng $3$ quả táo. Ở cân 2, thay quả bưởi bằng $3$ quả táo: \ $3T + T = 800$, tức $4T = 800$.
+\begin{figC}
+  \node at (0,0){\lgaScale{\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple}{\lgaWeight{800 g}}};
+\end{figC}
+\step{2}{Tìm khối lượng một quả táo}
+$T = 800 : 4 = 200$ (g).
+\step{3}{Tìm khối lượng quả bưởi}
+$B = 3T = 3\times 200 = 600$ (g).
+\begin{warnbox}Đề hỏi khối lượng quả \emph{bưởi}, không phải quả táo. Tính ra $200$ g rồi dừng lại là trả lời nhầm câu hỏi.\end{warnbox}
+\verify{Cân 1: $3\times 200 = 600$ g $=$ quả bưởi \checkmark. Cân 2: $600 + 200 = 800$ g \checkmark.}
+\ans{Quả bưởi nặng $600$ g.}
+}
+
+% ---------------------------------------------------------------- Bài 23
+\begin{probbox}{23}{\relax}
+Có bốn loại hộp: đỏ \lgaBox{AnsRed}, vàng \lgaBox{StarGold}, xanh \lgaBox{tmBlue}, tím \lgaBox{tmPurple}; các hộp cùng màu nặng bằng nhau.
+Ba chiếc cân sau đều thăng bằng:
+\begin{center}
+\lgaScale{\lgaBox{AnsRed}\,\lgaBox{StarGold}}{\lgaBox{tmBlue}}\hspace{0.4cm}\lgaScale{\lgaBox{tmBlue}\,\lgaBox{StarGold}}{\lgaBox{tmPurple}}\hspace{0.4cm}\lgaScale{\lgaBox{AnsRed}\,\lgaBox{AnsRed}}{\lgaBox{tmBlue}}
+\end{center}
+Một hộp tím nặng bằng bao nhiêu hộp vàng?
+\choices{$2$}{$3$}{$4$}{$5$}{$6$}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Gọi khối lượng hộp đỏ, vàng, xanh, tím là $Đ, V, X, T$. Ba cân cho ba đẳng thức:
+\[ Đ + V = X, \qquad X + V = T, \qquad Đ + Đ = X. \]
+Cần biểu diễn $T$ theo $V$.
+\step{1}{So sánh cân 1 và cân 3}
+Cả hai đều có đĩa phải là một hộp xanh, nên đĩa trái của chúng nặng bằng nhau: $Đ + V = Đ + Đ$.
+Bỏ một hộp đỏ ở cả hai bên: $V = Đ$. \emph{Hộp đỏ nặng bằng hộp vàng.}
+\step{2}{Hộp xanh}
+$X = Đ + V = V + V = 2V$: hộp xanh nặng bằng $2$ hộp vàng.
+\step{3}{Hộp tím}
+$T = X + V = 2V + V = 3V$: hộp tím nặng bằng $3$ hộp vàng.
+\begin{figC}
+  \node at (0,0){\lgaScale{\lgaBox{tmPurple}}{\lgaBox{StarGold}\,\lgaBox{StarGold}\,\lgaBox{StarGold}}};
+\end{figC}
+\begin{warnbox}Đừng vội cho rằng hộp đỏ nặng hơn hộp vàng chỉ vì ``đỏ'' xuất hiện nhiều lần. Phải dùng các cân để \emph{chứng minh} quan hệ.\end{warnbox}
+\verify{Chọn $V = Đ = 1$ kg, $X = 2$ kg, $T = 3$ kg: cân 1: $1 + 1 = 2$; cân 2: $2 + 1 = 3$; cân 3: $1 + 1 = 2$. Cả ba đều thăng bằng.}
+Vậy chọn \textbf{(B)}.
+\ans{(B) $3$}
+}
+
+% ---------------------------------------------------------------- Bài 24
+\begin{probbox}{24}{\relax}
+\begin{minipage}[t]{0.63\linewidth}
+Các số $1, 2, 3, 4, 5, 6, 7, 8$ được điền vào tám vòng tròn trên hình vuông bên cạnh (bốn ở đỉnh, bốn ở giữa cạnh), mỗi số một lần,
+sao cho tổng ba số trên mỗi cạnh đều bằng $13$. Tổng bốn số ở bốn đỉnh là
+\choices{$12$}{$13$}{$16$}{$20$}{$36$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{0pt}\centering
+\lgaSqEight{}{}{}{}{}{}{}{}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Hình vuông có $4$ cạnh, mỗi cạnh gồm hai đỉnh và một số ở giữa. Cần tìm tổng bốn số ở đỉnh.
+\begin{recallbox}Khi cộng tổng của tất cả các cạnh, số ở đỉnh được tính hai lần (vì thuộc hai cạnh), số ở giữa cạnh được tính một lần.\end{recallbox}
+\step{1}{Cộng tổng của bốn cạnh}
+Mỗi cạnh có tổng $13$, nên tổng bốn cạnh là $4\times 13 = 52$.
+\step{2}{Đếm mỗi số được tính mấy lần}
+Trong $52$ đó, mỗi số từ $1$ đến $8$ được tính ít nhất một lần, còn bốn số ở đỉnh được tính thêm một lần nữa:
+\[ 52 = (1 + 2 + \cdots + 8) + (\text{tổng bốn đỉnh}) = 36 + (\text{tổng bốn đỉnh}). \]
+\step{3}{Tính}
+Tổng bốn đỉnh $= 52 - 36 = 16$.
+\step{4}{Một cách điền cụ thể (để chắc chắn bài toán có lời giải)}
+\begin{figC}
+  \node at (0,0){\lgaSqEight{$1$}{$8$}{$4$}{$3$}{$6$}{$2$}{$5$}{$7$}};
+  \node[font=\small,anchor=west,align=left] at (2.0,0){trên: $1 + 8 + 4 = 13$\\ phải: $4 + 3 + 6 = 13$\\ dưới: $6 + 2 + 5 = 13$\\ trái: $5 + 7 + 1 = 13$\\[2pt] đỉnh: $1 + 4 + 6 + 5 = 16$};
+\end{figC}
+\begin{warnbox}Phương án (E) $36$ là tổng của \emph{tất cả} tám số; phương án (B) $13$ là tổng một cạnh. Câu hỏi là tổng bốn số ở \emph{đỉnh}.\end{warnbox}
+Vậy chọn \textbf{(C)}.
+\ans{(C) $16$}
+}
+
+% ---------------------------------------------------------------- Bài 25
+\begin{probbox}{25}{\relax}
+\begin{minipage}[t]{0.63\linewidth}
+Điền các số $1, 2, 3, 4, 5$ vào năm ô của hình chữ thập bên cạnh, mỗi số một lần, sao cho tổng ba số trên hàng ngang bằng tổng ba số trên
+cột dọc. Ô ở chính giữa có thể nhận bao nhiêu giá trị khác nhau?
+\choices{$1$}{$2$}{$3$}{$4$}{$5$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{-6pt}\centering
+\lgaCross{}{}{$?$}{}{}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ô giữa (gọi là $c$) thuộc cả hàng ngang lẫn cột dọc. Bốn ô còn lại chia thành hai cặp: cặp trái -- phải (hàng ngang)
+và cặp trên -- dưới (cột dọc).
+\step{1}{Điều kiện bằng nhau}
+Hàng ngang: $(\text{trái} + \text{phải}) + c$; cột dọc: $(\text{trên} + \text{dưới}) + c$. Hai tổng bằng nhau khi và chỉ khi
+\[ \text{trái} + \text{phải} = \text{trên} + \text{dưới}. \]
+\step{2}{Tổng của bốn số còn lại phải chẵn}
+Bốn số không ở giữa có tổng $= 15 - c$ (vì $1 + 2 + 3 + 4 + 5 = 15$). Hai cặp có tổng bằng nhau nên $15 - c$ phải chia đôi được, tức là
+$15 - c$ chẵn. Vì $15$ lẻ, $c$ phải \textbf{lẻ}: $c \in \{1; 3; 5\}$.
+\step{3}{Kiểm tra từng giá trị lẻ}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item $c = 1$: còn $2, 3, 4, 5$, mỗi cặp có tổng $14 : 2 = 7$: \ $2 + 5 = 3 + 4 = 7$. \checkmark
+\item $c = 3$: còn $1, 2, 4, 5$, mỗi cặp có tổng $12 : 2 = 6$: \ $1 + 5 = 2 + 4 = 6$. \checkmark
+\item $c = 5$: còn $1, 2, 3, 4$, mỗi cặp có tổng $10 : 2 = 5$: \ $1 + 4 = 2 + 3 = 5$. \checkmark
+\end{itemize}
+\begin{figC}
+  \node at (0,0){\lgaCross{$3$}{$2$}{$1$}{$5$}{$4$}}; \node[font=\small] at (0,-1.5){$c = 1$};
+  \node at (3.2,0){\lgaCross{$2$}{$1$}{$3$}{$5$}{$4$}}; \node[font=\small] at (3.2,-1.5){$c = 3$};
+  \node at (6.4,0){\lgaCross{$2$}{$1$}{$5$}{$4$}{$3$}}; \node[font=\small] at (6.4,-1.5){$c = 5$};
+\end{figC}
+\step{4}{Vì sao $c$ chẵn không được?}
+Nếu $c = 2$: bốn số còn lại $1, 3, 4, 5$ có tổng $13$ -- lẻ, không chia thành hai cặp có tổng bằng nhau. Nếu $c = 4$: còn $1, 2, 3, 5$ có tổng
+$11$ -- lẻ, cũng không được.
+\begin{warnbox}Đừng nghĩ ``số ở giữa phải là số đứng giữa ($3$)''. Ở đây có tới ba khả năng!\end{warnbox}
+Vậy ô giữa có thể là $1$, $3$ hoặc $5$: có $3$ giá trị. Chọn \textbf{(C)}.
+\ans{(C) $3$}
+}
+
+% ---------------------------------------------------------------- Bài 26
+\begin{probbox}{26}{\relax}
+\begin{minipage}[t]{0.66\linewidth}
+Ba con xúc xắc chuẩn (tổng hai mặt đối diện bằng $7$) được xếp chồng lên nhau trên mặt bàn như hình bên. Mặt trên cùng có $2$ chấm.
+Tổng số chấm trên năm mặt bị che khuất \emph{nằm ngang} (các mặt áp vào nhau giữa hai con xúc xắc và mặt đáy áp xuống bàn) là
+\choices{$14$}{$17$}{$19$}{$21$}{$23$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{-4pt}\centering
+\begin{tikzpicture}[scale=0.62,line join=round]
+  \draw[Slate,line width=1pt] (-0.4,0)--(2.0,0);
+  \foreach \k/\f/\r in {0/4/1,1/5/3,2/3/1}{
+    \begin{scope}[yshift=\k cm]
+    \draw[Ink,line width=0.8pt,fill=white] (0,0) rectangle (1,1);
+    \draw[Ink,line width=0.8pt,fill=white] (1,0)--(1.45,0.45)--(1.45,1.45)--(1,1)--cycle;
+    \begin{scope}[Ink]\lgaPips{\f}\end{scope}
+    \begin{scope}[Ink,cm={0.45,0.45,0,1,(1,0)}]\lgaPips{\r}\end{scope}
+    \end{scope}}
+  \draw[Ink,line width=0.8pt,fill=white] (0,3)--(1,3)--(1.45,3.45)--(0.45,3.45)--cycle;
+  \begin{scope}[Ink,cm={1,0,0.45,0.45,(0,3)}]\lgaPips{2}\end{scope}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Năm mặt bị che nằm ngang gồm: mặt đáy của con trên cùng; mặt trên và mặt đáy của con ở giữa; mặt trên và mặt đáy của
+con dưới cùng. Ta không cần biết từng mặt có bao nhiêu chấm -- chỉ cần dùng ``hai mặt đối diện có tổng $7$''.
+\begin{recallbox}Trên xúc xắc chuẩn, mặt trên và mặt đáy là hai mặt đối diện, nên tổng số chấm của chúng bằng $7$.\end{recallbox}
+\step{1}{Con dưới cùng và con ở giữa}
+Mỗi con có mặt trên và mặt đáy đều bị che, tổng mỗi cặp là $7$. Hai con: $7 + 7 = 14$.
+\step{2}{Con trên cùng}
+Mặt trên nhìn thấy có $2$ chấm, nên mặt đáy (đối diện) có $7 - 2 = 5$ chấm, và mặt này bị che.
+\step{3}{Cộng lại}
+$14 + 5 = 19$.
+\begin{warnbox}(D) $21 = 3\times 7$ là quên rằng mặt trên cùng ($2$ chấm) \emph{nhìn thấy được}, không bị che. (A) $14$ là quên mặt đáy của con trên cùng
+(cũng bị che, có $5$ chấm).\end{warnbox}
+\verify{Sáu mặt nằm ngang của ba con có tổng $3\times 7 = 21$; trong đó chỉ mặt trên cùng ($2$ chấm) là nhìn thấy, nên năm mặt bị che có tổng $21 - 2 = 19$.}
+Vậy chọn \textbf{(C)}.
+\ans{(C) $19$}
+}
+
+% ---------------------------------------------------------------- Bài 27
+\begin{probbox}{27}{\relax}
+\begin{minipage}[t]{0.63\linewidth}
+Lưới $4\times 4$ bên cạnh cần được điền sao cho mỗi hàng, mỗi cột và mỗi ô vuông $2\times 2$ viền đậm đều có đủ các chữ số $1, 2, 3, 4$.
+Chữ số ở ô $Q$ là
+\choicesL{$1$}{$2$}{$3$}{$4$}{Không xác định được}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{4pt}\centering
+\lgaFour{2/1/$3$,4/1/$2$,4/2/$1$,1/3/$4$,3/4/$2$,4/4/$Q$}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ô $Q$ nằm ở hàng $4$, cột $4$ (góc dưới phải), thuộc ô $2\times 2$ dưới phải.
+\begin{recallbox}Chữ số trong một ô phải khác mọi chữ số đã có trong hàng, cột và ô $2\times 2$ chứa nó.\end{recallbox}
+\step{1}{Cột $4$}
+Cột $4$ đã có $2$ (hàng $1$) và $1$ (hàng $2$). Hai ô còn lại -- hàng $3$ cột $4$ và ô $Q$ -- phải là $3$ và $4$ theo một thứ tự nào đó.
+\step{2}{Hàng $3$ quyết định}
+Hàng $3$ đã có chữ số $4$ (ở cột $1$), nên hàng $3$ cột $4$ \emph{không} thể là $4$. Vậy hàng $3$ cột $4$ là $3$, và $Q = 4$.
+\step{3}{Kiểm tra với ô $2\times 2$ dưới phải và hàng $4$}
+Ô $2\times 2$ dưới phải chứa $3$ (hàng $3$ cột $4$), $2$ (hàng $4$ cột $3$), $Q = 4$ và ô còn lại (hàng $3$ cột $3$) là $1$ -- đủ $1, 2, 3, 4$.
+Hàng $4$ có $2$ và $4$, không lặp.
+\step{4}{Hoàn thành lưới (để chắc chắn không mâu thuẫn)}
+\begin{figC}
+  \node at (0,0){\lgaFour{1/1/$1$,2/1/$3$,3/1/$4$,4/1/$2$,1/2/$2$,2/2/$4$,3/2/$3$,4/2/$1$,1/3/$4$,2/3/$2$,3/3/$1$,4/3/$3$,1/4/$3$,2/4/$1$,3/4/$2$,4/4/\textcolor{AnsRed}{$\mathbf{4}$}}};
+  \node[font=\small,anchor=west,align=left] at (1.8,0){Hàng $1$: $1\,3\,4\,2$\\ Hàng $2$: $2\,4\,3\,1$\\ Hàng $3$: $4\,2\,1\,3$\\ Hàng $4$: $3\,1\,2\,4$};
+\end{figC}
+\verify{Mọi hàng, cột và ô $2\times 2$ đều có đủ $1, 2, 3, 4$; máy tính kiểm tra thấy lưới chỉ có duy nhất cách điền này.}
+\begin{warnbox}Chỉ nhìn cột $4$ thì thấy $Q$ có thể là $3$ hoặc $4$ và dễ chọn (E). Hãy nhìn thêm hàng $3$ -- một vùng khác chứa ô ``hàng xóm'' của $Q$.\end{warnbox}
+Vậy chọn \textbf{(D)}.
+\ans{(D) $4$}
+}
+
+% ---------------------------------------------------------------- Bài 28
+\begin{probbox}{28}{\relax}
+Ở lớp 7A, \emph{tất cả} các bạn trong câu lạc bộ cờ vua đều biết bơi. Bạn Lâm không biết bơi. Bạn Na biết bơi. Khẳng định nào sau đây
+\textbf{chắc chắn} đúng?
+\choicesL{Lâm ở trong câu lạc bộ cờ vua.}{Lâm không ở trong câu lạc bộ cờ vua.}{Na ở trong câu lạc bộ cờ vua.}{Na không ở trong câu lạc bộ cờ vua.}{Mọi bạn biết bơi trong lớp đều ở câu lạc bộ cờ vua.}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Câu ``tất cả các bạn trong CLB cờ vua đều biết bơi'' có dạng ``mọi A đều là B'' (A: ở CLB cờ vua, B: biết bơi).
+\begin{recallbox}Từ ``mọi A đều là B'' suy ra được ``không là B thì không là A''; nhưng \emph{không} suy ra được ``là B thì là A''.\end{recallbox}
+\step{1}{Vẽ sơ đồ}
+\begin{figC}
+  \draw[tmBlue,line width=1pt,fill=tmBlue!8] (0.9,1.1) ellipse (1.9 and 1.2);
+  \draw[tmOrange,line width=1pt,fill=tmOrange!15] (0.45,1.0) ellipse (0.85 and 0.62);
+  \node[font=\scriptsize,text=tmOrange!70!black] at (0.45,1.05){CLB cờ vua};
+  \node[font=\scriptsize,text=tmBlue!80!black] at (2.0,1.95){biết bơi};
+  \fill[tmGreen!60!black] (2.0,0.75) circle (2.2pt) node[below,font=\scriptsize]{Na?};
+  \fill[tmGreen!60!black] (0.5,0.7) circle (2.2pt) node[below,font=\scriptsize]{Na?};
+  \fill[AnsRed] (3.6,1.1) circle (2.2pt) node[right,font=\scriptsize]{Lâm};
+\end{figC}
+Vòng ``CLB cờ vua'' nằm trọn trong vòng ``biết bơi''.
+\step{2}{Lâm}
+Lâm không biết bơi, nên Lâm nằm \emph{ngoài} vòng lớn, do đó chắc chắn nằm ngoài vòng nhỏ: \textbf{Lâm không ở CLB cờ vua}. Nếu Lâm ở CLB thì
+Lâm phải biết bơi -- trái với đề (phản chứng).
+\step{3}{Na}
+Na biết bơi: Na nằm trong vòng lớn, nhưng có thể ở trong hoặc ngoài vòng nhỏ. Vậy (C) và (D) đều chỉ \emph{có thể} đúng, không chắc chắn.
+\step{4}{Câu (E)}
+(E) đảo ngược câu đề bài. Đề không nói gì về những bạn biết bơi nhưng không chơi cờ, nên (E) không chắc chắn đúng.
+\begin{warnbox}Lỗi rất phổ biến: từ ``người chơi cờ đều biết bơi'' suy ra ``người biết bơi đều chơi cờ''. Hãy nghĩ một ví dụ: ``mọi con mèo đều có
+bốn chân'' không có nghĩa ``mọi con vật bốn chân đều là mèo''!\end{warnbox}
+Vậy chọn \textbf{(B)}.
+\ans{(B) Lâm không ở trong câu lạc bộ cờ vua}
+}
+
+% ---------------------------------------------------------------- Bài 29
+\begin{probbox}{29}{\relax}
+Chú Cáo nói dối vào các ngày thứ Hai, thứ Ba, thứ Tư và nói thật vào các ngày còn lại trong tuần. Một hôm, Cáo nói: ``Hôm qua tôi đã nói dối.''
+Hôm đó có thể là ngày nào?
+\choicesL{Chỉ có thể là thứ Hai.}{Chỉ có thể là thứ Năm.}{Thứ Hai hoặc thứ Năm.}{Thứ Tư hoặc thứ Năm.}{Chủ nhật hoặc thứ Hai.}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cáo nói được câu ``Hôm qua tôi đã nói dối'' khi:
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+\item hôm nay nói thật và câu đúng: hôm nay thật, hôm qua dối; hoặc
+\item hôm nay nói dối và câu sai: hôm nay dối, hôm qua thật.
+\end{itemize}
+Tức là: \textbf{hôm qua và hôm nay khác loại}.
+\begin{recallbox}Hôm qua của thứ Hai là Chủ nhật (tuần quay vòng).\end{recallbox}
+\step{1}{Lập bảng}
+\begin{center}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Hôm nay & T2 & T3 & T4 & T5 & T6 & T7 & CN \\ \hline
+Hôm nay Cáo & D & D & D & T & T & T & T \\ \hline
+Hôm qua Cáo & T (CN) & D & D & D & T & T & T \\ \hline
+Khác loại? & \textbf{có} & -- & -- & \textbf{có} & -- & -- & -- \\ \hline
+\end{tabular}
+\end{center}
+\step{2}{Kiểm tra hai ngày tìm được}
+\emph{Thứ Hai:} Cáo nói dối; hôm qua (Chủ nhật) Cáo nói thật, nên câu ``hôm qua tôi nói dối'' sai -- đúng là một lời nói dối. \checkmark\\
+\emph{Thứ Năm:} Cáo nói thật; hôm qua (thứ Tư) Cáo nói dối, nên câu đó đúng -- đúng là lời nói thật. \checkmark
+\begin{warnbox}Thứ Tư: Cáo nói dối, hôm qua (thứ Ba) cũng nói dối, nên câu ``hôm qua tôi đã nói dối'' là câu \emph{đúng}. Người đang nói dối không
+nói câu đúng, nên thứ Tư bị loại -- đây là bẫy của phương án (D).\end{warnbox}
+Vậy chọn \textbf{(C)}.
+\ans{(C) Thứ Hai hoặc thứ Năm}
+}
+
+% ---------------------------------------------------------------- Bài 30
+\begin{probbox}{30}{\relax}
+Bốn bạn An, Bách, Cúc, Dung thi chạy, không có hai bạn nào về cùng lúc. Ba bạn đứng xem dự đoán:
+\begin{itemize}[leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+\item Hiếu: ``An về nhất, Bách về nhì.''
+\item Khoa: ``Cúc về nhất, Dung về thứ tư.''
+\item Lan: ``Bách về thứ ba, Dung về nhì.''
+\end{itemize}
+Kết quả là mỗi bạn dự đoán đúng \emph{đúng một} ý. Hãy tìm thứ tự về đích của bốn bạn.
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi dự đoán có hai ý, đúng một ý đúng. Ta xét trường hợp theo dự đoán của Hiếu.
+\begin{recallbox}Câu ``đúng một nửa'': ý này đúng thì ý kia sai, ý này sai thì ý kia đúng.\end{recallbox}
+\step{1}{Trường hợp 1: ``Bách về nhì'' đúng (và ``An về nhất'' sai)}
+Xét dự đoán của Lan. Bách về nhì nên ``Bách về thứ ba'' sai; vậy ý còn lại ``Dung về nhì'' phải đúng. Nhưng Bách đã về nhì, Dung không thể
+cũng về nhì. \textbf{Mâu thuẫn} -- loại trường hợp này.
+\step{2}{Trường hợp 2: ``An về nhất'' đúng (và ``Bách về nhì'' sai)}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item Khoa: An về nhất nên ``Cúc về nhất'' sai $\Rightarrow$ ``Dung về thứ tư'' đúng.
+\item Lan: Dung về thứ tư nên ``Dung về nhì'' sai $\Rightarrow$ ``Bách về thứ ba'' đúng.
+\item Còn lại vị trí thứ nhì cho Cúc.
+\end{itemize}
+Thứ tự: An (nhất), Cúc (nhì), Bách (ba), Dung (tư).
+\step{3}{Thử lại}
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor{tmBlue!10} Người dự đoán & Ý thứ nhất & Ý thứ hai \\ \hline
+Hiếu & An nhất: \textcolor{tmGreen!70!black}{đúng} & Bách nhì: \textcolor{AnsRed}{sai} \\ \hline
+Khoa & Cúc nhất: \textcolor{AnsRed}{sai} & Dung tư: \textcolor{tmGreen!70!black}{đúng} \\ \hline
+Lan & Bách ba: \textcolor{tmGreen!70!black}{đúng} & Dung nhì: \textcolor{AnsRed}{sai} \\ \hline
+\end{tabular}
+\end{center}
+\begin{tipbox}Chọn dự đoán để xét trường hợp sao cho mỗi trường hợp ``kéo theo'' được nhiều ý khác. Ở đây ý ``Bách nhì'' va chạm ngay với
+``Dung nhì'' của Lan, nên trường hợp 1 bị loại rất nhanh.\end{tipbox}
+\begin{parentbox}Có thể cùng con dùng bốn mẩu giấy ghi tên, xếp thành hàng ``nhất -- nhì -- ba -- tư'' và đổi chỗ để thử. Sau đó hỏi con:
+``Mình có thử hết các trường hợp chưa? Làm sao chắc chắn không còn đáp án khác?'' -- câu trả lời chính là Bước 1.\end{parentbox}
+\ans{An nhất, Cúc nhì, Bách ba, Dung tư.}
+}

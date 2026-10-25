@@ -1,0 +1,561 @@
+% =====================================================================
+% Chapter 5 — Logic and Puzzles — part b: problems 14–30 (new problems, core level)
+% =====================================================================
+% pomelo (Problem 22) and a weight labelled with its mass
+\providecommand{\lgaPomelo}{\tikz[baseline=0pt]{\draw[fill=StarGold!70!tmGreen,draw=tmGreen!45!black,line width=0.5pt] (0.26,0.26) circle (0.26);
+  \draw[tmGreen!50!black,line width=0.8pt] (0.26,0.5)--(0.3,0.6);}}
+\providecommand{\lgaWeight}[1]{\tikz[baseline=(lgaw.south)]{\node[trapezium,trapezium angle=72,draw=Slate,fill=Slate!25,line width=0.6pt,
+  rounded corners=1.5pt,inner xsep=1pt,inner ysep=2.5pt,font=\scriptsize\bfseries] (lgaw) {#1};}}
+
+% ---------------------------------------------------------------- Problem 14
+\begin{probbox}{14}{\relax}
+On an island, every person either always tells the truth or always lies. You meet two people, Ánh and Bảo. Ánh says:
+``We are both liars.'' Which of the following is correct?
+\choicesL{Both tell the truth.}{Both are liars.}{Ánh tells the truth, Bảo lies.}{Ánh lies, Bảo tells the truth.}{It cannot be determined.}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} There is only one statement, Ánh's. We consider two cases, Ánh truthful or Ánh lying, and see which case
+gives no contradiction.
+\begin{recallbox}A truth-teller only says true things; a liar only says false things. The negation of ``both are liars'' is
+``at least one of them tells the truth''.\end{recallbox}
+\step{1}{Case: Ánh tells the truth}
+Then Ánh's statement is true: both are liars -- so Ánh is a liar too. But we assumed Ánh tells the truth. \textbf{Contradiction}, ruled out.
+\step{2}{Case: Ánh lies}
+Then Ánh's statement is false: it is \emph{not} the case that both are liars, so at least one of them tells the truth. Ánh lies, so the
+truth-teller must be \textbf{Bảo}. No contradiction.
+\step{3}{Conclusion}
+Ánh lies, Bảo tells the truth.
+\begin{proofbox}This is a version of ``I am a liar'': a truth-teller never calls himself a liar. So as soon as we hear Ánh say ``we are both
+liars'' (which includes Ánh), we know Ánh must be a liar.\end{proofbox}
+\begin{warnbox}Many students choose (B), thinking ``Ánh lies, so the opposite is true: both tell the truth''. Wrong! The opposite of ``both
+are liars'' is only ``at least one tells the truth''.\end{warnbox}
+\verify{Ánh lies, Bảo is truthful: the statement ``we are both liars'' is false (because Bảo tells the truth) -- indeed a lie, which fits Ánh.}
+So the answer is \textbf{(D)}.
+\ans{(D) Ánh lies, Bảo tells the truth}
+}
+
+% ---------------------------------------------------------------- Problem 15
+\begin{probbox}{15}{\relax}
+A vase has been broken. Exactly one of the four friends Dũng, Hà, Long and Mai broke it. When asked, they answer:
+\begin{itemize}[leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+\item Dũng: ``Hà broke it.'' \qquad Hà: ``Long broke it.''
+\item Long: ``Hà is lying.'' \qquad Mai: ``I did not break it.''
+\end{itemize}
+We know that \textbf{exactly one} of them is telling the truth. Who broke the vase?
+\choices{Dũng}{Hà}{Long}{Mai}{Cannot tell}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} Four statements, exactly one true, three false. We must find who broke the vase.
+\begin{recallbox}For two contradictory statements (they cannot both be true and cannot both be false), exactly one of them is true.\end{recallbox}
+\step{1}{Find a contradictory pair}
+Long says ``Hà is lying''. If Hà's statement is true, Long's is false; if Hà's statement is false, Long's is true. So among the statements of
+Hà and Long, \textbf{exactly one} is true.
+\step{2}{So Dũng and Mai are both lying}
+The whole group has only one true statement, and it lies in the pair Hà -- Long. Therefore the statements of Dũng and Mai are both \textbf{false}.
+\step{3}{Use Mai's false statement}
+Mai's ``I did not break it'' is false, so \textbf{Mai broke the vase}.
+\step{4}{Check everything}
+\begin{center}
+\begin{tabular}{|l|l|c|}
+\hline
+\rowcolor{tmBlue!10} Friend & Statement & True / false (if Mai broke it) \\ \hline
+Dũng & ``Hà broke it'' & false \\ \hline
+Hà & ``Long broke it'' & false \\ \hline
+Long & ``Hà is lying'' & \textbf{true} (Hà indeed said something false) \\ \hline
+Mai & ``I did not'' & false \\ \hline
+\end{tabular}
+\end{center}
+Exactly one true statement (Long's). This matches the problem.
+\begin{warnbox}Do not test people at random and stop as soon as something ``looks fine''. The sure way is to test all $4$ possibilities: if Dũng
+broke it, Long's and Mai's statements are both true ($2$ true statements); if Hà broke it, Dũng's and Mai's are true; if Long broke it, Hà's
+and Mai's are true. Only ``Mai broke it'' gives exactly one true statement.\end{warnbox}
+So the answer is \textbf{(D)}.
+\ans{(D) Mai}
+}
+
+% ---------------------------------------------------------------- Problem 16
+\begin{probbox}{16}{\relax}
+Khánh encrypts a greeting with a Caesar cipher with shift $5$ (each letter is replaced by the letter $5$ places after it on the circle of
+letters A--Z, where A follows Z). He gets: \textbf{CNS HMFT}. The original greeting is
+\choicesII{XIN CHAO}{HSX MRKY}{YJO DIBP}{XIN CHAP}{WHM BGZN}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} We have the ciphertext and know the shift is $5$. To find the original we must \emph{decrypt}: shift
+\emph{back} $5$ places.
+\begin{recallbox}Decrypt: take the letter's number (A $= 0$, \ldots, Z $= 25$) and subtract $5$; if the result is negative, add $26$.\end{recallbox}
+\step{1}{Decrypt each letter}
+\begin{center}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Cipher letter & C & N & S & H & M & F & T \\ \hline
+Number & $2$ & $13$ & $18$ & $7$ & $12$ & $5$ & $19$ \\ \hline
+Subtract $5$ & $-3 \to 23$ & $8$ & $13$ & $2$ & $7$ & $0$ & $14$ \\ \hline
+Original & \textbf{X} & \textbf{I} & \textbf{N} & \textbf{C} & \textbf{H} & \textbf{A} & \textbf{O} \\ \hline
+\end{tabular}
+\end{center}
+The letter C has to ``wrap around'': C $\to$ B $\to$ A $\to$ Z $\to$ Y $\to$ X (going back $5$ steps), which is exactly $-3 + 26 = 23 =$ X.
+\step{2}{Read the result}
+The greeting is XIN CHAO (Vietnamese for ``hello'').
+\begin{warnbox}(B) HSX MRKY is what you get by shifting \emph{forwards} another $5$ -- encrypting once more instead of decrypting. (C) and (E)
+are shifts back by $4$ and by $6$ (miscounting). (D) is wrong in the last letter: T shifted back $5$ is O, not P.\end{warnbox}
+\verify{Encrypt XIN CHAO with shift $5$: X$(23) + 5 = 28 - 26 = 2 =$ C, I $\to$ N, N $\to$ S, C $\to$ H, H $\to$ M, A $\to$ F, O $\to$ T.
+We get CNS HMFT.}
+So the answer is \textbf{(A)}.
+\ans{(A) XIN CHAO}
+}
+
+% ---------------------------------------------------------------- Problem 17
+\begin{probbox}{17}{\relax}
+Ngân encrypts the letter M with a Caesar cipher three times in a row: first with shift $9$, then with shift $11$ (applied to the result of
+the first step), and finally with shift $9$ again. After the three steps, which letter has M become?
+\choices{V}{G}{J}{P}{O}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} Three shifts in the same direction. We can do them one at a time, or combine them into a single shift.
+\begin{recallbox}Shifting by $a$ and then by $b$ is the same as shifting by $a + b$. A shift of $26$ returns to the start, so only the
+remainder of the number of steps on division by $26$ matters.\end{recallbox}
+\step{1}{Combine the three shifts}
+Total steps: $9 + 11 + 9 = 29$. Since $29 = 26 + 3$, a shift of $29$ is exactly the same as a shift of $3$.
+\step{2}{Shift M by $3$}
+M $= 12$; $12 + 3 = 15 =$ P. (M $\to$ N $\to$ O $\to$ P.)
+\step{3}{Check by doing one shift at a time}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Start & After step 1 ($+9$) & After step 2 ($+11$) & After step 3 ($+9$) \\ \hline
+M $(12)$ & $21 =$ V & $32 - 26 = 6 =$ G & $15 =$ P \\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Options (A) V and (B) G are \emph{intermediate} results (after steps $1$ and $2$). Read carefully: the question asks for the result
+after \emph{all three} steps. (C) J is a shift \emph{backwards} by $3$.\end{warnbox}
+\verify{Going back $29$ steps from P, i.e.\ back $3$ steps (since going back $26$ returns to the same letter): P $\to$ O $\to$ N $\to$ M. Correct.}
+So the answer is \textbf{(D)}.
+\ans{(D) P}
+}
+
+% ---------------------------------------------------------------- Problem 18
+\begin{probbox}{18}{\relax}
+Five friends, Nga, Oanh, Phương, Quỳnh and Sơn, all have different heights. Nga is taller than Oanh. Phương is shorter than Quỳnh but
+taller than Nga. Sơn is shorter than Oanh. When the five friends line up by height, who stands \emph{exactly in the middle}?
+\choices{Nga}{Oanh}{Phương}{Quỳnh}{Sơn}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} There are five friends; ``in the middle'' is the third tallest (two taller and two shorter).
+\step{1}{Use symbols (``$>$'' means ``taller than'')}
+$N > O$; \quad $Q > P > N$; \quad $O > S$.
+\step{2}{Chain them}
+$Q > P > N$ and $N > O > S$ give: \quad $Q > P > N > O > S$.
+\begin{figC}
+  \foreach \i/\n/\h in {0/Quỳnh/2.2,1/Phương/1.9,2/Nga/1.6,3/Oanh/1.3,4/Sơn/1.0}{
+    \fill[tmBlue!25,draw=tmBlue,line width=0.7pt,rounded corners=2pt] (\i*1.3,0) rectangle (\i*1.3+0.8,\h);
+    \node[font=\scriptsize] at (\i*1.3+0.4,-0.25){\n};}
+  \draw[AnsRed,line width=1.2pt,rounded corners=3pt] (2*1.3-0.12,-0.5) rectangle (2*1.3+0.92,1.75);
+  \draw[Navy,line width=0.8pt] (-0.2,0)--(6.2,0);
+\end{figC}
+\step{3}{Read off the result}
+From tallest to shortest: Quỳnh, Phương, \textbf{Nga}, Oanh, Sơn. The person in the middle is Nga.
+\begin{warnbox}``Phương is shorter than Quỳnh but taller than Nga'' contains \emph{two} facts. Many students write only $Q > P$ and forget
+$P > N$; then the chain cannot be completed.\end{warnbox}
+\verify{Nga (3rd) is taller than Oanh (4th) \checkmark; Phương (2nd) is shorter than Quỳnh and taller than Nga \checkmark; Sơn (5th) is shorter than Oanh \checkmark.}
+So the answer is \textbf{(A)}.
+\ans{(A) Nga}
+}
+
+% ---------------------------------------------------------------- Problem 19
+\begin{probbox}{19}{\relax}
+In a queue for tickets, Huy is $7$th from the front and $12$th from the back. How many people are in the queue?
+\choices{$17$}{$18$}{$19$}{$20$}{$5$}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} We know Huy's position counted from both ends. We must find the total number of people in the queue.
+\step{1}{Draw a diagram}
+\begin{figC}
+  \foreach \i in {1,...,18}{\fill[tmBlue!60] (\i*0.5,0) circle (0.15);}
+  \fill[AnsRed] (3.5,0) circle (0.17);
+  \node[font=\scriptsize,text=AnsRed] at (3.5,0.4){Huy};
+  \draw[decorate,decoration={brace,amplitude=4pt,mirror},tmGreen!60!black,line width=0.8pt] (0.35,-0.3)--(3.65,-0.3) node[midway,below=4pt,font=\scriptsize]{$7$ people (including Huy)};
+  \draw[decorate,decoration={brace,amplitude=4pt},tmOrange!80!black,line width=0.8pt] (3.35,0.75)--(9.15,0.75) node[midway,above=4pt,font=\scriptsize]{$12$ people (including Huy)};
+  \node[font=\scriptsize,text=Slate] at (0.5,0.4){front}; \node[font=\scriptsize,text=Slate] at (9,0.4){back};
+\end{figC}
+\step{2}{Count}
+Counting from the front to Huy: $7$ people. Counting from Huy to the back: $12$ people. Adding gives $7 + 12 = 19$, but Huy has been counted
+\textbf{twice}. So the queue has $19 - 1 = 18$ people.
+\begin{recallbox}Being $k$-th from the front and $m$-th from the back means the line has $k + m - 1$ people.\end{recallbox}
+\step{3}{Another way}
+In front of Huy there are $7 - 1 = 6$ people, behind him $12 - 1 = 11$ people. The whole queue: $6 + 1 + 11 = 18$ people.
+\begin{warnbox}Option (C) $19 = 7 + 12$ counts Huy twice; option (E) $5 = 12 - 7$ takes the difference -- which means nothing here.\end{warnbox}
+\verify{In a queue of $18$ people, if Huy is $7$th from the front, then from the back he is $18 - 7 + 1 = 12$th. Correct.}
+So the answer is \textbf{(B)}.
+\ans{(B) $18$}
+}
+
+% ---------------------------------------------------------------- Problem 20
+\begin{probbox}{20}{\relax}
+\begin{minipage}[t]{0.63\linewidth}
+Place the numbers $1, 2, 3, \ldots, 9$ (each once) in the grid shown to make a magic square (the numbers in every row, every column and both
+diagonals have the same sum). Three numbers are already filled in. Complete the grid. What is the number in the bottom-left corner?
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{-4pt}\centering
+\lgaMagic{$2$}{$7$}{}{}{}{$1$}{}{}{}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} A $3\times 3$ magic square with the numbers $1$ to $9$; we know the top-left cell ($2$), the middle of the
+top row ($7$) and the right cell of the middle row ($1$). We must fill the $6$ remaining cells.
+\step{1}{Magic sum and centre}
+\begin{recallbox}$S = (\text{sum of the } 9 \text{ numbers}) \div 3$; centre $= S \div 3$.\end{recallbox}
+$1 + 2 + \cdots + 9 = 45$, so $S = 45 \div 3 = 15$; centre $= 15 \div 3 = 5$.
+\step{2}{Fill in the lines that already have two numbers}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item Top row: $2 + 7 + \square = 15$ $\Rightarrow$ top-right corner $= 6$.
+\item Middle row: $\square + 5 + 1 = 15$ $\Rightarrow$ left cell of the middle row $= 9$.
+\item Diagonal $2$ -- $5$ -- ?: bottom-right corner $= 15 - 2 - 5 = 8$.
+\item Diagonal $6$ -- $5$ -- ?: bottom-left corner $= 15 - 6 - 5 = \mathbf{4}$.
+\item Middle column: $7 + 5 + \square = 15$ $\Rightarrow$ middle of the bottom row $= 3$.
+\end{itemize}
+\begin{center}\lgaMagic{$2$}{$7$}{\textcolor{tmGreen!60!black}{$6$}}{\textcolor{tmGreen!60!black}{$9$}}{\textcolor{tmGreen!60!black}{$5$}}{$1$}{\textcolor{AnsRed}{$\mathbf{4}$}}{\textcolor{tmGreen!60!black}{$3$}}{\textcolor{tmGreen!60!black}{$8$}}\end{center}
+\verify{Rows: $2 + 7 + 6 = 15$, $9 + 5 + 1 = 15$, $4 + 3 + 8 = 15$. Columns: $2 + 9 + 4 = 15$, $7 + 5 + 3 = 15$, $6 + 1 + 8 = 15$.
+Diagonals: $2 + 5 + 8 = 15$, $6 + 5 + 4 = 15$. The numbers $1$ to $9$ are each used exactly once.}
+\begin{warnbox}You must check \emph{all} eight lines (three rows, three columns, two diagonals) and make sure no number is repeated. A grid
+that works for rows and columns but not for a diagonal is not a magic square.\end{warnbox}
+\ans{Grid: $2, 7, 6$ / $9, 5, 1$ / $4, 3, 8$. The bottom-left number is $4$.}
+}
+
+% ---------------------------------------------------------------- Problem 21
+\begin{probbox}{21}{\relax}
+\begin{minipage}[t]{0.63\linewidth}
+The numbers $3, 4, 5, \ldots, 11$ (nine consecutive whole numbers) are placed in the grid shown, each once, to make a magic square.
+The number $x$ in the bottom-right corner is
+\choicesII{$6$}{$8$}{$10$}{$3$}{$5$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{-4pt}\centering
+\lgaMagic{$4$}{$9$}{}{$11$}{}{}{}{}{$x$}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} Nine numbers from $3$ to $11$. Three cells are known; the cell $x$ lies on the main diagonal together with
+the cell $4$ and the centre.
+\step{1}{Find the magic sum}
+Sum of the nine numbers: $3 + 4 + \cdots + 11$. Pair first with last: $(3 + 11) + (4 + 10) + (5 + 9) + (6 + 8) + 7 = 4\times 14 + 7 = 63$.
+So $S = 63 \div 3 = 21$.
+\step{2}{The centre}
+\begin{recallbox}In a $3\times 3$ magic square, centre $= S \div 3$.\end{recallbox}
+Centre $= 21 \div 3 = 7$ (which is also the middle number of the list $3, 4, \ldots, 11$).
+\step{3}{Find $x$ on the main diagonal}
+$4 + 7 + x = 21$ $\Rightarrow$ $x = 21 - 11 = 10$.
+\step{4}{Complete the grid to check}
+Top row: $21 - 4 - 9 = 8$. Middle row: $21 - 11 - 7 = 3$. Left column: $21 - 4 - 11 = 6$. Bottom row: $21 - 6 - 10 = 5$.
+\begin{center}\lgaMagic{$4$}{$9$}{\textcolor{tmGreen!60!black}{$8$}}{$11$}{\textcolor{tmGreen!60!black}{$7$}}{\textcolor{tmGreen!60!black}{$3$}}{\textcolor{tmGreen!60!black}{$6$}}{\textcolor{tmGreen!60!black}{$5$}}{\textcolor{AnsRed}{$\mathbf{10}$}}\end{center}
+\verify{Middle column $9 + 7 + 5 = 21$; right column $8 + 3 + 10 = 21$; other diagonal $8 + 7 + 6 = 21$. All nine numbers $3$ to $11$ are used, no repeats.}
+\begin{warnbox}If you mistakenly take the magic sum to be $15$ (as for the numbers $1$ to $9$), you get $x = 4$ -- a number that is already
+used! The magic sum depends on which numbers are used.\end{warnbox}
+So the answer is \textbf{(C)}.
+\ans{(C) $10$}
+}
+
+% ---------------------------------------------------------------- Problem 22
+\begin{probbox}{22}{\relax}
+Both scales below are balanced. The apples all have the same mass.
+\begin{center}
+\lgaScale{\lgaApple\,\lgaApple\,\lgaApple}{\lgaPomelo}\hspace{1cm}\lgaScale{\lgaPomelo\,\lgaApple}{\lgaWeight{800 g}}
+\end{center}
+How many grams does the pomelo \lgaPomelo\ weigh?
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} Let the mass of one apple be $T$ (grams) and of the pomelo $B$ (grams). Scale 1: $3T = B$. Scale 2: $B + T = 800$.
+\begin{recallbox}If a group of objects $A$ balances a group $B$, then on another scale we may replace $A$ by $B$.\end{recallbox}
+\step{1}{Replace the pomelo on scale 2 by $3$ apples}
+Scale 1 tells us the pomelo weighs as much as $3$ apples. On scale 2, replace the pomelo by $3$ apples: \ $3T + T = 800$, i.e.\ $4T = 800$.
+\begin{figC}
+  \node at (0,0){\lgaScale{\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple}{\lgaWeight{800 g}}};
+\end{figC}
+\step{2}{Mass of one apple}
+$T = 800 \div 4 = 200$ (g).
+\step{3}{Mass of the pomelo}
+$B = 3T = 3\times 200 = 600$ (g).
+\begin{warnbox}The question asks for the mass of the \emph{pomelo}, not the apple. Stopping at $200$ g answers the wrong question.\end{warnbox}
+\verify{Scale 1: $3\times 200 = 600$ g $=$ the pomelo \checkmark. Scale 2: $600 + 200 = 800$ g \checkmark.}
+\ans{The pomelo weighs $600$ g.}
+}
+
+% ---------------------------------------------------------------- Problem 23
+\begin{probbox}{23}{\relax}
+There are four kinds of boxes: red \lgaBox{AnsRed}, yellow \lgaBox{StarGold}, blue \lgaBox{tmBlue}, purple \lgaBox{tmPurple}; boxes of the same
+colour have equal masses. The following three scales are all balanced:
+\begin{center}
+\lgaScale{\lgaBox{AnsRed}\,\lgaBox{StarGold}}{\lgaBox{tmBlue}}\hspace{0.4cm}\lgaScale{\lgaBox{tmBlue}\,\lgaBox{StarGold}}{\lgaBox{tmPurple}}\hspace{0.4cm}\lgaScale{\lgaBox{AnsRed}\,\lgaBox{AnsRed}}{\lgaBox{tmBlue}}
+\end{center}
+How many yellow boxes does one purple box weigh?
+\choices{$2$}{$3$}{$4$}{$5$}{$6$}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} Let the masses of the red, yellow, blue and purple boxes be $R, Y, B, P$. The three scales give three equalities:
+\[ R + Y = B, \qquad B + Y = P, \qquad R + R = B. \]
+We must express $P$ in terms of $Y$.
+\step{1}{Compare scales 1 and 3}
+Both have a single blue box on the right pan, so their left pans weigh the same: $R + Y = R + R$.
+Remove one red box from each side: $Y = R$. \emph{A red box weighs the same as a yellow box.}
+\step{2}{The blue box}
+$B = R + Y = Y + Y = 2Y$: a blue box weighs as much as $2$ yellow boxes.
+\step{3}{The purple box}
+$P = B + Y = 2Y + Y = 3Y$: a purple box weighs as much as $3$ yellow boxes.
+\begin{figC}
+  \node at (0,0){\lgaScale{\lgaBox{tmPurple}}{\lgaBox{StarGold}\,\lgaBox{StarGold}\,\lgaBox{StarGold}}};
+\end{figC}
+\begin{warnbox}Do not assume a red box is heavier than a yellow one just because ``red'' appears more often. Use the scales to \emph{prove}
+the relationships.\end{warnbox}
+\verify{Take $Y = R = 1$ kg, $B = 2$ kg, $P = 3$ kg: scale 1: $1 + 1 = 2$; scale 2: $2 + 1 = 3$; scale 3: $1 + 1 = 2$. All three balance.}
+So the answer is \textbf{(B)}.
+\ans{(B) $3$}
+}
+
+% ---------------------------------------------------------------- Problem 24
+\begin{probbox}{24}{\relax}
+\begin{minipage}[t]{0.63\linewidth}
+The numbers $1, 2, 3, 4, 5, 6, 7, 8$ are placed in the eight circles of the square shown (four at the corners, four in the middles of the
+sides), each once, so that the three numbers on each side add up to $13$. The sum of the four corner numbers is
+\choices{$12$}{$13$}{$16$}{$20$}{$36$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{0pt}\centering
+\lgaSqEight{}{}{}{}{}{}{}{}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} The square has $4$ sides, each made of two corners and one middle number. We must find the sum of the four corners.
+\begin{recallbox}When we add the sums of all the sides, a corner number is counted twice (it belongs to two sides) and a middle number once.\end{recallbox}
+\step{1}{Add the sums of the four sides}
+Each side sums to $13$, so the four sides together give $4\times 13 = 52$.
+\step{2}{Count how many times each number is counted}
+In those $52$, each number from $1$ to $8$ is counted at least once, and the four corner numbers are counted once more:
+\[ 52 = (1 + 2 + \cdots + 8) + (\text{sum of the four corners}) = 36 + (\text{sum of the four corners}). \]
+\step{3}{Compute}
+Sum of the four corners $= 52 - 36 = 16$.
+\step{4}{An actual arrangement (to be sure the puzzle has a solution)}
+\begin{figC}
+  \node at (0,0){\lgaSqEight{$1$}{$8$}{$4$}{$3$}{$6$}{$2$}{$5$}{$7$}};
+  \node[font=\small,anchor=west,align=left] at (2.0,0){top: $1 + 8 + 4 = 13$\\ right: $4 + 3 + 6 = 13$\\ bottom: $6 + 2 + 5 = 13$\\ left: $5 + 7 + 1 = 13$\\[2pt] corners: $1 + 4 + 6 + 5 = 16$};
+\end{figC}
+\begin{warnbox}Option (E) $36$ is the sum of \emph{all} eight numbers; option (B) $13$ is the sum of one side. The question asks for the sum of the
+\emph{corner} numbers.\end{warnbox}
+So the answer is \textbf{(C)}.
+\ans{(C) $16$}
+}
+
+% ---------------------------------------------------------------- Problem 25
+\begin{probbox}{25}{\relax}
+\begin{minipage}[t]{0.63\linewidth}
+Place the numbers $1, 2, 3, 4, 5$ in the five cells of the plus-shaped figure shown, each once, so that the sum of the three numbers in the
+horizontal row equals the sum of the three numbers in the vertical column. How many different values can the centre cell take?
+\choices{$1$}{$2$}{$3$}{$4$}{$5$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{-6pt}\centering
+\lgaCross{}{}{$?$}{}{}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} The centre cell (call it $c$) belongs to both the row and the column. The other four cells form two pairs: the
+left -- right pair (row) and the top -- bottom pair (column).
+\step{1}{The condition for equal sums}
+Row: $(\text{left} + \text{right}) + c$; column: $(\text{top} + \text{bottom}) + c$. The two sums are equal exactly when
+\[ \text{left} + \text{right} = \text{top} + \text{bottom}. \]
+\step{2}{The sum of the other four numbers must be even}
+The four non-centre numbers add up to $15 - c$ (since $1 + 2 + 3 + 4 + 5 = 15$). The two pairs have equal sums, so $15 - c$ must split into two
+equal halves, i.e.\ $15 - c$ is even. Since $15$ is odd, $c$ must be \textbf{odd}: $c \in \{1, 3, 5\}$.
+\step{3}{Check each odd value}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item $c = 1$: $2, 3, 4, 5$ remain, each pair must sum to $14 \div 2 = 7$: \ $2 + 5 = 3 + 4 = 7$. \checkmark
+\item $c = 3$: $1, 2, 4, 5$ remain, each pair must sum to $12 \div 2 = 6$: \ $1 + 5 = 2 + 4 = 6$. \checkmark
+\item $c = 5$: $1, 2, 3, 4$ remain, each pair must sum to $10 \div 2 = 5$: \ $1 + 4 = 2 + 3 = 5$. \checkmark
+\end{itemize}
+\begin{figC}
+  \node at (0,0){\lgaCross{$3$}{$2$}{$1$}{$5$}{$4$}}; \node[font=\small] at (0,-1.5){$c = 1$};
+  \node at (3.2,0){\lgaCross{$2$}{$1$}{$3$}{$5$}{$4$}}; \node[font=\small] at (3.2,-1.5){$c = 3$};
+  \node at (6.4,0){\lgaCross{$2$}{$1$}{$5$}{$4$}{$3$}}; \node[font=\small] at (6.4,-1.5){$c = 5$};
+\end{figC}
+\step{4}{Why does an even $c$ not work?}
+If $c = 2$: the remaining numbers $1, 3, 4, 5$ add up to $13$ -- odd, so they cannot form two pairs with equal sums. If $c = 4$: $1, 2, 3, 5$
+remain, with sum $11$ -- odd, also impossible.
+\begin{warnbox}Do not think ``the centre must be the middle number ($3$)''. Here there are three possibilities!\end{warnbox}
+So the centre can be $1$, $3$ or $5$: $3$ values. The answer is \textbf{(C)}.
+\ans{(C) $3$}
+}
+
+% ---------------------------------------------------------------- Problem 26
+\begin{probbox}{26}{\relax}
+\begin{minipage}[t]{0.66\linewidth}
+Three standard dice (opposite faces add up to $7$) are stacked on a table as shown. The top face shows $2$ pips. The total number of pips on
+the five hidden \emph{horizontal} faces (the faces pressed together between two dice and the bottom face resting on the table) is
+\choices{$14$}{$17$}{$19$}{$21$}{$23$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{-4pt}\centering
+\begin{tikzpicture}[scale=0.62,line join=round]
+  \draw[Slate,line width=1pt] (-0.4,0)--(2.0,0);
+  \foreach \k/\f/\r in {0/4/1,1/5/3,2/3/1}{
+    \begin{scope}[yshift=\k cm]
+    \draw[Ink,line width=0.8pt,fill=white] (0,0) rectangle (1,1);
+    \draw[Ink,line width=0.8pt,fill=white] (1,0)--(1.45,0.45)--(1.45,1.45)--(1,1)--cycle;
+    \begin{scope}[Ink]\lgaPips{\f}\end{scope}
+    \begin{scope}[Ink,cm={0.45,0.45,0,1,(1,0)}]\lgaPips{\r}\end{scope}
+    \end{scope}}
+  \draw[Ink,line width=0.8pt,fill=white] (0,3)--(1,3)--(1.45,3.45)--(0.45,3.45)--cycle;
+  \begin{scope}[Ink,cm={1,0,0.45,0.45,(0,3)}]\lgaPips{2}\end{scope}
+\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} The five hidden horizontal faces are: the bottom face of the top die; the top and bottom faces of the middle
+die; the top and bottom faces of the bottom die. We do not need to know each face separately -- we only use ``opposite faces add up to $7$''.
+\begin{recallbox}On a standard die the top and bottom faces are opposite, so together they carry $7$ pips.\end{recallbox}
+\step{1}{Bottom die and middle die}
+For each of them the top and bottom faces are both hidden, and each pair totals $7$. Two dice: $7 + 7 = 14$.
+\step{2}{Top die}
+The visible top face has $2$ pips, so the (opposite) bottom face has $7 - 2 = 5$ pips, and it is hidden.
+\step{3}{Add up}
+$14 + 5 = 19$.
+\begin{warnbox}(D) $21 = 3\times 7$ forgets that the very top face ($2$ pips) \emph{can be seen}; it is not hidden. (A) $14$ forgets the bottom
+face of the top die (also hidden, with $5$ pips).\end{warnbox}
+\verify{The six horizontal faces of the three dice total $3\times 7 = 21$; of these only the very top face ($2$ pips) is visible, so the five hidden ones total $21 - 2 = 19$.}
+So the answer is \textbf{(C)}.
+\ans{(C) $19$}
+}
+
+% ---------------------------------------------------------------- Problem 27
+\begin{probbox}{27}{\relax}
+\begin{minipage}[t]{0.63\linewidth}
+The $4\times 4$ grid shown is to be filled so that every row, every column and every thick-bordered $2\times 2$ box contains the digits
+$1, 2, 3, 4$. The digit in cell $Q$ is
+\choicesL{$1$}{$2$}{$3$}{$4$}{It cannot be determined}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{4pt}\centering
+\lgaFour{2/1/$3$,4/1/$2$,4/2/$1$,1/3/$4$,3/4/$2$,4/4/$Q$}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} Cell $Q$ is in row $4$, column $4$ (bottom-right corner), in the bottom-right $2\times 2$ box.
+\begin{recallbox}The digit in a cell must differ from every digit already in its row, its column and its $2\times 2$ box.\end{recallbox}
+\step{1}{Column $4$}
+Column $4$ already has $2$ (row $1$) and $1$ (row $2$). The two remaining cells -- row $3$ column $4$ and cell $Q$ -- must be $3$ and $4$ in
+some order.
+\step{2}{Row $3$ decides}
+Row $3$ already has a $4$ (in column $1$), so row $3$ column $4$ \emph{cannot} be $4$. Hence row $3$ column $4$ is $3$, and $Q = 4$.
+\step{3}{Check with the bottom-right box and row $4$}
+The bottom-right box contains $3$ (row $3$ column $4$), $2$ (row $4$ column $3$), $Q = 4$, and the remaining cell (row $3$ column $3$) is
+$1$ -- all of $1, 2, 3, 4$. Row $4$ has $2$ and $4$, no repeat.
+\step{4}{Complete the grid (to be sure there is no contradiction)}
+\begin{figC}
+  \node at (0,0){\lgaFour{1/1/$1$,2/1/$3$,3/1/$4$,4/1/$2$,1/2/$2$,2/2/$4$,3/2/$3$,4/2/$1$,1/3/$4$,2/3/$2$,3/3/$1$,4/3/$3$,1/4/$3$,2/4/$1$,3/4/$2$,4/4/\textcolor{AnsRed}{$\mathbf{4}$}}};
+  \node[font=\small,anchor=west,align=left] at (1.8,0){Row $1$: $1\,3\,4\,2$\\ Row $2$: $2\,4\,3\,1$\\ Row $3$: $4\,2\,1\,3$\\ Row $4$: $3\,1\,2\,4$};
+\end{figC}
+\verify{Every row, column and $2\times 2$ box contains all of $1, 2, 3, 4$; a computer check confirms this is the only way to fill the grid.}
+\begin{warnbox}Looking only at column $4$, $Q$ could be $3$ or $4$, and it is tempting to choose (E). Also look at row $3$ -- a different
+region containing a ``neighbour'' of $Q$.\end{warnbox}
+So the answer is \textbf{(D)}.
+\ans{(D) $4$}
+}
+
+% ---------------------------------------------------------------- Problem 28
+\begin{probbox}{28}{\relax}
+In class 7A, \emph{all} members of the chess club can swim. Lâm cannot swim. Na can swim. Which of the following statements \textbf{must} be true?
+\choicesL{Lâm is in the chess club.}{Lâm is not in the chess club.}{Na is in the chess club.}{Na is not in the chess club.}{Everyone in the class who can swim is in the chess club.}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} ``All members of the chess club can swim'' has the form ``every A is a B'' (A: in the chess club, B: can swim).
+\begin{recallbox}From ``every A is a B'' we may conclude ``not a B means not an A''; but we may \emph{not} conclude ``a B means an A''.\end{recallbox}
+\step{1}{Draw a diagram}
+\begin{figC}
+  \draw[tmBlue,line width=1pt,fill=tmBlue!8] (0.9,1.1) ellipse (1.9 and 1.2);
+  \draw[tmOrange,line width=1pt,fill=tmOrange!15] (0.45,1.0) ellipse (0.85 and 0.62);
+  \node[font=\scriptsize,text=tmOrange!70!black] at (0.45,1.05){chess club};
+  \node[font=\scriptsize,text=tmBlue!80!black] at (2.0,1.95){can swim};
+  \fill[tmGreen!60!black] (2.0,0.75) circle (2.2pt) node[below,font=\scriptsize]{Na?};
+  \fill[tmGreen!60!black] (0.5,0.7) circle (2.2pt) node[below,font=\scriptsize]{Na?};
+  \fill[AnsRed] (3.6,1.1) circle (2.2pt) node[right,font=\scriptsize]{Lâm};
+\end{figC}
+The ``chess club'' oval lies entirely inside the ``can swim'' oval.
+\step{2}{Lâm}
+Lâm cannot swim, so Lâm is \emph{outside} the big oval, and therefore certainly outside the small one: \textbf{Lâm is not in the chess club}.
+If Lâm were in the club, Lâm would have to be able to swim -- contradicting the problem (proof by contradiction).
+\step{3}{Na}
+Na can swim: Na is inside the big oval, but may be inside or outside the small one. So (C) and (D) are each only \emph{possibly} true, not certain.
+\step{4}{Statement (E)}
+(E) reverses the given statement. The problem says nothing about pupils who can swim but do not play chess, so (E) is not certainly true.
+\begin{warnbox}A very common mistake: from ``chess players can all swim'' concluding ``swimmers all play chess''. Think of an example: ``every cat
+has four legs'' does not mean ``every four-legged animal is a cat''!\end{warnbox}
+So the answer is \textbf{(B)}.
+\ans{(B) Lâm is not in the chess club}
+}
+
+% ---------------------------------------------------------------- Problem 29
+\begin{probbox}{29}{\relax}
+Mr Fox lies on Mondays, Tuesdays and Wednesdays and tells the truth on the other days of the week. One day, Fox says: ``Yesterday I lied.''
+Which day could it be?
+\choicesL{Only Monday.}{Only Thursday.}{Monday or Thursday.}{Wednesday or Thursday.}{Sunday or Monday.}
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} Fox can say ``Yesterday I lied'' when:
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+\item he tells the truth today and the statement is true: truthful today, lied yesterday; or
+\item he lies today and the statement is false: lying today, truthful yesterday.
+\end{itemize}
+That is: \textbf{yesterday and today are of different types}.
+\begin{recallbox}The day before Monday is Sunday (the week goes round).\end{recallbox}
+\step{1}{Make a table}
+\begin{center}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Today & Mon & Tue & Wed & Thu & Fri & Sat & Sun \\ \hline
+Fox today & L & L & L & T & T & T & T \\ \hline
+Fox yesterday & T (Sun) & L & L & L & T & T & T \\ \hline
+Different? & \textbf{yes} & -- & -- & \textbf{yes} & -- & -- & -- \\ \hline
+\end{tabular}
+\end{center}
+\step{2}{Check the two days found}
+\emph{Monday:} Fox lies; yesterday (Sunday) he told the truth, so ``yesterday I lied'' is false -- indeed a lie. \checkmark\\
+\emph{Thursday:} Fox tells the truth; yesterday (Wednesday) he lied, so the statement is true -- indeed the truth. \checkmark
+\begin{warnbox}Wednesday: Fox lies, and yesterday (Tuesday) he lied too, so ``yesterday I lied'' is a \emph{true} statement. Someone who is lying
+does not say true things, so Wednesday is ruled out -- this is the trap in option (D).\end{warnbox}
+So the answer is \textbf{(C)}.
+\ans{(C) Monday or Thursday}
+}
+
+% ---------------------------------------------------------------- Problem 30
+\begin{probbox}{30}{\relax}
+Four friends, An, Bách, Cúc and Dung, run a race; no two finish at the same time. Three spectators make predictions:
+\begin{itemize}[leftmargin=1.6em,itemsep=0pt,topsep=2pt]
+\item Hiếu: ``An comes first, Bách comes second.''
+\item Khoa: ``Cúc comes first, Dung comes fourth.''
+\item Lan: ``Bách comes third, Dung comes second.''
+\end{itemize}
+In the end, each spectator got \emph{exactly one} part right. Find the finishing order of the four friends.
+\end{probbox}
+\probsol{
+\textbf{Analysing the problem.} Each prediction has two parts, exactly one of them right. We split into cases using Hiếu's prediction.
+\begin{recallbox}``Half-true'' statement: if one part is true the other is false, and if one part is false the other is true.\end{recallbox}
+\step{1}{Case 1: ``Bách second'' is true (and ``An first'' is false)}
+Look at Lan's prediction. Bách is second, so ``Bách third'' is false; hence the other part ``Dung second'' must be true. But Bách is already
+second, so Dung cannot be second too. \textbf{Contradiction} -- this case is ruled out.
+\step{2}{Case 2: ``An first'' is true (and ``Bách second'' is false)}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item Khoa: An is first, so ``Cúc first'' is false $\Rightarrow$ ``Dung fourth'' is true.
+\item Lan: Dung is fourth, so ``Dung second'' is false $\Rightarrow$ ``Bách third'' is true.
+\item Second place is left for Cúc.
+\end{itemize}
+Order: An (1st), Cúc (2nd), Bách (3rd), Dung (4th).
+\step{3}{Check}
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor{tmBlue!10} Spectator & First part & Second part \\ \hline
+Hiếu & An first: \textcolor{tmGreen!70!black}{true} & Bách second: \textcolor{AnsRed}{false} \\ \hline
+Khoa & Cúc first: \textcolor{AnsRed}{false} & Dung fourth: \textcolor{tmGreen!70!black}{true} \\ \hline
+Lan & Bách third: \textcolor{tmGreen!70!black}{true} & Dung second: \textcolor{AnsRed}{false} \\ \hline
+\end{tabular}
+\end{center}
+\begin{tipbox}Choose the prediction to split on so that each case ``triggers'' as many other parts as possible. Here ``Bách second'' clashes
+immediately with Lan's ``Dung second'', so case 1 is ruled out very quickly.\end{tipbox}
+\begin{parentbox}You can use four slips of paper with the names, line them up as ``1st -- 2nd -- 3rd -- 4th'' and swap them around to test.
+Then ask your child: ``Have we tried every case? How can we be sure there is no other answer?'' -- the answer is Step 1.\end{parentbox}
+\ans{An 1st, Cúc 2nd, Bách 3rd, Dung 4th.}
+}

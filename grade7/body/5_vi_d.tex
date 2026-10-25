@@ -31,21 +31,21 @@
 
 % ---------------------------------------------------------------- Bài 41
 \begin{probbox}{41}{\stars{2}}
-\textbf{Hình vuông kì diệu với các số từ $1$ đến $9$.} Điền các số $1, 2, \dots, 9$ (mỗi số đúng một lần) vào bảng $3\times 3$ sao
+\textbf{Ma phương với các số từ $1$ đến $9$.} Điền các số $1, 2, \dots, 9$ (mỗi số đúng một lần) vào bảng $3\times 3$ sao
 cho tổng ba số trên mỗi hàng, mỗi cột và mỗi đường chéo đều bằng nhau.
 \begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
-  \item Tính tổng kì diệu $M$ và chứng minh số ở ô chính giữa bắt buộc là $5$.
+  \item Tính tổng ma phương $M$ và chứng minh số ở ô chính giữa bắt buộc là $5$.
   \item Chứng minh rằng số $9$ không thể nằm ở một góc của bảng.
-  \item Có tất cả bao nhiêu hình vuông kì diệu như vậy? Hãy giải thích.
+  \item Có tất cả bao nhiêu ma phương như vậy? Hãy giải thích.
 \end{enumerate}
 \end{probbox}
 \probsol{
 \textbf{Phân tích đề.} Ta không thử mò $9! = 362\,880$ cách xếp, mà dùng lập luận để ``ép'' từng ô: trước hết là ô giữa, rồi vị trí
 của số $9$, cuối cùng là các ô còn lại.
-\step{1}{Câu a): tổng kì diệu}
+\step{1}{Câu a): tổng ma phương}
 Ba hàng chứa mỗi số từ $1$ đến $9$ đúng một lần, nên $3M = 1 + 2 + \dots + 9 = 45$, suy ra $M = 15$.
 \step{2}{Câu a): ô giữa}
-\begin{recallbox}Bài 37: trong mọi hình vuông kì diệu $3\times 3$, số ở ô giữa bằng $M : 3$ (cộng bốn đường đi qua ô giữa:
+\begin{recallbox}Bài 37: trong mọi ma phương $3\times 3$, số ở ô giữa bằng $M : 3$ (cộng bốn đường đi qua ô giữa:
 $4M = 3M + 3c$).\end{recallbox}
 Vậy ô giữa là $c = 15 : 3 = 5$.
 \step{3}{Câu b): số $9$ không ở góc}
@@ -72,16 +72,16 @@ Do đó $9$ nằm ở giữa một cạnh (một trong $4$ ô: trên, dưới, t
 \begin{scope}[xshift=3.2cm]\lgxcdSud{3}{3}{3}{0/1/9,1/1/5}{0/0/4,0/2/2,1/0/3,1/2/7,2/0/8,2/1/1,2/2/6}\end{scope}
 \end{figC}
 Kiểm tra: hàng dưới $6 + 1 + 8 = 15$, các cột $2 + 7 + 6 = 15$, $4 + 3 + 8 = 15$ -- đúng. Như vậy khi $9$ ở giữa cạnh trên, có đúng
-$2$ hình vuông (hai hình trên, đối xứng nhau qua cột giữa).
+$2$ ma phương (hai hình trên, đối xứng nhau qua cột giữa).
 \step{5}{Câu c): đếm tất cả}
 Số $9$ có $4$ vị trí (giữa bốn cạnh); với mỗi vị trí có đúng $2$ cách (lập luận giống hệt, chỉ là xoay bảng). Tổng cộng
-$4\times 2 = 8$ hình vuông kì diệu. Tất cả đều thu được từ một hình bằng cách xoay và lật.
+$4\times 2 = 8$ ma phương. Tất cả đều thu được từ một hình bằng cách xoay và lật.
 \begin{tipbox}Quan sát hình: các số chẵn $2, 4, 6, 8$ nằm ở bốn góc, các số lẻ $1, 3, 7, 9$ ở giữa các cạnh, và hai số đối xứng qua
-tâm luôn có tổng $10$. Đây là hình vuông Lạc Thư nổi tiếng của Trung Hoa cổ đại.\end{tipbox}
-\begin{warnbox}Không được kết luận ``có $8$ hình'' chỉ bằng cách ``thấy có $8$ phép xoay/lật''. Phải chứng minh hai điều: mọi hình
-vuông đều có dạng trên (câu b và bước 4), và mỗi trường hợp thực sự cho một hình vuông đúng (bước kiểm tra).\end{warnbox}
-\verify{Dùng máy tính thử hết $362\,880$ cách xếp cũng tìm được đúng $8$ hình vuông kì diệu, và ô giữa của cả $8$ hình đều là $5$.}
-\ans{a) $M = 15$, ô giữa là $5$;\quad b) xem chứng minh;\quad c) $8$ hình vuông}
+tâm luôn có tổng $10$. Đây là ma phương Lạc Thư nổi tiếng của Trung Hoa cổ đại.\end{tipbox}
+\begin{warnbox}Không được kết luận ``có $8$ hình'' chỉ bằng cách ``thấy có $8$ phép xoay/lật''. Phải chứng minh hai điều: mọi ma
+phương đều có dạng trên (câu b và bước 4), và mỗi trường hợp thực sự cho một ma phương đúng (bước kiểm tra).\end{warnbox}
+\verify{Dùng máy tính thử hết $362\,880$ cách xếp cũng tìm được đúng $8$ ma phương, và ô giữa của cả $8$ hình đều là $5$.}
+\ans{a) $M = 15$, ô giữa là $5$;\quad b) xem chứng minh;\quad c) $8$ ma phương}
 }
 
 % ---------------------------------------------------------------- Bài 42
@@ -128,14 +128,14 @@ Cột 2 đã có $2, 4$, nên hai ô $(3,2), (4,2)$ là $1, 3$ theo thứ tự n
 \begin{center}\small
 \begin{tabular}{|c|c|l|c|}
 \hline
-\rowcolor{tmBlue!10} Hàng 2 & Cột 2 (dưới) & Điều kiện cho khối dưới phải & Số cách\\ \hline
-$3, 4, 1, 2$ & $1, 3$ & hàng 3 cần $\{3,4\}$, hàng 4 cần $\{1,2\}$, cột 3 cần $\{2,4\}$, cột 4 cần $\{1,3\}$ & $1$\\ \hline
-$3, 4, 1, 2$ & $3, 1$ & hàng 3 cần $\{1,4\}$, hàng 4 cần $\{2,3\}$, cột 3 cần $\{2,4\}$, cột 4 cần $\{1,3\}$ & $1$\\ \hline
-$3, 4, 2, 1$ & $1, 3$ & hàng 3 cần $\{3,4\}$, hàng 4 cần $\{1,2\}$, cột 3 cần $\{1,4\}$, cột 4 cần $\{2,3\}$ & $1$\\ \hline
-$3, 4, 2, 1$ & $3, 1$ & hàng 3 cần $\{1,4\}$, hàng 4 cần $\{2,3\}$, cột 3 cần $\{1,4\}$, cột 4 cần $\{2,3\}$ & $0$\\ \hline
+\rowcolor{tmBlue!10} Hàng 2 & Cột 2 (dưới) & Mỗi hàng/cột còn cần (khối dưới phải) & Số cách\\ \hline
+$3, 4, 1, 2$ & $1, 3$ & H3: $\{3,4\}$, H4: $\{1,2\}$, C3: $\{2,4\}$, C4: $\{1,3\}$ & $1$\\ \hline
+$3, 4, 1, 2$ & $3, 1$ & H3: $\{1,4\}$, H4: $\{2,3\}$, C3: $\{2,4\}$, C4: $\{1,3\}$ & $1$\\ \hline
+$3, 4, 2, 1$ & $1, 3$ & H3: $\{3,4\}$, H4: $\{1,2\}$, C3: $\{1,4\}$, C4: $\{2,3\}$ & $1$\\ \hline
+$3, 4, 2, 1$ & $3, 1$ & H3: $\{1,4\}$, H4: $\{2,3\}$, C3: $\{1,4\}$, C4: $\{2,3\}$ & $0$\\ \hline
 \end{tabular}
 \end{center}
-Ví dụ dòng cuối: ô $(4,3)$ phải thuộc $\{2,3\}$ (theo hàng 4) và thuộc $\{1,4\}$ (theo cột 3) -- không có số nào. Ở ba dòng đầu, mỗi
+(H3 nghĩa là hàng 3, C3 nghĩa là cột 3.) Ví dụ dòng cuối: ô $(4,3)$ phải thuộc $\{2,3\}$ (theo hàng 4) và thuộc $\{1,4\}$ (theo cột 3) -- không có số nào. Ở ba dòng đầu, mỗi
 ô của khối dưới phải chỉ có đúng một số thoả cả hàng lẫn cột, ví dụ dòng đầu: $(3,3) = 4$, $(3,4) = 3$, $(4,3) = 2$, $(4,4) = 1$.
 \step{7}{Kết luận}
 Có $1 + 1 + 1 + 0 = 3$ cách hoàn thành bảng (II).
@@ -149,4 +149,457 @@ trường hợp đến cùng.\end{warnbox}
 \verify{Máy tính liệt kê đủ $288$ bảng Sudoku $4\times 4$; trong đó đúng $3$ bảng có hàng đầu $1, 2, 3, 4$ và cột đầu $1, 3, 2, 4$,
 và đúng $1$ bảng chứa $4$ chữ số cho trước của bảng (I).}
 \ans{a) Hàng 1: $1\,2\,3\,4$; hàng 2: $3\,4\,1\,2$; hàng 3: $2\,1\,4\,3$; hàng 4: $4\,3\,2\,1$;\quad b) $3$ cách}
+}
+
+% ---------------------------------------------------------------- Bài 43
+\begin{probbox}{43}{\stars{1}}
+\textbf{Sudoku $6\times 6$.} Điền các chữ số từ $1$ đến $6$ vào bảng sao cho mỗi hàng, mỗi cột và mỗi khối $2\times 3$ (viền đậm)
+đều chứa đủ sáu chữ số $1, 2, 3, 4, 5, 6$. Bảng chỉ có $9$ chữ số cho trước.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Hãy điền hàng đầu tiên và giải thích vì sao mỗi ô chỉ có một cách điền.
+  \item Hoàn thành cả bảng.
+\end{enumerate}
+\begin{figC}
+\lgxcdSud{6}{2}{3}{0/0/3,0/4/2,0/5/6,2/4/6,3/2/4,3/3/1,4/2/1,5/0/6,5/4/3}{}
+\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Dùng lại phương pháp ``ô duy nhất'' của Bài 42, nhưng bây giờ mỗi ô phải loại $5$ chữ số. Ta luôn tìm ô
+``bị nhìn thấy'' nhiều chữ số nhất để điền trước. Kí hiệu ô $(i, j)$ là ô ở hàng $i$, cột $j$.
+\begin{recallbox}Một ô trống chỉ có thể điền chữ số chưa có trong hàng, cột và khối của nó. Nếu năm chữ số đã bị loại thì chữ số còn
+lại là đáp án của ô đó.\end{recallbox}
+\step{1}{Câu a): ô $(1,3)$}
+Hàng 1 có $3, 2, 6$; cột 3 có $4, 1$. Đã loại $1, 2, 3, 4, 6$ $\Rightarrow$ ô $(1,3) = 5$.
+\step{2}{Ô $(1,4)$}
+Hàng 1 bây giờ có $3, 5, 2, 6$; cột 4 có $1$. Đã loại $1, 2, 3, 5, 6$ $\Rightarrow$ ô $(1,4) = 4$.
+\step{3}{Ô $(1,2)$}
+Hàng 1 đã có $3, 5, 4, 2, 6$, chỉ còn thiếu $1$ $\Rightarrow$ ô $(1,2) = 1$. Hàng 1 là: $3, 1, 5, 4, 2, 6$.
+\begin{tipbox}Ô $(1,2)$ lúc đầu chỉ ``nhìn thấy'' $3$ chữ số. Nhưng sau khi điền hai ô bên cạnh, nó trở thành ô duy nhất. Trong
+Sudoku, mỗi ô vừa điền lại mở ra những ô mới -- giống như một chuỗi domino.\end{tipbox}
+\step{4}{Câu b): tiếp tục bằng cùng một cách}
+Bảng sau ghi lại thứ tự điền. Các cột ``hàng/cột/khối'' cho biết những chữ số đã có trong hàng, cột, khối của ô đó \emph{tại thời
+điểm điền}; chữ số còn thiếu duy nhất là đáp án.
+\begin{center}\scriptsize
+\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{|c|c|c|c|c|c||c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Lần & Ô & Hàng có & Cột có & Khối có & Điền & Lần & Ô & Hàng có & Cột có & Khối có & Điền\\ \hline
+4 & (4,5) & 1,4 & 2,3,6 & 1,6 & \textbf{5} & 16 & (4,6) & 1,2,4,5,6 & 4,6 & 1,2,4,5,6 & \textbf{3}\\ \hline
+5 & (2,5) & -- & 2,3,5,6 & 2,4,6 & \textbf{1} & 17 & (2,6) & 1,2,4,6 & 3,4,6 & 1,2,4,6 & \textbf{5}\\ \hline
+6 & (4,1) & 1,4,5 & 3,6 & 4 & \textbf{2} & 18 & (2,4) & 1,2,4,5,6 & 1,2,4 & 1,2,4,5,6 & \textbf{3}\\ \hline
+7 & (2,1) & 1 & 2,3,6 & 1,3,5 & \textbf{4} & 19 & (5,1) & 1 & 1,2,3,4,6 & 1,6 & \textbf{5}\\ \hline
+8 & (3,3) & 6 & 1,4,5 & 2,4 & \textbf{3} & 20 & (5,4) & 1,5 & 1,2,3,4 & 3 & \textbf{6}\\ \hline
+9 & (3,2) & 3,6 & 1 & 2,3,4 & \textbf{5} & 21 & (5,5) & 1,5,6 & 1,2,3,5,6 & 3,6 & \textbf{4}\\ \hline
+10 & (3,1) & 3,5,6 & 2,3,4,6 & 2,3,4,5 & \textbf{1} & 22 & (5,2) & 1,4,5,6 & 1,2,5,6 & 1,5,6 & \textbf{3}\\ \hline
+11 & (3,4) & 1,3,5,6 & 1,4 & 1,5,6 & \textbf{2} & 23 & (5,6) & 1,3,4,5,6 & 3,4,5,6 & 3,4,6 & \textbf{2}\\ \hline
+12 & (3,6) & 1,2,3,5,6 & 6 & 1,2,5,6 & \textbf{4} & 24 & (6,2) & 3,6 & 1,2,3,5,6 & 1,3,5,6 & \textbf{4}\\ \hline
+13 & (4,2) & 1,2,4,5 & 1,5 & 1,2,3,4,5 & \textbf{6} & 25 & (6,3) & 3,4,6 & 1,3,4,5,6 & 1,3,4,5,6 & \textbf{2}\\ \hline
+14 & (2,2) & 1,4 & 1,5,6 & 1,3,4,5 & \textbf{2} & 26 & (6,4) & 2,3,4,6 & 1,2,3,4,6 & 2,3,4,6 & \textbf{5}\\ \hline
+15 & (2,3) & 1,2,4 & 1,3,4,5 & 1,2,3,4,5 & \textbf{6} & 27 & (6,6) & 2,3,4,5,6 & 2,3,4,5,6 & 2,3,4,5,6 & \textbf{1}\\ \hline
+\end{tabular}
+\end{center}
+Ví dụ lần 4, ô $(4,5)$: hàng 4 có $1, 4$; cột 5 có $2, 3, 6$; khối giữa bên phải có $1, 6$. Gộp lại đã có $1, 2, 3, 4, 6$, nên ô này
+là $5$. Ví dụ lần 5, ô $(2,5)$: hàng 2 còn trống, nhưng cột 5 có $2, 3, 5, 6$ và khối trên phải có $2, 4, 6$; gộp lại thiếu mỗi
+$1$.
+\begin{figC}
+\lgxcdSud{6}{2}{3}{0/0/3,0/4/2,0/5/6,2/4/6,3/2/4,3/3/1,4/2/1,5/0/6,5/4/3}{0/1/1,0/2/5,0/3/4,1/0/4,1/1/2,1/2/6,1/3/3,1/4/1,1/5/5,2/0/1,2/1/5,2/2/3,2/3/2,2/5/4,3/0/2,3/1/6,3/4/5,3/5/3,4/0/5,4/1/3,4/3/6,4/4/4,4/5/2,5/1/4,5/2/2,5/3/5,5/5/1}
+\end{figC}
+\begin{warnbox}Khi một ô có hai khả năng, đừng đoán bừa rồi đi tiếp. Hãy tìm ô khác chắc chắn hơn; trong bài này lúc nào cũng có
+ít nhất một ô chỉ còn một khả năng.\end{warnbox}
+\verify{Mỗi hàng của bảng kết quả (ví dụ hàng 4: $2, 6, 4, 1, 5, 3$), mỗi cột (ví dụ cột 1: $3, 4, 1, 2, 5, 6$) và mỗi khối
+$2\times 3$ đều chứa đủ $1$ đến $6$; $9$ chữ số cho trước vẫn ở đúng chỗ. Máy tính cũng xác nhận bảng có \emph{duy nhất} một lời
+giải.}
+\ans{Hàng 1: $3\,1\,5\,4\,2\,6$; hàng 2: $4\,2\,6\,3\,1\,5$; hàng 3: $1\,5\,3\,2\,6\,4$; hàng 4: $2\,6\,4\,1\,5\,3$;
+hàng 5: $5\,3\,1\,6\,4\,2$; hàng 6: $6\,4\,2\,5\,3\,1$}
+}
+
+% ---------------------------------------------------------------- Bài 44
+\begin{probbox}{44}{\stars{1}}
+\textbf{Tìm đồng xu giả (nhẹ hơn).} Có $9$ đồng xu trông giống hệt nhau, trong đó có đúng một đồng xu giả \emph{nhẹ hơn} các đồng
+khác (các đồng thật nặng bằng nhau). Ta chỉ có một chiếc cân hai đĩa (không có quả cân), mỗi lần cân chỉ biết bên nào nặng hơn
+hay hai bên bằng nhau.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Hãy chỉ ra cách tìm đồng xu giả chỉ với $2$ lần cân.
+  \item Giải thích vì sao $1$ lần cân là không đủ.
+  \item Với $3$ lần cân, ta có thể tìm đồng xu giả (nhẹ hơn) trong nhiều nhất bao nhiêu đồng xu? Mô tả cách cân.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Mỗi lần cân có \textbf{ba} kết quả: lệch trái, lệch phải, thăng bằng. Bí quyết là chia các đồng xu thành
+\emph{ba} nhóm bằng nhau, chứ không phải hai nhóm.
+\step{1}{Câu a): lần cân thứ nhất}
+Đánh số các đồng xu từ $1$ đến $9$. Đặt nhóm $\{1, 2, 3\}$ lên đĩa trái, nhóm $\{4, 5, 6\}$ lên đĩa phải, để riêng $\{7, 8, 9\}$.
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Đĩa trái nhẹ hơn: đồng giả nằm trong $\{1, 2, 3\}$.
+  \item Đĩa phải nhẹ hơn: đồng giả nằm trong $\{4, 5, 6\}$.
+  \item Thăng bằng: cả $6$ đồng trên cân đều thật, đồng giả nằm trong $\{7, 8, 9\}$.
+\end{itemize}
+Dù kết quả thế nào, ta chỉ còn $3$ đồng ``đáng ngờ''.
+\step{2}{Câu a): lần cân thứ hai}
+Gọi ba đồng đáng ngờ là $x, y, z$. Đặt $x$ lên đĩa trái, $y$ lên đĩa phải. Bên nào nhẹ hơn thì đồng đó là đồng giả; nếu thăng bằng
+thì đồng giả là $z$.
+\begin{figC}
+\node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,align=center,font=\scriptsize] (A) at (0,0){Lần 1\\$\{1,2,3\}$ -- $\{4,5,6\}$};
+\foreach \x/\lab/\g in {-4/{trái nhẹ}/{1 -- 2}, 0/{thăng bằng}/{7 -- 8}, 4/{phải nhẹ}/{4 -- 5}}{
+  \node[draw=tmGreen,fill=tmGreen!8,rounded corners=3pt,align=center,font=\scriptsize] (B\x) at (\x,-1.6){Lần 2\\ \g};
+  \draw[->,Ink] (A)--(B\x) node[midway,fill=white,font=\tiny,inner sep=1pt]{\lab};}
+\foreach \x/\a/\b/\c in {-4/1/2/3, 0/7/8/9, 4/4/5/6}{
+  \node[font=\scriptsize,text=AnsRed] at (\x-1,-2.8){\a}; \node[font=\scriptsize,text=AnsRed] at (\x,-2.8){\c};
+  \node[font=\scriptsize,text=AnsRed] at (\x+1,-2.8){\b};
+  \draw[->,Slate] (B\x)--(\x-1,-2.6); \draw[->,Slate] (B\x)--(\x,-2.6); \draw[->,Slate] (B\x)--(\x+1,-2.6);}
+\end{figC}
+(Trong sơ đồ, ở lần 2: mũi tên trái -- đĩa trái nhẹ; giữa -- thăng bằng; phải -- đĩa phải nhẹ.)
+\step{3}{Câu b): vì sao $1$ lần không đủ}
+\begin{proofbox}Có $9$ khả năng (đồng giả là đồng số $1$, số $2$, \dots, số $9$). Một lần cân chỉ cho $3$ kết quả khác nhau. Theo
+nguyên lí Dirichlet, có ít nhất một kết quả ứng với $\ge 3$ khả năng (vì $9 > 3$), và khi gặp kết quả đó ta không biết đồng nào là
+giả. Vậy $1$ lần cân không thể luôn tìm ra đồng giả.\end{proofbox}
+\step{4}{Câu c): $3$ lần cân}
+Lập luận như câu b: $3$ lần cân cho nhiều nhất $3\times 3\times 3 = 27$ dãy kết quả khác nhau, nên không thể phân biệt quá $27$ khả
+năng. Ngược lại, với $27$ đồng thì làm được: chia thành $3$ nhóm $9$ đồng, cân nhóm thứ nhất với nhóm thứ hai; lần cân này cho biết
+đồng giả ở nhóm $9$ đồng nào; sau đó dùng $2$ lần cân của câu a) cho nhóm $9$ đồng đó.
+\begin{tipbox}Quy luật: với $n$ lần cân, ta tìm được đồng xu nhẹ hơn trong tối đa $3^n$ đồng: $1$ lần -- $3$ đồng, $2$ lần -- $9$
+đồng, $3$ lần -- $27$ đồng.\end{tipbox}
+\begin{warnbox}Cách ``chia đôi'' ($9 \to 4 + 4$, rồi $2 + 2$, rồi $1 + 1$) cần tới $3$ lần cân, vì nó bỏ phí kết quả ``thăng
+bằng''.\end{warnbox}
+\verify{Thử lần lượt cả $9$ trường hợp (đồng giả là $1, 2, \dots, 9$): cách cân ở câu a) luôn chỉ ra đúng đồng giả sau $2$ lần.}
+\ans{a) Cân $3$ -- $3$ để tìm nhóm có đồng giả, rồi cân $1$ -- $1$ trong nhóm đó;\quad b) $9$ khả năng $> 3$ kết quả;\quad c) $27$ đồng}
+}
+
+% ---------------------------------------------------------------- Bài 45
+\begin{probbox}{45}{\stars{2}}
+\textbf{Bài toán $12$ đồng xu nổi tiếng.} Có $12$ đồng xu giống hệt nhau, trong đó đúng một đồng là giả. Đồng giả có khối lượng
+khác các đồng thật, nhưng ta \emph{không biết} nó nặng hơn hay nhẹ hơn. Chỉ dùng một cân hai đĩa (không có quả cân).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Có bao nhiêu ``khả năng'' cần phân biệt? Vì sao $2$ lần cân chắc chắn không đủ?
+  \item Hãy chỉ ra cách dùng đúng $3$ lần cân để tìm ra đồng giả \emph{và} biết nó nặng hơn hay nhẹ hơn.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Khác Bài 44: ta không biết đồng giả nặng hay nhẹ, nên mỗi kết quả lệch có \emph{hai} cách giải thích (bên
+nặng có đồng nặng, \emph{hoặc} bên nhẹ có đồng nhẹ). Ta phải ghi chép cẩn thận ``nghi phạm'' nào có thể nặng, nghi phạm nào có thể
+nhẹ.
+\step{1}{Câu a): đếm khả năng}
+Đồng giả có thể là một trong $12$ đồng, và với mỗi đồng có $2$ trường hợp (nặng hơn / nhẹ hơn): tổng cộng $12\times 2 = 24$ khả
+năng. Hai lần cân chỉ cho tối đa $3\times 3 = 9$ dãy kết quả. Vì $24 > 9$, sẽ có những khả năng khác nhau cho cùng một dãy kết quả,
+nên $2$ lần cân không đủ. Với $3$ lần cân có $27 \ge 24$ dãy kết quả -- \emph{có thể} đủ, nếu ta cân thật khéo.
+\begin{recallbox}Kí hiệu: $\uparrow k$ nghĩa là ``đồng $k$ có thể là đồng giả nặng hơn'', $\downarrow k$ nghĩa là ``đồng $k$ có thể
+là đồng giả nhẹ hơn''. Một đồng đã được xác nhận là thật thì ta dùng nó làm ``đồng mẫu''.\end{recallbox}
+\step{2}{Lần cân 1: $\{1, 2, 3, 4\}$ với $\{5, 6, 7, 8\}$}
+\textbf{Trường hợp A -- thăng bằng.} Tám đồng $1$--$8$ đều thật. Đồng giả nằm trong $9, 10, 11, 12$.\\
+\textbf{Trường hợp B -- đĩa trái nặng hơn.} Nghi phạm: $\uparrow 1, \uparrow 2, \uparrow 3, \uparrow 4, \downarrow 5, \downarrow 6,
+\downarrow 7, \downarrow 8$ ($8$ khả năng); các đồng $9$--$12$ là thật.\\
+\textbf{Trường hợp C -- đĩa phải nặng hơn.} Giống B nhưng đổi vai trò hai nhóm.
+\step{3}{Trường hợp A (đồng giả trong $9$--$12$)}
+Lần cân 2: $\{9, 10, 11\}$ với $\{1, 2, 3\}$ (ba đồng mẫu thật).
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Thăng bằng: đồng giả là $12$. Lần cân 3: $12$ với đồng $1$; nếu $12$ nặng hơn thì đồng giả nặng, nếu nhẹ hơn thì đồng giả
+  nhẹ (không thể thăng bằng).
+  \item Đĩa trái nặng hơn: đồng giả là một trong $9, 10, 11$ và \emph{nặng hơn}. Lần cân 3: $9$ với $10$; bên nặng hơn là đồng giả;
+  thăng bằng thì là $11$.
+  \item Đĩa trái nhẹ hơn: tương tự, đồng giả trong $9, 10, 11$ và \emph{nhẹ hơn}; cân $9$ với $10$, bên nhẹ hơn là đồng giả,
+  thăng bằng thì là $11$.
+\end{itemize}
+\step{4}{Trường hợp B (nghi phạm $\uparrow 1, \uparrow 2, \uparrow 3, \uparrow 4, \downarrow 5, \downarrow 6, \downarrow 7, \downarrow 8$)}
+Mẹo then chốt: lần cân 2 vừa \emph{đổi chỗ} một số đồng, vừa \emph{bỏ ra} một số đồng, vừa thêm đồng mẫu $9$:
+\[ \text{Lần cân 2:}\quad \{1, 2, 5\} \ \text{với}\ \{3, 6, 9\}. \]
+\begin{center}\footnotesize
+\begin{tabular}{|c|p{3.6cm}|p{6.4cm}|}
+\hline
+\rowcolor{tmBlue!10} Kết quả lần 2 & Nghi phạm còn lại & Lần cân 3 và cách đọc kết quả\\ \hline
+Thăng bằng & $\uparrow 4,\ \downarrow 7,\ \downarrow 8$ (các đồng bị bỏ ra) & $7$ với $8$: bên nhẹ hơn là đồng giả (nhẹ);
+thăng bằng $\Rightarrow$ $4$ nặng\\ \hline
+Trái nặng hơn & $\uparrow 1,\ \uparrow 2,\ \downarrow 6$ & $1$ với $2$: bên nặng hơn là đồng giả (nặng); thăng bằng
+$\Rightarrow$ $6$ nhẹ\\ \hline
+Phải nặng hơn & $\uparrow 3,\ \downarrow 5$ & $3$ với $9$: nếu $3$ nặng hơn $\Rightarrow$ $3$ nặng; thăng bằng
+$\Rightarrow$ $5$ nhẹ\\ \hline
+\end{tabular}
+\end{center}
+\begin{proofbox}Vì sao dòng ``Trái nặng hơn'' chỉ còn $\uparrow 1, \uparrow 2, \downarrow 6$? Đĩa trái $\{1, 2, 5\}$ nặng hơn nghĩa
+là: hoặc có đồng nặng ở bên trái -- chỉ có thể là $1$ hoặc $2$ (đồng $5$ chỉ có thể \emph{nhẹ}); hoặc có đồng nhẹ ở bên phải --
+chỉ có thể là $6$ (đồng $3$ chỉ có thể \emph{nặng}, đồng $9$ là thật). Lập luận tương tự cho các dòng khác.\end{proofbox}
+\step{5}{Trường hợp C}
+Làm y hệt trường hợp B, chỉ đổi vai trò: nghi phạm là $\uparrow 5, \uparrow 6, \uparrow 7, \uparrow 8, \downarrow 1, \downarrow 2,
+\downarrow 3, \downarrow 4$; lần cân 2 là $\{5, 6, 1\}$ với $\{7, 2, 9\}$, và đọc kết quả theo bảng trên (thay $1, 2, 3, 4$ bằng
+$5, 6, 7, 8$ và ngược lại).
+\begin{tipbox}Sau mỗi lần cân, số khả năng giảm nhiều nhất về một phần ba: $24 \to 8 \to 3 \to 1$ (hoặc nhỏ hơn). Một lần cân
+``tốt'' là lần cân mà ba kết quả chia các khả năng thành ba phần gần bằng nhau. Ở lần cân 2 của trường hợp B, $8$ khả năng được chia
+thành $3 + 3 + 2$.\end{tipbox}
+\begin{warnbox}Sai lầm hay gặp ở lần cân 2: cân $\{1, 2\}$ với $\{3, 4\}$. Nếu thăng bằng, còn $4$ khả năng
+$\downarrow 5, \downarrow 6, \downarrow 7, \downarrow 8$, mà chỉ còn một lần cân ($3$ kết quả) -- không đủ!\end{warnbox}
+\verify{Đã thử đủ $24$ khả năng (mỗi đồng $1$ đến $12$, nặng hoặc nhẹ) bằng máy tính theo đúng sơ đồ trên: lần nào cũng xác định
+đúng đồng giả và đúng ``nặng/nhẹ'' sau $3$ lần cân.}
+\ans{a) $24$ khả năng $> 9$ dãy kết quả;\quad b) cân $\{1,2,3,4\}$ -- $\{5,6,7,8\}$, rồi làm theo sơ đồ ở bước 3--5}
+}
+
+% ---------------------------------------------------------------- Bài 46
+\begin{probbox}{46}{\stars{1}}
+\textbf{Giải bóng đá mini.} Bốn đội A, B, C, D thi đấu vòng tròn một lượt (mỗi đội gặp mỗi đội khác đúng một lần). Thắng được
+$3$ điểm, hoà được $1$ điểm, thua được $0$ điểm. Kết thúc giải, đội A có $7$ điểm, B có $5$ điểm, C có $3$ điểm, D có $1$ điểm.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Giải đấu có bao nhiêu trận hoà?
+  \item Hãy xác định kết quả (thắng/hoà/thua) của từng trận đấu.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Ta không biết tỉ số của trận nào, chỉ biết tổng điểm. Ta sẽ (1) đếm tổng điểm của cả giải để tìm số trận
+hoà; (2) phân tích điểm của từng đội; (3) ``ghép cặp'' các trận hoà.
+\step{1}{Số trận đấu}
+Mỗi cặp đội đá một trận: AB, AC, AD, BC, BD, CD -- tổng cộng $6$ trận. Mỗi đội đá $3$ trận.
+\step{2}{Câu a): tổng điểm và số trận hoà}
+Trận có thắng thua phát ra $3 + 0 = 3$ điểm; trận hoà phát ra $1 + 1 = 2$ điểm. Tổng điểm cả giải: $7 + 5 + 3 + 1 = 16$.\\
+Nếu cả $6$ trận đều có thắng thua thì tổng là $6\times 3 = 18$. Mỗi trận hoà làm tổng giảm $1$. Vì $18 - 16 = 2$, giải có
+\textbf{$2$ trận hoà} (và $4$ trận có thắng thua).
+\begin{recallbox}Đây là cách lập luận ``giả sử tất cả'' quen thuộc (giống bài toán gà -- chó): giả sử mọi trận đều có thắng thua, rồi
+xem tổng điểm thiếu bao nhiêu.\end{recallbox}
+\step{3}{Phân tích điểm của từng đội ($3$ trận, mỗi trận được $3$, $1$ hoặc $0$ điểm)}
+\begin{center}\small
+\begin{tabular}{|c|c|l|}
+\hline
+\rowcolor{tmBlue!10} Đội & Điểm & Các cách có thể\\ \hline
+A & $7$ & $3 + 3 + 1$: thắng $2$, hoà $1$\\ \hline
+B & $5$ & $3 + 1 + 1$: thắng $1$, hoà $2$\\ \hline
+C & $3$ & $3 + 0 + 0$ (thắng $1$, thua $2$) \ hoặc \ $1 + 1 + 1$ (hoà $3$)\\ \hline
+D & $1$ & $1 + 0 + 0$: hoà $1$, thua $2$\\ \hline
+\end{tabular}
+\end{center}
+(Ví dụ với $7$ điểm: $3 + 3 + 3 = 9$ quá nhiều, $3 + 3 + 0 = 6$ thiếu, $3 + 1 + 1 = 5$ thiếu; chỉ $3 + 3 + 1 = 7$.)
+\step{4}{Đếm ``lượt hoà''}
+Mỗi trận hoà được tính cho \emph{hai} đội, nên tổng số lượt hoà của bốn đội là $2\times 2 = 4$. A có $1$, B có $2$, D có $1$:
+đã đủ $4$. Vậy C \emph{không hoà trận nào}, nên C thắng $1$, thua $2$.
+\step{5}{Hai trận hoà là trận nào?}
+Hai trận hoà chỉ diễn ra giữa các đội A, B, D. B hoà $2$ trận với hai đối thủ khác nhau, A và D mỗi đội hoà đúng $1$ trận. Vậy hai
+trận hoà là \textbf{A -- B} và \textbf{B -- D} (nếu A hoà D thì A hoặc D sẽ có $2$ trận hoà khi cộng với B).
+\step{6}{Các trận còn lại}
+A thắng $2$ trận còn lại: A thắng C, A thắng D. \ B thắng trận còn lại: B thắng C. \ D thua $2$ trận còn lại: thua A và thua C,
+nên C thắng D.
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} & A & B & C & D & Điểm\\ \hline
+A & \cellcolor{Tint} & hoà & thắng & thắng & $1 + 3 + 3 = 7$\\ \hline
+B & hoà & \cellcolor{Tint} & thắng & hoà & $1 + 3 + 1 = 5$\\ \hline
+C & thua & thua & \cellcolor{Tint} & thắng & $0 + 0 + 3 = 3$\\ \hline
+D & thua & hoà & thua & \cellcolor{Tint} & $0 + 1 + 0 = 1$\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}C có $3$ điểm nên nhiều bạn vội nghĩ ``C hoà cả $3$ trận''. Phải dùng thêm thông tin ``chỉ có $2$ trận hoà'' mới loại
+được khả năng này.\end{warnbox}
+\verify{Có đúng $2$ trận hoà (A--B, B--D). Điểm: A $1 + 3 + 3 = 7$, B $1 + 3 + 1 = 5$, C $0 + 0 + 3 = 3$, D $0 + 1 + 0 = 1$. Máy tính
+thử đủ $3^6 = 729$ khả năng kết quả cũng chỉ thấy đúng một khả năng cho bảng điểm $7, 5, 3, 1$.}
+\ans{a) $2$ trận hoà;\quad b) A hoà B, B hoà D; A thắng C, A thắng D, B thắng C, C thắng D}
+}
+
+% ---------------------------------------------------------------- Bài 47
+\begin{probbox}{47}{\stars{1}}
+\textbf{Đại lượng bất biến.}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Trên bảng viết các số $1, 2, 3, \dots, 10$. Mỗi lượt, bạn Quang xoá hai số bất kì $a$ và $b$ rồi viết thêm số $|a - b|$
+  (hiệu của số lớn trừ số bé). Sau $9$ lượt, trên bảng chỉ còn một số. Số đó có thể bằng $0$ không? Có thể bằng $1$ không?
+  \item Từ bàn cờ vua $8\times 8$, người ta cắt bỏ hai ô ở hai góc đối diện (xem hình). Có thể phủ kín $62$ ô còn lại bằng
+  $31$ quân đô-mi-nô, mỗi quân phủ đúng hai ô kề nhau, được không?
+\end{enumerate}
+\begin{figC}
+\begin{scope}[scale=0.32]
+\foreach \i in {0,...,7}{\foreach \j in {0,...,7}{
+  \pgfmathtruncatemacro\lgxcdpar{mod(\i+\j,2)}
+  \ifnum\lgxcdpar=0 \fill[Navy!55] (\i,\j) rectangle ++(1,1);\else \fill[white] (\i,\j) rectangle ++(1,1);\fi}}
+\fill[white] (0,0) rectangle (1,1); \fill[white] (7,7) rectangle (8,8);
+\draw[AnsRed,line width=0.8pt] (0,0)--(1,1) (0,1)--(1,0) (7,7)--(8,8) (7,8)--(8,7);
+\draw[Ink,line width=0.9pt] (0,0) rectangle (8,8);
+\end{scope}
+\begin{scope}[xshift=4.2cm,yshift=1.1cm,scale=0.45]
+\fill[Navy!55] (0,0) rectangle (1,1); \draw[Ink,line width=1pt,rounded corners=1pt] (0,0) rectangle (2,1); \draw[Ink] (1,0)--(1,1);
+\node[right,font=\scriptsize] at (2.2,0.5){một quân đô-mi-nô};
+\end{scope}
+\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cả hai câu đều hỏi ``có làm được không''. Với câu hỏi ``không làm được'', thử mãi cũng không chứng minh được --
+ta cần tìm một \emph{đại lượng bất biến}: một tính chất không thay đổi dù làm theo cách nào.
+\begin{recallbox}\textbf{Bất biến} là đại lượng (hay tính chất) giữ nguyên sau mỗi bước biến đổi. Nếu trạng thái ban đầu và trạng
+thái muốn đạt có bất biến khác nhau, thì không thể đi từ trạng thái này tới trạng thái kia.\end{recallbox}
+\par\smallskip\textbf{Câu a).}
+\step{1}{Xem tính chẵn lẻ của tổng}
+Khi thay $a, b$ bằng $|a - b|$, tổng các số trên bảng giảm đi $a + b - |a - b|$. Nếu $a \ge b$ thì đó là $a + b - (a - b) = 2b$ -- một
+số chẵn. Vậy tổng thay đổi một số chẵn, nên \textbf{tính chẵn lẻ của tổng không đổi}.
+\step{2}{Kết luận về số $0$}
+Tổng ban đầu $1 + 2 + \dots + 10 = 55$ là số lẻ. Vì vậy tổng luôn lẻ, và số cuối cùng (chính là tổng lúc đó) là số lẻ. Số $0$ chẵn,
+nên \textbf{không thể} còn lại số $0$.
+\step{3}{Số $1$ thì được: chỉ ra một cách}
+Xoá $(10, 9)$, $(8, 7)$, $(6, 5)$, $(4, 3)$, $(2, 1)$: được năm số $1$. Xoá hai số $1$ được $0$; lại xoá hai số $1$ khác được $0$.
+Bảng còn $0, 0, 1$. Xoá $(0, 0)$ được $0$; cuối cùng xoá $(0, 1)$ được $1$. Đếm lại: $5 + 2 + 1 + 1 = 9$ lượt.
+\begin{warnbox}Bất biến chỉ cho biết điều gì \emph{không thể}. Muốn khẳng định ``có thể'', phải chỉ ra một cách làm cụ thể như bước 3.
+\end{warnbox}
+\par\smallskip\textbf{Câu b).}
+\step{4}{Tô màu và đếm}
+Bàn cờ có $32$ ô đen và $32$ ô trắng. Hai ô ở hai góc đối diện luôn \emph{cùng màu} (ở hình là màu sẫm). Sau khi cắt, còn $30$ ô màu
+sẫm và $32$ ô màu trắng.
+\step{5}{Mỗi quân đô-mi-nô phủ một ô sẫm và một ô trắng}
+Hai ô kề nhau trên bàn cờ luôn khác màu. Vì vậy $31$ quân đô-mi-nô (dù đặt thế nào) sẽ phủ đúng $31$ ô sẫm và $31$ ô trắng. Nhưng
+bàn cờ chỉ còn $30$ ô sẫm. Mâu thuẫn! Vậy \textbf{không thể} phủ kín.
+\begin{proofbox}Bất biến ở đây là: ``số ô sẫm đã phủ $=$ số ô trắng đã phủ''. Nó đúng sau mỗi quân đô-mi-nô đặt thêm, nhưng phần bàn
+cờ cần phủ lại có $30 \ne 32$.\end{proofbox}
+\begin{parentbox}Có thể làm thử với bàn cờ nhỏ $4\times 4$ cắt hai góc đối diện (còn $14$ ô, cần $7$ quân): cho con tự thử để cảm
+nhận ``mãi không xếp được'', rồi mới giải thích lí do bằng màu ô.\end{parentbox}
+\verify{Câu a): mọi kết quả cuối cùng đều lẻ (vì $55$ lẻ), và cách ở bước 3 cho ra $1$. Câu b): $30 + 32 = 62$ ô; $31$ quân cần $31$
+ô mỗi màu.}
+\ans{a) Không thể bằng $0$; có thể bằng $1$;\quad b) Không thể}
+}
+
+% ---------------------------------------------------------------- Bài 48
+\begin{probbox}{48}{\stars{1}}
+\textbf{Câu đố kiểu Einstein.} Bốn ngôi nhà được đánh số $1, 2, 3, 4$ từ trái sang phải. Mỗi nhà sơn một màu khác nhau (đỏ, vàng,
+xanh, trắng), có một người ở (An, Bình, Cúc, Dũng) và người đó nuôi một con vật khác nhau (chó, mèo, cá, thỏ). Biết rằng:
+\begin{enumerate}[label=(\arabic*),leftmargin=2em,itemsep=0pt,topsep=2pt]
+  \item An ở nhà màu đỏ.
+  \item Nhà màu xanh ở \emph{ngay bên phải} nhà màu trắng.
+  \item Bình nuôi chó.
+  \item Người nuôi cá ở nhà số $1$.
+  \item Dũng ở ngay cạnh nhà của người nuôi mèo.
+  \item Nhà số $2$ màu trắng.
+  \item An nuôi thỏ.
+\end{enumerate}
+Ai nuôi mèo? Nhà màu vàng là nhà của ai?
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Có ba loại thông tin (màu, người, con vật) cho bốn nhà. Ta lập một bảng $3\times 4$ và điền dần, bắt đầu từ
+các gợi ý ``chắc chắn'' (gợi ý cho biết vị trí cụ thể), sau đó mới tới các gợi ý ``ghép đôi'' và ``bên cạnh''.
+\step{1}{Màu nhà: gợi ý (6) và (2)}
+Nhà $2$ màu trắng (6), nên nhà xanh ở ngay bên phải là nhà $3$ (2). Hai màu đỏ, vàng dành cho nhà $1$ và nhà $4$.
+\step{2}{An: gợi ý (1), (7), (4)}
+An ở nhà đỏ (1) và nuôi thỏ (7). Nhà đỏ là nhà $1$ hoặc nhà $4$. Nhưng nhà $1$ nuôi cá (4), mà An nuôi thỏ, nên An không ở nhà $1$.
+Vậy An ở nhà $4$, nhà $4$ màu đỏ, nuôi thỏ; nhà $1$ màu vàng, nuôi cá.
+\step{3}{Chó và mèo}
+Hai con còn lại là chó và mèo, ở nhà $2$ và nhà $3$. Bình nuôi chó (3), nên Bình ở nhà $2$ hoặc nhà $3$.
+\step{4}{Tìm chỗ của Dũng: gợi ý (5)}
+Dũng ở một trong các nhà $1, 2, 3$. Xét từng khả năng:
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Dũng ở nhà $2$: Dũng không nuôi chó (chó là của Bình), nên Dũng nuôi mèo. Hàng xóm của Dũng là nhà $1$ (cá) và nhà $3$ (chó)
+  -- không ai nuôi mèo, trái với (5). \textbf{Loại.}
+  \item Dũng ở nhà $3$: tương tự Dũng nuôi mèo; hàng xóm là nhà $2$ (chó) và nhà $4$ (thỏ) -- trái với (5). \textbf{Loại.}
+  \item Dũng ở nhà $1$ (nuôi cá): hàng xóm duy nhất là nhà $2$, nên nhà $2$ nuôi mèo, nhà $3$ nuôi chó. \textbf{Được.}
+\end{itemize}
+\step{5}{Hoàn thành bảng}
+Nhà $3$ nuôi chó nên Bình ở nhà $3$; người còn lại là Cúc, ở nhà $2$.
+\begin{center}\small
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} & Nhà 1 & Nhà 2 & Nhà 3 & Nhà 4\\ \hline
+Màu & vàng & trắng & xanh & đỏ\\ \hline
+Người & Dũng & Cúc & Bình & An\\ \hline
+Con vật & cá & mèo & chó & thỏ\\ \hline
+\end{tabular}
+\end{center}
+\begin{tipbox}Mỗi khi có gợi ý dạng ``ở ngay cạnh'', hãy thử từng vị trí và loại dần -- thường chỉ còn lại một khả năng.\end{tipbox}
+\verify{Kiểm tra lần lượt: (1) An -- nhà đỏ \checkmark; (2) xanh (nhà 3) ngay phải trắng (nhà 2) \checkmark; (3) Bình -- chó
+\checkmark; (4) nhà 1 -- cá \checkmark; (5) Dũng (nhà 1) cạnh nhà 2 nuôi mèo \checkmark; (6) nhà 2 trắng \checkmark; (7) An -- thỏ
+\checkmark. Máy tính thử đủ $24^3 = 13\,824$ cách sắp xếp cũng chỉ thấy lời giải này.}
+\ans{Cúc nuôi mèo; nhà màu vàng là nhà của Dũng}
+}
+
+% ---------------------------------------------------------------- Bài 49
+\begin{probbox}{49}{\stars{1}}
+\textbf{Đồng hồ và lịch.}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Ngày $1/1/2026$ là thứ Năm. Hỏi ngày Quốc khánh $2/9/2026$ là thứ mấy? Ngày $1/1/2027$ là thứ mấy?
+  \item Lúc $3$ giờ $40$ phút, kim giờ và kim phút tạo thành góc bao nhiêu độ (góc không vượt quá $180^\circ$)?
+  \item Sau $3$ giờ đúng, bao nhiêu phút nữa thì kim phút đuổi kịp kim giờ lần đầu tiên?
+  \item \stars{1} Chứng minh rằng năm nào cũng có ít nhất một ngày thứ Sáu là ngày $13$.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Thứ trong tuần lặp lại sau mỗi $7$ ngày, nên ta chỉ cần \emph{số dư khi chia cho $7$} của số ngày trôi qua.
+Với đồng hồ, ta đổi vị trí mỗi kim ra ``số độ tính từ số 12''.
+\begin{recallbox}Năm thường có $365$ ngày, năm nhuận có $366$ ngày (tháng 2 có $29$ ngày). Năm $2026$ không nhuận. Số ngày các tháng
+khi chia cho $7$: tháng $31$ ngày dư $3$, tháng $30$ ngày dư $2$, tháng $28$ ngày dư $0$, tháng $29$ ngày dư $1$.\end{recallbox}
+\step{1}{Câu a): ngày $2/9/2026$}
+Số ngày từ $1/1$ đến $2/9$: tháng 1 đến tháng 8 có $31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 = 243$ ngày, cộng thêm $1$ ngày (từ $1/9$
+đến $2/9$): tổng $244$ ngày. Ta có $244 = 7\times 34 + 6$. Đi tiếp $6$ ngày từ thứ Năm: Sáu, Bảy, Chủ nhật, Hai, Ba, \textbf{Tư}.
+Ngày $2/9/2026$ là \textbf{thứ Tư}.
+\step{2}{Câu a): ngày $1/1/2027$}
+Năm $2026$ có $365 = 7\times 52 + 1$ ngày, nên thứ của ngày $1/1/2027$ tiến thêm $1$ so với thứ của ngày $1/1/2026$: \textbf{thứ Sáu}.
+\begin{warnbox}Đừng đếm nhầm $243$ thay vì $244$: từ ngày $1/1$ đến ngày $2/9$ là $243$ ngày (đến $1/9$) cộng thêm $1$ ngày.
+Kiểm tra bằng ví dụ nhỏ: từ $1/1$ đến $2/1$ là $1$ ngày, không phải $2$.\end{warnbox}
+\step{3}{Câu b): góc lúc 3 giờ 40}
+Kim phút quay $360^\circ$ trong $60$ phút, tức $6^\circ$ mỗi phút: lúc $40$ phút, kim phút ở $40\times 6 = 240^\circ$.\\
+Kim giờ quay $30^\circ$ mỗi giờ, tức $0{,}5^\circ$ mỗi phút: lúc $3$ giờ $40$ phút, kim giờ ở $3\times 30 + 40\times 0{,}5 = 90 + 20
+= 110^\circ$.\\
+Góc giữa hai kim: $240 - 110 = 130^\circ$.
+\begin{figC}
+\draw[Ink,line width=1pt] (0,0) circle (1.3);
+\foreach \h in {1,...,12}{\draw[Ink] ({90-30*\h}:1.15)--({90-30*\h}:1.3); \node[font=\tiny] at ({90-30*\h}:0.95){\h};}
+\draw[tmBlue,line width=1.6pt,->] (0,0)--({90-110}:0.6);
+\draw[tmOrange,line width=1.2pt,->] (0,0)--({90-240}:1.05);
+\draw[AnsRed,line width=0.7pt] ({90-110}:0.35) arc ({90-110}:{90-240}:0.35);
+\node[font=\scriptsize,text=AnsRed] at ({90-175}:0.55){$130^\circ$};
+\end{figC}
+\step{4}{Câu c): kim phút đuổi kịp kim giờ}
+Lúc $3$ giờ, kim giờ đi trước kim phút $90^\circ$. Mỗi phút kim phút đi nhanh hơn kim giờ $6 - 0{,}5 = 5{,}5^\circ$. Thời gian đuổi
+kịp: $90 : 5{,}5 = \dfrac{180}{11} = 16\dfrac{4}{11}$ phút (khoảng $16$ phút $22$ giây).
+\begin{recallbox}Bài toán ``chuyển động đuổi nhau'': thời gian đuổi kịp $=$ khoảng cách ban đầu $:$ hiệu vận tốc.\end{recallbox}
+\step{5}{Câu d): ngày $13$ của các tháng}
+Đặt thứ của ngày $13/1$ là ``mốc $0$''. Ngày $13$ của tháng sau lệch đi đúng số ngày của tháng trước (chia $7$ lấy dư). Cộng dồn
+(và lấy dư khi chia $7$):
+\begin{center}\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Tháng & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\ \hline
+Năm thường & $0$ & $3$ & $3$ & $6$ & $1$ & $4$ & $6$ & $2$ & $5$ & $0$ & $3$ & $5$\\ \hline
+Năm nhuận & $0$ & $3$ & $4$ & $0$ & $2$ & $5$ & $0$ & $3$ & $6$ & $1$ & $4$ & $6$\\ \hline
+\end{tabular}
+\end{center}
+Ví dụ năm thường: tháng 1 có $31$ ngày (dư $3$) nên $13/2$ lệch $3$; tháng 2 có $28$ ngày (dư $0$) nên $13/3$ vẫn lệch $3$; tháng 3 có
+$31$ ngày nên $13/4$ lệch $3 + 3 = 6$; tháng 4 có $30$ ngày nên $13/5$ lệch $6 + 2 = 8$, dư $1$; \dots
+\begin{proofbox}Trong cả hai dòng, các độ lệch xuất hiện đủ cả bảy giá trị $0, 1, 2, 3, 4, 5, 6$. Nghĩa là các ngày $13$ trong năm rơi
+vào đủ cả bảy thứ trong tuần. Đặc biệt, luôn có ít nhất một ngày $13$ rơi vào thứ Sáu.\end{proofbox}
+\verify{Theo lịch: $2/9/2026$ là thứ Tư, $1/1/2027$ là thứ Sáu. Năm $2026$ có thứ Sáu ngày $13$ vào tháng 2, tháng 3 và tháng 11.}
+\ans{a) thứ Tư; thứ Sáu;\quad b) $130^\circ$;\quad c) $16\frac{4}{11}$ phút;\quad d) xem chứng minh}
+}
+
+% ---------------------------------------------------------------- Bài 50
+\begin{probbox}{50}{\stars{2}}
+\textbf{Nguyên lí Dirichlet (nguyên lí ``chuồng và thỏ'').}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Lớp 7A có $40$ học sinh. Chứng minh rằng có ít nhất $4$ bạn sinh cùng một tháng.
+  \item Chứng minh rằng trong $5$ số nguyên bất kì, luôn có hai số mà hiệu của chúng chia hết cho $4$.
+  \item Chọn $6$ số khác nhau bất kì từ $1, 2, \dots, 10$. Chứng minh rằng luôn có hai số đã chọn có tổng bằng $11$. Nếu chỉ chọn $5$
+  số thì điều đó còn chắc chắn đúng không?
+  \item Trong một buổi gặp mặt có $10$ bạn; một số cặp bạn bắt tay nhau (mỗi cặp bắt tay nhiều nhất một lần). Chứng minh rằng có hai
+  bạn có số lần bắt tay bằng nhau.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Cả bốn câu đều có dạng ``chứng minh luôn có\dots'' -- ta không cần tìm cụ thể là ai, chỉ cần chứng minh
+\emph{chắc chắn tồn tại}. Công cụ là nguyên lí Dirichlet.
+\begin{recallbox}\textbf{Nguyên lí Dirichlet.} Nhốt $n + 1$ con thỏ vào $n$ cái chuồng thì có ít nhất một chuồng chứa từ $2$ con trở
+lên. Tổng quát: nhốt nhiều hơn $k\times n$ con thỏ vào $n$ chuồng thì có chuồng chứa ít nhất $k + 1$ con.\end{recallbox}
+\begin{proofbox}Nếu mọi chuồng đều chứa nhiều nhất $k$ con thì tổng số thỏ nhiều nhất là $k\times n$ -- trái với giả thiết có nhiều hơn
+$k\times n$ con.\end{proofbox}
+\step{1}{Câu a)}
+``Chuồng'' là $12$ tháng, ``thỏ'' là $40$ học sinh. Nếu mỗi tháng có nhiều nhất $3$ bạn thì cả lớp có nhiều nhất $12\times 3 = 36 < 40$
+bạn -- vô lí. Vậy có tháng có ít nhất $4$ bạn sinh.
+\step{2}{Câu b)}
+Khi chia cho $4$, mỗi số nguyên có một trong $4$ số dư: $0, 1, 2, 3$ (``$4$ chuồng''). Có $5$ số (``$5$ thỏ''), nên có hai số cùng số
+dư, chẳng hạn $a = 4p + r$ và $b = 4q + r$. Khi đó $a - b = 4(p - q)$ chia hết cho $4$.
+\step{3}{Câu c)}
+Chia $10$ số thành $5$ ``chuồng'', mỗi chuồng là một cặp có tổng $11$:
+\[ \{1, 10\},\quad \{2, 9\},\quad \{3, 8\},\quad \{4, 7\},\quad \{5, 6\}. \]
+Chọn $6$ số mà chỉ có $5$ cặp, nên có hai số rơi vào cùng một cặp -- tổng của chúng bằng $11$.\\
+Với $5$ số thì \textbf{không chắc chắn}: chọn $1, 2, 3, 4, 5$ thì tổng hai số lớn nhất chỉ là $4 + 5 = 9 < 11$.
+\begin{tipbox}Phần khó nhất của nguyên lí Dirichlet là \emph{chọn chuồng}. Hãy để ý điều cần chứng minh (``tổng bằng $11$'') rồi tạo
+chuồng sao cho hai thỏ cùng chuồng thì có ngay tính chất đó.\end{tipbox}
+\step{4}{Câu d): các ``chuồng'' là số lần bắt tay}
+Mỗi bạn bắt tay với nhiều nhất $9$ bạn khác, nên số lần bắt tay của mỗi bạn là một trong $10$ giá trị $0, 1, 2, \dots, 9$. Có $10$
+bạn và $10$ giá trị -- chưa đủ để dùng Dirichlet! Cần thêm một nhận xét.
+\begin{proofbox}Hai giá trị $0$ và $9$ không thể cùng xuất hiện. Thật vậy, nếu có bạn bắt tay $9$ lần thì bạn ấy đã bắt tay
+\emph{tất cả} mọi người, nên không ai có $0$ lần bắt tay. Vậy thực ra $10$ bạn chỉ nhận nhiều nhất $9$ giá trị khác nhau (hoặc
+$0, 1, \dots, 8$, hoặc $1, 2, \dots, 9$). $10$ thỏ, $9$ chuồng: có hai bạn có cùng số lần bắt tay.\end{proofbox}
+\begin{warnbox}Ở câu d), nếu dừng lại ở ``$10$ bạn, $10$ giá trị'' thì không kết luận được gì. Nhận xét ``$0$ và $9$ không cùng có
+mặt'' chính là chìa khoá.\end{warnbox}
+\begin{parentbox}Có thể minh hoạ bằng $5$ chiếc cốc và $6$ viên bi: dù bỏ bi thế nào cũng có cốc chứa $2$ viên. Sau đó hỏi con: ``Trong
+bài này, cái gì là cốc, cái gì là bi?''\end{parentbox}
+\verify{Câu a): $12\times 3 = 36 < 40 \le 12\times 4$. Câu c): máy tính kiểm tra đủ $210$ cách chọn $6$ số từ $1$ đến $10$ -- cách nào
+cũng có hai số tổng bằng $11$.}
+\ans{a), b), c), d): xem chứng minh; câu c) với $5$ số thì không chắc (ví dụ $1, 2, 3, 4, 5$)}
 }

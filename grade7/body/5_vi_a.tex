@@ -786,7 +786,7 @@ Nam ngồi ghế $2$, nằm giữa ghế $1$ (Giang) và ghế $3$ (Khoa).
   \draw[Navy!40,line width=5pt] (0,0) circle (0.75);
   \foreach \i/\n/\c in {1/Giang/tmBlue,2/Nam/AnsRed,3/Khoa/tmBlue,4/Lan/tmGreen,5/Mai/tmGreen}{
     \node[circle,draw=\c,fill=\c!10,line width=0.9pt,minimum size=0.95cm,font=\scriptsize] at (S\i){\n};
-    \node[font=\scriptsize,text=Slate] at ({90-(\i-1)*72}:2.05){ghế \i};}
+    \node[font=\scriptsize,text=Slate] at ({90-(\i-1)*72}:2.4){ghế \i};}
 \end{figC}
 (Nếu Khoa ở ghế $4$ thì tương tự: Lan, Mai ở ghế $2$, $3$ và Nam ở ghế $5$ -- vẫn ngồi giữa Giang và Khoa.)
 \begin{proofbox}Vì sao không còn cách xếp nào khác? Giang và Khoa không cạnh nhau nên giữa họ có đúng một ghế ở một phía và hai ghế
@@ -825,4 +825,264 @@ mặt nào đối diện. Ba mặt đối diện với chúng (dưới, sau, tr�
 \verify{Tổng mọi mặt của hai con là $21 + 21 = 42$; mặt thấy $11 + 10 = 21$; mặt không thấy $42 - 21 = 21$.}
 Vậy chọn \textbf{(C)}.
 \ans{(C) $21$}
+}
+
+% ---------------------------------------------------------------- Bài 8
+\begin{probbox}{8}{\relax}
+Cường nói dối vào các ngày thứ Sáu, thứ Bảy, Chủ nhật và nói thật vào các ngày còn lại. Mạnh nói dối vào các ngày thứ Ba, thứ Tư,
+thứ Năm và nói thật vào các ngày còn lại. Vào ngày nào trong tuần thì cả hai bạn đều có thể nói câu: ``Ngày mai tôi sẽ nói dối''?
+\choices{Thứ Hai}{Thứ Năm}{Thứ Sáu}{Chủ nhật}{Thứ Ba}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Một người chỉ có thể nói câu ``Ngày mai tôi sẽ nói dối'' trong hai tình huống:
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+\item hôm nay nói \emph{thật} và câu đó \emph{đúng}: hôm nay thật, ngày mai dối;
+\item hôm nay nói \emph{dối} và câu đó \emph{sai}: hôm nay dối, ngày mai thật.
+\end{itemize}
+Nói gọn: người đó nói được câu này khi \textbf{hôm nay và ngày mai khác loại} (một ngày thật, một ngày dối).
+\begin{recallbox}Người nói thật chỉ nói câu đúng; người nói dối chỉ nói câu sai. Sau Chủ nhật là thứ Hai (tuần quay vòng).\end{recallbox}
+\step{1}{Lập bảng cho Cường (D $=$ dối, T $=$ thật)}
+\begin{center}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Ngày & T2 & T3 & T4 & T5 & T6 & T7 & CN \\ \hline
+Cường hôm nay & T & T & T & T & D & D & D \\ \hline
+Cường ngày mai & T & T & T & D & D & D & T \\ \hline
+Nói được? & -- & -- & -- & \textbf{có} & -- & -- & \textbf{có} \\ \hline
+\end{tabular}
+\end{center}
+Cường nói được câu đó vào \textbf{thứ Năm} và \textbf{Chủ nhật} (hai ngày ``đổi loại'').
+\step{2}{Lập bảng cho Mạnh}
+\begin{center}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Ngày & T2 & T3 & T4 & T5 & T6 & T7 & CN \\ \hline
+Mạnh hôm nay & T & D & D & D & T & T & T \\ \hline
+Mạnh ngày mai & D & D & D & T & T & T & T \\ \hline
+Nói được? & \textbf{có} & -- & -- & \textbf{có} & -- & -- & -- \\ \hline
+\end{tabular}
+\end{center}
+Mạnh nói được câu đó vào \textbf{thứ Hai} và \textbf{thứ Năm}.
+\step{3}{Tìm ngày chung}
+Ngày có mặt trong cả hai danh sách: \textbf{thứ Năm}.
+\begin{warnbox}Nhiều bạn chọn thứ Sáu vì nghĩ ``thứ Sáu Cường nói dối''. Nhưng thứ Sáu Cường nói dối mà ngày mai (thứ Bảy) cũng dối, nên
+câu ``Ngày mai tôi sẽ nói dối'' là câu \emph{đúng} -- người đang nói dối không thể nói câu đúng.\end{warnbox}
+\verify{Thứ Năm: Cường nói thật, ngày mai (thứ Sáu) Cường dối -- câu đúng, Cường nói được. Mạnh nói dối, ngày mai (thứ Sáu) Mạnh nói thật
+-- câu sai, đúng là Mạnh đang nói dối.}
+Vậy chọn \textbf{(B)}.
+\ans{(B) Thứ Năm}
+}
+
+% ---------------------------------------------------------------- Bài 9
+\begin{probbox}{9}{\relax}
+Hai chiếc cân dưới đây đều thăng bằng. Các quả cùng loại nặng bằng nhau (\lgaApple\ táo, \lgaOrg\ cam, \lgaMango\ xoài).
+\begin{center}
+\lgaScale{\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple}{\lgaOrg\,\lgaOrg\,\lgaOrg}\hspace{1cm}\lgaScale{\lgaMango\,\lgaApple\,\lgaOrg}{\lgaMango\,\lgaMango}
+\end{center}
+Nhóm quả nào sau đây nặng bằng $5$ quả táo và $1$ quả cam (\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple\,\lgaApple\,\lgaOrg)?
+\choicesII{$3$ xoài}{$6$ cam}{$2$ xoài và $1$ táo}{$1$ xoài và $3$ cam}{$2$ xoài và $2$ táo}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Gọi khối lượng một quả táo, cam, xoài lần lượt là $T$, $C$, $X$. Hai chiếc cân cho hai đẳng thức. Cần tìm nhóm quả
+có khối lượng bằng $5T + C$.
+\begin{recallbox}Cân thăng bằng thì hai đĩa nặng bằng nhau. Bỏ đi những quả giống nhau ở \emph{cả hai} đĩa thì cân vẫn thăng bằng.\end{recallbox}
+\step{1}{Cân thứ hai: bỏ một quả xoài ở mỗi đĩa}
+$X + T + C = X + X$. Bỏ một quả xoài ở cả hai bên: $T + C = X$. \emph{Một quả xoài nặng bằng một táo và một cam.}
+\step{2}{Cân thứ nhất: đổi ra ``phần''}
+$4T = 3C$. Coi mỗi quả táo nặng $3$ phần thì $4$ táo nặng $12$ phần; $3$ cam cũng nặng $12$ phần nên mỗi quả cam nặng $4$ phần.
+Khi đó xoài nặng $T + C = 3 + 4 = 7$ phần.
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Táo \lgaApple & Cam \lgaOrg & Xoài \lgaMango \\ \hline
+$3$ phần & $4$ phần & $7$ phần \\ \hline
+\end{tabular}
+\end{center}
+\step{3}{Tính nhóm quả đề hỏi}
+$5T + C = 5\times 3 + 4 = 19$ phần.
+\step{4}{Tính từng phương án}
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+\item (A) $3$ xoài: $3\times 7 = 21$ phần.
+\item (B) $6$ cam: $6\times 4 = 24$ phần.
+\item (C) $2$ xoài và $1$ táo: $14 + 3 = 17$ phần.
+\item (D) $1$ xoài và $3$ cam: $7 + 12 = \mathbf{19}$ phần. \ \checkmark
+\item (E) $2$ xoài và $2$ táo: $14 + 6 = 20$ phần.
+\end{itemize}
+\step{5}{Lập luận bằng thay thế (không cần ``phần'')}
+$5T + C = T + 4T + C = T + 3C + C = (T + C) + 3C = X + 3C$ \ (dùng $4T = 3C$ rồi $T + C = X$).
+\begin{warnbox}Đừng ``bỏ'' vật ở một bên mà không bỏ ở bên kia. Và chú ý: cân $1$ cho $4$ táo $=$ $3$ cam, nên một quả táo \emph{nhẹ hơn}
+một quả cam (không phải nặng hơn) -- vì cần nhiều táo hơn mới cân bằng.\end{warnbox}
+\verify{Chọn táo $300$ g, cam $400$ g, xoài $700$ g: cân 1: $1200 = 1200$; cân 2: $700 + 300 + 400 = 1400 = 700 + 700$.
+Khi đó $5$ táo $+ 1$ cam $= 1900$ g, còn $1$ xoài $+ 3$ cam $= 700 + 1200 = 1900$ g.}
+Vậy chọn \textbf{(D)}.
+\ans{(D) $1$ xoài và $3$ cam}
+}
+
+% ---------------------------------------------------------------- Bài 10
+\begin{probbox}{10}{\relax}
+Năm bạn Hải, Long, Bảo, Kiều, Thảo đi hái dâu tây; không có hai bạn nào hái được số quả bằng nhau. Hải hái được nhiều hơn Long.
+Bảo hái được ít hơn Kiều. Kiều hái được ít hơn Long nhưng nhiều hơn Thảo. Bạn nào hái được nhiều thứ hai?
+\choices{Bảo}{Hải}{Kiều}{Long}{Thảo}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Năm bạn, bốn câu so sánh số quả dâu. Cần tìm bạn đứng thứ hai về số quả (chỉ sau một bạn).
+\step{1}{Kí hiệu hoá (``$>$'' là ``hái nhiều hơn'')}
+$H > L$; \quad $K > B$; \quad $L > K$; \quad $K > Th$.
+\step{2}{Nối các bất đẳng thức}
+$H > L > K$, và $K$ nhiều hơn cả $B$ lẫn $Th$.
+\begin{figC}
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (H) at (0,0){Hải};
+  \node[draw=AnsRed,fill=AnsRed!8,rounded corners=3pt,line width=1.1pt] (L) at (2,0){Long};
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (K) at (4,0){Kiều};
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (B) at (6,0.5){Bảo};
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,line width=0.8pt] (T) at (6,-0.5){Thảo};
+  \draw[->,Navy,line width=0.8pt] (H)--(L); \draw[->,Navy,line width=0.8pt] (L)--(K);
+  \draw[->,Navy,line width=0.8pt] (K)--(B); \draw[->,Navy,line width=0.8pt] (K)--(T);
+  \node[font=\scriptsize,text=Slate] at (3,0.75){mũi tên: ``nhiều hơn''};
+  \draw[<->,dashed,AnsRed!60] (B)--(T) node[midway,right,font=\scriptsize]{?};
+\end{figC}
+\step{3}{Đọc kết quả}
+Hải nhiều nhất (hơn Long, mà Long hơn tất cả những bạn còn lại). Long chỉ thua Hải, hơn Kiều, Bảo, Thảo. Vậy \textbf{Long nhiều thứ hai}.
+Ta không biết Bảo hay Thảo hái nhiều hơn, nhưng điều đó không ảnh hưởng tới câu hỏi.
+\begin{warnbox}Câu ``Kiều hái được ít hơn Long nhưng nhiều hơn Thảo'' chứa \emph{hai} thông tin: $L > K$ và $K > Th$. Đọc vội dễ bỏ sót một.\end{warnbox}
+\verify{Ví dụ Hải $30$, Long $25$, Kiều $20$, Bảo $12$, Thảo $10$ quả thoả mọi điều kiện; Long đứng thứ hai.}
+Vậy chọn \textbf{(D)}.
+\ans{(D) Long}
+}
+
+% ---------------------------------------------------------------- Bài 11
+\begin{probbox}{11}{\relax}
+Ba bạn An, Hà, Tú thống kê số truyện tranh và số sách khoa học mình đã đọc trong hè (không có hai bạn nào đọc cùng số truyện tranh,
+cũng không có hai bạn nào đọc cùng số sách khoa học). An đọc nhiều truyện tranh hơn Hà nhưng ít sách khoa học hơn Hà. Tú đọc nhiều
+truyện tranh hơn Hà nhưng ít sách khoa học hơn An. Khẳng định nào sau đây \textbf{chắc chắn} đúng?
+\choicesL{Tú đọc nhiều truyện tranh nhất.}{An đọc nhiều truyện tranh nhất.}{Hà đọc ít truyện tranh nhất.}{An đọc ít sách khoa học nhất.}{Tú đọc nhiều sách khoa học nhất.}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Có hai loại so sánh hoàn toàn riêng: \emph{truyện tranh} và \emph{sách khoa học}. Ta tách thông tin thành hai
+nhóm, sắp thứ tự từng nhóm rồi xét từng khẳng định.
+\begin{recallbox}``Chắc chắn đúng'' $=$ đúng trong \emph{mọi} trường hợp thoả đề. Chỉ cần \emph{một} trường hợp thoả đề mà khẳng định sai là
+loại khẳng định đó.\end{recallbox}
+\step{1}{Truyện tranh}
+``An nhiều truyện hơn Hà'': $A > H$. \quad ``Tú nhiều truyện hơn Hà'': $T > H$.\\
+Vậy Hà ít truyện nhất. Còn An và Tú: \emph{không có câu nào so sánh}.
+\step{2}{Sách khoa học}
+``An ít sách khoa học hơn Hà'': $H > A$. \quad ``Tú ít sách khoa học hơn An'': $A > T$.\\
+Nối lại: $H > A > T$. Hà nhiều sách khoa học nhất, Tú ít nhất.
+\begin{figC}
+  \node[font=\small\bfseries,text=tmOrange!80!black] at (-1,0.6){Truyện};
+  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (h) at (0.6,0.6){Hà};
+  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (a) at (2.4,1.1){An};
+  \node[draw=tmOrange,rounded corners=3pt,line width=0.8pt] (t) at (2.4,0.1){Tú};
+  \draw[->,tmOrange,line width=0.9pt] (h)--(a); \draw[->,tmOrange,line width=0.9pt] (h)--(t);
+  \node[font=\scriptsize,text=Slate] at (4.1,0.6){(chưa so sánh được)};
+  \node[font=\small\bfseries,text=tmBlue] at (-1,-0.9){Khoa học};
+  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (t2) at (0.6,-0.9){Tú};
+  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (a2) at (2.4,-0.9){An};
+  \node[draw=tmBlue,rounded corners=3pt,line width=0.8pt] (h2) at (4.2,-0.9){Hà};
+  \draw[->,tmBlue,line width=0.9pt] (t2)--(a2); \draw[->,tmBlue,line width=0.9pt] (a2)--(h2);
+  \node[font=\scriptsize,text=Slate] at (6.4,0){mũi tên chỉ về phía ``nhiều hơn''};
+\end{figC}
+\step{3}{Xét từng khẳng định}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item (A) ``Tú nhiều truyện nhất'': không chắc. Ví dụ An $5$, Tú $3$, Hà $1$ truyện thoả đề nhưng An mới nhiều nhất.
+\item (B) ``An nhiều truyện nhất'': không chắc. Ví dụ An $3$, Tú $5$, Hà $1$ truyện thoả đề nhưng Tú nhiều nhất.
+\item (C) ``Hà ít truyện nhất'': \textbf{chắc chắn đúng} (Bước 1: Hà ít hơn cả An và Tú).
+\item (D) ``An ít sách khoa học nhất'': \textbf{sai}, vì Tú ít hơn An.
+\item (E) ``Tú nhiều sách khoa học nhất'': \textbf{sai}, Tú ít nhất.
+\end{itemize}
+\begin{warnbox}Đừng trộn hai loại sách vào một dãy! ``An đọc nhiều truyện hơn Hà'' không nói gì về sách khoa học. Phải vẽ \emph{hai sơ đồ riêng}.\end{warnbox}
+Vậy chọn \textbf{(C)}.
+\ans{(C) Hà đọc ít truyện tranh nhất}
+}
+
+% ---------------------------------------------------------------- Bài 12
+\begin{probbox}{12}{\relax}
+\begin{minipage}[t]{0.63\linewidth}
+Điền các số $1, 2, 3, 4, 5, 6, 7, 8$, mỗi số vào một vòng tròn khác nhau trên hình tam giác bên cạnh, sao cho tổng các số trên mỗi
+cạnh của tam giác (mỗi cạnh có $4$ vòng tròn ở hai cạnh bên, $3$ vòng tròn ở cạnh đáy) đều bằng cùng một số $S$. Tổng của tất cả
+các giá trị khác nhau có thể có của $S$ là
+\choicesII{$85$}{$99$}{$66$}{$81$}{$67$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{0pt}\centering
+\lgaTriEight{}{}{}{}{}{}{}{}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Gọi số ở đỉnh trên là $a$, góc trái là $b$, góc phải là $c$; hai số giữa cạnh trái là $x_1, x_2$; hai số giữa cạnh
+phải là $y_1, y_2$; số giữa cạnh đáy là $z$. Ba tổng:
+\[ \text{trái: } a + x_1 + x_2 + b = S,\qquad \text{phải: } a + y_1 + y_2 + c = S,\qquad \text{đáy: } b + z + c = S. \]
+Cần tìm \emph{mọi} giá trị $S$ có thể có, rồi cộng chúng lại.
+\step{1}{Cộng ba cạnh -- mỗi số được tính mấy lần?}
+\begin{recallbox}Số ở đỉnh thuộc hai cạnh nên được tính hai lần; số ở giữa cạnh được tính một lần.\end{recallbox}
+$3S = (1 + 2 + \cdots + 8) + (a + b + c) = 36 + (a + b + c)$, nên \ $a + b + c = 3S - 36$.
+\step{2}{Khoanh vùng $S$}
+Tổng ba đỉnh ít nhất $1 + 2 + 3 = 6$, nhiều nhất $6 + 7 + 8 = 21$. Do đó $6 \le 3S - 36 \le 21$, tức $42 \le 3S \le 57$, hay
+$14 \le S \le 19$. Các ứng viên: $S = 14, 15, 16, 17, 18, 19$.
+\step{3}{Dùng cạnh đáy để loại bớt}
+Cạnh đáy chỉ có $3$ số: $z = S - (b + c)$. Mà $b + c = (a + b + c) - a = 3S - 36 - a$, nên
+\[ z = S - (3S - 36 - a) = 36 - 2S + a. \]
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item $S = 14$: $z = 8 + a \ge 9$ -- không thể (số lớn nhất là $8$). \textbf{Loại.}
+\item $S = 18$: $z = 36 - 36 + a = a$ -- hai vòng tròn cùng một số, trái đề. \textbf{Loại.}
+\item $S = 15, 16, 17, 19$: chưa bị loại; ta tìm cách điền cụ thể.
+\end{itemize}
+\step{4}{Chỉ ra cách điền cho $S = 15, 16, 17, 19$}
+\begin{figC}
+  \node at (0,0){\lgaTriEight{$1$}{$4$}{$8$}{$2$}{$3$}{$5$}{$6$}{$7$}}; \node[font=\small] at (0,-1.75){$S = 15$};
+  \node at (3.85,0){\lgaTriEight{$1$}{$3$}{$8$}{$4$}{$2$}{$6$}{$7$}{$5$}}; \node[font=\small] at (3.85,-1.75){$S = 16$};
+  \node at (7.7,0){\lgaTriEight{$2$}{$3$}{$7$}{$5$}{$1$}{$6$}{$8$}{$4$}}; \node[font=\small] at (7.7,-1.75){$S = 17$};
+  \node at (11.55,0){\lgaTriEight{$6$}{$1$}{$5$}{$7$}{$2$}{$3$}{$8$}{$4$}}; \node[font=\small] at (11.55,-1.75){$S = 19$};
+\end{figC}
+Kiểm tra, ví dụ $S = 15$: trái $1 + 4 + 8 + 2 = 15$; phải $1 + 3 + 5 + 6 = 15$; đáy $2 + 7 + 6 = 15$. \
+$S = 19$: trái $6 + 1 + 5 + 7 = 19$; phải $6 + 2 + 3 + 8 = 19$; đáy $7 + 4 + 8 = 19$.
+\step{5}{Cộng các giá trị có thể}
+$15 + 16 + 17 + 19 = 67$.
+\begin{warnbox}Nếu chỉ khoanh vùng $14 \le S \le 19$ rồi cộng cả sáu giá trị thì được $99$ -- phương án (B), một ``bẫy''. Khoanh vùng
+chỉ cho \emph{ứng viên}; mỗi ứng viên phải được kiểm tra: hoặc chỉ ra cách điền, hoặc chứng minh không điền được.\end{warnbox}
+\begin{parentbox}Hãy cho con cắt $8$ mẩu giấy ghi số $1$ đến $8$ và thử xếp lên hình. Sau vài lần thử, hỏi con: ``Vì sao $S = 18$
+mãi không xếp được?'' -- đó là lúc con hiểu giá trị của lập luận ở Bước 3.\end{parentbox}
+Vậy chọn \textbf{(E)}.
+\ans{(E) $67$}
+}
+
+% ---------------------------------------------------------------- Bài 13
+\begin{probbox}{13}{\relax}
+\begin{minipage}[t]{0.62\linewidth}
+Cần điền vào lưới $4\times 4$ bên cạnh sao cho mỗi hàng và mỗi cột có đủ các chữ số $1, 2, 3, 4$. Lưới được chia thành bốn ô vuông
+$2\times 2$ (viền đậm), mỗi ô vuông này cũng phải có đủ các chữ số $1, 2, 3, 4$. Chữ số nào được điền vào ô $P$?
+\choicesL{$1$}{$2$}{$3$}{$4$}{Không xác định được}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.33\linewidth}\vspace{4pt}\centering
+\lgaFour{1/1/$1$,3/1/$3$,2/2/$2$,2/3/$P$,4/4/$4$}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Phân tích đề.} Đây là sudoku $4\times 4$. Ô $P$ ở hàng $3$, cột $2$. Ta suy luận từng bước, mỗi chữ số điền vào đều phải có lí do.
+\begin{recallbox}Mỗi ô thuộc một hàng, một cột, một ô $2\times 2$; chữ số điền vào phải khác mọi chữ số đã có trong ba vùng đó.\end{recallbox}
+\step{1}{Ô $2\times 2$ trên trái}
+Ô này đã có $1$ (hàng $1$, cột $1$) và $2$ (hàng $2$, cột $2$); còn thiếu $3$ và $4$ cho hai ô: hàng $1$ cột $2$ và hàng $2$ cột $1$.
+Hàng $1$ đã có $3$ nên hàng $1$ cột $2$ là \textbf{$4$}; hàng $2$ cột $1$ là \textbf{$3$}.
+\step{2}{Cột $2$ cho biết $P$ chỉ có hai khả năng}
+Cột $2$ đã có $4$ và $2$, nên $P \in \{1; 3\}$.
+\step{3}{Hàng $1$ và hàng $2$ ở bên phải}
+Hàng $1$: $1, 4, 3, \_$ $\Rightarrow$ hàng $1$ cột $4$ là $2$. \
+Hàng $2$: $3, 2, \_, \_$ còn thiếu $\{1; 4\}$. Cột $4$ đã có $4$ (ở hàng $4$) nên hàng $2$ cột $4$ là $1$, hàng $2$ cột $3$ là $4$.
+\step{4}{Cột $4$ và hàng $3$}
+Cột $4$: $2, 1, \_, 4$ $\Rightarrow$ hàng $3$ cột $4$ là \textbf{$3$}. Vậy hàng $3$ đã có chữ số $3$, nên $P \ne 3$. Kết hợp Bước 2:
+$\mathbf{P = 1}$.
+\begin{figC}
+  \node at (0,0){\lgaFour{1/1/$1$,2/1/\textcolor{tmGreen!60!black}{$4$},3/1/$3$,4/1/\textcolor{tmGreen!60!black}{$2$},1/2/\textcolor{tmGreen!60!black}{$3$},2/2/$2$,3/2/\textcolor{tmGreen!60!black}{$4$},4/2/\textcolor{tmGreen!60!black}{$1$},2/3/\textcolor{AnsRed}{$\mathbf{1}$},4/3/\textcolor{tmGreen!60!black}{$3$},4/4/$4$}};
+  \node at (4.2,0){\lgaFour{1/1/$1$,2/1/$4$,3/1/$3$,4/1/$2$,1/2/$3$,2/2/$2$,3/2/$4$,4/2/$1$,1/3/$4$,2/3/\textcolor{AnsRed}{$\mathbf{1}$},3/3/$2$,4/3/$3$,1/4/$2$,2/4/$3$,3/4/$1$,4/4/$4$}};
+  \node[font=\scriptsize,text=Slate] at (0,-1.75){các ô vừa suy ra};
+  \node[font=\scriptsize,text=Slate] at (4.2,-1.75){lưới hoàn chỉnh};
+\end{figC}
+\step{5}{Hoàn thành lưới để chắc chắn không có mâu thuẫn}
+Cột $1$ còn thiếu $\{2; 4\}$; hàng $4$ có $4$ nên hàng $4$ cột $1$ là $2$, hàng $3$ cột $1$ là $4$. Hàng $3$: $4, 1, \_, 3$ $\Rightarrow$ $2$.
+Hàng $4$: $2, \_, \_, 4$ còn $\{1; 3\}$; cột $2$ còn thiếu $3$ nên hàng $4$ cột $2$ là $3$, cột $3$ là $1$.
+\verify{Mọi hàng, cột, ô $2\times 2$ của lưới hoàn chỉnh đều có đủ $1, 2, 3, 4$. Lưới điền được duy nhất một cách, nên $P$ được xác định.}
+\begin{warnbox}Phương án (E) là bẫy cho bạn chỉ nhìn cột $2$ (thấy hai khả năng $1$, $3$) rồi dừng lại. Hãy đi tiếp ở các vùng khác!\end{warnbox}
+Vậy chọn \textbf{(A)}.
+\ans{(A) $1$}
 }

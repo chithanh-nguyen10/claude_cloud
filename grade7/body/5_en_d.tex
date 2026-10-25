@@ -1,0 +1,624 @@
+% =====================================================================
+% Topic 5 — Logic and Puzzles — part d: problems 41–50 (advanced)
+% =====================================================================
+% ---- helper macros for parts c/d of topic 5 (prefix \lgxcd, guarded) ----
+% shape codes: 1 = circle, 2 = square, 3 = triangle, 4 = star
+\providecommand{\lgxcdShape}[3]{\ifcase#1\or
+  \draw[Ink,fill=Slate!35,line width=0.6pt] (#2,#3) circle (0.19);\or
+  \draw[Ink,fill=tmBlue!35,line width=0.6pt] ($(#2,#3)+(-0.18,-0.18)$) rectangle ($(#2,#3)+(0.18,0.18)$);\or
+  \draw[Ink,fill=tmOrange!45,line width=0.6pt] ($(#2,#3)+(-0.2,0.17)$)--($(#2,#3)+(0.2,0.17)$)--($(#2,#3)+(0,-0.19)$)--cycle;\or
+  \draw[Ink,fill=tmGreen!45,line width=0.6pt,shift={(#2,#3)}] (90:0.24) \foreach \lgxcdk in {1,...,9}{ -- ({90+36*\lgxcdk}:{ifthenelse(mod(\lgxcdk,2)==1,0.1,0.24)})} -- cycle;\fi}
+% inline shape in text
+\providecommand{\lgxcdI}[1]{\tikz[baseline=-0.7ex]{\lgxcdShape{#1}{0}{0}}}
+% a row of n shapes centred at the origin: \lgxcdRow{n}{codes}
+\providecommand{\lgxcdRow}[2]{\foreach \lgxcdt [count=\lgxcdi] in {#2}{%
+  \pgfmathsetmacro\lgxcdxx{(\lgxcdi-(#1+1)/2)*0.48}\lgxcdShape{\lgxcdt}{\lgxcdxx}{0.21}}}
+% equal-arm balance at height #1: \lgxcdBal{y}{n left}{codes left}{n right}{codes right}
+\providecommand{\lgxcdBal}[5]{\begin{scope}[yshift=#1cm]
+  \draw[Ink,line width=1pt] (-2.7,0)--(-0.3,0) (0.3,0)--(2.7,0);
+  \draw[Ink,line width=0.9pt] (-1.5,0)--(-1.5,-0.55)--(1.5,-0.55)--(1.5,0);
+  \draw[Ink,line width=0.9pt] (-0.18,-0.85)--(0,-0.58)--(0.18,-0.85);
+  \begin{scope}[xshift=-1.5cm]\lgxcdRow{#2}{#3}\end{scope}
+  \begin{scope}[xshift=1.5cm]\lgxcdRow{#4}{#5}\end{scope}\end{scope}}
+% square grid n x n with box lines every #2 rows / #3 columns; #4 = given r/c/v, #5 = filled r/c/v (rows from top)
+\providecommand{\lgxcdSud}[5]{\begin{scope}[x=0.62cm,y=0.62cm]
+  \foreach \lgxcdi in {0,...,#1}{\draw[Slate!60,line width=0.5pt] (0,\lgxcdi)--(#1,\lgxcdi) (\lgxcdi,0)--(\lgxcdi,#1);}
+  \foreach \lgxcdi in {0,#2,...,#1}{\draw[Ink,line width=1.4pt] (0,\lgxcdi)--(#1,\lgxcdi);}
+  \foreach \lgxcdi in {0,#3,...,#1}{\draw[Ink,line width=1.4pt] (\lgxcdi,0)--(\lgxcdi,#1);}
+  \foreach \lgxcdr/\lgxcdc/\lgxcdv in {#4}{\node[font=\sffamily\bfseries,text=Ink] at (\lgxcdc+0.5,#1-\lgxcdr-0.5){\lgxcdv};}
+  \foreach \lgxcdr/\lgxcdc/\lgxcdv in {#5}{\node[font=\sffamily,text=tmBlue] at (\lgxcdc+0.5,#1-\lgxcdr-0.5){\lgxcdv};}
+  \end{scope}}
+
+% ---------------------------------------------------------------- Problem 41
+\begin{probbox}{41}{\stars{2}}
+\textbf{Magic squares with the numbers $1$ to $9$.} Place the numbers $1, 2, \dots, 9$ (each exactly once) in a $3\times 3$ grid so that
+the three numbers in every row, every column and both diagonals have the same sum.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Find the magic sum $M$ and prove that the centre cell must contain $5$.
+  \item Prove that the number $9$ cannot be in a corner of the grid.
+  \item How many such magic squares are there altogether? Explain.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We do not try all $9! = 362\,880$ arrangements; instead we use reasoning to ``force'' the cells one
+after another: first the centre, then the position of $9$, finally the remaining cells.
+\step{1}{Part a): the magic sum}
+The three rows contain each number from $1$ to $9$ exactly once, so $3M = 1 + 2 + \dots + 9 = 45$, hence $M = 15$.
+\step{2}{Part a): the centre}
+\begin{recallbox}Problem 37: in every $3\times 3$ magic square the centre number equals $M \div 3$ (add the four lines through the
+centre: $4M = 3M + 3c$).\end{recallbox}
+So the centre is $c = 15 \div 3 = 5$.
+\step{3}{Part b): $9$ is not in a corner}
+\begin{proofbox}Suppose $9$ is in a corner, say the top left. Three lines pass through this corner: the top row, the left column and a
+diagonal.
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Diagonal: $9 + 5 + x = 15$, so the opposite corner is $x = 1$.
+  \item Top row: the other two numbers add up to $15 - 9 = 6$. Left column: the other two numbers also add up to $6$.
+\end{itemize}
+The numbers still available are $2, 3, 4, 6, 7, 8$ (since $1, 5, 9$ are placed). Among them there is only \emph{one} pair with sum $6$,
+namely $2 + 4$ ($1 + 5$ cannot be used, and $3 + 3$ would use a number twice). But the top row and the left column need \emph{two}
+different pairs with sum $6$. Contradiction! So $9$ is not in a corner.\end{proofbox}
+Therefore $9$ is in the middle of a side (one of the $4$ cells above, below, left or right of the $5$).
+\step{4}{Part c): completing the square when $9$ is in the middle of the top side}
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Middle column: $9 + 5 + y = 15$, so the middle of the bottom side is $y = 1$.
+  \item Top row: the two top corners add up to $15 - 9 = 6$, chosen from $2, 3, 4, 6, 7, 8$: they must be $2$ and $4$. There are $2$
+  ways to place them ($2$ on the left or $4$ on the left).
+  \item With top left $2$ and top right $4$: one diagonal gives bottom right $15 - 2 - 5 = 8$; the other diagonal gives bottom left
+  $15 - 4 - 5 = 6$; middle row: left $15 - 2 - 6 = 7$, right $15 - 4 - 8 = 3$.
+\end{itemize}
+\begin{figC}
+\lgxcdSud{3}{3}{3}{0/1/9,1/1/5}{0/0/2,0/2/4,1/0/7,1/2/3,2/0/6,2/1/1,2/2/8}
+\begin{scope}[xshift=3.2cm]\lgxcdSud{3}{3}{3}{0/1/9,1/1/5}{0/0/4,0/2/2,1/0/3,1/2/7,2/0/8,2/1/1,2/2/6}\end{scope}
+\end{figC}
+Check: bottom row $6 + 1 + 8 = 15$, columns $2 + 7 + 6 = 15$, $4 + 3 + 8 = 15$ -- correct. So when $9$ is in the middle of the top side,
+there are exactly $2$ magic squares (the two above, mirror images in the middle column).
+\step{5}{Part c): counting all of them}
+The number $9$ has $4$ possible positions (the middles of the four sides); for each position there are exactly $2$ ways (the same
+argument, just with the grid rotated). In total $4\times 2 = 8$ magic squares. All of them are obtained from one square by rotations
+and reflections.
+\begin{tipbox}Look at the picture: the even numbers $2, 4, 6, 8$ are in the corners, the odd numbers $1, 3, 7, 9$ in the middles of the
+sides, and two numbers symmetric about the centre always add up to $10$. This is the famous Lo Shu square of ancient China.\end{tipbox}
+\begin{warnbox}You may not conclude ``there are $8$'' just by ``seeing $8$ rotations/reflections''. Two things must be proved: every
+magic square has the form above (part b and step 4), and each case really gives a correct magic square (the check).\end{warnbox}
+\verify{A computer search through all $362\,880$ arrangements also finds exactly $8$ magic squares, and all $8$ have $5$ in the centre.}
+\ans{a) $M = 15$, the centre is $5$;\quad b) see the proof;\quad c) $8$ magic squares}
+}
+
+% ---------------------------------------------------------------- Problem 42
+\begin{probbox}{42}{\stars{1}}
+\textbf{$4\times 4$ Sudoku.} Each row, each column and each $2\times 2$ square (thick border) must contain all the digits $1, 2, 3, 4$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Complete grid (I) below (only $4$ given digits!). Explain each step.
+  \item Grid (II) has first row $1, 2, 3, 4$ and first column $1, 3, 2, 4$. In how many ways can grid (II) be completed?
+\end{enumerate}
+\begin{figC}
+\lgxcdSud{4}{2}{2}{0/1/2,1/2/1,2/3/3,3/0/4}{}
+\node[font=\small\bfseries] at (1.24,-0.4){(I)};
+\begin{scope}[xshift=4.2cm]\lgxcdSud{4}{2}{2}{0/0/1,0/1/2,0/2/3,0/3/4,1/0/3,2/0/2,3/0/4}{}\end{scope}
+\node[font=\small\bfseries] at (5.44,-0.4){(II)};
+\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Call the cell in row $i$, column $j$ cell $(i, j)$ (rows counted from the top, columns from the
+left). Each cell ``sees'' its row, its column and its $2\times 2$ block. If these already contain three different digits, the cell has
+only \emph{one} possibility left.
+\begin{recallbox}\textbf{Single candidate:} an empty cell can only take a digit that does not yet appear in its row, column and block.
+If only one such digit is left, write it in straight away.\end{recallbox}
+\par\smallskip\textbf{Part a).}
+\step{1}{Row 1}
+Cell $(1,4)$: row 1 has $2$; column 4 has $3$; the top right block has $1$. What is left: $\mathbf{4}$.\\
+Cell $(1,3)$: row 1 has $2, 4$; column 3 has $1$. What is left: $\mathbf{3}$. \ Cell $(1,1)$: row 1 is missing only $\mathbf{1}$.
+\step{2}{Row 2}
+Cell $(2,1)$: column 1 has $1, 4$; row 2 has $1$; the top left block has $1, 2$. Digits seen: $1, 2, 4$. What is left: $\mathbf{3}$.\\
+Cell $(2,2)$: the top left block already has $1, 2, 3$ $\Rightarrow$ $\mathbf{4}$. \ Cell $(2,4)$: row 2 already has $3, 4, 1$
+$\Rightarrow$ $\mathbf{2}$.
+\step{3}{Row 3}
+Cell $(3,1)$: column 1 already has $1, 3, 4$ $\Rightarrow$ $\mathbf{2}$. \ Cell $(3,2)$: row 3 has $2, 3$; column 2 has $2, 4$
+$\Rightarrow$ $\mathbf{1}$. \ Cell $(3,3)$: row 3 is missing only $\mathbf{4}$.
+\step{4}{Row 4}
+Cell $(4,2)$: column 2 already has $2, 4, 1$ $\Rightarrow$ $\mathbf{3}$. \ Cell $(4,3)$: column 3 already has $3, 1, 4$
+$\Rightarrow$ $\mathbf{2}$. \ Cell $(4,4)$: $\mathbf{1}$.
+\begin{figC}
+\lgxcdSud{4}{2}{2}{0/1/2,1/2/1,2/3/3,3/0/4}{0/0/1,0/2/3,0/3/4,1/0/3,1/1/4,1/3/2,2/0/2,2/1/1,2/2/4,3/1/3,3/2/2,3/3/1}
+\end{figC}
+\par\smallskip\textbf{Part b).}
+\step{5}{The top left and bottom left blocks}
+Cell $(2,1) = 3$, so cell $(2,2)$ must be $4$ (the top left block needs all of $1, 2, 3, 4$). Cells $(2,3), (2,4)$ are $1, 2$ in some
+order: $2$ possibilities.\\
+Column 2 already has $2, 4$, so cells $(3,2), (4,2)$ are $1, 3$ in some order: $2$ possibilities.
+\step{6}{Look at the $2\times 2 = 4$ cases; the bottom right block is then determined}
+\begin{center}\small
+\begin{tabular}{|c|c|l|c|}
+\hline
+\rowcolor{tmBlue!10} Row 2 & Column 2 (bottom) & Each row/column still needs (bottom right block) & Ways\\ \hline
+$3, 4, 1, 2$ & $1, 3$ & R3: $\{3,4\}$, R4: $\{1,2\}$, C3: $\{2,4\}$, C4: $\{1,3\}$ & $1$\\ \hline
+$3, 4, 1, 2$ & $3, 1$ & R3: $\{1,4\}$, R4: $\{2,3\}$, C3: $\{2,4\}$, C4: $\{1,3\}$ & $1$\\ \hline
+$3, 4, 2, 1$ & $1, 3$ & R3: $\{3,4\}$, R4: $\{1,2\}$, C3: $\{1,4\}$, C4: $\{2,3\}$ & $1$\\ \hline
+$3, 4, 2, 1$ & $3, 1$ & R3: $\{1,4\}$, R4: $\{2,3\}$, C3: $\{1,4\}$, C4: $\{2,3\}$ & $0$\\ \hline
+\end{tabular}
+\end{center}
+(R3 means row 3, C3 means column 3.) Example, last line: cell $(4,3)$ must be in $\{2,3\}$ (because of row 4) and in $\{1,4\}$ (because
+of column 3) -- no digit works. In the first three lines, each cell of the bottom right block has exactly one digit that suits both its
+row and its column; e.g.\ first line: $(3,3) = 4$, $(3,4) = 3$, $(4,3) = 2$, $(4,4) = 1$.
+\step{7}{Conclusion}
+There are $1 + 1 + 1 + 0 = 3$ ways to complete grid (II).
+\begin{figC}
+\begin{scope}[xshift=0cm]\lgxcdSud{4}{2}{2}{0/0/1,0/1/2,0/2/3,0/3/4,1/0/3,2/0/2,3/0/4}{1/1/4,1/2/1,1/3/2,2/1/1,2/2/4,2/3/3,3/1/3,3/2/2,3/3/1}\end{scope}
+\begin{scope}[xshift=4.1cm]\lgxcdSud{4}{2}{2}{0/0/1,0/1/2,0/2/3,0/3/4,1/0/3,2/0/2,3/0/4}{1/1/4,1/2/1,1/3/2,2/1/3,2/2/4,2/3/1,3/1/1,3/2/2,3/3/3}\end{scope}
+\begin{scope}[xshift=8.2cm]\lgxcdSud{4}{2}{2}{0/0/1,0/1/2,0/2/3,0/3/4,1/0/3,2/0/2,3/0/4}{1/1/4,1/2/2,1/3/1,2/1/1,2/2/4,2/3/3,3/1/3,3/2/1,3/3/2}\end{scope}
+\end{figC}
+\begin{warnbox}Do not rush to multiply $2\times 2 = 4$! A choice made in an earlier step can lead to a dead end later. Always check each
+case to the end.\end{warnbox}
+\verify{A computer lists all $288$ $4\times 4$ Sudoku grids; exactly $3$ of them have first row $1, 2, 3, 4$ and first column
+$1, 3, 2, 4$, and exactly $1$ contains the $4$ given digits of grid (I).}
+\ans{a) Row 1: $1\,2\,3\,4$; row 2: $3\,4\,1\,2$; row 3: $2\,1\,4\,3$; row 4: $4\,3\,2\,1$;\quad b) $3$ ways}
+}
+
+% ---------------------------------------------------------------- Problem 43
+\begin{probbox}{43}{\stars{1}}
+\textbf{$6\times 6$ Sudoku.} Fill in the digits $1$ to $6$ so that every row, every column and every $2\times 3$ block (thick border)
+contains all six digits $1, 2, 3, 4, 5, 6$. The grid has only $9$ given digits.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Fill in the first row and explain why each cell can be filled in only one way.
+  \item Complete the whole grid.
+\end{enumerate}
+\begin{figC}
+\lgxcdSud{6}{2}{3}{0/0/3,0/4/2,0/5/6,2/4/6,3/2/4,3/3/1,4/2/1,5/0/6,5/4/3}{}
+\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We reuse the ``single candidate'' method of Problem 42, but now each cell must rule out $5$ digits.
+We always look for the cell that ``sees'' the most digits and fill it first. Cell $(i, j)$ is the cell in row $i$, column $j$.
+\begin{recallbox}An empty cell can only take a digit that is not yet in its row, column and block. If five digits are ruled out, the
+remaining digit is the answer for that cell.\end{recallbox}
+\step{1}{Part a): cell $(1,3)$}
+Row 1 has $3, 2, 6$; column 3 has $4, 1$. Ruled out: $1, 2, 3, 4, 6$ $\Rightarrow$ cell $(1,3) = 5$.
+\step{2}{Cell $(1,4)$}
+Row 1 now has $3, 5, 2, 6$; column 4 has $1$. Ruled out: $1, 2, 3, 5, 6$ $\Rightarrow$ cell $(1,4) = 4$.
+\step{3}{Cell $(1,2)$}
+Row 1 already has $3, 5, 4, 2, 6$; only $1$ is missing $\Rightarrow$ cell $(1,2) = 1$. Row 1 is: $3, 1, 5, 4, 2, 6$.
+\begin{tipbox}At first, cell $(1,2)$ ``saw'' only $3$ digits. But after its two neighbours were filled, it became a single candidate.
+In Sudoku, every cell you fill opens up new cells -- like a chain of dominoes.\end{tipbox}
+\step{4}{Part b): carry on in the same way}
+The table records the filling order. The columns ``row/column/block'' list the digits already in the row, column and block of the cell
+\emph{at the moment it is filled}; the single missing digit is the answer.
+\begin{center}\scriptsize
+\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{|c|c|c|c|c|c||c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Move & Cell & Row has & Col.\ has & Block has & Fill & Move & Cell & Row has & Col.\ has & Block has & Fill\\ \hline
+4 & (4,5) & 1,4 & 2,3,6 & 1,6 & \textbf{5} & 16 & (4,6) & 1,2,4,5,6 & 4,6 & 1,2,4,5,6 & \textbf{3}\\ \hline
+5 & (2,5) & -- & 2,3,5,6 & 2,4,6 & \textbf{1} & 17 & (2,6) & 1,2,4,6 & 3,4,6 & 1,2,4,6 & \textbf{5}\\ \hline
+6 & (4,1) & 1,4,5 & 3,6 & 4 & \textbf{2} & 18 & (2,4) & 1,2,4,5,6 & 1,2,4 & 1,2,4,5,6 & \textbf{3}\\ \hline
+7 & (2,1) & 1 & 2,3,6 & 1,3,5 & \textbf{4} & 19 & (5,1) & 1 & 1,2,3,4,6 & 1,6 & \textbf{5}\\ \hline
+8 & (3,3) & 6 & 1,4,5 & 2,4 & \textbf{3} & 20 & (5,4) & 1,5 & 1,2,3,4 & 3 & \textbf{6}\\ \hline
+9 & (3,2) & 3,6 & 1 & 2,3,4 & \textbf{5} & 21 & (5,5) & 1,5,6 & 1,2,3,5,6 & 3,6 & \textbf{4}\\ \hline
+10 & (3,1) & 3,5,6 & 2,3,4,6 & 2,3,4,5 & \textbf{1} & 22 & (5,2) & 1,4,5,6 & 1,2,5,6 & 1,5,6 & \textbf{3}\\ \hline
+11 & (3,4) & 1,3,5,6 & 1,4 & 1,5,6 & \textbf{2} & 23 & (5,6) & 1,3,4,5,6 & 3,4,5,6 & 3,4,6 & \textbf{2}\\ \hline
+12 & (3,6) & 1,2,3,5,6 & 6 & 1,2,5,6 & \textbf{4} & 24 & (6,2) & 3,6 & 1,2,3,5,6 & 1,3,5,6 & \textbf{4}\\ \hline
+13 & (4,2) & 1,2,4,5 & 1,5 & 1,2,3,4,5 & \textbf{6} & 25 & (6,3) & 3,4,6 & 1,3,4,5,6 & 1,3,4,5,6 & \textbf{2}\\ \hline
+14 & (2,2) & 1,4 & 1,5,6 & 1,3,4,5 & \textbf{2} & 26 & (6,4) & 2,3,4,6 & 1,2,3,4,6 & 2,3,4,6 & \textbf{5}\\ \hline
+15 & (2,3) & 1,2,4 & 1,3,4,5 & 1,2,3,4,5 & \textbf{6} & 27 & (6,6) & 2,3,4,5,6 & 2,3,4,5,6 & 2,3,4,5,6 & \textbf{1}\\ \hline
+\end{tabular}
+\end{center}
+Example, move 4, cell $(4,5)$: row 4 has $1, 4$; column 5 has $2, 3, 6$; the middle right block has $1, 6$. Together $1, 2, 3, 4, 6$ are
+present, so this cell is $5$. Example, move 5, cell $(2,5)$: row 2 is still empty, but column 5 has $2, 3, 5, 6$ and the top right
+block has $2, 4, 6$; together only $1$ is missing.
+\begin{figC}
+\lgxcdSud{6}{2}{3}{0/0/3,0/4/2,0/5/6,2/4/6,3/2/4,3/3/1,4/2/1,5/0/6,5/4/3}{0/1/1,0/2/5,0/3/4,1/0/4,1/1/2,1/2/6,1/3/3,1/4/1,1/5/5,2/0/1,2/1/5,2/2/3,2/3/2,2/5/4,3/0/2,3/1/6,3/4/5,3/5/3,4/0/5,4/1/3,4/3/6,4/4/4,4/5/2,5/1/4,5/2/2,5/3/5,5/5/1}
+\end{figC}
+\begin{warnbox}When a cell has two possibilities, do not guess and carry on. Look for another cell that is certain; in this puzzle there is
+always at least one cell with only one possibility.\end{warnbox}
+\verify{Every row of the final grid (e.g.\ row 4: $2, 6, 4, 1, 5, 3$), every column (e.g.\ column 1: $3, 4, 1, 2, 5, 6$) and every
+$2\times 3$ block contains $1$ to $6$; the $9$ given digits are still in place. A computer also confirms that the puzzle has a
+\emph{unique} solution.}
+\ans{Row 1: $3\,1\,5\,4\,2\,6$; row 2: $4\,2\,6\,3\,1\,5$; row 3: $1\,5\,3\,2\,6\,4$; row 4: $2\,6\,4\,1\,5\,3$;
+row 5: $5\,3\,1\,6\,4\,2$; row 6: $6\,4\,2\,5\,3\,1$}
+}
+
+% ---------------------------------------------------------------- Problem 44
+\begin{probbox}{44}{\stars{1}}
+\textbf{Finding the fake (lighter) coin.} There are $9$ identical-looking coins; exactly one of them is fake and \emph{lighter} than the
+others (the genuine coins all have the same mass). We only have an equal-arm balance (no weights); each weighing only tells us which
+side is heavier or that both sides are equal.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Show how to find the fake coin with only $2$ weighings.
+  \item Explain why $1$ weighing is not enough.
+  \item With $3$ weighings, among at most how many coins can we find the (lighter) fake coin? Describe the weighings.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each weighing has \textbf{three} outcomes: left heavier, right heavier, balanced. The secret is to
+split the coins into \emph{three} equal groups, not two.
+\step{1}{Part a): the first weighing}
+Number the coins $1$ to $9$. Put group $\{1, 2, 3\}$ on the left pan, group $\{4, 5, 6\}$ on the right pan, and keep $\{7, 8, 9\}$
+aside.
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Left pan lighter: the fake coin is in $\{1, 2, 3\}$.
+  \item Right pan lighter: the fake coin is in $\{4, 5, 6\}$.
+  \item Balanced: all $6$ coins on the scale are genuine; the fake coin is in $\{7, 8, 9\}$.
+\end{itemize}
+Whatever happens, only $3$ ``suspect'' coins remain.
+\step{2}{Part a): the second weighing}
+Call the three suspects $x, y, z$. Put $x$ on the left pan and $y$ on the right pan. The lighter side holds the fake coin; if they
+balance, the fake coin is $z$.
+\begin{figC}
+\node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,align=center,font=\scriptsize] (A) at (0,0){Weighing 1\\$\{1,2,3\}$ -- $\{4,5,6\}$};
+\foreach \x/\lab/\g in {-4/{left light}/{1 -- 2}, 0/{balanced}/{7 -- 8}, 4/{right light}/{4 -- 5}}{
+  \node[draw=tmGreen,fill=tmGreen!8,rounded corners=3pt,align=center,font=\scriptsize] (B\x) at (\x,-1.6){Weighing 2\\ \g};
+  \draw[->,Ink] (A)--(B\x) node[midway,fill=white,font=\tiny,inner sep=1pt]{\lab};}
+\foreach \x/\a/\b/\c in {-4/1/2/3, 0/7/8/9, 4/4/5/6}{
+  \node[font=\scriptsize,text=AnsRed] at (\x-1,-2.8){\a}; \node[font=\scriptsize,text=AnsRed] at (\x,-2.8){\c};
+  \node[font=\scriptsize,text=AnsRed] at (\x+1,-2.8){\b};
+  \draw[->,Slate] (B\x)--(\x-1,-2.6); \draw[->,Slate] (B\x)--(\x,-2.6); \draw[->,Slate] (B\x)--(\x+1,-2.6);}
+\end{figC}
+(In the diagram, at weighing 2: left arrow -- left pan lighter; middle -- balanced; right -- right pan lighter.)
+\step{3}{Part b): why $1$ weighing is not enough}
+\begin{proofbox}There are $9$ possibilities (the fake is coin $1$, coin $2$, \dots, coin $9$). One weighing gives only $3$ different
+outcomes. By the pigeonhole principle, at least one outcome corresponds to $\ge 3$ possibilities (because $9 > 3$), and when that outcome
+occurs we cannot tell which coin is fake. So $1$ weighing cannot always find the fake coin.\end{proofbox}
+\step{4}{Part c): $3$ weighings}
+Arguing as in part b: $3$ weighings give at most $3\times 3\times 3 = 27$ different sequences of outcomes, so we cannot distinguish more
+than $27$ possibilities. Conversely, $27$ coins can be handled: split them into $3$ groups of $9$, weigh the first group against the
+second; this tells us which group of $9$ contains the fake; then use the $2$ weighings of part a) on that group.
+\begin{tipbox}Rule: with $n$ weighings we can find a lighter coin among at most $3^n$ coins: $1$ weighing -- $3$ coins, $2$ weighings --
+$9$ coins, $3$ weighings -- $27$ coins.\end{tipbox}
+\begin{warnbox}The ``halving'' method ($9 \to 4 + 4$, then $2 + 2$, then $1 + 1$) needs $3$ weighings, because it wastes the
+``balanced'' outcome.\end{warnbox}
+\verify{Try all $9$ cases in turn (the fake is $1, 2, \dots, 9$): the method of part a) always finds the right coin after $2$ weighings.}
+\ans{a) Weigh $3$ against $3$ to find the group with the fake, then $1$ against $1$ inside that group;\quad b) $9$ possibilities $> 3$
+outcomes;\quad c) $27$ coins}
+}
+
+% ---------------------------------------------------------------- Problem 45
+\begin{probbox}{45}{\stars{2}}
+\textbf{The famous $12$-coin problem.} There are $12$ identical-looking coins, exactly one of which is fake. The fake coin has a different
+mass from the genuine ones, but we do \emph{not} know whether it is heavier or lighter. We may only use an equal-arm balance (no weights).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item How many ``possibilities'' must be distinguished? Why are $2$ weighings certainly not enough?
+  \item Show how to use exactly $3$ weighings to find the fake coin \emph{and} tell whether it is heavier or lighter.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Unlike Problem 44, we do not know whether the fake is heavy or light, so every unbalanced result has
+\emph{two} explanations (the heavy side contains a heavy coin, \emph{or} the light side contains a light coin). We must keep careful
+notes of which ``suspects'' could be heavy and which could be light.
+\step{1}{Part a): counting possibilities}
+The fake can be any of the $12$ coins, and for each coin there are $2$ cases (heavier / lighter): $12\times 2 = 24$ possibilities in
+total. Two weighings give at most $3\times 3 = 9$ sequences of outcomes. Since $24 > 9$, different possibilities would share the same
+sequence of outcomes, so $2$ weighings are not enough. With $3$ weighings there are $27 \ge 24$ sequences -- it \emph{might} be enough,
+if we weigh cleverly.
+\begin{recallbox}Notation: $\uparrow k$ means ``coin $k$ might be the fake and heavier'', $\downarrow k$ means ``coin $k$ might be the
+fake and lighter''. A coin known to be genuine can be used as a ``reference coin''.\end{recallbox}
+\step{2}{Weighing 1: $\{1, 2, 3, 4\}$ against $\{5, 6, 7, 8\}$}
+\textbf{Case A -- balanced.} Coins $1$--$8$ are all genuine. The fake is among $9, 10, 11, 12$.\\
+\textbf{Case B -- left pan heavier.} Suspects: $\uparrow 1, \uparrow 2, \uparrow 3, \uparrow 4, \downarrow 5, \downarrow 6,
+\downarrow 7, \downarrow 8$ ($8$ possibilities); coins $9$--$12$ are genuine.\\
+\textbf{Case C -- right pan heavier.} Like B with the roles of the two groups swapped.
+\step{3}{Case A (fake among $9$--$12$)}
+Weighing 2: $\{9, 10, 11\}$ against $\{1, 2, 3\}$ (three genuine reference coins).
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Balanced: the fake is $12$. Weighing 3: $12$ against coin $1$; if $12$ is heavier the fake is heavy, if lighter the fake is
+  light (it cannot balance).
+  \item Left pan heavier: the fake is one of $9, 10, 11$ and \emph{heavier}. Weighing 3: $9$ against $10$; the heavier side is the
+  fake; if balanced it is $11$.
+  \item Left pan lighter: similarly the fake is among $9, 10, 11$ and \emph{lighter}; weigh $9$ against $10$, the lighter side is the
+  fake, and if balanced it is $11$.
+\end{itemize}
+\step{4}{Case B (suspects $\uparrow 1, \uparrow 2, \uparrow 3, \uparrow 4, \downarrow 5, \downarrow 6, \downarrow 7, \downarrow 8$)}
+The key trick: weighing 2 \emph{swaps} some coins, \emph{removes} some coins, and adds the reference coin $9$:
+\[ \text{Weighing 2:}\quad \{1, 2, 5\} \ \text{against}\ \{3, 6, 9\}. \]
+\begin{center}\footnotesize
+\begin{tabular}{|c|p{3.6cm}|p{6.4cm}|}
+\hline
+\rowcolor{tmBlue!10} Result of weighing 2 & Remaining suspects & Weighing 3 and how to read it\\ \hline
+Balanced & $\uparrow 4,\ \downarrow 7,\ \downarrow 8$ (the coins taken off) & $7$ against $8$: the lighter side is the fake (light);
+balanced $\Rightarrow$ $4$ heavy\\ \hline
+Left heavier & $\uparrow 1,\ \uparrow 2,\ \downarrow 6$ & $1$ against $2$: the heavier side is the fake (heavy); balanced
+$\Rightarrow$ $6$ light\\ \hline
+Right heavier & $\uparrow 3,\ \downarrow 5$ & $3$ against $9$: if $3$ is heavier $\Rightarrow$ $3$ heavy; balanced
+$\Rightarrow$ $5$ light\\ \hline
+\end{tabular}
+\end{center}
+\begin{proofbox}Why does the line ``Left heavier'' leave only $\uparrow 1, \uparrow 2, \downarrow 6$? The left pan $\{1, 2, 5\}$ being
+heavier means: either there is a heavy coin on the left -- it can only be $1$ or $2$ (coin $5$ can only be \emph{light}); or there is a
+light coin on the right -- it can only be $6$ (coin $3$ can only be \emph{heavy}, coin $9$ is genuine). The other lines are argued the
+same way.\end{proofbox}
+\step{5}{Case C}
+Exactly like case B with the roles swapped: the suspects are $\uparrow 5, \uparrow 6, \uparrow 7, \uparrow 8, \downarrow 1,
+\downarrow 2, \downarrow 3, \downarrow 4$; weighing 2 is $\{5, 6, 1\}$ against $\{7, 2, 9\}$, and the result is read from the table above
+(replace $1, 2, 3, 4$ by $5, 6, 7, 8$ and vice versa).
+\begin{tipbox}After each weighing the number of possibilities drops at best to one third: $24 \to 8 \to 3 \to 1$ (or fewer). A ``good''
+weighing is one whose three outcomes split the possibilities into three nearly equal parts. In weighing 2 of case B, the $8$
+possibilities are split as $3 + 3 + 2$.\end{tipbox}
+\begin{warnbox}A common mistake in weighing 2: weighing $\{1, 2\}$ against $\{3, 4\}$. If it balances, $4$ possibilities
+$\downarrow 5, \downarrow 6, \downarrow 7, \downarrow 8$ remain, with only one weighing ($3$ outcomes) left -- not enough!\end{warnbox}
+\verify{All $24$ possibilities (each coin $1$ to $12$, heavy or light) were run through the scheme above by computer: every time the
+fake coin and ``heavy/light'' were identified correctly after $3$ weighings.}
+\ans{a) $24$ possibilities $> 9$ sequences of outcomes;\quad b) weigh $\{1,2,3,4\}$ -- $\{5,6,7,8\}$, then follow the scheme in steps 3--5}
+}
+
+% ---------------------------------------------------------------- Problem 46
+\begin{probbox}{46}{\stars{1}}
+\textbf{A mini football tournament.} Four teams A, B, C, D play a single round robin (each team plays every other team exactly once).
+A win gives $3$ points, a draw $1$ point, a loss $0$ points. At the end, team A has $7$ points, B has $5$, C has $3$ and D has $1$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item How many matches were drawn?
+  \item Determine the result (win/draw/loss) of every match.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We do not know any scores, only the point totals. We will (1) count the points of the whole
+tournament to find the number of draws; (2) analyse each team's points; (3) ``pair up'' the draws.
+\step{1}{Number of matches}
+Each pair of teams plays once: AB, AC, AD, BC, BD, CD -- $6$ matches in total. Each team plays $3$ matches.
+\step{2}{Part a): total points and number of draws}
+A match with a winner gives out $3 + 0 = 3$ points; a draw gives out $1 + 1 = 2$ points. Total points: $7 + 5 + 3 + 1 = 16$.\\
+If all $6$ matches had a winner, the total would be $6\times 3 = 18$. Each draw lowers the total by $1$. Since $18 - 16 = 2$, there were
+\textbf{$2$ draws} (and $4$ matches with a winner).
+\begin{recallbox}This is the familiar ``suppose all'' argument (as in the chickens-and-dogs problem): suppose every match had a winner,
+then see how many points are missing.\end{recallbox}
+\step{3}{Analyse each team's points ($3$ matches, each worth $3$, $1$ or $0$ points)}
+\begin{center}\small
+\begin{tabular}{|c|c|l|}
+\hline
+\rowcolor{tmBlue!10} Team & Points & Possible ways\\ \hline
+A & $7$ & $3 + 3 + 1$: $2$ wins, $1$ draw\\ \hline
+B & $5$ & $3 + 1 + 1$: $1$ win, $2$ draws\\ \hline
+C & $3$ & $3 + 0 + 0$ ($1$ win, $2$ losses) \ or \ $1 + 1 + 1$ ($3$ draws)\\ \hline
+D & $1$ & $1 + 0 + 0$: $1$ draw, $2$ losses\\ \hline
+\end{tabular}
+\end{center}
+(For example, with $7$ points: $3 + 3 + 3 = 9$ is too many, $3 + 3 + 0 = 6$ too few, $3 + 1 + 1 = 5$ too few; only $3 + 3 + 1 = 7$.)
+\step{4}{Count the ``draw entries''}
+Each draw counts for \emph{two} teams, so the four teams have $2\times 2 = 4$ draw entries in total. A has $1$, B has $2$, D has $1$:
+that already makes $4$. So C has \emph{no draws}, hence C has $1$ win and $2$ losses.
+\step{5}{Which matches were drawn?}
+The two draws involve only teams A, B, D. B drew $2$ matches against two different opponents, while A and D each drew exactly $1$. So
+the two draws are \textbf{A -- B} and \textbf{B -- D} (if A had drawn with D, then A or D would have $2$ draws once B's draws are added).
+\step{6}{The remaining matches}
+A wins its other $2$ matches: A beats C, A beats D. \ B wins its other match: B beats C. \ D loses its other $2$ matches: to A and to C,
+so C beats D.
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} & A & B & C & D & Points\\ \hline
+A & \cellcolor{Tint} & draw & win & win & $1 + 3 + 3 = 7$\\ \hline
+B & draw & \cellcolor{Tint} & win & draw & $1 + 3 + 1 = 5$\\ \hline
+C & loss & loss & \cellcolor{Tint} & win & $0 + 0 + 3 = 3$\\ \hline
+D & loss & draw & loss & \cellcolor{Tint} & $0 + 1 + 0 = 1$\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}C has $3$ points, so many students hastily think ``C drew all $3$ matches''. We need the extra information ``there are only
+$2$ draws'' to rule this out.\end{warnbox}
+\verify{There are exactly $2$ draws (A--B, B--D). Points: A $1 + 3 + 3 = 7$, B $1 + 3 + 1 = 5$, C $0 + 0 + 3 = 3$, D $0 + 1 + 0 = 1$. A
+computer check of all $3^6 = 729$ possible sets of results also finds exactly one giving the table $7, 5, 3, 1$.}
+\ans{a) $2$ draws;\quad b) A drew with B, B drew with D; A beat C, A beat D, B beat C, C beat D}
+}
+
+% ---------------------------------------------------------------- Problem 47
+\begin{probbox}{47}{\stars{1}}
+\textbf{Invariants.}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item The numbers $1, 2, 3, \dots, 10$ are written on the board. In each turn, Quang erases any two numbers $a$ and $b$ and writes the
+  number $|a - b|$ (the larger minus the smaller). After $9$ turns, only one number is left on the board. Can it be $0$? Can it be $1$?
+  \item Two opposite corner squares are cut off an $8\times 8$ chessboard (see the figure). Can the remaining $62$ squares be covered
+  exactly by $31$ dominoes, each covering two adjacent squares?
+\end{enumerate}
+\begin{figC}
+\begin{scope}[scale=0.32]
+\foreach \i in {0,...,7}{\foreach \j in {0,...,7}{
+  \pgfmathtruncatemacro\lgxcdpar{mod(\i+\j,2)}
+  \ifnum\lgxcdpar=0 \fill[Navy!55] (\i,\j) rectangle ++(1,1);\else \fill[white] (\i,\j) rectangle ++(1,1);\fi}}
+\fill[white] (0,0) rectangle (1,1); \fill[white] (7,7) rectangle (8,8);
+\draw[AnsRed,line width=0.8pt] (0,0)--(1,1) (0,1)--(1,0) (7,7)--(8,8) (7,8)--(8,7);
+\draw[Ink,line width=0.9pt] (0,0) rectangle (8,8);
+\end{scope}
+\begin{scope}[xshift=4.2cm,yshift=1.1cm,scale=0.45]
+\fill[Navy!55] (0,0) rectangle (1,1); \draw[Ink,line width=1pt,rounded corners=1pt] (0,0) rectangle (2,1); \draw[Ink] (1,0)--(1,1);
+\node[right,font=\scriptsize] at (2.2,0.5){one domino};
+\end{scope}
+\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Both parts ask ``can it be done?''. For ``it cannot be done'', trying again and again proves nothing --
+we need an \emph{invariant}: a property that does not change, whatever we do.
+\begin{recallbox}An \textbf{invariant} is a quantity (or property) that stays the same after every step. If the starting position and
+the target position have different invariants, we cannot get from one to the other.\end{recallbox}
+\par\smallskip\textbf{Part a).}
+\step{1}{Look at the parity of the sum}
+When $a, b$ are replaced by $|a - b|$, the sum of the numbers on the board decreases by $a + b - |a - b|$. If $a \ge b$, that is
+$a + b - (a - b) = 2b$ -- an even number. So the sum changes by an even number, and \textbf{the parity of the sum never changes}.
+\step{2}{Conclusion about $0$}
+The initial sum $1 + 2 + \dots + 10 = 55$ is odd. So the sum is always odd, and the last number (which is the sum at that moment) is
+odd. $0$ is even, so the last number \textbf{cannot} be $0$.
+\step{3}{$1$ is possible: show a way}
+Erase $(10, 9)$, $(8, 7)$, $(6, 5)$, $(4, 3)$, $(2, 1)$: this gives five $1$s. Erase two $1$s to get $0$; erase two other $1$s to get
+$0$. The board now shows $0, 0, 1$. Erase $(0, 0)$ to get $0$; finally erase $(0, 1)$ to get $1$. Count: $5 + 2 + 1 + 1 = 9$ turns.
+\begin{warnbox}An invariant only tells us what is \emph{impossible}. To claim ``it is possible'' we must show a concrete way, as in step 3.
+\end{warnbox}
+\par\smallskip\textbf{Part b).}
+\step{4}{Colour and count}
+A chessboard has $32$ dark and $32$ white squares. Two opposite corner squares always have the \emph{same colour} (dark in the figure).
+After cutting, $30$ dark and $32$ white squares remain.
+\step{5}{Each domino covers one dark and one white square}
+Two adjacent squares on a chessboard always have different colours. So $31$ dominoes (however they are placed) cover exactly $31$ dark
+and $31$ white squares. But the board has only $30$ dark squares left. Contradiction! So it is \textbf{impossible}.
+\begin{proofbox}The invariant here is: ``number of dark squares covered $=$ number of white squares covered''. It holds after each domino
+is placed, but the part of the board to be covered has $30 \ne 32$.\end{proofbox}
+\begin{parentbox}Try a small $4\times 4$ board with two opposite corners removed ($14$ squares, $7$ dominoes needed): let your child try
+it to feel that ``it just never works'', and only then explain the reason using the colours.\end{parentbox}
+\verify{Part a): every final result is odd (because $55$ is odd), and the method of step 3 gives $1$. Part b): $30 + 32 = 62$ squares;
+$31$ dominoes need $31$ squares of each colour.}
+\ans{a) It cannot be $0$; it can be $1$;\quad b) Impossible}
+}
+
+% ---------------------------------------------------------------- Problem 48
+\begin{probbox}{48}{\stars{1}}
+\textbf{An Einstein-style puzzle.} Four houses are numbered $1, 2, 3, 4$ from left to right. Each house is painted a different colour
+(red, yellow, green, white), has one inhabitant (An, Bình, Cúc, Dũng), and each inhabitant keeps a different animal (dog, cat, fish,
+rabbit). We know that:
+\begin{enumerate}[label=(\arabic*),leftmargin=2em,itemsep=0pt,topsep=2pt]
+  \item An lives in the red house.
+  \item The green house is \emph{immediately to the right} of the white house.
+  \item Bình keeps the dog.
+  \item The fish owner lives in house $1$.
+  \item Dũng lives right next to the cat owner.
+  \item House $2$ is white.
+  \item An keeps the rabbit.
+\end{enumerate}
+Who keeps the cat? Whose house is yellow?
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} There are three kinds of information (colour, person, animal) for four houses. We draw a $3\times 4$
+table and fill it in step by step, starting with the ``definite'' clues (those giving a specific position), then the ``pairing'' clues
+and the ``next to'' clues.
+\step{1}{House colours: clues (6) and (2)}
+House $2$ is white (6), so the green house immediately to its right is house $3$ (2). The colours red and yellow go to houses $1$ and
+$4$.
+\step{2}{An: clues (1), (7), (4)}
+An lives in the red house (1) and keeps the rabbit (7). The red house is house $1$ or house $4$. But house $1$ has the fish (4), while An
+has the rabbit, so An is not in house $1$. So An lives in house $4$, which is red and has the rabbit; house $1$ is yellow and has the
+fish.
+\step{3}{Dog and cat}
+The remaining animals, dog and cat, are in houses $2$ and $3$. Bình keeps the dog (3), so Bình lives in house $2$ or house $3$.
+\step{4}{Where is Dũng? Clue (5)}
+Dũng lives in one of houses $1, 2, 3$. Check each possibility:
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Dũng in house $2$: Dũng does not keep the dog (that is Bình's), so Dũng keeps the cat. Dũng's neighbours are house $1$ (fish)
+  and house $3$ (dog) -- nobody keeps a cat, contradicting (5). \textbf{Ruled out.}
+  \item Dũng in house $3$: similarly Dũng keeps the cat; the neighbours are house $2$ (dog) and house $4$ (rabbit) -- contradicting (5).
+  \textbf{Ruled out.}
+  \item Dũng in house $1$ (fish): his only neighbour is house $2$, so house $2$ has the cat and house $3$ the dog. \textbf{Works.}
+\end{itemize}
+\step{5}{Complete the table}
+House $3$ has the dog, so Bình lives in house $3$; the remaining person, Cúc, lives in house $2$.
+\begin{center}\small
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} & House 1 & House 2 & House 3 & House 4\\ \hline
+Colour & yellow & white & green & red\\ \hline
+Person & Dũng & Cúc & Bình & An\\ \hline
+Animal & fish & cat & dog & rabbit\\ \hline
+\end{tabular}
+\end{center}
+\begin{tipbox}Whenever a clue says ``right next to'', try each position in turn and eliminate -- usually only one possibility survives.
+\end{tipbox}
+\verify{Check each clue: (1) An -- red house \checkmark; (2) green (house 3) immediately right of white (house 2) \checkmark; (3) Bình --
+dog \checkmark; (4) house 1 -- fish \checkmark; (5) Dũng (house 1) next to house 2 with the cat \checkmark; (6) house 2 white
+\checkmark; (7) An -- rabbit \checkmark. A computer check of all $24^3 = 13\,824$ arrangements also finds only this solution.}
+\ans{Cúc keeps the cat; the yellow house is Dũng's}
+}
+
+% ---------------------------------------------------------------- Problem 49
+\begin{probbox}{49}{\stars{1}}
+\textbf{Clocks and calendars.}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item 1 January 2026 is a Thursday. On which day of the week is Vietnam's National Day, 2 September 2026? On which day is
+  1 January 2027?
+  \item At 3:40, what angle do the hour hand and the minute hand make (the angle not exceeding $180^\circ$)?
+  \item After exactly 3 o'clock, how many minutes later does the minute hand first catch up with the hour hand?
+  \item \stars{1} Prove that every year has at least one Friday the 13th.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The days of the week repeat every $7$ days, so we only need the \emph{remainder on division by $7$}
+of the number of days that pass. For the clock, we convert the position of each hand into ``degrees measured from the 12''.
+\begin{recallbox}A common year has $365$ days, a leap year $366$ days (February has $29$ days). The year $2026$ is not a leap year.
+Month lengths divided by $7$: a $31$-day month leaves remainder $3$, a $30$-day month $2$, a $28$-day month $0$, a $29$-day month
+$1$.\end{recallbox}
+\step{1}{Part a): 2 September 2026}
+Days from 1 January to 2 September: January to August have $31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 = 243$ days, plus $1$ more day (from
+1 September to 2 September): $244$ days in total. Now $244 = 7\times 34 + 6$. Moving $6$ days on from Thursday: Friday, Saturday,
+Sunday, Monday, Tuesday, \textbf{Wednesday}. 2 September 2026 is a \textbf{Wednesday}.
+\step{2}{Part a): 1 January 2027}
+The year $2026$ has $365 = 7\times 52 + 1$ days, so the weekday of 1 January 2027 is one day later than that of 1 January 2026:
+\textbf{Friday}.
+\begin{warnbox}Do not count $243$ instead of $244$: from 1 January to 2 September is $243$ days (up to 1 September) plus $1$ more day.
+Check with a small example: from 1 January to 2 January is $1$ day, not $2$.\end{warnbox}
+\step{3}{Part b): the angle at 3:40}
+The minute hand turns $360^\circ$ in $60$ minutes, i.e.\ $6^\circ$ per minute: at $40$ minutes it is at $40\times 6 = 240^\circ$.\\
+The hour hand turns $30^\circ$ per hour, i.e.\ $0.5^\circ$ per minute: at 3:40 it is at $3\times 30 + 40\times 0.5 = 90 + 20 =
+110^\circ$.\\
+The angle between the hands: $240 - 110 = 130^\circ$.
+\begin{figC}
+\draw[Ink,line width=1pt] (0,0) circle (1.3);
+\foreach \h in {1,...,12}{\draw[Ink] ({90-30*\h}:1.15)--({90-30*\h}:1.3); \node[font=\tiny] at ({90-30*\h}:0.95){\h};}
+\draw[tmBlue,line width=1.6pt,->] (0,0)--({90-110}:0.6);
+\draw[tmOrange,line width=1.2pt,->] (0,0)--({90-240}:1.05);
+\draw[AnsRed,line width=0.7pt] ({90-110}:0.35) arc ({90-110}:{90-240}:0.35);
+\node[font=\scriptsize,text=AnsRed] at ({90-175}:0.55){$130^\circ$};
+\end{figC}
+\step{4}{Part c): the minute hand catches up with the hour hand}
+At 3 o'clock the hour hand is $90^\circ$ ahead of the minute hand. Every minute the minute hand gains $6 - 0.5 = 5.5^\circ$ on the hour
+hand. Time to catch up: $90 \div 5.5 = \dfrac{180}{11} = 16\dfrac{4}{11}$ minutes (about $16$ minutes $22$ seconds).
+\begin{recallbox}``Catch-up'' motion problems: catch-up time $=$ initial gap $\div$ difference of speeds.\end{recallbox}
+\step{5}{Part d): the 13th of each month}
+Call the weekday of 13 January ``offset $0$''. The 13th of the next month is shifted by exactly the number of days of the previous month
+(remainder on division by $7$). Adding up (and taking remainders on division by $7$):
+\begin{center}\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Month & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\ \hline
+Common year & $0$ & $3$ & $3$ & $6$ & $1$ & $4$ & $6$ & $2$ & $5$ & $0$ & $3$ & $5$\\ \hline
+Leap year & $0$ & $3$ & $4$ & $0$ & $2$ & $5$ & $0$ & $3$ & $6$ & $1$ & $4$ & $6$\\ \hline
+\end{tabular}
+\end{center}
+Example for a common year: January has $31$ days (remainder $3$), so 13 February is offset $3$; February has $28$ days (remainder $0$),
+so 13 March is still offset $3$; March has $31$ days, so 13 April is offset $3 + 3 = 6$; April has $30$ days, so 13 May is offset
+$6 + 2 = 8$, remainder $1$; \dots
+\begin{proofbox}In both rows the offsets take all seven values $0, 1, 2, 3, 4, 5, 6$. That means the 13ths of the year fall on all seven
+days of the week. In particular, at least one 13th always falls on a Friday.\end{proofbox}
+\verify{By the calendar: 2 September 2026 is a Wednesday, 1 January 2027 a Friday. In $2026$, Friday the 13th occurs in February, March
+and November.}
+\ans{a) Wednesday; Friday;\quad b) $130^\circ$;\quad c) $16\frac{4}{11}$ minutes;\quad d) see the proof}
+}
+
+% ---------------------------------------------------------------- Problem 50
+\begin{probbox}{50}{\stars{2}}
+\textbf{The pigeonhole principle.}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Class 7A has $40$ students. Prove that at least $4$ of them were born in the same month.
+  \item Prove that among any $5$ integers there are always two whose difference is divisible by $4$.
+  \item Choose any $6$ different numbers from $1, 2, \dots, 10$. Prove that two of the chosen numbers always add up to $11$. If only $5$
+  numbers are chosen, is this still certain?
+  \item At a meeting there are $10$ friends; some pairs of friends shake hands (each pair at most once). Prove that two friends have
+  shaken the same number of hands.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} All four parts say ``prove that there are always\dots'' -- we do not need to find out who exactly,
+only to prove that it \emph{must exist}. The tool is the pigeonhole principle.
+\begin{recallbox}\textbf{The pigeonhole principle.} If $n + 1$ pigeons are put into $n$ holes, some hole contains $2$ or more pigeons. In
+general: if more than $k\times n$ pigeons are put into $n$ holes, some hole contains at least $k + 1$ pigeons.\end{recallbox}
+\begin{proofbox}If every hole contained at most $k$ pigeons, there would be at most $k\times n$ pigeons altogether -- contradicting the
+assumption that there are more than $k\times n$.\end{proofbox}
+\step{1}{Part a)}
+The ``holes'' are the $12$ months, the ``pigeons'' are the $40$ students. If each month had at most $3$ students, the class would have at
+most $12\times 3 = 36 < 40$ students -- impossible. So some month has at least $4$ birthdays.
+\step{2}{Part b)}
+On division by $4$, every integer leaves one of $4$ remainders: $0, 1, 2, 3$ (``$4$ holes''). There are $5$ numbers (``$5$ pigeons''),
+so two of them leave the same remainder, say $a = 4p + r$ and $b = 4q + r$. Then $a - b = 4(p - q)$ is divisible by $4$.
+\step{3}{Part c)}
+Split the $10$ numbers into $5$ ``holes'', each hole a pair with sum $11$:
+\[ \{1, 10\},\quad \{2, 9\},\quad \{3, 8\},\quad \{4, 7\},\quad \{5, 6\}. \]
+We choose $6$ numbers but there are only $5$ pairs, so two chosen numbers fall into the same pair -- their sum is $11$.\\
+With $5$ numbers it is \textbf{not certain}: choose $1, 2, 3, 4, 5$; the two largest add up to only $4 + 5 = 9 < 11$.
+\begin{tipbox}The hardest part of the pigeonhole principle is \emph{choosing the holes}. Look at what you need to prove (``sum equal to
+$11$'') and build holes such that two pigeons in the same hole immediately have that property.\end{tipbox}
+\step{4}{Part d): the ``holes'' are the numbers of handshakes}
+Each friend shakes hands with at most $9$ others, so each friend's number of handshakes is one of the $10$ values $0, 1, 2, \dots, 9$.
+$10$ friends and $10$ values -- not enough for the pigeonhole principle yet! We need one more observation.
+\begin{proofbox}The values $0$ and $9$ cannot both occur. Indeed, if someone shook hands $9$ times, they shook hands with
+\emph{everybody}, so nobody has $0$ handshakes. So in fact the $10$ friends take at most $9$ different values (either $0, 1, \dots, 8$ or
+$1, 2, \dots, 9$). $10$ pigeons, $9$ holes: two friends have the same number of handshakes.\end{proofbox}
+\begin{warnbox}In part d), if you stop at ``$10$ friends, $10$ values'', you cannot conclude anything. The observation ``$0$ and $9$ cannot
+both occur'' is the key.\end{warnbox}
+\begin{parentbox}You can illustrate with $5$ cups and $6$ marbles: however the marbles are dropped in, some cup holds $2$. Then ask your
+child: ``In this problem, what are the cups and what are the marbles?''\end{parentbox}
+\verify{Part a): $12\times 3 = 36 < 40 \le 12\times 4$. Part c): a computer checks all $210$ ways of choosing $6$ numbers from $1$ to $10$
+-- every one contains two numbers with sum $11$.}
+\ans{a), b), c), d): see the proofs; in part c) with $5$ numbers it is not certain (e.g.\ $1, 2, 3, 4, 5$)}
+}

@@ -1,0 +1,536 @@
+% =====================================================================
+% Topic 5 — Logic and Puzzles — part c: problems 31–40 (extension)
+% =====================================================================
+% ---- helper macros for parts c/d of topic 5 (prefix \lgxcd, guarded) ----
+% shape codes: 1 = circle, 2 = square, 3 = triangle, 4 = star
+\providecommand{\lgxcdShape}[3]{\ifcase#1\or
+  \draw[Ink,fill=Slate!35,line width=0.6pt] (#2,#3) circle (0.19);\or
+  \draw[Ink,fill=tmBlue!35,line width=0.6pt] ($(#2,#3)+(-0.18,-0.18)$) rectangle ($(#2,#3)+(0.18,0.18)$);\or
+  \draw[Ink,fill=tmOrange!45,line width=0.6pt] ($(#2,#3)+(-0.2,0.17)$)--($(#2,#3)+(0.2,0.17)$)--($(#2,#3)+(0,-0.19)$)--cycle;\or
+  \draw[Ink,fill=tmGreen!45,line width=0.6pt,shift={(#2,#3)}] (90:0.24) \foreach \lgxcdk in {1,...,9}{ -- ({90+36*\lgxcdk}:{ifthenelse(mod(\lgxcdk,2)==1,0.1,0.24)})} -- cycle;\fi}
+% inline shape in text
+\providecommand{\lgxcdI}[1]{\tikz[baseline=-0.7ex]{\lgxcdShape{#1}{0}{0}}}
+% a row of n shapes centred at the origin: \lgxcdRow{n}{codes}
+\providecommand{\lgxcdRow}[2]{\foreach \lgxcdt [count=\lgxcdi] in {#2}{%
+  \pgfmathsetmacro\lgxcdxx{(\lgxcdi-(#1+1)/2)*0.48}\lgxcdShape{\lgxcdt}{\lgxcdxx}{0.21}}}
+% equal-arm balance at height #1: \lgxcdBal{y}{n left}{codes left}{n right}{codes right}
+\providecommand{\lgxcdBal}[5]{\begin{scope}[yshift=#1cm]
+  \draw[Ink,line width=1pt] (-2.7,0)--(-0.3,0) (0.3,0)--(2.7,0);
+  \draw[Ink,line width=0.9pt] (-1.5,0)--(-1.5,-0.55)--(1.5,-0.55)--(1.5,0);
+  \draw[Ink,line width=0.9pt] (-0.18,-0.85)--(0,-0.58)--(0.18,-0.85);
+  \begin{scope}[xshift=-1.5cm]\lgxcdRow{#2}{#3}\end{scope}
+  \begin{scope}[xshift=1.5cm]\lgxcdRow{#4}{#5}\end{scope}\end{scope}}
+% square grid n x n with box lines every #2 rows / #3 columns; #4 = given r/c/v, #5 = filled r/c/v (rows from top)
+\providecommand{\lgxcdSud}[5]{\begin{scope}[x=0.62cm,y=0.62cm]
+  \foreach \lgxcdi in {0,...,#1}{\draw[Slate!60,line width=0.5pt] (0,\lgxcdi)--(#1,\lgxcdi) (\lgxcdi,0)--(\lgxcdi,#1);}
+  \foreach \lgxcdi in {0,#2,...,#1}{\draw[Ink,line width=1.4pt] (0,\lgxcdi)--(#1,\lgxcdi);}
+  \foreach \lgxcdi in {0,#3,...,#1}{\draw[Ink,line width=1.4pt] (\lgxcdi,0)--(\lgxcdi,#1);}
+  \foreach \lgxcdr/\lgxcdc/\lgxcdv in {#4}{\node[font=\sffamily\bfseries,text=Ink] at (\lgxcdc+0.5,#1-\lgxcdr-0.5){\lgxcdv};}
+  \foreach \lgxcdr/\lgxcdc/\lgxcdv in {#5}{\node[font=\sffamily,text=tmBlue] at (\lgxcdc+0.5,#1-\lgxcdr-0.5){\lgxcdv};}
+  \end{scope}}
+
+\clearpage
+\dividerbar{Extension and challenge}
+
+% ---------------------------------------------------------------- Problem 31
+\begin{probbox}{31}{\relax}
+On an island, every inhabitant is either a \emph{truth-teller} (always tells the truth) or a \emph{liar} (always lies).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item You meet two inhabitants, Khánh and Lâm. Khánh says: ``Both of us are liars.'' What type is each of them?
+  \item You meet three inhabitants, An, Bình and Chi.\\
+  An says: ``Bình is a liar.''\\
+  Bình says: ``Chi is a liar.''\\
+  Chi says: ``An and Bình are both liars.''\\
+  What type is each of them?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each person has only two possibilities. The safest method is to \emph{assume} one possibility and
+check whether the statements fit that assumption. If we reach a contradiction, we rule that possibility out.
+\begin{recallbox}Whatever a truth-teller says is \textbf{true}. Whatever a liar says is \textbf{false}. So each statement gives us an
+``equation'': \emph{the statement is true} $\Longleftrightarrow$ \emph{the speaker is a truth-teller}.\end{recallbox}
+\par\smallskip\textbf{Part a).}
+\step{1}{Suppose Khánh is a truth-teller}
+Then his statement is true, so Khánh is a liar -- contradicting the assumption. So Khánh \textbf{cannot} be a truth-teller.
+\step{2}{Khánh is a liar}
+The statement ``Both of us are liars'' is false. It is false when \emph{at least one} of them is not a liar. Khánh is a liar, so the
+other one -- Lâm -- must be a truth-teller.
+\begin{warnbox}The opposite of ``both are liars'' is \textbf{not} ``both tell the truth'', but ``at least one of them tells the
+truth''.\end{warnbox}
+\par\smallskip\textbf{Part b).}
+\step{3}{Suppose An is a truth-teller}
+An's statement is true $\Rightarrow$ Bình is a liar $\Rightarrow$ Bình's statement is false $\Rightarrow$ Chi is a truth-teller
+$\Rightarrow$ Chi's statement is true $\Rightarrow$ An is a liar. This contradicts the assumption! Ruled out.
+\step{4}{So An is a liar}
+An's statement is false $\Rightarrow$ Bình is \emph{not} a liar, i.e.\ Bình is a truth-teller $\Rightarrow$ Bình's statement is true
+$\Rightarrow$ Chi is a liar.
+\step{5}{Check Chi's statement}
+Chi is a liar, so the statement ``An and Bình are both liars'' must be false. Indeed it is false, because Bình is a truth-teller.
+There is no contradiction.
+\begin{center}
+\begin{tabular}{|c|c|l|c|}
+\hline
+\rowcolor{tmBlue!10} Person & Type & Statement & True/false\\ \hline
+An & liar & Bình is a liar & false \\ \hline
+Bình & truth-teller & Chi is a liar & true\\ \hline
+Chi & liar & An and Bình are both liars & false\\ \hline
+\end{tabular}
+\end{center}
+\verify{In the table, every truth-teller makes a true statement and every liar a false one. We have also seen that ``An is a
+truth-teller'' is impossible, so this is the only solution.}
+\ans{a) Khánh is a liar, Lâm a truth-teller;\quad b) An and Chi are liars, Bình is a truth-teller}
+}
+
+% ---------------------------------------------------------------- Problem 32
+\begin{probbox}{32}{\relax}
+Mai lies on Mondays, Tuesdays and Wednesdays and tells the truth on the other days of the week. Hùng lies on Thursdays, Fridays and
+Saturdays and tells the truth on the other days. One day, both of them say: ``Yesterday was a day on which I lie.'' Which day of the
+week is it?
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The statement ``Yesterday was a day on which I lie'' may be true or false depending on the day.
+For each person we find the days on which they \emph{could} say it, then take the day common to both.
+\begin{recallbox}On a truth day the statement must be true; on a lying day the statement must be false.\end{recallbox}
+\step{1}{Table for Mai (lies Mon, Tue, Wed)}
+\begin{center}\small
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Today & Mon & Tue & Wed & Thu & Fri & Sat & Sun\\ \hline
+Mai today & lies & lies & lies & truth & truth & truth & truth\\ \hline
+Mai yesterday & truth (Sun) & lies & lies & lies & truth & truth & truth\\ \hline
+Statement true? & no & yes & yes & yes & no & no & no\\ \hline
+Can Mai say it? & \textbf{yes} & no & no & \textbf{yes} & no & no & no\\ \hline
+\end{tabular}
+\end{center}
+Mai can say it when she lies today and the statement is false (Monday), or when she tells the truth today and the statement is true
+(Thursday).
+\step{2}{Table for Hùng (lies Thu, Fri, Sat)}
+\begin{center}\small
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Today & Mon & Tue & Wed & Thu & Fri & Sat & Sun\\ \hline
+Hùng today & truth & truth & truth & lies & lies & lies & truth\\ \hline
+Hùng yesterday & truth & truth & truth & truth & lies & lies & lies\\ \hline
+Statement true? & no & no & no & no & yes & yes & yes\\ \hline
+Can Hùng say it? & no & no & no & \textbf{yes} & no & no & \textbf{yes}\\ \hline
+\end{tabular}
+\end{center}
+Hùng can say it on Thursday or Sunday.
+\step{3}{The common day}
+Mai: $\{$Monday, Thursday$\}$; Hùng: $\{$Thursday, Sunday$\}$. The only common day is \textbf{Thursday}.
+\begin{tipbox}Quick rule: a person can say ``Yesterday I lied'' only on a \emph{switch day} (yesterday and today are of different
+types): the first lying day, or the first day back to telling the truth.\end{tipbox}
+\verify{Thursday: Mai tells the truth, and yesterday (Wednesday) she lied -- the statement is true, consistent. Hùng lies, and
+yesterday (Wednesday) he told the truth -- the statement is false, consistent with Hùng lying today.}
+\ans{Thursday}
+}
+
+% ---------------------------------------------------------------- Problem 33
+\begin{probbox}{33}{\relax}
+Six friends Lan, Minh, Nam, Oanh, Phúc and Quân run a race. No two of them finish at the same time. We know that:
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=2pt]
+  \item Minh finishes after Lan but before Nam;
+  \item Oanh finishes after Nam;
+  \item Phúc finishes \emph{immediately after} Lan;
+  \item Quân is neither first nor last, and Quân finishes before Minh.
+\end{itemize}
+Find the finishing order of the six friends. Who finishes third?
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We have ``before -- after'' conditions. A good method is to join them into a \emph{chain} and then
+insert the remaining friends one by one. Write $X \to Y$ for ``$X$ finishes before $Y$''.
+\step{1}{Join conditions 1 and 2}
+Lan $\to$ Minh $\to$ Nam and Nam $\to$ Oanh, so: \ Lan $\to$ Minh $\to$ Nam $\to$ Oanh.
+\step{2}{Insert Phúc}
+Phúc finishes \emph{immediately after} Lan, i.e.\ nobody comes between Lan and Phúc: \ Lan, Phúc $\to$ Minh $\to$ Nam $\to$ Oanh.
+\step{3}{Insert Quân}
+Quân finishes before Minh, so Quân is in one of these places: before Lan, or between Phúc and Minh (he may not come between Lan and
+Phúc). But Quân is not first, so he is not before Lan. Hence:
+\[ \text{Lan} \to \text{Phúc} \to \text{Quân} \to \text{Minh} \to \text{Nam} \to \text{Oanh}. \]
+\begin{figC}
+\foreach \n/\x in {Lan/0,Phúc/1,Quân/2,Minh/3,Nam/4,Oanh/5}{
+  \node[draw=tmBlue,fill=tmBlue!8,rounded corners=3pt,minimum width=1.5cm,minimum height=0.7cm] at (\x*1.9,0){\n};}
+\foreach \x [count=\k] in {0,...,5}{\node[font=\scriptsize,text=Slate] at (\x*1.9,-0.6){place \k};}
+\foreach \x in {0,...,4}{\draw[->,tmBlue,thick] (\x*1.9+0.78,0)--(\x*1.9+1.12,0);}
+\end{figC}
+\step{4}{Check every condition again}
+Minh (4th) is after Lan (1st) and before Nam (5th): true. Oanh (6th) is after Nam: true. Phúc (2nd) is immediately after Lan: true.
+Quân is 3rd -- not first, not last, before Minh: true.
+\begin{warnbox}If you forget the word ``immediately'', Quân could come between Lan and Phúc and the problem would have two answers. Read
+every word of each condition carefully!\end{warnbox}
+\verify{We tried every possible position for Quân; only one order satisfies all four conditions.}
+\ans{Lan, Phúc, Quân, Minh, Nam, Oanh; Quân finishes third}
+}
+
+% ---------------------------------------------------------------- Problem 34
+\begin{probbox}{34}{\relax}
+Five friends Hà, Khoa, Linh, My and Tùng sit in a row of $5$ chairs numbered $1, 2, 3, 4, 5$ from left to right. We know that:
+Hà and Khoa sit next to each other; Linh and My do \emph{not} sit next to each other; Tùng sits at one end of the row (chair $1$ or
+chair $5$).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item How many seating arrangements satisfy these conditions?
+  \item Which of the following statements is \emph{certainly true}?\\
+  (1) Linh sits at one end of the row. \quad (2) Hà does not sit at an end of the row. \quad (3) Khoa sits in chair $3$.
+  \item If we also know that Linh sits in chair $1$ and Hà sits to the left of Khoa, find each friend's seat.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Start with the ``tightest'' condition (Tùng has only $2$ places), then look at the $4$ remaining
+chairs.
+\step{1}{Case: Tùng sits in chair 5}
+The other four sit in chairs $1, 2, 3, 4$. The pair Hà -- Khoa takes two adjacent chairs: $(1,2)$, $(2,3)$ or $(3,4)$.
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Hà -- Khoa in chairs $(1,2)$: Linh and My must sit in chairs $3, 4$ -- next to each other, \textbf{impossible}.
+  \item Hà -- Khoa in chairs $(3,4)$: Linh and My sit in chairs $1, 2$ -- next to each other, \textbf{impossible}.
+  \item Hà -- Khoa in chairs $(2,3)$: Linh and My sit in chairs $1$ and $4$ -- not next to each other, \textbf{possible}.
+\end{itemize}
+In the possible case, Hà and Khoa can swap ($2$ ways) and Linh and My can swap ($2$ ways): $2\times 2 = 4$ ways.
+\step{2}{Case: Tùng sits in chair 1}
+Exactly the same (turn the row around): Hà -- Khoa in chairs $(3,4)$, Linh and My in chairs $2$ and $5$: also $4$ ways.
+\step{3}{Total number of ways}
+$4 + 4 = 8$ ways.
+\begin{recallbox}\textbf{Multiplication rule:} if a task consists of consecutive steps, step 1 in $m$ ways and step 2 in $n$ ways, then
+the task can be done in $m\times n$ ways. \textbf{Addition rule:} separate cases are added.\end{recallbox}
+\step{4}{Part b): check each statement}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Chair 1 & Chair 2 & Chair 3 & Chair 4 & Chair 5\\ \hline
+Linh/My & Hà/Khoa & Hà/Khoa & My/Linh & Tùng\\ \hline
+Tùng & Linh/My & Hà/Khoa & Hà/Khoa & My/Linh\\ \hline
+\end{tabular}
+\end{center}
+(1) False: when Tùng is in chair 1, Linh may sit in chair 2. \ (2) \textbf{True}: in both rows, Hà and Khoa are always in middle chairs
+($2, 3$ or $3, 4$). \ (3) False: Khoa may sit in chair $2$ or chair $4$.
+\step{5}{Part c)}
+Linh is in chair $1$, so Tùng is not in chair $1$; Tùng is in chair $5$ (first row of the table). Then My is in chair $4$ and Hà --
+Khoa in chairs $2, 3$; Hà is to the left of Khoa, so Hà is in chair $2$ and Khoa in chair $3$.
+\verify{Linh(1), Hà(2), Khoa(3), My(4), Tùng(5): Hà and Khoa are adjacent; Linh in chair 1 and My in chair 4 are not adjacent; Tùng
+is at an end. Correct.}
+\ans{a) $8$ ways;\quad b) statement (2);\quad c) Linh -- Hà -- Khoa -- My -- Tùng (chairs 1 to 5)}
+}
+
+% ---------------------------------------------------------------- Problem 35
+\begin{probbox}{35}{\relax}
+Number the letters $A, B, C, \dots, Z$ (the $26$-letter English alphabet) as $0, 1, 2, \dots, 25$. The \emph{Caesar cipher with key
+$k$} replaces each letter with number $x$ by the letter whose number is the \emph{remainder} of $x + k$ when divided by $26$
+(spaces are kept).
+\begin{figC}
+\foreach \L [count=\i from 0] in {A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}{
+  \node[font=\sffamily\small\bfseries,text=Ink] at ({90-\i*360/26}:2.15){\L};
+  \node[font=\sffamily\tiny,text=tmBlue] at ({90-\i*360/26}:1.65){\i};}
+\draw[Line,line width=0.8pt] (0,0) circle (1.9);
+\draw[->,tmOrange,line width=1pt] (110:1.2) arc (110:30:1.2);
+\node[font=\scriptsize,text=tmOrange!80!black,align=center] at (0,0){move\\clockwise};
+\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Encrypt the text \textsf{TOAN HOC} with key $k = 5$.
+  \item Decrypt the text \textsf{OVJ CBP}, knowing that the key is $k = 7$.
+  \item In a message, the word \textsf{BAN} was encrypted as \textsf{QPC}. Find the key $k$ (with $0 \le k \le 25$), then decrypt the
+  word \textsf{HPJ} from the same message.
+  \item A message is encrypted with key $10$, and the result is encrypted once more with key $20$. These two encryptions together
+  are the same as \emph{one} encryption with which key?
+  \item Tú encrypts a word with key $4$, then encrypts the result with key $4$ again, and so on. After how many encryptions, at least,
+  does Tú get back exactly the original word?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} When adding the key takes us past $25$, we ``wrap around'' to the start of the alphabet -- that is
+exactly taking the \emph{remainder on division by $26$}. Decrypting is the reverse: \emph{subtract} the key (if the result is
+negative, add $26$).
+\begin{recallbox}The remainder of $a$ on division by $26$ is the number $r$ with $0 \le r \le 25$ such that $a - r$ is divisible by
+$26$. Examples: $30$ leaves remainder $4$; \ $-6$ ``leaves remainder'' $20$, because $-6 + 26 = 20$.\end{recallbox}
+\step{1}{Part a): encrypt \textsf{TOAN HOC} with $k = 5$}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Plain letter & T & O & A & N & H & O & C\\ \hline
+Number $x$ & $19$ & $14$ & $0$ & $13$ & $7$ & $14$ & $2$\\ \hline
+$x + 5$ & $24$ & $19$ & $5$ & $18$ & $12$ & $19$ & $7$\\ \hline
+Cipher letter & Y & T & F & S & M & T & H\\ \hline
+\end{tabular}
+\end{center}
+Result: \textsf{YTFS MTH}. (No number exceeds $25$ here, so no wrapping is needed yet.)
+\step{2}{Part b): decrypt \textsf{OVJ CBP} with $k = 7$ (subtract $7$)}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Cipher letter & O & V & J & C & B & P\\ \hline
+Number & $14$ & $21$ & $9$ & $2$ & $1$ & $15$\\ \hline
+Number $- 7$ & $7$ & $14$ & $2$ & $-5 \to 21$ & $-6 \to 20$ & $8$\\ \hline
+Plain letter & H & O & C & V & U & I\\ \hline
+\end{tabular}
+\end{center}
+Original text: \textsf{HOC VUI} (Vietnamese for ``fun learning''). Note: $2 - 7 = -5$, adding $26$ gives $21$ (the letter V).
+\step{3}{Part c): find the key from the pair \textsf{BAN} $\to$ \textsf{QPC}}
+B ($1$) becomes Q ($16$), so $k = 16 - 1 = 15$. Check: A ($0$) $\to 0 + 15 = 15$ (P), correct; N ($13$) $\to 13 + 15 = 28$, remainder
+$2$ on division by $26$ (C), correct. So $k = 15$.\\
+Decrypt \textsf{HPJ} (subtract $15$): H $= 7$, $7 - 15 = -8 \to 18$ (S); \ P $= 15 \to 0$ (A); \ J $= 9$, $9 - 15 = -6 \to 20$ (U).
+The original word is \textsf{SAU}.
+\step{4}{Part d): two encryptions in a row}
+Each letter gets $10$ added and then $20$ added, i.e.\ $30$ added. Since $30$ leaves remainder $4$ on division by $26$, ``add $30$ and
+take the remainder'' is exactly the same as ``add $4$ and take the remainder''. The two encryptions equal \textbf{one encryption with
+key $4$}.
+\step{5}{Part e): repeated encryption with key $4$}
+After $n$ encryptions, every letter has moved $4n$ places. To get back to the original letter we must go round a whole number of
+times, i.e.\ $4n$ must be divisible by $26$. Try $n = 1, 2, 3, \dots$: \ $4n = 4, 8, 12, \dots$ The smallest (non-zero) $4n$
+divisible by $26$ is $\text{LCM}(4, 26) = 52$, which gives $n = 52 \div 4 = 13$.
+\begin{recallbox}$4n$ is divisible by $26 = 2\times 13$ $\Leftrightarrow$ $2n$ is divisible by $13$ $\Leftrightarrow$ $n$ is divisible
+by $13$ (because $13$ is a prime that does not divide $2$).\end{recallbox}
+\begin{tipbox}With key $13$ you only need $2$ encryptions to get back ($2\times 13 = 26$). Encrypting twice with key $13$ is the same as
+decrypting!\end{tipbox}
+\verify{Part a): decrypting \textsf{YTFS MTH} by subtracting $5$ gives back \textsf{TOAN HOC}. Part c): \textsf{SAU} encrypted with key
+$15$: S $18 + 15 = 33 \to 7$ (H), A $\to 15$ (P), U $20 + 15 = 35 \to 9$ (J). Indeed \textsf{HPJ}.}
+\ans{a) \textsf{YTFS MTH};\ b) \textsf{HOC VUI};\ c) $k = 15$, \textsf{SAU};\ d) key $4$;\ e) $13$ times}
+}
+
+% ---------------------------------------------------------------- Problem 36
+\begin{probbox}{36}{\stars{1}}
+Again number $A = 0, B = 1, \dots, Z = 25$. A \emph{multiplicative cipher} replaces the letter with number $x$ by the letter whose number
+is the remainder of $3x + 2$ on division by $26$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Encrypt the word \textsf{MEO}.
+  \item Decrypt the word \textsf{ECS}.
+  \item Nhật suggests using $2x + 2$ instead of $3x + 2$. Find two different letters with the same cipher letter. Why does that make
+  decryption impossible?
+  \item Explain why, with $3x + 2$, two different letters always get two different cipher letters.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This cipher does not just ``shift'': it also multiplies and then takes the remainder. Encrypting is
+easy (compute directly); to decrypt we need $x$ when we know the remainder of $3x + 2$ -- we use the trick ``add $26$ until the number
+is divisible by $3$''.
+\step{1}{Part a): encrypt \textsf{MEO}}
+M $= 12$: $3\cdot 12 + 2 = 38$, remainder $12$ on division by $26$ $\to$ M.\\
+E $= 4$: $3\cdot 4 + 2 = 14$ $\to$ O.\\
+O $= 14$: $3\cdot 14 + 2 = 44$, remainder $18$ $\to$ S.\\
+Result: \textsf{MOS}. (Fun fact: M is encrypted as itself.)
+\step{2}{Part b): decrypt \textsf{ECS}}
+For a cipher letter with number $y$ we need $x$ ($0 \le x \le 25$) such that $3x + 2$ leaves remainder $y$, i.e.\ $3x = y - 2$, or
+$y - 2 + 26$, or $y - 2 + 52$ (try them in turn and take the one divisible by $3$).
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} Cipher letter & $y$ & Try $y - 2,\ y + 24,\ y + 50$ & $3x$ & Plain letter\\ \hline
+E & $4$ & $2$ (no), $28$ (no), $54$ (divisible) & $54 \Rightarrow x = 18$ & S\\ \hline
+C & $2$ & $0$ (divisible) & $0 \Rightarrow x = 0$ & A\\ \hline
+S & $18$ & $16$ (no), $42$ (divisible) & $42 \Rightarrow x = 14$ & O\\ \hline
+\end{tabular}
+\end{center}
+The original word is \textsf{SAO}.
+\step{3}{Part c): why $2x + 2$ does not work}
+A $= 0$: $2\cdot 0 + 2 = 2$ $\to$ C. \quad N $= 13$: $2\cdot 13 + 2 = 28$, remainder $2$ $\to$ C.\\
+Both A and N become C. When the receiver sees a C, they cannot tell whether the original letter was A or N, so decryption is not
+certain. (In fact every number $2x + 2$ is even, so there are only $13$ cipher letters for $26$ plain letters -- some pairs must
+coincide.)
+\step{4}{Part d): why $3x + 2$ never collides}
+\begin{proofbox}Suppose two letters $x$ and $z$ (with $0 \le z < x \le 25$) have the same cipher letter. Then $3x + 2$ and $3z + 2$ leave
+the same remainder on division by $26$, so their difference $3(x - z)$ is divisible by $26$. But $3$ and $26$ have no common divisor
+greater than $1$, so $x - z$ must be divisible by $26$. However $0 < x - z \le 25$ -- not divisible by $26$. Contradiction. So
+different letters always get different cipher letters.\end{proofbox}
+\begin{warnbox}With $2x + 2$, the argument breaks down here: $2(x - z)$ is divisible by $26$ as soon as $x - z$ is divisible by $13$,
+for example $x - z = 13$ (A and N).\end{warnbox}
+\verify{Encrypt \textsf{SAO} again: S $3\cdot 18 + 2 = 56 \to 56 - 52 = 4$ (E); A $\to 2$ (C); O $\to 44 - 26 = 18$ (S). We get
+\textsf{ECS}, correct.}
+\ans{a) \textsf{MOS};\ b) \textsf{SAO};\ c) A and N both become C;\ d) see the proof}
+}
+
+% ---------------------------------------------------------------- Problem 37
+\begin{probbox}{37}{\relax}
+In a $3\times 3$ \emph{magic square}, the numbers in every row, every column and both diagonals have the same sum (called the
+\emph{magic sum} $M$).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Let $c$ be the number in the centre cell. Prove that $M = 3c$.
+  \item Fill in the empty cells of the magic square below.
+\end{enumerate}
+\begin{figC}
+\lgxcdSud{3}{3}{3}{0/0/9,0/1/19,2/2/13}{}
+\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} In part b) only three numbers are known; we know neither the centre nor $M$. Part a) is the ``key'':
+it links the centre number to $M$.
+\step{1}{Part a): add the four lines through the centre}
+Name the cells:
+\begin{figC}
+\lgxcdSud{3}{3}{3}{0/0/$a$,0/1/$b$,0/2/$d$,1/0/$e$,1/1/$c$,1/2/$f$,2/0/$g$,2/1/$h$,2/2/$i$}{}
+\end{figC}
+Four lines pass through the centre: the middle row $e + c + f$, the middle column $b + c + h$, and the two diagonals $a + c + i$ and
+$d + c + g$. Adding these four sums:
+\[ (e + c + f) + (b + c + h) + (a + c + i) + (d + c + g) = 4M. \]
+On the left, each outer cell appears exactly \emph{once}, while the centre $c$ appears \emph{four} times. So the left side equals
+(sum of all $9$ cells) $+\, 3c$.
+\begin{proofbox}The sum of all $9$ cells is the sum of the three rows, i.e.\ $3M$. Therefore $3M + 3c = 4M$, which gives $3c = M$.\end{proofbox}
+\step{2}{Part b): find the centre}
+The main diagonal passes through $9$, the centre $c$ and $13$: \ $9 + c + 13 = M = 3c$. So $22 = 2c$, $c = 11$ and $M = 33$.
+\step{3}{Fill the cells one by one (each time choose a line with only one cell missing)}
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Top row: $33 - 9 - 19 = 5$ (top right corner).
+  \item Other diagonal: $33 - 5 - 11 = 17$ (bottom left corner).
+  \item Left column: $33 - 9 - 17 = 7$; \quad middle row: $33 - 7 - 11 = 15$.
+  \item Bottom row: $33 - 17 - 13 = 3$.
+\end{itemize}
+\begin{figC}
+\lgxcdSud{3}{3}{3}{0/0/9,0/1/19,2/2/13}{0/2/5,1/0/7,1/1/11,1/2/15,2/0/17,2/1/3}
+\end{figC}
+\verify{Middle column $19 + 11 + 3 = 33$; right column $5 + 15 + 13 = 33$; middle row $7 + 11 + 15 = 33$; the diagonals $9 + 11 + 13$ and
+$5 + 11 + 17$ both equal $33$.}
+\begin{tipbox}The result $M = 3c$ holds for \emph{every} $3\times 3$ magic square, even with negative numbers or fractions.\end{tipbox}
+\ans{a) see the proof;\quad b) top row $9, 19, 5$; middle row $7, 11, 15$; bottom row $17, 3, 13$}
+}
+
+% ---------------------------------------------------------------- Problem 38
+\begin{probbox}{38}{\relax}
+The three equal-arm balances below are all balanced. Objects of the same shape have the same mass.
+\begin{figC}
+\lgxcdBal{0}{2}{2,3}{5}{1,1,1,1,1}
+\lgxcdBal{-1.5}{2}{3,3}{4}{1,1,1,1}
+\lgxcdBal{-3}{2}{4,1}{2}{2,2}
+\node[font=\small\bfseries,text=Slate] at (-3.3,0){(1)};
+\node[font=\small\bfseries,text=Slate] at (-3.3,-1.5){(2)};
+\node[font=\small\bfseries,text=Slate] at (-3.3,-3){(3)};
+\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item How many \lgxcdI{1} does each of \lgxcdI{3}, \lgxcdI{2}, \lgxcdI{4} weigh?
+  \item How many \lgxcdI{3} are needed to balance \lgxcdI{4}\,\lgxcdI{4}\,\lgxcdI{2}\,\lgxcdI{2}?
+  \item Each \lgxcdI{1} weighs $12$ g. How many grams do the three objects \lgxcdI{4}\,\lgxcdI{3}\,\lgxcdI{2} weigh altogether?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Choose \lgxcdI{1} as the ``unit of measure''. Look for a balance with only \emph{one kind} of unknown
+object, solve it first, and substitute into the other balances.
+\begin{recallbox}A balanced scale is like an equation. We may remove (or add) identical objects on both pans, or split both pans into
+equal parts, and the scale stays balanced.\end{recallbox}
+\step{1}{Balance (2): find \lgxcdI{3}}
+Two \lgxcdI{3} balance four \lgxcdI{1}. Halve each pan: one \lgxcdI{3} balances two \lgxcdI{1}. \quad \lgxcdI{3} $= 2$ \lgxcdI{1}.
+\step{2}{Balance (1): find \lgxcdI{2}}
+\lgxcdI{2}\,\lgxcdI{3} balance five \lgxcdI{1}. Replace \lgxcdI{3} by two \lgxcdI{1}: \lgxcdI{2} together with two \lgxcdI{1} balance
+five \lgxcdI{1}. Remove two \lgxcdI{1} from each pan: \lgxcdI{2} $= 3$ \lgxcdI{1}.
+\step{3}{Balance (3): find \lgxcdI{4}}
+\lgxcdI{4}\,\lgxcdI{1} balance two \lgxcdI{2}, i.e.\ $2\times 3 = 6$ \lgxcdI{1}. Remove one \lgxcdI{1} from each pan:
+\lgxcdI{4} $= 5$ \lgxcdI{1}.
+\step{4}{Part b)}
+\lgxcdI{4}\,\lgxcdI{4}\,\lgxcdI{2}\,\lgxcdI{2} weigh as much as $5 + 5 + 3 + 3 = 16$ \lgxcdI{1}. Each \lgxcdI{3} equals $2$
+\lgxcdI{1}, so we need $16 \div 2 = 8$ objects \lgxcdI{3}.
+\step{5}{Part c)}
+\lgxcdI{4}\,\lgxcdI{3}\,\lgxcdI{2} weigh as much as $5 + 2 + 3 = 10$ \lgxcdI{1}, i.e.\ $10\times 12 = 120$ g.
+\begin{tipbox}If we call the masses $t$ (triangle), $q$ (square), $s$ (star), $o$ (circle), the three balances are three equations:
+$q + t = 5o$; \ $2t = 4o$; \ $s + o = 2q$. Solving in turn gives $t = 2o$, $q = 3o$, $s = 5o$.\end{tipbox}
+\verify{Balance (1): $3 + 2 = 5$. Balance (2): $2 + 2 = 4$. Balance (3): $5 + 1 = 6 = 3 + 3$. All three balances are balanced.}
+\ans{a) \lgxcdI{3} $= 2$, \lgxcdI{2} $= 3$, \lgxcdI{4} $= 5$ objects \lgxcdI{1};\quad b) $8$ objects \lgxcdI{3};\quad c) $120$ g}
+}
+
+% ---------------------------------------------------------------- Problem 39
+\begin{probbox}{39}{\relax}
+The ``wheel'' below has $7$ circles: one at the hub and $6$ on the rim, forming $3$ straight ``spokes'' of $3$ circles each (two opposite
+circles on the rim and the hub). Place the numbers $1, 2, 3, 4, 5, 6, 7$, one in each circle, so that the three numbers on each spoke
+have the same sum $S$.
+\begin{figC}
+\foreach \a in {90,150,210}{\draw[Ink,line width=0.9pt] (\a:1.5)--(\a+180:1.5);}
+\draw[Line,line width=0.8pt] (0,0) circle (1.5);
+\foreach \a in {30,90,...,330}{\draw[Ink,fill=white,line width=0.9pt] (\a:1.5) circle (0.3);}
+\draw[Ink,fill=tmBlue!12,line width=0.9pt] (0,0) circle (0.3);
+\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Let $c$ be the number at the hub. Prove that $3S = 28 + 2c$.
+  \item Deduce that the hub can only be $1$, $4$ or $7$. In each case find $S$ and give one arrangement.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} This is the ``count twice'' technique: add all the spokes and see how many times each circle is
+counted.
+\step{1}{Part a): add the three spokes}
+The three spokes total $S + S + S = 3S$. In this sum every rim circle is counted \emph{once} (each rim circle lies on only one spoke),
+while the hub is counted \emph{three} times. So
+\[ 3S = (1 + 2 + \dots + 7) + 2c = 28 + 2c. \]
+\begin{recallbox}$1 + 2 + 3 + 4 + 5 + 6 + 7 = 28$. The hub already appears once in the total $28$, so we only add $2c$ (the other two
+times).\end{recallbox}
+\step{2}{Part b): which values can $c$ take?}
+$3S$ is divisible by $3$, so $28 + 2c$ must be divisible by $3$. Try $c = 1, 2, \dots, 7$:
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} $c$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$\\ \hline
+$28 + 2c$ & $\mathbf{30}$ & $32$ & $34$ & $\mathbf{36}$ & $38$ & $40$ & $\mathbf{42}$\\ \hline
+Divisible by $3$? & yes & no & no & yes & no & no & yes\\ \hline
+\end{tabular}
+\end{center}
+So $c \in \{1; 4; 7\}$, giving $S = 10$; $12$; $14$ respectively.
+\step{3}{Concrete arrangements}
+On each spoke the two opposite circles must add up to $S - c$, so we split the remaining $6$ numbers into $3$ pairs with equal sums.
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item $c = 1$, $S = 10$: pairs with sum $9$: $(2, 7), (3, 6), (4, 5)$.
+  \item $c = 4$, $S = 12$: pairs with sum $8$: $(1, 7), (2, 6), (3, 5)$.
+  \item $c = 7$, $S = 14$: pairs with sum $7$: $(1, 6), (2, 5), (3, 4)$.
+\end{itemize}
+\begin{figC}
+\foreach \cx/\cc/\p in {0/1/{2,3,4,7,6,5},4/4/{1,2,3,7,6,5},8/7/{1,2,3,6,5,4}}{
+ \begin{scope}[xshift=\cx cm,scale=0.7]
+  \foreach \a in {90,150,210}{\draw[Ink,line width=0.8pt] (\a:1.5)--(\a+180:1.5);}
+  \foreach \v [count=\k from 0] in \p{\draw[Ink,fill=white,line width=0.8pt] (90+\k*60:1.5) circle (0.33);
+     \node[font=\sffamily\small\bfseries,text=tmBlue] at (90+\k*60:1.5){\v};}
+  \draw[Ink,fill=tmBlue!12,line width=0.8pt] (0,0) circle (0.33); \node[font=\sffamily\small\bfseries] at (0,0){\cc};
+ \end{scope}}
+\node[font=\small] at (0,-1.55){$S = 10$}; \node[font=\small] at (4,-1.55){$S = 12$}; \node[font=\small] at (8,-1.55){$S = 14$};
+\end{figC}
+\begin{warnbox}Do not assume ``the hub must be the middle number of the list ($4$)''. Both $1$ and $7$ can also go at the hub!\end{warnbox}
+\verify{$S = 10$: $1 + 2 + 7 = 1 + 3 + 6 = 1 + 4 + 5 = 10$. \ $S = 12$: $4 + 1 + 7 = 4 + 2 + 6 = 4 + 3 + 5 = 12$. \
+$S = 14$: $7 + 1 + 6 = 7 + 2 + 5 = 7 + 3 + 4 = 14$.}
+\ans{a) see the proof;\quad b) $c = 1, S = 10$;\ \ $c = 4, S = 12$;\ \ $c = 7, S = 14$ (arrangements as in the figure)}
+}
+
+% ---------------------------------------------------------------- Problem 40
+\begin{probbox}{40}{\stars{1}}
+Place the numbers $1, 2, 3, 4, 5, 6$, one in each circle on the sides of the triangle (three circles at the vertices, three at the
+midpoints of the sides), so that the three numbers on each side have the same sum $S$.
+\begin{figC}
+\draw[Ink,line width=0.9pt] (0,2.2)--(-2.2,-1.3)--(2.2,-1.3)--cycle;
+\foreach \p in {(0,2.2),(-2.2,-1.3),(2.2,-1.3),(-1.1,0.45),(1.1,0.45),(0,-1.3)}{\draw[Ink,fill=white,line width=0.9pt] \p circle (0.3);}
+\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Let $V$ be the sum of the three numbers at the vertices. Prove that $3S = 21 + V$. Hence find all possible values of $S$.
+  \item For each value of $S$, give one arrangement.
+  \item When $S = 10$, which three numbers are at the vertices? Explain why there is no other possibility.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} As in Problem 39, we ``count twice'': each vertex circle lies on \emph{two} sides, each midpoint
+circle on \emph{one} side.
+\step{1}{Part a): add the three sides}
+The three sides total $3S$. In this sum each midpoint number is counted once and each vertex number twice. So
+\[ 3S = (1 + 2 + 3 + 4 + 5 + 6) + V = 21 + V. \]
+\step{2}{Bounds on $V$}
+$V$ is the sum of three different numbers from $1, \dots, 6$: at least $1 + 2 + 3 = 6$, at most $4 + 5 + 6 = 15$. Also $21 + V$ is
+divisible by $3$, and $21$ is divisible by $3$, so $V$ is divisible by $3$:
+\[ V \in \{6;\ 9;\ 12;\ 15\} \quad\Rightarrow\quad S = \frac{21 + V}{3} \in \{9;\ 10;\ 11;\ 12\}. \]
+\begin{recallbox}If $a$ is divisible by $3$ and $a + b$ is divisible by $3$, then $b$ is also divisible by $3$.\end{recallbox}
+\step{3}{Part b): one arrangement for each $S$}
+Choose three vertex numbers with sum $V$; then subtract the sum of the two end numbers of each side from $S$ to get the number at the
+middle of that side.
+\begin{figC}
+\foreach \cx/\S/\t/\l/\r/\ml/\mr/\mb in {0/9/1/2/3/6/5/4, 3.6/10/1/3/5/6/4/2, 7.2/11/2/4/6/5/3/1, 10.8/12/4/5/6/3/2/1}{
+ \begin{scope}[xshift=\cx cm,scale=0.62]
+  \draw[Ink,line width=0.8pt] (0,2.2)--(-2.2,-1.3)--(2.2,-1.3)--cycle;
+  \foreach \p/\v/\col in {(0,2.2)/\t/Ink,(-2.2,-1.3)/\l/Ink,(2.2,-1.3)/\r/Ink,(-1.1,0.45)/\ml/tmBlue,(1.1,0.45)/\mr/tmBlue,(0,-1.3)/\mb/tmBlue}{
+    \draw[Ink,fill=white,line width=0.8pt] \p circle (0.36); \node[font=\sffamily\small\bfseries,text=\col] at \p {\v};}
+  \node[font=\small] at (0,-2.2){$S = \S$};
+ \end{scope}}
+\end{figC}
+Example for $S = 9$: vertices $1, 2, 3$; side $1$--$2$ needs $9 - 3 = 6$; side $1$--$3$ needs $9 - 4 = 5$; side $2$--$3$ needs
+$9 - 5 = 4$.
+\step{4}{Part c): $S = 10$ gives $V = 3\cdot 10 - 21 = 9$}
+The triples of different numbers with sum $9$ are $\{1, 2, 6\}$, $\{1, 3, 5\}$, $\{2, 3, 4\}$. Try each one:
+\begin{itemize}[leftmargin=1.4em,itemsep=0pt,topsep=1pt]
+  \item Vertices $\{1, 2, 6\}$: the side joining $1$ and $2$ needs a middle number $10 - 3 = 7$ -- there is no $7$. \textbf{Ruled out.}
+  \item Vertices $\{2, 3, 4\}$: the side joining $3$ and $4$ needs $10 - 7 = 3$ -- but $3$ is already at a vertex. \textbf{Ruled out.}
+  \item Vertices $\{1, 3, 5\}$: the middle numbers are $10 - 4 = 6$, $10 - 6 = 4$, $10 - 8 = 2$ -- exactly the remaining numbers
+  $2, 4, 6$. \textbf{Works.}
+\end{itemize}
+So when $S = 10$, the vertices must be $1, 3, 5$.
+\begin{warnbox}The condition ``$V$ is divisible by $3$'' is only a \emph{necessary} condition: it tells us what $S$ \emph{could} be, but
+we still have to show an actual arrangement (part b) and check each triple (part c).\end{warnbox}
+\begin{parentbox}Let your child cut out $6$ slips of paper numbered $1$ to $6$ and try placing them on the drawing. After a few tries,
+ask: ``How many times is a vertex number added?'' -- that is the main idea of the solution.\end{parentbox}
+\verify{$S = 10$: $1 + 6 + 3 = 3 + 4 + 5 = 5 + 2 + 1 = 10$. $S = 12$: $4 + 3 + 5 = 5 + 1 + 6 = 6 + 2 + 4 = 12$.}
+\ans{a) $S \in \{9; 10; 11; 12\}$;\quad b) as in the figure;\quad c) the vertices are $1, 3, 5$}
+}
