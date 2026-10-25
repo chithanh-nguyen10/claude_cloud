@@ -242,3 +242,405 @@ $96\div 3=32$ km per day.
 So the answer is \textbf{(D)}.
 \ans{(D) $32$ km per day}
 }
+
+% ------------------------------------------------------------------ 22
+\begin{probbox}{22}{\stars{1}}
+A dot starts at the point $(20,19)$ of the coordinate plane. On the first move it travels $1$ unit horizontally or vertically, that is, to one of the points $(21,19)$, $(19,19)$, $(20,20)$ or $(20,18)$. On the second move it travels $2$ units (in either direction) \emph{perpendicular} to the first move. From then on, each move is $1$ unit longer than the previous one ($3$ units, $4$ units, $5$ units, \dots) and is always perpendicular to the move just before it. The dot stops after $10$ moves. Which of the following final positions is \textbf{not} possible?
+\choices{$(27,33)$}{$(30,40)$}{$(21,21)$}{$(42,44)$}{$(37,37)$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} The moves have lengths $1,2,3,\dots,10$. ``Perpendicular to the previous move'' means the moves \emph{alternate}: horizontal -- vertical -- horizontal -- vertical\dots\ We must find the point the dot can never reach.
+\begin{recallbox}In the coordinate plane, moving right (left) $k$ units increases (decreases) the first coordinate by $k$; moving up (down) $k$ units increases (decreases) the second coordinate by $k$.\end{recallbox}
+
+\step{1}{Split the moves into two groups}
+If move $1$ is horizontal, then the horizontal moves are moves $1,3,5,7,9$ (odd lengths) and the vertical moves are moves $2,4,6,8,10$ (even lengths). If move $1$ is vertical, it is the other way round.\par
+Each move can go in the positive direction (sign $+$) or the negative direction (sign $-$). So the displacement in one direction is
+\[ \pm 1\pm 3\pm 5\pm 7\pm 9 \quad\text{(odd group)},\qquad \pm 2\pm 4\pm 6\pm 8\pm 10\quad\text{(even group).} \]
+
+\step{2}{Which numbers can the odd group give?}
+If every sign is $+$: $1+3+5+7+9=25$. Changing the sign of a move of length $a$ from $+$ to $-$ lowers the total by $2a$ (we lose $a$ and then subtract another $a$). Hence
+\[ \text{displacement}=25-2\times(\text{sum of the lengths whose sign is changed}). \]
+To get $21$, the lengths whose sign is changed must add up to $(25-21)\div 2=2$. But no choice of numbers from $\{1,3,5,7,9\}$ adds up to $2$ (choosing $1$ gives $1$; choosing any further number already gives at least $4$). So \textbf{the odd group cannot give a displacement of $21$} (and likewise not $-21$).
+\begin{proofbox}The possible sums of numbers chosen from $\{1,3,5,7,9\}$ are $0,1,3,4,5,6,7,8,9,\dots$ but \emph{not} $2$: the smallest number is $1$ and the next smallest is $3$, so choosing two or more numbers gives at least $1+3=4$.\end{proofbox}
+
+\step{3}{Check option (B) $(30,40)$}
+Displacement: horizontal $30-20=10$, vertical $40-19=21$.\par
+A signed sum of $5$ odd numbers is always \emph{odd}; a signed sum of even numbers is always \emph{even}. Since $21$ is odd, the vertical direction must be the odd group, so we would need $\pm1\pm3\pm5\pm7\pm9=21$ -- impossible by Step 2. So the dot \textbf{cannot} reach $(30,40)$.
+
+\step{4}{All other options can be reached (show the moves)}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}\textbf{Point} & \textbf{Displacement (horiz., vert.)} & \textbf{Odd group} & \textbf{Even group}\\ \hline
+(A) $(27,33)$ & $(7,14)$ & $1+3+5+7-9=7$ & $2+4+6-8+10=14$\\ \hline
+(C) $(21,21)$ & $(1,2)$ & $1-3+5+7-9=1$ & $2-4+6+8-10=2$\\ \hline
+(D) $(42,44)$ & $(22,25)$ & $1+3+5+7+9=25$ & $2-4+6+8+10=22$\\ \hline
+(E) $(37,37)$ & $(17,18)$ & $-1-3+5+7+9=17$ & $2+4-6+8+10=18$\\ \hline
+\end{tabular}
+\end{center}
+(In (D) the horizontal displacement $22$ is even, so the first move must be vertical.) For example, a path to $(21,21)$: right $1$, up $2$, left $3$, down $4$, right $5$, up $6$, right $7$, up $8$, left $9$, down $10$:
+\begin{figC}\begin{scope}[scale=0.24]
+\draw[Line,line width=0.3pt] (-3,-3) grid (11,13);
+\draw[tmBlue,line width=1.2pt,->] (0,0)--(1,0)--(1,2)--(-2,2)--(-2,-2)--(3,-2)--(3,4)--(10,4)--(10,12)--(1,12)--(1,2);
+\fill[tmGreen] (0,0) circle (7pt); \fill[AnsRed] (1,2) circle (7pt);
+\node[font=\scriptsize,anchor=north east] at (0,0) {$(20,19)$};
+\node[font=\scriptsize,anchor=west,fill=white,inner sep=1pt] at (1.6,1.1) {$(21,21)$};
+\end{scope}\end{figC}
+\begin{warnbox}Looking only at even and odd is not enough: both $10$ (even) and $21$ (odd) are ``allowed'' as far as parity goes, yet $21$ still cannot be reached. You must really check whether a choice of signs exists.\end{warnbox}
+So the answer is \textbf{(B)}.
+\ans{(B) $(30,40)$}
+}
+
+% ------------------------------------------------------------------ 23
+\begin{probbox}{23}{\relax}
+Giang works as a server in a restaurant. On Saturday she gets up at 6:30 a.m., starts work at $x$ a.m. and finishes at $x$ p.m. (the same day). How long does Giang work on Saturday?
+\choicesII{$24-2x$ hours}{$12-x$ hours}{$2x$ hours}{$0$ hours}{$12$ hours}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} She starts at $x$ a.m. and finishes at $x$ p.m. Find how long she works. The wake-up time 6:30 a.m. is \emph{extra} information that we do not need.
+\begin{recallbox}$x$ p.m. (12-hour clock) is the same as $(x+12)$ o'clock on the 24-hour clock. For example, 3 p.m. is 15:00.\end{recallbox}
+
+\step{1}{Change to the 24-hour clock}
+Start: $x$ o'clock. Finish: $(x+12)$ o'clock.
+
+\step{2}{Compute the working time}
+Time $=$ finishing time $-$ starting time $=(x+12)-x=12$ hours.
+
+\step{3}{Another way to think (two pieces)}
+\begin{figC}
+\draw[Navy,line width=1pt,->] (0,0)--(8.4,0);
+\foreach \x/\l in {0/{$x$ a.m.},4/{12 noon},8/{$x$ p.m.}}{\draw[Navy,line width=1pt] (\x,0.12)--(\x,-0.12); \node[below,font=\footnotesize] at (\x,-0.12) {\l};}
+\brcup{0}{4}{0.25}{$12-x$ hours}
+\brcup{4}{8}{0.25}{$x$ hours}
+\end{figC}
+From $x$ a.m. to 12 noon is $12-x$ hours; from 12 noon to $x$ p.m. is $x$ hours. In total: $(12-x)+x=12$ hours. The result does not depend on $x$!
+\begin{warnbox}Option (B) $12-x$ is only the morning part. Option (D) $0$ hours comes from computing $x-x$ and forgetting that one time is ``a.m.'' and the other is ``p.m.''.\end{warnbox}
+\verify{If $x=8$: she works from 8 a.m. to 8 p.m. (20:00), that is $20-8=12$ hours \checkmark.}
+So the answer is \textbf{(E)}.
+\ans{(E) $12$ hours}
+}
+
+% ------------------------------------------------------------------ 24
+\begin{probbox}{24}{\stars{1}}
+An $8\times 8\times n$ rectangular box ($n$ a positive integer) is built from $1\times1\times1$ cubes. Let $A$ be the surface area of the box and $B$ the combined surface area of all the small cubes that make it up. The sum of all values of $n$ for which $\dfrac{B}{A}$ is an integer is
+\choices{$86$}{$90$}{$70$}{$78$}{$96$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} We write $A$ and $B$ in terms of $n$, form the ratio $\frac{B}{A}$, find every positive integer $n$ making it an integer, and finally add those values of $n$.
+\begin{figC}\begin{scope}[scale=0.8]
+\draw[tmBlue,line width=1pt,fill=tmBlue!10] (0,0) rectangle (2.4,1.6);
+\draw[tmBlue,line width=1pt,fill=tmBlue!20] (0,1.6)--(0.9,2.3)--(3.3,2.3)--(2.4,1.6)--cycle;
+\draw[tmBlue,line width=1pt,fill=tmBlue!5] (2.4,0)--(3.3,0.7)--(3.3,2.3)--(2.4,1.6)--cycle;
+\node[below,font=\footnotesize] at (1.2,0) {$8$};
+\node[right,font=\footnotesize] at (3.3,1.5) {$n$};
+\node[below right,font=\footnotesize] at (2.8,0.4) {$8$};
+\end{scope}\end{figC}
+\begin{recallbox}A rectangular box with dimensions $a,b,c$ has surface area (total area of its $6$ faces) $2(ab+bc+ca)$. A unit cube has $6$ faces of area $1$, so its surface area is $6$. An $a\times b\times c$ box is made of $a\cdot b\cdot c$ unit cubes.\end{recallbox}
+
+\step{1}{Compute $A$}
+$A=2(8\cdot 8+8\cdot n+8\cdot n)=2(64+16n)=128+32n$.
+
+\step{2}{Compute $B$}
+Number of small cubes: $8\cdot 8\cdot n=64n$. Each has surface area $6$, so $B=6\cdot 64n=384n$.
+
+\step{3}{Simplify the ratio}
+\[ \frac{B}{A}=\frac{384n}{128+32n}=\frac{32\cdot 12n}{32\cdot(4+n)}=\frac{12n}{n+4}. \]
+
+\step{4}{Split off the whole part}
+\[ \frac{12n}{n+4}=\frac{12(n+4)-48}{n+4}=12-\frac{48}{n+4}. \]
+\begin{proofbox}$12(n+4)-48=12n+48-48=12n$, so the numerator is unchanged. Therefore $\frac{12n}{n+4}$ is an integer exactly when $\frac{48}{n+4}$ is an integer, that is, when $n+4$ is a divisor of $48$.\end{proofbox}
+
+\step{5}{Find the values of $n$}
+The positive divisors of $48$ are $1,2,3,4,6,8,12,16,24,48$. Since $n\ge 1$, we need $n+4\ge 5$; keep only $6,8,12,16,24,48$:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$n+4$ & $6$ & $8$ & $12$ & $16$ & $24$ & $48$\\ \hline
+$n$ & $2$ & $4$ & $8$ & $12$ & $20$ & $44$\\ \hline
+$\frac{B}{A}=12-\frac{48}{n+4}$ & $4$ & $6$ & $8$ & $9$ & $10$ & $11$\\ \hline
+\end{tabular}
+\end{center}
+
+\step{6}{Add the values}
+$2+4+8+12+20+44=90$.
+\begin{warnbox}Do not forget the condition $n\ge 1$: the divisors $1,2,3,4$ of $48$ give $n+4\le 4$, that is $n\le 0$ -- rejected.\end{warnbox}
+\verify{For $n=2$: $A=128+64=192$, $B=768$, $\frac{B}{A}=4$ \checkmark. For $n=44$: $A=128+1408=1536$, $B=16\,896$, $\frac{B}{A}=11$ \checkmark.}
+So the answer is \textbf{(B)}.
+\ans{(B) $90$}
+}
+
+% ------------------------------------------------------------------ 25
+\begin{probbox}{25}{\stars{1}}
+Three bus routes cross at the stop $X$ as shown (segments with the same number of tick marks have equal length). Every $12$ minutes, bus A completes a trip $P\to X\to S\to X\to P$. Every $20$ minutes, bus B completes a trip $Q\to X\to T\to X\to Q$. Every $28$ minutes, bus C completes a trip $R\to X\to U\to X\to R$. At 1:00 p.m., buses A, B and C leave $P$, $Q$ and $R$ respectively; each bus drives at a constant speed and turns around instantly at the end of its route. The buses run continuously until 11:00 p.m. Between 5:00 p.m. and 10:00 p.m., how many times are two or more buses at $X$ at the same moment?
+\begin{figC}
+\draw[Ink,line width=1pt] (0,1.6)--(0,-1.6) (-2.2,0)--(2.2,0) (-1.9,-1.4)--(1.9,1.4);
+\foreach \p/\q/\l/\a in {(0,1.6)/P/P/above,(0,-1.6)/S/S/below,(-2.2,0)/Q/Q/left,(2.2,0)/T/T/right,(-1.9,-1.4)/R/R/below left,(1.9,1.4)/U/U/above right}{\fill[Ink] \p circle (2pt); \node[\a,font=\small\itshape] at \p {$\l$};}
+\fill[Ink] (0,0) circle (2pt); \node[below right,font=\small\itshape] at (0.05,-0.05) {$X$};
+\draw[tmBlue,line width=1pt] (-0.12,0.8)--(0.12,0.8) (-0.12,-0.8)--(0.12,-0.8);
+\foreach \x in {-1.1,1.1}{\draw[tmOrange,line width=1pt] (\x-0.05,-0.12)--(\x-0.05,0.12) (\x+0.05,-0.12)--(\x+0.05,0.12);}
+\foreach \t in {-0.5,0.5}{\begin{scope}[shift={(1.9*\t,1.4*\t)},rotate=36.4]
+  \draw[tmGreen,line width=1pt] (-0.09,-0.12)--(-0.09,0.12) (0,-0.12)--(0,0.12) (0.09,-0.12)--(0.09,0.12);\end{scope}}
+\end{figC}
+\choicesII{$18$}{$19$}{$20$}{$21$}{$22$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} Each bus runs steadily along a route with two arms of equal length. We find \emph{the times} at which each bus is at $X$, then count the times that coincide. Measure time $t$ as \emph{the number of minutes after 1:00 p.m.}: then 5:00 p.m. corresponds to $t=240$ and 10:00 p.m. to $t=540$.
+
+\step{1}{When is bus A at $X$?}
+A trip $P\to X\to S\to X\to P$ consists of $4$ equal segments ($PX=XS$) and takes $12$ minutes, so each segment takes $12\div 4=3$ minutes. Bus A reaches $X$ after $3$ minutes, then goes $X\to S\to X$ in $6$ minutes, so it is at $X$ again at minute $9$; after that at minutes $15, 21, 27,\dots$ That is,
+\[ t=3,\ 9,\ 15,\ 21,\dots \quad = 3\times 1,\ 3\times 3,\ 3\times 5,\ 3\times 7,\dots \]
+Bus A is at $X$ exactly at the times $t=3\times(\text{odd number})$.
+
+\step{2}{Similarly for buses B and C}
+Bus B: each segment takes $20\div 4=5$ minutes; it is at $X$ when $t=5,15,25,\dots=5\times(\text{odd})$.\par
+Bus C: each segment takes $28\div 4=7$ minutes; it is at $X$ when $t=7,21,35,\dots=7\times(\text{odd})$.
+
+\step{3}{When are two buses at $X$ together?}
+\begin{proofbox}Buses A and B are both at $X$ $\iff$ $t=3\times(\text{odd})=5\times(\text{odd})$. Then $t$ is odd (a product of odd numbers is odd), and $t$ is divisible by both $3$ and $5$, hence by $15$; so $t$ is an \emph{odd multiple of $15$}. Conversely, if $t=15\times(\text{odd})$, then $t=3\times(5\times\text{odd})=5\times(3\times\text{odd})$, where the brackets are odd, so both buses are at $X$.\end{proofbox}
+By exactly the same argument: A and C are at $X$ together $\iff$ $t$ is an odd multiple of $21$; B and C $\iff$ $t$ is an odd multiple of $35$; all three buses $\iff$ $t$ is an odd multiple of $105$.
+\begin{recallbox}If a number is divisible by two coprime numbers $a$ and $b$, then it is divisible by $a\cdot b$. For example: divisible by $3$ and by $5$ implies divisible by $15$.\end{recallbox}
+
+\step{4}{Count in the range $240\le t\le 540$}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item Odd multiples of $15$: $15\times 17=255$, \dots, $15\times 35=525$ (for $17,19,\dots,35$): \textbf{10} times.
+\item Odd multiples of $21$: $21\times 13=273$, \dots, $21\times 25=525$ (for $13,15,\dots,25$): \textbf{7} times.
+\item Odd multiples of $35$: $35\times 7=245$, \dots, $35\times 15=525$ (for $7,9,\dots,15$): \textbf{5} times.
+\item Odd multiples of $105$: $105\times 3=315$ and $105\times 5=525$: \textbf{2} times (all three buses).
+\end{itemize}
+
+\step{5}{Remove the double counting}
+At $t=315$ and $t=525$ all three buses are at $X$, so each of these times was counted \emph{three times} in $10+7+5=22$ (once in each list), although it should be counted once. We subtract $2$ for each of them:
+\[ 22-2\times 2=18. \]
+The full list of the $18$ times (converted to clock times):
+\begin{center}\small
+\begin{tabular}{|c|c||c|c||c|c|}
+\hline
+\rowcolor{tmBlue!10}Time & Buses & Time & Buses & Time & Buses\\ \hline
+5:05 p.m. & B, C & 6:57 p.m. & A, C & 8:21 p.m. & A, C\\ \hline
+5:15 p.m. & A, B & 7:15 p.m. & A, B & 8:35 p.m. & B, C\\ \hline
+5:33 p.m. & A, C & 7:25 p.m. & B, C & 8:45 p.m. & A, B\\ \hline
+5:45 p.m. & A, B & 7:39 p.m. & A, C & 9:03 p.m. & A, C\\ \hline
+\textbf{6:15 p.m.} & \textbf{A, B, C} & 7:45 p.m. & A, B & 9:15 p.m. & A, B\\ \hline
+6:45 p.m. & A, B & 8:15 p.m. & A, B & \textbf{9:45 p.m.} & \textbf{A, B, C}\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Bus A is at $X$ \emph{twice} in every $12$-minute trip (on the way out and on the way back), so the gap between visits is $6$ minutes, not $12$ minutes. Using only ``multiples of $12$, $20$, $28$'' gives a wrong answer.\end{warnbox}
+\verify{Checking minute by minute from $240$ to $540$ (for example with a computer) also gives exactly $18$ times.}
+So the answer is \textbf{(A)}.
+\ans{(A) $18$}
+}
+
+% ------------------------------------------------------------------ 26
+\begin{probbox}{26}{\relax}
+Sơn starts at $7$ and counts forward by $3$, getting the list $7, 10, 13,\dots$ Dũng starts at $2026$ and counts backward by $5$, getting the list $2026, 2021, 2016,\dots$ Which of the following numbers appears in both lists?
+\choices{$1009$}{$1006$}{$1003$}{$1001$}{$1011$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} Each list consists of equally spaced numbers. We find a ``test'' for a number to belong to each list, then check each option.
+
+\step{1}{The test for Sơn's list}
+$7=2\cdot 3+1$ leaves remainder $1$ when divided by $3$. Each time we add $3$, the remainder on division by $3$ does not change. So every number in Sơn's list \textbf{leaves remainder $1$ on division by $3$} (and is $\ge 7$). Conversely, every number $\ge 7$ with remainder $1$ appears, since it equals $7+3k$.
+
+\step{2}{The test for Dũng's list}
+$2026=405\cdot 5+1$ leaves remainder $1$ on division by $5$. Subtracting $5$ does not change the remainder on division by $5$. So every number in Dũng's list \textbf{leaves remainder $1$ on division by $5$} (and is $\le 2026$), that is, it \textbf{ends in the digit $1$ or $6$}.
+\begin{recallbox}Adding or subtracting a multiple of $m$ does not change the remainder on division by $m$. A number leaves remainder $1$ on division by $5$ exactly when its last digit is $1$ or $6$. A number and the sum of its digits leave the same remainder on division by $3$.\end{recallbox}
+
+\step{3}{Check each option}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}\textbf{Number} & \textbf{Digit sum; remainder mod 3} & \textbf{Last digit} & \textbf{In both?}\\ \hline
+$1009$ & $10$; rem. $1$ \checkmark & $9$ $\times$ & no\\ \hline
+$1006$ & $7$; rem. $1$ \checkmark & $6$ \checkmark & \textbf{yes}\\ \hline
+$1003$ & $4$; rem. $1$ \checkmark & $3$ $\times$ & no\\ \hline
+$1001$ & $2$; rem. $2$ $\times$ & $1$ \checkmark & no\\ \hline
+$1011$ & $3$; rem. $0$ $\times$ & $1$ \checkmark & no\\ \hline
+\end{tabular}
+\end{center}
+\verify{$1006=7+3\cdot 333$ (since $1006-7=999=3\cdot 333$), so $1006$ is the $334$th number in Sơn's list. $2026-1006=1020=5\cdot 204$, so $1006$ is in Dũng's list (after $204$ steps of $5$) \checkmark.}
+\begin{tipbox}Instead of writing out hundreds of numbers from each list, we only need the remainder -- a common ``signature'' of every number in the list.\end{tipbox}
+So the answer is \textbf{(B)}.
+\ans{(B) $1006$}
+}
+
+% ------------------------------------------------------------------ 27
+\begin{probbox}{27}{\stars{1}}
+On a circular track, An stands at point $A$ and Bình stands at point $B$ directly opposite $A$ (segment $AB$ is a diameter). An runs counterclockwise and Bình runs clockwise. They run at constant but different speeds. After a while they notice that every time they pass each other, it is always at the same three places on the track. The ratio of their speeds is
+\begin{figC}
+\draw[Ink,line width=1.1pt] (0,0) circle (1.1);
+\fill[Ink] (0,1.1) circle (2pt) node[above right,font=\small\itshape] {$A$};
+\fill[Ink] (0,-1.1) circle (2pt) node[below right,font=\small\itshape] {$B$};
+\draw[tmBlue,line width=1pt,->] (-0.2,1.33)--(-0.75,1.18);
+\draw[tmOrange,line width=1pt,->] (-0.2,-1.33)--(-0.75,-1.18);
+\node[font=\scriptsize,text=tmBlue] at (-1.25,1.45) {An};
+\node[font=\scriptsize,text=tmOrange!85!black] at (-1.3,-1.45) {Bình};
+\end{figC}
+\choicesII{$3:2$}{$3:1$}{$4:1$}{$2:1$}{$5:2$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} The two friends run \emph{in opposite directions} around the circle. We find what fraction of a lap each one runs between two consecutive meetings, and deduce how many different meeting points there are.
+
+\step{1}{Between two consecutive meetings, together they run exactly 1 lap}
+\begin{proofbox}Just after meeting, the two separate in opposite directions. The distance between them (measured along the track) grows, and they meet again when the total distance the two have run just covers the whole circle. So between two consecutive meetings, the \emph{total} distance they run is exactly $1$ lap. (For the first meeting only: they start half a lap apart, so the total is $\frac12$ lap.)\end{proofbox}
+
+\step{2}{What fraction of a lap does An run each time?}
+In the same amount of time, distance is proportional to speed. If the ratio of speeds An : Bình is $p:q$, then during $1$ shared lap An runs $\dfrac{p}{p+q}$ of a lap and Bình runs $\dfrac{q}{p+q}$ of a lap.
+\begin{recallbox}Sharing a quantity in the ratio $p:q$: the first share is $\frac{p}{p+q}$ and the second share is $\frac{q}{p+q}$ of the total.\end{recallbox}
+So each meeting point is an arc of $\dfrac{p}{p+q}$ lap away from the previous one (in An's direction).
+
+\step{3}{Try the ratio $2:1$}
+Each time An runs $\frac{2}{3}$ of a lap. Let $M_1$ be the first meeting point. The next meeting points are $\frac23$, $\frac43$, $\frac63=2$ laps, \dots\ away from $M_1$. Since a full lap brings you back to the same place, $\frac43$ lap is the same as $\frac13$ lap, and $2$ laps is $M_1$ itself. There are only \textbf{three} meeting points: $M_1$ and the two points that divide the circle into three equal parts with it. (If Bình is faster, ratio $1:2$, the result is the same.)
+
+\step{4}{How many points do the other ratios give?}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}\textbf{Ratio} & \textbf{An runs each time} & \textbf{Meeting points (measured from $M_1$)} & \textbf{Points}\\ \hline
+(A) $3:2$ & $\frac35$ lap & $0,\frac35,\frac15,\frac45,\frac25$ then repeats & $5$\\ \hline
+(B) $3:1$ & $\frac34$ lap & $0,\frac34,\frac24,\frac14$ then repeats & $4$\\ \hline
+(C) $4:1$ & $\frac45$ lap & $0,\frac45,\frac35,\frac25,\frac15$ & $5$\\ \hline
+(D) $2:1$ & $\frac23$ lap & $0,\frac23,\frac13$ & $\mathbf{3}$\\ \hline
+(E) $5:2$ & $\frac57$ lap & $7$ different places & $7$\\ \hline
+\end{tabular}
+\end{center}
+(For example, row (A): $\frac35+\frac35=\frac65$, remove $1$ lap to get $\frac15$; add $\frac35$ to get $\frac45$; add $\frac35$ to get $\frac75$, remove $1$ lap to get $\frac25$; add $\frac35$ to get $1$ lap -- back at $M_1$.)
+\begin{figC}
+\draw[Ink,line width=1.1pt] (0,0) circle (1.1);
+\fill[Ink] (0,1.1) circle (2pt) node[above,font=\small\itshape] {$A$};
+\fill[Ink] (0,-1.1) circle (2pt) node[below,font=\small\itshape] {$B$};
+\foreach \a in {90,210,330}{\fill[AnsRed] (\a:1.1) circle (3pt);}
+\node[font=\scriptsize,text=AnsRed,anchor=east] at (210:1.25) {meet};
+\node[font=\scriptsize,text=AnsRed,anchor=west] at (330:1.25) {meet};
+\node[font=\scriptsize,text=AnsRed,anchor=south west] at (90:1.18) {meet};
+\end{figC}
+\verify{Let the track be $600$ m long, An run $200$ m per minute and Bình $100$ m per minute. They start $300$ m apart and first meet after $300\div 300=1$ minute, at the point $200$ m from $A$ (in An's direction). After that they meet every $600\div 300=2$ minutes, and An runs another $400$ m each time: positions $200\to 600$ (that is, $A$) $\to 1000$ (that is, $400$ m) $\to 1400$ (that is, $200$ m) \dots\ Exactly three points: $0$ m, $200$ m, $400$ m, dividing the circle into three equal parts -- as in the picture above.}
+So the answer is \textbf{(D)}.
+\ans{(D) $2:1$}
+}
+
+% ------------------------------------------------------------------ 28
+\begin{probbox}{28}{\stars{1}}
+The list $11, 20, 31, 51, 82$ is an example of an increasing list of five positive integers in which the first and second numbers add to the third, the second and third add to the fourth, and the third and fourth add to the fifth. How many such lists have $124$ as the fifth number?
+\choices{$10$}{$7$}{$9$}{$6$}{$8$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} The whole list is completely determined by its first two numbers. We express the fifth number in terms of the first two, then count the pairs that work.
+
+\step{1}{Express the whole list in terms of the first two numbers $a$ and $b$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}1st & 2nd & 3rd & 4th & 5th\\ \hline
+$a$ & $b$ & $a+b$ & $b+(a+b)=a+2b$ & $(a+b)+(a+2b)=2a+3b$\\ \hline
+\end{tabular}
+\end{center}
+Check with the example: $a=11$, $b=20$ gives the fifth number $2\cdot 11+3\cdot 20=22+60=82$ \checkmark.
+
+\step{2}{Conditions}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item The fifth number is $124$: $2a+3b=124$.
+\item $a, b$ are positive integers.
+\item The list is increasing: we need $a<b$. (The later steps increase automatically: $a+b>b$, $a+2b>a+b$, \dots\ since $a,b>0$.)
+\end{itemize}
+
+\step{3}{$b$ must be even}
+$2a$ and $124$ are both even, so $3b=124-2a$ is even, hence $b$ is even. Write $b=2t$ ($t$ a positive integer). Then $2a=124-6t$, that is,
+\[ a=62-3t. \]
+
+\step{4}{Find the range of $t$}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item $a\ge 1$: $62-3t\ge 1 \Rightarrow 3t\le 61 \Rightarrow t\le 20$.
+\item $a<b$: $62-3t<2t \Rightarrow 62<5t \Rightarrow t>12.4 \Rightarrow t\ge 13$.
+\end{itemize}
+So $t\in\{13,14,15,16,17,18,19,20\}$: $8$ values.
+
+\step{5}{List them to check}
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10}$t$ & $13$ & $14$ & $15$ & $16$ & $17$ & $18$ & $19$ & $20$\\ \hline
+$a=62-3t$ & $23$ & $20$ & $17$ & $14$ & $11$ & $8$ & $5$ & $2$\\ \hline
+$b=2t$ & $26$ & $28$ & $30$ & $32$ & $34$ & $36$ & $38$ & $40$\\ \hline
+\end{tabular}
+\end{center}
+For example $t=13$: the list $23, 26, 49, 75, 124$; $t=20$: the list $2, 40, 42, 82, 124$.
+\begin{warnbox}If we forget the condition ``increasing'' ($a<b$), we overcount pairs such as $a=26$, $b=24$ (the list $26, 24, 50, 74, 124$ -- it decreases at the first step).\end{warnbox}
+\verify{$t=12$ gives $a=26$, $b=24$: $a>b$, rejected. $t=21$ gives $a=-1$: not positive, rejected. So there are exactly $8$ lists.}
+So the answer is \textbf{(E)}.
+\ans{(E) $8$}
+}
+
+% ------------------------------------------------------------------ 29
+\begin{probbox}{29}{\relax}
+Khánh owns more cats than Lan and more dogs than Bảo. Lan owns more dogs than Khánh but fewer cats than Bảo. Which of the following statements \textbf{must} be true?
+\choicesL{Bảo owns the fewest cats.}{Bảo owns the most cats.}{Khánh owns the most cats.}{Lan owns the most dogs.}{Khánh owns the fewest dogs.}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} There are two separate kinds of comparison: comparing numbers of \emph{cats} and comparing numbers of \emph{dogs}. We split the information into two groups and put each in order.
+
+\step{1}{Information about cats}
+``Khánh owns more cats than Lan'': Lan $<$ Khánh.\quad ``Lan owns fewer cats than Bảo'': Lan $<$ Bảo.\par
+So Lan has the fewest cats. But between Khánh and Bảo, \emph{we do not know who has more}.
+
+\step{2}{Information about dogs}
+``Khánh owns more dogs than Bảo'': Bảo $<$ Khánh.\quad ``Lan owns more dogs than Khánh'': Khánh $<$ Lan.\par
+Together: Bảo $<$ Khánh $<$ Lan. So \textbf{Lan has the most dogs}, and Bảo the fewest dogs.
+\begin{figC}
+\node[font=\small\bfseries,text=tmOrange!85!black] at (-0.6,1.4) {Cats};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (L) at (1,1.4) {Lan};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (K) at (3,1.9) {Khánh};
+\node[draw=tmOrange,rounded corners=3pt,font=\small] (B) at (3,0.9) {Bảo};
+\draw[->,tmOrange,line width=0.9pt] (L)--(K); \draw[->,tmOrange,line width=0.9pt] (L)--(B);
+\node[font=\scriptsize,text=Slate] at (4.6,1.4) {(cannot compare)};
+\node[font=\small\bfseries,text=tmBlue] at (-0.6,0) {Dogs};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (b) at (1,0) {Bảo};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (k) at (3,0) {Khánh};
+\node[draw=tmBlue,rounded corners=3pt,font=\small] (l) at (5,0) {Lan};
+\draw[->,tmBlue,line width=0.9pt] (b)--(k); \draw[->,tmBlue,line width=0.9pt] (k)--(l);
+\node[font=\scriptsize,text=Slate] at (3,-0.55) {arrows point from fewer to more};
+\end{figC}
+
+\step{3}{Examine each statement}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item (A) ``Bảo owns the fewest cats'': \textbf{false}, because Lan has fewer cats than Bảo.
+\item (B) ``Bảo owns the most cats'': \emph{may} be true, but not necessarily. For example, Lan $1$, Khánh $3$, Bảo $2$ cats satisfies every condition, yet Khánh has the most cats.
+\item (C) ``Khánh owns the most cats'': not necessarily either. For example, with Lan $1$, Khánh $2$, Bảo $3$ cats, Bảo has the most.
+\item (D) ``Lan owns the most dogs'': \textbf{must be true} (Step 2).
+\item (E) ``Khánh owns the fewest dogs'': \textbf{false}, because Bảo has fewer dogs than Khánh.
+\end{itemize}
+\begin{warnbox}``Must be true'' means true in \emph{every} situation that fits the problem. Finding a single situation in which a statement is false is enough to reject it.\end{warnbox}
+So the answer is \textbf{(D)}.
+\ans{(D) Lan owns the most dogs}
+}
+
+% ------------------------------------------------------------------ 30
+\begin{probbox}{30}{\relax}
+Linh bought $300$ g of candy A for $50$ thousand dong and $x$ g of candy B for $70$ thousand dong. She worked out that the average price of all the candy she bought was $15$ thousand dong per $100$ g. What is the value of $x$?
+\choices{$525$}{$600$}{$500$}{$450$}{$900$}
+\end{probbox}
+\probsol{
+\textbf{Analysis.} Given: the amounts paid for the two kinds of candy and the average price. Find: the mass of candy B. Idea: from the total cost and the average price, find the \emph{total mass}.
+\begin{recallbox}Average price $=$ total cost $\div$ total mass. Therefore total mass $=$ total cost $\div$ average price.\end{recallbox}
+
+\step{1}{Total cost}
+$50+70=120$ thousand dong.
+
+\step{2}{Total mass}
+Every $100$ g costs $15$ thousand dong. With $120$ thousand dong one can buy $120\div 15=8$ ``portions of $100$ g''. So the total mass is $8\cdot 100=800$ g.
+
+\step{3}{Mass of candy B}
+$x=800-300=500$ g.
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} & \textbf{Candy A} & \textbf{Candy B} & \textbf{Both}\\ \hline
+Mass (g) & $300$ & $x=500$ & $800$\\ \hline
+Cost (thousand dong) & $50$ & $70$ & $120$\\ \hline
+Price per $100$ g (thousand dong) & $\approx 16.7$ & $14$ & $15$\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}You cannot simply take the average of the two prices ($16.7$ and $14$), because the two masses are different. The average price must be computed as \emph{total cost divided by total mass}.\end{warnbox}
+\verify{$120$ thousand dong for $800$ g means $120\div 8=15$ thousand dong per $100$ g \checkmark.}
+So the answer is \textbf{(C)}.
+\ans{(C) $500$}
+}

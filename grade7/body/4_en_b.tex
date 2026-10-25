@@ -440,3 +440,150 @@ Choose option \textbf{(D)}.
 \ans{(D) $\dfrac{5}{32}$}
 }
 
+\begin{probbox}{27}{\relax}
+Mai went to a second-hand market where, every $15$ minutes, the price of every item was reduced by $10\%$ of its \emph{current} price. At $9$:$00$ a.m., the price of a rug was $100\,000$ dong. At $9$:$15$ a.m., the price was reduced to $90\,000$ dong. As soon as the price of the rug fell \emph{below} $80\,000$ dong, Mai bought it. At what time did Mai buy the rug?
+\choicesII{$9$:$45$ a.m.}{$9$:$15$ a.m.}{$9$:$30$ a.m.}{$10$:$15$ a.m.}{$10$:$00$ a.m.}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each reduction is $10\%$ of the \emph{current price} (not of the original $100\,000$ dong). We compute the price after each $15$-minute mark until it is less than $80\,000$ dong.
+
+\begin{recallbox}Reducing a number by $10\%$ means taking away $\dfrac{10}{100}=\dfrac1{10}$ of it; what remains is $90\%$ of it. So: new price $=$ old price $\times 0.9$ (or old price $-$ old price $\div 10$).\end{recallbox}
+
+\step{1}{Make a table of prices over time}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{Tint}\textbf{Time} & \textbf{Price before} & \textbf{Reduction ($10\%$)} & \textbf{New price}\\
+\hline
+$9$:$00$ a.m. & -- & -- & $100\,000$\\
+$9$:$15$ a.m. & $100\,000$ & $10\,000$ & $90\,000$\\
+$9$:$30$ a.m. & $90\,000$ & $9\,000$ & $81\,000$\\
+$9$:$45$ a.m. & $81\,000$ & $8\,100$ & $\mathbf{72\,900}$\\
+\hline
+\end{tabular}
+\end{center}
+
+\step{2}{Find the first time the price is below $80\,000$ dong}
+At $9$:$30$ a.m. the price is $81\,000$ dong -- still \emph{more} than $80\,000$ dong, so Mai does not buy yet. At $9$:$45$ a.m. the price is $72\,900$ dong $<80\,000$ dong: this is the first time it falls below $80\,000$ dong. Mai buys it at $9$:$45$ a.m.
+
+\begin{warnbox}(1) The reduction is $10\%$ \emph{of the current price}, so the amount taken off gets smaller each time ($10\,000$, then $9\,000$, then $8\,100$\dots); it is not $10\,000$ dong every time. (2) At $9$:$30$ a.m. the price $81\,000$ dong is ``very close'' to $80\,000$ but not yet \emph{below} $80\,000$, so it is not the moment to buy.\end{warnbox}
+
+\verify{$100\,000\times 0.9\times 0.9\times 0.9=72\,900$ (after $3$ reductions, i.e.\ $3\times 15=45$ minutes after $9$:$00$); after $2$ reductions: $100\,000\times0.81=81\,000>80\,000$.}
+Choose option \textbf{(A)}.
+\ans{(A) $9$:$45$ a.m.}
+}
+
+\begin{probbox}{28}{\relax}
+The number $2018$ is used to create six-digit positive integers: each of them must contain the digits $2,0,1,8$ \emph{together and in this order}. For example, $720\,186$ is allowed, but $209\,318$ and $210\,893$ are not. How many of these six-digit integers are divisible by $9$?
+\choices{$28$}{$27$}{$31$}{$34$}{$22$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The six-digit number contains the block ``$2018$'' plus two more digits (call them $a$ and $b$). We must count those divisible by $9$.
+
+\begin{recallbox}\textbf{Divisibility by $9$:} a number is divisible by $9$ exactly when the sum of its digits is divisible by $9$. The first digit of a six-digit number cannot be $0$.\end{recallbox}
+
+\step{1}{Condition on the digit sum}
+The digits of the block add up to $2+0+1+8=11$. The whole number has digit sum $11+a+b$. Since $a,b$ are digits, $0\le a+b\le 18$, so $11\le 11+a+b\le 29$. The multiples of $9$ in this range are $18$ and $27$. Therefore
+\[a+b=7\qquad\text{or}\qquad a+b=16.\]
+The only pairs with sum $16$ are $(7,9),\ (8,8),\ (9,7)$.
+
+\step{2}{Three possible positions of the block $2018$}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{Tint}\textbf{Form} & \textbf{Extra condition} & \textbf{$a+b=7$} & \textbf{$a+b=16$} & \textbf{Total}\\
+\hline
+$\nd{2018ab}$ & none ($a$ may be $0$) & $8$ pairs: $a=0,1,\dots,7$ & $3$ & $11$\\
+$\nd{a2018b}$ & $a\neq 0$ & $7$ pairs: $a=1,\dots,7$ & $3$ & $10$\\
+$\nd{ab2018}$ & $a\neq 0$ & $7$ pairs: $a=1,\dots,7$ & $3$ & $10$\\
+\hline
+\multicolumn{4}{|r|}{\textbf{Total}} & $\mathbf{31}$\\
+\hline
+\end{tabular}
+\end{center}
+About the column ``$a+b=7$'': the pairs are $(0,7),(1,6),(2,5),(3,4),(4,3),(5,2),(6,1),(7,0)$ -- that is $8$ pairs. When $a$ is the first digit of the number, we drop $(0,7)$, leaving $7$ pairs. The pairs with sum $16$ all have $a\ge 7$, so none is dropped.
+
+\step{3}{Is any number counted twice?}
+A number would be counted twice only if the block $2018$ appeared in two different places in the same six-digit number. Two $4$-digit blocks inside $6$ digits must overlap, and the block $2018$ cannot overlap itself (for example, shifting it by $1$ place would force the digit $0$ to coincide with the digit $2$\dots). So no number is counted twice.
+
+\begin{warnbox}It is easy to forget one of the two cases: many students only consider $a+b=7$ (getting $8+7+7=22$, which is exactly the distractor (E)) and forget $a+b=16$. It is also easy to forget that the first digit cannot be $0$ (that would give $34$).\end{warnbox}
+
+\verify{A few examples: $201\,870$ has digit sum $18$; $720\,186$ has digit sum $24$ -- not divisible by $9$ (correct, since $7+6=13$ is neither $7$ nor $16$); $920\,187$ has digit sum $27$, divisible by $9$. A computer search of all numbers from $100\,000$ to $999\,999$ also gives exactly $31$.}
+Choose option \textbf{(C)}.
+\ans{(C) $31$}
+}
+
+\begin{probbox}{29}{\relax}
+The number $N$ is the product of all positive odd integers from $1$ to $99$ that do \emph{not} end in the digit $5$. That is,
+\[N=1\times 3\times 7\times 9\times 11\times 13\times 17\times 19\times\cdots\times 91\times 93\times 97\times 99.\]
+The units digit of $N$ is
+\choices{$1$}{$3$}{$5$}{$7$}{$9$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} $N$ is a gigantic number that we cannot compute directly. But we only need its \emph{last digit}, and the last digit of a product depends only on the last digits of the factors.
+
+\begin{recallbox}The units digit of a product equals the units digit of the product of the units digits of the factors. Example: $13\times 17=221$ ends in $1$, just like $3\times 7=21$.\end{recallbox}
+
+\step{1}{Which units digits do the factors have?}
+Odd numbers that do not end in $5$ can only end in $1,3,7,9$. Split the factors into $10$ groups, one for each ten:
+\[(1\cdot3\cdot7\cdot9),\ (11\cdot13\cdot17\cdot19),\ (21\cdot23\cdot27\cdot29),\ \dots,\ (91\cdot93\cdot97\cdot99).\]
+Each group has $4$ factors ending in $1,3,7,9$; there are $10$ groups (the tens $0$ to $9$), $40$ factors in all.
+
+\step{2}{Units digit of each group}
+$1\cdot3\cdot7\cdot9=189$, which ends in $9$. So the product of each group ends in $9$.
+
+\step{3}{Multiply the $10$ groups}
+The units digit of $N$ equals the units digit of $\underbrace{9\cdot 9\cdots 9}_{10\text{ factors}}=9^{10}$. Now $9\cdot 9=81$ ends in $1$. Pair up the $10$ nines into $5$ pairs, each ending in $1$, so $9^{10}$ ends in $1\cdot1\cdot1\cdot1\cdot1=1$.
+
+\begin{tipbox}Powers of $9$ have alternating last digits: $9^1\to 9$, $9^2\to 1$, $9^3\to 9$, $9^4\to 1$,\dots: odd exponents end in $9$, even exponents end in $1$.\end{tipbox}
+
+\begin{warnbox}Do not think ``a product of odd numbers ends in $9$'', and do not choose $5$ by reflex: the numbers ending in $5$ have been left out. Also count the groups correctly: from $1$ to $99$ there are $10$ groups (the first one is $1,3,7,9$).\end{warnbox}
+
+\verify{Step by step: after group $1$ the last digit is $9$, after group $2$ it is $9\cdot9\to1$, after group $3$ it is $9$,\dots, after group $10$ (an even number) it is $1$. A computer computing $N$ exactly also gives last digit $1$.}
+Choose option \textbf{(A)}.
+\ans{(A) $1$}
+}
+
+\begin{probbox}{30}{\relax}
+Five students wrote a quiz with a maximum score of $50$. The scores of four of the students were $42$, $43$, $46$ and $49$. The score of the fifth student was $N$. The mean of the five students' scores was the same as the median of the five students' scores. The number of possible values of $N$ is
+\choices{$3$}{$4$}{$1$}{$0$}{$2$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} $N$ is a score from $0$ to $50$. The mean depends on $N$; the median also depends on where $N$ falls when the five scores are put in order. We consider each case for the position of $N$.
+
+\begin{recallbox}The \textbf{median} of five numbers is the \emph{middle} one (the third) when they are arranged from smallest to largest. The \textbf{mean} $=$ sum $\div$ how many numbers.\end{recallbox}
+
+\step{1}{Write the mean in terms of $N$}
+The four known scores add to $42+43+46+49=180$. The mean of the five scores is $\dfrac{180+N}{5}$.
+
+\step{2}{What is the median? -- Three cases}
+Arrange $42,43,46,49$ together with $N$ in increasing order:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item If $N\le 43$: the order is $\dots,43,46,49$ with $N$ in one of the first two places; the third number is $43$. Median $=43$.
+\item If $43\le N\le 46$: the order is $42,43,N,46,49$. Median $=N$.
+\item If $N\ge 46$: the order is $42,43,46,\dots$ with $N$ in one of the last two places. Median $=46$.
+\end{itemize}
+\begin{figC}
+\draw[->,thick,Navy] (0,0)--(10.6,0);
+\foreach \x/\lab in {0/0,6/42,6.6/43,8.4/46,10.2/50}{\draw[Navy] (\x,0.1)--(\x,-0.1); \node[below,font=\footnotesize] at (\x,-0.1) {$\lab$};}
+\draw[tmBlue,line width=3pt,opacity=0.5] (0,0.35)--(6.6,0.35); \node[above,font=\scriptsize,text=tmBlue] at (3.3,0.4) {median $=43$};
+\draw[tmOrange,line width=3pt,opacity=0.6] (6.6,0.35)--(8.4,0.35); \node[above,font=\scriptsize,text=tmOrange!80!black] at (7.5,0.4) {median $=N$};
+\draw[tmGreen,line width=3pt,opacity=0.5] (8.4,0.35)--(10.2,0.35); \node[above,font=\scriptsize,text=tmGreen!70!black] at (9.4,0.85) {median $=46$};
+\end{figC}
+
+\step{3}{Solve each case}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item \textbf{Case 1} (median $43$): $\dfrac{180+N}{5}=43\Rightarrow 180+N=215\Rightarrow N=35$. Check: $35\le 43$ -- it is in the case being considered. \textbf{Accept.}
+\item \textbf{Case 2} (median $N$): $\dfrac{180+N}{5}=N\Rightarrow 180+N=5N\Rightarrow 4N=180\Rightarrow N=45$. Check: $43\le 45\le 46$. \textbf{Accept.}
+\item \textbf{Case 3} (median $46$): $\dfrac{180+N}{5}=46\Rightarrow 180+N=230\Rightarrow N=50$. Check: $50\ge 46$, and $50$ does not exceed the maximum score. \textbf{Accept.}
+\end{itemize}
+
+\begin{warnbox}After solving for $N$ in each case, you \emph{must check} that $N$ really belongs to that case (and lies between $0$ and $50$). In this problem all three values are valid, but in many other problems some values get rejected. Do not stop after finding one value!\end{warnbox}
+
+\verify{
+$N=35$: scores $35,42,43,46,49$, sum $215$, mean $43$, median $43$.
+$N=45$: scores $42,43,45,46,49$, sum $225$, mean $45$, median $45$.
+$N=50$: scores $42,43,46,49,50$, sum $230$, mean $46$, median $46$.}
+There are $3$ values of $N$, which is option \textbf{(A)}.
+\ans{(A) $3$}
+}

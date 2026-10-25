@@ -370,3 +370,395 @@ rows of seats, toothpicks, constant rates & find the pattern, evenly spaced sequ
 \end{tabularx}
 \end{knowbox}
 
+% ======================================================================
+% EXAMPLES
+% ======================================================================
+\begin{exbox}{Example 1}
+A box contains $3$ red marbles, $5$ blue marbles and $4$ yellow marbles, all of the same size. One marble is drawn at random.
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item Find the probability of drawing a blue marble.
+\item Find the probability of drawing a marble that is \emph{not} red.
+\item Find the probability of drawing a purple marble.
+\end{enumerate}
+\guide
+\step{1}{Count all possible outcomes}
+Each marble is one outcome, and since the marbles have the same size the outcomes are equally likely. Total number of marbles: $3+5+4=12$. So there are $12$ possible outcomes.
+\step{2}{Part a}
+There are $5$ blue marbles, i.e.\ $5$ favourable outcomes.
+$P(\text{blue})=\dfrac{5}{12}$.
+\step{3}{Part b -- use the complement}
+$P(\text{red})=\dfrac{3}{12}=\dfrac14$, so $P(\text{not red})=1-\dfrac14=\dfrac34$.
+
+\emph{Another way (direct counting):} the marbles that are not red are $5$ blue and $4$ yellow, i.e.\ $9$ marbles; $P=\dfrac{9}{12}=\dfrac34$. Both ways give the same result.
+\step{4}{Part c}
+There are no purple marbles in the box: $0$ favourable outcomes. $P(\text{purple})=\dfrac{0}{12}=0$ -- an impossible event.
+\ans{a) $\frac{5}{12}$;\quad b) $\frac34$;\quad c) $0$.}
+\end{exbox}
+
+\begin{exbox}{Example 2}
+A bag contains $30$ sweets, some strawberry and some orange. If one sweet is drawn at random, the probability that it is strawberry is $\dfrac25$.
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item How many strawberry sweets and how many orange sweets are in the bag?
+\item An takes out $2$ strawberry sweets and eats them. Then Bình draws one sweet at random from the bag. Find the probability that Bình gets a strawberry sweet.
+\end{enumerate}
+\guide
+\step{1}{Find the number of strawberry sweets}
+\begin{recallbox}Number of favourable outcomes $=$ probability $\times$ number of all outcomes.\end{recallbox}
+Strawberry sweets: $30\times\dfrac25=\dfrac{30\times 2}{5}=\dfrac{60}{5}=12$. Orange sweets: $30-12=18$.
+
+\emph{Check:} $\dfrac{12}{30}=\dfrac{2}{5}$ \checkmark.
+\step{2}{Recount after An eats $2$ sweets}
+\begin{center}
+\begin{tabular}{|l|c|c|c|}\hline
+ & strawberry & orange & total \\ \hline
+At the start & $12$ & $18$ & $30$\\ \hline
+After An eats $2$ strawberry & $12-2=10$ & $18$ & $30-2=28$\\ \hline
+\end{tabular}
+\end{center}
+\step{3}{Compute the probability for Bình}
+$P(\text{strawberry})=\dfrac{10}{28}=\dfrac{5}{14}$.
+\begin{warnbox}Do not answer $\dfrac{10}{30}$: An has eaten $2$ sweets, so the total number of sweets (the denominator) has gone down too.\end{warnbox}
+\ans{a) $12$ strawberry, $18$ orange;\quad b) $\frac{5}{14}$.}
+\end{exbox}
+
+\begin{exbox}{Example 3}
+A red die and a blue die (both fair) are rolled together. Find the probability of each event:
+\begin{enumerate}[label=\alph*),leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+\item The sum of the two numbers is $8$.
+\item Both dice show the same number.
+\item The sum of the two numbers is greater than or equal to $10$.
+\end{enumerate}
+\guide
+\step{1}{Make a table of all outcomes}
+Rows are the numbers on the red die, columns the numbers on the blue die, and each cell shows the sum. The table has $6\times6=36$ cells, corresponding to $36$ equally likely outcomes.
+\begin{figC}
+\foreach \c in {1,...,6}{\node[draw=tmBlue,fill=tmBlue!15,minimum size=0.6cm,font=\bfseries] at (\c*0.6,0.4) {\c};}
+\foreach \r in {1,...,6}{\node[draw=AnsRed,fill=AnsRed!12,minimum size=0.6cm,font=\bfseries] at (0,0.4-\r*0.6) {\r};
+  \foreach \c in {1,...,6}{\pgfmathtruncatemacro\s{\r+\c}%
+    \def\fc{white}%
+    \ifnum\s=8 \def\fc{tmOrange!40}\fi
+    \ifnum\s>9 \def\fc{tmGreen!30}\fi
+    \node[draw=Line,fill=\fc,minimum size=0.6cm] at (\c*0.6,0.4-\r*0.6) {\s};
+    \ifnum\r=\c \draw[tmPurple,line width=1pt] (\c*0.6,0.4-\r*0.6) circle (0.24);\fi}}
+\node[font=\footnotesize,align=left,anchor=west] at (4.4,-1.7) {\colorbox{tmOrange!40}{\strut\ \ } sum equals $8$ ($5$ cells)\\[2pt]
+  {\color{tmPurple}$\bigcirc$} both numbers equal ($6$ cells)\\[2pt] \colorbox{tmGreen!30}{\strut\ \ } sum $\ge 10$ ($6$ cells)};
+\end{figC}
+\step{2}{Part a}
+The cells with sum $8$: $(2,6),(3,5),(4,4),(5,3),(6,2)$ -- $5$ outcomes (the first number is the red die). $P=\dfrac{5}{36}$.
+\step{3}{Part b}
+Equal numbers lie on the diagonal: $(1,1),(2,2),\dots,(6,6)$ -- $6$ outcomes. $P=\dfrac{6}{36}=\dfrac16$.
+\step{4}{Part c}
+Sum $10$: $(4,6),(5,5),(6,4)$; sum $11$: $(5,6),(6,5)$; sum $12$: $(6,6)$. Altogether $3+2+1=6$ outcomes. $P=\dfrac{6}{36}=\dfrac16$.
+\begin{tipbox}The $6\times6$ table also shows \emph{symmetry}: the number of cells above the diagonal (red smaller than blue) equals the number of cells below the diagonal (red greater than blue).\end{tipbox}
+\ans{a) $\frac{5}{36}$;\quad b) $\frac16$;\quad c) $\frac16$.}
+\end{exbox}
+
+\begin{exbox}{Example 4}
+A fair coin is tossed three times in a row. Find the probability of getting:
+a) exactly two heads;\quad b) at least one head.
+\guide
+\step{1}{Draw a tree diagram and list}
+Each toss has $2$ outcomes (H or T). By the tree diagram in section 3, there are $2\times2\times2=8$ equally likely outcomes:
+\[
+\text{HHH},\ \text{HHT},\ \text{HTH},\ \text{HTT},\ \text{THH},\ \text{THT},\ \text{TTH},\ \text{TTT}.
+\]
+\step{2}{Part a}
+The outcomes with exactly two H's: HHT, HTH, THH -- $3$ outcomes. $P=\dfrac38$.
+\step{3}{Part b -- complement}
+The complement of ``at least one head'' is ``no heads at all'', which is only TTT ($1$ outcome). So
+$P(\text{at least one H})=1-\dfrac18=\dfrac78$.
+\begin{tipbox}When you see the words ``\emph{at least one}'', think immediately of the complement ``\emph{none at all}'' -- it usually has very few outcomes and is easy to count.\end{tipbox}
+\ans{a) $\frac38$;\quad b) $\frac78$.}
+\end{exbox}
+
+\begin{exbox}{Example 5}
+Using the digits $1,2,3,4$, how many three-digit numbers can be made if:
+a) digits may be repeated;\quad b) the digits must be different;\quad c) the digits are different and the number is even?\\
+d) One of the numbers from part b) is chosen at random. Find the probability that it is even.
+\guide
+\step{1}{Part a -- repetition allowed}
+Hundreds: $4$ ways; tens: still $4$ ways; ones: $4$ ways. By the multiplication rule: $4\times4\times4=64$ numbers.
+\step{2}{Part b -- no repetition}
+\countboxes{hundreds/4/any/tmBlue,tens/3/not the hundreds digit/tmOrange,ones/2/not the two above/tmGreen}{24}
+Hundreds: $4$ ways. The tens digit must differ from the digit already used: $3$ ways. The ones digit must differ from both digits used: $2$ ways. There are $4\times3\times2=24$ numbers.
+\step{3}{Part c -- even, no repetition: choose the ones digit FIRST}
+An even number ends in $2$ or $4$: $2$ ways. Then the hundreds digit is one of the $3$ remaining digits: $3$ ways; the tens digit: $2$ ways. There are $2\times3\times2=12$ numbers.
+\begin{tipbox}A position with a \emph{condition} (must be even, must not be $0$\ldots) should be \textbf{chosen first}. If you choose the hundreds digit first, the number of choices for the ones digit is sometimes $1$ and sometimes $2$ (depending on whether the hundreds digit used an even or an odd digit) -- very easy to get wrong.\end{tipbox}
+\step{4}{Part d}
+$P(\text{even})=\dfrac{12}{24}=\dfrac12$.
+\verify{List the numbers starting with $1$: $123,124,132,134,142,143$ -- exactly $6=3\times2$ numbers, of which $124,132,134,142$ are even ($4$ numbers). The four possible first digits behave alike, so there are $4\times6=24$ numbers, \ldots\ matching part b.}
+\ans{a) $64$;\quad b) $24$;\quad c) $12$;\quad d) $\frac12$.}
+\end{exbox}
+
+\begin{exbox}{Example 6}
+Four friends An, Bình, Chi and Dũng sit on four chairs in a row, numbered $1,2,3,4$ from left to right. We know that: Dũng sits on chair $1$; Bình and Chi sit next to each other; An does not sit next to Bình; An does not sit on chair $4$. Who sits on chair $4$?
+\guide
+\step{1}{Place Dũng}
+Dũng is on chair $1$, leaving chairs $2,3,4$ for An, Bình and Chi.
+\step{2}{Consider An's position}
+An does not sit on chair $4$, so An sits on chair $2$ or chair $3$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=1pt]
+\item \emph{If An sits on chair $3$:} Bình and Chi take chairs $2$ and $4$ -- these chairs are not next to each other, which breaks the condition ``Bình and Chi sit next to each other''. Rejected.
+\item \emph{If An sits on chair $2$:} Bình and Chi take chairs $3$ and $4$ (next to each other, good). An must not be next to Bình, and chair $3$ is next to chair $2$, so Bình is not on chair $3$. So Bình is on chair $4$ and Chi on chair $3$.
+\end{itemize}
+\begin{figC}
+\foreach \i/\n/\c in {1/Dũng/tmPurple,2/An/tmOrange,3/Chi/tmGreen,4/Bình/tmBlue}{
+  \draw[\c,line width=1pt,fill=\c!12,rounded corners=3pt] (\i*1.6-0.65,0) rectangle (\i*1.6+0.65,0.7);
+  \node[font=\bfseries] at (\i*1.6,0.35){\n};\node[font=\footnotesize] at (\i*1.6,-0.3){chair \i};}
+\end{figC}
+\verify{Dũng on chair $1$ \checkmark; Bình (chair $4$) next to Chi (chair $3$) \checkmark; An (chair $2$) is next to Dũng and Chi, not next to Bình \checkmark; An is not on chair $4$ \checkmark.}
+\ans{Bình sits on chair $4$.}
+\end{exbox}
+
+\begin{exbox}{Example 7}
+a) The figure on the left is a strip of $4$ squares. How many rectangles (including squares) are there altogether?\\
+b) The figure on the right is a $2\times2$ grid of squares. How many rectangles are there? How many of them are squares?
+\begin{figC}
+\foreach \i in {0,...,4}{\draw[Ink,line width=1pt] (\i*0.8,0)--(\i*0.8,0.8);}
+\draw[Ink,line width=1pt] (0,0)--(3.2,0) (0,0.8)--(3.2,0.8);
+\begin{scope}[xshift=5.5cm]
+\foreach \i in {0,1,2}{\draw[Ink,line width=1pt] (\i*0.8,0)--(\i*0.8,1.6) (0,\i*0.8)--(1.6,\i*0.8);}
+\end{scope}
+\end{figC}
+\guide
+\step{1}{Part a -- count by width}
+Measure the width in squares:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+Width & $1$ square & $2$ squares & $3$ squares & $4$ squares\\ \hline
+Number of shapes & $4$ & $3$ & $2$ & $1$\\ \hline
+\end{tabular}
+\end{center}
+Total: $4+3+2+1=10$ rectangles. \emph{Check with the ``choose two vertical lines'' trick:} there are $5$ vertical lines, and the number of ways to choose $2$ of them is $\dfrac{5\times4}{2}=10$ \checkmark.
+\step{2}{Part b -- choose two horizontal and two vertical lines}
+The grid has $3$ horizontal and $3$ vertical lines. Choose $2$ horizontal lines: $\dfrac{3\times2}{2}=3$ ways; choose $2$ vertical lines: $3$ ways. By the multiplication rule there are $3\times3=9$ rectangles.
+\step{3}{Count the squares separately}
+$1\times1$ squares: $4$; $2\times2$ squares: $1$ (the whole grid). There are $4+1=5$ squares.
+\verify{Counting by size: $1\times1$: $4$; $1\times2$ (lying flat): $2$; $2\times1$ (standing): $2$; $2\times2$: $1$. Total $4+2+2+1=9$ \checkmark.}
+\ans{a) $10$ rectangles;\quad b) $9$ rectangles, of which $5$ are squares.}
+\end{exbox}
+
+\begin{exbox}{Example 8}
+Toothpicks are used to make a row of joined squares as shown below.
+\begin{figC}
+\foreach \n/\x in {1/0,2/2,3/5}{
+  \foreach \i in {0,...,\n}{\draw[tmOrange!80!black,line width=1.6pt,line cap=round] (\x+\i*0.7,0.05)--(\x+\i*0.7,0.65);}
+  \foreach \i in {1,...,\n}{\draw[tmOrange!80!black,line width=1.6pt,line cap=round] (\x+\i*0.7-0.65,0)--(\x+\i*0.7-0.05,0) (\x+\i*0.7-0.65,0.7)--(\x+\i*0.7-0.05,0.7);}
+  \node[font=\footnotesize] at (\x+\n*0.35,-0.35){\n\ sq.};}
+\end{figC}
+a) How many toothpicks are needed for a row of $20$ squares?\\
+b) Lan builds, one after another and separately, a row of $1$ square, a row of $2$ squares, \ldots, a row of $10$ squares. How many toothpicks does Lan use altogether?
+\guide
+\step{1}{Find the pattern}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+Squares & $1$ & $2$ & $3$ & $n$\\ \hline
+Toothpicks & $4$ & $7$ & $10$ & $3n+1$\\ \hline
+\end{tabular}
+\end{center}
+Explanation: count each kind of toothpick separately. Horizontal toothpicks: each square has $1$ on top and $1$ at the bottom, that is $2n$ toothpicks. Vertical toothpicks: $n$ squares have $n+1$ vertical toothpicks (just as $n$ gaps need $n+1$ posts). Total $2n+(n+1)=3n+1$.
+\step{2}{Part a}
+$n=20$: $3\times20+1=61$ toothpicks.
+\step{3}{Part b -- sum of an evenly spaced sequence}
+The numbers of toothpicks are $4,7,10,\dots,31$ (a row of $10$ squares needs $3\times10+1=31$ toothpicks). This is an evenly spaced sequence with step $3$ and $10$ terms.
+\begin{recallbox}Sum of an evenly spaced sequence $=\dfrac{(\text{first}+\text{last})\times\text{number of terms}}{2}$.\end{recallbox}
+Sum: $\dfrac{(4+31)\times10}{2}=\dfrac{350}{2}=175$ toothpicks.
+\verify{$4+7+10+13+16+19+22+25+28+31$: pair first with last, $4+31=7+28=10+25=13+22=16+19=35$, giving $5$ pairs, $5\times35=175$ \checkmark.}
+\ans{a) $61$ toothpicks;\quad b) $175$ toothpicks.}
+\end{exbox}
+
+% ======================================================================
+\clearpage
+\dividerbar{Core practice}
+
+% ---------------------------------------------------------------- Problem 1
+\begin{probbox}{1}{\relax}
+\begin{minipage}[t]{0.66\linewidth}\vspace{0pt}
+The spinner shown is divided into $6$ sectors of equal size, each marked with a letter. The spinner is spun once. What is the probability that the arrow lands on a sector marked with the letter $P$?
+\choices{$\dfrac{3}{6}$}{$\dfrac{4}{6}$}{$\dfrac{5}{6}$}{$\dfrac{2}{6}$}{$\dfrac{1}{6}$}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
+\centering\begin{tikzpicture}[scale=0.95]\cpSpinSix{P}{R}{P}{Q}{R}{Q}\end{tikzpicture}
+\end{minipage}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The spinner has $6$ \emph{equal} sectors, so when it is spun the arrow is equally likely to stop in each sector. We need the probability that the arrow points to a sector marked $P$.
+\begin{recallbox}When the outcomes are equally likely: $P(\text{event})=\dfrac{\text{number of favourable outcomes}}{\text{number of all outcomes}}$.\end{recallbox}
+\step{1}{Count all possible outcomes}
+The arrow can stop in any one of the $6$ sectors, so there are $6$ possible outcomes.
+\step{2}{Count the favourable outcomes}
+Reading the letters clockwise, starting from the top-left sector: $P,\ R,\ P,\ Q,\ R,\ Q$. Exactly $2$ sectors are marked $P$ (the top-left one and the right one).
+\step{3}{Compute the probability}
+$P(\text{letter }P)=\dfrac{2}{6}$ $\left(=\dfrac13\right)$.
+\begin{warnbox}There are $3$ different letters ($P$, $Q$, $R$), but the probability is \emph{not} computed as ``$1$ letter out of $3$ letters''. Here $\dfrac13=\dfrac26$ only by coincidence, because each letter appears exactly $2$ times; if the letters took up different numbers of sectors, that way of thinking would be wrong. Always count \emph{sectors}, not \emph{kinds of letters}.\end{warnbox}
+\verify{Each of the letters $P$, $Q$, $R$ takes $2$ sectors: $\dfrac26+\dfrac26+\dfrac26=1$ -- the probabilities of all possibilities add up to $1$, as they should.}
+The value $\dfrac26$ matches option \textbf{(D)}. (Option (A) $\dfrac36$ comes from miscounting $3$ sectors; (E) $\dfrac16$ is the probability of \emph{one} particular sector.)
+\ans{(D) $\dfrac{2}{6}$}
+}
+
+% ---------------------------------------------------------------- Problem 2
+\begin{probbox}{2}{\relax}
+Using the three digits $4$, $7$ and $9$, each digit used \emph{at most once}, how many three-digit whole numbers with different digits can be made?
+\choices{$6$}{$3$}{$5$}{$12$}{$9$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} A three-digit number using exactly the digits $4,7,9$, with no digit repeated. So each number is an \emph{arrangement} of these three digits in the three places: hundreds, tens, ones.
+\step{1}{Method 1 -- systematic listing}
+Order by the hundreds digit (from smallest to largest):
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt,topsep=1pt]
+\item Hundreds digit $4$: the other two digits $7,9$ give $479$ and $497$.
+\item Hundreds digit $7$: $749$ and $794$.
+\item Hundreds digit $9$: $947$ and $974$.
+\end{itemize}
+There are $2+2+2=6$ numbers.
+\step{2}{Method 2 -- multiplication rule}
+\begin{recallbox}Multiplication rule: if a task has several successive stages, each with a number of ways (not depending on the choices made before), then the number of ways to do the whole task is the \emph{product} of those numbers.\end{recallbox}
+\countboxes{hundreds/3/4 or 7 or 9/tmBlue,tens/2/2 digits left/tmOrange,ones/1/the last digit/tmGreen}{6}
+Hundreds: $3$ choices. Tens: only $2$ unused digits remain, $2$ choices. Ones: exactly $1$ digit remains, $1$ choice. Number of numbers: $3\times2\times1=6$.
+\begin{warnbox}If repeated digits were allowed there would be $3\times3\times3=27$ numbers (such as $444$, $477$\ldots). The problem forbids repetition, so after each stage the number of choices goes down by $1$.\end{warnbox}
+\verify{The six numbers $479,497,749,794,947,974$ are all different and all use the three digits. Both methods give the same result.}
+The answer $6$ is option \textbf{(A)}. (Option (B) $3$ is just the number of digits given.)
+\ans{(A) $6$}
+}
+
+% ---------------------------------------------------------------- Problem 3
+\begin{probbox}{3}{\relax}
+An envelope contains $2$ sunflower seeds, $3$ mung bean seeds and $4$ pumpkin seeds. Chi takes one seed from the envelope at random. What is the probability that Chi takes a sunflower seed?
+\choices{$\dfrac{2}{9}$}{$\dfrac{5}{9}$}{$\dfrac{9}{7}$}{$\dfrac{7}{9}$}{$\dfrac{1}{9}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The envelope has three kinds of seeds in different numbers. Chi takes \emph{one seed} at random: every seed has the same chance of being taken, so each \emph{seed} is one equally likely outcome.
+\step{1}{Count all possible outcomes}
+Total number of seeds: $2+3+4=9$, i.e.\ $9$ outcomes.
+\step{2}{Count the favourable outcomes}
+There are $2$ sunflower seeds, so $2$ favourable outcomes.
+\step{3}{Compute the probability}
+\begin{recallbox}$P=\dfrac{\text{number of favourable outcomes}}{\text{number of all outcomes}}$.\end{recallbox}
+$P(\text{sunflower})=\dfrac{2}{9}$.
+\begin{warnbox}There are $3$ \emph{kinds} of seeds but the answer is not $\dfrac13$, because the pumpkin seeds are more numerous and so more likely to be taken. Remember too that a probability is never greater than $1$, so option (C) $\dfrac97$ is certainly wrong.\end{warnbox}
+\verify{$P(\text{sunflower})+P(\text{mung bean})+P(\text{pumpkin})=\dfrac29+\dfrac39+\dfrac49=\dfrac99=1$.}
+The result $\dfrac29$ is option \textbf{(A)}. (Option (D) $\dfrac79$ is the probability of \emph{not} taking a sunflower seed.)
+\ans{(A) $\dfrac{2}{9}$}
+}
+
+% ---------------------------------------------------------------- Problem 4
+\begin{probbox}{4}{\relax}
+A cinema has $11$ rows of seats, numbered from $1$ to $11$. Each odd-numbered row has $15$ seats and each even-numbered row has $16$ seats. How many seats are there in the cinema altogether?
+\choices{$176$}{$186$}{$165$}{$170$}{$171$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The number of seats in a row depends on whether the row number is odd or even. So we need to know how many of the numbers from $1$ to $11$ are odd and how many are even.
+\step{1}{Count the odd rows and the even rows}
+Odd rows: $1,3,5,7,9,11$ -- $6$ rows.\\
+Even rows: $2,4,6,8,10$ -- $5$ rows.\\
+Check: $6+5=11$ rows \checkmark.
+\begin{figC}
+\foreach \i in {1,...,11}{\pgfmathtruncatemacro\m{mod(\i,2)}%
+  \ifnum\m=1 \def\cc{tmBlue}\else\def\cc{tmOrange}\fi
+  \draw[\cc,line width=0.9pt,fill=\cc!15,rounded corners=2pt] (\i*0.75-0.33,0) rectangle (\i*0.75+0.33,0.55);
+  \node[font=\footnotesize\bfseries] at (\i*0.75,0.275){\i};}
+\node[font=\footnotesize,text=tmBlue!80!black,anchor=west] at (9,0.55){odd row: $15$ seats};
+\node[font=\footnotesize,text=tmOrange!80!black,anchor=west] at (9,0.05){even row: $16$ seats};
+\end{figC}
+\begin{warnbox}Do not split the $11$ rows into ``$5.5$ odd rows and $5.5$ even rows''. The list starts \emph{and} ends with an odd number ($1$ and $11$), so there is exactly $1$ more odd number than even numbers.\end{warnbox}
+\step{2}{Seats in the odd rows}
+$6\times15=90$ seats.
+\step{3}{Seats in the even rows}
+$5\times16=80$ seats.
+\step{4}{Add up}
+Total number of seats: $90+80=170$.
+\verify{\emph{Another way -- pairing:} pair row $1$ with row $2$, row $3$ with row $4$, \ldots, row $9$ with row $10$: that gives $5$ pairs, each with $15+16=31$ seats, i.e.\ $5\times31=155$ seats; row $11$ with $15$ seats is left over. Total $155+15=170$ \checkmark.}
+The answer $170$ is option \textbf{(D)}. (Mixing up and taking $5$ odd rows and $6$ even rows gives $171$ -- option (E), a very common ``trap''.)
+\ans{(D) $170$}
+}
+
+% ---------------------------------------------------------------- Problem 5
+\begin{probbox}{5}{\relax}
+At a class party, each student in turn draws a wrapped present at random from a bag. The presents are only books and calculators; there are $27$ presents in the bag altogether. Mai draws first. The probability that Mai draws a book is $\dfrac23$. How many books are in the bag?
+\choices{$15$}{$9$}{$21$}{$7$}{$18$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} A ``backwards'' problem: we know the \emph{probability} and the \emph{total} number of presents, and need the \emph{number of favourable outcomes} (the number of books). Since Mai draws first, all $27$ presents are still in the bag.
+\begin{recallbox}From $P=\dfrac{\text{number of favourable outcomes}}{\text{number of all outcomes}}$ we get: number of favourable outcomes $=P\times$ number of all outcomes.\end{recallbox}
+\step{1}{Call the number of books an unknown}
+Let the number of books be $s$. The probability of drawing a book is $\dfrac{s}{27}$. By the problem: $\dfrac{s}{27}=\dfrac23$.
+\step{2}{Find $s$}
+$s=27\times\dfrac23=\dfrac{27\times2}{3}=\dfrac{54}{3}=18$.
+
+\emph{Thinking with a bar model:} $\dfrac23$ means splitting the $27$ presents into $3$ equal parts of $27\div3=9$ presents each; books take $2$ parts, i.e.\ $2\times 9=18$ books.
+\begin{figC}
+\blk{0}{3}{0}{0.6}{tmBlue}{9 books}\blk{3}{6}{0}{0.6}{tmBlue}{9 books}\blk{6}{9}{0}{0.6}{tmOrange}{9 calculators}
+\brcup{0}{9}{0.5}{$27$ presents}
+\brcdn{0}{6}{-0.5}{$\frac23$ are books: $18$ books}
+\end{figC}
+\verify{There are $18$ books and $27-18=9$ calculators. Probability of drawing a book: $\dfrac{18}{27}=\dfrac{18\div9}{27\div9}=\dfrac23$ \checkmark.}
+\begin{warnbox}The $9$ in option (B) is the number of \emph{calculators}, not books -- read the question carefully before choosing.\end{warnbox}
+The answer $18$ is option \textbf{(E)}.
+\ans{(E) $18$}
+}
+
+% ---------------------------------------------------------------- Problem 6
+\begin{probbox}{6}{\relax}
+A crate of fruit contains $20$ apples, $10$ oranges and no other fruit. One fruit is taken from the crate at random. What is the probability that it is an orange?
+\choices{$\dfrac{1}{10}$}{$\dfrac{1}{20}$}{$\dfrac{1}{30}$}{$\dfrac{1}{3}$}{$\dfrac{2}{3}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Every fruit in the crate has the same chance of being taken. A favourable outcome is taking one of the oranges.
+\step{1}{Count all outcomes}
+Total number of fruits: $20+10=30$.
+\step{2}{Count the favourable outcomes}
+There are $10$ oranges.
+\step{3}{Compute and simplify}
+\begin{recallbox}$P=\dfrac{\text{number of favourable outcomes}}{\text{number of all outcomes}}$; simplify a fraction by dividing the numerator and denominator by their GCD.\end{recallbox}
+$P(\text{orange})=\dfrac{10}{30}=\dfrac{10\div10}{30\div10}=\dfrac13$.
+\begin{warnbox}Two common mistakes: (1) using the number of apples ($20$) as the denominator instead of the \emph{total number of fruits} ($30$), giving $\dfrac{10}{20}$; (2) writing $\dfrac{1}{10}$ (option A) thinking ``there are $10$ oranges so each is $\dfrac1{10}$''. The denominator is always \emph{all} the outcomes.\end{warnbox}
+\verify{$P(\text{apple})=\dfrac{20}{30}=\dfrac23$ and $\dfrac13+\dfrac23=1$ \checkmark. It also makes sense: there are twice as many apples as oranges, so an apple is twice as likely as an orange.}
+The result $\dfrac13$ is option \textbf{(D)}. (Option (E) $\dfrac23$ is the probability of taking an apple.)
+\ans{(D) $\dfrac13$}
+}
+
+% ---------------------------------------------------------------- Problem 7
+\begin{probbox}{7}{\relax}
+A bag contains $2$ red balls, $5$ yellow balls and $4$ blue balls, all the same size. Without looking, one ball is taken from the bag. The probability of taking a yellow ball is
+\choices{$\dfrac{2}{11}$}{$\dfrac{5}{11}$}{$\dfrac{4}{11}$}{$\dfrac{6}{11}$}{$\dfrac{7}{11}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} ``Without looking'' and ``the same size'' guarantee that every ball has the same chance of being taken.
+\step{1}{Count all outcomes}
+Total number of balls: $2+5+4=11$.
+\step{2}{Count the favourable outcomes}
+There are $5$ yellow balls.
+\step{3}{Compute the probability}
+\begin{recallbox}$P=\dfrac{\text{number of favourable outcomes}}{\text{number of all outcomes}}$.\end{recallbox}
+$P(\text{yellow})=\dfrac{5}{11}$ (this fraction is already in lowest terms because $5$ and $11$ have no common factor other than $1$).
+\begin{figC}
+\foreach \i in {1,2}{\shade[ball color=AnsRed] (\i*0.6,0) circle (0.22);}
+\foreach \i in {3,...,7}{\shade[ball color=tmOrange] (\i*0.6+0.3,0) circle (0.22);\draw[tmOrange!70!black,line width=0.8pt] (\i*0.6+0.3,0) circle (0.27);}
+\foreach \i in {8,...,11}{\shade[ball color=tmBlue] (\i*0.6+0.6,0) circle (0.22);}
+\node[font=\footnotesize] at (3.9,-0.55){$5$ of the $11$ balls are yellow};
+\end{figC}
+\verify{$\dfrac{2}{11}+\dfrac{5}{11}+\dfrac{4}{11}=\dfrac{11}{11}=1$ \checkmark.}
+The distractors: (A) $\dfrac{2}{11}$ is the probability of red, (C) $\dfrac{4}{11}$ the probability of blue, (D) $\dfrac{6}{11}$ the probability of \emph{not} taking a yellow ball. The correct answer is \textbf{(B)}.
+\ans{(B) $\dfrac{5}{11}$}
+}
+
+% ---------------------------------------------------------------- Problem 8
+\begin{probbox}{8}{\relax}
+You are doing a multiple-choice test. On one question you do not know the answer, so you choose an option at random. If the question has five options (A, B, C, D, E) and only one of them is correct, what is the probability that you guess correctly?
+\choices{$\dfrac{1}{5}$}{$\dfrac{5}{5}$}{$\dfrac{4}{5}$}{$\dfrac{2}{5}$}{$\dfrac{3}{5}$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} ``Choose at random'' means the five options are equally likely to be chosen. The question has exactly \emph{one} correct option.
+\step{1}{Count all outcomes}
+There are $5$ options to choose from: A, B, C, D, E.
+\step{2}{Count the favourable outcomes}
+Only $1$ option is correct, so there is $1$ favourable outcome.
+\step{3}{Compute the probability}
+\begin{recallbox}$P=\dfrac{\text{number of favourable outcomes}}{\text{number of all outcomes}}$.\end{recallbox}
+$P(\text{correct})=\dfrac15$.
+\begin{tipbox}The probability of guessing \emph{wrong} is $1-\dfrac15=\dfrac45$ -- option (C). So when guessing you are $4$ times more likely to be wrong than right. And (B) $\dfrac55=1$ means ``certainly correct'' -- absurd for a guess.\end{tipbox}
+\verify{If you did $100$ such questions and guessed every one, you would get about $100\times\dfrac15=20$ right on average -- matching the feeling ``$1$ right out of every $5$''.}
+The answer is \textbf{(A)}.
+\ans{(A) $\dfrac15$}
+}
+

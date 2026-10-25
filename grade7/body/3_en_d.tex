@@ -1,0 +1,551 @@
+% ================= Topic 3 (EN) -- part d: problems 41--50 (challenge) =================
+\begin{probbox}{41}{\stars{1}}
+On a square dot grid, Lan stands at dot $A$. She tosses a fair coin $6$ times; each time it shows heads she moves \emph{up} one dot, and
+each time it shows tails she moves \emph{right} one dot (as in problem 16). The dots $M$, $N$, $B$ are marked in the figure.
+\begin{figC}\begin{scope}[scale=0.85]
+  \foreach \x in {0,...,3}{\foreach \y in {0,...,3}{\fill[Navy] (\x,\y) circle (2.4pt);}}
+  \fill[tmOrange] (0,0) circle (3.4pt);\node[below left] at (0,0) {$A$};
+  \fill[tmGreen!80!black] (1,1) circle (3.4pt);\node[above left] at (1,1) {$M$};
+  \fill[AnsRed] (2,1) circle (3.4pt);\node[below right] at (2,1) {$N$};
+  \fill[tmPurple] (3,3) circle (3.4pt);\node[above right] at (3,3) {$B$};
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Find the probability that after $6$ tosses Lan stops at dot $B$.
+\item Find the probability that Lan passes through dot $M$ \emph{and} stops at $B$.
+\item Find the probability that Lan stops at $B$ \emph{without} passing through dot $N$.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each sequence of $6$ tosses is a sequence of $6$ symbols $\uparrow$ (up) or $\rightarrow$ (right).
+There are $2^6=2\times2\times2\times2\times2\times2=64$ sequences, all equally likely. Each sequence is a \emph{path} on the grid.
+We label positions by the pair (number of moves right, number of moves up): $A=(0,0)$, $M=(1,1)$, $N=(2,1)$, $B=(3,3)$.
+
+\step{1}{Count the paths from $A$ to every dot (part a)}
+\begin{recallbox}A dot can only be reached from the dot just to its left or the dot just below it. Therefore:
+number of paths to a dot $=$ number of paths to the dot on its left $+$ number of paths to the dot below (addition principle).\end{recallbox}
+Write the number of paths at each dot, starting from $A$ (write $1$); the bottom row and the left column are all $1$:
+\begin{figC}\begin{scope}[scale=0.85]
+  \foreach \x/\y/\n in {0/0/1,1/0/1,2/0/1,3/0/1,0/1/1,1/1/2,2/1/3,3/1/4,0/2/1,1/2/3,2/2/6,3/2/10,0/3/1,1/3/4,2/3/10,3/3/20}{
+    \fill[tmBlue!12] (\x,\y) circle (9pt);\node[font=\small\bfseries,text=Navy] at (\x,\y) {\n};}
+  \draw[tmPurple,thick] (3,3) circle (10pt);\node[right=9pt,text=tmPurple] at (3,3) {$B$};
+\end{scope}\end{figC}
+There are $20$ paths from $A$ to $B$. (Another way: reaching $B$ needs exactly $3$ up-moves among the $6$ moves; the number of ways to
+choose $3$ turns out of $6$ is $\dfrac{6\times5\times4}{3\times2\times1}=20$.)
+\[P(a)=\frac{20}{64}=\frac{5}{16}.\]
+
+\step{2}{Part b: through $M$ and then to $B$ -- multiplication principle}
+A path through $M$ has two stages: stage $A\to M$ ($1$ up, $1$ right) and stage $M\to B$ ($2$ up, $2$ right).
+Stage $A\to M$ can be done in $2$ ways ($\uparrow\rightarrow$ or $\rightarrow\uparrow$); stage $M\to B$ in $6$ ways (as in problem 16:
+choose $2$ up-turns out of $4$). Each way of doing the first stage combined with each way of doing the second gives a different path:
+$2\times6=12$ paths.
+\[P(b)=\frac{12}{64}=\frac{3}{16}.\]
+
+\step{3}{Part c: avoiding $N$ -- use the complement}
+Paths from $A$ through $N$ to $B$: stage $A\to N$ ($2$ right, $1$ up) has $3$ ways; stage $N\to B$ ($1$ right, $2$ up) has $3$ ways;
+in total $3\times3=9$ paths. So the number of paths from $A$ to $B$ \emph{not} through $N$ is $20-9=11$.
+\[P(c)=\frac{11}{64}.\]
+\begin{proofbox}\emph{Check by ``blocking'' dot $N$.} Recompute the path numbers but put $0$ at $N$ (as if it cannot be used).
+Row $1$: $1,\ 2,\ \mathbf{0},\ 0+1=1$. Row $2$: $1,\ 3,\ 3+0=3,\ 3+1=4$. Row $3$: $1,\ 4,\ 4+3=7,\ 7+4=11$.
+At $B$ we get $11$, matching the complement.\end{proofbox}
+\begin{warnbox}Parts b and c ask for probabilities among \emph{all} $64$ toss sequences, not among the $20$ paths to $B$. Dividing by $20$
+answers a different question (a conditional probability, not yet studied).\end{warnbox}
+\verify{In part a the possible final dots are $(6,0),(5,1),\dots,(0,6)$ with $1,6,15,20,15,6,1$ paths; the total is $64$. Dot $B=(3,3)$
+corresponds to $20$.}
+\ans{a) $\dfrac5{16}$;\quad b) $\dfrac3{16}$;\quad c) $\dfrac{11}{64}$}
+}
+
+\begin{probbox}{42}{\stars{2}}
+We build grids of squares from toothpicks as in problem 17. An ``$m\times n$'' grid has $m$ rows, each with $n$ squares.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Find a formula for the number of toothpicks needed for an $m\times n$ grid.
+\item A square $k\times k$ grid uses exactly $760$ toothpicks. Find $k$.
+\item Nam has exactly $2026$ toothpicks and wants to build an $m\times n$ grid (with $1\le m\le n$) that uses \emph{all} of them.
+Find all the grids Nam can build.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} As in problem 17, we count horizontal and vertical toothpicks separately. Part c leads to an equation in
+two natural-number unknowns; the trick ``multiply by $2$ and add $1$'' turns it into a problem about divisors.
+
+\step{1}{Part a: the formula}
+An $m\times n$ grid has $m+1$ horizontal lines of $n$ toothpicks each: $(m+1)\times n$ horizontal toothpicks. It has $n+1$ vertical lines of
+$m$ toothpicks each: $(n+1)\times m$ vertical toothpicks. Total:
+\[T=(m+1)n+(n+1)m=mn+n+mn+m=2mn+m+n.\]
+Check with the $1\times10$ grid: $2\times1\times10+1+10=31$, as in problem 17.
+
+\step{2}{Part b: a square $k\times k$ grid}
+Put $m=n=k$: $T=2k^2+2k=2k(k+1)$. We need $2k(k+1)=760$, that is $k(k+1)=380$.
+$k(k+1)$ is the product of two consecutive natural numbers. Since $19\times20=380$, $k=19$. (As $k$ grows, $k(k+1)$ grows, so there is only
+one value: $18\times19=342<380<420=20\times21$.)
+
+\step{3}{Part c: set up the equation}
+We need natural numbers $1\le m\le n$ with $2mn+m+n=2026$.
+\begin{tipbox}Multiply both sides by $2$ and add $1$: $4mn+2m+2n+1=4053$. The left side factorises:
+$(2m+1)(2n+1)=4mn+2m+2n+1$ (expand to check). So
+\[(2m+1)(2n+1)=4053.\]\end{tipbox}
+
+\step{4}{Prime factorisation of $4053$}
+The digit sum of $4053$ is $4+0+5+3=12$, divisible by $3$: $4053=3\times1351$. Next, $1351=7\times193$.
+The number $193$ is prime: it is not divisible by $2,3,5,7,11,13$, and $13\times13=169<193<196=14\times14$, so no more trials are needed.
+\begin{recallbox}To check whether $N$ is prime, it is enough to try dividing by the primes $p$ with $p\times p\le N$.\end{recallbox}
+So $4053=3\times7\times193$. The divisors of $4053$ are: $1,\ 3,\ 7,\ 21,\ 193,\ 579,\ 1351,\ 4053$.
+
+\step{5}{Find the pairs $(m,n)$}
+Since $m\ge1$, $2m+1\ge3$; since $m\le n$, $2m+1\le2n+1$. The ways of writing $4053$ as a product of two such divisors:
+\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+$2m+1$ & $2n+1$ & $m$ & $n$ & Check $2mn+m+n$\\\hline
+$3$ & $1351$ & $1$ & $675$ & $1350+1+675=2026$\\\hline
+$7$ & $579$ & $3$ & $289$ & $1734+3+289=2026$\\\hline
+$21$ & $193$ & $10$ & $96$ & $1920+10+96=2026$\\\hline
+\end{tabular}\end{center}
+(The pair $1\times4053$ is rejected because it gives $m=0$.)
+\begin{warnbox}Trying $m=1,2,3,\dots$ one by one also works but is very long and it is easy to miss a solution. The ``multiply by $2$, add $1$''
+trick turns the problem into ``find the divisors'' and guarantees that \emph{no} solution is missed.\end{warnbox}
+\verify{For any other value of $m$, $2m+1$ is not a divisor of $4053$, so $n$ is not a natural number. For example $m=2$: $5(2n+1)=4053$ is
+impossible because $4053$ is not divisible by $5$.}
+\ans{a) $2mn+m+n$;\quad b) $k=19$;\quad c) three grids: $1\times675$, $3\times289$, $10\times96$}
+}
+
+\begin{probbox}{43}{\stars{1}}
+Three fair dice coloured red, blue and yellow are rolled together (each is numbered $1$ to $6$). Find the probability of each event:
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item the three numbers are all different;
+\item the number on the red die is less than the number on the blue die, and the number on the blue die is less than the number on the
+yellow die;
+\item at least one die shows a $6$;
+\item the largest of the three numbers is exactly $4$.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Each outcome is a triple (red, blue, yellow). By the multiplication principle there are
+$6\times6\times6=216$ equally likely outcomes.
+
+\step{1}{Part a: three different numbers}
+Red die: $6$ ways; blue die different from red: $5$ ways; yellow die different from both: $4$ ways. That gives $6\times5\times4=120$ outcomes.
+\[P(a)=\frac{120}{216}=\frac{5}{9}.\]
+
+\step{2}{Part b: red $<$ blue $<$ yellow -- use symmetry}
+Take a set of three different numbers, for example $\{2,3,5\}$. There are $3\times2\times1=6$ ways to assign these three numbers to the three
+dice ($235$, $253$, $325$, $352$, $523$, $532$), and \emph{exactly one} of them is increasing ($2<3<5$).
+So the $120$ outcomes of part a split into groups of $6$, each with $1$ favourable outcome: there are $120\div6=20$ favourable outcomes.
+\[P(b)=\frac{20}{216}=\frac{5}{54}.\]
+\begin{recallbox}The number of ways to arrange $3$ different objects in $3$ places is $3\times2\times1=6$.\end{recallbox}
+
+\step{3}{Part c: at least one $6$ -- complement}
+The opposite event is ``no die shows $6$'': each die has only $5$ outcomes ($1$ to $5$), in total $5\times5\times5=125$.
+So the number of outcomes with at least one $6$ is $216-125=91$.
+\[P(c)=\frac{91}{216}.\]
+\begin{warnbox}Do not argue ``each die shows $6$ with probability $\frac16$, so for three dice it is $\frac36=\frac12$''. That addition counts
+twice the outcomes with two or three sixes (for example $(6,6,1)$ is counted twice).\end{warnbox}
+
+\step{4}{Part d: the largest number is exactly $4$}
+``Largest number $\le4$'' means all three numbers are in $\{1,2,3,4\}$: $4\times4\times4=64$ outcomes.
+``Largest number $\le3$'': $3\times3\times3=27$ outcomes. The largest number is exactly $4$ when it is $\le4$ but not $\le3$:
+$64-27=37$ outcomes.
+\[P(d)=\frac{37}{216}.\]
+\begin{proofbox}Every outcome whose largest number is $\le3$ also belongs to the group whose largest number is $\le4$. Removing the smaller
+group leaves exactly the outcomes whose largest number is at most $4$ but more than $3$, that is equal to $4$.\end{proofbox}
+\verify{The idea of part d also gives part c: largest number equal to $6$ in $6^3-5^3=216-125=91$ outcomes, a match. The numbers of
+outcomes by largest number $1,2,\dots,6$: $1+7+19+37+61+91=216$.}
+\ans{a) $\dfrac59$;\quad b) $\dfrac5{54}$;\quad c) $\dfrac{91}{216}$;\quad d) $\dfrac{37}{216}$}
+}
+
+\begin{probbox}{44}{\stars{2}}
+Special six-sided dice are made with one of the numbers $1,2,3,4,5,6$ written on each face (repeats allowed), so that, as in
+problem 19, the probability of rolling a multiple of $3$ is $\frac12$ and the probability of rolling an even number is $\frac13$.
+Two dice are considered the same if they carry the same six numbers (regardless of the order of the faces).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item What is the largest possible sum of the six numbers on such a die? What is the smallest?
+\item How many different such dice are there?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} As in problem 19, the conditions mean: \textbf{exactly $3$ faces are multiples of $3$} and
+\textbf{exactly $2$ faces are even}. The key point is that $6$ belongs to both groups, so we sort the numbers $1$--$6$ into four types:
+\begin{center}\begin{tabular}{|c|c|c|}\hline
+Type & Numbers & Property\\\hline
+I & $6$ & even and a multiple of $3$\\\hline
+II & $3$ & odd, multiple of $3$\\\hline
+III & $2,\ 4$ & even, not a multiple of $3$\\\hline
+IV & $1,\ 5$ & odd, not a multiple of $3$\\\hline
+\end{tabular}\end{center}
+
+\step{1}{Express the number of faces of each type in terms of the number of $6$s}
+Let $a$ be the number of faces showing $6$. Then:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item the number of multiples of $3$ is (type I) $+$ (type II) $=3$, so type II has $3-a$ faces;
+\item the number of even faces is (type I) $+$ (type III) $=2$, so type III has $2-a$ faces;
+\item type IV has $6-a-(3-a)-(2-a)=1+a$ faces.
+\end{itemize}
+A number of faces cannot be negative, so $2-a\ge0$, that is $a\in\{0,1,2\}$.
+\begin{center}\begin{tabular}{|c|c|c|c|c|}\hline
+$a$ & type I (the $6$s) & type II (the $3$s) & type III ($2$ or $4$) & type IV ($1$ or $5$)\\\hline
+$0$ & $0$ & $3$ & $2$ & $1$\\\hline
+$1$ & $1$ & $2$ & $1$ & $2$\\\hline
+$2$ & $2$ & $1$ & $0$ & $3$\\\hline
+\end{tabular}\end{center}
+
+\step{2}{Part a: largest and smallest sums}
+For the largest sum, choose all $4$s in type III and all $5$s in type IV. The sum is
+\[6a+3(3-a)+4(2-a)+5(1+a)=22+4a,\]
+largest when $a=2$: sum $30$ (the die $3,5,5,5,6,6$).
+For the smallest sum, choose all $2$s in type III and all $1$s in type IV. The sum is
+\[6a+3(3-a)+2(2-a)+1\cdot(1+a)=14+2a,\]
+smallest when $a=0$: sum $14$ (the die $1,2,2,3,3,3$).
+\begin{recallbox}Collecting terms: $6a-3a-4a+5a=4a$ and $9+8+5=22$; similarly $6a-3a-2a+a=2a$ and $9+4+1=14$.\end{recallbox}
+
+\step{3}{Part b: count the dice}
+Once $a$ is known, we only have to decide how many of the type III faces are $4$ (the rest are $2$), and how many of the type IV faces are
+$5$ (the rest are $1$).
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item $a=0$: type III has $2$ faces, the number of $4$s can be $0,1,2$: $3$ ways; type IV has $1$ face: $2$ ways. That gives $3\times2=6$ dice.
+\item $a=1$: type III has $1$ face: $2$ ways; type IV has $2$ faces: $3$ ways. That gives $2\times3=6$ dice.
+\item $a=2$: type III has $0$ faces: $1$ way; type IV has $3$ faces (the number of $5$s is $0,1,2,3$): $4$ ways. That gives $1\times4=4$ dice.
+\end{itemize}
+Total: $6+6+4=16$ dice.
+\begin{warnbox}Since the order of the faces does not matter, two type III faces ``$2,4$'' or ``$4,2$'' are \emph{one} case. Counting the
+\emph{number} of $4$s ($0$, $1$ or $2$) instead of arranging them avoids double counting.\end{warnbox}
+\verify{Two dice from the list: with $a=1$, one $4$ and two $1$s: the die $1,1,3,3,4,6$ has $3$ multiples of $3$ ($3,3,6$) and $2$ even
+faces ($4,6$). Correct. The die $1,2,2,3,3,3$ (sum $14$) also has $3$ multiples of $3$ and $2$ even faces.}
+\ans{a) Largest $30$, smallest $14$;\quad b) $16$ dice}
+}
+
+\begin{probbox}{45}{\stars{1}}
+Three lights flash: the first flashes every $4$ seconds, the second every $6$ seconds, the third every $10$ seconds. At the start
+($0$ seconds) all three flash together. Consider the next $10$ minutes (from second $1$ to the end of second $600$).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item How many times do all three lights flash together?
+\item At how many moments do \emph{exactly two} lights flash together?
+\item At how many moments does at least one light flash?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The first light flashes at the seconds that are multiples of $4$; the second at multiples of $6$; the
+third at multiples of $10$ (as in problem 20, but here every multiple counts, not only odd multiples). We count multiples from $1$ to $600$.
+
+\step{1}{Count how many times each light flashes}
+\begin{recallbox}The number of multiples of $d$ among $1$ to $N$ is the whole-number part of $N\div d$ (the quotient in division with
+remainder).\end{recallbox}
+Light 1: $600\div4=150$ times. Light 2: $600\div6=100$ times. Light 3: $600\div10=60$ times.
+
+\step{2}{Two and three lights together -- use the LCM}
+Two lights flash together when the number of seconds is a common multiple of the two periods, that is a multiple of their LCM.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item $\text{lcm}(4,6)=12$: $600\div12=50$ times lights 1 and 2 flash together.
+\item $\text{lcm}(4,10)=20$: $600\div20=30$ times.
+\item $\text{lcm}(6,10)=30$: $600\div30=20$ times.
+\item $\text{lcm}(4,6,10)=60$: $600\div60=10$ times all three flash together. This answers part a.
+\end{itemize}
+\begin{warnbox}$\text{lcm}(4,6)$ is $12$, not $4\times6=24$ (because $4$ and $6$ have the common divisor $2$). Similarly
+$\text{lcm}(4,6,10)=60$, not $240$.\end{warnbox}
+
+\step{3}{Part b: exactly two lights}
+Of the $50$ times lights 1 and 2 flash together, light 3 also flashes $10$ times (all three), so only lights 1 and 2 flash $50-10=40$ times.
+Similarly: only lights 1 and 3: $30-10=20$; only lights 2 and 3: $20-10=10$. Total number of moments with exactly two lights:
+$40+20+10=70$.
+
+\step{4}{Part c: draw a Venn diagram and fill it in from the inside out}
+Only light 1: $150-40-20-10=80$; only light 2: $100-40-10-10=40$; only light 3: $60-20-10-10=20$.
+\begin{figC}
+  \fill[tmBlue,opacity=0.12] (0,0) circle (1.3);\fill[tmOrange,opacity=0.12] (1.6,0) circle (1.3);
+  \fill[tmGreen,opacity=0.12] (0.8,-1.3) circle (1.3);
+  \draw[tmBlue,thick] (0,0) circle (1.3);\draw[tmOrange,thick] (1.6,0) circle (1.3);\draw[tmGreen!80!black,thick] (0.8,-1.3) circle (1.3);
+  \node[text=tmBlue] at (-0.9,1.25) {light 1};\node[text=tmOrange!80!black] at (2.6,1.25) {light 2};
+  \node[text=tmGreen!70!black] at (0.8,-2.85) {light 3};
+  \node at (-0.45,0.25) {$80$};\node at (2.05,0.25) {$40$};\node at (0.8,-1.95) {$20$};
+  \node at (0.8,0.5) {$40$};\node at (0.05,-0.95) {$20$};\node at (1.55,-0.95) {$10$};
+  \node[text=AnsRed,font=\bfseries\small] at (0.8,-0.45) {$10$};
+\end{figC}
+The number of moments when at least one light flashes is the sum of the seven numbers in the diagram:
+\[80+40+20+40+20+10+10=220.\]
+\begin{recallbox}\emph{Inclusion--exclusion} for three groups: number of elements in at least one group $=$ (sum of the sizes of the three groups)
+$-$ (sum of the sizes of the overlaps of each pair of groups) $+$ (size of the overlap of all three groups). The overlap of all three is added
+$3$ times and subtracted $3$ times, so it must be added back once.\end{recallbox}
+\verify{By inclusion--exclusion: $150+100+60-50-30-20+10=220$. It matches the Venn diagram.}
+\ans{a) $10$ times;\quad b) $70$ moments;\quad c) $220$ moments}
+}
+
+\begin{probbox}{46}{\stars{2}}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=2pt,topsep=2pt]
+\item A square pyramid has $5$ faces: a square base and four triangular side faces. What is the smallest number of colours needed to paint
+the $5$ faces (one colour per face) so that any two faces sharing an edge have different colours?
+\item There are $6$ different colours. We paint the six faces of a cube, one colour per face, using all $6$ colours. Two cubes are considered
+the same if one can be rotated to look exactly like the other. How many different cubes are there?
+\end{enumerate}
+\begin{figC}
+  \begin{scope}
+    \coordinate (A) at (0,0);\coordinate (B) at (2,0);\coordinate (C) at (2.7,0.6);\coordinate (D) at (0.7,0.6);\coordinate (S) at (1.35,2.1);
+    \draw[Ink,thick,dashed] (A)--(D)--(C);\draw[Ink,thick,dashed] (D)--(S);
+    \fill[tmBlue!30] (A)--(B)--(S)--cycle;\fill[tmOrange!35] (B)--(C)--(S)--cycle;
+    \draw[Ink,thick] (A)--(B)--(C)--(S)--cycle;\draw[Ink,thick] (B)--(S);
+    \node[font=\scriptsize] at (1.35,-0.3) {square pyramid};
+  \end{scope}
+  \begin{scope}[shift={(4.2,0)}]
+    \fill[tmGreen!35,draw=Ink,thick] (0,0)--(1.4,0)--(1.4,1.4)--(0,1.4)--cycle;
+    \fill[tmPurple!30,draw=Ink,thick] (0,1.4)--(1.4,1.4)--(2.0,1.95)--(0.6,1.95)--cycle;
+    \fill[tmTeal!30,draw=Ink,thick] (1.4,0)--(2.0,0.55)--(2.0,1.95)--(1.4,1.4)--cycle;
+    \node[font=\scriptsize] at (1,-0.3) {cube with $6$ colours};
+  \end{scope}
+\end{figC}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Part a is like problem 21: find a colouring and prove that fewer colours are impossible. Part b is a
+counting problem ``up to rotation'': we must be careful because a cube can be placed in many positions.
+
+\step{1}{Part a: at least $3$ colours are needed}
+\begin{proofbox}The base shares an edge with all four side faces, so its colour differs from the colour of every side face. Two neighbouring
+side faces also share an edge (a slanted edge going up to the apex), so they must differ too. Take the base and two neighbouring side faces:
+any two of these three faces share an edge, so at least $3$ colours are needed.\end{proofbox}
+\emph{Three colours are enough:} paint the base colour $1$; going around, paint the four side faces alternately colour $2$, colour $3$,
+colour $2$, colour $3$. The fourth side face (colour $3$) is next to the first (colour $2$): different. So part a needs at least $3$ colours.
+\begin{tipbox}If the base were a pentagon (a pyramid with $5$ side faces), the $5$ side faces would form an odd ring and could not alternate
+between two colours, so $4$ colours would be needed. Whether the number of side faces is even or odd decides the answer!\end{tipbox}
+
+\step{2}{Part b: put the cube in a ``standard position''}
+Call the colours $1,2,3,4,5,6$. Rotate each cube in two steps:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item rotate it so that the face of colour $1$ is \emph{at the bottom};
+\item keeping the bottom fixed, turn it about the vertical axis so that, among the four side faces, the one with the \emph{smallest colour
+number} is at the front.
+\end{itemize}
+Once placed like this, no rotation keeps both the bottom face and the front face in place. Therefore two cubes are the same exactly when,
+in standard position, they have the same colour in every position.
+
+\step{3}{Count the standard positions}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Top face (opposite colour $1$): one of the $5$ remaining colours: $5$ ways.
+\item The four remaining colours go on the four side faces; the smallest of them is already placed at the front (no choice).
+\item The other three colours go on the three faces left, back, right: $3\times2\times1=6$ ways.
+\end{itemize}
+By the multiplication principle: $5\times6=30$ different cubes.
+
+\step{4}{Check with a second method}
+If rotations were \emph{not} allowed (the six positions top, bottom, front, back, left, right fixed), the number of paintings would be
+$6\times5\times4\times3\times2\times1=720$. Each cube can be placed in $6\times4=24$ positions ($6$ choices for the face at the bottom, then
+$4$ turns about the vertical axis), and with $6$ different colours these $24$ positions give $24$ different fixed paintings.
+So the number of different cubes is $720\div24=30$.
+\begin{warnbox}Answering $720$ forgets that cubes which can be rotated into each other are the same. Answering $6\times5=30$ ``by luck''
+without explanation is not enough either: you must argue why each cube is counted exactly once.\end{warnbox}
+\verify{The two counts (standard position and dividing by $24$) give the same result, $30$.}
+\ans{a) $3$ colours;\quad b) $30$ cubes}
+}
+
+\begin{probbox}{47}{\stars{2}}
+Consider the integers $1,2,3,\dots,20$.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item How many pairs $(m,n)$ with $m<n$ are there such that $m+n$ is divisible by $3$?
+\item How many pairs $(m,n)$ with $m<n$ are there such that $m+n$ is divisible by $4$?
+\item How many triples $(m,n,p)$ with $m<n<p$ are there such that $m+n+p$ is divisible by $3$?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} In problem 22 we sorted the numbers by parity (the remainder on division by $2$). Here we sort them by
+\emph{the remainder on division by $3$} (or by $4$). Because $m<n$ (and $m<n<p$), each pair or triple is counted once, regardless of order.
+\begin{recallbox}The remainder of a sum on division by $3$ equals the remainder of the sum of the remainders. For example $7+11=18$: $7$ leaves
+remainder $1$, $11$ leaves remainder $2$, $1+2=3$ is divisible by $3$, so $18$ is divisible by $3$.\end{recallbox}
+
+\step{1}{Sort the $20$ numbers by remainder on division by $3$}
+\begin{center}\begin{tabular}{|c|l|c|}\hline
+Remainder & Numbers & How many\\\hline
+$0$ & $3,6,9,12,15,18$ & $6$\\\hline
+$1$ & $1,4,7,10,13,16,19$ & $7$\\\hline
+$2$ & $2,5,8,11,14,17,20$ & $7$\\\hline
+\end{tabular}\end{center}
+
+\step{2}{Part a}
+The sum of two remainders is divisible by $3$ in only two cases: $0+0$ or $1+2$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Both numbers with remainder $0$: choose $2$ of the $6$ numbers: $\dfrac{6\times5}{2}=15$ pairs.
+\item One with remainder $1$, one with remainder $2$: $7\times7=49$ pairs (the numbers are in different groups, so automatically different;
+the smaller one is $m$).
+\end{itemize}
+(Two numbers with remainder $1$ give a sum with remainder $2$; two numbers with remainder $2$ give $4$, remainder $1$: not allowed.)
+Total: $15+49=64$ pairs.
+
+\step{3}{Part b: sort by remainder on division by $4$}
+Each remainder $0,1,2,3$ has exactly $5$ numbers (because $20=4\times5$). The sum of two remainders is divisible by $4$ for: $0+0$, $2+2$
+or $1+3$.
+\[\frac{5\times4}{2}+\frac{5\times4}{2}+5\times5=10+10+25=45 \text{ pairs.}\]
+
+\step{4}{Part c: the remainder patterns of a triple}
+List every pattern of remainders (order not important) of three numbers and its sum:
+\begin{center}\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+Pattern & $000$ & $111$ & $222$ & $012$ & $001$ & $002$ & $011$ & $022$ & $112$ & $122$\\\hline
+Sum & $0$ & $3$ & $6$ & $3$ & $1$ & $2$ & $2$ & $4$ & $4$ & $5$\\\hline
+Divisible by $3$? & yes & yes & yes & yes & no & no & no & no & no & no\\\hline
+\end{tabular}\end{center}
+Count the four good patterns:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Pattern $000$: choose $3$ of $6$ numbers: $\dfrac{6\times5\times4}{3\times2\times1}=20$.
+\item Pattern $111$: choose $3$ of $7$ numbers: $\dfrac{7\times6\times5}{3\times2\times1}=35$. Pattern $222$: also $35$.
+\item Pattern $012$: one number from each group: $6\times7\times7=294$.
+\end{itemize}
+Total: $20+35+35+294=384$ triples.
+\begin{recallbox}The number of ways to choose $3$ objects (order not important) from $k$ objects is $\dfrac{k\times(k-1)\times(k-2)}{6}$:
+there are $k(k-1)(k-2)$ ordered choices, and each triple is counted $3\times2\times1=6$ times.\end{recallbox}
+\begin{warnbox}For pattern $012$ we do \emph{not} divide by $6$: the three numbers come from three different groups, so each choice (one number
+with remainder $0$, one with remainder $1$, one with remainder $2$) gives exactly one triple, which we then write in increasing order.\end{warnbox}
+\verify{The total number of triples is $\dfrac{20\times19\times18}{6}=1140$. There are $384$ triples with sum divisible by $3$, close to
+$\dfrac13$ of $1140$ ($380$), which is reasonable since the sums are spread ``fairly evenly'' among the three remainders.}
+\ans{a) $64$ pairs;\quad b) $45$ pairs;\quad c) $384$ triples}
+}
+
+\begin{probbox}{48}{\stars{1}}
+For a two-digit number $n=\nd{ab}$, call $\nd{ba}$ the \emph{reversal} of $n$ (as in problem 23).
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item Find all two-digit numbers $n$ such that $n$ plus its reversal is a perfect square.
+\item Find all two-digit numbers with both digits non-zero such that $n$ minus its reversal is a positive perfect square.
+\item Prove that every four-digit number of the form $\nd{abba}$ (a palindrome) is divisible by $11$.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Write the numbers in terms of their digits: $\nd{ab}=10a+b$ and $\nd{ba}=10b+a$, where $a$ is the tens digit
+($1\le a\le9$) and $b$ is the units digit. A perfect square is the square of a natural number: $1,4,9,16,25,\dots$
+
+\step{1}{Part a: compute the sum}
+$\nd{ab}+\nd{ba}=(10a+b)+(10b+a)=11a+11b=11(a+b)$.
+\begin{proofbox}If $11(a+b)=s\times s$, then $s\times s$ is divisible by the prime $11$, so $s$ is divisible by $11$ (if a product of two numbers
+is divisible by a prime $p$, one of the two numbers is divisible by $p$). Then $s\times s$ is divisible by $121$, so $11(a+b)$ is divisible by
+$121$, and $a+b$ is divisible by $11$.\end{proofbox}
+For a two-digit number (the reversal may start with $0$, e.g.\ $\nd{ba}=b$ when $b=0$) we have $1\le a+b\le18$, so $a+b=11$, and then the
+sum is $11\times11=121=11^2$, which is indeed a perfect square. The numbers are those with $a+b=11$, $a$ from $2$ to $9$:
+\[29,\ 38,\ 47,\ 56,\ 65,\ 74,\ 83,\ 92 \quad(8 \text{ numbers}).\]
+
+\step{2}{Part b: compute the difference}
+$\nd{ab}-\nd{ba}=(10a+b)-(10b+a)=9a-9b=9(a-b)$. The difference is positive, so $a>b\ge1$.
+Since $9=3\times3$ is a perfect square, $9(a-b)$ is a perfect square exactly when $a-b$ is a perfect square.
+\begin{proofbox}If $a-b=t\times t$, then $9(a-b)=(3t)\times(3t)$. Conversely, if $9(a-b)=s\times s$, then $s\times s$ is divisible by $3$, so
+$s$ is divisible by $3$; writing $s=3t$ gives $9(a-b)=9t\times t$, that is $a-b=t\times t$.\end{proofbox}
+Since $1\le b<a\le9$, we have $1\le a-b\le8$; the perfect squares in this range are $1$ and $4$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item $a-b=1$: $21, 32, 43, 54, 65, 76, 87, 98$ ($8$ numbers).
+\item $a-b=4$: $51, 62, 73, 84, 95$ ($5$ numbers).
+\end{itemize}
+There are $13$ numbers in all.
+
+\step{3}{Part c: split by place value}
+\[\nd{abba}=1000a+100b+10b+a=1001a+110b=11\times91\times a+11\times10\times b=11\times(91a+10b).\]
+So $\nd{abba}$ is always divisible by $11$.
+\begin{warnbox}$\nd{ab}$ denotes the number with digits $a$ and $b$, \emph{not} the product $a\times b$. Always rewrite $\nd{ab}$ as $10a+b$
+before calculating.\end{warnbox}
+\verify{a) $47+74=121=11^2$. b) $73-37=36=6^2$, $98-89=9=3^2$. c) $2332=11\times212$, $7007=11\times637$.}
+\ans{a) $29, 38, 47, 56, 65, 74, 83, 92$;\quad b) $13$ numbers: $21,32,43,54,65,76,87,98,51,62,73,84,95$;\quad c) see the proof.}
+}
+
+\begin{probbox}{49}{\stars{2}}
+A grid of $3$ rows and $5$ columns of squares ($15$ small squares) is shown; the square in the very centre is shaded.
+\begin{figC}\begin{scope}[scale=0.6]
+  \fill[tmOrange!45] (2,1) rectangle (3,2);
+  \draw[Ink,thick] (0,0) grid (5,3);
+\end{scope}\end{figC}
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item How many rectangles (including squares) with sides on the grid lines are there in the figure?
+\item How many of them are squares?
+\item One of the rectangles in part a is chosen at random. Find the probability that it contains the shaded square.
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} As in problem 24, each rectangle is determined by two horizontal grid lines (top and bottom sides) and
+two vertical grid lines (left and right sides). A grid with $3$ rows has $4$ horizontal lines, numbered $0,1,2,3$ from top to bottom; a grid
+with $5$ columns has $6$ vertical lines, numbered $0,1,\dots,5$ from left to right.
+
+\step{1}{Part a: count the rectangles}
+Choose $2$ of the $4$ horizontal lines: $\dfrac{4\times3}{2}=6$ ways. Choose $2$ of the $6$ vertical lines: $\dfrac{6\times5}{2}=15$ ways.
+By the multiplication principle: $6\times15=90$ rectangles.
+
+\step{2}{Part b: count the squares by size}
+\begin{recallbox}In a $3\times5$ grid, a square of side $k$ has $(3-k+1)$ positions vertically and $(5-k+1)$ positions horizontally.\end{recallbox}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item side $1$: $3\times5=15$ squares;
+\item side $2$: $2\times4=8$ squares;
+\item side $3$: $1\times3=3$ squares;
+\item side $4$ or more: none (the grid is only $3$ high).
+\end{itemize}
+Total: $15+8+3=26$ squares.
+\begin{warnbox}Do not use ``choose $2$ horizontal and $2$ vertical lines'' to count squares: most of those choices give rectangles that are not
+squares. Squares must be counted by side length.\end{warnbox}
+
+\step{3}{Part c: rectangles containing the centre square}
+The centre square lies between horizontal lines $1$ and $2$, and between vertical lines $2$ and $3$. A rectangle contains it exactly when:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item its top side is horizontal line $0$ or $1$ (above the square): $2$ ways; its bottom side is horizontal line $2$ or $3$: $2$ ways;
+\item its left side is vertical line $0$, $1$ or $2$: $3$ ways; its right side is vertical line $3$, $4$ or $5$: $3$ ways.
+\end{itemize}
+\begin{figC}\begin{scope}[scale=0.6]
+  \fill[tmGreen!25] (1,0) rectangle (4,2);
+  \fill[tmOrange!55] (2,1) rectangle (3,2);
+  \draw[Ink,thick] (0,0) grid (5,3);
+  \draw[tmGreen!70!black,line width=2pt] (1,0) rectangle (4,2);
+  \foreach \i in {0,...,5}{\node[font=\scriptsize,text=Slate] at (\i,3.35) {\i};}
+  \foreach \j/\l in {3/0,2/1,1/2,0/3}{\node[font=\scriptsize,text=Slate] at (-0.35,\j) {\l};}
+\end{scope}\end{figC}
+(For example, the green rectangle: top side horizontal line $1$, bottom side horizontal line $3$, left side vertical line $1$, right side
+vertical line $4$.)
+Number of rectangles containing the centre square: $2\times2\times3\times3=36$.
+\[P=\frac{36}{90}=\frac{2}{5}.\]
+\begin{proofbox}Why is this condition right? A rectangle contains the centre square exactly when it ``covers'' that square in both directions:
+its top side must be above (or on) the top side of the square, its bottom side below (or on) the bottom side of the square; similarly for the
+left and right sides. These four choices are independent, so we multiply.\end{proofbox}
+\verify{Split by direction: of the $15$ choices of two vertical lines, $3\times3=9$ ``cover'' the middle column; of the $6$ choices of two
+horizontal lines, $2\times2=4$ cover the middle row. Probability $=\dfrac{9}{15}\times\dfrac{4}{6}=\dfrac35\times\dfrac23=\dfrac25$. It matches.}
+\ans{a) $90$;\quad b) $26$;\quad c) $\dfrac25$}
+}
+
+\begin{probbox}{50}{\stars{2}}
+A box contains $2026$ red marbles and $2027$ blue marbles. Outside the box there is a very large pile of blue marbles. Phong repeats the
+following step: take $2$ marbles from the box at random.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item If the two marbles have the \emph{same colour} (both red or both blue): throw both away, then take $1$ blue marble from the pile
+outside and put it into the box.
+\item If the two marbles have \emph{different colours}: throw away the blue one and put the red one back into the box.
+\end{itemize}
+Phong stops when only $1$ marble is left in the box.
+\begin{enumerate}[label=\alph*),leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+\item How many steps did Phong carry out?
+\item Find the probability that the last marble is red.
+\item If the box had started with $2025$ red marbles and $2027$ blue marbles, what would the probability in part b be?
+\end{enumerate}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} There are thousands of marbles, so we cannot draw a probability tree as in problem 25. Instead we look for
+a quantity that \emph{does not change} in any step (called an \emph{invariant}). In problem 25 the invariant was ``there is always a blue
+marble''; here we look at \emph{the parity of the number of red marbles}.
+
+\step{1}{Part a: each step reduces the number of marbles by exactly $1$}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item Same colour: $2$ taken out, $1$ put in $\Rightarrow$ the number of marbles in the box decreases by $1$.
+\item Different colours: $2$ taken out, $1$ put back $\Rightarrow$ the number decreases by $1$.
+\end{itemize}
+At the start there are $2026+2027=4053$ marbles, and at the end $1$ marble is left. The number of steps is $4053-1=4052$.
+
+\step{2}{Follow the number of red marbles in each case}
+\begin{center}\begin{tabular}{|c|c|c|}\hline
+Drawn & Change in red marbles & Change in blue marbles\\\hline
+red, red & decreases by $2$ & increases by $1$\\\hline
+blue, blue & no change & down $2$, up $1$: decreases by $1$\\\hline
+red, blue & no change (the red is put back) & decreases by $1$\\\hline
+\end{tabular}\end{center}
+\begin{proofbox}The number of red marbles either stays the same or decreases by exactly $2$. Subtracting $2$ does not change parity (an even
+number minus $2$ is still even, an odd number minus $2$ is still odd). So \textbf{the parity of the number of red marbles never changes}, no
+matter which marbles Phong draws.\end{proofbox}
+
+\step{3}{Part b: $2026$ red marbles at the start (an even number)}
+The number of red marbles is always even. When only $1$ marble is left: if it were red, the number of red marbles would be $1$ (odd) --
+impossible. So the last marble is certainly blue. The event ``the last marble is red'' is an impossible event:
+\[P(\text{last marble red})=0.\]
+
+\step{4}{Part c: $2025$ red marbles at the start (an odd number)}
+The number of red marbles is always odd, so it is never $0$. When $1$ marble is left, the number of red marbles is an odd number not exceeding
+$1$, that is $1$: the last marble is certainly red. This is a certain event:
+\[P(\text{last marble red})=1.\]
+\begin{tipbox}The initial number of blue marbles has no effect on the result! Only the parity of the number of red marbles decides the colour
+of the last marble.\end{tipbox}
+\begin{parentbox}Play with your child using a few marbles (for example $2$ red and $3$ blue, or $3$ red and $2$ blue), or with coins of two
+colours. Seeing the same result every time makes children curious about ``why''; then give a hint: ``Try counting the red marbles after each
+turn: is the number even or odd?''\end{parentbox}
+\begin{warnbox}Seeing the word ``random'' and thinking the answer must be a ``nice'' fraction such as $\frac12$ is a mistake. Some random
+processes have a final result that is completely determined.\end{warnbox}
+\verify{Try $2$ red, $1$ blue: drawing red--red $\to(0\text{ red},2\text{ blue})\to(0,1)$: blue; drawing red--blue $\to(2,0)\to$ draw
+red--red $\to(0,1)$: blue. Every way ends with a blue marble, consistent with an even initial number of red marbles.}
+\ans{a) $4052$ steps;\quad b) $0$;\quad c) $1$}
+}

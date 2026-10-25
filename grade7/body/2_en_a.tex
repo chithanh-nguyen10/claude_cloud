@@ -1,0 +1,250 @@
+% ======================================================================
+% Topic 2 -- Geometry and Measurement -- part a (theory, examples, problems 1--15)
+% ======================================================================
+% centred figure that accepts TikZ options (like figC but with [scale=..])
+\ifdefined\gmFig\else
+\newenvironment{gmFig}[1][]{\par\vspace{2pt}\begin{center}\begin{tikzpicture}[font=\sffamily\small,>=stealth,line join=round,#1]}%
+  {\end{tikzpicture}\end{center}\vspace{1pt}}
+\fi
+% cube seen from the front: #1 = horizontal shift, #2 = label, #3 = fill commands on the front face (coordinates 0..1)
+\providecommand{\gmCube}[3]{%
+  \begin{scope}[shift={(#1,0)},x=1.05cm,y=1.05cm]
+    \fill[white] (0,0) rectangle (1,1);
+    #3
+    \draw[Ink,line width=0.8pt] (0,0) rectangle (1,1);
+    \draw[Ink,line width=0.8pt] (0,1)--(0.4,1.25)--(1.4,1.25)--(1.4,0.25)--(1,0);
+    \draw[Ink,line width=0.8pt] (1,1)--(1.4,1.25);
+    \node[font=\small\bfseries,anchor=east] at (-0.05,1.1) {#2};
+  \end{scope}}
+
+\begin{knowbox}
+\textbf{The big idea.} Geometry is the study of \emph{shapes}; measurement attaches \emph{numbers} to those shapes: lengths, angle measures, perimeters, areas and volumes. Almost every problem in this topic is solved with a handful of very simple ideas that are used over and over again:
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt,topsep=2pt]
+  \item \textbf{Angles have a fixed ``budget'':} two supplementary angles always add up to $180^\circ$, the three angles of a triangle always add up to $180^\circ$, and a full turn is $360^\circ$. Knowing some of the angles, we can work out the rest.
+  \item \textbf{Areas can be cut, rearranged and subtracted:} a complicated shape is split into familiar pieces (rectangles, triangles, trapezoids), or computed as ``big shape minus the extra bits''.
+  \item \textbf{Ratios instead of numbers:} ``what percentage is shaded'' only requires comparing the shaded part with the whole shape -- often without knowing any real sizes.
+  \item \textbf{Shape does not change when turned or flipped:} rotating, reflecting or rolling a cube only changes \emph{position}, never \emph{size} or \emph{shape}.
+  \item \textbf{A box is built in layers:} volume $=$ base area $\times$ height.
+\end{itemize}
+Whenever you meet a geometry problem, always \textbf{draw the figure and write the given numbers on it}, then ask yourself: ``What do I know? What is missing? Which formula connects the two?''.
+\end{knowbox}
+\vspace{0.3cm}
+
+% ----------------------------------------------------------------------
+\shead{The coordinate plane}
+\begin{knowbox}
+\textbf{The coordinate system $Oxy$} consists of two number lines that are perpendicular at the origin $O$:
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt,topsep=2pt]
+  \item the horizontal axis $Ox$ is called the \textbf{$x$-axis}; its positive direction points to the \emph{right};
+  \item the vertical axis $Oy$ is called the \textbf{$y$-axis}; its positive direction points \emph{up}.
+\end{itemize}
+Each point $M$ of the plane corresponds to exactly one pair of numbers $(x_0,\,y_0)$, written $M(x_0,\,y_0)$:
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt,topsep=2pt]
+  \item $x_0$ is the \textbf{$x$-coordinate}: drop a perpendicular from $M$ to the $x$-axis; its foot is at the number $x_0$;
+  \item $y_0$ is the \textbf{$y$-coordinate}: draw a perpendicular from $M$ to the $y$-axis; its foot is at the number $y_0$.
+\end{itemize}
+The two axes divide the plane into four \textbf{quadrants}, numbered counterclockwise:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & Quadrant I & Quadrant II & Quadrant III & Quadrant IV \\ \hline
+Signs of $(x,\,y)$ & $(+,\,+)$ & $(-,\,+)$ & $(-,\,-)$ & $(+,\,-)$ \\ \hline
+\end{tabular}
+\end{center}
+\textbf{Distances along horizontal and vertical lines.} Two points with the same $y$-coordinate (on the same horizontal line) are a distance apart equal to the difference of their $x$-coordinates (larger minus smaller). Similarly, two points with the same $x$-coordinate are a distance apart equal to the difference of their $y$-coordinates.
+\end{knowbox}
+
+\begin{gmFig}[scale=0.55]
+  \fill[tmBlue!7] (0,0) rectangle (4.6,4.6);
+  \fill[tmOrange!8] (0,0) rectangle (-4.6,4.6);
+  \fill[tmGreen!8] (0,0) rectangle (-4.6,-4.6);
+  \fill[tmPurple!7] (0,0) rectangle (4.6,-4.6);
+  \draw[Line,line width=0.3pt] (-4.5,-4.5) grid (4.5,4.5);
+  \draw[->,Navy,thick] (-4.8,0)--(5,0) node[right,text=Ink]{$x$};
+  \draw[->,Navy,thick] (0,-4.8)--(0,5) node[above,text=Ink]{$y$};
+  \foreach \t in {-4,-3,-2,-1,1,2,3,4}{
+     \draw[Navy] (\t,0.12)--(\t,-0.12); \draw[Navy] (0.12,\t)--(-0.12,\t);}
+  \foreach \t in {-4,-2,2,4}{
+     \node[below,font=\scriptsize] at (\t,-0.12){$\t$}; \node[left,font=\scriptsize] at (-0.12,\t){$\t$};}
+  \node[below left,font=\scriptsize] at (0,0){$O$};
+  \node[font=\bfseries,text=tmBlue,fill=white,inner sep=1pt] at (3.2,3.9){I $(+,+)$};
+  \node[font=\bfseries,text=tmOrange!85!black,fill=white,inner sep=1pt] at (-3.2,3.9){II $(-,+)$};
+  \node[font=\bfseries,text=tmGreen!70!black,fill=white,inner sep=1pt] at (-3.2,-3.9){III $(-,-)$};
+  \node[font=\bfseries,text=tmPurple,fill=white,inner sep=1pt] at (3.2,-3.9){IV $(+,-)$};
+  \draw[dashed,AnsRed] (3,0)--(3,2)--(0,2);
+  \fill[AnsRed] (3,2) circle (3.5pt) node[above right,text=AnsRed,fill=white,inner sep=1pt]{$M(3,\,2)$};
+  \draw[dashed,tmPurple] (-2,0)--(-2,-3)--(0,-3);
+  \fill[tmPurple] (-2,-3) circle (3.5pt) node[below right,text=tmPurple,fill=white,inner sep=1pt]{$N(-2,\,-3)$};
+\end{gmFig}
+
+\begin{tipbox}
+Read coordinates in the order ``\textbf{across first, then up or down}'': start at $O$, move right (positive) or left (negative) to get the $x$-coordinate; then move up (positive) or down (negative) to get the $y$-coordinate. For example, to reach $N(-2,\,-3)$: go $2$ squares left, then $3$ squares down.
+\end{tipbox}
+
+\begin{warnbox}
+Swapping the two numbers is a very common mistake: $(3,\,-1)$ and $(-1,\,3)$ are two \emph{different} points (one in quadrant IV, the other in quadrant II). The $x$-coordinate is \emph{always} written first.
+\end{warnbox}
+
+\textbf{Mini example.} Let $A(1,\,1)$, $B(5,\,1)$, $C(5,\,4)$. Since $A$ and $B$ have the same $y$-coordinate $1$, $AB=5-1=4$. Since $B$ and $C$ have the same $x$-coordinate $5$, $BC=4-1=3$. Angle $B$ is a right angle (one side horizontal, one side vertical), so the area of triangle $ABC$ is $\dfrac{4\cdot 3}{2}=6$ (square units).
+
+\begin{parentbox}
+You can turn the coordinate plane into a ``treasure hunt'' on squared paper: you say ``left 2, up 3'', your child marks the point and writes its coordinates $(-2,\,3)$. Then swap roles: your child gives directions and you draw. After a few rounds, the order ``$x$ first, $y$ second'' becomes automatic.
+\end{parentbox}
+
+% ----------------------------------------------------------------------
+\shead{Angles: supplementary, vertically opposite, angle sum of a triangle}
+\begin{knowbox}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+  \item A \textbf{right angle} is $90^\circ$, a \textbf{straight angle} (half a turn) is $180^\circ$, a \textbf{full turn} is $360^\circ$.
+  \item \textbf{Two adjacent supplementary angles} (sharing one arm, with the other two arms forming a straight line) add up to $180^\circ$.
+  \item \textbf{Two vertically opposite angles} (each arm of one is the extension of an arm of the other) are \textbf{equal}.
+  \item \textbf{The three angles of a triangle add up to $180^\circ$.} Hence: third angle $=180^\circ-$ (sum of the two known angles).
+  \item An \textbf{exterior angle of a triangle} (supplementary to an interior angle) equals \textbf{the sum of the two interior angles not adjacent to it}.
+  \item In a right triangle, the two acute angles add up to $90^\circ$.
+\end{itemize}
+\end{knowbox}
+
+\begin{gmFig}[scale=0.9]
+  \coordinate (O) at (0,0);
+  \draw[tmBlue,thick] (-2,-0.9)--(2,0.9);
+  \draw[tmOrange,thick] (-1.6,1.2)--(1.6,-1.2);
+  \coordinate (A) at (2,0.9); \coordinate (B) at (-1.6,1.2);
+  \coordinate (C) at (-2,-0.9); \coordinate (D) at (1.6,-1.2);
+  \pic[draw,AnsRed,thick,angle radius=0.45cm,"$1$",angle eccentricity=1.6]{angle=A--O--B};
+  \pic[draw,tmGreen,thick,angle radius=0.45cm,"$2$",angle eccentricity=1.6]{angle=B--O--C};
+  \pic[draw,AnsRed,thick,angle radius=0.45cm,"$3$",angle eccentricity=1.6]{angle=C--O--D};
+  \node[font=\footnotesize,align=center] at (0,-1.8){$\widehat{1}+\widehat{2}=180^\circ$ (supplementary)\\ $\widehat{1}=\widehat{3}$ (vertically opposite)};
+  \begin{scope}[shift={(4.3,-1)}]
+    \coordinate (P) at (0,0); \coordinate (Q) at (3.4,0); \coordinate (R) at (1.2,2.2);
+    \draw[Ink,thick] (P)--(Q)--(R)--cycle;
+    \draw[tmPurple,thick,dashed] (-0.6,2.2)--(3.2,2.2);
+    \coordinate (L) at (-0.6,2.2); \coordinate (M) at (3.2,2.2);
+    \pic[draw,AnsRed,thick,angle radius=0.45cm,"$a$",angle eccentricity=1.55]{angle=Q--P--R};
+    \pic[draw,tmGreen!70!black,thick,angle radius=0.45cm,"$c$",angle eccentricity=1.55]{angle=R--Q--P};
+    \pic[draw,tmBlue,thick,angle radius=0.4cm,"$b$",angle eccentricity=1.6]{angle=P--R--Q};
+    \pic[draw,AnsRed,thick,angle radius=0.45cm,"$a$",angle eccentricity=1.55]{angle=L--R--P};
+    \pic[draw,tmGreen!70!black,thick,angle radius=0.45cm,"$c$",angle eccentricity=1.55]{angle=Q--R--M};
+    \node[font=\footnotesize] at (1.6,-0.6){$a+b+c=180^\circ$};
+  \end{scope}
+\end{gmFig}
+
+\begin{proofbox}
+\textbf{Vertically opposite angles are equal.} In the left figure, $\widehat{1}+\widehat{2}=180^\circ$ (supplementary) and $\widehat{3}+\widehat{2}=180^\circ$ (also supplementary). Angles $\widehat{1}$ and $\widehat{3}$ are both supplementary to the same angle $\widehat{2}$, so $\widehat{1}=180^\circ-\widehat{2}=\widehat{3}$.
+
+\textbf{The angles of a triangle add up to $180^\circ$.} Through the top vertex of the triangle, draw the line parallel to the base (dashed). For parallel lines, \emph{alternate angles} are equal: the angle on the left at the top vertex equals $a$, and the angle on the right equals $c$. The three angles $a$, $b$, $c$ at the top vertex together form a straight angle, so $a+b+c=180^\circ$.
+
+\textbf{Exterior angle.} The exterior angle at a vertex is supplementary to the interior angle there: exterior angle $=180^\circ-$ interior angle. But $180^\circ-$ interior angle is exactly the sum of the other two interior angles. So the exterior angle equals the sum of the two interior angles not adjacent to it.
+\end{proofbox}
+
+\begin{tipbox}
+In ``find the angle'' problems, write the measure of every angle you find \textbf{on the figure} immediately. An angle you have just found is often the key to the next one (supplementary, vertically opposite, angle sum, ...).
+\end{tipbox}
+
+\begin{warnbox}
+Do not confuse \emph{vertically opposite} angles (equal) with \emph{supplementary} angles (sum $180^\circ$). Vertically opposite angles sit ``across from each other'' at the intersection point and share no arm; adjacent supplementary angles sit ``next to each other'' and share an arm.
+\end{warnbox}
+
+% ----------------------------------------------------------------------
+\shead{Isosceles triangles, equilateral triangles and the triangle inequality}
+\begin{knowbox}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+  \item An \textbf{isosceles triangle} has two equal sides (the \emph{legs}); the third side is the \emph{base}, and the angle between the two legs is the \emph{apex angle}.
+  \item In an isosceles triangle, \textbf{the two base angles are equal}. So if the apex angle is $d$ and each base angle is $g$, then
+  \[ d+2g=180^\circ,\qquad d=180^\circ-2g,\qquad g=\frac{180^\circ-d}{2}. \]
+  \item A base angle is always \textbf{acute} (less than $90^\circ$), because the two base angles are equal and their sum must be less than $180^\circ$.
+  \item An \textbf{equilateral triangle} has three equal sides and three equal angles, each $180^\circ\div3=60^\circ$.
+  \item \textbf{Triangle inequality:} in a triangle, each side is always \emph{less} than the sum of the other two. To check whether three lengths form a triangle, it is enough to check: \emph{longest side $<$ sum of the other two}.
+\end{itemize}
+\end{knowbox}
+
+\begin{gmFig}[scale=0.85]
+  \coordinate (A) at (1.5,2.6); \coordinate (B) at (0,0); \coordinate (C) at (3,0);
+  \fill[tmBlue!6] (A)--(B)--(C)--cycle;
+  \draw[Ink,thick] (A)--(B)--(C)--cycle;
+  \draw[tmBlue,thick] ($(A)!0.5!(B)+(-0.1,0.06)$)--++(0.2,-0.12);
+  \draw[tmBlue,thick] ($(A)!0.5!(C)+(-0.1,-0.06)$)--++(0.2,0.12);
+  \pic[draw,tmOrange,thick,angle radius=0.5cm,"$g$",angle eccentricity=1.5]{angle=C--B--A};
+  \pic[draw,tmOrange,thick,angle radius=0.5cm,"$g$",angle eccentricity=1.5]{angle=A--C--B};
+  \pic[draw,tmGreen!70!black,thick,angle radius=0.5cm,"$d$",angle eccentricity=1.5]{angle=B--A--C};
+  \node[above,font=\footnotesize] at (A){apex};
+  \node[below,font=\footnotesize] at (1.5,0){base};
+  \begin{scope}[shift={(5,0)}]
+    \draw[tmGreen!70!black,line width=2pt] (0,0)--(4,0);
+    \draw[tmBlue,line width=2pt] (0,0)--(1.6,1.6);
+    \draw[tmOrange,line width=2pt] (1.6,1.6)--(4,0);
+    \node[below,font=\footnotesize] at (2,0){$8$};
+    \node[left,font=\footnotesize] at (0.8,0.9){$4$};
+    \node[right,font=\footnotesize] at (2.9,0.9){$5$};
+    \node[font=\footnotesize,align=center] at (2,-0.85){$8<4+5$: a triangle exists};
+  \end{scope}
+\end{gmFig}
+
+\begin{proofbox}
+\textbf{Why are the base angles equal?} Let $M$ be the midpoint of the base $BC$ of the isosceles triangle $ABC$ ($AB=AC$). Triangles $ABM$ and $ACM$ have $AB=AC$, $BM=CM$ and the common side $AM$, so they are congruent (side -- side -- side). Hence the corresponding angles $\widehat{B}$ and $\widehat{C}$ are equal.
+
+\textbf{Why does the triangle inequality hold?} The shortest path between two points is the straight segment. Going from $B$ to $C$ ``via'' $A$ (that is, travelling $BA+AC$) is always longer than going straight along $BC$. If the longest side were equal to or greater than the sum of the other two, the two short sides could not ``reach each other'': they would lie flat along the long side or fail to meet, and no triangle would be formed.
+\end{proofbox}
+
+\begin{warnbox}
+When a problem only says ``an isosceles triangle has \emph{an angle} of $50^\circ$'', we do \textbf{not yet know} whether it is the apex angle or a base angle. We must consider \textbf{both cases}:
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt,topsep=2pt]
+  \item $50^\circ$ is the apex angle: the base angles are $(180^\circ-50^\circ)\div2=65^\circ$ and $65^\circ$;
+  \item $50^\circ$ is a base angle: the other base angle is also $50^\circ$, and the apex angle is $180^\circ-2\cdot 50^\circ=80^\circ$.
+\end{itemize}
+Only when the given angle is \emph{greater than or equal to} $90^\circ$ must it be the apex angle.
+\end{warnbox}
+
+% ----------------------------------------------------------------------
+\shead{Rotations, reflections and rolling cubes}
+\begin{knowbox}
+A \textbf{rotation} about a point $Z$ (the \emph{centre of rotation}) through an angle $\alpha$ in a given direction (clockwise or counterclockwise) sends each point $M$ to a point $M'$ such that $ZM'=ZM$ and $\widehat{MZM'}=\alpha$.
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+  \item Every point of the figure turns through \textbf{the same angle}, in the same direction; distances to the centre do not change.
+  \item A rotation keeps the shape and size of the figure; the figure is only ``turned'', never ``flipped over''.
+  \item Rotating $\alpha$ clockwise gives the same result as rotating $360^\circ-\alpha$ counterclockwise. A $360^\circ$ rotation brings the figure back to where it started.
+  \item \textbf{How to measure the angle of rotation:} choose a segment starting at the centre $Z$ on the original figure, find the matching segment on the new figure, and measure the angle that segment has swept through \emph{in the given direction}.
+\end{itemize}
+A \textbf{reflection in a line} (flipping over the line, like a mirror) also keeps sizes, but \textbf{reverses the orientation} of the figure: the letter \textsf{P} seen in a mirror becomes a backwards \textsf{P}.
+
+\textbf{In the coordinate plane} (centre of rotation at the origin $O$):
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+Rotation $90^\circ$ counterclockwise & $(x,\,y)\ \to\ (-y,\,x)$ \\ \hline
+Rotation $180^\circ$ & $(x,\,y)\ \to\ (-x,\,-y)$ \\ \hline
+Rotation $90^\circ$ clockwise & $(x,\,y)\ \to\ (y,\,-x)$ \\ \hline
+Reflection in the $x$-axis \;/\; in the $y$-axis & $(x,\,y)\to(x,\,-y)$ \;/\; $(x,\,y)\to(-x,\,y)$ \\ \hline
+\end{tabular}
+\end{center}
+\end{knowbox}
+
+\begin{gmFig}[scale=1.05]
+  \coordinate (Z) at (0,0);
+  \fill[tmBlue!35,draw=tmBlue!80!black,thick] (0,0)--(2.2,0)--(2.2,0.9)--(0.9,0.9)--cycle;
+  \fill[white,draw=tmOrange!90!black,thick] (0,0)--(0,2.2)--(-0.9,2.2)--(-0.9,0.9)--cycle;
+  \fill (Z) circle (2.2pt) node[below left]{$Z$};
+  \draw[->,AnsRed,thick] (1.4,-0.15) arc[start angle=-6,end angle=-264,radius=1.4];
+  \node[AnsRed,font=\footnotesize] at (0,-1.75){clockwise: $270^\circ$};
+  \draw[->,tmGreen!70!black,thick] (2.4,0.25) arc[start angle=6,end angle=84,radius=2.4];
+  \node[tmGreen!60!black,font=\footnotesize,align=left] at (3.5,2.1){counterclockwise:\\$90^\circ$};
+  \node[font=\footnotesize] at (1.4,0.4){original};
+  \node[font=\footnotesize,rotate=90] at (-0.45,1.6){image};
+\end{gmFig}
+
+\begin{proofbox}
+\textbf{Why is a $270^\circ$ clockwise rotation the same as a $90^\circ$ counterclockwise one?} A full turn is $360^\circ$. After going $270^\circ$ one way, only $360^\circ-270^\circ=90^\circ$ more would bring us back to the start; so the end position is exactly where we would arrive by going $90^\circ$ the other way. In the figure: to turn the horizontal side (pointing right) into the vertical side (pointing up), we can rotate $90^\circ$ counterclockwise, or rotate $270^\circ$ clockwise (through pointing down, pointing left, and only then up).
+\end{proofbox}
+
+\begin{knowbox}
+\textbf{Rolling a cube.} When a cube is rolled, each face is carried along unchanged. So a face with a painted pattern:
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt,topsep=2pt]
+  \item may appear in another position (front, top, side, ...);
+  \item may be \emph{turned} by $90^\circ$, $180^\circ$ or $270^\circ$ within its own plane;
+  \item \textbf{but never} becomes a mirror image, changes size, or ``gains'' extra paint.
+\end{itemize}
+\end{knowbox}
+
+\begin{tipbox}
+For cube problems, ``mark'' one special feature of the pattern (for example: the right angle of the black triangle sits at \emph{a corner} of the face) and check that feature in every option. Cutting out a paper square, drawing the pattern on it and turning it is also a very effective check.
+\end{tipbox}
+

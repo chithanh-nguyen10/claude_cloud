@@ -573,3 +573,411 @@ $k-5<k-3<k+1$, so $c<a<b$.
 \verify{Take $k=12$: $a=9$, $b=13$, $c=7$. Then $\dfrac{2}{12}=\dfrac{2}{12}=\dfrac{2}{12}$ and indeed $7<9<13$.}
 \ans{$c<a<b$.}
 \end{exbox}
+
+% ==========================================================================================
+\clearpage
+\dividerbar{Core practice}
+
+% ---------------------------------------------------------------- Problem 1
+\begin{probbox}{1}{\relax}
+Mr Tâm drives a car at a constant speed of $85$ km/h on a $510$ km trip. He has now covered exactly
+half of the distance. How many more hours does he need to finish the trip?
+\choices{$5$ hours}{$425$ hours}{$12$ hours}{$1.5$ hours}{$3$ hours}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} \emph{Given:} speed $85$ km/h (constant), whole trip $510$ km, half already covered.
+\emph{Find:} the time needed for the remaining part.
+\step{1}{Work out the distance left}
+Half has been covered, so exactly half is left: $510\div 2=255$ (km).
+\begin{barfigC}
+\blk{0}{3}{0}{0.55}{tmBlue}{covered 255 km}
+\blk{3}{6}{0}{0.55}{tmOrange}{left 255 km}
+\brcup{0}{6}{0.55}{510 km}
+\end{barfigC}
+\step{2}{Work out the time for the remaining distance}
+\begin{recallbox}Distance $=$ speed $\times$ time, so time $=$ distance $\div$ speed ($t=\dfrac{s}{v}$).\end{recallbox}
+$t=255\div 85=3$ (hours). (Mentally: $85\times 3=255$.)
+\begin{warnbox}Calculating $510\div 85=6$ hours gives the time for the \emph{whole} trip, which does not answer the question. And $510-85=425$ is a meaningless calculation (km minus km/h); that is the trap in option (B).\end{warnbox}
+\begin{tipbox}Another way: the whole trip takes $510\div 85=6$ hours; covering half the distance (at a constant speed) means half the time has passed, so $6\div 2=3$ hours are left.\end{tipbox}
+\verify{In $3$ hours the car covers $85\times 3=255$ km, exactly the distance left.}
+The result $3$ hours is option \textbf{(E)}.
+\ans{(E) $3$ hours}
+}
+
+% ---------------------------------------------------------------- Problem 2
+\begin{probbox}{2}{\relax}
+In the diagram, the triangle has one side of length $14$ cm and two equal sides of length $12$ cm each; the rectangle has width
+$8$ cm and length $x$ cm. The perimeter of the triangle equals the perimeter of the rectangle. Find $x$.
+\begin{figC}
+\draw[tmBlue,line width=1.1pt,fill=tmBlue!10] (0,2.6)--(2.8,2.6)--(1.4,1.2)--cycle;
+\node[above] at (1.4,2.6){$14$ cm};
+\node[right] at (2.15,1.9){$12$ cm};
+\draw[tmBlue,line width=0.9pt] ($(0.7,1.9)+(-0.1,-0.1)$)--($(0.7,1.9)+(0.1,0.1)$);
+\draw[tmBlue,line width=0.9pt] ($(2.1,1.9)+(-0.1,0.1)$)--($(2.1,1.9)+(0.1,-0.1)$);
+\draw[tmOrange!85!black,line width=1.1pt,fill=tmOrange!12] (0.4,0)rectangle(2.4,0.9);
+\node[right] at (2.4,0.45){$8$ cm};
+\node[below] at (1.4,0){$x$ cm};
+\end{figC}
+\choices{$8$}{$10$}{$11$}{$14$}{$15$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The triangle has sides $14$ cm, $12$ cm, $12$ cm (the small tick marks show that those two sides are equal).
+The rectangle measures $x$ cm by $8$ cm. The two perimeters are equal. We must find $x$.
+\step{1}{Work out the perimeter of the triangle}
+\begin{recallbox}The perimeter of a triangle is the sum of its three sides. The perimeter of a rectangle is $2\times(\text{length}+\text{width})$.\end{recallbox}
+Perimeter of the triangle: $14+12+12=38$ (cm).
+\begin{warnbox}The number $12$ is written only once in the diagram, but there are \emph{two} sides of $12$ cm (marked as equal). Forgetting the third side gives $26$ cm and a wrong answer.\end{warnbox}
+\step{2}{Write an equation}
+The perimeter of the rectangle is $2(x+8)$. Setting the two perimeters equal: $2(x+8)=38$.
+\step{3}{Solve the equation}
+Divide both sides by $2$: $x+8=19$. Subtract $8$ from both sides: $x=19-8=11$.
+\verify{An $11$ cm $\times$ $8$ cm rectangle has perimeter $11+8+11+8=38$ cm, the same as the triangle.}
+The value $x=11$ is option \textbf{(C)}.
+\begin{parentbox}You can illustrate this with a piece of string $38$ cm long: bend it into a $14$ -- $12$ -- $12$ triangle, then reshape it into a rectangle with an $8$ cm side. Your child will see that the ``perimeter'' is just the length of the string, which does not change when the shape changes.\end{parentbox}
+\ans{(C) $11$}
+}
+
+% ---------------------------------------------------------------- Problem 3
+\begin{probbox}{3}{\relax}
+Let $x=3$. Which of the following equations is true?
+\choices{$2x=5$}{$3x-1=8$}{$x+5=3$}{$7-x=2$}{$6+2x=14$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Substitute $x=3$ into the left side of each equation, work it out, and compare with the right side. Only one equation is true.
+\begin{recallbox}To evaluate an expression, replace the letter by the number and calculate in order: multiplication and division first, then addition and subtraction.\end{recallbox}
+\step{1}{Check each option in turn}
+\begin{center}
+\begin{tabular}{|c|l|c|c|}
+\hline
+\rowcolor{tmBlue!10} Option & Left side with $x=3$ & Right side & True/False\\ \hline
+(A) & $2x=2\cdot 3=6$ & $5$ & False\\ \hline
+(B) & $3x-1=3\cdot 3-1=9-1=8$ & $8$ & \textbf{True}\\ \hline
+(C) & $x+5=3+5=8$ & $3$ & False\\ \hline
+(D) & $7-x=7-3=4$ & $2$ & False\\ \hline
+(E) & $6+2x=6+2\cdot 3=6+6=12$ & $14$ & False\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}In (E), working in the wrong order, $(6+2)\cdot 3=24$, or reading $2x$ as ``$23$'' leads to mistakes. Multiply first, then add: $6+2\cdot 3=12$.\end{warnbox}
+\step{2}{Conclusion}
+Only the equation in (B) is true: $3\cdot 3-1=8$. So the answer is \textbf{(B)}.
+\ans{(B) $3x-1=8$}
+}
+
+% ---------------------------------------------------------------- Problem 4
+\begin{probbox}{4}{\relax}
+The sum of three consecutive integers is $153$. The largest of the three integers is
+\choices{$52$}{$50$}{$53$}{$54$}{$51$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Three consecutive integers stand next to each other on the number line and differ by $1$ (for example $7,8,9$). Their sum is $153$. We want the \emph{largest} one.
+\step{1}{Choose an unknown: let the middle number be $n$}
+The three numbers are $n-1$, \ $n$, \ $n+1$.
+\step{2}{Write an equation}
+$(n-1)+n+(n+1)=153$. On the left, $-1$ and $+1$ cancel, leaving $3n=153$.
+\step{3}{Solve}
+$n=153\div 3=51$. The three numbers are $50$, $51$, $52$.
+\begin{recallbox}For three consecutive integers, the middle number equals the sum divided by $3$ (the middle number is the average).\end{recallbox}
+\begin{proofbox}Another way, letting the smallest number be $m$: $m+(m+1)+(m+2)=3m+3=153$, so $3m=150$, $m=50$. The same three numbers $50,51,52$.\end{proofbox}
+\begin{tipbox}Multiple-choice shortcut: the largest number must be a little more than the average $153\div 3=51$; try $50+51+52=153$ straight away.\end{tipbox}
+\verify{$50+51+52=153$. Correct.}
+\step{4}{Answer the actual question}
+The largest number is $52$, which is option \textbf{(A)}.
+\begin{warnbox}Option (E) $51$ is the \emph{middle} number and option (B) $50$ is the \emph{smallest} number. Read the question carefully so you do not choose the wrong one.\end{warnbox}
+\ans{(A) $52$}
+}
+
+% ---------------------------------------------------------------- Problem 5
+\begin{probbox}{5}{\relax}
+One scoop of fish food can feed $8$ goldfish. How many goldfish can $4$ such scoops of fish food feed?
+\choices{$12$}{$16$}{$8$}{$64$}{$32$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} $1$ scoop $\to$ $8$ fish. Asked: $4$ scoops $\to$ ? fish.
+When the number of scoops is multiplied by some number, the number of fish fed is multiplied by the same number (the quantities are directly proportional).
+\begin{recallbox}If $y$ is directly proportional to $x$ with constant $k$, then $y=k\cdot x$. Here $k=8$ (fish per scoop), so number of fish $=8\times$ number of scoops.\end{recallbox}
+\step{1}{Draw a diagram}
+\begin{barfigC}
+\blk{0}{1.5}{0}{0.55}{tmGreen}{8 fish}
+\blk{1.5}{3}{0}{0.55}{tmGreen}{8 fish}
+\blk{3}{4.5}{0}{0.55}{tmGreen}{8 fish}
+\blk{4.5}{6}{0}{0.55}{tmGreen}{8 fish}
+\brcup{0}{6}{0.55}{4 scoops}
+\end{barfigC}
+\step{2}{Calculate}
+$4\times 8=32$ (fish).
+\begin{warnbox}Option (A) $12$ is $8+4$ (adding instead of multiplying), and option (D) $64$ is $8\times 8$. Each extra scoop feeds \emph{$8$ more fish}, so multiply $8$ by the number of scoops.\end{warnbox}
+\verify{$32\div 4=8$: exactly $8$ fish per scoop.}
+So the answer is \textbf{(E)}.
+\ans{(E) $32$}
+}
+
+% ---------------------------------------------------------------- Problem 6
+\begin{probbox}{6}{\relax}
+If $x=4$ and $y=3x$, the value of $y$ is
+\choices{$12$}{$24$}{$7$}{$81$}{$4$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We know $x=4$. The expression $y=3x$ means ``$y$ equals $3$ times $x$''. We must find $y$.
+\begin{recallbox}$3x$ is short for $3\cdot x$ (between a number and a letter we leave out the multiplication sign).\end{recallbox}
+\step{1}{Substitute $x=4$}
+$y=3\cdot x=3\cdot 4=12$.
+\begin{warnbox}Do not read $3x$ as ``$34$'' (joining the digits); it is not $3+4=7$ (option C) or $3^4=81$ (option D) either.\end{warnbox}
+\begin{tipbox}Read $y=3x$ in words: ``$y$ is three times $x$''. Three times $4$ is $12$.\end{tipbox}
+\verify{$12\div 3=4=x$. Correct.}
+So the answer is \textbf{(A)}.
+\ans{(A) $12$}
+}
+
+% ---------------------------------------------------------------- Problem 7
+\begin{probbox}{7}{\relax}
+Each bus ride costs Lan $6\,750$ dong, while Minh pays $9\,000$ dong per ride (they use different routes).
+If each of them rides the bus $20$ times, how much less does Lan pay than Minh in total?
+\choicesII{$75\,000$ dong}{$30\,000$ dong}{$45\,000$ dong}{$135\,000$ dong}{$180\,000$ dong}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Per ride: Lan $6\,750$ dong, Minh $9\,000$ dong. Each rides $20$ times. We want the \emph{difference} after $20$ rides.
+\step{1}{Method 1 -- Work out each total and subtract}
+Lan pays: $20\times 6\,750=135\,000$ (dong).\quad Minh pays: $20\times 9\,000=180\,000$ (dong).\\
+Difference: $180\,000-135\,000=45\,000$ (dong).
+\step{2}{Method 2 -- Work out the difference per ride and multiply (quicker)}
+Each ride, Lan pays less than Minh by: $9\,000-6\,750=2\,250$ (dong).\\
+After $20$ rides: $20\times 2\,250=45\,000$ (dong).
+\begin{recallbox}The distributive law: $20\times 9\,000-20\times 6\,750=20\times(9\,000-6\,750)$. That is why both methods always agree.\end{recallbox}
+\begin{warnbox}Option (D) $135\,000$ dong is \emph{Lan's total} and option (E) $180\,000$ dong is \emph{Minh's total}. The question asks how much \emph{less}, which is the difference.\end{warnbox}
+\verify{$135\,000+45\,000=180\,000$. Correct.}
+So the answer is \textbf{(C)}.
+\ans{(C) $45\,000$ dong}
+}
+
+% ---------------------------------------------------------------- Problem 8
+\begin{probbox}{8}{\relax}
+Which expression produces the values in the second row of the table, given the values of $n$ in the first row?
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} $n$ & $1$ & $2$ & $3$ & $4$ & $5$\\ \hline
+Value & $1$ & $3$ & $5$ & $7$ & $9$\\ \hline
+\end{tabular}
+\end{center}
+\choices{$3n-2$}{$2(n-1)$}{$n+4$}{$2n$}{$2n-1$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} We need an expression in $n$ which gives $1,3,5,7,9$ when $n=1,2,3,4,5$.
+\step{1}{Find the pattern in the row of values}
+Each time $n$ increases by $1$, the value increases by $2$ ($1\to 3\to 5\to 7\to 9$). So the expression has the form $2n+b$.
+\begin{recallbox}If the value always increases by $d$ when $n$ increases by $1$, the expression has the form $d\cdot n+b$; find $b$ by substituting $n=1$.\end{recallbox}
+\step{2}{Find $b$}
+Substitute $n=1$: $2\cdot 1+b=1$, so $b=1-2=-1$. The expression is $2n-1$.
+\step{3}{Check the whole table and rule out the other options}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{tmBlue!10} $n$ & $1$ & $2$ & $3$ & $4$ & $5$ & Verdict\\ \hline
+(A) $3n-2$ & $1$ & $4$ & & & & fails at $n=2$\\ \hline
+(B) $2(n-1)$ & $0$ & & & & & fails at $n=1$\\ \hline
+(C) $n+4$ & $5$ & & & & & fails at $n=1$\\ \hline
+(D) $2n$ & $2$ & & & & & fails at $n=1$\\ \hline
+(E) $2n-1$ & $1$ & $3$ & $5$ & $7$ & $9$ & \textbf{fits the whole table}\\ \hline
+\end{tabular}
+\end{center}
+\begin{warnbox}Option (A) $3n-2$ also gives $1$ when $n=1$. If you only test the first column, you cannot decide between (A) and (E). Test other columns too.\end{warnbox}
+\verify{$2n-1$ for $n=1,2,3,4,5$: $1,3,5,7,9$. It matches the whole table.}
+So the answer is \textbf{(E)}.
+\ans{(E) $2n-1$}
+}
+
+% ---------------------------------------------------------------- Problem 9
+\begin{probbox}{9}{\relax}
+When two numbers are added, the result is $-26$. One of the numbers is $11$. The other number is
+\choices{$-37$}{$37$}{$-15$}{$15$}{$-48$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Call the unknown number $x$. We are told that $x+11=-26$. We must find $x$.
+\step{1}{Write an equation}
+$x+11=-26$.
+\step{2}{Solve with the balance principle}
+Subtract $11$ from both sides: $x=-26-11$.
+\begin{recallbox}Subtracting a number means adding its opposite: $-26-11=-26+(-11)$. Adding two negative numbers: add the sizes and keep the ``$-$'' sign: $-(26+11)=-37$.\end{recallbox}
+So $x=-37$.
+\begin{center}\begin{tikzpicture}[x=0.16cm,>=stealth]
+\draw[->,thick,Navy] (-41,0)--(15,0);
+\foreach \i in {-37,-26,0,11}{\draw[Navy] (\i,0.12)--(\i,-0.12); \node[below,font=\footnotesize] at (\i,-0.12){$\i$};}
+\fill[AnsRed] (-37,0) circle (2.5pt); \fill[tmGreen] (-26,0) circle (2.5pt);
+\draw[->,tmOrange,line width=1pt] (-37,0.3) to[bend left=30] node[above,font=\footnotesize]{$+11$} (-26,0.3);
+\end{tikzpicture}\end{center}
+On the number line: starting from $-37$ and moving $11$ steps to the right, we arrive at $-26$.
+\begin{warnbox}Forgetting to change the sign when moving a term across, and writing $x=-26+11=-15$, is wrong (option C). Check: $-15+11=-4\neq -26$.\end{warnbox}
+\begin{parentbox}You can explain it with a story about owing money: ``After someone gives you $11$ thousand, you still owe $26$ thousand. How much did you owe at first?'' At first you owed more: $26+11=37$ thousand, that is, $-37$.\end{parentbox}
+\verify{$(-37)+11=-26$. Correct.}
+So the answer is \textbf{(A)}.
+\ans{(A) $-37$}
+}
+
+% ---------------------------------------------------------------- Problem 10
+\begin{probbox}{10}{\relax}
+Mr Hùng has $10\,000\,000$ dong, all in $50\,000$ dong notes. How many notes does he have?
+\choices{$1\,000$}{$200$}{$1\,250$}{$500$}{$2\,000$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} The total amount is $10\,000\,000$ dong (ten million dong). Each note is worth $50\,000$ dong. We must find the number of notes.
+\begin{recallbox}Number of notes $=$ total amount $\div$ value of one note.\end{recallbox}
+\step{1}{Set up the division}
+Number of notes $=10\,000\,000\div 50\,000$.
+\step{2}{Simplify by removing zeros}
+Remove four zeros from both numbers (that is, divide both by $10\,000$; the quotient does not change): $10\,000\,000\div 50\,000=1\,000\div 5=200$.
+\step{3}{Another way of thinking}
+$2$ notes of $50\,000$ dong make $100\,000$ dong. Ten million dong is $100$ times $100\,000$ dong, so there are $100\times 2=200$ notes.
+\verify{$200\times 50\,000=10\,000\,000$ dong. Correct.}
+\begin{warnbox}Miscounting the zeros is a very common mistake. Write numbers with a space between groups of three digits ($10\,000\,000$) to count accurately.\end{warnbox}
+So the answer is \textbf{(B)}.
+\begin{parentbox}If you have real banknotes at home, let your child count $10$ notes of $50\,000$ dong ($500\,000$ dong), then ask: how many such bundles make $10$ million? ($20$ bundles, that is, $200$ notes.)\end{parentbox}
+\ans{(B) $200$}
+}
+
+% ---------------------------------------------------------------- Problem 11
+\begin{probbox}{11}{\relax}
+The product $60\times 60\times 24\times 7$ equals
+\choicesL{the number of minutes in seven weeks}{the number of hours in sixty days}{the number of seconds in seven hours}{the number of seconds in one week}{the number of minutes in twenty-four weeks}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} There is no need to multiply the product out. Read each factor as one step of a time-unit conversion.
+\begin{recallbox}$1$ week $=7$ days;\ \ $1$ day $=24$ hours;\ \ $1$ hour $=60$ minutes;\ \ $1$ minute $=60$ seconds.\end{recallbox}
+\step{1}{Read the product from right to left}
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item $7$ is the number of days in \textbf{one week};
+\item $24\times 7$ is the number of hours in one week;
+\item $60\times 24\times 7$ is the number of minutes in one week;
+\item $60\times 60\times 24\times 7$ is the number of \textbf{seconds} in one week.
+\end{itemize}
+\step{2}{Check the other options by writing their products}
+\begin{center}
+\begin{tabular}{|c|l|r|}
+\hline
+\rowcolor{tmBlue!10} Option & Expression & Value\\ \hline
+(A) minutes in $7$ weeks & $60\times 24\times 7\times 7$ & $70\,560$\\ \hline
+(B) hours in $60$ days & $24\times 60$ & $1\,440$\\ \hline
+(C) seconds in $7$ hours & $60\times 60\times 7$ & $25\,200$\\ \hline
+(D) seconds in $1$ week & $60\times 60\times 24\times 7$ & $604\,800$\\ \hline
+(E) minutes in $24$ weeks & $60\times 24\times 7\times 24$ & $241\,920$\\ \hline
+\end{tabular}
+\end{center}
+Only option (D) has exactly the product $60\times 60\times 24\times 7=604\,800$.
+\begin{warnbox}Seeing the numbers $60$, $24$, $7$ in the wording, many students rush to choose (A) or (E). Match \emph{every} conversion step: (A) is missing one factor $60$ and has an extra factor $7$.\end{warnbox}
+So the answer is \textbf{(D)}.
+\ans{(D) the number of seconds in one week}
+}
+
+% ---------------------------------------------------------------- Problem 12
+\begin{probbox}{12}{\stars{1}}
+Each of $a$, $b$, $c$, $d$ is a positive integer greater than $3$, and
+\[\frac{1}{a-2}=\frac{1}{b+2}=\frac{1}{c+1}=\frac{1}{d-3}.\]
+Which ordering of these four numbers is correct?
+\choicesII{$a<b<c<d$}{$c<b<a<d$}{$b<a<c<d$}{$d<a<c<b$}{$b<c<a<d$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Four fractions with the same numerator $1$ are equal. We must compare $a,b,c,d$.
+(The condition ``greater than $3$'' makes sure all the denominators are non-zero, so the fractions make sense.)
+\step{1}{Equal fractions with the same numerator have equal denominators}
+\begin{recallbox}If $\dfrac{1}{p}=\dfrac{1}{q}$, then $p=q$ (cross-multiply: $1\cdot q=1\cdot p$).\end{recallbox}
+Therefore: $a-2=b+2=c+1=d-3$.
+\step{2}{Call the common value $k$ and write each number in terms of $k$}
+$a-2=k\Rightarrow a=k+2$;\quad $b+2=k\Rightarrow b=k-2$;\quad $c+1=k\Rightarrow c=k-1$;\quad $d-3=k\Rightarrow d=k+3$.
+\step{3}{Compare with the same reference point $k$}
+The ``extras'' are $-2$ (for $b$), $-1$ (for $c$), $+2$ (for $a$), $+3$ (for $d$). Since $-2<-1<2<3$,
+\[k-2<k-1<k+2<k+3,\quad\text{that is,}\quad b<c<a<d.\]
+\begin{center}\begin{tikzpicture}[x=0.9cm]
+\draw[->,thick,Navy] (-2.8,0)--(3.8,0);
+\foreach \i in {-2,...,3}{\draw[Navy] (\i,0.08)--(\i,-0.08);}
+\node[below,font=\small] at (0,-0.1){$k$};
+\foreach \i/\l/\c in {-2/b/tmOrange,-1/c/tmGreen,2/a/tmBlue,3/d/tmPurple}{\fill[\c] (\i,0) circle (3pt); \node[above,font=\small\bfseries,text=\c] at (\i,0.1){$\l$};}
+\end{tikzpicture}\end{center}
+\begin{warnbox}Seeing the minus sign in ``$a-2$'', many students think $a$ is small. But $a$ has to \emph{lose} $2$ to equal $k$, so $a$ is bigger than $k$. On the other hand, $b$ has to \emph{gain} $2$ to equal $k$, so $b$ is smaller than $k$.\end{warnbox}
+\verify{Try $k=6$ (so that all four numbers are greater than $3$): $a=8$, $b=4$, $c=5$, $d=9$. Then $\dfrac{1}{8-2}=\dfrac{1}{4+2}=\dfrac{1}{5+1}=\dfrac{1}{9-3}=\dfrac{1}{6}$ and indeed $4<5<8<9$, that is, $b<c<a<d$.}
+The ordering $b<c<a<d$ is option \textbf{(E)}.
+\ans{(E) $b<c<a<d$}
+}
+
+% ---------------------------------------------------------------- Problem 13
+\begin{probbox}{13}{\relax}
+A rectangle has length $x$ and width $y$. A triangle has base $16$ and corresponding height $x$.
+If the area of the rectangle equals the area of the triangle, then the value of $y$ is
+\choices{$16$}{$4$}{$8$}{$12$}{$32$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Rectangle: length $x$, width $y$. Triangle: base $16$, height $x$. The two areas are equal. Find $y$
+(note: $x$ is not given, but we will see that $x$ ``disappears'').
+\begin{figC}
+\draw[tmBlue,line width=1pt,fill=tmBlue!10] (0,0) rectangle (2.4,1.4);
+\node[below] at (1.2,0){$x$}; \node[left] at (0,0.7){$y$};
+\draw[tmOrange!85!black,line width=1pt,fill=tmOrange!12] (3.6,0)--(7.6,0)--(4.6,2.4)--cycle;
+\draw[dashed,Slate] (4.6,2.4)--(4.6,0); \draw[Slate] (4.6,0.18)--(4.78,0.18)--(4.78,0);
+\node[below] at (5.6,0){$16$}; \node[left,font=\small] at (4.6,1.1){$x$};
+\end{figC}
+\step{1}{Write the two area formulas}
+\begin{recallbox}Area of a rectangle $=$ length $\times$ width. Area of a triangle $=\dfrac{\text{base}\times\text{height}}{2}$.\end{recallbox}
+Rectangle: $A_1=x\cdot y=xy$.\quad Triangle: $A_2=\dfrac{16\cdot x}{2}=8x$.
+\step{2}{Write an equation and solve}
+$xy=8x$. Since $x$ is a length, $x>0$; dividing both sides by $x$: $y=8$.
+\begin{proofbox}You can also see it without dividing: $x\cdot y$ and $x\cdot 8$ are ``$x$ groups of $y$'' and ``$x$ groups of $8$''. If the products are equal with the same number of groups $x\neq 0$, each group must be the same: $y=8$.\end{proofbox}
+\begin{warnbox}Forgetting to halve when finding the area of the triangle leads to $y=16$ (option A).\end{warnbox}
+\verify{Try $x=5$: rectangle $5\times 8=40$; triangle $\dfrac{16\cdot 5}{2}=40$. Equal. (It works for any $x$.)}
+So the answer is \textbf{(C)}.
+\ans{(C) $8$}
+}
+
+% ---------------------------------------------------------------- Problem 14
+\begin{probbox}{14}{\relax}
+The symbol \aeaBox{3}{4}{5}{6} is evaluated as $3\times 6+4\times 5=38$. If \aeaBox{2}{6}{1}{\ } is evaluated as $16$,
+then the number that should be placed in the empty space is
+\choices{$1$}{$2$}{$3$}{$4$}{$5$}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} First we must understand the rule from the given example, then apply it to the box with the unknown number.
+\step{1}{Find the rule}
+In \aeaBox{3}{4}{5}{6}: $3$ (top left) times $6$ (bottom right), plus $4$ (top right) times $5$ (bottom left): $3\times 6+4\times 5=18+20=38$.
+That is: \emph{multiply the two numbers on each diagonal, then add}. In general, \aeaBox{a}{b}{c}{d} $=a\times d+b\times c$.
+\step{2}{Name the empty space and write an equation}
+Let the number in the empty space (bottom right) be $x$. By the rule: \aeaBox{2}{6}{1}{x} $=2\times x+6\times 1=2x+6$.
+We are told the value is $16$: $2x+6=16$.
+\step{3}{Solve}
+Subtract $6$ from both sides: $2x=10$. Divide both sides by $2$: $x=5$.
+\verify{$2\times 5+6\times 1=10+6=16$. Correct.}
+\begin{warnbox}Do not pair the wrong numbers: $2\times 6+1\times x$ (multiplying along rows) breaks the rule; that way you would get $x=4$ (option D). Check the rule against the example $38$ before using it.\end{warnbox}
+So the answer is \textbf{(E)}.
+\begin{parentbox}Together with your child, ``invent'' a new symbol (for example, multiply along the rows and then subtract) and quiz each other. The important habit is always to test a rule on the given example before using it.\end{parentbox}
+\ans{(E) $5$}
+}
+
+% ---------------------------------------------------------------- Problem 15
+\begin{probbox}{15}{\relax}
+Three pumpkins are weighed two at a time in all possible ways. The weights of the pairs are $12$ kg, $13$ kg and $15$ kg.
+How much does the lightest pumpkin weigh?
+\choices{$4$ kg}{$5$ kg}{$6$ kg}{$7$ kg}{$8$ kg}
+\end{probbox}
+\probsol{
+\textbf{Understanding the problem.} Three pumpkins can be paired in exactly $3$ ways. Let their weights from lightest to heaviest be $a\le b\le c$ (kg).
+The lightest pair is the two lightest pumpkins, and the heaviest pair is the two heaviest pumpkins:
+$a+b=12$, \ $a+c=13$, \ $b+c=15$.
+\step{1}{Add all three pairs}
+Each pumpkin appears in exactly \emph{two} pairs: $(a+b)+(a+c)+(b+c)=12+13+15=40$, that is, $2(a+b+c)=40$.
+\begin{recallbox}Three objects weighed in pairs: the total of the three objects is half of the sum of the results.\end{recallbox}
+\step{2}{Total weight of the three pumpkins}
+$a+b+c=40\div 2=20$ (kg).
+\step{3}{Find the lightest pumpkin}
+The lightest pumpkin $a$ is the one that is \emph{not} in the heaviest pair ($b+c=15$):
+$a=(a+b+c)-(b+c)=20-15=5$ (kg).
+(Similarly: $b=20-13=7$ kg, \ $c=20-12=8$ kg.)
+\begin{barfigC}
+\blk{0}{1.25}{0}{0.5}{tmGreen}{a}
+\blk{1.25}{3}{0}{0.5}{tmOrange}{b}
+\brcup{0}{3}{0.5}{12 kg}
+\blk{0}{1.25}{-0.9}{0.5}{tmGreen}{a}
+\blk{1.25}{3.25}{-0.9}{0.5}{tmPurple}{c}
+\brcdn{0}{3.25}{-1.35}{13 kg}
+\end{barfigC}
+\verify{$5+7=12$, \ $5+8=13$, \ $7+8=15$. All three pairs are correct.}
+\begin{warnbox}Do not take $12\div 2=6$ kg and assume each pumpkin in the lightest pair weighs $6$ kg: the two pumpkins in a pair need not weigh the same. Option (E) $8$ kg is the \emph{heaviest} pumpkin.\end{warnbox}
+The lightest pumpkin weighs $5$ kg, which is option \textbf{(B)}.
+\begin{parentbox}Let your child take three objects at home and a scale: weigh them in pairs, add the three results and halve, then compare with putting all three on the scale together. Your child will see for themselves why we divide by $2$.\end{parentbox}
+\ans{(B) $5$ kg}
+}

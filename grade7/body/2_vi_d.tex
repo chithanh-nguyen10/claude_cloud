@@ -2,6 +2,9 @@
 \providecommand{\tbGrid}[4]{\begin{tikzpicture}[baseline=0.2cm,x=0.5cm,y=0.5cm]
   \draw[Ink,line width=0.7pt] (0,0) grid[step=1] (2,2);
   \node[font=\sffamily\bfseries,text=tmBlue!80!black,inner sep=0pt,#4] at (#1,#2) {#3};\end{tikzpicture}}
+% helper inside a tikzpicture: \tbG{x0}{y0}{cx}{cy}{letter}{transform} draws a 2x2 grid (cell 0.5) at (x0,y0)
+\providecommand{\tbG}[6]{\draw[Ink,line width=0.7pt] (#1,#2) grid[step=0.5] ++(1,1);
+  \node[font=\sffamily\bfseries,text=tmBlue!80!black,inner sep=0pt,#6] at ({#1+#3},{#2+#4}) {#5};}
 
 % ---------------------------------------------------------------- 41
 \begin{probbox}{41}{\stars{1}}
@@ -90,10 +93,10 @@ Lật qua đường đứng: ô trên -- phải sang ô trên -- trái, chữ P 
 Lật qua đường ngang: ô trên -- trái xuống ô dưới -- trái, chữ bị lật ngược trên -- dưới. Kết quả: chữ P ở ô
 dưới -- trái, \emph{lộn đầu} (giống chữ ``d''), như hình thứ ba bên dưới.
 \begin{figC}
-\node at (0,0){\tbGrid{1.5}{1.5}{P}{}};\node at (1.15,0){$\xrightarrow{D}$};
-\node at (2.3,0){\tbGrid{0.5}{1.5}{P}{xscale=-1}};\node at (3.45,0){$\xrightarrow{N}$};
-\node at (4.6,0){\tbGrid{0.5}{0.5}{P}{rotate=180}};
-\node at (6.4,0){\small$=$ quay $180^\circ$};
+\tbG{0}{0}{0.75}{0.75}{P}{}\node at (1.75,0.5){$\xrightarrow{\;D\;}$};
+\tbG{2.5}{0}{0.25}{0.75}{P}{xscale=-1}\node at (4.25,0.5){$\xrightarrow{\;N\;}$};
+\tbG{5}{0}{0.25}{0.25}{P}{rotate=180}
+\node[anchor=west] at (6.2,0.5){\small$=$ quay $180^\circ$};
 \end{figC}
 \step{3}{So sánh với các phép $Q$}
 Quay $Q$ hai lần (tức quay $180^\circ$): ô trên -- phải đi tới ô đối diện qua tâm là ô dưới -- trái, và chữ bị
@@ -106,9 +109,9 @@ $180^\circ$ quanh tâm.\end{recallbox}
 $D$: chữ P sang ô trên -- trái, bị soi gương. $Q$ (quay $90^\circ$ theo chiều kim đồng hồ): ô trên -- trái sang ô
 trên -- phải. Kết quả: P \emph{trở về ô trên -- phải} nhưng thân nằm ngang, bụng ở phía trên:
 \begin{figC}
-\node at (0,0){\tbGrid{1.5}{1.5}{P}{}};\node at (1.15,0){$\xrightarrow{D}$};
-\node at (2.3,0){\tbGrid{0.5}{1.5}{P}{xscale=-1}};\node at (3.45,0){$\xrightarrow{Q}$};
-\node at (4.6,0){\tbGrid{1.5}{1.5}{P}{cm={0,1,1,0,(0,0)}}};
+\tbG{0}{0}{0.75}{0.75}{P}{}\node at (1.75,0.5){$\xrightarrow{\;D\;}$};
+\tbG{2.5}{0}{0.25}{0.75}{P}{xscale=-1}\node at (4.25,0.5){$\xrightarrow{\;Q\;}$};
+\tbG{5}{0}{0.75}{0.75}{P}{cm={0,1,1,0,(0,0)}}\draw[tmOrange,dashed,line width=0.9pt] (4.85,-0.15)--(6.15,1.15);
 \draw[tmOrange,dashed,line width=0.9pt] (4.05,-0.5)--(5.15,0.6);
 \end{figC}
 \step{5}{Nhận ra phép lật qua đường chéo}
@@ -130,11 +133,11 @@ Bốn hình ``thẻ ngửa'': quay $0^\circ$, $90^\circ$, $180^\circ$, $270^\cir
 Bốn hình ``thẻ úp'': mỗi hình trên thực hiện thêm $D$. Chữ P không có trục đối xứng nào, nên $8$ hình này
 khác nhau từng đôi một:
 \begin{figC}
-\node at (0,0){\tbGrid{1.5}{1.5}{P}{}};\node at (1.45,0){\tbGrid{1.5}{0.5}{P}{rotate=-90}};
-\node at (2.9,0){\tbGrid{0.5}{0.5}{P}{rotate=180}};\node at (4.35,0){\tbGrid{0.5}{1.5}{P}{rotate=90}};
-\node at (0,-1.3){\tbGrid{0.5}{1.5}{P}{xscale=-1}};\node at (1.45,-1.3){\tbGrid{0.5}{0.5}{P}{cm={0,-1,-1,0,(0,0)}}};
-\node at (2.9,-1.3){\tbGrid{1.5}{0.5}{P}{yscale=-1}};\node at (4.35,-1.3){\tbGrid{1.5}{1.5}{P}{cm={0,1,1,0,(0,0)}}};
-\node[anchor=east,font=\footnotesize] at (-0.7,0){thẻ ngửa};\node[anchor=east,font=\footnotesize] at (-0.7,-1.3){thẻ úp};
+\tbG{0}{0}{0.75}{0.75}{P}{}\tbG{1.5}{0}{0.75}{0.25}{P}{rotate=-90}
+\tbG{3}{0}{0.25}{0.25}{P}{rotate=180}\tbG{4.5}{0}{0.25}{0.75}{P}{rotate=90}
+\tbG{0}{-1.5}{0.25}{0.75}{P}{xscale=-1}\tbG{1.5}{-1.5}{0.25}{0.25}{P}{cm={0,-1,-1,0,(0,0)}}
+\tbG{3}{-1.5}{0.75}{0.25}{P}{yscale=-1}\tbG{4.5}{-1.5}{0.75}{0.75}{P}{cm={0,1,1,0,(0,0)}}
+\node[anchor=east,font=\footnotesize] at (-0.2,0.5){thẻ ngửa};\node[anchor=east,font=\footnotesize] at (-0.2,-1){thẻ úp};
 \end{figC}
 \begin{warnbox}Đừng đếm ``$4$ ô $\times$ $8$ tư thế $=32$''. Vị trí ô và tư thế của chữ \emph{gắn liền} với
 nhau, vì chúng đi theo cùng một tấm thẻ.\end{warnbox}
