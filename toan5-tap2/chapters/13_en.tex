@@ -1,0 +1,526 @@
+\shead{The idea of the supposition method}
+\begin{knowbox}
+Many problems talk about \textbf{two kinds} of things mixed together: chickens and rabbits, adult and child tickets, notes of two values, big and small boats,\ldots\ We know
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item the \textbf{total number} of things, and
+\item the \textbf{total of some other quantity} (legs, wheels, money, seats,\ldots), where each thing of the first kind has one value and each thing of the second kind has another.
+\end{itemize}
+\textbf{The supposition method} (``suppose for a moment''):
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item \emph{Suppose} that all the things are of \textbf{one kind}, and work out the total in that case.
+\item Compare with the real total: how much \textbf{too few} (or \textbf{too many}) is it?
+\item Swapping \emph{one} thing of that kind for \emph{one} thing of the other kind changes the total by the \textbf{difference of the two values}.
+\item Number of swaps $=$ (amount too few or too many) $:$ (change per swap). The number of swaps is the number of things of the \emph{other} kind.
+\end{enumerate}
+The supposition is \emph{not} true: it is only a temporary step that makes the problem easy. The answer does not depend on which kind we suppose, so the problem can be solved in two ways. Always \textbf{check} the answer against both conditions.
+\end{knowbox}
+
+\shead{Problems with penalty points}
+\begin{knowbox}
+In a test or a game, a right answer \textbf{earns} $a$ points and a wrong answer \textbf{loses} $b$ points. Suppose every answer is right. Each time a right answer is swapped for a wrong one, the score falls by
+\begin{center}
+$a+b$ \ points \quad (it loses the $a$ points it would have earned \emph{and} the $b$ penalty points).
+\end{center}
+A question left unanswered (worth $0$) makes the score fall by only $a$. The same idea fits wages with fines, deliveries with breakages, and so on.
+\end{knowbox}
+
+\shead{When a difference is given instead of a sum}
+\begin{knowbox}
+Sometimes the problem gives the \textbf{difference} between the totals of the two kinds (for example: \emph{the chickens have $6$ more legs than the rabbits}). Suppose all the things are of the first kind; then the difference is as large as possible. Swapping one thing of the first kind for one of the second kind makes the first total smaller by $a$ \emph{and} the second total larger by $b$, so the difference falls by
+\begin{center}
+$a+b$.
+\end{center}
+\end{knowbox}
+
+\shead{Three kinds, or an extra condition}
+\begin{knowbox}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item If two kinds are tied together (e.g.\ \emph{as many bicycles as tricycles}), put them in \textbf{groups} and treat each group as one ``thing''.
+\item If there are three kinds, use one condition to separate one kind from the other two, then use the supposition method again on the other two.
+\end{itemize}
+\end{knowbox}
+\gap
+\begin{exbox}{\ExWord\ 1}
+A farm has chickens and rabbits: $32$ heads and $94$ legs in all. How many chickens and how many rabbits are there?
+\guide
+\emph{Method 1.} Suppose all $32$ animals were chickens. There would be $32\times2=64$ legs.\par
+That is $94-64=30$ legs too few.\par
+Swapping one chicken for one rabbit adds $4-2=2$ legs.\par
+Number of rabbits: $30:2=15$.\par Number of chickens: $32-15=17$.\par
+\emph{Method 2.} Suppose all $32$ animals were rabbits: $32\times4=128$ legs, which is $128-94=34$ legs too many.\par
+Swapping one rabbit for one chicken takes away $2$ legs, so chickens: $34:2=17$; rabbits: $32-17=15$.\par
+\emph{Check:} $17\times2+15\times4=34+60=94$.
+\dapso{$17$ chickens, $15$ rabbits.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 2}
+A school buys $45$ circus tickets for $954\,000$ dong. An adult ticket costs $30\,000$ dong and a child ticket $18\,000$ dong. How many tickets of each kind does the school buy?
+\guide
+Suppose all $45$ tickets were child tickets: $18\,000\times45=810\,000$ dong.\par
+That is $954\,000-810\,000=144\,000$ dong too little.\par
+Swapping a child ticket for an adult ticket adds $30\,000-18\,000=12\,000$ dong.\par
+Adult tickets: $144\,000:12\,000=12$.\par Child tickets: $45-12=33$.
+\dapso{$12$ adult tickets, $33$ child tickets.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 3}
+A maths quiz has $25$ questions. Each right answer earns $4$ points and each wrong answer loses $2$ points. Phương answers every question and scores $64$ points. How many questions does Phương get right?
+\guide
+Suppose all $25$ answers were right: $4\times25=100$ points.\par
+Phương has $100-64=36$ points fewer.\par
+Each wrong answer (instead of a right one) costs $4+2=6$ points.\par
+Wrong answers: $36:6=6$.\par Right answers: $25-6=19$.\par
+\emph{Check:} $19\times4-6\times2=76-12=64$.
+\dapso{$19$ questions.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 4}
+There are $30$ chickens and rabbits. The chickens have $6$ more legs than the rabbits. How many of each are there?
+\guide
+Suppose all $30$ animals were chickens: the chickens would have $30\times2=60$ legs and the rabbits $0$, a difference of $60$ legs.\par
+The real difference is $6$, so it must fall by $60-6=54$ legs.\par
+Swapping one chicken for one rabbit: the chickens lose $2$ legs and the rabbits gain $4$, so the difference falls by $2+4=6$ legs.\par
+Rabbits: $54:6=9$.\par Chickens: $30-9=21$.\par
+\emph{Check:} $21\times2-9\times4=42-36=6$.
+\dapso{$21$ chickens, $9$ rabbits.}
+\end{exbox}
+\gap
+\begin{exbox}{\ExWord\ 5}
+A bicycle park holds $36$ vehicles: bicycles ($2$ wheels), tricycles ($3$ wheels) and cars ($4$ wheels), with $114$ wheels in all. There are as many bicycles as tricycles. How many vehicles of each kind are there?
+\guide
+Put one bicycle and one tricycle in a \emph{group}: a group has $2$ vehicles and $2+3=5$ wheels.\par
+Suppose there were no cars at all: $36:2=18$ groups, with $5\times18=90$ wheels.\par
+That is $114-90=24$ wheels too few.\par
+Swapping one group for $2$ cars keeps the number of vehicles and adds $2\times4-5=3$ wheels.\par
+Swaps: $24:3=8$, so there are $2\times8=16$ cars.\par
+Groups left: $18-8=10$, i.e.\ $10$ bicycles and $10$ tricycles.\par
+\emph{Check:} $10+10+16=36$ vehicles; $20+30+64=114$ wheels.
+\dapso{$10$ bicycles, $10$ tricycles, $16$ cars.}
+\end{exbox}
+\dividerbar{Practice}
+\begin{probbox}{1}{\relax}
+A yard has chickens and dogs: $25$ heads and $70$ legs. How many chickens and how many dogs are there?
+\end{probbox}
+\probsol{
+Suppose all were chickens: $25\times2=50$ legs, which is $70-50=20$ too few.\par
+Each dog has $4-2=2$ more legs.\par Dogs: $20:2=10$; chickens: $25-10=15$.
+\dapso{$15$ chickens, $10$ dogs.}}
+\gap
+\begin{probbox}{2}{\relax}
+A car park has $40$ vehicles, motorbikes ($2$ wheels) and cars ($4$ wheels), with $104$ wheels in all. How many cars are there?
+\end{probbox}
+\probsol{
+Suppose all were motorbikes: $40\times2=80$ wheels, which is $104-80=24$ too few.\par
+Each car has $2$ more wheels.\par Cars: $24:2=12$; motorbikes: $40-12=28$.
+\dapso{$12$ cars ($28$ motorbikes).}}
+\gap
+\begin{probbox}{3}{\relax}
+Grandma gives Khôi $18$ notes of $10\,000$ dong and $20\,000$ dong, worth $250\,000$ dong in all. How many notes of each kind are there?
+\end{probbox}
+\probsol{
+Suppose all were $10\,000$ notes: $10\,000\times18=180\,000$ dong.\par
+Too little by $250\,000-180\,000=70\,000$ dong.\par
+A $20\,000$ note is worth $10\,000$ dong more.\par
+$20\,000$ notes: $70\,000:10\,000=7$; $10\,000$ notes: $18-7=11$.
+\dapso{$11$ notes of $10\,000$, $7$ notes of $20\,000$.}}
+\gap
+\begin{probbox}{4}{\relax}
+$12$ boats take $58$ people across a lake, every boat full. A big boat seats $6$ people and a small boat $4$. How many boats of each kind are there?
+\end{probbox}
+\probsol{
+Suppose all were small: $4\times12=48$ people, $58-48=10$ too few.\par
+A big boat seats $2$ more.\par Big boats: $10:2=5$; small boats: $12-5=7$.
+\dapso{$5$ big boats, $7$ small boats.}}
+\gap
+\begin{probbox}{5}{\relax}
+The $36$ pupils of class 5A plant $120$ trees. Each boy plants $4$ trees and each girl $3$ trees. How many boys and girls are there?
+\end{probbox}
+\probsol{
+Suppose all were girls: $3\times36=108$ trees, $120-108=12$ too few.\par
+Each boy plants $1$ more tree.\par Boys: $12:1=12$; girls: $36-12=24$.
+\dapso{$12$ boys, $24$ girls.}}
+\gap
+\begin{probbox}{6}{\relax}
+$15$ lorries carry $59$ tonnes of rice in one trip, every lorry full. Some carry $3$ tonnes and the others $5$ tonnes. How many lorries of each kind are there?
+\end{probbox}
+\probsol{
+Suppose all carried $3$ tonnes: $3\times15=45$ tonnes, $59-45=14$ too few.\par
+A $5$-tonne lorry carries $2$ more.\par $5$-tonne lorries: $14:2=7$; $3$-tonne lorries: $15-7=8$.
+\dapso{$8$ lorries of $3$ tonnes, $7$ lorries of $5$ tonnes.}}
+\gap
+\begin{probbox}{7}{\relax}
+Ducks and goats have $48$ heads and $136$ legs. How many of each are there?
+\end{probbox}
+\probsol{
+Suppose all were ducks: $48\times2=96$ legs, $136-96=40$ too few.\par
+A goat has $2$ more legs.\par Goats: $40:2=20$; ducks: $48-20=28$.
+\dapso{$28$ ducks, $20$ goats.}}
+\gap
+\begin{probbox}{8}{\relax}
+A quiz has $20$ questions: $5$ points for each right answer and $1$ point off for each wrong one. Nga answers all of them and scores $76$. How many does she get right?
+\end{probbox}
+\probsol{
+All right: $5\times20=100$ points; she is $100-76=24$ points down.\par
+Each wrong answer costs $5+1=6$ points.\par Wrong: $24:6=4$; right: $20-4=16$.
+\dapso{$16$ questions.}}
+\gap
+\begin{probbox}{9}{\relax}
+A crate holds $30$ bottles of juice, some of $0.5$ litre and some of $1.5$ litres, $27$ litres in all. How many bottles of each size are there?
+\end{probbox}
+\probsol{
+Suppose all were $0.5$-litre bottles: $0.5\times30=15$ litres, $27-15=12$ litres too few.\par
+A big bottle holds $1.5-0.5=1$ litre more.\par
+$1.5$-litre bottles: $12:1=12$; $0.5$-litre bottles: $30-12=18$.
+\dapso{$18$ bottles of $0.5$ l, $12$ bottles of $1.5$ l.}}
+\gap
+\begin{probbox}{10}{\relax}
+Tuấn buys $24$ stamps, some at $3\,000$ dong and some at $5\,000$ dong, and pays $92\,000$ dong. How many of each does he buy?
+\end{probbox}
+\probsol{
+Suppose all cost $3\,000$: $3\,000\times24=72\,000$ dong, $20\,000$ dong too little.\par
+A $5\,000$ stamp costs $2\,000$ more.\par $5\,000$ stamps: $20\,000:2\,000=10$; $3\,000$ stamps: $24-10=14$.
+\dapso{$14$ stamps at $3\,000$, $10$ stamps at $5\,000$.}}
+\gap
+\begin{probbox}{11}{\relax}
+A classroom has $21$ desks: some seat $2$ pupils and some seat $3$. When $50$ pupils sit down, every seat is taken. How many desks of each kind are there?
+\end{probbox}
+\probsol{
+Suppose all desks seated $2$: $2\times21=42$ pupils, $50-42=8$ too few.\par
+A $3$-seat desk seats $1$ more.\par $3$-seat desks: $8$; $2$-seat desks: $21-8=13$.
+\dapso{$13$ desks for $2$, $8$ desks for $3$.}}
+\gap
+\begin{probbox}{12}{\relax}
+A box holds $22$ spiders ($8$ legs each) and ants ($6$ legs each), with $152$ legs in all. How many spiders are there?
+\end{probbox}
+\probsol{
+Suppose all were ants: $6\times22=132$ legs, $152-132=20$ too few.\par
+A spider has $2$ more legs.\par Spiders: $20:2=10$ (ants: $12$).
+\dapso{$10$ spiders.}}
+\gap
+\begin{probbox}{13}{\relax}
+A piggy bank holds $30$ coins of $500$ dong and $1\,000$ dong, worth $21\,000$ dong. How many coins of each kind are there?
+\end{probbox}
+\probsol{
+Suppose all were $500$-dong coins: $500\times30=15\,000$ dong, $6\,000$ dong too little.\par
+A $1\,000$ coin is worth $500$ more.\par $1\,000$ coins: $6\,000:500=12$; $500$ coins: $30-12=18$.
+\dapso{$18$ coins of $500$, $12$ coins of $1\,000$.}}
+\gap
+\begin{probbox}{14}{\relax}
+In a basketball match a team scores $26$ baskets, some worth $2$ points and some worth $3$ points, $60$ points in all. How many $3$-point baskets does it score?
+\end{probbox}
+\probsol{
+Suppose all were $2$-pointers: $2\times26=52$ points, $8$ too few.\par
+A $3$-pointer is worth $1$ more.\par $3$-pointers: $8:1=8$ ($2$-pointers: $18$).
+\dapso{$8$ baskets.}}
+\gap
+\begin{probbox}{15}{\relax}
+A worker is hired for $24$ days. Each working day pays $250\,000$ dong and each day off costs a fine of $50\,000$ dong. At the end he receives $5\,100\,000$ dong. How many days off did he take?
+\end{probbox}
+\probsol{
+Working all $24$ days: $250\,000\times24=6\,000\,000$ dong.\par
+Shortfall: $6\,000\,000-5\,100\,000=900\,000$ dong.\par
+Each day off costs $250\,000+50\,000=300\,000$ dong.\par Days off: $900\,000:300\,000=3$.
+\dapso{$3$ days.}}
+\gap
+\begin{probbox}{16}{\relax}
+There are $40$ chickens and rabbits. The chickens have $32$ more legs than the rabbits. How many of each are there?
+\end{probbox}
+\probsol{
+If all were chickens, the difference would be $40\times2=80$ legs.\par
+It must fall by $80-32=48$.\par Each swap (chicken $\to$ rabbit) lowers it by $2+4=6$.\par
+Rabbits: $48:6=8$; chickens: $40-8=32$.\par \emph{Check:} $64-32=32$.
+\dapso{$32$ chickens, $8$ rabbits.}}
+\gap
+\begin{probbox}{17}{\relax}
+A firm delivers $500$ glasses. It is paid $2\,000$ dong for each glass that arrives safely, but for each broken glass it is paid nothing and must pay back $8\,000$ dong. It receives $940\,000$ dong. How many glasses were broken?
+\end{probbox}
+\probsol{
+If none broke: $2\,000\times500=1\,000\,000$ dong.\par
+Shortfall: $1\,000\,000-940\,000=60\,000$ dong.\par
+Each broken glass costs $2\,000+8\,000=10\,000$ dong.\par Broken: $60\,000:10\,000=6$.
+\dapso{$6$ glasses.}}
+\gap
+\begin{probbox}{18}{\relax}
+In $15$ days Linh reads $236$ pages. On some days she reads $12$ pages and on the other days $20$ pages. On how many days does she read $20$ pages?
+\end{probbox}
+\probsol{
+Suppose she read $12$ pages every day: $12\times15=180$ pages, $56$ too few.\par
+A $20$-page day gives $8$ more.\par $20$-page days: $56:8=7$ ($12$-page days: $8$).
+\dapso{$7$ days.}}
+\gap
+\begin{probbox}{19}{\relax}
+Minh travels for $2.5$ hours and covers $14$ km. Part of the time he runs at $8$ km per hour and the rest he walks at $4$ km per hour. For how long does he run?
+\end{probbox}
+\probsol{
+Suppose he walked the whole time: $4\times2.5=10$ km, $14-10=4$ km too few.\par
+Each hour of running instead of walking adds $8-4=4$ km.\par
+Running time: $4:4=1$ hour (walking: $1.5$ hours).
+\dapso{$1$ hour.}}
+\gap
+\begin{probbox}{20}{\relax}
+Mum buys $8$ kg of apples and oranges for $315\,000$ dong. Apples cost $45\,000$ dong per kg and oranges $30\,000$ dong per kg. How many kilograms of each does she buy?
+\end{probbox}
+\probsol{
+Suppose all were oranges: $30\,000\times8=240\,000$ dong, $75\,000$ dong too little.\par
+$1$ kg of apples costs $15\,000$ dong more.\par
+Apples: $75\,000:15\,000=5$ kg; oranges: $8-5=3$ kg.
+\dapso{$5$ kg of apples, $3$ kg of oranges.}}
+\gap
+\begin{probbox}{21}{\relax}
+A tour group of $99$ people travels in $9$ minibuses, every seat taken. Some buses have $7$ seats and some have $16$ seats. How many buses of each kind are there?
+\end{probbox}
+\probsol{
+Suppose all had $7$ seats: $7\times9=63$ people, $99-63=36$ too few.\par
+A $16$-seat bus carries $9$ more.\par $16$-seat buses: $36:9=4$; $7$-seat buses: $9-4=5$.
+\dapso{$5$ buses with $7$ seats, $4$ buses with $16$ seats.}}
+\gap
+\begin{probbox}{22}{\relax}
+A test has $30$ questions: $4$ points for a right answer, $2$ points off for a wrong answer, $0$ for a question left blank. Hà leaves $4$ questions blank and scores $74$. How many does she get right?
+\end{probbox}
+\probsol{
+Hà answers $30-4=26$ questions.\par If all $26$ were right: $4\times26=104$ points; she is $104-74=30$ down.\par
+Each wrong answer costs $4+2=6$.\par Wrong: $30:6=5$; right: $26-5=21$.
+\dapso{$21$ questions.}}
+\gap
+\begin{probbox}{23}{\relax}
+A drawer holds $34$ notes of $2\,000$ dong and $5\,000$ dong. The $2\,000$ notes are worth $12\,000$ dong more than the $5\,000$ notes. How many notes of each kind are there?
+\end{probbox}
+\probsol{
+If all were $2\,000$ notes, the difference would be $2\,000\times34=68\,000$ dong.\par
+It must fall by $68\,000-12\,000=56\,000$.\par
+Each swap lowers it by $2\,000+5\,000=7\,000$.\par
+$5\,000$ notes: $56\,000:7\,000=8$; $2\,000$ notes: $34-8=26$.\par \emph{Check:} $52\,000-40\,000=12\,000$.
+\dapso{$26$ notes of $2\,000$, $8$ notes of $5\,000$.}}
+\gap
+\begin{probbox}{24}{\relax}
+Using $52$ matchsticks, An makes $15$ separate shapes, some triangles and some squares (one matchstick per side). How many squares does he make?
+\end{probbox}
+\probsol{
+If all were triangles: $3\times15=45$ sticks, $7$ too few.\par
+A square uses $1$ more stick.\par Squares: $7$ (triangles: $8$).
+\dapso{$7$ squares.}}
+\gap
+\begin{probbox}{25}{\relax}
+Hoa buys $12$ pencils and pens for $64\,000$ dong. A pencil costs $3\,000$ dong and a pen $7\,000$ dong. How many pens does she buy?
+\end{probbox}
+\probsol{
+If all were pencils: $3\,000\times12=36\,000$ dong, $28\,000$ too little.\par
+A pen costs $4\,000$ more.\par Pens: $28\,000:4\,000=7$ (pencils: $5$).
+\dapso{$7$ pens.}}
+\gap
+\begin{probbox}{26}{\relax}
+In a football league a win earns $3$ points, a draw $1$ point and a loss $0$. A team plays $12$ matches, loses none and has $28$ points. How many matches does it draw?
+\end{probbox}
+\probsol{
+If it won all $12$: $3\times12=36$ points; it has $36-28=8$ fewer.\par
+A draw instead of a win gives $3-1=2$ points fewer.\par Draws: $8:2=4$ (wins: $8$).
+\dapso{$4$ matches.}}
+\gap
+\begin{probbox}{27}{\relax}
+$20$ boxes hold $196$ apples. Some boxes hold $8$ apples and the others $12$. How many boxes of each kind are there?
+\end{probbox}
+\probsol{
+If all held $8$: $8\times20=160$, $36$ too few.\par
+A box of $12$ holds $4$ more.\par Boxes of $12$: $36:4=9$; boxes of $8$: $20-9=11$.
+\dapso{$11$ boxes of $8$, $9$ boxes of $12$.}}
+\gap
+\begin{probbox}{28}{\relax}
+A group buys $50$ zoo tickets for $1\,520\,000$ dong. An adult ticket costs $40\,000$ dong and a child ticket $25\,000$ dong. How many adults are there?
+\end{probbox}
+\probsol{
+If all were children: $25\,000\times50=1\,250\,000$ dong, $270\,000$ too little.\par
+An adult ticket costs $15\,000$ more.\par Adults: $270\,000:15\,000=18$ (children: $32$).
+\dapso{$18$ adults.}}
+\gap
+\begin{probbox}{29}{\relax}
+In a shooting game each player fires $30$ shots. A hit scores $6$ points and a miss loses $3$ points. Bảo scores $126$ points. How many hits does he make?
+\end{probbox}
+\probsol{
+All hits: $6\times30=180$ points; he is $180-126=54$ down.\par
+Each miss costs $6+3=9$.\par Misses: $54:9=6$; hits: $30-6=24$.
+\dapso{$24$ hits.}}
+\gap
+\begin{probbox}{30}{\relax}
+A car park holds $26$ cars and motorbikes. The motorbikes have $4$ more wheels than the cars. How many of each are there?
+\end{probbox}
+\probsol{
+If all were motorbikes, the difference would be $2\times26=52$ wheels.\par
+It must fall by $52-4=48$; each swap (motorbike $\to$ car) lowers it by $2+4=6$.\par
+Cars: $48:6=8$; motorbikes: $26-8=18$.\par \emph{Check:} $36-32=4$.
+\dapso{$8$ cars, $18$ motorbikes.}}
+\dividerbar{Challenge -- Extension}
+\begin{probbox}{31}{\stars{1}}
+$24$ vehicles carry $133$ people, every seat taken: motorbikes ($2$ wheels, $2$ seats), $7$-seat cars and $16$-seat cars ($4$ wheels each). There are $64$ wheels in all. How many vehicles of each kind are there?
+\end{probbox}
+\probsol{
+\emph{Wheels.} If all were motorbikes: $48$ wheels, $16$ too few; a car has $2$ more.\par Cars: $16:2=8$; motorbikes: $24-8=16$.\par
+\emph{Seats.} Motorbikes carry $2\times16=32$ people, so the cars carry $133-32=101$.\par
+If all $8$ cars had $7$ seats: $56$, which is $45$ too few; a $16$-seat car has $9$ more.\par
+$16$-seat cars: $45:9=5$; $7$-seat cars: $8-5=3$.
+\dapso{$16$ motorbikes, $3$ cars with $7$ seats, $5$ cars with $16$ seats.}}
+\gap
+\begin{probbox}{32}{\stars{1}}
+A company has $20$ lorries of three kinds: kind A ($4$ wheels, carries $3$ tonnes), kind B ($6$ wheels, $6$ tonnes) and kind C ($10$ wheels, $6$ tonnes). Together they carry $96$ tonnes in one trip and have $124$ wheels. How many lorries of each kind are there?
+\end{probbox}
+\probsol{
+\emph{Tonnes.} B and C both carry $6$ t. If all $20$ carried $3$ t: $60$ t, $36$ too few; each B or C carries $3$ more.\par
+B and C together: $36:3=12$; A: $20-12=8$.\par
+\emph{Wheels.} A has $4\times8=32$ wheels, so B and C have $124-32=92$.\par
+If all $12$ were B: $72$ wheels, $20$ too few; a C has $4$ more.\par C: $20:4=5$; B: $12-5=7$.
+\dapso{$8$ of kind A, $7$ of kind B, $5$ of kind C.}}
+\gap
+\begin{probbox}{33}{\stars{2}}
+A contest has $40$ questions: $5$ points for right, $2$ points off for wrong, $0$ for a blank. Quang scores $128$ points, and he has as many wrong answers as blanks. How many does he get right?
+\end{probbox}
+\probsol{
+Group $1$ wrong answer with $1$ blank.\par All right: $5\times40=200$; Quang is $200-128=72$ points down.\par
+A group (instead of $2$ right answers) costs $(5+2)+5=12$ points.\par
+Groups: $72:12=6$, i.e.\ $6$ wrong and $6$ blank.\par Right: $40-12=28$.
+\dapso{$28$ questions.}}
+\gap
+\begin{probbox}{34}{\stars{1}}
+Lan buys $30$ notebooks, some at $5\,000$ dong and some at $8\,000$ dong. She spends $45\,000$ dong more on the $8\,000$ notebooks than on the $5\,000$ ones. How many of each does she buy?
+\end{probbox}
+\probsol{
+If all were $8\,000$ notebooks, the difference would be $8\,000\times30=240\,000$ dong.\par
+It must fall by $240\,000-45\,000=195\,000$; each swap lowers it by $8\,000+5\,000=13\,000$.\par
+$5\,000$ notebooks: $195\,000:13\,000=15$; $8\,000$ notebooks: $15$.\par \emph{Check:} $120\,000-75\,000=45\,000$.
+\dapso{$15$ of each.}}
+\gap
+\begin{probbox}{35}{\stars{1}}
+Chickens and rabbits have $100$ legs. If every chicken had $4$ legs and every rabbit $2$, there would be $80$ legs. How many of each are there?
+\end{probbox}
+\probsol{
+Add the two counts: each animal is counted with $2+4=6$ legs, so $6\times(\text{animals})=180$.\par Animals: $180:6=30$.\par
+If all $30$ were chickens: $60$ legs, $40$ too few; a rabbit has $2$ more.\par Rabbits: $20$; chickens: $10$.
+\dapso{$10$ chickens, $20$ rabbits.}}
+\gap
+\begin{probbox}{36}{\stars{1}}
+$100$ cakes are shared by $100$ people: each adult gets $3$ cakes and every $3$ children share $1$ cake. How many adults and how many children are there?
+\end{probbox}
+\probsol{
+Group $1$ adult with $3$ children: $4$ people eat $3+1=4$ cakes.\par
+Groups: $100:4=25$.\par Adults: $25$; children: $3\times25=75$.\par
+\emph{Supposition:} if all $100$ were adults they would need $300$ cakes, $200$ too many; swapping an adult for a child saves $3-\dfrac13=\dfrac83$ cake, so children: $200:\dfrac83=75$.
+\dapso{$25$ adults, $75$ children.}}
+\gap
+\begin{probbox}{37}{\stars{1}}
+A car travels for $5$ hours and covers $230$ km: on the highway at $50$ km per hour and on a country road at $30$ km per hour. How many hours does it drive on the highway?
+\end{probbox}
+\probsol{
+If it drove on the country road all the time: $30\times5=150$ km, $80$ km too few.\par
+Each highway hour adds $20$ km.\par Highway: $80:20=4$ hours (country road: $1$ hour).
+\dapso{$4$ hours.}}
+\gap
+\begin{probbox}{38}{\stars{1}}
+A shop sends $1\,200$ eggs to market. It is paid $300$ dong for every whole egg; for each broken egg it gets nothing and pays a fine of $2\,700$ dong. It receives $330\,000$ dong. How many eggs were broken?
+\end{probbox}
+\probsol{
+No breakages: $300\times1\,200=360\,000$ dong; shortfall $30\,000$ dong.\par
+Each broken egg costs $300+2\,700=3\,000$ dong.\par Broken: $30\,000:3\,000=10$.
+\dapso{$10$ eggs.}}
+\gap
+\begin{probbox}{39}{\stars{1}}
+For $30$ days Nam puts either $2\,000$ dong or $5\,000$ dong into his piggy bank each day, $117\,000$ dong in all. On how many days does he save $5\,000$ dong?
+\end{probbox}
+\probsol{
+If he saved $2\,000$ every day: $60\,000$ dong, $57\,000$ too little.\par
+A $5\,000$ day gives $3\,000$ more.\par Days: $57\,000:3\,000=19$.
+\dapso{$19$ days.}}
+\gap
+\begin{probbox}{40}{\stars{2}}
+Six teams play a round-robin tournament (each pair plays once). A win earns $3$ points, a draw $1$ point, a loss $0$. The teams score $41$ points altogether. How many matches end in a draw?
+\end{probbox}
+\probsol{
+Each team plays $5$ others; the number of matches is $6\times5:2=15$.\par
+A match with a winner gives $3+0=3$ points in total; a draw gives $1+1=2$.\par
+If no match were drawn: $3\times15=45$ points, $4$ too many.\par
+Each draw gives $1$ point fewer, so draws: $4:1=4$.
+\dapso{$4$ matches.}}
+\gap
+\begin{probbox}{41}{\stars{2}}
+A test has $25$ questions: $4$ points for right, $1$ point off for wrong, $0$ for a blank. An answers all and scores $65$. Bình gets as many right as An, but leaves blank $3$ of the questions An got wrong and gets the rest wrong. What is Bình's score?
+\end{probbox}
+\probsol{
+An: all right would give $100$; he is $35$ down; each wrong costs $5$.\par An's wrong answers: $35:5=7$; right: $18$.\par
+Bình: $18$ right, $3$ blank, $7-3=4$ wrong.\par Score: $18\times4-4\times1=68$.
+\dapso{$68$ points.}}
+\gap
+\begin{probbox}{42}{\stars{1}}
+Class 5C buys $25$ gifts for $380\,000$ dong: some at $12\,000$ dong and some at $20\,000$ dong. If they had bought the numbers the other way round, how much would they have paid?
+\end{probbox}
+\probsol{
+If all cost $12\,000$: $300\,000$ dong, $80\,000$ too little; a dearer gift costs $8\,000$ more.\par
+$20\,000$ gifts: $80\,000:8\,000=10$; $12\,000$ gifts: $15$.\par
+The other way round: $10\times12\,000+15\times20\,000=420\,000$ dong.
+\dapso{$420\,000$ dong.}}
+\gap
+\begin{probbox}{43}{\stars{1}}
+There are $6$ more chickens than rabbits, and $84$ legs altogether. How many of each are there?
+\end{probbox}
+\probsol{
+Take away the $6$ extra chickens: $84-6\times2=72$ legs, and now there are as many chickens as rabbits.\par
+A pair (one chicken, one rabbit) has $6$ legs, so pairs: $72:6=12$.\par Rabbits: $12$; chickens: $12+6=18$.
+\dapso{$18$ chickens, $12$ rabbits.}}
+\gap
+\begin{probbox}{44}{\stars{1}}
+A shop sells $40$ shirts for $5\,520\,000$ dong. Some are sold at the full price of $150\,000$ dong and the rest at a $20\%$ discount. How many shirts are sold at the discount?
+\end{probbox}
+\probsol{
+Discounted price: $150\,000\times80\%=120\,000$ dong.\par
+If all were at full price: $6\,000\,000$ dong, $480\,000$ too much.\par
+Each discounted shirt brings $30\,000$ less.\par Discounted: $480\,000:30\,000=16$.
+\dapso{$16$ shirts.}}
+\gap
+\begin{probbox}{45}{\stars{1}}
+Mr Thành travels $120$ km in $4$ hours, partly by bicycle at $15$ km per hour and partly by coach at $45$ km per hour. How far does he cycle?
+\end{probbox}
+\probsol{
+If he cycled all the time: $15\times4=60$ km, $60$ too few; each coach hour adds $30$ km.\par
+Coach: $60:30=2$ hours; bicycle: $2$ hours.\par Distance cycled: $15\times2=30$ km.
+\dapso{$30$ km.}}
+\gap
+\begin{probbox}{46}{\stars{2}}
+There are $18$ small creatures: spiders ($8$ legs, no wings), dragonflies ($6$ legs, $2$ pairs of wings) and cicadas ($6$ legs, $1$ pair of wings). They have $118$ legs and $20$ pairs of wings. How many of each are there?
+\end{probbox}
+\probsol{
+\emph{Legs.} If all had $6$ legs: $108$, $10$ too few; a spider has $2$ more.\par Spiders: $5$; insects: $13$.\par
+\emph{Wings.} If all $13$ insects were cicadas: $13$ pairs, $7$ too few; a dragonfly has $1$ pair more.\par
+Dragonflies: $7$; cicadas: $13-7=6$.
+\dapso{$5$ spiders, $7$ dragonflies, $6$ cicadas.}}
+\gap
+\begin{probbox}{47}{\stars{1}}
+In an archery game each player shoots $20$ arrows: a hit scores $10$ points and a miss loses $5$ points. Đức scores $45$ points more than Long. How many more hits does Đức make?
+\end{probbox}
+\probsol{
+Both shoot $20$ arrows. One more hit means one fewer miss, so the score grows by $10+5=15$ points.\par
+Extra hits: $45:15=3$.
+\dapso{$3$ hits.}}
+\gap
+\begin{probbox}{48}{\stars{1}}
+A $300$-litre tank is filled using $22$ buckets of water, some of $10$ litres and some of $15$ litres. How many $15$-litre buckets are used?
+\end{probbox}
+\probsol{
+If all held $10$ litres: $220$ l, $80$ l too few; a big bucket holds $5$ l more.\par
+$15$-litre buckets: $80:5=16$ ($10$-litre: $6$).
+\dapso{$16$ buckets.}}
+\gap
+\begin{probbox}{49}{\stars{2}}
+A bag has $48$ blue and red marbles. $\dfrac13$ of the blue marbles and $\dfrac14$ of the red marbles make $14$ marbles altogether. How many marbles of each colour are there?
+\end{probbox}
+\probsol{
+Suppose all $48$ were blue: $\dfrac13$ of $48$ is $16$, which is $2$ too many.\par
+Swapping a blue marble for a red one changes the count by $\dfrac13-\dfrac14=\dfrac1{12}$.\par
+Red: $2:\dfrac1{12}=24$; blue: $48-24=24$.\par \emph{Check:} $8+6=14$.
+\dapso{$24$ blue, $24$ red.}}
+\gap
+\begin{probbox}{50}{\stars{2}}
+A wallet holds $23$ notes worth $600\,000$ dong: notes of $10\,000$, $20\,000$ and $50\,000$ dong. There are twice as many $10\,000$ notes as $20\,000$ notes. How many notes of each kind are there?
+\end{probbox}
+\probsol{
+Group two $10\,000$ notes with one $20\,000$ note: $3$ notes worth $40\,000$ dong.\par
+If all $23$ notes were $50\,000$: $1\,150\,000$ dong, $550\,000$ too much.\par
+Swapping $3$ notes of $50\,000$ for one group lowers the value by $150\,000-40\,000=110\,000$.\par
+Groups: $550\,000:110\,000=5$.\par
+$10\,000$ notes: $10$; $20\,000$ notes: $5$; $50\,000$ notes: $23-15=8$.
+\dapso{$10$ notes of $10\,000$, $5$ of $20\,000$, $8$ of $50\,000$.}}
