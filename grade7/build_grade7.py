@@ -31,7 +31,6 @@ TOPICS = {
         "en": ("Geometry_and_Measurement", "Geometry and Measurement")},
     3: {"vi": ("To_hop_va_Xac_suat", "Đếm và Xác suất"),
         "en": ("Counting_and_Probability", "Counting and Probability")},
-    9: {"vi": ("Test", "Thử nghiệm"), "en": ("Test", "Test")},
     4: {"vi": ("So_hoc_va_Tu_duy_so", "Số học và Tư duy số"),
         "en": ("Number_Sense", "Number Sense")},
 }
