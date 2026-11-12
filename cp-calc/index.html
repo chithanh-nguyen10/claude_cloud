@@ -17,6 +17,7 @@
       <button class="tab" role="tab" data-tab="safety" aria-selected="false" data-i18n="tab.safety"></button>
       <button class="tab" role="tab" data-tab="stress" aria-selected="false" data-i18n="tab.stress"></button>
       <button class="tab" role="tab" data-tab="graph" aria-selected="false" data-i18n="tab.graph"></button>
+      <button class="tab" role="tab" data-tab="dp" aria-selected="false" data-i18n="tab.dp"></button>
     </nav>
     <div class="grow"></div>
     <div class="lang" role="group" aria-label="Language">
@@ -472,6 +473,9 @@
     </div>
   </div>
 </section>
+<!-- =========================================================== DP CHECK (markup built by js/dp-check.js) -->
+<section id="tab-dp" data-tabpanel="dp" hidden></section>
+
 <!-- =========================================================== GRAPH -->
 <section id="tab-graph" data-tabpanel="graph" hidden>
   <div class="ge">
@@ -534,6 +538,9 @@
 <script src="js/stress.js"></script>
 <script src="js/graph-algos.js"></script>
 <script src="js/graph.js"></script>
+<script src="js/gen-spec.js"></script>
+<script src="js/dp-logic.js"></script>
+<script src="js/dp-check.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

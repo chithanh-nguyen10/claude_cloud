@@ -670,6 +670,32 @@ def do_test(req):
     return result
 
 
+def do_exec(req):
+    """Run one compiled slot on a given input (used by the DP Check tab)."""
+    slot = req.get("slot", "")
+    if not re.fullmatch(r"[a-z]+", slot):
+        raise ValueError("bad slot")
+    tl = float(req.get("tl_ms") or 5000)
+    ml = float(req.get("ml_mb") or 1024)
+    run = WORK / "run"
+    run.mkdir(parents=True, exist_ok=True)
+    inp = run / f"exec_{slot}_input.txt"
+    inp.write_text(req.get("input") or "", encoding="utf-8")
+    args = req.get("args") or []
+    if isinstance(args, str):
+        args = split_cmd(args)
+    with RUN_LOCK:
+        res, out = run_slot(slot, {"io": {}}, run / f"exec_{slot}", inp, tl, ml, max(tl * 2, tl + 2000), [str(a) for a in args])
+        try:
+            with open(out, "rb") as f:
+                data = f.read(8 * 1048576 + 1)
+        except OSError:
+            data = b""
+    res["truncated"] = len(data) > 8 * 1048576
+    res["stdout"] = data[:8 * 1048576].decode("utf-8", "replace")
+    return res
+
+
 # --------------------------------------------------------------------------- HTTP
 class Handler(http.server.BaseHTTPRequestHandler):
     server_version = "CPCalcRunner/1.0"
@@ -750,6 +776,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send(200, do_compile(req))
             if path == "/api/test":
                 return self._send(200, do_test(req))
+            if path == "/api/exec":
+                return self._send(200, do_exec(req))
             if path == "/api/open":
                 d = WORK / "saved" / safe_name(req.get("id", ""))
                 if not d.is_dir():

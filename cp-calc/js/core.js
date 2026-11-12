@@ -31,7 +31,7 @@ function tokenize(src) {
     }
     const two = s.slice(i, i + 2);
     if (two === '**' || two === '//') { toks.push({ t: 'op', v: two === '**' ? '^' : '//', pos: i }); i += 2; continue; }
-    if ('+-*/%^(),!='.includes(c)) { toks.push({ t: 'op', v: c, pos: i }); i++; continue; }
+    if ('+-*/%^(),!=[]'.includes(c)) { toks.push({ t: 'op', v: c, pos: i }); i++; continue; }
     if (c === '×' || c === '·') { toks.push({ t: 'op', v: '*', pos: i }); i++; continue; }
     throw new CalcError('err.badChar', { ch: c, at: i + 1 });
   }
@@ -65,6 +65,12 @@ function parse(src) {
   function nud(t) {
     if (t.t === 'num') return { t: 'num', v: t.v };
     if (t.t === 'id') {
+      if (peek().t === 'op' && peek().v === '[') {
+        // array access: a[i], g[i][j]
+        const idx = [];
+        while (peek().t === 'op' && peek().v === '[') { next(); idx.push(expr(0)); expectOp(']'); }
+        return { t: 'index', name: t.v, idx };
+      }
       if (peek().t === 'op' && peek().v === '(') {
         next();
         const args = [];
@@ -627,12 +633,21 @@ function evaluate(ast, env, hook) {
         break;
       case 'neg': r = A.neg(unwrap(ev(n.a))); break;
       case 'fact': r = factorial(unwrap(ev(n.a))); break;
-      case 'call': {
-        const f = FUNCS[n.name];
-        if (!f) {
-          if (env.__funcs && env.__funcs[n.name]) { r = env.__funcs[n.name](n.args.map(ev)); break; }
-          throw new CalcError('err.unknownFn', { name: n.name });
+      case 'index': {
+        const arr = Object.prototype.hasOwnProperty.call(env, n.name) ? env[n.name] : undefined;
+        if (arr === undefined) throw new CalcError('err.unknownVar', { name: n.name });
+        r = arr;
+        for (const ie of n.idx) {
+          if (!r || typeof r.at !== 'function') throw new CalcError('err.notArray', { name: n.name });
+          r = r.at(Number(toBigInt(unwrap(ev(ie)), n.name + '[]')));
         }
+        break;
+      }
+      case 'call': {
+        // functions supplied by the caller (e.g. range functions on arrays) take priority
+        if (env.__funcs && env.__funcs[n.name]) { r = env.__funcs[n.name](n.args.map(ev), n.args); break; }
+        const f = FUNCS[n.name];
+        if (!f) throw new CalcError('err.unknownFn', { name: n.name });
         r = f(n.args.map(ev)); break;
       }
       case 'bin': {

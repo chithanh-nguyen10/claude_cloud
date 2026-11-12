@@ -84,6 +84,45 @@ Runner chỉ nghe trên `127.0.0.1`, kiểm tra header Host, và yêu cầu mộ
 - **Xuất:** chép danh sách cạnh (có hoặc không kèm dòng `n m`), tải ảnh PNG.
 - **Nối với Stress test:** nút **Mở dạng đồ thị** ở mỗi test. Dòng đầu `n m` (hoặc `n`) của file test được đổi thành ô Số đỉnh, và chỉ m dòng cạnh được lấy vào.
 
+## Phần 5: DP Check
+
+### Sinh test bằng mô tả định dạng
+Phía trên `---` là bố cục input, phía dưới là phạm vi của từng biến:
+```
+n k
+a[n]
+q * (l r)
+---
+n: 4..30
+k: 1..n
+a: -20..20 distinct
+q: 1..5
+l: 1..n
+r: l..n
+```
+- **Bố cục:** `n k` là một dòng các biến đơn, `a[n]` là một dòng n số, `g[n][m]` là ma trận, `q * (l r)` là q dòng.
+- **Phạm vi:** `tên: thấp..cao`. Cận là biểu thức theo các biến sinh trước và không chứa dấu cách.
+- **Tuỳ chọn:** `distinct sorted desc nonzero perm edge` (`edge` hay chọn giá trị biên) và `string len n alpha "ab"`.
+- Có nút **Sinh thử 1 test**. Seed cố định nên chạy lại ra đúng test cũ.
+- Có thể dùng **code sinh test** (qua runner) thay cho mô tả. Khi đó phần bố cục được dùng để đọc test.
+
+### DnC optimization
+Với `dp[k][i] = min(dp[k−1][j] + cost(j+1, i))`, mỗi test được kiểm 3 thứ:
+1. Bất đẳng thức tứ giác.
+2. opt đơn điệu (dựa trên DP vét cạn).
+3. DnC ra cùng kết quả với DP vét cạn.
+
+Hàm cost nhập bằng một trong hai cách:
+- **Công thức:** dùng `l r len`, các mảng `a[i]` và các hàm trên đoạn `sum min max distinct xor gcd inv cnt`.
+- **Code C++:** viết `init()` để đọc test và `long long cost(int l, int r)`. Cần runner.
+
+Chọn được bài min hoặc max, chỉ số mảng từ 1 hoặc 0. Có 6 mẫu cost, trong đó có mẫu dùng được và mẫu không dùng được.
+
+### Alien trick
+Code vét cạn (C++ hoặc Python) in ra f(0) … f(K). Công cụ kiểm tra f lồi (bài min) hoặc lõm (bài max) trên các test sinh ra. Khi sai, hiện bảng f(k), Δ(k) và biểu đồ. Có 2 mẫu:
+- **NOI 2019 Feast:** chọn đúng k đoạn rời nhau, f lõm.
+- **Đoạn con độ dài đúng k:** f không lõm.
+
 ## Cấu trúc thư mục
 
 ```
@@ -98,6 +137,9 @@ cp-calc/
   js/stress.js        Phần 3 (giao diện)
   js/graph-algos.js   Phần 4 (thuật toán)
   js/graph.js         Phần 4 (canvas, công cụ)
+  js/gen-spec.js      sinh test từ mô tả định dạng
+  js/dp-logic.js      Phần 5 (kiểm tra DnC, lồi/lõm)
+  js/dp-check.js      Phần 5 (giao diện)
   js/app.js           khởi động
   runner.py           Phần 3 (biên dịch, chạy, đo), chỉ dùng thư viện chuẩn
   start-runner.bat    chạy runner trên Windows

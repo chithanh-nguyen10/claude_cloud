@@ -317,3 +317,6 @@ details.ge-box[open] > summary { margin-bottom: 4px; }
 .ge-matrix td.sel { background: var(--accent); color: var(--accent-fg); }
 .ge-matrix .tbl { width: auto; min-width: 100%; }
 .ge-matrix .tbl td, .ge-matrix .tbl th { min-width: 44px; }
+
+.chart-box { border: 1px solid var(--line); border-radius: 8px; background: var(--code-bg); padding: 6px; }
+.chart-box svg { display: block; max-width: 100%; height: auto; }

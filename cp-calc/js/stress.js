@@ -139,6 +139,20 @@ async function api(path, body) {
   return data;
 }
 
+/* Shared with other tabs (DP Check): same runner connection and compile settings */
+window.Runner = {
+  get online() { return !!info; },
+  get info() { return info; },
+  check: () => checkRunner(),
+  compile(slot, lang, source) {
+    return api('/api/compile', {
+      slot, lang, source, compiler: compilerValue(), std: S.compile.std, opt: S.compile.opt,
+      flags: S.compile.flags, template: S.compile.template || DEFAULT_TEMPLATE, python: S.compile.python,
+    });
+  },
+  exec(slot, input, args, tl) { return api('/api/exec', { slot, input, args: args || [], tl_ms: tl || 5000 }); },
+};
+
 /* ---------------- runner status ---------------- */
 async function checkRunner() {
   const ch = $('#runnerChip');
@@ -166,6 +180,7 @@ async function checkRunner() {
     $('#runnerInfo').textContent = e.message; $('#runnerHelp').hidden = false;
   }
   renderCompile(); updateNeed();
+  document.dispatchEvent(new CustomEvent('runnerchange'));
 }
 $('#runnerRetry').onclick = checkRunner;
 

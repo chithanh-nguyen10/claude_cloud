@@ -2,7 +2,7 @@
 (function () {
 'use strict';
 const { $, $$ } = UI;
-const TABS = ['calc', 'safety', 'stress', 'graph'];
+const TABS = ['calc', 'safety', 'stress', 'graph', 'dp'];
 
 function showTab(name) {
   $$('.tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === name)));
