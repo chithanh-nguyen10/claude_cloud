@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF Tách Ghép</title>
+<style>
+/* Bố cục: thanh trên cùng có 2 tab; khu làm việc = lưới trang (trái) + bảng thao tác cố định (phải) */
+:root {
+  --bg: #f3f5f9;
+  --surface: #ffffff;
+  --surface-2: #eaeef5;
+  --line: #d6dce7;
+  --fg: #18202e;
+  --muted: #5d6879;
+  --accent: #2f5bea;
+  --accent-fg: #ffffff;
+  --accent-soft: #e3e9fd;
+  --danger: #c7372f;
+  --ok: #1f8a4c;
+  --shadow: 0 1px 2px rgba(20, 30, 60, .06), 0 4px 14px rgba(20, 30, 60, .06);
+  --sheet: #ffffff;
+  --font: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --radius: 10px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161f; --surface: #1a1f2b; --surface-2: #232a38; --line: #313a4c;
+    --fg: #e6eaf2; --muted: #9aa5b8; --accent: #6f8cff; --accent-fg: #0d1220;
+    --accent-soft: #24305a; --danger: #ff6b61; --ok: #4fcf87; --sheet: #f4f4f4;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161f; --surface: #1a1f2b; --surface-2: #232a38; --line: #313a4c;
+  --fg: #e6eaf2; --muted: #9aa5b8; --accent: #6f8cff; --accent-fg: #0d1220;
+  --accent-soft: #24305a; --danger: #ff6b61; --ok: #4fcf87; --sheet: #f4f4f4;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.25);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.5 var(--font); }
+[hidden] { display: none !important; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- Header ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--surface); border-bottom: 1px solid var(--line);
+}
+.topbar-inner {
+  max-width: 1360px; margin: 0 auto; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  padding-block: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; letter-spacing: -.01em; }
+.brand-mark { width: 30px; height: 30px; border-radius: 7px; background: var(--accent); color: var(--accent-fg); display: grid; place-items: center; }
+.tabs { display: flex; gap: 4px; background: var(--surface-2); padding: 4px; border-radius: 9px; }
+.tab {
+  border: 0; background: transparent; padding: 7px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; color: var(--muted);
+  display: flex; align-items: center; gap: 8px;
+}
+.tab[aria-selected="true"] { background: var(--surface); color: var(--fg); box-shadow: var(--shadow); }
+.topbar .spacer { flex: 1; }
+.privacy { color: var(--muted); font-size: 12.5px; display: flex; align-items: center; gap: 6px; }
+
+/* ---------- Layout ---------- */
+main {
+  max-width: 1360px; margin: 0 auto;
+  padding-block: 20px 40px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.work { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; align-items: start; }
+@media (max-width: 900px) { .work { grid-template-columns: minmax(0, 1fr); } }
+.panel {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.side { position: sticky; top: 76px; display: flex; flex-direction: column; gap: 0; }
+@media (max-width: 900px) { .side { position: static; } }
+.side section { padding: 16px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+.side section:last-child { border-bottom: 0; }
+.side h3 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+.count-pill { background: var(--accent-soft); color: var(--accent); border-radius: 99px; padding: 1px 9px; font-size: 12px; letter-spacing: 0; text-transform: none; font-variant-numeric: tabular-nums; }
+
+/* ---------- Buttons & inputs ---------- */
+.btn {
+  border: 1px solid var(--line); background: var(--surface); padding: 7px 12px; border-radius: 7px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 13px; white-space: nowrap;
+}
+.btn:hover { background: var(--surface-2); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); padding: 11px 16px; font-size: 14.5px; justify-content: center; }
+.btn.primary:hover { filter: brightness(1.07); }
+.btn.ghost { border-color: transparent; background: transparent; color: var(--muted); }
+.btn.ghost:hover { background: var(--surface-2); color: var(--fg); }
+.btn.icon { padding: 6px; }
+.input {
+  width: 100%; border: 1px solid var(--line); background: var(--surface); padding: 8px 10px; border-radius: 7px; min-width: 0;
+}
+.input:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px var(--accent-soft); }
+.input.err { border-color: var(--danger); }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label { font-size: 12.5px; color: var(--muted); font-weight: 600; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.row > .input { flex: 1; }
+.hint { font-size: 12.5px; color: var(--muted); margin: 0; }
+.hint code { font-family: var(--mono); background: var(--surface-2); padding: 0 4px; border-radius: 4px; font-size: 12px; }
+
+.choice { display: flex; flex-direction: column; gap: 6px; }
+.choice label {
+  display: flex; gap: 10px; align-items: flex-start; padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer;
+}
+.choice label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.choice input { margin: 3px 0 0; accent-color: var(--accent); }
+.choice b { display: block; font-size: 13.5px; }
+.choice span { font-size: 12.5px; color: var(--muted); }
+
+/* ---------- Dropzone ---------- */
+.drop {
+  border: 2px dashed var(--line); border-radius: var(--radius); background: var(--surface);
+  padding: 56px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px;
+  transition: border-color .15s, background .15s;
+}
+.drop.over, .dragging-file .drop { border-color: var(--accent); background: var(--accent-soft); }
+.drop h2 { margin: 0; font-size: 20px; text-wrap: balance; }
+.drop p { margin: 0; color: var(--muted); max-width: 52ch; }
+.drop .drop-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
+.drop .row { justify-content: center; }
+.steps { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; margin-top: 8px; color: var(--muted); font-size: 13px; }
+.steps span b { color: var(--fg); }
+
+/* ---------- Split: toolbar + grid ---------- */
+.toolbar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 10px 12px; border-bottom: 1px solid var(--line);
+}
+.fileinfo { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1 1 220px; }
+.fileinfo .name { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fileinfo .meta { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+.zoomctl { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+.zoomctl input { width: 90px; accent-color: var(--accent); }
+.quick { display: flex; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--line); flex-wrap: wrap; align-items: center; }
+.quick .input { flex: 1 1 200px; width: auto; }
+
+.grid {
+  --thumb-w: 150px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--thumb-w), 1fr)); gap: 18px 14px; padding: 16px;
+}
+.thumb { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; user-select: none; border-radius: 8px; padding: 6px; }
+.thumb:focus-visible { outline-offset: 0; }
+.sheet {
+  position: relative; width: 100%; aspect-ratio: 1 / 1.414; max-width: 100%; background: var(--sheet); border-radius: 3px;
+  box-shadow: 0 0 0 1px var(--line), 0 2px 6px rgba(0,0,0,.08); display: grid; place-items: center; overflow: hidden;
+  transition: box-shadow .12s, transform .12s;
+}
+.sheet canvas { width: 100%; height: 100%; object-fit: contain; display: block; }
+.sheet .loading { position: absolute; color: #9aa3b2; font-size: 12px; }
+.thumb:hover .sheet { box-shadow: 0 0 0 2px var(--accent), 0 4px 12px rgba(0,0,0,.12); }
+.thumb.sel .sheet { box-shadow: 0 0 0 3px var(--accent), 0 4px 14px rgba(47,91,234,.25); }
+.thumb.sel .sheet::after { content: ""; position: absolute; inset: 0; background: rgba(47, 91, 234, .10); pointer-events: none; }
+.badge {
+  position: absolute; top: 6px; left: 6px; min-width: 26px; height: 26px; padding: 0 7px; border-radius: 99px;
+  background: var(--accent); color: #fff; font-weight: 700; font-size: 13px; display: none; place-items: center; z-index: 2;
+  font-variant-numeric: tabular-nums; box-shadow: 0 1px 4px rgba(0,0,0,.25);
+}
+.thumb.sel .badge { display: grid; }
+.check {
+  position: absolute; top: 6px; right: 6px; width: 24px; height: 24px; border-radius: 6px; border: 2px solid #b5bdcb; background: rgba(255,255,255,.9);
+  display: grid; place-items: center; color: transparent; z-index: 2;
+}
+.thumb.sel .check { background: var(--accent); border-color: var(--accent); color: #fff; }
+.zoom {
+  position: absolute; bottom: 6px; right: 6px; z-index: 2; border: 0; border-radius: 6px; width: 30px; height: 30px; display: grid; place-items: center;
+  background: rgba(20, 26, 38, .78); color: #fff; cursor: pointer; opacity: 0; transition: opacity .12s;
+}
+.thumb:hover .zoom, .thumb:focus-within .zoom { opacity: 1; }
+@media (hover: none) { .zoom { opacity: 1; } }
+.pnum { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.thumb.sel .pnum { color: var(--accent); font-weight: 700; }
+
+/* ---------- Chips (selected order) ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; max-height: 210px; overflow: auto; padding: 2px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 4px; padding: 3px 4px 3px 9px; border-radius: 6px; background: var(--surface-2);
+  border: 1px solid var(--line); font-size: 13px; font-variant-numeric: tabular-nums; cursor: grab; touch-action: none;
+}
+.chip .ord { color: var(--muted); font-size: 11px; }
+.chip button { border: 0; background: transparent; cursor: pointer; color: var(--muted); padding: 0 3px; border-radius: 4px; line-height: 1; font-size: 15px; }
+.chip button:hover { color: var(--danger); }
+.chip.sortable-ghost { opacity: .35; }
+.empty-note { color: var(--muted); font-size: 13px; padding: 6px 0; }
+
+/* ---------- Merge list ---------- */
+.mlist { display: flex; flex-direction: column; }
+.mitem {
+  display: grid; grid-template-columns: auto 64px minmax(0, 1fr) auto; gap: 12px; align-items: center;
+  padding: 12px; border-bottom: 1px solid var(--line); background: var(--surface);
+}
+.mitem:last-child { border-bottom: 0; }
+.mitem.sortable-ghost { opacity: .4; background: var(--accent-soft); }
+.handle { cursor: grab; color: var(--muted); display: flex; flex-direction: column; align-items: center; gap: 2px; touch-action: none; }
+.handle .no { font-weight: 700; color: var(--fg); font-variant-numeric: tabular-nums; font-size: 13px; }
+.mthumb { width: 64px; aspect-ratio: 1 / 1.414; background: var(--sheet); border-radius: 3px; box-shadow: 0 0 0 1px var(--line); overflow: hidden; cursor: zoom-in; border: 0; padding: 0; display: block; }
+.mthumb canvas { width: 100%; height: 100%; object-fit: contain; display: block; }
+.mbody { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.mname { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mmeta { color: var(--muted); font-size: 12.5px; }
+.mbody .input { padding: 6px 9px; font-size: 13px; max-width: 360px; }
+.mact { display: flex; gap: 2px; }
+.mact .btn.icon:hover.del { color: var(--danger); }
+@media (max-width: 560px) {
+  .mitem { grid-template-columns: auto 52px minmax(0, 1fr); }
+  .mthumb { width: 52px; }
+  .mact { grid-column: 1 / -1; justify-content: flex-end; }
+}
+.mhead { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.mhead .grow { flex: 1; color: var(--muted); font-size: 13px; min-width: 160px; }
+.adddrop {
+  margin: 12px; border: 2px dashed var(--line); border-radius: 8px; padding: 16px; text-align: center; color: var(--muted); cursor: pointer;
+}
+.adddrop:hover, .adddrop.over { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+.summary { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-size: 13px; }
+.summary dt { color: var(--muted); }
+.summary dd { margin: 0; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---------- Modal preview ---------- */
+.modal {
+  position: fixed; inset: 0; z-index: 50; background: rgba(10, 14, 22, .82); display: flex; flex-direction: column;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.modal-bar {
+  display: flex; align-items: center; gap: 10px; color: #fff; flex-wrap: wrap;
+  padding-block: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.modal-bar .title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.modal-bar .btn { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2); color: #fff; }
+.modal-bar .btn:hover { background: rgba(255,255,255,.2); }
+.modal-bar .btn.on { background: #2f5bea; border-color: #2f5bea; }
+.modal-stage { flex: 1; min-height: 0; display: grid; place-items: center; position: relative; padding: 0 64px 16px; }
+.modal-stage canvas { max-width: 100%; max-height: 100%; background: #fff; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+.nav {
+  position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 99px; border: 0;
+  background: rgba(255,255,255,.14); color: #fff; cursor: pointer; display: grid; place-items: center;
+}
+.nav:hover { background: rgba(255,255,255,.26); }
+.nav:disabled { opacity: .25; cursor: default; }
+.nav.prev { left: max(10px, env(safe-area-inset-left, 0px)); }
+.nav.next { right: max(10px, env(safe-area-inset-right, 0px)); }
+@media (max-width: 600px) { .modal-stage { padding: 0 8px 70px; } .nav { top: auto; bottom: 12px; transform: none; } }
+
+/* ---------- Busy + toast ---------- */
+.busy { position: fixed; inset: 0; z-index: 60; background: rgba(10,14,22,.45); display: grid; place-items: center; }
+.busy-box { background: var(--surface); border-radius: 12px; padding: 22px 28px; display: flex; gap: 14px; align-items: center; box-shadow: var(--shadow); }
+.spinner { width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--accent-soft); border-top-color: var(--accent); animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.toasts { position: fixed; z-index: 70; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: 8px; width: min(440px, calc(100% - 32px)); }
+.toast { background: var(--fg); color: var(--bg); padding: 10px 14px; border-radius: 8px; box-shadow: var(--shadow); font-size: 13.5px; }
+.toast.error { background: var(--danger); color: #fff; }
+.toast.ok { background: var(--ok); color: #fff; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation-duration: 0s !important; } }
+</style>
+<script src="lib/pdf.min.js"></script>
+<script>
+  // Khi mở trực tiếp bằng file:// trình duyệt chặn Web Worker → nạp worker vào luồng chính.
+  if (location.protocol === 'file:') document.write('<script src="lib/pdf.worker.min.js"><\/script>');
+</script>
+<script src="lib/pdf-lib.min.js"></script>
+<script src="lib/jszip.min.js"></script>
+<script src="lib/Sortable.min.js"></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-split" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7l5 5v4"/><path d="M13 3v5h5"/><path d="M6 3v18h6"/><path d="M16 15l3 3-3 3"/><path d="M19 18h-5"/></symbol>
+    <symbol id="i-merge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="10" rx="1"/><rect x="13" y="3" width="8" height="10" rx="1"/><path d="M7 13v3h10v-3"/><path d="M12 16v5"/><path d="M9.5 18.5L12 21l2.5-2.5"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4"/><path d="M7 9l5-5 5 5"/><path d="M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5"/><path d="M11 8v6M8 11h6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-grip" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M4 19h16"/></symbol>
+  </defs>
+</svg>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark"><svg width="18" height="18"><use href="#i-split"/></svg></div>
+      PDF Tách Ghép
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-split" aria-selected="true" data-view="split"><svg width="16" height="16"><use href="#i-split"/></svg>Tách trang</button>
+      <button class="tab" role="tab" id="tab-merge" aria-selected="false" data-view="merge"><svg width="16" height="16"><use href="#i-merge"/></svg>Ghép file</button>
+    </nav>
+    <div class="spacer"></div>
+    <div class="privacy"><svg width="14" height="14"><use href="#i-lock"/></svg>Xử lý ngay trên máy, không tải file lên mạng</div>
+  </div>
+</header>
+
+<main>
+  <!-- ===================== TÁCH ===================== -->
+  <section id="view-split">
+    <div id="splitEmpty" class="drop">
+      <div class="drop-icon"><svg width="28" height="28"><use href="#i-upload"/></svg></div>
+      <h2>Mở một file PDF để chọn trang cần tách</h2>
+      <p>Kéo thả file vào đây, hoặc bấm nút bên dưới. Bạn sẽ thấy toàn bộ trang dạng ảnh nhỏ để bấm chọn.</p>
+      <div class="row">
+        <button class="btn primary" id="splitOpenBtn"><svg width="16" height="16"><use href="#i-upload"/></svg>Chọn file PDF</button>
+        <button class="btn" id="splitSampleBtn">Dùng file mẫu</button>
+      </div>
+      <div class="steps">
+        <span><b>1.</b> Mở file</span>
+        <span><b>2.</b> Bấm chọn các trang</span>
+        <span><b>3.</b> Sắp thứ tự (tuỳ chọn)</span>
+        <span><b>4.</b> Tải về</span>
+      </div>
+    </div>
+
+    <div id="splitWork" class="work" hidden>
+      <div class="panel" style="min-width:0">
+        <div class="toolbar">
+          <div class="fileinfo">
+            <div style="min-width:0">
+              <div class="name" id="splitName"></div>
+              <div class="meta" id="splitMeta"></div>
+            </div>
+          </div>
+          <button class="btn" id="splitAll">Chọn tất cả</button>
+          <button class="btn" id="splitInvert">Đảo chọn</button>
+          <button class="btn" id="splitNone">Bỏ chọn</button>
+          <div class="zoomctl" title="Kích thước ảnh trang">
+            <span style="font-size:12px">A</span><input type="range" id="splitZoom" min="100" max="280" value="150" aria-label="Kích thước ảnh trang"><span style="font-size:16px">A</span>
+          </div>
+          <button class="btn ghost" id="splitReopen">Mở file khác</button>
+        </div>
+        <div class="quick">
+          <input class="input" id="splitRange" placeholder="Chọn nhanh theo số trang, vd: 1-3, 5, 8-10">
+          <button class="btn" id="splitRangeBtn">Chọn</button>
+          <span class="hint">Mẹo: giữ <code>Shift</code> khi bấm để chọn cả một dải trang.</span>
+        </div>
+        <div class="grid" id="splitGrid"></div>
+      </div>
+
+      <aside class="panel side">
+        <section>
+          <h3>Trang đã chọn <span class="count-pill" id="splitCount">0</span></h3>
+          <div class="chips" id="splitChips"></div>
+          <p class="hint" id="splitChipsHint">Kéo các ô số trang để đổi thứ tự nối.</p>
+        </section>
+        <section>
+          <h3>Thứ tự nối</h3>
+          <div class="choice">
+            <label><input type="radio" name="splitOrder" id="orderAsc" value="asc" checked>
+              <div><b>Tăng dần theo số trang</b><span>Mặc định. Trang 2, 5, 9…</span></div></label>
+            <label><input type="radio" name="splitOrder" id="orderCustom" value="custom">
+              <div><b>Theo thứ tự tôi chọn</b><span>Theo thứ tự bấm chọn, hoặc kéo thả ở trên</span></div></label>
+          </div>
+        </section>
+        <section>
+          <h3>Kiểu xuất</h3>
+          <div class="choice">
+            <label><input type="radio" name="splitOut" id="outOne" value="one" checked>
+              <div><b>Gộp thành 1 file PDF</b><span>Các trang đã chọn nối thành một file</span></div></label>
+            <label><input type="radio" name="splitOut" id="outEach" value="each">
+              <div><b>Mỗi trang 1 file riêng</b><span>Tải về một file .zip</span></div></label>
+          </div>
+          <div class="field">
+            <label for="splitOutName">Tên file xuất</label>
+            <input class="input" id="splitOutName">
+          </div>
+          <button class="btn primary" id="splitExport" disabled><svg width="17" height="17"><use href="#i-download"/></svg>Tách &amp; tải về</button>
+        </section>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================== GHÉP ===================== -->
+  <section id="view-merge" hidden>
+    <div id="mergeEmpty" class="drop">
+      <div class="drop-icon"><svg width="28" height="28"><use href="#i-merge"/></svg></div>
+      <h2>Thêm các file PDF cần ghép</h2>
+      <p>Chọn nhiều file cùng lúc hoặc kéo thả vào đây. Mặc định file được xếp theo tên tăng dần, bạn có thể kéo để đổi thứ tự.</p>
+      <div class="row">
+        <button class="btn primary" id="mergeOpenBtn"><svg width="16" height="16"><use href="#i-upload"/></svg>Chọn các file PDF</button>
+        <button class="btn" id="mergeSampleBtn">Dùng file mẫu</button>
+      </div>
+    </div>
+
+    <div id="mergeWork" class="work" hidden>
+      <div class="panel" style="min-width:0">
+        <div class="mhead">
+          <div class="grow" id="mergeOrderNote">Đang xếp theo tên tăng dần (A→Z). Kéo thả hoặc dùng mũi tên để đổi thứ tự.</div>
+          <button class="btn" id="mergeSortAsc">Tên A→Z</button>
+          <button class="btn" id="mergeSortDesc">Tên Z→A</button>
+          <button class="btn ghost" id="mergeClear">Xoá hết</button>
+        </div>
+        <div class="mlist" id="mergeList"></div>
+        <div class="adddrop" id="mergeAdd" tabindex="0" role="button">+ Thêm file PDF (bấm hoặc kéo thả vào đây)</div>
+      </div>
+
+      <aside class="panel side">
+        <section>
+          <h3>Tổng quan</h3>
+          <dl class="summary">
+            <dt>Số file</dt><dd id="mergeFiles">0</dd>
+            <dt>Tổng số trang</dt><dd id="mergePages">0</dd>
+          </dl>
+          <p class="hint">Mỗi file có ô "Trang" để lấy một phần, vd <code>1-3, 7</code>. Để trống là lấy cả file.</p>
+        </section>
+        <section>
+          <div class="field">
+            <label for="mergeOutName">Tên file xuất</label>
+            <input class="input" id="mergeOutName" value="file_da_ghep.pdf">
+          </div>
+          <button class="btn primary" id="mergeExport" disabled><svg width="17" height="17"><use href="#i-download"/></svg>Ghép &amp; tải về</button>
+        </section>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<!-- Preview modal -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-bar">
+    <div class="title" id="modalTitle"></div>
+    <button class="btn" id="modalSelect"><svg width="15" height="15"><use href="#i-check"/></svg><span>Chọn trang này</span></button>
+    <button class="btn" id="modalClose"><svg width="15" height="15"><use href="#i-x"/></svg>Đóng</button>
+  </div>
+  <div class="modal-stage" id="modalStage">
+    <canvas id="modalCanvas"></canvas>
+    <button class="nav prev" id="modalPrev" aria-label="Trang trước"><svg width="22" height="22"><use href="#i-left"/></svg></button>
+    <button class="nav next" id="modalNext" aria-label="Trang sau"><svg width="22" height="22"><use href="#i-right"/></svg></button>
+  </div>
+</div>
+
+<div class="busy" id="busy" hidden><div class="busy-box"><div class="spinner"></div><div id="busyText">Đang xử lý…</div></div></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<input type="file" id="splitFile" accept="application/pdf,.pdf" hidden>
+<input type="file" id="mergeFile" accept="application/pdf,.pdf" multiple hidden>
+
+<script>
+(() => {
+'use strict';
+const $ = (s) => document.querySelector(s);
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'lib/pdf.worker.min.js';
+const { PDFDocument } = PDFLib;
+
+/* ================= Tiện ích chung ================= */
+function toast(msg, kind = '') {
+  const el = document.createElement('div');
+  el.className = 'toast ' + kind; el.textContent = msg;
+  $('#toasts').appendChild(el);
+  setTimeout(() => el.remove(), kind === 'error' ? 6000 : 3500);
+}
+function busy(text) {
+  if (text === false) { $('#busy').hidden = true; return; }
+  $('#busyText').textContent = text; $('#busy').hidden = false;
+}
+const nextFrame = () => new Promise(r => requestAnimationFrame(() => setTimeout(r, 0)));
+function fmtSize(b) {
+  if (b < 1024) return b + ' B';
+  if (b < 1048576) return (b / 1024).toFixed(0) + ' KB';
+  return (b / 1048576).toFixed(1) + ' MB';
+}
+function baseName(n) { return n.replace(/\.pdf$/i, ''); }
+function safeName(n, ext = '.pdf') {
+  n = (n || '').trim().replace(/[\\/:*?"<>|]+/g, '_') || 'ket_qua';
+  const re = new RegExp(ext.replace('.', '\\.') + '$', 'i');
+  return re.test(n) ? n : n.replace(/\.pdf$/i, '') + ext;
+}
+const natural = (a, b) => a.localeCompare(b, 'vi', { numeric: true, sensitivity: 'base' });
+
+function download(data, name, type = 'application/pdf') {
+  const blob = data instanceof Blob ? data : new Blob([data], { type });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 20000);
+}
+
+/** "1-3, 5, 8-" → [1,2,3,5,8,...,n] (1-based). Trả về null nếu ô trống. */
+function parseRanges(text, n) {
+  const t = (text || '').trim();
+  if (!t) return null;
+  const out = [];
+  const norm = t.replace(/\s*[-–—]\s*/g, '-');
+  const check = (x) => { if (x < 1 || x > n) throw new Error(`Trang ${x} không tồn tại (file có ${n} trang)`); };
+  for (const part of norm.split(/[,;\s]+/)) {
+    if (!part) continue;
+    let m;
+    if ((m = part.match(/^(\d+)$/))) { const a = +m[1]; check(a); out.push(a); }
+    else if ((m = part.match(/^(\d*)-(\d*)$/)) && (m[1] || m[2])) {
+      const a = m[1] ? +m[1] : 1, b = m[2] ? +m[2] : n;
+      check(a); check(b);
+      const step = a <= b ? 1 : -1;
+      for (let i = a; step > 0 ? i <= b : i >= b; i += step) out.push(i);
+    } else throw new Error(`"${part}" không đúng dạng. Ví dụ hợp lệ: 1-3, 5, 8`);
+  }
+  if (!out.length) throw new Error('Chưa nhập số trang nào');
+  return out;
+}
+
+async function readFile(file) { return new Uint8Array(await file.arrayBuffer()); }
+function isPdf(file) { return file && (file.type === 'application/pdf' || /\.pdf$/i.test(file.name)); }
+
+async function openPdfJs(bytes) {
+  // Truyền bản sao vì pdf.js có thể chiếm (detach) buffer gốc.
+  try {
+    return await pdfjsLib.getDocument({ data: bytes.slice(), isEvalSupported: false }).promise;
+  } catch (e) {
+    if (e && e.name === 'PasswordException') throw new Error('File có mật khẩu. Hãy gỡ mật khẩu trước khi tách/ghép.');
+    throw new Error('Không đọc được file PDF (file hỏng hoặc không phải PDF).');
+  }
+}
+
+/* Hàng đợi vẽ ảnh trang: tối đa 2 trang vẽ cùng lúc để máy không bị đơ. */
+const queue = []; let running = 0;
+function enqueue(job) {
+  return new Promise((res, rej) => { queue.push({ job, res, rej }); pump(); });
+}
+function pump() {
+  while (running < 2 && queue.length) {
+    const { job, res, rej } = queue.shift(); running++;
+    job().then(res, rej).finally(() => { running--; pump(); });
+  }
+}
+async function renderPage(pdf, num, canvas, cssWidth) {
+  const page = await pdf.getPage(num);
+  const vp1 = page.getViewport({ scale: 1 });
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const vp = page.getViewport({ scale: (cssWidth * dpr) / vp1.width });
+  const tmp = document.createElement('canvas');
+  tmp.width = Math.max(1, Math.floor(vp.width)); tmp.height = Math.max(1, Math.floor(vp.height));
+  await page.render({ canvasContext: tmp.getContext('2d'), viewport: vp }).promise;
+  canvas.width = tmp.width; canvas.height = tmp.height;
+  canvas.getContext('2d').drawImage(tmp, 0, 0);
+  page.cleanup();
+  return vp1.width / vp1.height;
+}
+
+/* File mẫu (để thử nhanh) */
+async function makeSample(label, count, color) {
+  const { StandardFonts, rgb } = PDFLib;
+  const doc = await PDFDocument.create();
+  const bold = await doc.embedFont(StandardFonts.HelveticaBold);
+  const reg = await doc.embedFont(StandardFonts.Helvetica);
+  for (let i = 1; i <= count; i++) {
+    const p = doc.addPage([595, 842]);
+    p.drawRectangle({ x: 0, y: 0, width: 595, height: 842, color: rgb(...color.map(c => c / 255)) });
+    p.drawRectangle({ x: 40, y: 40, width: 515, height: 762, color: rgb(1, 1, 1) });
+    p.drawText(label, { x: 70, y: 740, size: 28, font: bold, color: rgb(.15, .18, .25) });
+    p.drawText('File mau de thu tach / ghep', { x: 70, y: 710, size: 14, font: reg, color: rgb(.45, .48, .55) });
+    const s = String(i), size = 260, w = bold.widthOfTextAtSize(s, size);
+    p.drawText(s, { x: (595 - w) / 2, y: 330, size, font: bold, color: rgb(...color.map(c => c / 255 * .75)) });
+    p.drawText(`Trang ${i} / ${count}`, { x: 70, y: 80, size: 14, font: reg, color: rgb(.45, .48, .55) });
+  }
+  return new Uint8Array(await doc.save());
+}
+
+/* ================= Tabs ================= */
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x => x.setAttribute('aria-selected', x === t));
+  $('#view-split').hidden = t.dataset.view !== 'split';
+  $('#view-merge').hidden = t.dataset.view !== 'merge';
+}));
+const currentView = () => $('#view-split').hidden ? 'merge' : 'split';
+
+/* ================= TÁCH ================= */
+const S = { name: '', bytes: null, pdf: null, n: 0, selected: [], mode: 'asc', last: null, cards: [], token: 0, observer: null };
+
+function splitOrder() { return S.mode === 'asc' ? [...S.selected].sort((a, b) => a - b) : S.selected.slice(); }
+
+async function loadSplit(file, bytesOverride) {
+  if (!bytesOverride && !isPdf(file)) { toast('Vui lòng chọn file .pdf', 'error'); return; }
+  busy('Đang mở file…');
+  try {
+    const bytes = bytesOverride || await readFile(file);
+    const pdf = await openPdfJs(bytes);
+    if (S.pdf) S.pdf.destroy();
+    Object.assign(S, { name: file.name, bytes, pdf, n: pdf.numPages, selected: [], last: null, token: S.token + 1 });
+    setMode('asc');
+    $('#splitName').textContent = file.name;
+    $('#splitMeta').textContent = `${pdf.numPages} trang · ${fmtSize(bytes.length)}`;
+    $('#splitOutName').value = baseName(file.name) + '_tach.pdf';
+    $('#splitRange').value = '';
+    $('#splitEmpty').hidden = true; $('#splitWork').hidden = false;
+    buildGrid();
+    updateSplitUI();
+  } catch (e) { toast(e.message, 'error'); }
+  finally { busy(false); }
+}
+
+function buildGrid() {
+  const grid = $('#splitGrid'); grid.innerHTML = '';
+  if (S.observer) S.observer.disconnect();
+  const token = S.token;
+  S.observer = new IntersectionObserver((entries) => {
+    for (const en of entries) {
+      if (!en.isIntersecting) continue;
+      const card = en.target; S.observer.unobserve(card);
+      const num = +card.dataset.page;
+      enqueue(async () => {
+        if (token !== S.token) return;
+        const ratio = await renderPage(S.pdf, num, card.querySelector('canvas'), 240);
+        card.querySelector('.sheet').style.aspectRatio = String(ratio);
+        card.querySelector('.loading')?.remove();
+      }).catch(() => { const l = card.querySelector('.loading'); if (l) l.textContent = 'Lỗi hiển thị'; });
+    }
+  }, { rootMargin: '600px' });
+
+  const frag = document.createDocumentFragment();
+  S.cards = [];
+  for (let i = 1; i <= S.n; i++) {
+    const card = document.createElement('div');
+    card.className = 'thumb'; card.dataset.page = i; card.tabIndex = 0;
+    card.setAttribute('role', 'checkbox'); card.setAttribute('aria-checked', 'false');
+    card.setAttribute('aria-label', 'Trang ' + i);
+    card.innerHTML = `<div class="sheet"><span class="loading">Đang tải…</span><canvas></canvas>
+      <span class="badge"></span><span class="check"><svg width="14" height="14"><use href="#i-check"/></svg></span>
+      <button class="zoom" title="Xem lớn" aria-label="Xem lớn trang ${i}"><svg width="16" height="16"><use href="#i-eye"/></svg></button></div>
+      <div class="pnum">Trang ${i}</div>`;
+    frag.appendChild(card); S.cards.push(card);
+    S.observer.observe(card);
+  }
+  grid.appendChild(frag);
+}
+
+$('#splitGrid').addEventListener('click', (e) => {
+  const card = e.target.closest('.thumb'); if (!card) return;
+  const num = +card.dataset.page;
+  if (e.target.closest('.zoom')) { openModal('split', num); return; }
+  if (e.shiftKey && S.last != null) {
+    const [a, b] = S.last < num ? [S.last, num] : [num, S.last];
+    for (let i = a; i <= b; i++) if (!S.selected.includes(i)) S.selected.push(i);
+  } else toggleSel(num, false);
+  S.last = num;
+  updateSplitUI();
+});
+$('#splitGrid').addEventListener('keydown', (e) => {
+  const card = e.target.closest('.thumb'); if (!card || e.target !== card) return;
+  if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggleSel(+card.dataset.page); }
+});
+
+function toggleSel(num, refresh = true) {
+  const i = S.selected.indexOf(num);
+  if (i >= 0) S.selected.splice(i, 1); else S.selected.push(num);
+  if (refresh) updateSplitUI();
+}
+
+function updateSplitUI() {
+  const order = splitOrder();
+  const pos = new Map(order.map((p, i) => [p, i + 1]));
+  for (const card of S.cards) {
+    const p = +card.dataset.page, k = pos.get(p);
+    card.classList.toggle('sel', !!k);
+    card.setAttribute('aria-checked', String(!!k));
+    card.querySelector('.badge').textContent = k || '';
+  }
+  $('#splitCount').textContent = order.length;
+  const chips = $('#splitChips');
+  chips.innerHTML = order.length ? order.map((p, i) =>
+    `<span class="chip" data-page="${p}"><span class="ord">${i + 1}.</span>Tr. ${p}<button title="Bỏ trang ${p}" data-rm="${p}">×</button></span>`).join('')
+    : '<div class="empty-note">Chưa chọn trang nào. Bấm vào ảnh trang bên trái để chọn.</div>';
+  $('#splitChipsHint').hidden = order.length < 2;
+  $('#splitExport').disabled = !order.length;
+  $('#splitExport').lastChild.textContent = order.length
+    ? ($('#outEach').checked ? `Tách ${order.length} file & tải về` : `Tách ${order.length} trang & tải về`) : 'Tách & tải về';
+  if (!$('#modal').hidden && M.ctx === 'split') syncModalSelect();
+}
+
+$('#splitChips').addEventListener('click', (e) => {
+  const rm = e.target.closest('[data-rm]'); if (!rm) return;
+  S.selected = S.selected.filter(p => p !== +rm.dataset.rm); updateSplitUI();
+});
+Sortable.create($('#splitChips'), {
+  animation: 150, filter: 'button', preventOnFilter: false,
+  onEnd: (ev) => {
+    if (ev.oldIndex === ev.newIndex) return;
+    S.selected = [...$('#splitChips').querySelectorAll('.chip')].map(c => +c.dataset.page);
+    setMode('custom'); updateSplitUI();
+  }
+});
+
+function setMode(m) {
+  // Khi chuyển từ "tăng dần" sang "tuỳ chỉnh", giữ nguyên thứ tự đang hiển thị nếu người dùng vừa kéo.
+  S.mode = m;
+  $('#orderAsc').checked = m === 'asc'; $('#orderCustom').checked = m === 'custom';
+}
+document.querySelectorAll('input[name=splitOrder]').forEach(r => r.addEventListener('change', () => { setMode(r.value); updateSplitUI(); }));
+document.querySelectorAll('input[name=splitOut]').forEach(r => r.addEventListener('change', () => {
+  const each = $('#outEach').checked, v = $('#splitOutName').value;
+  $('#splitOutName').value = each ? v.replace(/\.pdf$/i, '.zip') : v.replace(/\.zip$/i, '.pdf');
+  updateSplitUI();
+}));
+
+$('#splitAll').onclick = () => { S.selected = Array.from({ length: S.n }, (_, i) => i + 1); updateSplitUI(); };
+$('#splitNone').onclick = () => { S.selected = []; updateSplitUI(); };
+$('#splitInvert').onclick = () => {
+  const set = new Set(S.selected);
+  S.selected = Array.from({ length: S.n }, (_, i) => i + 1).filter(p => !set.has(p)); updateSplitUI();
+};
+$('#splitZoom').oninput = (e) => $('#splitGrid').style.setProperty('--thumb-w', e.target.value + 'px');
+function applyRange() {
+  const inp = $('#splitRange');
+  try {
+    const pages = parseRanges(inp.value, S.n);
+    if (!pages) { toast('Nhập số trang, ví dụ: 1-3, 5'); return; }
+    S.selected = [...new Set(pages)];
+    inp.classList.remove('err'); updateSplitUI();
+    toast(`Đã chọn ${S.selected.length} trang`);
+  } catch (e) { inp.classList.add('err'); toast(e.message, 'error'); }
+}
+$('#splitRangeBtn').onclick = applyRange;
+$('#splitRange').addEventListener('keydown', (e) => { if (e.key === 'Enter') applyRange(); });
+$('#splitRange').addEventListener('input', (e) => e.target.classList.remove('err'));
+
+$('#splitOpenBtn').onclick = $('#splitReopen').onclick = () => $('#splitFile').click();
+$('#splitFile').onchange = (e) => { const f = e.target.files[0]; e.target.value = ''; if (f) loadSplit(f); };
+$('#splitSampleBtn').onclick = async () => {
+  busy('Đang tạo file mẫu…');
+  const bytes = await makeSample('Tai lieu mau', 8, [210, 222, 252]);
+  busy(false);
+  loadSplit({ name: 'tai_lieu_mau.pdf' }, bytes);
+};
+
+$('#splitExport').onclick = async () => {
+  const order = splitOrder(); if (!order.length) return;
+  const each = $('#outEach').checked;
+  busy('Đang tách trang…'); await nextFrame();
+  try {
+    const src = await PDFDocument.load(S.bytes, { ignoreEncryption: true });
+    if (!each) {
+      const doc = await PDFDocument.create();
+      const pages = await doc.copyPages(src, order.map(p => p - 1));
+      pages.forEach(p => doc.addPage(p));
+      download(await doc.save(), safeName($('#splitOutName').value, '.pdf'));
+    } else {
+      const zip = new JSZip(), base = baseName(S.name);
+      const width = String(S.n).length;
+      for (let i = 0; i < order.length; i++) {
+        $('#busyText').textContent = `Đang tách trang ${i + 1}/${order.length}…`;
+        const doc = await PDFDocument.create();
+        const [pg] = await doc.copyPages(src, [order[i] - 1]);
+        doc.addPage(pg);
+        zip.file(`${base}_trang_${String(order[i]).padStart(width, '0')}.pdf`, await doc.save());
+        if (i % 10 === 9) await nextFrame();
+      }
+      $('#busyText').textContent = 'Đang nén file .zip…';
+      download(await zip.generateAsync({ type: 'blob' }), safeName($('#splitOutName').value, '.zip'), 'application/zip');
+    }
+    toast('Xong! File đã được tải về.', 'ok');
+  } catch (e) { console.error(e); toast('Không tách được: ' + e.message, 'error'); }
+  finally { busy(false); }
+};
+
+/* ================= GHÉP ================= */
+const G = { files: [], sortDir: 'asc', uid: 0 };
+
+async function addMergeFiles(fileList) {
+  const files = [...fileList].filter(isPdf);
+  const skipped = fileList.length - files.length;
+  if (!files.length) { toast('Không có file .pdf nào trong lựa chọn', 'error'); return; }
+  busy('Đang đọc file…');
+  let ok = 0;
+  for (const f of files) {
+    $('#busyText').textContent = `Đang đọc ${f.name}…`;
+    try {
+      const bytes = f.bytes || await readFile(f);
+      const pdf = await openPdfJs(bytes);
+      G.files.push({ id: ++G.uid, name: f.name, size: bytes.length, bytes, pdf, n: pdf.numPages, range: '' });
+      ok++;
+    } catch (e) { toast(`${f.name}: ${e.message}`, 'error'); }
+  }
+  busy(false);
+  if (skipped) toast(`Bỏ qua ${skipped} file không phải PDF`);
+  if (G.sortDir) sortMerge(G.sortDir, false);
+  renderMerge();
+  if (ok) toast(`Đã thêm ${ok} file`);
+}
+
+function sortMerge(dir, render = true) {
+  G.sortDir = dir;
+  G.files.sort((a, b) => dir === 'asc' ? natural(a.name, b.name) : natural(b.name, a.name));
+  if (render) renderMerge();
+}
+
+function renderMerge() {
+  const has = G.files.length > 0;
+  $('#mergeEmpty').hidden = has; $('#mergeWork').hidden = !has;
+  const list = $('#mergeList');
+  // Giữ lại các phần tử đã vẽ ảnh để không phải vẽ lại khi đổi thứ tự.
+  const existing = new Map([...list.children].map(el => [+el.dataset.id, el]));
+  list.innerHTML = '';
+  G.files.forEach((f, idx) => {
+    let el = existing.get(f.id);
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'mitem'; el.dataset.id = f.id;
+      el.innerHTML = `
+        <div class="handle" title="Kéo để đổi thứ tự"><span class="no"></span><svg width="16" height="16"><use href="#i-grip"/></svg></div>
+        <button class="mthumb" title="Xem trước các trang" aria-label="Xem trước ${f.name.replace(/"/g, '')}"><canvas></canvas></button>
+        <div class="mbody">
+          <div class="mname"></div>
+          <div class="mmeta">${f.n} trang · ${fmtSize(f.size)}</div>
+          <input class="input" data-range placeholder="Trang: tất cả (hoặc nhập vd 1-3, 5)" aria-label="Trang lấy từ file">
+        </div>
+        <div class="mact">
+          <button class="btn ghost icon" data-act="up" title="Lên trên" aria-label="Lên trên"><svg width="17" height="17"><use href="#i-up"/></svg></button>
+          <button class="btn ghost icon" data-act="down" title="Xuống dưới" aria-label="Xuống dưới"><svg width="17" height="17"><use href="#i-down"/></svg></button>
+          <button class="btn ghost icon del" data-act="rm" title="Bỏ file này" aria-label="Bỏ file"><svg width="17" height="17"><use href="#i-x"/></svg></button>
+        </div>`;
+      el.querySelector('.mname').textContent = f.name;
+      el.querySelector('.mname').title = f.name;
+      const inp = el.querySelector('[data-range]');
+      inp.value = f.range;
+      inp.addEventListener('input', () => { f.range = inp.value; inp.classList.remove('err'); updateMergeSummary(); });
+      enqueue(() => renderPage(f.pdf, 1, el.querySelector('canvas'), 64)).catch(() => {});
+    }
+    el.querySelector('.no').textContent = idx + 1;
+    el.querySelector('[data-act=up]').disabled = idx === 0;
+    el.querySelector('[data-act=down]').disabled = idx === G.files.length - 1;
+    list.appendChild(el);
+  });
+  $('#mergeOrderNote').textContent = G.sortDir === 'asc' ? 'Đang xếp theo tên tăng dần (A→Z). Kéo thả hoặc dùng mũi tên để đổi thứ tự.'
+    : G.sortDir === 'desc' ? 'Đang xếp theo tên giảm dần (Z→A). Kéo thả hoặc dùng mũi tên để đổi thứ tự.'
+    : 'Thứ tự tự sắp xếp. File ở trên cùng sẽ nằm đầu file ghép.';
+  updateMergeSummary();
+}
+
+function mergePlan(strict) {
+  // Trả về [{file, pages(1-based)}]; strict=true sẽ báo lỗi ô "Trang" nhập sai.
+  const plan = []; let errs = 0;
+  for (const f of G.files) {
+    const inp = document.querySelector(`.mitem[data-id="${f.id}"] [data-range]`);
+    try {
+      const pages = parseRanges(f.range, f.n) || Array.from({ length: f.n }, (_, i) => i + 1);
+      plan.push({ f, pages }); inp?.classList.remove('err');
+    } catch (e) {
+      errs++;
+      if (strict) { inp?.classList.add('err'); throw new Error(`${f.name}: ${e.message}`); }
+    }
+  }
+  return { plan, errs };
+}
+function updateMergeSummary() {
+  const { plan } = mergePlan(false);
+  $('#mergeFiles').textContent = G.files.length;
+  $('#mergePages').textContent = plan.reduce((s, x) => s + x.pages.length, 0);
+  $('#mergeExport').disabled = G.files.length < 1;
+  $('#mergeExport').lastChild.textContent = G.files.length >= 2 ? `Ghép ${G.files.length} file & tải về` : 'Ghép & tải về';
+}
+
+$('#mergeList').addEventListener('click', (e) => {
+  const item = e.target.closest('.mitem'); if (!item) return;
+  const idx = G.files.findIndex(f => f.id === +item.dataset.id);
+  if (e.target.closest('.mthumb')) { openModal('merge', 1, G.files[idx]); return; }
+  const act = e.target.closest('[data-act]')?.dataset.act; if (!act) return;
+  if (act === 'rm') { G.files[idx].pdf.destroy(); G.files.splice(idx, 1); }
+  else {
+    const j = act === 'up' ? idx - 1 : idx + 1;
+    if (j < 0 || j >= G.files.length) return;
+    [G.files[idx], G.files[j]] = [G.files[j], G.files[idx]];
+    G.sortDir = null;
+  }
+  renderMerge();
+});
+Sortable.create($('#mergeList'), {
+  animation: 150, handle: '.handle',
+  onEnd: (ev) => {
+    if (ev.oldIndex === ev.newIndex) return;
+    const ids = [...$('#mergeList').children].map(el => +el.dataset.id);
+    G.files.sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id));
+    G.sortDir = null; renderMerge();
+  }
+});
+
+$('#mergeSortAsc').onclick = () => sortMerge('asc');
+$('#mergeSortDesc').onclick = () => sortMerge('desc');
+$('#mergeClear').onclick = () => { G.files.forEach(f => f.pdf.destroy()); G.files = []; G.sortDir = 'asc'; renderMerge(); };
+$('#mergeOpenBtn').onclick = () => $('#mergeFile').click();
+$('#mergeAdd').onclick = () => $('#mergeFile').click();
+$('#mergeAdd').onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('#mergeFile').click(); } };
+$('#mergeFile').onchange = (e) => { const fs = [...e.target.files]; e.target.value = ''; if (fs.length) addMergeFiles(fs); };
+$('#mergeSampleBtn').onclick = async () => {
+  busy('Đang tạo file mẫu…');
+  const a = await makeSample('File mau B', 3, [252, 222, 200]);
+  const b = await makeSample('File mau A', 4, [205, 236, 214]);
+  const c = await makeSample('File mau C', 2, [230, 214, 250]);
+  busy(false);
+  addMergeFiles([{ name: 'file_mau_B.pdf', type: 'application/pdf', bytes: a },
+                 { name: 'file_mau_A.pdf', type: 'application/pdf', bytes: b },
+                 { name: 'file_mau_C.pdf', type: 'application/pdf', bytes: c }]);
+};
+
+$('#mergeExport').onclick = async () => {
+  let plan;
+  try { plan = mergePlan(true).plan; } catch (e) { toast(e.message, 'error'); return; }
+  busy('Đang ghép…'); await nextFrame();
+  try {
+    const out = await PDFDocument.create();
+    for (let i = 0; i < plan.length; i++) {
+      const { f, pages } = plan[i];
+      $('#busyText').textContent = `Đang ghép file ${i + 1}/${plan.length}: ${f.name}`;
+      await nextFrame();
+      const src = await PDFDocument.load(f.bytes, { ignoreEncryption: true });
+      const copied = await out.copyPages(src, pages.map(p => p - 1));
+      copied.forEach(p => out.addPage(p));
+    }
+    $('#busyText').textContent = 'Đang lưu file…';
+    download(await out.save(), safeName($('#mergeOutName').value, '.pdf'));
+    toast('Xong! File ghép đã được tải về.', 'ok');
+  } catch (e) { console.error(e); toast('Không ghép được: ' + e.message, 'error'); }
+  finally { busy(false); }
+};
+
+/* ================= Kéo thả file vào cửa sổ ================= */
+let dragDepth = 0;
+const hasFiles = (e) => [...(e.dataTransfer?.types || [])].includes('Files');
+window.addEventListener('dragenter', (e) => { if (!hasFiles(e)) return; e.preventDefault(); dragDepth++; document.body.classList.add('dragging-file'); $('#mergeAdd').classList.add('over'); });
+window.addEventListener('dragleave', (e) => { if (!hasFiles(e)) return; if (--dragDepth <= 0) { dragDepth = 0; document.body.classList.remove('dragging-file'); $('#mergeAdd').classList.remove('over'); } });
+window.addEventListener('dragover', (e) => { if (hasFiles(e)) e.preventDefault(); });
+window.addEventListener('drop', (e) => {
+  if (!hasFiles(e)) return;
+  e.preventDefault(); dragDepth = 0; document.body.classList.remove('dragging-file'); $('#mergeAdd').classList.remove('over');
+  const files = [...e.dataTransfer.files];
+  if (!files.length) return;
+  if (currentView() === 'split') {
+    const f = files.find(isPdf);
+    if (!f) { toast('Vui lòng thả file .pdf', 'error'); return; }
+    if (files.length > 1) toast('Tab Tách chỉ mở 1 file. Dùng tab Ghép để nối nhiều file.');
+    loadSplit(f);
+  } else addMergeFiles(files);
+});
+
+/* ================= Xem trước lớn ================= */
+const M = { ctx: 'split', pdf: null, n: 0, page: 1, name: '', renderId: 0 };
+function openModal(ctx, page, file) {
+  M.ctx = ctx; M.page = page;
+  if (ctx === 'split') { M.pdf = S.pdf; M.n = S.n; M.name = S.name; }
+  else { M.pdf = file.pdf; M.n = file.n; M.name = file.name; }
+  $('#modalSelect').hidden = ctx !== 'split';
+  $('#modal').hidden = false;
+  drawModal();
+  $('#modalClose').focus();
+}
+function closeModal() { $('#modal').hidden = true; }
+async function drawModal() {
+  const id = ++M.renderId;
+  $('#modalTitle').textContent = `${M.name} — Trang ${M.page} / ${M.n}`;
+  $('#modalPrev').disabled = M.page <= 1; $('#modalNext').disabled = M.page >= M.n;
+  if (M.ctx === 'split') syncModalSelect();
+  const stage = $('#modalStage'), cv = $('#modalCanvas');
+  const page = await M.pdf.getPage(M.page);
+  if (id !== M.renderId) return;
+  const vp1 = page.getViewport({ scale: 1 });
+  const small = innerWidth <= 600;
+  const availW = stage.clientWidth - (small ? 16 : 128), availH = stage.clientHeight - (small ? 70 : 16);
+  const scale = Math.max(0.1, Math.min(availW / vp1.width, availH / vp1.height));
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const vp = page.getViewport({ scale: scale * dpr });
+  const tmp = document.createElement('canvas');
+  tmp.width = Math.floor(vp.width); tmp.height = Math.floor(vp.height);
+  await page.render({ canvasContext: tmp.getContext('2d'), viewport: vp }).promise;
+  if (id !== M.renderId) return;
+  cv.width = tmp.width; cv.height = tmp.height;
+  cv.style.width = Math.floor(vp1.width * scale) + 'px'; cv.style.height = Math.floor(vp1.height * scale) + 'px';
+  cv.getContext('2d').drawImage(tmp, 0, 0);
+}
+function syncModalSelect() {
+  const on = S.selected.includes(M.page);
+  const b = $('#modalSelect');
+  b.classList.toggle('on', on);
+  b.querySelector('span').textContent = on ? `Đã chọn (thứ ${splitOrder().indexOf(M.page) + 1})` : 'Chọn trang này';
+}
+function modalGo(d) { const p = M.page + d; if (p >= 1 && p <= M.n) { M.page = p; drawModal(); } }
+$('#modalPrev').onclick = () => modalGo(-1);
+$('#modalNext').onclick = () => modalGo(1);
+$('#modalClose').onclick = closeModal;
+$('#modalSelect').onclick = () => { toggleSel(M.page); };
+$('#modalStage').addEventListener('click', (e) => { if (e.target === e.currentTarget) closeModal(); });
+window.addEventListener('keydown', (e) => {
+  if ($('#modal').hidden) return;
+  if (e.key === 'Escape') closeModal();
+  else if (e.key === 'ArrowLeft') modalGo(-1);
+  else if (e.key === 'ArrowRight') modalGo(1);
+  else if ((e.key === ' ' || e.key === 'Enter') && M.ctx === 'split' && document.activeElement?.id !== 'modalClose') { e.preventDefault(); toggleSel(M.page); }
+});
+let rz; window.addEventListener('resize', () => { if ($('#modal').hidden) return; clearTimeout(rz); rz = setTimeout(drawModal, 150); });
+})();
+</script>
+</body>
+</html>
