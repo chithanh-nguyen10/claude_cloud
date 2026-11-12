@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="runner-token" content="">
+<title>CP Calc</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand"><span class="brand-mark">O(n)</span>CP Calc</div>
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" data-tab="calc" aria-selected="true" data-i18n="tab.calc"></button>
+      <button class="tab" role="tab" data-tab="safety" aria-selected="false" data-i18n="tab.safety"></button>
+      <button class="tab" role="tab" data-tab="stress" aria-selected="false" data-i18n="tab.stress"></button>
+    </nav>
+    <div class="grow"></div>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="vi" aria-pressed="true">VI</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- =========================================================== CALCULATOR -->
+<section id="tab-calc" data-tabpanel="calc">
+  <div class="layout">
+    <nav class="subnav" data-subnav="calc">
+      <button data-sec="notebook" aria-current="true" data-i18n="calc.nav.notebook"></button>
+      <button data-sec="complexity" data-i18n="calc.nav.complexity"></button>
+      <button data-sec="sums" data-i18n="calc.nav.sums"></button>
+      <button data-sec="analysis" data-i18n="calc.nav.analysis"></button>
+      <button data-sec="nt" data-i18n="calc.nav.nt"></button>
+      <button data-sec="comb" data-i18n="calc.nav.comb"></button>
+    </nav>
+
+    <div class="content">
+      <div class="judge">
+        <span class="ttl" data-i18n="judge.title"></span>
+        <label><span data-i18n="judge.tl"></span> <input class="input mono" id="jTL" value="1"> s</label>
+        <label><span data-i18n="judge.speed"></span> <input class="input mono" id="jSpeed" value="2e8"></label>
+        <span class="hint" data-i18n="judge.hint"></span>
+      </div>
+
+      <!-- ---------------- Notebook ---------------- -->
+      <div data-sec-panel="notebook" class="content">
+        <div class="sec-head"><h2 data-i18n="nb.title"></h2><p data-i18n="nb.desc"></p></div>
+        <div class="card">
+          <div class="card-body">
+            <div class="nb" id="nb"></div>
+            <div class="row">
+              <button class="btn sm" id="nbAdd" data-i18n="nb.add"></button>
+              <button class="btn sm" id="nbClear" data-i18n="nb.clear"></button>
+              <button class="btn sm" id="nbExample" data-i18n="nb.example"></button>
+              <span class="hint" data-i18n="nb.keys"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <header><h3 data-i18n="nb.ref"></h3></header>
+          <div class="card-body"><div class="fnref" id="fnref"></div></div>
+        </div>
+      </div>
+
+      <!-- ---------------- Complexity ---------------- -->
+      <div data-sec-panel="complexity" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="cx.title"></h2><p data-i18n="cx.desc"></p></div>
+        <div class="cards">
+          <div class="card">
+            <header><h3 data-i18n="cx.est"></h3></header>
+            <div class="card-body">
+              <div class="fields">
+                <div class="field full"><label for="cxTpl" data-i18n="cx.tpl"></label><select class="input" id="cxTpl"></select></div>
+                <div class="field full"><label for="cxExpr" data-i18n="cx.expr"></label><input class="input mono" id="cxExpr" value="(n + q) * log(n)"></div>
+                <div class="field full"><label for="cxVars" data-i18n="cx.vars"></label><input class="input mono" id="cxVars" value="n = 2e5, m = 2e5, q = 1e5, k = 100"></div>
+                <div class="field"><label for="cxConst" data-i18n="cx.const"></label><input class="input mono" id="cxConst" value="1"></div>
+              </div>
+              <div id="cxOut"></div>
+            </div>
+          </div>
+          <div class="card">
+            <header><h3 data-i18n="cx.inv"></h3></header>
+            <div class="card-body">
+              <div class="fields">
+                <div class="field full"><label for="invExpr" data-i18n="cx.invExpr"></label><input class="input mono" id="invExpr" value="n * sqrt(n)"></div>
+              </div>
+              <p class="hint" data-i18n="cx.invHint"></p>
+              <div id="invOut"></div>
+            </div>
+          </div>
+          <div class="card wide">
+            <header><h3 data-i18n="cx.cmp"></h3><span class="tag" id="cmpTag"></span></header>
+            <div class="card-body"><div class="tbl-wrap" id="cmpTable"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------------- Sums ---------------- -->
+      <div data-sec-panel="sums" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="sum.title"></h2><p data-i18n="sum.desc"></p></div>
+        <div class="cards">
+          <div class="card">
+            <header><h3 data-i18n="sum.harm"></h3><span class="tag">Σ n/i · Σ ⌊n/i⌋</span></header>
+            <div class="card-body">
+              <div class="fields"><div class="field"><label for="hN">n</label><input class="input mono" id="hN" value="1e6"></div></div>
+              <div id="hOut"></div>
+            </div>
+          </div>
+          <div class="card">
+            <header><h3 data-i18n="sum.primes"></h3><span class="tag">Σ<sub>p≤n</sub> n/p</span></header>
+            <div class="card-body">
+              <div class="fields"><div class="field"><label for="pN">n</label><input class="input mono" id="pN" value="1e7"></div></div>
+              <div id="pOut"></div>
+            </div>
+          </div>
+          <div class="card">
+            <header><h3 data-i18n="sum.custom"></h3><span class="tag">Σ<sub>i=a..b</sub> f(i)</span></header>
+            <div class="card-body">
+              <div class="fields">
+                <div class="field full"><label for="csF">f(i)</label><input class="input mono" id="csF" value="n / i"></div>
+                <div class="field"><label for="csA">a</label><input class="input mono" id="csA" value="1"></div>
+                <div class="field"><label for="csB">b</label><input class="input mono" id="csB" value="n"></div>
+                <div class="field span2"><label for="csVars" data-i18n="cx.vars"></label><input class="input mono" id="csVars" value="n = 1e6"></div>
+              </div>
+              <div id="csOut"></div>
+            </div>
+          </div>
+          <div class="card wide">
+            <header><h3 data-i18n="sum.loops"></h3></header>
+            <div class="card-body">
+              <div class="loops" id="loops"></div>
+              <div class="row">
+                <button class="btn sm" id="loopAdd" data-i18n="loop.add"></button>
+                <button class="btn sm" id="loopDel" data-i18n="loop.del"></button>
+              </div>
+              <div class="fields">
+                <div class="field full"><label for="loopVars" data-i18n="loop.vars"></label><input class="input mono" id="loopVars" value="n = 2000"></div>
+              </div>
+              <div id="loopOut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------------- Analysis ---------------- -->
+      <div data-sec-panel="analysis" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="an.title"></h2><p data-i18n="an.desc"></p></div>
+        <div class="cards">
+          <div class="card">
+            <header><h3 data-i18n="an.master"></h3><span class="tag">T(n) = a·T(n/b) + n<sup>k</sup>·log<sup>p</sup> n</span></header>
+            <div class="card-body">
+              <div class="fields">
+                <div class="field"><label for="msA">a</label><input class="input mono" id="msA" value="2"></div>
+                <div class="field"><label for="msB">b</label><input class="input mono" id="msB" value="2"></div>
+                <div class="field"><label for="msK">k</label><input class="input mono" id="msK" value="1"></div>
+                <div class="field"><label for="msP">p</label><input class="input mono" id="msP" value="0"></div>
+                <div class="field"><label for="msN" data-i18n="an.evalAt"></label><input class="input mono" id="msN" value="1e6"></div>
+              </div>
+              <div id="msOut"></div>
+            </div>
+          </div>
+          <div class="card">
+            <header><h3 data-i18n="an.akra"></h3><span class="tag">T(n) = Σ a<sub>i</sub>·T(n/b<sub>i</sub>) + n<sup>k</sup>·log<sup>p</sup> n</span></header>
+            <div class="card-body">
+              <div class="fields">
+                <div class="field full"><label for="abTerms" data-i18n="an.terms"></label><textarea class="input" id="abTerms" rows="3">1 3
+1 1.5</textarea></div>
+                <div class="field"><label for="abK">k</label><input class="input mono" id="abK" value="1"></div>
+                <div class="field"><label for="abP">p</label><input class="input mono" id="abP" value="0"></div>
+              </div>
+              <div id="abOut"></div>
+            </div>
+          </div>
+          <div class="card">
+            <header><h3 data-i18n="an.rec"></h3></header>
+            <div class="card-body">
+              <div class="fields">
+                <div class="field full"><label for="reExpr">T(n) =</label><input class="input mono" id="reExpr" value="T(n-1) + T(n-2)"></div>
+                <div class="field"><label for="reN0" data-i18n="an.baseN"></label><input class="input mono" id="reN0" value="1"></div>
+                <div class="field"><label for="reBase" data-i18n="an.baseV"></label><input class="input mono" id="reBase" value="1"></div>
+                <div class="field"><label for="reN">N</label><input class="input mono" id="reN" value="90"></div>
+              </div>
+              <p class="hint" data-i18n="an.recHint"></p>
+              <div id="reOut"></div>
+            </div>
+          </div>
+          <div class="card">
+            <header><h3 data-i18n="an.int"></h3><span class="tag">∫<sub>a</sub><sup>b</sup> f(x) dx</span></header>
+            <div class="card-body">
+              <div class="fields">
+                <div class="field full"><label for="igF">f(x)</label><input class="input mono" id="igF" value="sqrt(n / x)"></div>
+                <div class="field"><label for="igA">a</label><input class="input mono" id="igA" value="1"></div>
+                <div class="field"><label for="igB">b</label><input class="input mono" id="igB" value="n"></div>
+                <div class="field span2"><label for="igVars" data-i18n="cx.vars"></label><input class="input mono" id="igVars" value="n = 1e6"></div>
+              </div>
+              <div id="igOut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------------- Number theory ---------------- -->
+      <div data-sec-panel="nt" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="nt.title"></h2><p data-i18n="nt.desc"></p></div>
+        <div class="cards">
+          <div class="card">
+            <header><h3 data-i18n="nt.one"></h3><span class="tag">d(n) · σ(n) · φ(n)</span></header>
+            <div class="card-body">
+              <div class="fields"><div class="field full"><label for="ntN">n</label><input class="input mono" id="ntN" value="735134400"></div></div>
+              <div id="ntOut"></div>
+            </div>
+          </div>
+          <div class="card">
+            <header><h3 data-i18n="nt.maxdiv"></h3><span class="tag">max d(x), x ≤ N</span></header>
+            <div class="card-body">
+              <div class="fields"><div class="field full"><label for="mdN">N</label><input class="input mono" id="mdN" value="1e18"></div></div>
+              <div id="mdOut"></div>
+              <div class="tbl-wrap" id="mdTable"></div>
+            </div>
+          </div>
+          <div class="card">
+            <header><h3 data-i18n="nt.pi"></h3><span class="tag">π(n)</span></header>
+            <div class="card-body">
+              <div class="fields"><div class="field full"><label for="ppN">n</label><input class="input mono" id="ppN" value="1e9"></div></div>
+              <div id="ppOut"></div>
+            </div>
+          </div>
+          <div class="card">
+            <header><h3 data-i18n="nt.sumd"></h3><span class="tag">Σ d(i) · Σ σ(i)</span></header>
+            <div class="card-body">
+              <div class="fields"><div class="field full"><label for="sdN">n</label><input class="input mono" id="sdN" value="1e9"></div></div>
+              <div id="sdOut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------------- Combinatorics ---------------- -->
+      <div data-sec-panel="comb" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="cb.title"></h2><p data-i18n="cb.desc"></p></div>
+        <div class="cards">
+          <div class="card">
+            <header><h3 data-i18n="cb.values"></h3></header>
+            <div class="card-body">
+              <div class="fields">
+                <div class="field"><label for="cbN">n</label><input class="input mono" id="cbN" value="20"></div>
+                <div class="field"><label for="cbK">k</label><input class="input mono" id="cbK" value="10"></div>
+              </div>
+              <div class="tbl-wrap" id="cbTable"></div>
+            </div>
+          </div>
+          <div class="card">
+            <header><h3 data-i18n="cb.feas"></h3></header>
+            <div class="card-body">
+              <div class="fields">
+                <div class="field"><label for="fsN">n</label><input class="input mono" id="fsN" value="20"></div>
+                <div class="field"><label for="fsK">k</label><input class="input mono" id="fsK" value="5"></div>
+              </div>
+              <div class="tbl-wrap" id="fsTable"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================== SAFETY -->
+<section id="tab-safety" data-tabpanel="safety" hidden></section>
+
+<!-- =========================================================== STRESS -->
+<section id="tab-stress" data-tabpanel="stress" hidden></section>
+</main>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/core.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/calc.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
