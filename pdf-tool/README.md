@@ -4,6 +4,16 @@ Công cụ tách và ghép file PDF chạy ngay trong trình duyệt. File đư�
 
 ## Cách mở
 
+### Windows (khuyên dùng): một file duy nhất
+
+Tải file **`PDF-Tach-Ghep.html`** rồi bấm đúp để mở bằng Edge hoặc Chrome. File này đã chứa sẵn mọi thư viện: không cần thư mục `lib/`, không cần cài gì, không cần mạng. Chép sang USB hay gửi cho người khác chỉ cần đúng một file đó.
+
+Nếu bấm đúp mà Windows mở bằng chương trình khác, bấm chuột phải vào file, chọn **Open with**, rồi chọn **Microsoft Edge** hoặc **Google Chrome**.
+
+Khi sửa mã nguồn (`index.html`), tạo lại file đơn bằng lệnh `python build-standalone.py`.
+
+### Bản nhiều file
+
 Mở file `index.html` bằng Chrome, Edge hoặc Firefox (bấm đúp là được). Muốn dùng trên máy khác thì chép cả thư mục `pdf-tool/`, gồm cả `lib/`.
 
 ## Tách trang
