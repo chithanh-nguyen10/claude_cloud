@@ -196,3 +196,36 @@ table.tbl { border-collapse: collapse; width: 100%; font-size: 13px; }
 .toast.err { background: var(--bad); color: #fff; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* ---------- Stress test ---------- */
+.runner-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 10px 14px; box-shadow: var(--shadow); }
+.runner-info { color: var(--muted); font-size: 13px; min-width: 0; overflow-wrap: anywhere; }
+.steps-list { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.steps-list code, .runner-info code { background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+.stress-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 1100px) { .stress-grid { grid-template-columns: minmax(0, 1fr); } }
+.slot-tabs, .seg { display: flex; gap: 3px; background: var(--surface-2); padding: 3px; border-radius: 8px; flex-wrap: wrap; }
+.slot-tabs button, .seg button { flex: 1; border: 0; background: transparent; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-weight: 600; color: var(--muted); display: inline-flex; gap: 6px; align-items: center; justify-content: center; white-space: nowrap; }
+.slot-tabs button[aria-selected="true"], .seg button[aria-selected="true"] { background: var(--surface); color: var(--fg); box-shadow: var(--shadow); }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: transparent; border: 1.5px solid var(--line); display: inline-block; }
+.dot.has { background: var(--muted); border-color: var(--muted); }
+.dot.ok { background: var(--ok); border-color: var(--ok); }
+.dot.bad { background: var(--bad); border-color: var(--bad); }
+textarea.code { font-family: var(--mono); font-size: 12.5px; tab-size: 4; white-space: pre; overflow: auto; min-height: 220px; line-height: 1.5; }
+.check-row { display: inline-flex; gap: 7px; align-items: center; font-size: 13px; cursor: pointer; }
+.check-row input { accent-color: var(--accent); }
+.cmd { display: block; background: var(--code-bg); border: 1px solid var(--line); border-radius: 7px; padding: 7px 10px; font-family: var(--mono); font-size: 12px; overflow-wrap: anywhere; white-space: pre-wrap; }
+pre.log { margin: 0; background: var(--code-bg); border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px; font-family: var(--mono); font-size: 12px; max-height: 260px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+.loglist { display: flex; flex-direction: column; gap: 6px; }
+.io3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 8px; }
+.io3 .lbl { display: flex; justify-content: space-between; gap: 6px; align-items: center; margin-bottom: 3px; }
+.io3 pre { margin: 0; background: var(--code-bg); border: 1px solid var(--line); border-radius: 7px; padding: 8px; font-family: var(--mono); font-size: 12px; max-height: 240px; overflow: auto; white-space: pre; }
+.progress { height: 6px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
+.progress > span { display: block; height: 100%; background: var(--accent); transition: width .2s; }
+.tbl tr.click { cursor: pointer; }
+.tbl tr.click:hover td { background: var(--surface-2); }
+.failmsg { font-family: var(--mono); font-size: 12.5px; overflow-wrap: anywhere; }
+.empty { color: var(--muted); font-size: 13px; padding: 18px 4px; text-align: center; }
+
+a.btn { text-decoration: none; color: inherit; }
+@media (max-width: 600px) { .topbar { position: static; } .subnav { top: 0; } }

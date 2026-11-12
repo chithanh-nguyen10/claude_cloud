@@ -358,7 +358,135 @@
 </section>
 
 <!-- =========================================================== STRESS -->
-<section id="tab-stress" data-tabpanel="stress" hidden></section>
+<section id="tab-stress" data-tabpanel="stress" hidden>
+  <div class="content">
+    <!-- Runner status -->
+    <div class="runner-bar" id="runnerBar">
+      <span class="chip neutral" id="runnerChip"></span>
+      <span class="runner-info" id="runnerInfo"></span>
+      <div class="grow"></div>
+      <button class="btn sm" id="runnerRetry" data-i18n="rn.retry"></button>
+    </div>
+    <div class="card" id="runnerHelp" hidden>
+      <header><h3 data-i18n="rn.howTitle"></h3></header>
+      <div class="card-body">
+        <ol class="steps-list">
+          <li data-i18n-html="rn.step1"></li>
+          <li data-i18n-html="rn.step2"></li>
+          <li data-i18n-html="rn.step3"></li>
+        </ol>
+        <p class="hint" data-i18n-html="rn.why"></p>
+      </div>
+    </div>
+
+    <div class="stress-grid">
+      <div class="content">
+        <!-- Programs -->
+        <div class="card">
+          <header><h3 data-i18n="sp.title"></h3></header>
+          <div class="card-body">
+            <div class="slot-tabs" role="tablist" id="slotTabs">
+              <button data-slot="sol" aria-selected="true"><span data-i18n="slot.sol"></span><i class="dot" data-dot="sol"></i></button>
+              <button data-slot="brute" aria-selected="false"><span data-i18n="slot.brute"></span><i class="dot" data-dot="brute"></i></button>
+              <button data-slot="gen" aria-selected="false"><span data-i18n="slot.gen"></span><i class="dot" data-dot="gen"></i></button>
+              <button data-slot="checker" aria-selected="false"><span data-i18n="slot.checker"></span><i class="dot" data-dot="checker"></i></button>
+            </div>
+            <p class="hint" id="slotDesc"></p>
+            <div class="row">
+              <button class="btn sm" id="slotLoad" data-i18n="slot.load"></button>
+              <button class="btn sm" id="slotClear" data-i18n="slot.clear"></button>
+              <button class="btn sm" id="slotSample" data-i18n="slot.sample"></button>
+              <span class="hint mono" id="slotFile"></span>
+              <div class="grow"></div>
+              <label class="lbl" for="slotLang" data-i18n="slot.lang"></label>
+              <select class="input" id="slotLang" style="width:auto"><option value="cpp">C++</option><option value="py">Python</option></select>
+            </div>
+            <textarea class="input code" id="slotSrc" rows="16" spellcheck="false" data-i18n-ph="slot.ph"></textarea>
+            <div class="fields" id="slotIO">
+              <div class="field" data-io="in"><label for="ioIn" data-i18n="io.in"></label>
+                <select class="input" id="ioIn"><option value="stdin">stdin</option><option value="file" data-i18n="io.file"></option></select></div>
+              <div class="field" data-io="inName"><label for="ioInName" data-i18n="io.inName"></label><input class="input mono" id="ioInName" placeholder="BAI.INP"></div>
+              <div class="field" data-io="out"><label for="ioOut" data-i18n="io.out"></label>
+                <select class="input" id="ioOut"><option value="stdout">stdout</option><option value="file" data-i18n="io.file"></option></select></div>
+              <div class="field" data-io="outName"><label for="ioOutName" data-i18n="io.outName"></label><input class="input mono" id="ioOutName" placeholder="BAI.OUT"></div>
+              <div class="field full" data-io="args"><label for="ioArgs" data-i18n="io.args"></label><input class="input mono" id="ioArgs"></div>
+            </div>
+            <p class="hint" id="slotIOHint"></p>
+            <input type="file" id="slotFileInput" accept=".cpp,.cc,.cxx,.c,.h,.hpp,.py,.txt" hidden>
+          </div>
+        </div>
+
+        <!-- Compile -->
+        <div class="card">
+          <header><h3 data-i18n="cp.title"></h3></header>
+          <div class="card-body">
+            <div class="fields">
+              <div class="field span2"><label for="cpCompiler" data-i18n="cp.compiler"></label><select class="input" id="cpCompiler"></select></div>
+              <div class="field span2" id="cpCustomWrap" hidden><label for="cpCustom" data-i18n="cp.custom"></label><input class="input mono" id="cpCustom" placeholder="C:\msys64\ucrt64\bin\g++.exe"></div>
+              <div class="field"><label for="cpStd" data-i18n="cp.std"></label>
+                <select class="input" id="cpStd"><option>c++11</option><option>c++14</option><option selected>c++17</option><option>c++20</option><option>c++23</option></select></div>
+              <div class="field"><label for="cpOpt" data-i18n="cp.opt"></label>
+                <select class="input" id="cpOpt"><option>-O2</option><option>-O3</option><option>-O1</option><option>-O0</option><option value="" data-i18n="cp.none"></option></select></div>
+              <div class="field full"><label for="cpFlags" data-i18n="cp.flags"></label><input class="input mono" id="cpFlags"></div>
+              <div class="field full"><label for="cpTemplate" data-i18n="cp.template"></label><input class="input mono" id="cpTemplate"></div>
+              <div class="field"><label for="cpPython" data-i18n="cp.python"></label><input class="input mono" id="cpPython"></div>
+            </div>
+            <div class="field"><span class="lbl" data-i18n="cp.preview"></span><code class="cmd" id="cpPreview"></code></div>
+            <div class="row">
+              <button class="btn" id="cpCompileAll" data-i18n="cp.compileAll"></button>
+              <button class="btn sm" id="cpReset" data-i18n="cp.reset"></button>
+            </div>
+            <div id="cpLog"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <!-- Run settings -->
+        <div class="card">
+          <header><h3 data-i18n="rs.title"></h3></header>
+          <div class="card-body">
+            <div class="seg" role="tablist" id="modeSeg">
+              <button data-mode="stress" aria-selected="true" data-i18n="rs.stress"></button>
+              <button data-mode="bench" aria-selected="false" data-i18n="rs.bench"></button>
+            </div>
+            <p class="hint" id="modeDesc"></p>
+            <div class="fields">
+              <div class="field"><label for="rsTL" data-i18n="rs.tl"></label><input class="input mono" id="rsTL" value="1000"></div>
+              <div class="field"><label for="rsML" data-i18n="rs.ml"></label><input class="input mono" id="rsML" value="256"></div>
+              <div class="field"><label for="rsSeed" data-i18n="rs.seed"></label><input class="input mono" id="rsSeed" value="1"></div>
+              <div class="field" data-mode-only="stress"><label for="rsCount" data-i18n="rs.count"></label><input class="input mono" id="rsCount" value="500"></div>
+              <div class="field" data-mode-only="bench"><label for="rsBenchCount" data-i18n="rs.benchCount"></label><input class="input mono" id="rsBenchCount" value="10"></div>
+              <div class="field span2"><label for="rsCompare" data-i18n="rs.compare"></label>
+                <select class="input" id="rsCompare">
+                  <option value="tokens" data-i18n="cmp.tokens"></option><option value="lines" data-i18n="cmp.lines"></option>
+                  <option value="exact" data-i18n="cmp.exact"></option><option value="float" data-i18n="cmp.float"></option>
+                </select></div>
+              <div class="field" id="rsEpsWrap" hidden><label for="rsEps">ε</label><input class="input mono" id="rsEps" value="1e-6"></div>
+              <div class="field full" data-mode-only="bench"><label for="rsBenchArgs" data-i18n="rs.benchArgs"></label>
+                <textarea class="input" id="rsBenchArgs" rows="4" data-i18n-ph="rs.benchArgsPh"></textarea></div>
+            </div>
+            <div class="row">
+              <label class="check-row" data-mode-only="stress"><input type="checkbox" id="rsStopFail" checked> <span data-i18n="rs.stopFail"></span></label>
+              <label class="check-row" data-mode-only="bench"><input type="checkbox" id="rsVerify" checked> <span data-i18n="rs.verify"></span></label>
+            </div>
+            <div class="row">
+              <button class="btn primary" id="rsStart" data-i18n="rs.start"></button>
+              <button class="btn" id="rsStop" disabled data-i18n="rs.stop"></button>
+              <span class="hint" id="rsNeed"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="card">
+          <header><h3 data-i18n="res.title"></h3><span class="tag" id="resTag"></span></header>
+          <div class="card-body" id="resBody"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <div class="toasts" id="toasts" aria-live="polite"></div>
@@ -368,6 +496,7 @@
 <script src="js/ui.js"></script>
 <script src="js/calc.js"></script>
 <script src="js/safety.js"></script>
+<script src="js/stress.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
