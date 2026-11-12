@@ -4,6 +4,7 @@
 const { $, $$, esc } = UI;
 const GA = GraphAlgos;
 
+const APSP_MAX_TXT = '400';
 I18N.add({
   vi: {
     'ge.data': 'Dữ liệu', 'ge.dataHint': 'Mỗi dòng <code>u v</code> hoặc <code>u v w</code> (w là trọng số). Một từ trên dòng là đỉnh lẻ. Tên đỉnh là chữ hay số đều được.',
@@ -30,7 +31,7 @@ I18N.add({
     'lk.labelOff': 'Khoảng cách nhãn trọng số', 'lk.pen': 'Cỡ bút', 'lk.penAlpha': 'Độ đậm bút (%)', 'lk.eraser': 'Cỡ tẩy', 'lk.repel': 'Lực đẩy giữa các đỉnh', 'lk.tension': 'Độ căng cạnh',
     'lk.reset': 'Khôi phục mặc định',
     'al.matching': 'Cặp ghép hai phía', 'al.bridges': 'Khớp & cầu', 'al.mst': 'Cây khung nhỏ nhất (MST)', 'al.comp': 'Thành phần liên thông', 'al.scc': 'Thành phần liên thông mạnh (SCC)',
-    'al.topo': 'Sắp xếp topo', 'al.sp': 'Đường đi ngắn nhất', 'al.neg': 'Chu trình âm',
+    'al.topo': 'Sắp xếp topo', 'al.sp': 'Đường đi ngắn nhất', 'al.apsp': 'Khoảng cách mọi cặp', 'al.neg': 'Chu trình âm',
     'why.bip': 'Cần đồ thị hai phía', 'why.undirected': 'Cần đồ thị vô hướng', 'why.directed': 'Cần đồ thị có hướng', 'why.weights': 'Cần bật "Có trọng số" và mọi trọng số là số', 'why.empty': 'Đồ thị chưa có cạnh', 'why.spWeights': 'Có trọng số không phải số (cạnh không ghi trọng số được tính là 1)',
     'r.allUnit': 'Đồ thị không trọng số: mỗi cạnh tính là 1.', 'r.someUnit': '{k} cạnh không ghi trọng số được tính là 1.',
     'r.matchSize': 'Kích thước cặp ghép', 'r.bridges': 'Cầu', 'r.cuts': 'Khớp', 'r.none': 'không có', 'r.mstTotal': 'Tổng trọng số', 'r.trees': 'Số cây', 'r.edges': 'Số cạnh',
@@ -40,6 +41,9 @@ I18N.add({
     'r.negInf': 'Có đỉnh khoảng cách −∞ (tới được từ chu trình âm)', 'r.noSource': 'Chưa chọn nguồn. Bấm một đỉnh trên canvas.', 'r.clear': 'Bỏ chọn',
     'r.negNone': 'Không có chu trình âm', 'r.negFound': 'Có chu trình âm', 'r.negTotal': 'Tổng trọng số chu trình', 'r.negUndirected': 'Đồ thị vô hướng: cạnh âm u–v cho chu trình u → v → u.',
     'r.flashHint': 'Bấm vào một mục để chỉ ra trên canvas.',
+    'why.apspBig': 'Tối đa ' + APSP_MAX_TXT + ' đỉnh', 'r.nodes': 'Số đỉnh', 'r.apOpen': 'Xem ma trận khoảng cách', 'r.apTitle': 'Ma trận khoảng cách',
+    'r.apCellHint': 'Hàng là đỉnh xuất phát, cột là đỉnh đích. Bấm một ô để xem đường đi trên canvas.', 'r.apCopy': 'Chép ma trận', 'r.apClose': 'Đóng',
+    'r.apFromTo': 'từ \\ đến', 'r.apNeg': 'Có chu trình âm: ô −∞ là cặp đi qua được chu trình âm.', 'r.pair': 'Cặp', 'r.apHint': 'Mở ma trận rồi bấm một ô để xem đường đi.',
     'copiedEdges': 'Đã chép {m} cạnh', 'ge.openFromTest': 'Test #{i}', 'ge.badName': 'Tên đỉnh không được rỗng hoặc có dấu cách', 'ge.nameTaken': 'Đã có đỉnh tên "{v}"',
   },
   en: {
@@ -67,7 +71,7 @@ I18N.add({
     'lk.labelOff': 'Weight label distance', 'lk.pen': 'Pen size', 'lk.penAlpha': 'Pen opacity (%)', 'lk.eraser': 'Eraser size', 'lk.repel': 'Node repulsion', 'lk.tension': 'Edge tension',
     'lk.reset': 'Reset to defaults',
     'al.matching': 'Bipartite matching', 'al.bridges': 'Articulation points & bridges', 'al.mst': 'Minimum spanning tree (MST)', 'al.comp': 'Connected components', 'al.scc': 'Strongly connected components (SCC)',
-    'al.topo': 'Topological sort', 'al.sp': 'Shortest paths', 'al.neg': 'Negative cycle',
+    'al.topo': 'Topological sort', 'al.sp': 'Shortest paths', 'al.apsp': 'All-pairs distances', 'al.neg': 'Negative cycle',
     'why.bip': 'Needs a bipartite graph', 'why.undirected': 'Needs an undirected graph', 'why.directed': 'Needs a directed graph', 'why.weights': 'Needs "Weighted" on and every weight numeric', 'why.empty': 'The graph has no edges', 'why.spWeights': 'Some weights are not numbers (edges without a weight count as 1)',
     'r.allUnit': 'Unweighted graph: every edge counts as 1.', 'r.someUnit': '{k} edges without a weight count as 1.',
     'r.matchSize': 'Matching size', 'r.bridges': 'Bridges', 'r.cuts': 'Articulation points', 'r.none': 'none', 'r.mstTotal': 'Total weight', 'r.trees': 'Trees', 'r.edges': 'Edges',
@@ -77,6 +81,9 @@ I18N.add({
     'r.negInf': 'Some nodes have distance −∞ (reachable from a negative cycle)', 'r.noSource': 'No source yet. Click a node on the canvas.', 'r.clear': 'Clear',
     'r.negNone': 'No negative cycle', 'r.negFound': 'Negative cycle found', 'r.negTotal': 'Cycle weight', 'r.negUndirected': 'Undirected graph: a negative edge u–v gives the cycle u → v → u.',
     'r.flashHint': 'Click an item to point it out on the canvas.',
+    'why.apspBig': 'At most ' + APSP_MAX_TXT + ' nodes', 'r.nodes': 'Nodes', 'r.apOpen': 'Show distance matrix', 'r.apTitle': 'Distance matrix',
+    'r.apCellHint': 'Rows are sources, columns are targets. Click a cell to see the path on the canvas.', 'r.apCopy': 'Copy matrix', 'r.apClose': 'Close',
+    'r.apFromTo': 'from \\ to', 'r.apNeg': 'There is a negative cycle: −∞ cells are pairs that can go through it.', 'r.pair': 'Pair', 'r.apHint': 'Open the matrix and click a cell to see the path.',
     'copiedEdges': 'Copied {m} edges', 'ge.openFromTest': 'Test #{i}', 'ge.badName': 'Node names cannot be empty or contain spaces', 'ge.nameTaken': 'A node named "{v}" already exists',
   },
 });
@@ -101,7 +108,8 @@ const TOOLS = [
   ['pen', 'N', '<path d="M4 20l4-1 11-11-3-3L5 16zM14 6l3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>'],
   ['eraser', 'E', '<path d="M4 16l9-9 6 6-7 7H8zM9 20h11" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>'],
 ];
-const ALGOS = ['comp', 'scc', 'bridges', 'mst', 'matching', 'topo', 'sp', 'neg'];
+const ALGOS = ['comp', 'scc', 'bridges', 'mst', 'matching', 'topo', 'sp', 'apsp', 'neg'];
+const APSP_MAX = 400;
 
 /* ============================================================ state */
 const look = Object.assign({}, LOOK_DEFAULT);
@@ -117,7 +125,7 @@ function newTab(name, text, opts) {
     id: tabSeq, name: name || t('ge.newTab', { k: tabSeq }), text: text || '', labels: '', nCount: '', base: '1',
     modes: Object.assign({ directed: false, weighted: true, multi: true, lock: false, physics: false, bip: false }, opts || {}),
     pos: new Map(), nodeColor: new Map(), nodeBold: new Set(), edgeColor: new Map(), edgeBold: new Set(),
-    strokes: [], algo: null, sp: { multi: false, pick: 'src', sources: [], target: null }, topoMode: 'lex', topoSeed: 0,
+    strokes: [], algo: null, sp: { multi: false, pick: 'src', sources: [], target: null }, ap: { sel: null }, topoMode: 'lex', topoSeed: 0,
     graph: null, view: null, sleeping: 0, autoFit: true,
   };
   rebuild(tb);
@@ -232,6 +240,7 @@ function algoAvailable(tb, id) {
     case 'bridges': return m.directed ? { ok: false, why: 'why.undirected' } : { ok: true };
     case 'mst': case 'neg': return numeric ? { ok: true } : { ok: false, why: 'why.weights' };
     case 'sp': return spGraph(tb) ? { ok: true } : { ok: false, why: 'why.spWeights' };
+    case 'apsp': return g.nodes.length > APSP_MAX ? { ok: false, why: 'why.apspBig' } : spGraph(tb) ? { ok: true } : { ok: false, why: 'why.spWeights' };
     case 'comp': return { ok: true };
     case 'scc': case 'topo': return m.directed ? { ok: true } : { ok: false, why: 'why.directed' };
   }
@@ -311,6 +320,33 @@ function computeAlgo(tb) {
           if (path) path.edges.forEach((id) => V.edge.set(id, { color: '#e5484d', w: 4, glow: true }));
         }
         V.res = Object.assign({}, r, { path }); break;
+      }
+      case 'apsp': {
+        const sg = spGraph(tb);
+        const r = GA.allPairs(sg.g);
+        const sel = tb.ap.sel;
+        let path = null, dist = null;
+        if (sel && tb.pos.has(sel.a) && tb.pos.has(sel.b)) {
+          const ia = r.order.indexOf(sel.a), ib = r.order.indexOf(sel.b);
+          dist = r.D[ia][ib];
+          path = r.path(sel.a, sel.b);
+          V.nodeRing.set(sel.a, '#e5484d'); V.nodeRing.set(sel.b, '#0b8a4f');
+          if (path) {
+            V.dim = true;
+            path.forEach((n) => V.keepN.add(n));
+            for (let i = 0; i + 1 < path.length; i++) {
+              // cheapest edge between consecutive nodes (respecting direction)
+              let best = null;
+              sg.g.edges.forEach((e) => {
+                const fw = e.u === path[i] && e.v === path[i + 1], bw = !sg.g.directed && e.v === path[i] && e.u === path[i + 1];
+                if ((fw || bw) && (!best || Number(e.w) < Number(best.w))) best = e;
+              });
+              if (best) { V.edge.set(best.id, { color: '#e5484d', w: 4, glow: true }); V.keepE.add(best.id); }
+            }
+          }
+        } else tb.ap.sel = null;
+        V.res = { ap: r, unit: sg.unit, allUnit: sg.all, path, dist };
+        break;
       }
       case 'neg': {
         const r = GA.negativeCycle(g);
@@ -1098,6 +1134,19 @@ function renderAlgoOut() {
       h += `<button class="btn sm" data-spclear>${esc(t('r.clear'))}</button>`;
       break;
     }
+    case 'apsp': {
+      const S = tb.ap.sel;
+      h = resRow(t('r.algoUsed'), 'Floyd–Warshall') + resRow(t('r.nodes'), r.ap.order.length);
+      if (r.unit) h += `<div class="hint">${esc(r.allUnit ? t('r.allUnit') : t('r.someUnit', { k: r.unit }))}</div>`;
+      if (r.ap.neg) h += `<div class="msg err">${esc(t('r.apNeg'))}</div>`;
+      h += `<button class="btn sm primary" data-apopen>${esc(t('r.apOpen'))}</button>`;
+      if (S) {
+        h += resRow(t('r.pair'), esc(S.a + ' → ' + S.b)) + resRow(t('r.dist'), esc(fmtDist(r.dist)));
+        if (r.path) h += `<div class="lbl">${esc(t('r.path'))}</div><div class="ge-order">${esc(r.path.join(' → '))}</div>`;
+        h += `<button class="btn sm" data-apclear>${esc(t('r.clear'))}</button>`;
+      } else h += `<div class="hint">${esc(t('r.apHint'))}</div>`;
+      break;
+    }
     case 'neg':
       if (!r.cycle) h = `<div class="msg note" style="padding:0">${esc(t('r.negNone'))}</div>`;
       else h = `<div class="msg err">${esc(t('r.negFound'))}</div><div class="ge-order">${esc(r.cycle.nodes.concat(r.cycle.undirectedEdge && r.cycle.nodes.length === 1 ? [] : [r.cycle.nodes[0]]).join(' → '))}</div>` +
@@ -1114,10 +1163,56 @@ $('#geAlgoOut').addEventListener('click', (e) => {
   if (m) { tb.sp.multi = m.dataset.spm === 'multi'; if (!tb.sp.multi) tb.sp.sources = tb.sp.sources.slice(0, 1); computeAlgo(tb); renderAlgoOut(); updateHint(); draw(); return; }
   const pk = e.target.closest('[data-spp]');
   if (pk) { tb.sp.pick = pk.dataset.spp; renderAlgoOut(); updateHint(); return; }
+  if (e.target.closest('[data-apopen]')) { openMatrix(tb); return; }
+  if (e.target.closest('[data-apclear]')) { tb.ap.sel = null; computeAlgo(tb); renderAlgoOut(); draw(); return; }
   if (e.target.closest('[data-spclear]')) { tb.sp.sources = []; tb.sp.target = null; tb.sp.pick = 'src'; computeAlgo(tb); renderAlgoOut(); updateHint(); draw(); return; }
   const fe = e.target.closest('[data-flash-edge]'), fn = e.target.closest('[data-flash-node]');
   if (fe || fn) { flash = { edge: fe ? fe.dataset.flashEdge : null, node: fn ? fn.dataset.flashNode : null, until: performance.now() + 1500 }; wake(); }
 });
+
+function fmtDist(d) { return d === Infinity ? '∞' : d === -Infinity ? '−∞' : fmtNum(d); }
+function sortedOrder(r) { return r.order.map((n, i) => [n, i]).sort((x, y) => GA.natCmp(x[0], y[0])); }
+function matrixText(r) {
+  const ord = sortedOrder(r);
+  const cell = (d) => (d === Infinity ? 'INF' : d === -Infinity ? '-INF' : fmtNum(d));
+  return ord.map(([, i]) => ord.map(([, j]) => cell(r.D[i][j])).join(' ')).join('\n');
+}
+let modal = null;
+function openMatrix(tb) {
+  const r = tb.view.res && tb.view.res.ap; if (!r) return;
+  const ord = sortedOrder(r);
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'ge-modal';
+    document.body.appendChild(modal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.closest('[data-mclose]')) { modal.hidden = true; return; }
+      if (e.target.closest('[data-mcopy]')) { UI.copy(modal._text); return; }
+      const td = e.target.closest('td[data-a]');
+      if (td && active) {
+        active.ap.sel = { a: td.dataset.a, b: td.dataset.b };
+        modal.hidden = true;
+        computeAlgo(active); renderAlgoOut(); draw();
+      }
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal && !modal.hidden) modal.hidden = true; });
+  }
+  modal._text = matrixText(r);
+  const sel = tb.ap.sel;
+  const head = ord.map(([n]) => `<th class="num">${esc(n)}</th>`).join('');
+  const rows = ord.map(([a, i]) => `<tr><th>${esc(a)}</th>${ord.map(([b, j]) => {
+    const d = r.D[i][j];
+    const cls = [i === j ? 'diag' : '', d === Infinity ? 'inf' : '', d === -Infinity ? 'neginf' : '', sel && sel.a === a && sel.b === b ? 'sel' : ''].filter(Boolean).join(' ');
+    return `<td class="num ${cls}" data-a="${esc(a)}" data-b="${esc(b)}" title="${esc(a)} → ${esc(b)}">${esc(fmtDist(d))}</td>`;
+  }).join('')}</tr>`).join('');
+  modal.innerHTML = `<div class="ge-modal-box" role="dialog" aria-modal="true">
+    <div class="ge-modal-head"><b>${esc(t('r.apTitle'))}</b><span class="hint">${esc(t('r.apCellHint'))}</span><div class="grow"></div>
+      <button class="btn sm" data-mcopy>${esc(t('r.apCopy'))}</button><button class="btn sm" data-mclose>${esc(t('r.apClose'))}</button></div>
+    ${r.neg ? `<div class="msg err">${esc(t('r.apNeg'))}</div>` : ''}
+    <div class="ge-matrix"><table class="tbl"><thead><tr><th>${esc(t('r.apFromTo'))}</th>${head}</tr></thead><tbody>${rows}</tbody></table></div>
+  </div>`;
+  modal.hidden = false;
+}
 
 function renderStatus() {
   const tb = active, p = tb.parsed;

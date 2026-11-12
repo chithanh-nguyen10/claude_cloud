@@ -348,5 +348,42 @@ function negativeCycle(g) {
   return { nodes: nodes.reverse(), edges: edges.reverse(), total };
 }
 
-global.GraphAlgos = { natCmp, weightsNumeric, bipartite, matching, bridgesAndCuts, mst, components, scc, topo, findCycle, shortestPaths, pathTo, negativeCycle, NUM_RE };
+/* ======================================================================
+ * All-pairs distances (Floyd–Warshall). Edge weights numeric (strings ok).
+ * ====================================================================== */
+function allPairs(g) {
+  const id = index(g), n = g.nodes.length;
+  const D = Array.from({ length: n }, () => new Float64Array(n).fill(Infinity));
+  const nx = Array.from({ length: n }, () => new Int32Array(n).fill(-1));
+  for (let i = 0; i < n; i++) { D[i][i] = 0; nx[i][i] = i; }
+  g.edges.forEach((e) => {
+    const a = id.get(e.u), b = id.get(e.v), w = Number(e.w);
+    if (w < D[a][b]) { D[a][b] = w; nx[a][b] = b; }
+    if (!g.directed && w < D[b][a]) { D[b][a] = w; nx[b][a] = a; }
+  });
+  for (let k = 0; k < n; k++) {
+    const Dk = D[k];
+    for (let i = 0; i < n; i++) {
+      const dik = D[i][k];
+      if (dik === Infinity) continue;
+      const Di = D[i], ni = nx[i];
+      for (let j = 0; j < n; j++) { const v = dik + Dk[j]; if (v < Di[j]) { Di[j] = v; ni[j] = ni[k]; } }
+    }
+  }
+  let neg = false;
+  for (let k = 0; k < n; k++) if (D[k][k] < 0) {
+    neg = true;
+    for (let i = 0; i < n; i++) if (D[i][k] < Infinity) for (let j = 0; j < n; j++) if (D[k][j] < Infinity) D[i][j] = -Infinity;
+  }
+  const path = (a, b) => {
+    let i = id.get(a); const j = id.get(b);
+    if (!Number.isFinite(D[i][j]) || nx[i][j] < 0) return null;
+    const out = [g.nodes[i]];
+    for (let guard = 0; i !== j && guard <= n; guard++) { i = nx[i][j]; out.push(g.nodes[i]); }
+    return out;
+  };
+  return { D, neg, path, order: g.nodes };
+}
+
+global.GraphAlgos = { natCmp, allPairs, weightsNumeric, bipartite, matching, bridgesAndCuts, mst, components, scc, topo, findCycle, shortestPaths, pathTo, negativeCycle, NUM_RE };
 })(typeof window !== 'undefined' ? window : globalThis);

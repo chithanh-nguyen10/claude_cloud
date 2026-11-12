@@ -79,6 +79,7 @@ Runner chỉ nghe trên `127.0.0.1`, kiểm tra header Host, và yêu cầu mộ
   - Cặp ghép hai phía (Hopcroft–Karp).
   - Topo sort: có nút Thứ tự khác và Lex nhỏ nhất; tên là số thì so theo giá trị số.
   - Đường đi ngắn nhất một nguồn hoặc nhiều nguồn: cạnh không ghi trọng số (hoặc khi tắt "Có trọng số") được tính là 1. Dijkstra, tự chuyển sang Bellman-Ford khi có cạnh âm, đỉnh bị ảnh hưởng hiện −∞.
+  - Khoảng cách mọi cặp (Floyd–Warshall, tối đa 400 đỉnh): hiện ma trận khoảng cách, bấm một ô để xem đường đi trên canvas, có nút chép ma trận. Cạnh không có trọng số tính là 1, ô −∞ là cặp đi qua được chu trình âm.
   - Chu trình âm.
 - **Xuất:** chép danh sách cạnh (có hoặc không kèm dòng `n m`), tải ảnh PNG.
 - **Nối với Stress test:** nút **Mở dạng đồ thị** ở mỗi test. Dòng đầu `n m` (hoặc `n`) của file test được đổi thành ô Số đỉnh, và chỉ m dòng cạnh được lấy vào.
