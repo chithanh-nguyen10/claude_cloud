@@ -31,7 +31,8 @@ I18N.add({
     'lk.reset': 'Khôi phục mặc định',
     'al.matching': 'Cặp ghép hai phía', 'al.bridges': 'Khớp & cầu', 'al.mst': 'Cây khung nhỏ nhất (MST)', 'al.comp': 'Thành phần liên thông', 'al.scc': 'Thành phần liên thông mạnh (SCC)',
     'al.topo': 'Sắp xếp topo', 'al.sp': 'Đường đi ngắn nhất', 'al.neg': 'Chu trình âm',
-    'why.bip': 'Cần đồ thị hai phía', 'why.undirected': 'Cần đồ thị vô hướng', 'why.directed': 'Cần đồ thị có hướng', 'why.weights': 'Cần bật "Có trọng số" và mọi trọng số là số', 'why.empty': 'Đồ thị chưa có cạnh',
+    'why.bip': 'Cần đồ thị hai phía', 'why.undirected': 'Cần đồ thị vô hướng', 'why.directed': 'Cần đồ thị có hướng', 'why.weights': 'Cần bật "Có trọng số" và mọi trọng số là số', 'why.empty': 'Đồ thị chưa có cạnh', 'why.spWeights': 'Có trọng số không phải số (cạnh không ghi trọng số được tính là 1)',
+    'r.allUnit': 'Đồ thị không trọng số: mỗi cạnh tính là 1.', 'r.someUnit': '{k} cạnh không ghi trọng số được tính là 1.',
     'r.matchSize': 'Kích thước cặp ghép', 'r.bridges': 'Cầu', 'r.cuts': 'Khớp', 'r.none': 'không có', 'r.mstTotal': 'Tổng trọng số', 'r.trees': 'Số cây', 'r.edges': 'Số cạnh',
     'r.comps': 'Số thành phần', 'r.sccs': 'Số SCC', 'r.order': 'Thứ tự', 'r.another': 'Thứ tự khác', 'r.lex': 'Lex nhỏ nhất', 'r.cycle': 'Có chu trình nên không sắp topo được:',
     'r.mode': 'Nguồn', 'r.single': 'Một nguồn', 'r.multi': 'Nhiều nguồn', 'r.pick': 'Bấm đỉnh để chọn', 'r.pickSrc': 'nguồn', 'r.pickDst': 'đích',
@@ -67,7 +68,8 @@ I18N.add({
     'lk.reset': 'Reset to defaults',
     'al.matching': 'Bipartite matching', 'al.bridges': 'Articulation points & bridges', 'al.mst': 'Minimum spanning tree (MST)', 'al.comp': 'Connected components', 'al.scc': 'Strongly connected components (SCC)',
     'al.topo': 'Topological sort', 'al.sp': 'Shortest paths', 'al.neg': 'Negative cycle',
-    'why.bip': 'Needs a bipartite graph', 'why.undirected': 'Needs an undirected graph', 'why.directed': 'Needs a directed graph', 'why.weights': 'Needs "Weighted" on and every weight numeric', 'why.empty': 'The graph has no edges',
+    'why.bip': 'Needs a bipartite graph', 'why.undirected': 'Needs an undirected graph', 'why.directed': 'Needs a directed graph', 'why.weights': 'Needs "Weighted" on and every weight numeric', 'why.empty': 'The graph has no edges', 'why.spWeights': 'Some weights are not numbers (edges without a weight count as 1)',
+    'r.allUnit': 'Unweighted graph: every edge counts as 1.', 'r.someUnit': '{k} edges without a weight count as 1.',
     'r.matchSize': 'Matching size', 'r.bridges': 'Bridges', 'r.cuts': 'Articulation points', 'r.none': 'none', 'r.mstTotal': 'Total weight', 'r.trees': 'Trees', 'r.edges': 'Edges',
     'r.comps': 'Components', 'r.sccs': 'SCCs', 'r.order': 'Order', 'r.another': 'Another order', 'r.lex': 'Lexicographically smallest', 'r.cycle': 'There is a cycle, so no topological order exists:',
     'r.mode': 'Sources', 'r.single': 'Single source', 'r.multi': 'Multiple sources', 'r.pick': 'Clicking a node picks the', 'r.pickSrc': 'source', 'r.pickDst': 'target',
@@ -228,11 +230,21 @@ function algoAvailable(tb, id) {
   switch (id) {
     case 'matching': return !g.edges.length ? { ok: false, why: 'why.empty' } : tb.bip.ok ? { ok: true } : { ok: false, why: 'why.bip' };
     case 'bridges': return m.directed ? { ok: false, why: 'why.undirected' } : { ok: true };
-    case 'mst': case 'sp': case 'neg': return numeric ? { ok: true } : { ok: false, why: 'why.weights' };
+    case 'mst': case 'neg': return numeric ? { ok: true } : { ok: false, why: 'why.weights' };
+    case 'sp': return spGraph(tb) ? { ok: true } : { ok: false, why: 'why.spWeights' };
     case 'comp': return { ok: true };
     case 'scc': case 'topo': return m.directed ? { ok: true } : { ok: false, why: 'why.directed' };
   }
   return { ok: false };
+}
+/* Graph for shortest paths: an edge without a weight (or every edge, when "Weighted" is off) counts as 1.
+   Returns null when some written weight is not a number. */
+function spGraph(tb) {
+  const g = tb.graph;
+  const bad = g.edges.some((e) => e.w !== null && e.w !== undefined && e.w !== '' && !GA.NUM_RE.test(String(e.w)));
+  if (bad) return null;
+  const unit = g.edges.filter((e) => e.w === null || e.w === undefined || e.w === '').length;
+  return { g: Object.assign({}, g, { edges: g.edges.map((e) => (e.w === null || e.w === undefined || e.w === '' ? Object.assign({}, e, { w: '1' }) : e)) }), unit, all: unit === g.edges.length };
 }
 function seededRng(seed) { let s = seed >>> 0 || 1; return () => { s ^= s << 13; s ^= s >>> 17; s ^= s << 5; return ((s >>> 0) % 1e9) / 1e9; }; }
 
@@ -283,7 +295,8 @@ function computeAlgo(tb) {
       case 'sp': {
         const S = tb.sp;
         if (!S.sources.length) { V.res = { empty: true }; break; }
-        const r = GA.shortestPaths(g, S.sources);
+        const sg = spGraph(tb);
+        const r = Object.assign(GA.shortestPaths(sg.g, S.sources), { unit: sg.unit, allUnit: sg.all });
         g.nodes.forEach((n) => {
           const d = r.dist.get(n);
           V.badge.set(n, d === Infinity ? '∞' : d === -Infinity ? '−∞' : fmtNum(d));
@@ -1074,7 +1087,8 @@ function renderAlgoOut() {
       h = `<div class="seg"><button data-spm="single" aria-selected="${!S.multi}">${esc(t('r.single'))}</button><button data-spm="multi" aria-selected="${S.multi}">${esc(t('r.multi'))}</button></div>
         <div class="row" style="font-size:12.5px"><span>${esc(t('r.pick'))}</span><div class="seg" style="flex:1"><button data-spp="src" aria-selected="${S.pick === 'src'}">${esc(t('r.pickSrc'))}</button><button data-spp="dst" aria-selected="${S.pick === 'dst'}">${esc(t('r.pickDst'))}</button></div></div>`;
       if (r.empty) { h += `<div class="hint">${esc(t('r.noSource'))}</div>`; break; }
-      h += resRow(t('r.sources'), esc(S.sources.join(', '))) + resRow(t('r.algoUsed'), r.negative ? 'Bellman-Ford' : 'Dijkstra');
+      h += resRow(t('r.sources'), esc(S.sources.join(', '))) + resRow(t('r.algoUsed'), r.negative ? 'Bellman-Ford' : r.allUnit ? 'BFS' : 'Dijkstra');
+      if (r.unit) h += `<div class="hint">${esc(r.allUnit ? t('r.allUnit') : t('r.someUnit', { k: r.unit }))}</div>`;
       if (r.anyNegInf) h += `<div class="msg err">${esc(t('r.negInf'))}</div>`;
       if (S.target) {
         h += resRow(t('r.target'), esc(S.target));

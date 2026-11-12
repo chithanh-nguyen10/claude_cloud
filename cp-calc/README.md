@@ -78,7 +78,7 @@ Runner chỉ nghe trên `127.0.0.1`, kiểm tra header Host, và yêu cầu mộ
   - Thành phần liên thông, SCC, Khớp & cầu, MST (forest).
   - Cặp ghép hai phía (Hopcroft–Karp).
   - Topo sort: có nút Thứ tự khác và Lex nhỏ nhất; tên là số thì so theo giá trị số.
-  - Đường đi ngắn nhất một nguồn hoặc nhiều nguồn: Dijkstra, tự chuyển sang Bellman-Ford khi có cạnh âm, đỉnh bị ảnh hưởng hiện −∞.
+  - Đường đi ngắn nhất một nguồn hoặc nhiều nguồn: cạnh không ghi trọng số (hoặc khi tắt "Có trọng số") được tính là 1. Dijkstra, tự chuyển sang Bellman-Ford khi có cạnh âm, đỉnh bị ảnh hưởng hiện −∞.
   - Chu trình âm.
 - **Xuất:** chép danh sách cạnh (có hoặc không kèm dòng `n m`), tải ảnh PNG.
 - **Nối với Stress test:** nút **Mở dạng đồ thị** ở mỗi test. Dòng đầu `n m` (hoặc `n`) của file test được đổi thành ô Số đỉnh, và chỉ m dòng cạnh được lấy vào.
