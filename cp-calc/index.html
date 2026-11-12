@@ -270,7 +270,92 @@
 </section>
 
 <!-- =========================================================== SAFETY -->
-<section id="tab-safety" data-tabpanel="safety" hidden></section>
+<section id="tab-safety" data-tabpanel="safety" hidden>
+  <div class="layout">
+    <nav class="subnav" data-subnav="safety">
+      <button data-sec="overflow" aria-current="true" data-i18n="sf.nav.overflow"></button>
+      <button data-sec="limits" data-i18n="sf.nav.limits"></button>
+      <button data-sec="mod" data-i18n="sf.nav.mod"></button>
+      <button data-sec="memory" data-i18n="sf.nav.memory"></button>
+      <button data-sec="stack" data-i18n="sf.nav.stack"></button>
+    </nav>
+    <div class="content">
+      <!-- Overflow -->
+      <div data-sec-panel="overflow" class="content">
+        <div class="sec-head"><h2 data-i18n="of.title"></h2><p data-i18n="of.desc"></p></div>
+        <div class="card">
+          <div class="card-body">
+            <div class="fields">
+              <div class="field full"><label for="ofExpr" data-i18n="of.expr"></label><input class="input mono" id="ofExpr" value="n * (n - 1) / 2 * a"></div>
+              <div class="field full"><label for="ofVars" data-i18n="cx.vars"></label><input class="input mono" id="ofVars" value="n = 2e5, a = 1e9"></div>
+            </div>
+            <p class="hint" data-i18n-html="of.hint"></p>
+            <div id="ofSummary"></div>
+            <div class="tbl-wrap" id="ofTable"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Type limits -->
+      <div data-sec-panel="limits" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="lim.title"></h2><p data-i18n="lim.desc"></p></div>
+        <div class="card"><div class="card-body"><div class="tbl-wrap" id="limInt"></div></div></div>
+        <div class="card"><header><h3 data-i18n="lim.float"></h3></header><div class="card-body"><div class="tbl-wrap" id="limFloat"></div><p class="hint" data-i18n="lim.floatNote"></p></div></div>
+      </div>
+
+      <!-- Mod -->
+      <div data-sec-panel="mod" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="md.title"></h2><p data-i18n="md.desc"></p></div>
+        <div class="card">
+          <div class="card-body">
+            <div class="fields">
+              <div class="field"><label for="mdM">MOD</label><input class="input mono" id="mdM" value="1e9 + 7"></div>
+              <div class="field"><label for="mdK" data-i18n="md.k"></label><input class="input mono" id="mdK" value="1"></div>
+            </div>
+            <div id="mdOutS"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Memory -->
+      <div data-sec-panel="memory" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="mem.title"></h2><p data-i18n="mem.desc"></p></div>
+        <div class="card">
+          <div class="card-body">
+            <div class="fields">
+              <div class="field span2"><label for="memVars" data-i18n="cx.vars"></label><input class="input mono" id="memVars" value="n = 2e5, m = 2e5"></div>
+              <div class="field"><label for="memML" data-i18n="mem.ml"></label><input class="input mono" id="memML" value="256"></div>
+            </div>
+            <div class="tbl-wrap" id="memTable"></div>
+            <div class="row">
+              <button class="btn sm" id="memAdd" data-i18n="mem.add"></button>
+              <span class="lbl" data-i18n="mem.presets"></span>
+              <select class="input" id="memPreset" style="width:auto"></select>
+            </div>
+            <div id="memOut"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stack -->
+      <div data-sec-panel="stack" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="st.title"></h2><p data-i18n="st.desc"></p></div>
+        <div class="card">
+          <div class="card-body">
+            <div class="fields">
+              <div class="field"><label for="stDepth" data-i18n="st.depth"></label><input class="input mono" id="stDepth" value="n"></div>
+              <div class="field"><label for="stVars" data-i18n="cx.vars"></label><input class="input mono" id="stVars" value="n = 1e6"></div>
+              <div class="field"><label for="stFrame" data-i18n="st.frame"></label><input class="input mono" id="stFrame" value="96"></div>
+              <div class="field"><label for="stSize" data-i18n="st.size"></label><select class="input" id="stSize"></select></div>
+              <div class="field" id="stCustomWrap" hidden><label for="stCustom" data-i18n="st.custom"></label><input class="input mono" id="stCustom" value="64"></div>
+            </div>
+            <div id="stOut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- =========================================================== STRESS -->
 <section id="tab-stress" data-tabpanel="stress" hidden></section>
@@ -282,6 +367,7 @@
 <script src="js/core.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/calc.js"></script>
+<script src="js/safety.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
