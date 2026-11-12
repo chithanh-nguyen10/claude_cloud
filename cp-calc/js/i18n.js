@@ -31,7 +31,7 @@ function onChange(f) { listeners.push(f); }
 
 add({
   vi: {
-    'tab.calc': 'Calculator', 'tab.safety': 'An toàn', 'tab.stress': 'Stress test & Benchmark',
+    'tab.calc': 'Calculator', 'tab.safety': 'An toàn', 'tab.stress': 'Stress test & Benchmark', 'tab.graph': 'Graph Editor',
     'judge.title': 'Máy chấm', 'judge.tl': 'Time limit', 'judge.speed': 'Tốc độ (phép/giây)',
     'judge.hint': 'Dùng để kết luận 🟢🟡🔴 cho mọi ước lượng. 1e8 là an toàn, máy chấm hiện đại thường 2e8 đến 5e8 phép đơn giản/giây.',
     'v.ok': 'An toàn', 'v.warn': 'Sát TL', 'v.bad': 'TLE',
@@ -46,7 +46,7 @@ add({
     'err.generic': 'Lỗi: {msg}',
   },
   en: {
-    'tab.calc': 'Calculator', 'tab.safety': 'Safety', 'tab.stress': 'Stress test & Benchmark',
+    'tab.calc': 'Calculator', 'tab.safety': 'Safety', 'tab.stress': 'Stress test & Benchmark', 'tab.graph': 'Graph Editor',
     'judge.title': 'Judge', 'judge.tl': 'Time limit', 'judge.speed': 'Speed (ops/sec)',
     'judge.hint': 'Used for every 🟢🟡🔴 verdict. 1e8 is safe; modern judges run about 2e8 to 5e8 simple ops/sec.',
     'v.ok': 'Safe', 'v.warn': 'Tight', 'v.bad': 'TLE',

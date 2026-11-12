@@ -2,7 +2,7 @@
 (function () {
 'use strict';
 const { $, $$ } = UI;
-const TABS = ['calc', 'safety', 'stress'];
+const TABS = ['calc', 'safety', 'stress', 'graph'];
 
 function showTab(name) {
   $$('.tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === name)));
@@ -10,6 +10,7 @@ function showTab(name) {
   try { if (location.hash !== '#' + name) history.replaceState(null, '', '#' + name); } catch (e) { /* file:// may refuse */ }
   document.dispatchEvent(new CustomEvent('tabshow', { detail: name }));
 }
+window.showTab = showTab;
 $$('.tab').forEach((b) => b.addEventListener('click', () => showTab(b.dataset.tab)));
 
 /* Sub navigation inside a tab */

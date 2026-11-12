@@ -16,6 +16,7 @@
       <button class="tab" role="tab" data-tab="calc" aria-selected="true" data-i18n="tab.calc"></button>
       <button class="tab" role="tab" data-tab="safety" aria-selected="false" data-i18n="tab.safety"></button>
       <button class="tab" role="tab" data-tab="stress" aria-selected="false" data-i18n="tab.stress"></button>
+      <button class="tab" role="tab" data-tab="graph" aria-selected="false" data-i18n="tab.graph"></button>
     </nav>
     <div class="grow"></div>
     <div class="lang" role="group" aria-label="Language">
@@ -471,6 +472,56 @@
     </div>
   </div>
 </section>
+<!-- =========================================================== GRAPH -->
+<section id="tab-graph" data-tabpanel="graph" hidden>
+  <div class="ge">
+    <aside class="ge-side ge-left">
+      <section class="ge-box">
+        <h4 data-i18n="ge.data"></h4>
+        <textarea class="input code" id="geText" rows="14" spellcheck="false"></textarea>
+        <p class="hint" data-i18n-html="ge.dataHint"></p>
+        <div class="fields" style="grid-template-columns: 1fr 1fr">
+          <div class="field"><label for="geN" data-i18n="ge.n"></label><input class="input mono" id="geN" inputmode="numeric" placeholder="n"></div>
+          <div class="field"><label for="geBase" data-i18n="ge.base"></label>
+            <select class="input" id="geBase"><option value="1">1..n</option><option value="0">0..n−1</option></select></div>
+        </div>
+        <p class="hint" data-i18n="ge.nHint"></p>
+        <div class="field"><label for="geLabels" data-i18n="ge.labels"></label><input class="input mono" id="geLabels" data-i18n-ph="ge.labelsPh"></div>
+        <p class="hint" data-i18n="ge.labelsHint"></p>
+        <div class="ge-status" id="geStatus"></div>
+      </section>
+      <section class="ge-box">
+        <h4 data-i18n="ge.export"></h4>
+        <div class="row">
+          <button class="btn sm" id="geCopy" data-i18n="ge.copy"></button>
+          <button class="btn sm" id="geCopyHdr" data-i18n="ge.copyHdr"></button>
+          <button class="btn sm" id="gePng" data-i18n="ge.png"></button>
+        </div>
+      </section>
+    </aside>
+
+    <div class="ge-main">
+      <div class="ge-tabs" id="geTabs"></div>
+      <div class="ge-toolbar" id="geToolbar"></div>
+      <div class="ge-wrap" id="geWrap">
+        <canvas id="geCanvas" tabindex="0" aria-label="Graph canvas"></canvas>
+        <input class="ge-edit input mono" id="geEdit" hidden>
+        <div class="ge-hint" id="geHint"></div>
+        <div class="ge-zoom">
+          <button class="btn sm" id="geZoomIn" title="Zoom +">+</button>
+          <button class="btn sm" id="geZoomOut" title="Zoom −">−</button>
+          <button class="btn sm" id="geFit" data-i18n="ge.fit"></button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="ge-side ge-right">
+      <details class="ge-box" open><summary data-i18n="ge.modes"></summary><div id="geModes" class="ge-list"></div></details>
+      <details class="ge-box" open><summary data-i18n="ge.algos"></summary><div id="geAlgos" class="ge-list"></div><div id="geAlgoOut"></div></details>
+      <details class="ge-box"><summary data-i18n="ge.appearance"></summary><div id="geLook" class="ge-list"></div></details>
+    </aside>
+  </div>
+</section>
 </main>
 
 <div class="toasts" id="toasts" aria-live="polite"></div>
@@ -481,6 +532,8 @@
 <script src="js/calc.js"></script>
 <script src="js/safety.js"></script>
 <script src="js/stress.js"></script>
+<script src="js/graph-algos.js"></script>
+<script src="js/graph.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

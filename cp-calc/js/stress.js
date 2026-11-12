@@ -43,7 +43,7 @@ I18N.add({
     'res.download': 'Tải', 'res.openFolder': 'Mở thư mục test', 'res.truncated': '(đã cắt bớt, tải file để xem đủ)', 'res.genArgs': 'Tham số sinh test',
     'res.colNo': '#', 'res.colArgs': 'Tham số', 'res.colV': 'Kết quả', 'res.colT': 'Thời gian', 'res.colM': 'Bộ nhớ', 'res.colIn': 'Kích thước input',
     'res.csv': 'Xuất CSV', 'res.failures': 'Các test sai', 'res.clickRow': 'Bấm vào một dòng để xem chi tiết test.', 'res.slowest': 'chậm nhất: test #{i}',
-    'res.error': 'Lỗi runner: {msg}', 'res.savedAt': 'Đã lưu tại {dir}',
+    'res.error': 'Lỗi runner: {msg}', 'res.asGraph': 'Mở dạng đồ thị', 'res.savedAt': 'Đã lưu tại {dir}',
     'vd.AC': 'Đúng', 'vd.OK': 'Chạy xong', 'vd.WA': 'Sai', 'vd.TLE': 'Quá thời gian', 'vd.MLE': 'Quá bộ nhớ', 'vd.RE': 'Lỗi khi chạy',
     'vd.GEN_ERR': 'Lỗi trình sinh', 'vd.BRUTE_ERR': 'Lỗi code trâu', 'vd.CHK_ERR': 'Lỗi checker',
   },
@@ -86,7 +86,7 @@ I18N.add({
     'res.download': 'Download', 'res.openFolder': 'Open test folder', 'res.truncated': '(truncated, download to see everything)', 'res.genArgs': 'Generator arguments',
     'res.colNo': '#', 'res.colArgs': 'Arguments', 'res.colV': 'Verdict', 'res.colT': 'Time', 'res.colM': 'Memory', 'res.colIn': 'Input size',
     'res.csv': 'Export CSV', 'res.failures': 'Failing tests', 'res.clickRow': 'Click a row to see that test.', 'res.slowest': 'slowest: test #{i}',
-    'res.error': 'Runner error: {msg}', 'res.savedAt': 'Saved in {dir}',
+    'res.error': 'Runner error: {msg}', 'res.asGraph': 'Open as graph', 'res.savedAt': 'Saved in {dir}',
     'vd.AC': 'Accepted', 'vd.OK': 'Finished', 'vd.WA': 'Wrong answer', 'vd.TLE': 'Time limit', 'vd.MLE': 'Memory limit', 'vd.RE': 'Runtime error',
     'vd.GEN_ERR': 'Generator error', 'vd.BRUTE_ERR': 'Brute force error', 'vd.CHK_ERR': 'Checker error',
   },
@@ -438,16 +438,28 @@ function testDetail(r) {
     <div><div class="lbl">${esc(t('res.output'))}${dlink('output')}</div>${pre(r.outPreview, r.outTrunc)}</div>
     ${r.ansPreview !== undefined ? `<div><div class="lbl">${esc(t('res.answer'))}${dlink('answer')}</div>${pre(r.ansPreview, r.ansTrunc)}</div>` : ''}
   </div>`;
-  if (r.savedId) h += `<div class="row"><button class="btn sm" data-open="${esc(r.savedId)}">${esc(t('res.openFolder'))}</button><span class="hint mono">${esc(t('res.savedAt', { dir: r.savedDir }))}</span></div>`;
+  h += `<div class="row"><button class="btn sm" data-graph="${r.index}">${esc(t('res.asGraph'))}</button>${r.savedId ? `<button class="btn sm" data-open="${esc(r.savedId)}">${esc(t('res.openFolder'))}</button><span class="hint mono">${esc(t('res.savedAt', { dir: r.savedDir }))}</span>` : ''}</div>`;
   return h;
 }
 $('#resBody').addEventListener('click', async (e) => {
+  const gb = e.target.closest('[data-graph]');
+  if (gb) { openAsGraph(+gb.dataset.graph); return; }
   const o = e.target.closest('[data-open]');
   if (o) { try { await api('/api/open', { id: o.dataset.open }); } catch (err) { UI.toast(err.message, 'err'); } return; }
   const row = e.target.closest('tr[data-idx]');
   if (row && R.rows) { R.sel = +row.dataset.idx; renderResults(); }
   if (e.target.closest('#csvBtn')) exportCsv();
 });
+
+async function openAsGraph(index) {
+  const r = (R.rows ? R.rows.filter(Boolean) : R.fails).find((x) => x.index === index);
+  if (!r || !window.GraphEditor) return;
+  let text = r.inputPreview || '';
+  if (r.savedId && r.inputTrunc) {
+    try { const res = await fetch(dl(r.savedId, 'input')); if (res.ok) text = await res.text(); } catch (e) { /* keep preview */ }
+  }
+  window.GraphEditor.openText(t('ge.openFromTest', { i: index }), text);
+}
 
 /* results state */
 let R = { mode: null };

@@ -62,6 +62,27 @@ Test sai và test benchmark được lưu trong `cp-calc/work/saved/`.
 
 Runner chỉ nghe trên `127.0.0.1`, kiểm tra header Host, và yêu cầu một mã bí mật sinh ngẫu nhiên mỗi lần chạy. Mã này được gắn vào trang do chính runner phục vụ, nên trang web khác không gửi code tới runner được.
 
+## Phần 4: Graph Editor
+
+- **Nhập:** mỗi dòng `u v` hoặc `u v w`, một từ là đỉnh lẻ. Tên đỉnh là chữ hay số đều được. Ô **Số đỉnh n** thêm sẵn các đỉnh 1..n (hoặc 0..n−1). Ô **Label đỉnh** nhận mảng `a[i]`, dùng `_` để bỏ qua một đỉnh. Vẽ trên canvas thì ô text tự cập nhật.
+- **Tab:** tạo, đổi tên (bấm đúp), nhân bản, đóng.
+- **Công cụ** (phím tắt):
+  - Di chuyển `V`, Thêm đỉnh/cạnh `A`, Xoá `D`, Tô màu `C`, In đậm `B`, Ghim đỉnh `P`, Bút vẽ `N`, Tẩy `E`, Căn giữa `F`.
+  - Bấm đúp vào đỉnh để đổi tên, bấm đúp vào cạnh để sửa trọng số.
+  - Lăn chuột để phóng to, kéo nền để cuộn.
+- **Chế độ:**
+  - Có hướng, Có trọng số, Multiedge, self loop (bấm cùng một đỉnh hai lần khi thêm cạnh).
+  - Lock: tắt lực đẩy, mọi đỉnh đứng yên. Edge physics: đỉnh đẩy cả cạnh. Hai phía: tô màu và xếp hai cột.
+- **Giao diện:** bán kính đỉnh, cỡ chữ, viền đỉnh, độ dày cạnh, độ dài cạnh, khoảng cách nhãn trọng số, cỡ bút, độ đậm bút, cỡ tẩy, lực đẩy, độ căng.
+- **Thuật toán** (bật một cái mỗi lúc; khi không đủ điều kiện, nút ghi rõ lý do):
+  - Thành phần liên thông, SCC, Khớp & cầu, MST (forest).
+  - Cặp ghép hai phía (Hopcroft–Karp).
+  - Topo sort: có nút Thứ tự khác và Lex nhỏ nhất; tên là số thì so theo giá trị số.
+  - Đường đi ngắn nhất một nguồn hoặc nhiều nguồn: Dijkstra, tự chuyển sang Bellman-Ford khi có cạnh âm, đỉnh bị ảnh hưởng hiện −∞.
+  - Chu trình âm.
+- **Xuất:** chép danh sách cạnh (có hoặc không kèm dòng `n m`), tải ảnh PNG.
+- **Nối với Stress test:** nút **Mở dạng đồ thị** ở mỗi test. Dòng đầu `n m` (hoặc `n`) của file test được đổi thành ô Số đỉnh, và chỉ m dòng cạnh được lấy vào.
+
 ## Cấu trúc thư mục
 
 ```
@@ -74,6 +95,8 @@ cp-calc/
   js/calc.js          Phần 1
   js/safety.js        Phần 2
   js/stress.js        Phần 3 (giao diện)
+  js/graph-algos.js   Phần 4 (thuật toán)
+  js/graph.js         Phần 4 (canvas, công cụ)
   js/app.js           khởi động
   runner.py           Phần 3 (biên dịch, chạy, đo), chỉ dùng thư viện chuẩn
   start-runner.bat    chạy runner trên Windows
