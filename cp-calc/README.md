@@ -32,7 +32,7 @@ Tuỳ chọn: `--port 9000` để đổi cổng, `--no-browser` để không t�
 
 ## Phần 2: An toàn
 
-Kiểm tra tràn số từng bước theo cách C++ tính (int, unsigned, long long, unsigned long long, __int128, double), bảng giới hạn kiểu, kiểm tra phép mod, ước lượng bộ nhớ, ước lượng stack khi đệ quy.
+Kiểm tra tràn số từng bước theo cách C++ tính (int, unsigned, long long, unsigned long long, __int128, double), bảng giới hạn kiểu, kiểm tra phép mod và ước lượng bộ nhớ.
 
 ## Phần 3: Stress test & Benchmark
 

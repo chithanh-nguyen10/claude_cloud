@@ -1,4 +1,4 @@
-/* Phần 2: An toàn — tràn số, giới hạn kiểu, phép mod, bộ nhớ, stack */
+/* Phần 2: An toàn — tràn số, giới hạn kiểu, phép mod, bộ nhớ */
 (function () {
 'use strict';
 const { $, $$, esc, kv, out, errBox, chip, numField, evalField, wire } = UI;
@@ -6,7 +6,7 @@ const { isBig } = CP;
 
 I18N.add({
   vi: {
-    'sf.nav.overflow': 'Tràn số', 'sf.nav.limits': 'Giới hạn kiểu', 'sf.nav.mod': 'Phép mod', 'sf.nav.memory': 'Bộ nhớ', 'sf.nav.stack': 'Đệ quy & stack',
+    'sf.nav.overflow': 'Tràn số', 'sf.nav.limits': 'Giới hạn kiểu', 'sf.nav.mod': 'Phép mod', 'sf.nav.memory': 'Bộ nhớ',
     'of.title': 'Kiểm tra tràn số', 'of.desc': 'Tính chính xác từng bước của biểu thức theo kiểu C++ (chia nguyên cắt phần thập phân, % giữ dấu số bị chia) và chỉ ra bước đầu tiên bị tràn với từng kiểu.',
     'of.expr': 'Biểu thức', 'of.hint': 'Trong C++ kiểu của phép tính phụ thuộc vào toán hạng: <code>int * int</code> vẫn tràn dù gán vào <code>long long</code>. Hãy ép kiểu sớm, vd <code>1LL * a * b</code>.',
     'of.colStep': 'Bước', 'of.colVal': 'Giá trị', 'of.fits': 'Vừa', 'of.overflow': 'Tràn ở bước {k}', 'of.nonInt': 'Bước "{s}" không ra số nguyên. Kiểm tra tràn chỉ áp dụng cho phép tính số nguyên.',
@@ -33,15 +33,9 @@ I18N.add({
     'mp.seg': 'Segment tree 4n (long long)', 'mp.lazy': 'Segment tree lazy 4n × 2 (long long)', 'mp.bit': 'Fenwick n + 1 (long long)',
     'mp.sparse': 'Sparse table n·(log n + 1) (int)', 'mp.adj': 'Danh sách kề vector<vector<int>> (n đỉnh, m cạnh vô hướng)',
     'mp.dp': 'Bảng DP n × m (int)', 'mp.bitset': 'bitset n', 'mp.map': 'map<int,int> n phần tử',
-    'st.title': 'Đệ quy & stack', 'st.desc': 'Ước lượng stack cần cho đệ quy sâu (DFS trên cây dạng đường thẳng, đệ quy DP…) và so với kích thước stack.',
-    'st.depth': 'Độ sâu đệ quy', 'st.frame': 'Byte mỗi lần gọi', 'st.size': 'Kích thước stack', 'st.custom': 'Stack tự đặt (MB)',
-    'st.win': 'Windows mặc định (1 MB)', 'st.linux': 'Linux mặc định (8 MB)', 'st.cf': 'Codeforces (256 MB)', 'st.customOpt': 'Tự đặt',
-    'st.need': 'Stack cần', 'st.ofStack': '{p}% stack', 'st.tip': 'Cách xử lý',
-    'st.tipText': 'Windows (MinGW): biên dịch thêm -Wl,--stack=268435456 (tab Stress test đã bật sẵn). Linux: chạy ulimit -s unlimited trước. Hoặc đổi đệ quy thành vòng lặp với stack tự quản.',
-    'st.frameHint': 'Mỗi frame thường 48–128 byte; thêm khoảng 8 byte cho mỗi biến cục bộ hoặc tham số.',
   },
   en: {
-    'sf.nav.overflow': 'Overflow', 'sf.nav.limits': 'Type limits', 'sf.nav.mod': 'Modular arithmetic', 'sf.nav.memory': 'Memory', 'sf.nav.stack': 'Recursion & stack',
+    'sf.nav.overflow': 'Overflow', 'sf.nav.limits': 'Type limits', 'sf.nav.mod': 'Modular arithmetic', 'sf.nav.memory': 'Memory',
     'of.title': 'Overflow check', 'of.desc': 'Evaluates every step exactly with C++ semantics (integer division truncates, % keeps the dividend sign) and shows the first step that overflows for each type.',
     'of.expr': 'Expression', 'of.hint': 'In C++ the type of an operation depends on its operands: <code>int * int</code> overflows even when assigned to <code>long long</code>. Cast early, e.g. <code>1LL * a * b</code>.',
     'of.colStep': 'Step', 'of.colVal': 'Value', 'of.fits': 'Fits', 'of.overflow': 'Overflows at step {k}', 'of.nonInt': 'Step "{s}" is not an integer. The overflow check only applies to integer arithmetic.',
@@ -68,12 +62,6 @@ I18N.add({
     'mp.seg': 'Segment tree 4n (long long)', 'mp.lazy': 'Lazy segment tree 4n × 2 (long long)', 'mp.bit': 'Fenwick n + 1 (long long)',
     'mp.sparse': 'Sparse table n·(log n + 1) (int)', 'mp.adj': 'Adjacency list vector<vector<int>> (n vertices, m undirected edges)',
     'mp.dp': 'DP table n × m (int)', 'mp.bitset': 'bitset n', 'mp.map': 'map<int,int> with n entries',
-    'st.title': 'Recursion & stack', 'st.desc': 'Estimates the stack needed by deep recursion (DFS on a path-shaped tree, recursive DP…) and compares it with the stack size.',
-    'st.depth': 'Recursion depth', 'st.frame': 'Bytes per call', 'st.size': 'Stack size', 'st.custom': 'Custom stack (MB)',
-    'st.win': 'Windows default (1 MB)', 'st.linux': 'Linux default (8 MB)', 'st.cf': 'Codeforces (256 MB)', 'st.customOpt': 'Custom',
-    'st.need': 'Stack needed', 'st.ofStack': '{p}% of stack', 'st.tip': 'How to fix',
-    'st.tipText': 'Windows (MinGW): compile with -Wl,--stack=268435456 (the Stress test tab turns this on by default). Linux: run ulimit -s unlimited first. Or rewrite the recursion as a loop with your own stack.',
-    'st.frameHint': 'A frame is usually 48–128 bytes; add about 8 bytes per local variable or parameter.',
   },
 });
 
@@ -340,31 +328,4 @@ renderPresets(); renderMemTable();
 I18N.onChange(() => { renderPresets(); renderMemTable(); });
 ['memVars', 'memML'].forEach((id) => $('#' + id).addEventListener('input', runMemD));
 
-/* ============================================ Stack */
-const STACKS = [['win', 1], ['linux', 8], ['cf', 256], ['customOpt', null]];
-function renderStackSel() {
-  const sel = $('#stSize'), cur = sel.value || 'win';
-  sel.innerHTML = STACKS.map(([k]) => `<option value="${k}">${esc(t('st.' + k))}</option>`).join('');
-  sel.value = cur;
-}
-function runStack() {
-  const o = $('#stOut');
-  $('#stCustomWrap').hidden = $('#stSize').value !== 'customOpt';
-  try {
-    const env = CP.parseVars($('#stVars').value);
-    const depth = numField($('#stDepth').value, env), frame = numField($('#stFrame').value);
-    const s = STACKS.find((x) => x[0] === $('#stSize').value);
-    const mb = s[1] === null ? numField($('#stCustom').value) : s[1];
-    const need = depth * frame, cap = mb * 1048576, ratio = need / cap, pct = ratio * 100;
-    const cls = ratio <= 0.5 ? 'ok' : ratio <= 1 ? 'warn' : 'bad';
-    o.innerHTML = out(
-      kv(t('st.need'), esc(CP.fmtBytes(need)), esc(t('st.ofStack', { p: pct < 0.1 ? '<0.1' : pct.toFixed(pct < 10 ? 1 : 0) })), { big: true }) +
-      kv(t('cx.verdict'), chip(cls, cls === 'bad' ? 'Stack overflow' : t('v.' + cls)) + `<div class="meter ${cls}" style="margin-top:8px"><span style="width:${Math.min(100, Math.max(1, pct))}%"></span></div>`) +
-      (cls !== 'ok' ? kv(t('st.tip'), `<span style="font-family:var(--font);font-weight:500">${esc(t('st.tipText'))}</span>`) : '')) +
-      `<p class="hint">${esc(t('st.frameHint'))}</p>`;
-  } catch (e) { o.innerHTML = errBox(e); }
-}
-renderStackSel(); I18N.onChange(renderStackSel);
-$('#stSize').addEventListener('change', runStack);
-wire(['stDepth', 'stVars', 'stFrame', 'stCustom'], runStack);
 })();

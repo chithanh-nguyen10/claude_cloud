@@ -277,7 +277,6 @@
       <button data-sec="limits" data-i18n="sf.nav.limits"></button>
       <button data-sec="mod" data-i18n="sf.nav.mod"></button>
       <button data-sec="memory" data-i18n="sf.nav.memory"></button>
-      <button data-sec="stack" data-i18n="sf.nav.stack"></button>
     </nav>
     <div class="content">
       <!-- Overflow -->
@@ -337,21 +336,6 @@
         </div>
       </div>
 
-      <!-- Stack -->
-      <div data-sec-panel="stack" class="content" hidden>
-        <div class="sec-head"><h2 data-i18n="st.title"></h2><p data-i18n="st.desc"></p></div>
-        <div class="card">
-          <div class="card-body">
-            <div class="fields">
-              <div class="field"><label for="stDepth" data-i18n="st.depth"></label><input class="input mono" id="stDepth" value="n"></div>
-              <div class="field"><label for="stVars" data-i18n="cx.vars"></label><input class="input mono" id="stVars" value="n = 1e6"></div>
-              <div class="field"><label for="stFrame" data-i18n="st.frame"></label><input class="input mono" id="stFrame" value="96"></div>
-              <div class="field"><label for="stSize" data-i18n="st.size"></label><select class="input" id="stSize"></select></div>
-              <div class="field" id="stCustomWrap" hidden><label for="stCustom" data-i18n="st.custom"></label><input class="input mono" id="stCustom" value="64"></div>
-            </div>
-            <div id="stOut"></div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
