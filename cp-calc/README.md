@@ -36,9 +36,10 @@ Kiểm tra tràn số từng bước theo cách C++ tính (int, unsigned, long l
 
 ## Phần 3: Stress test & Benchmark
 
+0. Tab có phần **Hướng dẫn & code mẫu** (stdin, đọc ghi file bằng freopen, sinh test bằng mt19937, checker) và 3 bộ ví dụ: stdin/stdout, đọc ghi file BAI.INP/BAI.OUT, bài nhiều đáp án dùng checker.
 1. Nạp các chương trình: **Code cần kiểm tra** (bắt buộc), **Code trâu**, **Sinh test** (bắt buộc), **Checker**. Mỗi chương trình có thể là C++ hoặc Python, nạp bằng mở file, dán code, hoặc kéo thả.
 2. Input / output của từng chương trình: mặc định stdin / stdout. Có thể đổi sang file, vd `BAI.INP` / `BAI.OUT`. Output đem đi so được lấy từ đúng nguồn bạn chọn.
-3. Trình sinh test nhận tham số dòng lệnh. `{seed}` và `{i}` được thay bằng seed và số thứ tự test, vd `{seed} 100000`.
+3. Trình sinh test là một chương trình bình thường: không nhận tham số, chỉ in một test ra stdout. Muốn đổi giới hạn thì sửa thẳng trong code. Seed `mt19937` theo đồng hồ (`chrono::steady_clock`) để mỗi lần chạy ra test khác. Nếu trình sinh cứ ra cùng một test, trang sẽ cảnh báo.
 4. Biên dịch: chọn g++ / clang++ (hoặc nhập đường dẫn), chuẩn C++ (11/14/17/20/23), mức tối ưu, cờ thêm. Lệnh biên dịch sửa được hoàn toàn:
    `{compiler} -std={std} {opt} {flags} {src} -o {exe}`.
    Trên Windows, cờ mặc định có `-Wl,--stack=268435456` (stack 256MB giống Codeforces).
@@ -47,7 +48,7 @@ Kiểm tra tràn số từng bước theo cách C++ tính (int, unsigned, long l
    - **Không có checker**: so với output của code trâu theo một trong các kiểu: bỏ qua khoảng trắng (mặc định), theo dòng, chính xác từng byte, số thực với sai số ε.
 6. Chế độ:
    - **Stress test**: sinh test ngẫu nhiên liên tục, dừng ở test sai đầu tiên, hiện input, output và đáp án, dòng khác nhau đầu tiên.
-   - **Benchmark**: chạy một bộ test cố định (có thể đặt tham số riêng cho từng test, mỗi dòng một test), đo thời gian CPU và bộ nhớ đỉnh, xuất CSV.
+   - **Benchmark**: chạy N test, đo thời gian CPU và bộ nhớ đỉnh, xuất CSV.
 7. Kết quả: AC, WA, TLE, MLE, RE (kèm lý do, vd Stack overflow, Access violation), Lỗi trình sinh, Lỗi code trâu, Lỗi checker.
 
 Test sai và test benchmark được lưu trong `cp-calc/work/saved/`.

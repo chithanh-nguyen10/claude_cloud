@@ -15,12 +15,12 @@ I18N.add({
     'sp.title': 'Chương trình', 'slot.sol': 'Code cần kiểm tra', 'slot.brute': 'Code trâu', 'slot.gen': 'Sinh test', 'slot.checker': 'Checker',
     'slot.d.sol': 'Bắt buộc. Lời giải bạn muốn kiểm tra và đo thời gian, bộ nhớ.',
     'slot.d.brute': 'Tuỳ chọn. Lời giải chậm nhưng chắc đúng. Output của nó là đáp án để so.',
-    'slot.d.gen': 'Bắt buộc. In một test ra stdout (hoặc file). {seed}, {i} trong tham số được thay bằng seed và số thứ tự test.',
+    'slot.d.gen': 'Bắt buộc. Một chương trình bình thường: không nhận tham số, in một test ra stdout. Muốn đổi giới hạn thì sửa thẳng trong code. Seed mt19937 theo thời gian để mỗi lần ra test khác.',
     'slot.d.checker': 'Tuỳ chọn. Kiểu testlib: chạy checker <input> <output> <answer>, trả mã 0 là đúng. Không có checker thì so trực tiếp với output code trâu.',
-    'slot.load': 'Mở file…', 'slot.clear': 'Xoá', 'slot.sample': 'Nạp ví dụ (cả 3 chương trình)', 'slot.lang': 'Ngôn ngữ',
+    'slot.load': 'Mở file…', 'slot.clear': 'Xoá', 'slot.sample': 'Nạp ví dụ…', 'slot.lang': 'Ngôn ngữ',
     'slot.ph': 'Dán code vào đây, hoặc bấm "Mở file…", hoặc kéo thả file vào ô này.',
     'io.in': 'Đọc input từ', 'io.out': 'Ghi output ra', 'io.file': 'file', 'io.inName': 'Tên file input', 'io.outName': 'Tên file output',
-    'io.args': 'Tham số dòng lệnh', 'io.hint.gen': 'Ví dụ: {seed} 100000 → gen.exe 17 100000. Output dùng làm input cho các chương trình khác.',
+    'io.args': 'Tham số dòng lệnh', 'io.hint.gen': 'Output của trình sinh được dùng làm input cho code cần kiểm tra và code trâu.',
     'io.hint.checker': 'Mặc định: {input} {output} {answer}. Nếu không có code trâu, file answer rỗng.', 'io.hint.sol': 'Output của chương trình này đem đi so lấy từ đây.',
     'cp.title': 'Biên dịch', 'cp.compiler': 'Trình biên dịch', 'cp.custom': 'Đường dẫn trình biên dịch', 'cp.customOpt': 'Tự nhập đường dẫn…',
     'cp.std': 'Chuẩn C++', 'cp.opt': 'Tối ưu', 'cp.none': '(không)', 'cp.flags': 'Cờ thêm', 'cp.template': 'Lệnh biên dịch (sửa được, có {compiler} {std} {opt} {flags} {src} {exe})',
@@ -31,8 +31,9 @@ I18N.add({
     'rs.d.stress': 'Sinh test ngẫu nhiên liên tục, chạy code cần kiểm tra và code trâu (hoặc checker), dừng ở test sai đầu tiên.',
     'rs.d.bench': 'Chạy một bộ test cố định, đo thời gian và bộ nhớ từng test. Có thể kiểm tra đúng sai nếu có code trâu hoặc checker.',
     'rs.tl': 'Time limit (ms)', 'rs.ml': 'Memory limit (MB)', 'rs.seed': 'Seed bắt đầu', 'rs.count': 'Số test (0 = chạy mãi)', 'rs.benchCount': 'Số test',
-    'rs.compare': 'Cách so output', 'rs.benchArgs': 'Tham số trình sinh cho từng test (tuỳ chọn, mỗi dòng một test)',
-    'rs.benchArgsPh': '{seed} 1000\n{seed} 100000\n{seed} 200000', 'rs.stopFail': 'Dừng ở test sai đầu tiên', 'rs.verify': 'Kiểm tra đúng sai (cần code trâu hoặc checker)',
+    'rs.compare': 'Cách so output',
+    'res.dup': 'Trình sinh test đang ra cùng một test nhiều lần liên tiếp. Hãy seed mt19937 theo thời gian (xem Hướng dẫn), đừng dùng hằng số hay time(0).',
+    'rs.stopFail': 'Dừng ở test sai đầu tiên', 'rs.verify': 'Kiểm tra đúng sai (cần code trâu hoặc checker)',
     'rs.start': 'Bắt đầu', 'rs.stop': 'Dừng', 'cmp.tokens': 'Bỏ qua khoảng trắng (mặc định)', 'cmp.lines': 'Theo dòng (bỏ khoảng trắng cuối dòng)',
     'cmp.exact': 'Chính xác từng byte', 'cmp.float': 'Số thực với sai số ε',
     'need.runner': 'Cần kết nối runner.', 'need.sol': 'Thiếu code cần kiểm tra.', 'need.gen': 'Thiếu trình sinh test.', 'need.ref': 'Stress test cần code trâu hoặc checker.',
@@ -58,12 +59,12 @@ I18N.add({
     'sp.title': 'Programs', 'slot.sol': 'Solution', 'slot.brute': 'Brute force', 'slot.gen': 'Generator', 'slot.checker': 'Checker',
     'slot.d.sol': 'Required. The solution you want to check and measure.',
     'slot.d.brute': 'Optional. A slow but surely correct solution. Its output is the expected answer.',
-    'slot.d.gen': 'Required. Prints one test to stdout (or a file). {seed} and {i} in the arguments become the seed and test number.',
+    'slot.d.gen': 'Required. A normal program: no arguments, prints one test to stdout. Change the limits directly in the code. Seed mt19937 with the clock so every run gives a new test.',
     'slot.d.checker': 'Optional. testlib style: runs checker <input> <output> <answer>, exit code 0 means correct. Without a checker, output is compared with the brute force output.',
-    'slot.load': 'Open file…', 'slot.clear': 'Clear', 'slot.sample': 'Load example (all 3 programs)', 'slot.lang': 'Language',
+    'slot.load': 'Open file…', 'slot.clear': 'Clear', 'slot.sample': 'Load an example…', 'slot.lang': 'Language',
     'slot.ph': 'Paste code here, click "Open file…", or drop a file onto this box.',
     'io.in': 'Read input from', 'io.out': 'Write output to', 'io.file': 'file', 'io.inName': 'Input file name', 'io.outName': 'Output file name',
-    'io.args': 'Command-line arguments', 'io.hint.gen': 'Example: {seed} 100000 → gen.exe 17 100000. Its output becomes the input of the other programs.',
+    'io.args': 'Command-line arguments', 'io.hint.gen': 'The generator output becomes the input of the solution and the brute force.',
     'io.hint.checker': 'Default: {input} {output} {answer}. Without a brute force, the answer file is empty.', 'io.hint.sol': 'The output that gets compared is read from here.',
     'cp.title': 'Compile', 'cp.compiler': 'Compiler', 'cp.custom': 'Compiler path', 'cp.customOpt': 'Enter a path…',
     'cp.std': 'C++ standard', 'cp.opt': 'Optimization', 'cp.none': '(none)', 'cp.flags': 'Extra flags', 'cp.template': 'Compile command (editable; uses {compiler} {std} {opt} {flags} {src} {exe})',
@@ -74,8 +75,9 @@ I18N.add({
     'rs.d.stress': 'Generates random tests in a loop, runs the solution and the brute force (or checker), and stops at the first wrong answer.',
     'rs.d.bench': 'Runs a fixed set of tests and measures time and memory for each. Checks correctness too if you have a brute force or checker.',
     'rs.tl': 'Time limit (ms)', 'rs.ml': 'Memory limit (MB)', 'rs.seed': 'Starting seed', 'rs.count': 'Tests (0 = forever)', 'rs.benchCount': 'Tests',
-    'rs.compare': 'Output comparison', 'rs.benchArgs': 'Generator arguments per test (optional, one line per test)',
-    'rs.benchArgsPh': '{seed} 1000\n{seed} 100000\n{seed} 200000', 'rs.stopFail': 'Stop at the first failing test', 'rs.verify': 'Check correctness (needs brute force or checker)',
+    'rs.compare': 'Output comparison',
+    'res.dup': 'The generator keeps printing the same test. Seed mt19937 with the clock (see the Guide), not with a constant or time(0).',
+    'rs.stopFail': 'Stop at the first failing test', 'rs.verify': 'Check correctness (needs brute force or checker)',
     'rs.start': 'Start', 'rs.stop': 'Stop', 'cmp.tokens': 'Ignore whitespace (default)', 'cmp.lines': 'Line by line (ignore trailing spaces)',
     'cmp.exact': 'Exact bytes', 'cmp.float': 'Floats with tolerance ε',
     'need.runner': 'Connect the runner first.', 'need.sol': 'The solution is missing.', 'need.gen': 'The generator is missing.', 'need.ref': 'A stress test needs a brute force or a checker.',
@@ -104,12 +106,12 @@ function defaults(isWin) {
     slots: {
       sol: { lang: 'cpp', src: '', file: '', io: { in: 'stdin', inName: '', out: 'stdout', outName: '' } },
       brute: { lang: 'cpp', src: '', file: '', io: { in: 'stdin', inName: '', out: 'stdout', outName: '' } },
-      gen: { lang: 'cpp', src: '', file: '', io: { out: 'stdout', outName: '' }, args: '{seed}' },
+      gen: { lang: 'cpp', src: '', file: '' },
       checker: { lang: 'cpp', src: '', file: '', args: '{input} {output} {answer}' },
     },
     cur: 'sol',
     compile: { compiler: '', custom: '', std: 'c++17', opt: '-O2', flags: isWin ? '-Wl,--stack=268435456' : '', template: DEFAULT_TEMPLATE, python: isWin ? 'python' : 'python3' },
-    run: { mode: 'stress', tl: '1000', ml: '256', seed: '1', count: '500', benchCount: '10', compare: 'tokens', eps: '1e-6', benchArgs: '', stopFail: true, verify: true },
+    run: { mode: 'stress', tl: '1000', ml: '256', count: '500', benchCount: '10', compare: 'tokens', eps: '1e-6', stopFail: true, verify: true },
   };
 }
 let S = defaults(guessWin);
@@ -120,6 +122,7 @@ try {
     Object.assign(S.compile, saved.compile || {});
     Object.assign(S.run, saved.run || {});
     if (SLOTS.includes(saved.cur)) S.cur = saved.cur;
+    delete S.slots.gen.io; delete S.slots.gen.args; delete S.run.seed; delete S.run.benchArgs;
   }
 } catch (e) { /* ignore */ }
 const persist = UI.debounce(() => { try { localStorage.setItem('cpcalc.stress', JSON.stringify(S)); } catch (e) { /* ignore */ } }, 400);
@@ -225,7 +228,12 @@ $('#slotTabs').addEventListener('click', (e) => {
   $('#' + id).addEventListener('input', () => {
     saveSlotFromUI();
     if (id === 'slotSrc' || id === 'slotLang') delete compileState[S.cur];
-    if (id === 'ioIn' || id === 'ioOut') renderSlot();
+    if (id === 'ioIn' || id === 'ioOut') {
+      const io = S.slots[S.cur].io;
+      if (io.in === 'file' && !io.inName) io.inName = 'input.txt';
+      if (io.out === 'file' && !io.outName) io.outName = 'output.txt';
+      renderSlot();
+    }
     renderDots(); updateNeed(); persist();
   });
 });
@@ -252,21 +260,22 @@ $('#slotSrc').addEventListener('dragover', (e) => { e.preventDefault(); });
 $('#slotSrc').addEventListener('drop', (e) => { const f = e.dataTransfer.files[0]; if (f) { e.preventDefault(); loadFile(f); } });
 $('#slotClear').onclick = () => { const s = S.slots[S.cur]; s.src = ''; s.file = ''; delete compileState[S.cur]; renderSlot(); updateNeed(); persist(); };
 
-const SAMPLE = {
-  sol: `// Tổng lớn nhất của đoạn con liên tiếp (Kadane) — có lỗi: khởi tạo best = 0
-#include <bits/stdc++.h>
+const GEN_SAMPLE = `#include <bits/stdc++.h>
 using namespace std;
+// Trình sinh test: chương trình bình thường, không nhận tham số, in test ra stdout.
+// Seed theo thời gian để mỗi lần chạy ra một test khác.
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+long long rnd(long long l, long long r) { return uniform_int_distribution<long long>(l, r)(rng); }
+
 int main() {
-    int n; cin >> n;
-    vector<long long> a(n);
-    for (auto &x : a) cin >> x;
-    long long best = 0, cur = 0;           // sai khi mọi phần tử đều âm
-    for (long long x : a) { cur = max(x, cur + x); best = max(best, cur); }
-    cout << best << "\\n";
+    int n = rnd(1, 8);                 // giới hạn: sửa thẳng ở đây
+    cout << n << "\\n";
+    for (int i = 0; i < n; i++) cout << rnd(-10, 10) << " \\n"[i == n - 1];
 }
-`,
-  brute: `#include <bits/stdc++.h>
+`;
+const BRUTE_SAMPLE = `#include <bits/stdc++.h>
 using namespace std;
+// Code trâu: thử mọi đoạn [l, r], O(n^2)
 int main() {
     int n; cin >> n;
     vector<long long> a(n);
@@ -275,30 +284,106 @@ int main() {
     for (int l = 0; l < n; l++) { long long s = 0; for (int r = l; r < n; r++) { s += a[r]; best = max(best, s); } }
     cout << best << "\\n";
 }
-`,
-  gen: `#include <bits/stdc++.h>
+`;
+const SAMPLES = [
+  {
+    key: 'stdin', vi: 'Ví dụ 1: đọc ghi stdin / stdout', en: 'Example 1: stdin / stdout',
+    slots: {
+      sol: { src: `// Bài: tổng lớn nhất của một đoạn con liên tiếp khác rỗng.
+// Kadane có lỗi: khởi tạo best = 0, sai khi mọi phần tử đều âm.
+#include <bits/stdc++.h>
 using namespace std;
-// gen <seed> [n_max]
-int main(int argc, char** argv) {
-    unsigned seed = argc > 1 ? atoi(argv[1]) : 1;
-    int nmax = argc > 2 ? atoi(argv[2]) : 8;
-    mt19937 rng(seed);
-    int n = rng() % nmax + 1;
-    cout << n << "\\n";
-    for (int i = 0; i < n; i++) cout << (int)(rng() % 21) - 10 << " \\n"[i + 1 == n];
+int main() {
+    int n; cin >> n;
+    vector<long long> a(n);
+    for (auto &x : a) cin >> x;
+    long long best = 0, cur = 0;
+    for (long long x : a) { cur = max(x, cur + x); best = max(best, cur); }
+    cout << best << "\\n";
 }
-`,
-};
-$('#slotSample').onclick = () => {
-  ['sol', 'brute', 'gen'].forEach((k) => {
-    Object.assign(S.slots[k], { src: SAMPLE[k], file: 'example_' + k + '.cpp', lang: 'cpp' });
+`, io: { in: 'stdin', inName: '', out: 'stdout', outName: '' } },
+      brute: { src: BRUTE_SAMPLE, io: { in: 'stdin', inName: '', out: 'stdout', outName: '' } },
+      gen: { src: GEN_SAMPLE },
+      checker: { src: '' },
+    },
+  },
+  {
+    key: 'file', vi: 'Ví dụ 2: đọc ghi file (BAI.INP / BAI.OUT)', en: 'Example 2: file I/O (BAI.INP / BAI.OUT)',
+    slots: {
+      sol: { src: `// Cùng bài, nhưng đọc ghi file như nhiều đề thi Việt Nam.
+// Ở ô bên dưới đã chọn: Đọc input từ file BAI.INP, Ghi output ra file BAI.OUT (phải khớp với freopen).
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    freopen("BAI.INP", "r", stdin);
+    freopen("BAI.OUT", "w", stdout);
+    int n; cin >> n;
+    vector<long long> a(n);
+    for (auto &x : a) cin >> x;
+    long long best = 0, cur = 0;          // cùng lỗi như ví dụ 1
+    for (long long x : a) { cur = max(x, cur + x); best = max(best, cur); }
+    cout << best << "\\n";
+}
+`, io: { in: 'file', inName: 'BAI.INP', out: 'file', outName: 'BAI.OUT' } },
+      brute: { src: BRUTE_SAMPLE, io: { in: 'stdin', inName: '', out: 'stdout', outName: '' } },
+      gen: { src: GEN_SAMPLE },
+      checker: { src: '' },
+    },
+  },
+  {
+    key: 'checker', vi: 'Ví dụ 3: nhiều đáp án đúng, dùng checker', en: 'Example 3: many correct answers, with a checker',
+    slots: {
+      sol: { src: `// Bài: in ra vị trí (từ 1) của một phần tử lớn nhất. Có nhiều đáp án đúng nếu có nhiều phần tử bằng nhau.
+// Lỗi: khởi tạo mx = 0, sai khi mọi phần tử đều âm.
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int n; cin >> n;
+    vector<long long> a(n + 1);
+    int pos = 1; long long mx = 0;
+    for (int i = 1; i <= n; i++) { cin >> a[i]; if (a[i] >= mx) { mx = a[i]; pos = i; } }
+    cout << pos << "\\n";
+}
+`, io: { in: 'stdin', inName: '', out: 'stdout', outName: '' } },
+      brute: { src: '', io: { in: 'stdin', inName: '', out: 'stdout', outName: '' } },
+      gen: { src: GEN_SAMPLE },
+      checker: { src: `// Checker: chạy dạng  checker <input> <output> <answer>
+// Trả về 0 nếu output đúng, khác 0 nếu sai (in lý do ra stderr).
+#include <bits/stdc++.h>
+using namespace std;
+int main(int argc, char** argv) {
+    ifstream inp(argv[1]), out(argv[2]);
+    int n; inp >> n;
+    vector<long long> a(n + 1);
+    for (int i = 1; i <= n; i++) inp >> a[i];
+    long long pos;
+    if (!(out >> pos)) { cerr << "khong doc duoc output"; return 1; }
+    if (pos < 1 || pos > n) { cerr << "vi tri " << pos << " nam ngoai [1, n]"; return 1; }
+    long long mx = *max_element(a.begin() + 1, a.end());
+    if (a[pos] != mx) { cerr << "a[" << pos << "] = " << a[pos] << " nhung max = " << mx; return 1; }
+    return 0;
+}
+` },
+    },
+  },
+];
+function renderSamples() {
+  const sel = $('#slotSamples');
+  sel.innerHTML = `<option value="">${esc(t('slot.sample'))}</option>` + SAMPLES.map((x, i) => `<option value="${i}">${esc(x[I18N.lang === 'en' ? 'en' : 'vi'])}</option>`).join('');
+}
+$('#slotSamples').addEventListener('change', (e) => {
+  const ex = SAMPLES[e.target.value]; e.target.value = '';
+  if (!ex) return;
+  for (const k of SLOTS) {
+    const d = ex.slots[k];
+    Object.assign(S.slots[k], { src: d.src, file: d.src ? 'example_' + k + '.cpp' : '', lang: 'cpp' });
+    if (d.io) S.slots[k].io = Object.assign({}, d.io);
     delete compileState[k];
-  });
-  S.slots.gen.args = '{seed}';
-  S.run.benchArgs = '{seed} 10\n{seed} 1000\n{seed} 3000';
-  $('#rsBenchArgs').value = S.run.benchArgs;
+  }
+  S.cur = 'sol';
   renderSlot(); updateNeed(); persist();
-};
+  UI.toast(ex[I18N.lang === 'en' ? 'en' : 'vi']);
+});
 
 /* ---------------- compile settings ---------------- */
 function compilerValue() {
@@ -386,14 +471,14 @@ function renderRun() {
   $$('#modeSeg button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.mode === r.mode)));
   $$('[data-mode-only]').forEach((el) => { el.hidden = el.dataset.modeOnly !== r.mode; });
   $('#modeDesc').textContent = t('rs.d.' + r.mode);
-  $('#rsTL').value = r.tl; $('#rsML').value = r.ml; $('#rsSeed').value = r.seed; $('#rsCount').value = r.count;
+  $('#rsTL').value = r.tl; $('#rsML').value = r.ml; $('#rsCount').value = r.count;
   $('#rsBenchCount').value = r.benchCount; $('#rsCompare').value = r.compare; $('#rsEps').value = r.eps;
-  $('#rsBenchArgs').value = r.benchArgs; $('#rsStopFail').checked = r.stopFail; $('#rsVerify').checked = r.verify;
+  $('#rsStopFail').checked = r.stopFail; $('#rsVerify').checked = r.verify;
   $('#rsEpsWrap').hidden = r.compare !== 'float';
   updateNeed();
 }
 $('#modeSeg').addEventListener('click', (e) => { const b = e.target.closest('[data-mode]'); if (!b || running) return; S.run.mode = b.dataset.mode; renderRun(); persist(); });
-[['rsTL', 'tl'], ['rsML', 'ml'], ['rsSeed', 'seed'], ['rsCount', 'count'], ['rsBenchCount', 'benchCount'], ['rsCompare', 'compare'], ['rsEps', 'eps'], ['rsBenchArgs', 'benchArgs']].forEach(([id, key]) => {
+[['rsTL', 'tl'], ['rsML', 'ml'], ['rsCount', 'count'], ['rsBenchCount', 'benchCount'], ['rsCompare', 'compare'], ['rsEps', 'eps']].forEach(([id, key]) => {
   $('#' + id).addEventListener('input', (e) => { S.run[key] = e.target.value; if (key === 'compare') $('#rsEpsWrap').hidden = S.run.compare !== 'float'; persist(); });
 });
 $('#rsStopFail').addEventListener('change', (e) => { S.run.stopFail = e.target.checked; persist(); });
@@ -417,13 +502,13 @@ function updateNeed() {
 let running = false, stopFlag = false;
 const num = (s, d) => { try { const v = UI.numField(String(s)); return Number.isFinite(v) ? v : d; } catch (e) { return d; } };
 
-function payload(i, seed, genArgs, verify) {
+function payload(i, verify) {
   const sl = S.slots;
   const useBrute = !!sl.brute.src.trim() && verify;
   const useChk = !!sl.checker.src.trim() && verify;
   return {
-    index: i, seed, verify, save: S.run.mode === 'bench',
-    gen: { args: genArgs, io: sl.gen.io },
+    index: i, verify, save: S.run.mode === 'bench',
+    gen: { args: '', io: {} },
     sol: { io: sl.sol.io },
     brute: useBrute ? { io: sl.brute.io } : null,
     checker: useChk ? { args: sl.checker.args } : null,
@@ -446,8 +531,7 @@ function testDetail(r) {
   const dlink = (f) => (r.savedId ? `<a class="btn sm" href="${dl(r.savedId, f)}" download>${esc(t('res.download'))}</a>` : '');
   let h = out(
     kv(t('res.colV'), vChip(r.verdict) + (r.sol ? ` <span class="hint">${esc(fmtMs(r.sol.time_ms))} · ${esc(fmtMb(r.sol.mem_mb))}</span>` : '')) +
-    (r.message ? kv(t('res.msg'), `<span class="failmsg">${esc(r.message)}</span>`) : '') +
-    kv(t('res.genArgs'), `<span class="mono">${esc(r.genArgs || '')}</span>`, 'seed = ' + r.seed));
+    (r.message ? kv(t('res.msg'), `<span class="failmsg">${esc(r.message)}</span>`) : ''));
   h += `<div class="io3">
     <div><div class="lbl">${esc(t('res.input'))}${dlink('input')}</div>${pre(r.inputPreview, r.inputTrunc)}</div>
     <div><div class="lbl">${esc(t('res.output'))}${dlink('output')}</div>${pre(r.outPreview, r.outTrunc)}</div>
@@ -493,6 +577,7 @@ function renderResults() {
       kv(t('res.maxTime'), R.ran ? `${chip(timeCls(R.maxT), fmtMs(R.maxT))}` : '—', R.ran ? esc(t('res.atTest', { i: R.maxTi })) : '') +
       kv(t('res.maxMem'), R.ran ? esc(fmtMb(R.maxM)) : '—'));
     if (total) h += `<div class="progress"><span style="width:${Math.min(100, R.ran / total * 100)}%"></span></div>`;
+    if (R.dupWarn) h += `<div class="msg err">${esc(t('res.dup'))}</div>`;
     if (R.fails.length) {
       if (R.fails.length > 1) h += `<div class="lbl">${esc(t('res.failures'))}: ${R.fails.map((f) => '#' + f.index).join(', ')}</div>`;
       h += testDetail(R.fails[R.fails.length - 1]);
@@ -511,20 +596,20 @@ function renderResults() {
       kv(t('res.avgTime'), times.length ? esc(fmtMs(times.reduce((a, b) => a + b, 0) / times.length)) : '—') +
       kv(t('res.maxMem'), mems.length ? esc(fmtMb(Math.max(...mems))) : '—'));
     h += `<div class="progress"><span style="width:${done.length / rows.length * 100}%"></span></div>`;
-    h += `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>${t('res.colNo')}</th><th>${t('res.colArgs')}</th><th>${t('res.colV')}</th><th class="num">${t('res.colT')}</th><th class="num">${t('res.colM')}</th><th class="num">${t('res.colIn')}</th></tr></thead><tbody>` +
-      rows.map((r, i) => r ? `<tr class="click${R.sel === i ? ' hl' : ''}" data-idx="${i}"><td class="num">${r.index}</td><td class="mono">${esc(r.genArgs || '')}</td><td>${vChip(r.verdict)}</td>
+    h += `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>${t('res.colNo')}</th><th>${t('res.colV')}</th><th class="num">${t('res.colT')}</th><th class="num">${t('res.colM')}</th><th class="num">${t('res.colIn')}</th></tr></thead><tbody>` +
+      rows.map((r, i) => r ? `<tr class="click${R.sel === i ? ' hl' : ''}" data-idx="${i}"><td class="num">${r.index}</td><td>${vChip(r.verdict)}</td>
         <td class="num">${r.sol ? chip(timeCls(r.sol.time_ms), fmtMs(r.sol.time_ms)) : '—'}</td><td class="num">${r.sol ? esc(fmtMb(r.sol.mem_mb)) : '—'}</td><td class="num">${esc(CP.fmtBytes(r.inputBytes || 0))}</td></tr>`
-        : `<tr><td class="num">${i + 1}</td><td colspan="5" class="hint">…</td></tr>`).join('') + '</tbody></table></div>';
+        : `<tr><td class="num">${i + 1}</td><td colspan="4" class="hint">…</td></tr>`).join('') + '</tbody></table></div>';
     h += `<div class="row"><button class="btn sm" id="csvBtn"${done.length ? '' : ' disabled'}>${esc(t('res.csv'))}</button><span class="hint">${esc(t('res.clickRow'))}</span></div>`;
     if (R.sel !== undefined && rows[R.sel]) h += testDetail(rows[R.sel]);
     body.innerHTML = h;
   }
 }
 function exportCsv() {
-  const lines = [['test', 'seed', 'args', 'verdict', 'time_ms', 'wall_ms', 'mem_mb', 'input_bytes', 'message'].join(',')];
+  const lines = [['test', 'verdict', 'time_ms', 'wall_ms', 'mem_mb', 'input_bytes', 'message'].join(',')];
   R.rows.filter(Boolean).forEach((r) => {
     const q = (s) => '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"';
-    lines.push([r.index, r.seed, q(r.genArgs), r.verdict, r.sol ? r.sol.time_ms : '', r.sol ? r.sol.wall_ms : '', r.sol ? r.sol.mem_mb : '', r.inputBytes || '', q(r.message)].join(','));
+    lines.push([r.index, r.verdict, r.sol ? r.sol.time_ms : '', r.sol ? r.sol.wall_ms : '', r.sol ? r.sol.mem_mb : '', r.inputBytes || '', q(r.message)].join(','));
   });
   const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
   const a = document.createElement('a');
@@ -554,14 +639,17 @@ $('#rsStart').onclick = async () => {
   $('#resBody').innerHTML = `<div class="empty">${esc(t('res.compiling'))}</div>`;
   const ok = await compileSlots(need);
   if (!ok) { R.state = 'compileErr'; R.mode = null; setRunning(false); $('#resBody').innerHTML = `<div class="msg err">${esc(t('cp.err', { slot: need.filter((k) => compileState[k] === 'bad').map((k) => t('slot.' + k)).join(', ') }))}</div>`; return; }
-  const seed0 = Math.floor(num(S.run.seed, 1));
   try {
     if (mode === 'stress') {
       const total = Math.max(0, Math.floor(num(S.run.count, 500)));
       R.total = total;
       for (let i = 1; (total === 0 || i <= total) && !stopFlag; i++) {
-        const r = await api('/api/test', payload(i, seed0 + i - 1, S.slots.gen.args, true));
+        const r = await api('/api/test', payload(i, true));
         R.ran++;
+        // a generator seeded with a constant (or time(0)) keeps printing the same test
+        if (r.inputPreview === R.lastInput) R.same = (R.same || 0) + 1; else R.same = 0;
+        R.lastInput = r.inputPreview;
+        if (R.same >= 4) R.dupWarn = true;
         if (r.sol && r.sol.time_ms >= R.maxT) { R.maxT = r.sol.time_ms; R.maxTi = i; }
         if (r.sol) R.maxM = Math.max(R.maxM, r.sol.mem_mb);
         if (r.verdict === 'AC') R.passed++;
@@ -573,13 +661,11 @@ $('#rsStart').onclick = async () => {
       }
       if (R.state === 'running') R.state = stopFlag ? 'stopped' : R.fails.length ? 'fail' : 'done';
     } else {
-      const lines = S.run.benchArgs.split('\n').map((s) => s.trim()).filter(Boolean);
-      const n = lines.length || Math.max(1, Math.floor(num(S.run.benchCount, 10)));
+      const n = Math.max(1, Math.floor(num(S.run.benchCount, 10)));
       R.rows = new Array(n).fill(null);
       renderResults();
       for (let i = 0; i < n && !stopFlag; i++) {
-        const args = lines.length ? lines[i] : S.slots.gen.args;
-        const r = await api('/api/test', payload(i + 1, seed0 + i, args, verify));
+        const r = await api('/api/test', payload(i + 1, verify));
         R.rows[i] = r;
         renderResults();
       }
@@ -589,6 +675,121 @@ $('#rsStart').onclick = async () => {
   setRunning(false);
   renderResults();
 };
+
+/* ---------------- guide ---------------- */
+const G_SOL_STDIN = `#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int n; cin >> n;                 // đọc từ stdin
+    vector<long long> a(n);
+    for (auto &x : a) cin >> x;
+    cout << *max_element(a.begin(), a.end()) << "\\n";   // in ra stdout
+}`;
+const G_SOL_FILE = `#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    freopen("BAI.INP", "r", stdin);  // tên file phải khớp với ô "Tên file input"
+    freopen("BAI.OUT", "w", stdout); // và ô "Tên file output"
+    int n; cin >> n;
+    vector<long long> a(n);
+    for (auto &x : a) cin >> x;
+    cout << *max_element(a.begin(), a.end()) << "\\n";
+}`;
+const G_GEN = `#include <bits/stdc++.h>
+using namespace std;
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+long long rnd(long long l, long long r) { return uniform_int_distribution<long long>(l, r)(rng); }
+
+int main() {
+    int n = rnd(1, 10);              // giới hạn: sửa thẳng ở đây
+    cout << n << "\\n";
+    for (int i = 0; i < n; i++) cout << rnd(-10, 10) << " \\n"[i == n - 1];
+}`;
+const G_GEN_MORE = `// Hoán vị 1..n
+vector<int> p(n); iota(p.begin(), p.end(), 1); shuffle(p.begin(), p.end(), rng);
+
+// Cây n đỉnh ngẫu nhiên (in n-1 cạnh)
+for (int v = 2; v <= n; v++) cout << rnd(1, v - 1) << " " << v << "\\n";
+
+// Đồ thị n đỉnh m cạnh, không cạnh lặp, không khuyên
+set<pair<int,int>> used;
+while ((int)used.size() < m) {
+    int u = rnd(1, n), v = rnd(1, n);
+    if (u == v || used.count({min(u, v), max(u, v)})) continue;
+    used.insert({min(u, v), max(u, v)});
+    cout << u << " " << v << "\\n";
+}
+
+// Chuỗi độ dài n chỉ gồm 'a', 'b'
+string s(n, 'a'); for (auto &c : s) c = 'a' + rnd(0, 1);`;
+const G_GEN_PY = `import random
+n = random.randint(1, 10)            # random tự seed theo thời gian
+print(n)
+print(*[random.randint(-10, 10) for _ in range(n)])`;
+const G_CHECKER = `#include <bits/stdc++.h>
+using namespace std;
+// Chạy dạng: checker <input> <output> <answer>
+//   input  = test, output = output của code cần kiểm tra, answer = output của code trâu (rỗng nếu không có)
+// Trả về 0 nếu đúng; khác 0 nếu sai, in lý do ra stderr (hiện ở phần Chi tiết).
+int main(int argc, char** argv) {
+    ifstream inp(argv[1]), out(argv[2]), ans(argv[3]);
+    long long n; inp >> n;
+    long long got, expected;
+    if (!(out >> got)) { cerr << "khong doc duoc output"; return 1; }
+    ans >> expected;
+    if (got != expected) { cerr << "doc duoc " << got << ", dap an " << expected; return 1; }
+    return 0;
+}`;
+function codeBlock(code) {
+  return `<div class="gd-code"><button class="btn sm" data-copy="${esc(code)}">${esc(t('gd.copy'))}</button><pre class="log">${esc(code)}</pre></div>`;
+}
+function renderGuide() {
+  const en = I18N.lang === 'en';
+  const T = (vi, enT) => (en ? enT : vi);
+  $('#stressGuideBody').innerHTML = `
+  <div class="gd">
+    <section><h4>${T('1. Stress test chạy thế nào', '1. How a stress test runs')}</h4>
+      <ol class="steps-list">
+        <li>${T('Chạy <b>Sinh test</b> → được một test (input).', 'Run the <b>Generator</b> → one test (input).')}</li>
+        <li>${T('Chạy <b>Code cần kiểm tra</b> và <b>Code trâu</b> với cùng input đó.', 'Run the <b>Solution</b> and the <b>Brute force</b> on that input.')}</li>
+        <li>${T('So hai output (hoặc hỏi <b>Checker</b>). Giống nhau thì lặp lại với test mới, khác nhau thì dừng và hiện test sai.', 'Compare the outputs (or ask the <b>Checker</b>). Same → next test; different → stop and show the failing test.')}</li>
+      </ol>
+      <p class="hint">${T('Không biết bắt đầu từ đâu? Chọn "Nạp ví dụ…" ở ô Chương trình rồi bấm Bắt đầu.', 'Not sure where to start? Pick "Load an example…" in Programs and press Start.')}</p>
+    </section>
+    <section><h4>${T('2. Code cần kiểm tra và code trâu: stdin hay file', '2. Solution and brute force: stdin or files')}</h4>
+      <p>${T('<b>Đọc ghi stdin / stdout</b> (mặc định): để nguyên "Đọc input từ: stdin", "Ghi output ra: stdout".', '<b>stdin / stdout</b> (default): keep "Read input from: stdin" and "Write output to: stdout".')}</p>
+      ${codeBlock(G_SOL_STDIN)}
+      <p>${T('<b>Đọc ghi file</b> (freopen): chọn "Đọc input từ: file" và "Ghi output ra: file", rồi điền <b>đúng tên file</b> như trong code (ví dụ BAI.INP, BAI.OUT). Để trống thì là input.txt / output.txt. Mỗi chương trình đặt riêng: code trâu vẫn dùng stdin được.', '<b>Files</b> (freopen): choose "file" for both, then type <b>exactly the file names</b> used in the code (e.g. BAI.INP, BAI.OUT). Empty means input.txt / output.txt. Each program has its own setting: the brute force can still use stdin.')}</p>
+      ${codeBlock(G_SOL_FILE)}
+    </section>
+    <section><h4>${T('3. Sinh test', '3. Generator')}</h4>
+      <p>${T('Là một chương trình bình thường, biên dịch như thường, <b>không nhận tham số</b>, chỉ in một test ra stdout. Muốn đổi giới hạn (n, giá trị…) thì sửa thẳng trong code. Seed <code>mt19937</code> bằng đồng hồ để mỗi lần chạy ra test khác. Đừng dùng <code>srand(time(0))</code>: nó đổi theo giây nên nhiều lần chạy liền nhau ra cùng một test.', 'A normal program, compiled as usual, <b>with no arguments</b>, that prints one test to stdout. Change the limits (n, values…) directly in the code. Seed <code>mt19937</code> with the clock so every run differs. Avoid <code>srand(time(0))</code>: it changes once per second, so consecutive runs repeat the same test.')}</p>
+      ${codeBlock(G_GEN)}
+      <p>${T('Mẹo: để n nhỏ (5 đến 10) thì test sai dễ đọc. Vài đoạn hay dùng:', 'Tip: keep n small (5 to 10) so a failing test is easy to read. Handy snippets:')}</p>
+      ${codeBlock(G_GEN_MORE)}
+      <p>${T('Viết bằng Python cũng được (chọn Ngôn ngữ: Python):', 'Python works too (Language: Python):')}</p>
+      ${codeBlock(G_GEN_PY)}
+    </section>
+    <section><h4>${T('4. So output và checker', '4. Comparing outputs and checkers')}</h4>
+      <p>${T('Không có checker thì output được so với code trâu theo ô "Cách so output": bỏ qua khoảng trắng (mặc định), theo dòng, đúng từng byte, hoặc số thực sai số ε.', 'Without a checker, outputs are compared with the brute force using "Output comparison": ignore whitespace (default), line by line, exact bytes, or floats within ε.')}</p>
+      <p>${T('Bài có nhiều đáp án đúng thì cần <b>checker</b>. Checker trả về 0 là đúng; khi đó không bắt buộc có code trâu (Ví dụ 3).', 'Problems with several correct answers need a <b>checker</b>. It returns 0 for correct; then a brute force is optional (Example 3).')}</p>
+      ${codeBlock(G_CHECKER)}
+    </section>
+    <section><h4>${T('5. Đọc kết quả', '5. Reading the results')}</h4>
+      <ul class="steps-list">
+        <li><b>AC</b> ${T('đúng', 'correct')} · <b>WA</b> ${T('sai, xem "Chi tiết" để biết token / dòng khác nhau đầu tiên', 'wrong, see "Details" for the first differing token / line')}</li>
+        <li><b>TLE / MLE</b> ${T('quá thời gian / bộ nhớ đặt ở ô Time limit, Memory limit', 'over the Time / Memory limit you set')}</li>
+        <li><b>RE</b> ${T('chương trình lỗi khi chạy, kèm lý do (Stack overflow, Access violation, chia cho 0…)', 'the program crashed, with the reason (Stack overflow, Access violation, division by zero…)')}</li>
+        <li><b>${T('Lỗi trình sinh / code trâu / checker', 'Generator / brute force / checker error')}</b> ${T('chính các chương trình đó bị lỗi, không phải code cần kiểm tra', 'those programs failed, not your solution')}</li>
+      </ul>
+      <p class="hint">${T('Test sai được lưu trong cp-calc/work/saved/, có nút tải input / output / đáp án và nút "Mở dạng đồ thị".', 'Failing tests are saved in cp-calc/work/saved/, with download buttons and "Open as graph".')}</p>
+    </section>
+  </div>`;
+}
+I18N.add({ vi: { 'gd.title': 'Hướng dẫn & code mẫu', 'gd.sub': 'stdin, đọc ghi file, sinh test, checker', 'gd.copy': 'Chép' },
+  en: { 'gd.title': 'Guide & code templates', 'gd.sub': 'stdin, file I/O, generators, checkers', 'gd.copy': 'Copy' } });
+renderGuide(); renderSamples();
+I18N.onChange(() => { renderGuide(); renderSamples(); });
 
 /* ---------------- init ---------------- */
 renderSlot(); renderCompile(); renderRun(); renderResults();

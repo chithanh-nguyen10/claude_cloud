@@ -180,7 +180,6 @@ function genCard(p) {
       <p class="hint" data-i18n="c.specCodeHint"></p>
       <div class="fields">
         <div class="field"><label for="${p}GenLang" data-i18n="c.lang"></label><select class="input" id="${p}GenLang"><option value="cpp">C++</option><option value="py">Python</option></select></div>
-        <div class="field span2"><label for="${p}GenArgs" data-i18n="c.genArgs"></label><input class="input mono" id="${p}GenArgs" value="{seed}"></div>
         <div class="field full"><label for="${p}GenCode" data-i18n="c.genCodeLbl"></label><textarea class="input code" id="${p}GenCode" rows="8" spellcheck="false" style="min-height:140px"></textarea></div>
       </div>
     </div>
@@ -263,8 +262,8 @@ function wireGenSrc(p) {
 wireGenSrc('dn'); wireGenSrc('al');
 $('#dnGenCode').value = $('#alGenCode').value = `#include <bits/stdc++.h>
 using namespace std;
-int main(int argc, char** argv) {
-    mt19937 rng(argc > 1 ? atoi(argv[1]) : 1);
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+int main() {
     int n = rng() % 10 + 1, k = rng() % n + 1;
     cout << n << " " << k << "\\n";
     for (int i = 0; i < n; i++) cout << (int)(rng() % 21) - 10 << " \\n"[i + 1 == n];
@@ -274,8 +273,7 @@ int main(int argc, char** argv) {
 /* Get one test: { text, vars } from the spec or a generator program */
 async function getTest(p, spec, seed) {
   if ($(`#${p}GenSrc`).value === 'code') {
-    const args = $(`#${p}GenArgs`).value.replace(/\{seed\}/g, seed).split(/\s+/).filter(Boolean);
-    const r = await Runner.exec(p + 'gen', '', args, 10000);
+    const r = await Runner.exec(p + 'gen', '', [], 10000);
     if (r.status !== 'OK') throw new Error((r.note || r.status) + (r.stderr ? ': ' + r.stderr.slice(0, 200) : ''));
     return G.read(spec, r.stdout);
   }

@@ -365,6 +365,11 @@
       </div>
     </div>
 
+    <details class="card guide" id="stressGuide">
+      <summary><span data-i18n="gd.title"></span><span class="hint" data-i18n="gd.sub"></span></summary>
+      <div class="card-body" id="stressGuideBody"></div>
+    </details>
+
     <div class="stress-grid">
       <div class="content">
         <!-- Programs -->
@@ -381,7 +386,7 @@
             <div class="row">
               <button class="btn sm" id="slotLoad" data-i18n="slot.load"></button>
               <button class="btn sm" id="slotClear" data-i18n="slot.clear"></button>
-              <button class="btn sm" id="slotSample" data-i18n="slot.sample"></button>
+              <select class="input" id="slotSamples" style="width:auto"></select>
               <span class="hint mono" id="slotFile"></span>
               <div class="grow"></div>
               <label class="lbl" for="slotLang" data-i18n="slot.lang"></label>
@@ -391,10 +396,10 @@
             <div class="fields" id="slotIO">
               <div class="field" data-io="in"><label for="ioIn" data-i18n="io.in"></label>
                 <select class="input" id="ioIn"><option value="stdin">stdin</option><option value="file" data-i18n="io.file"></option></select></div>
-              <div class="field" data-io="inName"><label for="ioInName" data-i18n="io.inName"></label><input class="input mono" id="ioInName" placeholder="BAI.INP"></div>
+              <div class="field" data-io="inName"><label for="ioInName" data-i18n="io.inName"></label><input class="input mono" id="ioInName" placeholder="input.txt"></div>
               <div class="field" data-io="out"><label for="ioOut" data-i18n="io.out"></label>
                 <select class="input" id="ioOut"><option value="stdout">stdout</option><option value="file" data-i18n="io.file"></option></select></div>
-              <div class="field" data-io="outName"><label for="ioOutName" data-i18n="io.outName"></label><input class="input mono" id="ioOutName" placeholder="BAI.OUT"></div>
+              <div class="field" data-io="outName"><label for="ioOutName" data-i18n="io.outName"></label><input class="input mono" id="ioOutName" placeholder="output.txt"></div>
               <div class="field full" data-io="args"><label for="ioArgs" data-i18n="io.args"></label><input class="input mono" id="ioArgs"></div>
             </div>
             <p class="hint" id="slotIOHint"></p>
@@ -440,7 +445,6 @@
             <div class="fields">
               <div class="field"><label for="rsTL" data-i18n="rs.tl"></label><input class="input mono" id="rsTL" value="1000"></div>
               <div class="field"><label for="rsML" data-i18n="rs.ml"></label><input class="input mono" id="rsML" value="256"></div>
-              <div class="field"><label for="rsSeed" data-i18n="rs.seed"></label><input class="input mono" id="rsSeed" value="1"></div>
               <div class="field" data-mode-only="stress"><label for="rsCount" data-i18n="rs.count"></label><input class="input mono" id="rsCount" value="500"></div>
               <div class="field" data-mode-only="bench"><label for="rsBenchCount" data-i18n="rs.benchCount"></label><input class="input mono" id="rsBenchCount" value="10"></div>
               <div class="field span2"><label for="rsCompare" data-i18n="rs.compare"></label>
@@ -449,8 +453,6 @@
                   <option value="exact" data-i18n="cmp.exact"></option><option value="float" data-i18n="cmp.float"></option>
                 </select></div>
               <div class="field" id="rsEpsWrap" hidden><label for="rsEps">ε</label><input class="input mono" id="rsEps" value="1e-6"></div>
-              <div class="field full" data-mode-only="bench"><label for="rsBenchArgs" data-i18n="rs.benchArgs"></label>
-                <textarea class="input" id="rsBenchArgs" rows="4" data-i18n-ph="rs.benchArgsPh"></textarea></div>
             </div>
             <div class="row">
               <label class="check-row" data-mode-only="stress"><input type="checkbox" id="rsStopFail" checked> <span data-i18n="rs.stopFail"></span></label>

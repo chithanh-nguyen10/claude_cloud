@@ -585,7 +585,8 @@ def do_test(req):
         gen = req.get("gen") or {}
         input_path = run / "input.txt"
         if gen.get("use", True):
-            gargs = render(gen.get("args") or "{seed}", {"seed": seed, "i": idx, "test": idx})
+            # the generator is a normal program: no arguments unless the caller asks for some
+            gargs = render(gen.get("args") or "", {"seed": seed, "i": idx, "test": idx})
             result["genArgs"] = " ".join(gargs)
             gres, gout = run_slot("gen", gen, run / "gen", None, 0, 0, float(gen.get("timeout_ms") or 30000), gargs)
             result["gen"] = gres

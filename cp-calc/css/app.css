@@ -320,3 +320,15 @@ details.ge-box[open] > summary { margin-bottom: 4px; }
 
 .chart-box { border: 1px solid var(--line); border-radius: 8px; background: var(--code-bg); padding: 6px; }
 .chart-box svg { display: block; max-width: 100%; height: auto; }
+
+details.guide > summary { cursor: pointer; padding: 12px 16px; font-weight: 700; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; list-style: none; }
+details.guide > summary::before { content: "▸"; color: var(--accent); }
+details.guide[open] > summary::before { content: "▾"; }
+.gd { columns: 2 480px; column-gap: 28px; }
+.gd section { display: flex; flex-direction: column; gap: 8px; min-width: 0; font-size: 13.5px; break-inside: avoid; margin-bottom: 20px; }
+.gd h4 { margin: 0; font-size: 14px; }
+.gd p { margin: 0; }
+.gd code { background: var(--surface-2); padding: 0 4px; border-radius: 4px; }
+.gd-code { position: relative; }
+.gd-code .btn { position: absolute; right: 6px; top: 6px; }
+.gd-code pre.log { max-height: 320px; padding-right: 60px; }
