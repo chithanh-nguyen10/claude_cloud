@@ -30,7 +30,9 @@ Tuỳ chọn: `--port 9000` để đổi cổng, `--no-browser` để không t�
 - **Số học**:
   - **Ước lượng nhanh** cho một N: số ước lớn nhất, số ước trung bình, max ω và Ω, số squarefree; π(N) (chính xác đến 1e11 và tại mọi 10^k ≤ 1e18, ngoài ra ≈ li(N) kèm chặn Dusart); số nguyên tố liền trước / kế tiếp N; số nguyên tố thứ N.
   - Phân tích thừa số (Pollard-rho, đến 1e30), d / σ / φ, số ước lớn nhất ≤ N (đến 1e24, bảng 1e1…1e18 kèm π), Σd(i), Σσ(i).
-  - Hàm mới: `nextprime prevprime nthprime maxomega`.
+  - **Phân tích một số**: phân tích, d / σ / φ, ω và Ω, ước nguyên tố nhỏ nhất và lớn nhất, rad(n), có phải squarefree / lũy thừa đúng không, danh sách mọi ước (khi ≤ 5000 ước), nút chép.
+  - **Phân tích nhiều số**: dán một danh sách (viết được biểu thức như `2^61-1`), ra bảng phân tích, d(n), ω.
+  - Hàm mới: `factor nextprime prevprime nthprime maxomega omega bigomega spf lpf`.
 - **Tổ hợp**: giá trị chính xác, và bảng kiểm tra vét cạn có chạy kịp không.
 
 ## Phần 2: An toàn

@@ -623,7 +623,29 @@ function ackermannInverse(n) {
 
 /* ---------------- Evaluation ---------------- */
 // Approximate huge results are returned as {approxLog10}; arithmetic on them converts to Number.
-const unwrap = (v) => (v && typeof v === 'object' && 'approxLog10' in v ? Math.pow(10, v.approxLog10) : v);
+const unwrap = (v) => {
+  if (v && typeof v === 'object' && 'display' in v) throw new CalcError('err.notNumber', { what: v.copy });
+  return v && typeof v === 'object' && 'approxLog10' in v ? Math.pow(10, v.approxLog10) : v;
+};
+const SUPS = { 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹' };
+/* factorization as text: pretty (2⁶ · 3³ · 7) and plain (2^6 * 3^3 * 7) */
+function factorText(f) {
+  if (!f.length) return { pretty: '1', plain: '1' };
+  return {
+    pretty: f.map(([p, e]) => p.toString() + (e > 1 ? String(e).split('').map((d) => SUPS[d]).join('') : '')).join(' · '),
+    plain: f.map(([p, e]) => p.toString() + (e > 1 ? '^' + e : '')).join(' * '),
+  };
+}
+/* all divisors in increasing order (caller limits the count) */
+function divisors(f) {
+  let ds = [1n];
+  for (const [p, e] of f) {
+    const next = [];
+    for (const d of ds) { let m = d; for (let k = 0; k <= e; k++) { next.push(m); m *= p; } }
+    ds = next;
+  }
+  return ds.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+}
 
 const CONSTS = { pi: Math.PI, PI: Math.PI, e: Math.E, E: Math.E, inf: Infinity, INF: Infinity };
 
@@ -667,6 +689,11 @@ const FUNCS = {
   d: (a) => { needArgs('d', a, 1); return numDivisors(unwrap(a[0])); },
   sigma: (a) => { needArgs('sigma', a, 1); return sumDivisors(unwrap(a[0])); },
   phi: (a) => { needArgs('phi', a, 1); return phi(unwrap(a[0])); },
+  factor: (a) => { needArgs('factor', a, 1); const ft = factorText(factorize(unwrap(a[0]))); return { display: ft.pretty, copy: ft.plain }; },
+  omega: (a) => { needArgs('omega', a, 1); return BigInt(factorize(unwrap(a[0])).length); },
+  bigomega: (a) => { needArgs('bigomega', a, 1); return BigInt(factorize(unwrap(a[0])).reduce((s, [, e]) => s + e, 0)); },
+  spf: (a) => { needArgs('spf', a, 1); const f = factorize(unwrap(a[0])); if (!f.length) throw new CalcError('err.needPositive', { fn: 'spf (n > 1)' }); return f[0][0]; },
+  lpf: (a) => { needArgs('lpf', a, 1); const f = factorize(unwrap(a[0])); if (!f.length) throw new CalcError('err.needPositive', { fn: 'lpf (n > 1)' }); return f[f.length - 1][0]; },
   totient: (a) => { needArgs('totient', a, 1); return phi(unwrap(a[0])); },
   ackinv: (a) => { needArgs('ackinv', a, 1); return ackermannInverse(unwrap(a[0])); },
   alpha: (a) => { needArgs('alpha', a, 1); return ackermannInverse(unwrap(a[0])); },
@@ -813,6 +840,7 @@ function plainNum(x) {
 }
 /* Returns { main, sub, exact } for display */
 function formatValue(v) {
+  if (v && typeof v === 'object' && 'display' in v) return { main: v.display, sub: '', exact: true, copy: v.copy };
   if (v && typeof v === 'object' && 'approxLog10' in v) {
     const e = Math.floor(v.approxLog10), m = Math.pow(10, v.approxLog10 - e);
     return { main: '≈ ' + m.toFixed(3) + 'e' + e, sub: '', exact: false, copy: m.toFixed(6) + 'e' + e };
@@ -853,7 +881,7 @@ function fmtBytes(b) {
 global.CP = {
   CalcError, isBig, toNum, unwrap, toBigInt, bitLen, log2Any,
   tokenize, parse, parseLine, parseVars, evaluate, compileFloat, A,
-  isPrime, factorize, numDivisors, sumDivisors, phi, maxDivisors, maxDistinctPrimes,
+  isPrime, factorize, factorText, divisors, numDivisors, sumDivisors, phi, maxDivisors, maxDistinctPrimes,
   primePiExact, PRIMEPI_LIMIT, primePi, primePiBounds, PI_POW10, nextPrime, prevPrime, nthPrime, nthPrimeBounds, NTHPRIME_LIMIT, li, sumFloor, SUMFLOOR_LIMIT, distinctFloor, isqrt, sumSigma, SUMSIGMA_LIMIT,
   harmonic, ackermannInverse, sumInvPrimes, factorial, binom, perm, catalan, partitions, bell, stirling1, stirling2, fib, lgammaApprox,
   sciFromBig, sciNum, plainNum, formatValue, fmtCount, fmtTime, fmtBytes, FUNCS,

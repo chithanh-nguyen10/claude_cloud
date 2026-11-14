@@ -48,6 +48,11 @@ I18N.add({
     'nt.title': 'Số học', 'nt.desc': 'Phân tích thừa số (Pollard-rho, đến 1e30), số ước, tổng ước, số ước lớn nhất, đếm số nguyên tố.',
     'nt.one': 'Phân tích một số', 'nt.fac': 'Phân tích', 'nt.d': 'd(n) số ước', 'nt.sigma': 'σ(n) tổng ước', 'nt.phi': 'φ(n)', 'nt.prime': 'Nguyên tố?',
     'nt.yes': 'Có', 'nt.no': 'Không', 'nt.maxdiv': 'Số ước nhiều nhất', 'nt.maxdivCount': 'Số ước lớn nhất của x ≤ N', 'nt.maxdivNum': 'Đạt tại x =',
+    'nt.omegaN': 'ω(n): số ước nguyên tố phân biệt', 'nt.bigOmega': 'Ω(n): số thừa số nguyên tố (tính lặp)', 'nt.spf': 'Ước nguyên tố nhỏ nhất / lớn nhất',
+    'nt.kind': 'Tính chất', 'nt.squarefree': 'không chính phương (squarefree)', 'nt.power': 'lũy thừa đúng: {b}^{g}', 'nt.rad': 'rad(n): tích các ước nguyên tố',
+    'nt.divs': 'Các ước', 'nt.divsMany': 'có {n} ước, chỉ hiện khi ≤ 5000', 'nt.copyPlain': 'Chép dạng p^e', 'nt.copyLines': 'Chép dạng "p e" từng dòng', 'nt.copyDivs': 'Chép các ước',
+    'fb.title': 'Phân tích nhiều số', 'fb.in': 'Các số (cách nhau bởi dấu cách hoặc xuống dòng; viết được biểu thức như 2^61-1, 1e18+9)', 'fb.copy': 'Chép kết quả',
+    'fb.colN': 'n', 'fb.colF': 'Phân tích', 'fb.colD': 'd(n)', 'fb.colW': 'ω', 'fb.info': '{n} số · {ms} ms', 'fb.max': 'Chỉ phân tích 300 số đầu',
     'est.title': 'Ước lượng nhanh', 'est.hint': 'Các con số hay cần khi chọn thuật toán và giới hạn mảng. Số đánh dấu "≈" là ước lượng, còn lại là chính xác.',
     'est.div': 'Ước', 'est.prime': 'Số nguyên tố', 'est.maxd': 'Số ước nhiều nhất của x ≤ N', 'est.maxdAt': 'đạt tại x = {x}', 'est.cbrt': 'Quy tắc nhanh: d(x) thường ≤ khoảng ∛x · 2 (∛N = {v})',
     'est.avgd': 'Số ước trung bình (x ≤ N)', 'est.avgdSub': '≈ ln N', 'est.maxw': 'Số ước nguyên tố phân biệt nhiều nhất', 'est.maxW': 'Số thừa số nguyên tố nhiều nhất (tính lặp)', 'est.maxWSub': '⌊log₂ N⌋, đạt tại 2^k',
@@ -111,6 +116,11 @@ I18N.add({
     'nt.title': 'Number theory', 'nt.desc': 'Factorization (Pollard-rho, up to 1e30), divisor count and sum, maximum divisor count, prime counting.',
     'nt.one': 'Factor a number', 'nt.fac': 'Factorization', 'nt.d': 'd(n) divisor count', 'nt.sigma': 'σ(n) divisor sum', 'nt.phi': 'φ(n)', 'nt.prime': 'Prime?',
     'nt.yes': 'Yes', 'nt.no': 'No', 'nt.maxdiv': 'Most divisors', 'nt.maxdivCount': 'Max divisor count for x ≤ N', 'nt.maxdivNum': 'Reached at x =',
+    'nt.omegaN': 'ω(n): distinct prime factors', 'nt.bigOmega': 'Ω(n): prime factors with repetition', 'nt.spf': 'Smallest / largest prime factor',
+    'nt.kind': 'Properties', 'nt.squarefree': 'squarefree', 'nt.power': 'perfect power: {b}^{g}', 'nt.rad': 'rad(n): product of the prime factors',
+    'nt.divs': 'Divisors', 'nt.divsMany': '{n} divisors, listed only when ≤ 5000', 'nt.copyPlain': 'Copy as p^e', 'nt.copyLines': 'Copy as "p e" lines', 'nt.copyDivs': 'Copy divisors',
+    'fb.title': 'Factor many numbers', 'fb.in': 'Numbers (separated by spaces or new lines; expressions like 2^61-1, 1e18+9 work)', 'fb.copy': 'Copy results',
+    'fb.colN': 'n', 'fb.colF': 'Factorization', 'fb.colD': 'd(n)', 'fb.colW': 'ω', 'fb.info': '{n} numbers · {ms} ms', 'fb.max': 'Only the first 300 numbers are factored',
     'est.title': 'Quick estimates', 'est.hint': 'Numbers you often need when choosing an algorithm or array sizes. Values marked "≈" are estimates, the rest are exact.',
     'est.div': 'Divisors', 'est.prime': 'Primes', 'est.maxd': 'Max divisor count for x ≤ N', 'est.maxdAt': 'reached at x = {x}', 'est.cbrt': 'Rule of thumb: d(x) is usually ≤ about 2·∛x (∛N = {v})',
     'est.avgd': 'Average divisor count (x ≤ N)', 'est.avgdSub': '≈ ln N', 'est.maxw': 'Max number of distinct prime factors', 'est.maxW': 'Max number of prime factors (with repetition)', 'est.maxWSub': '⌊log₂ N⌋, reached at 2^k',
@@ -146,6 +156,8 @@ const FNREF = [
   ['catalan fib partitions bell', 'Catalan, Fibonacci, phân hoạch p(n), Bell', 'Catalan, Fibonacci, partitions p(n), Bell'],
   ['S1(n,k)  S2(n,k)', 'Stirling loại 1 (không dấu), loại 2', 'Stirling numbers of the 1st (unsigned) and 2nd kind'],
   ['d sigma isprime', 'Số ước, tổng ước, kiểm tra nguyên tố', 'Divisor count, divisor sum, primality'],
+  ['factor(n)', 'Phân tích thừa số nguyên tố, vd factor(360) = 2³ · 3² · 5', 'Prime factorization, e.g. factor(360) = 2³ · 3² · 5'],
+  ['omega bigomega spf lpf', 'Số ước nguyên tố phân biệt, tính lặp; ước nguyên tố nhỏ nhất, lớn nhất', 'Distinct / total prime factors; smallest / largest prime factor'],
   ['phi(n)  totient(n)', 'Phi Euler: số số từ 1 đến n nguyên tố cùng nhau với n', 'Euler phi: how many of 1..n are coprime to n'],
   ['ackinv(n)  alpha(n)', 'Nghịch đảo Ackermann α(n) (độ phức tạp DSU). α(n) ≤ 4 với mọi n thực tế', 'Inverse Ackermann α(n) (DSU complexity). α(n) ≤ 4 for every practical n'],
   ['nextprime prevprime nthprime', 'Số nguyên tố kế tiếp (> n), liền trước (< n), thứ n (n ≤ 1e6)', 'Next prime (> n), previous prime (< n), n-th prime (n ≤ 1e6)'],
@@ -182,7 +194,8 @@ function nbCompute() {
     try {
       const { assign, ast } = CP.parseLine(text);
       const v = CP.evaluate(ast, env);
-      if (CP.isBig(CP.unwrap(v)) || typeof CP.unwrap(v) === 'number') {
+      const isDisplay = v && typeof v === 'object' && 'display' in v;
+      if (!isDisplay && (CP.isBig(CP.unwrap(v)) || typeof CP.unwrap(v) === 'number')) {
         if (assign) env[assign] = CP.unwrap(v) === v ? v : CP.unwrap(v);
       }
       const f = CP.formatValue(v);
@@ -764,16 +777,61 @@ function runNt() {
     const n = CP.toBigInt(evalField($('#ntN').value), 'n');
     if (n < 1n) throw { key: 'err.needPositive', params: { fn: 'n' } };
     const f = CP.factorize(n);
+    const ft = CP.factorText(f);
     const d = f.reduce((a, [, e]) => a * BigInt(e + 1), 1n);
     const s = f.reduce((a, [p, e]) => a * ((p ** BigInt(e + 1) - 1n) / (p - 1n)), 1n);
     const ph = f.reduce((a, [p, e]) => a * (p - 1n) * p ** BigInt(e - 1), 1n);
     const prime = f.length === 1 && f[0][1] === 1;
+    const bigO = f.reduce((a, [, e]) => a + e, 0);
+    const rad = f.reduce((a, [p]) => a * p, 1n);
+    // n = b^g with g = gcd of the exponents
+    const gcd = (x, y) => (y ? gcd(y, x % y) : x);
+    const g = f.reduce((a, [, e]) => gcd(a, e), 0);
+    const kinds = [];
+    if (prime) kinds.push(chip('ok', t('nt.yes') + ' · ' + t('nt.prime').replace('?', '')));
+    if (n > 1n && f.every(([, e]) => e === 1)) kinds.push(chip('neutral', t('nt.squarefree')));
+    if (g > 1) kinds.push(chip('neutral', t('nt.power', { b: f.reduce((a, [p, e]) => a * p ** BigInt(e / g), 1n).toString(), g })));
+    const lines = f.map(([p, e]) => p + ' ' + e).join('\n');
+    let divBox;
+    if (d <= 5000n) {
+      const ds = CP.divisors(f).map(String);
+      divBox = `<div class="ge-order" style="max-height:110px">${esc(ds.join(' '))}</div><div class="row"><button class="btn sm" data-copy="${esc(ds.join(' '))}">${esc(t('nt.copyDivs'))}</button></div>`;
+    } else divBox = `<span class="hint">${esc(t('nt.divsMany', { n: d.toString() }))}</span>`;
     o.innerHTML = out(
-      kv(t('nt.fac'), esc(facStr(f)), '', { copy: facStr(f) }) +
-      kvVal(t('nt.d'), d, '', { big: true }) + kvVal(t('nt.sigma'), s) + kvVal(t('nt.phi'), ph) +
-      kv(t('nt.prime'), prime ? chip('ok', t('nt.yes')) : chip('neutral', t('nt.no'))));
+      kv(t('nt.fac'), esc(ft.pretty), '', { big: true, copy: ft.plain }) +
+      kvVal(t('nt.d'), d) + kvVal(t('nt.sigma'), s) + kvVal(t('nt.phi'), ph) +
+      kv(t('nt.omegaN'), esc(String(f.length))) + kv(t('nt.bigOmega'), esc(String(bigO))) +
+      (f.length ? kv(t('nt.spf'), esc(f[0][0].toString() + ' / ' + f[f.length - 1][0].toString())) : '') +
+      kvVal(t('nt.rad'), rad) +
+      kv(t('nt.kind'), kinds.length ? kinds.join(' ') : '—')) +
+      `<div class="row"><button class="btn sm" data-copy="${esc(ft.plain)}">${esc(t('nt.copyPlain'))}</button><button class="btn sm" data-copy="${esc(lines)}">${esc(t('nt.copyLines'))}</button></div>` +
+      `<div class="lbl">${esc(t('nt.divs'))}</div>${divBox}`;
   } catch (e) { o.innerHTML = errBox(e); }
 }
+let fbText = '';
+function runFactorBatch() {
+  const box = $('#fbOut');
+  const toks = $('#fbIn').value.split(/[\s,;]+/).filter(Boolean);
+  const t0 = performance.now();
+  const rows = [], lines = [];
+  for (const tok of toks.slice(0, 300)) {
+    try {
+      const n = CP.toBigInt(evalField(tok), 'n');
+      if (n < 1n) throw { key: 'err.needPositive', params: { fn: 'n' } };
+      const f = CP.factorize(n), ft = CP.factorText(f);
+      const d = f.reduce((a, [, e]) => a * BigInt(e + 1), 1n);
+      rows.push(`<tr><td class="num">${esc(n.toString())}</td><td class="mono" data-copy="${esc(ft.plain)}" style="cursor:copy;white-space:normal">${esc(ft.pretty)}${f.length === 1 && f[0][1] === 1 ? ' ' + chip('ok', 'prime') : ''}</td><td class="num">${esc(d.toString())}</td><td class="num">${f.length}</td></tr>`);
+      lines.push(n.toString() + ' = ' + ft.plain);
+    } catch (e) {
+      rows.push(`<tr><td class="mono">${esc(tok)}</td><td colspan="3" style="color:var(--bad);white-space:normal">${esc(UI.errMsg(e))}</td></tr>`);
+    }
+  }
+  fbText = lines.join('\n');
+  const ms = Math.round(performance.now() - t0);
+  $('#fbInfo').textContent = t('fb.info', { n: Math.min(toks.length, 300), ms }) + (toks.length > 300 ? ' · ' + t('fb.max') : '');
+  box.innerHTML = `<table class="tbl"><thead><tr><th class="num">${t('fb.colN')}</th><th>${t('fb.colF')}</th><th class="num">${t('fb.colD')}</th><th class="num">${t('fb.colW')}</th></tr></thead><tbody>${rows.join('')}</tbody></table>`;
+}
+$('#fbCopy').onclick = () => { if (fbText) UI.copy(fbText); };
 let mdCache = null;
 function runMaxdiv() {
   const o = $('#mdOut');
@@ -860,6 +918,7 @@ function runSumd() {
 }
 wire(['estN'], runEst, 250);
 wire(['ntN'], runNt, 250);
+wire(['fbIn'], runFactorBatch, 400);
 wire(['mdN'], runMaxdiv, 250);
 wire(['ppN'], runPi, 300);
 wire(['sdN'], runSumd, 300);
