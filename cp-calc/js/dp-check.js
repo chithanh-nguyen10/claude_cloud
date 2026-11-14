@@ -472,6 +472,17 @@ function loadAl(i) {
 }
 $('#alSample').addEventListener('change', (e) => loadAl(e.target.value));
 loadAl(0); $('#alSample').value = '0';
+if (UI.HOSTED) {
+  // web version: only the formula mode of the DnC check works
+  const alien = $('#tab-dp [data-sec-panel="alien"]');
+  alien.querySelector('.stress-grid').hidden = true;
+  alien.insertAdjacentHTML('beforeend', UI.hostedNotice());
+  const codeBtn = $('#dnMode [data-m="code"]');
+  codeBtn.disabled = true; codeBtn.title = t('host.title');
+  $$('#dnGenSrc option[value="code"]').forEach((o) => { o.disabled = true; });
+  DNC_SAMPLES.forEach((x, i) => { if (x.mode === 'code') { const o = $(`#dnSample option[value="${i}"]`); if (o) o.disabled = true; } });
+  I18N.apply(alien);
+}
 let alRunning = false, alStop = false;
 $('#alStop').onclick = () => { alStop = true; };
 $('#alStart').onclick = async () => {

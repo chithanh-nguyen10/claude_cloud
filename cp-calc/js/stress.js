@@ -794,5 +794,10 @@ I18N.onChange(() => { renderGuide(); renderSamples(); });
 /* ---------------- init ---------------- */
 renderSlot(); renderCompile(); renderRun(); renderResults();
 I18N.onChange(() => { renderSlot(); renderCompile(); renderRun(); renderResults(); if (info) checkRunner(); else checkRunner(); });
-checkRunner();
+if (UI.HOSTED) {
+  const tab = $('#tab-stress');
+  [...tab.querySelector('.content').children].forEach((el) => el.classList.add('hosted-off'));
+  tab.querySelector('.content').insertAdjacentHTML('afterbegin', UI.hostedNotice());
+  I18N.apply(tab);
+} else checkRunner();
 })();

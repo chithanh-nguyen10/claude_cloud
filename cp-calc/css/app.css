@@ -355,3 +355,9 @@ table.mat td { padding: 2px 10px; text-align: right; font-family: var(--mono); f
 .theme button { border: 0; background: transparent; padding: 4px 9px; cursor: pointer; color: var(--muted); font-size: 13px; line-height: 1; display: grid; place-items: center; }
 .theme button svg { width: 15px; height: 15px; }
 .theme button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); }
+
+.host-note h3 { margin: 0; font-size: 17px; }
+.host-note p { margin: 0; color: var(--muted); max-width: 70ch; }
+.host-note code { background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+.seg button:disabled { opacity: .4; cursor: not-allowed; }
+.hosted-off { display: none !important; }

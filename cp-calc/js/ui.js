@@ -96,5 +96,35 @@ function wire(ids, fn, ms) {
   return run;
 }
 
-global.UI = { $, $$, esc, debounce, toast, copy, errMsg, judge, verdict, chip, kv, out, errBox, note, val, kvVal, evalField, numField, wire, _runners: [] };
+/* Web version (e.g. GitHub Pages): features that compile/run code need the local runner */
+const HOSTED = /^https?:$/.test(location.protocol) && !['127.0.0.1', 'localhost'].includes(location.hostname);
+I18N.add({
+  vi: {
+    'host.title': 'Tính năng này chỉ có ở bản chạy trên máy',
+    'host.desc': 'Bạn đang dùng bản web. Trình duyệt không biên dịch và chạy được C++, nên phần này cần chương trình runner chạy trên máy bạn.',
+    'host.step1': 'Tải mã nguồn: trên GitHub bấm <b>Code → Download ZIP</b> rồi giải nén.',
+    'host.step2': 'Cài <b>Python 3</b> và <b>g++</b> (MinGW-w64 / MSYS2 trên Windows).',
+    'host.step3': 'Trong thư mục <code>cp-calc</code>: Windows bấm đúp <code>start-runner.bat</code>, máy khác chạy <code>python3 runner.py</code>. Trình duyệt tự mở bản chạy trên máy, có đủ mọi tính năng.',
+    'host.repo': 'Mở repo trên GitHub',
+  },
+  en: {
+    'host.title': 'This feature is only available in the local version',
+    'host.desc': 'You are using the web version. Browsers cannot compile and run C++, so this part needs the runner program on your computer.',
+    'host.step1': 'Get the source: on GitHub click <b>Code → Download ZIP</b> and unzip it.',
+    'host.step2': 'Install <b>Python 3</b> and <b>g++</b> (MinGW-w64 / MSYS2 on Windows).',
+    'host.step3': 'In the <code>cp-calc</code> folder: on Windows double-click <code>start-runner.bat</code>, elsewhere run <code>python3 runner.py</code>. Your browser opens the local version with every feature.',
+    'host.repo': 'Open the repository on GitHub',
+  },
+});
+const REPO_URL = 'https://github.com/chithanh-nguyen10/claude_cloud';
+function hostedNotice() {
+  return `<div class="card host-note"><div class="card-body">
+    <h3 data-i18n="host.title"></h3><p data-i18n="host.desc"></p>
+    <ol class="steps-list"><li data-i18n-html="host.step1"></li><li data-i18n-html="host.step2"></li><li data-i18n-html="host.step3"></li></ol>
+    <div><a class="btn" href="${REPO_URL}" target="_blank" rel="noopener" data-i18n="host.repo"></a></div>
+  </div></div>`;
+}
+
+global.UI = {
+  HOSTED, hostedNotice, $, $$, esc, debounce, toast, copy, errMsg, judge, verdict, chip, kv, out, errBox, note, val, kvVal, evalField, numField, wire, _runners: [] };
 })(window);

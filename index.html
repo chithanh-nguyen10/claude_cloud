@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CP Tools</title>
+<link rel="icon" type="image/svg+xml" href="cp-calc/favicon.svg">
+<style>
+  :root { --bg:#f6f6fa; --surface:#fff; --line:#d9d9e4; --fg:#1a1a26; --muted:#646479; --accent:#5b3fd9; color-scheme: light; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0d1117; --surface:#161b22; --line:#30363d; --fg:#e6edf3; --muted:#8b949e; --accent:#2f81f7; color-scheme: dark; } }
+  :root[data-theme="dark"] { --bg:#0d1117; --surface:#161b22; --line:#30363d; --fg:#e6edf3; --muted:#8b949e; --accent:#2f81f7; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.55 "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 48px 16px; }
+  h1 { margin: 0 0 6px; font-size: 28px; }
+  .sub { margin: 0 0 28px; color: var(--muted); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  a.card { display: flex; flex-direction: column; gap: 8px; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; color: inherit; text-decoration: none; transition: border-color .15s; }
+  a.card:hover { border-color: var(--accent); }
+  .card h2 { margin: 0; font-size: 18px; display: flex; align-items: center; gap: 10px; }
+  .card h2 img { width: 32px; height: 32px; }
+  .card p { margin: 0; color: var(--muted); }
+  .note { margin-top: 28px; color: var(--muted); font-size: 13px; }
+  .note a { color: var(--accent); }
+</style>
+<script>try { var th = localStorage.getItem("cpcalc.theme"); if (th === "light" || th === "dark") document.documentElement.dataset.theme = th; } catch (e) {}</script>
+</head>
+<body>
+<main>
+  <h1>CP Tools</h1>
+  <p class="sub">Công cụ cho lập trình thi đấu và tiện ích PDF · Tools for competitive programming and PDFs</p>
+  <div class="grid">
+    <a class="card" href="cp-calc/">
+      <h2><img src="cp-calc/favicon.svg" alt="">CP Calc</h2>
+      <p>Máy tính độ phức tạp, số học, an toàn tràn số, Graph Editor, Numerical, DP Check.</p>
+      <p>Complexity calculator, number theory, overflow safety, graph editor, numerical tools, DP check.</p>
+    </a>
+    <a class="card" href="pdf-tool/PDF-Tach-Ghep.html">
+      <h2><svg width="32" height="32" viewBox="0 0 32 32"><rect x="4" y="2" width="20" height="26" rx="3" fill="#e5484d"/><rect x="9" y="6" width="20" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><text x="14" y="21" font-size="8" font-weight="700" fill="#fff" font-family="sans-serif">PDF</text></svg>Tách / ghép PDF</h2>
+      <p>Xem trước trang, chọn trang, sắp xếp, ghép file. Chạy hoàn toàn trong trình duyệt.</p>
+      <p>Preview, pick, reorder and merge pages. Runs entirely in your browser.</p>
+    </a>
+  </div>
+  <p class="note">Stress test và một phần DP Check cần chạy bản trên máy (runner.py). · Stress test and part of DP Check need the local version (runner.py). — <a href="https://github.com/chithanh-nguyen10/claude_cloud">GitHub</a></p>
+</main>
+</body>
+</html>
