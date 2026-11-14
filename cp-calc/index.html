@@ -209,6 +209,14 @@
       <div data-sec-panel="nt" class="content" hidden>
         <div class="sec-head"><h2 data-i18n="nt.title"></h2><p data-i18n="nt.desc"></p></div>
         <div class="cards">
+          <div class="card wide">
+            <header><h3 data-i18n="est.title"></h3><span class="tag">x ≤ N</span></header>
+            <div class="card-body">
+              <div class="fields"><div class="field"><label for="estN">N</label><input class="input mono" id="estN" value="1e9"></div></div>
+              <p class="hint" data-i18n="est.hint"></p>
+              <div class="est-grid" id="estOut"></div>
+            </div>
+          </div>
           <div class="card">
             <header><h3 data-i18n="nt.one"></h3><span class="tag">d(n) · σ(n) · φ(n)</span></header>
             <div class="card-body">
@@ -216,7 +224,7 @@
               <div id="ntOut"></div>
             </div>
           </div>
-          <div class="card">
+          <div class="card wide">
             <header><h3 data-i18n="nt.maxdiv"></h3><span class="tag">max d(x), x ≤ N</span></header>
             <div class="card-body">
               <div class="fields"><div class="field full"><label for="mdN">N</label><input class="input mono" id="mdN" value="1e18"></div></div>

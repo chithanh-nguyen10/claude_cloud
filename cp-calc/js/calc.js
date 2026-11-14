@@ -48,8 +48,16 @@ I18N.add({
     'nt.title': 'Số học', 'nt.desc': 'Phân tích thừa số (Pollard-rho, đến 1e30), số ước, tổng ước, số ước lớn nhất, đếm số nguyên tố.',
     'nt.one': 'Phân tích một số', 'nt.fac': 'Phân tích', 'nt.d': 'd(n) số ước', 'nt.sigma': 'σ(n) tổng ước', 'nt.phi': 'φ(n)', 'nt.prime': 'Nguyên tố?',
     'nt.yes': 'Có', 'nt.no': 'Không', 'nt.maxdiv': 'Số ước nhiều nhất', 'nt.maxdivCount': 'Số ước lớn nhất của x ≤ N', 'nt.maxdivNum': 'Đạt tại x =',
+    'est.title': 'Ước lượng nhanh', 'est.hint': 'Các con số hay cần khi chọn thuật toán và giới hạn mảng. Số đánh dấu "≈" là ước lượng, còn lại là chính xác.',
+    'est.div': 'Ước', 'est.prime': 'Số nguyên tố', 'est.maxd': 'Số ước nhiều nhất của x ≤ N', 'est.maxdAt': 'đạt tại x = {x}', 'est.cbrt': 'Quy tắc nhanh: d(x) thường ≤ khoảng ∛x · 2 (∛N = {v})',
+    'est.avgd': 'Số ước trung bình (x ≤ N)', 'est.avgdSub': '≈ ln N', 'est.maxw': 'Số ước nguyên tố phân biệt nhiều nhất', 'est.maxW': 'Số thừa số nguyên tố nhiều nhất (tính lặp)', 'est.maxWSub': '⌊log₂ N⌋, đạt tại 2^k',
+    'est.pi': 'π(N): số lượng số nguyên tố ≤ N', 'est.piApprox': 'không có giá trị chính xác cho N này; ≈ li(N)', 'est.piBounds': 'Chặn chắc chắn (Dusart)', 'est.nln': 'N / ln N', 'est.li': 'li(N)',
+    'est.density': 'Mật độ số nguyên tố quanh N', 'est.densitySub': '≈ 1 / ln N: trung bình cứ {g} số có một số nguyên tố',
+    'est.prev': 'Số nguyên tố lớn nhất ≤ N', 'est.next': 'Số nguyên tố nhỏ nhất > N', 'est.nth': 'Số nguyên tố thứ N (p_N)', 'est.nthApprox': 'N > 1e6 nên chỉ ước lượng; chặn: {lo} < p_N < {hi}',
+    'est.sqfree': 'Số số không chính phương (squarefree) ≤ N', 'est.sqfreeSub': '≈ 6/π² · N',
+    'nt.colPi': 'π(N)',
     'nt.omega': 'Số ước nguyên tố phân biệt nhiều nhất', 'nt.omegaNum': 'Đạt tại (tích các số nguyên tố đầu)', 'nt.colN': 'N', 'nt.colD': 'max d(x)', 'nt.colX': 'x', 'nt.colW': 'max ω(x)',
-    'nt.pi': 'Đếm số nguyên tố', 'nt.piExact': 'π(n) chính xác', 'nt.piBig': 'chỉ tính chính xác khi n ≤ 1e11', 'nt.nln': 'n / ln n', 'nt.li': 'li(n)',
+    'nt.pi': 'Đếm số nguyên tố', 'nt.piExact': 'π(n) chính xác', 'nt.piBig': 'chỉ tính chính xác khi n ≤ 1e11 hoặc n = 10^k ≤ 1e18 (xem Ước lượng nhanh)', 'nt.nln': 'n / ln n', 'nt.li': 'li(n)',
     'nt.sumd': 'Tổng số ước, tổng của tổng ước', 'nt.sumD': 'Σ d(i), i ≤ n', 'nt.sumS': 'Σ σ(i), i ≤ n', 'nt.sumSApprox': 'xấp xỉ π²/12·n² (n > 1e12)',
     'nt.sumDApprox': 'xấp xỉ n·ln n + (2γ − 1)·n (n > 1e14)',
     'cb.title': 'Tổ hợp', 'cb.desc': 'Giá trị chính xác bằng số nguyên lớn, và kiểm tra nhanh xem vét cạn có chạy kịp không.',
@@ -103,8 +111,16 @@ I18N.add({
     'nt.title': 'Number theory', 'nt.desc': 'Factorization (Pollard-rho, up to 1e30), divisor count and sum, maximum divisor count, prime counting.',
     'nt.one': 'Factor a number', 'nt.fac': 'Factorization', 'nt.d': 'd(n) divisor count', 'nt.sigma': 'σ(n) divisor sum', 'nt.phi': 'φ(n)', 'nt.prime': 'Prime?',
     'nt.yes': 'Yes', 'nt.no': 'No', 'nt.maxdiv': 'Most divisors', 'nt.maxdivCount': 'Max divisor count for x ≤ N', 'nt.maxdivNum': 'Reached at x =',
+    'est.title': 'Quick estimates', 'est.hint': 'Numbers you often need when choosing an algorithm or array sizes. Values marked "≈" are estimates, the rest are exact.',
+    'est.div': 'Divisors', 'est.prime': 'Primes', 'est.maxd': 'Max divisor count for x ≤ N', 'est.maxdAt': 'reached at x = {x}', 'est.cbrt': 'Rule of thumb: d(x) is usually ≤ about 2·∛x (∛N = {v})',
+    'est.avgd': 'Average divisor count (x ≤ N)', 'est.avgdSub': '≈ ln N', 'est.maxw': 'Max number of distinct prime factors', 'est.maxW': 'Max number of prime factors (with repetition)', 'est.maxWSub': '⌊log₂ N⌋, reached at 2^k',
+    'est.pi': 'π(N): number of primes ≤ N', 'est.piApprox': 'no exact value for this N; ≈ li(N)', 'est.piBounds': 'Guaranteed bounds (Dusart)', 'est.nln': 'N / ln N', 'est.li': 'li(N)',
+    'est.density': 'Prime density around N', 'est.densitySub': '≈ 1 / ln N: on average one prime every {g} numbers',
+    'est.prev': 'Largest prime ≤ N', 'est.next': 'Smallest prime > N', 'est.nth': 'N-th prime (p_N)', 'est.nthApprox': 'N > 1e6, estimate only; bounds: {lo} < p_N < {hi}',
+    'est.sqfree': 'Squarefree numbers ≤ N', 'est.sqfreeSub': '≈ 6/π² · N',
+    'nt.colPi': 'π(N)',
     'nt.omega': 'Max number of distinct prime factors', 'nt.omegaNum': 'Reached at (product of first primes)', 'nt.colN': 'N', 'nt.colD': 'max d(x)', 'nt.colX': 'x', 'nt.colW': 'max ω(x)',
-    'nt.pi': 'Prime counting', 'nt.piExact': 'π(n) exact', 'nt.piBig': 'exact only for n ≤ 1e11', 'nt.nln': 'n / ln n', 'nt.li': 'li(n)',
+    'nt.pi': 'Prime counting', 'nt.piExact': 'π(n) exact', 'nt.piBig': 'exact only for n ≤ 1e11 or n = 10^k ≤ 1e18 (see Quick estimates)', 'nt.nln': 'n / ln n', 'nt.li': 'li(n)',
     'nt.sumd': 'Sums of divisor functions', 'nt.sumD': 'Σ d(i), i ≤ n', 'nt.sumS': 'Σ σ(i), i ≤ n', 'nt.sumSApprox': 'approx. π²/12·n² (n > 1e12)',
     'nt.sumDApprox': 'approx. n·ln n + (2γ − 1)·n (n > 1e14)',
     'cb.title': 'Combinatorics', 'cb.desc': 'Exact values with big integers, and a quick check of whether brute force fits the time limit.',
@@ -132,6 +148,8 @@ const FNREF = [
   ['d sigma isprime', 'Số ước, tổng ước, kiểm tra nguyên tố', 'Divisor count, divisor sum, primality'],
   ['phi(n)  totient(n)', 'Phi Euler: số số từ 1 đến n nguyên tố cùng nhau với n', 'Euler phi: how many of 1..n are coprime to n'],
   ['ackinv(n)  alpha(n)', 'Nghịch đảo Ackermann α(n) (độ phức tạp DSU). α(n) ≤ 4 với mọi n thực tế', 'Inverse Ackermann α(n) (DSU complexity). α(n) ≤ 4 for every practical n'],
+  ['nextprime prevprime nthprime', 'Số nguyên tố kế tiếp (> n), liền trước (< n), thứ n (n ≤ 1e6)', 'Next prime (> n), previous prime (< n), n-th prime (n ≤ 1e6)'],
+  ['maxomega(N)', 'Số ước nguyên tố phân biệt nhiều nhất của x ≤ N', 'Max number of distinct prime factors for x ≤ N'],
   ['primepi(n)  maxdiv(N)', 'Số lượng số nguyên tố ≤ n, số ước lớn nhất của x ≤ N', 'Primes ≤ n, max divisor count for x ≤ N'],
   ['H(n)  sumfloor(n)  sumsigma(n)', 'Σ 1/i,  Σ ⌊n/i⌋,  Σ σ(i)', 'Σ 1/i,  Σ ⌊n/i⌋,  Σ σ(i)'],
   ['pi  e  inf', 'Hằng số π, e, vô cùng', 'Constants π, e, infinity'],
@@ -774,8 +792,45 @@ function runMaxdiv() {
       mdCache.push({ k, M, r: CP.maxDivisors(M), w: CP.maxDistinctPrimes(M) });
     }
   }
-  $('#mdTable').innerHTML = `<table class="tbl"><thead><tr><th>${t('nt.colN')}</th><th class="num">${t('nt.colD')}</th><th class="num">${t('nt.colX')}</th><th class="num">${t('nt.colW')}</th></tr></thead><tbody>` +
-    mdCache.map((x) => `<tr${N !== null && x.M === N ? ' class="hl"' : ''}><td class="mono">1e${x.k}</td><td class="num">${x.r.count}</td><td class="num">${x.r.number}</td><td class="num">${x.w.count}</td></tr>`).join('') + '</tbody></table>';
+  $('#mdTable').innerHTML = `<table class="tbl"><thead><tr><th>${t('nt.colN')}</th><th class="num">${t('nt.colD')}</th><th class="num">${t('nt.colX')}</th><th class="num">${t('nt.colW')}</th><th class="num">${t('nt.colPi')}</th></tr></thead><tbody>` +
+    mdCache.map((x) => `<tr${N !== null && x.M === N ? ' class="hl"' : ''}><td class="mono">1e${x.k}</td><td class="num">${x.r.count}</td><td class="num">${x.r.number}</td><td class="num">${x.w.count}</td><td class="num">${CP.PI_POW10[x.k]}</td></tr>`).join('') + '</tbody></table>';
+}
+function runEst() {
+  const o = $('#estOut');
+  try {
+    const N = CP.toBigInt(evalField($('#estN').value), 'N');
+    if (N < 2n) throw { key: 'err.needPositive', params: { fn: 'N' } };
+    const n = Number(N), L = Math.log(n);
+    // divisors
+    let div = '';
+    if (N <= 10n ** 24n) {
+      const r = CP.maxDivisors(N);
+      div += kvVal(t('est.maxd'), r.count, t('est.maxdAt', { x: r.number.toString() }), { big: true });
+    }
+    div += kv(t('est.avgd'), esc(CP.plainNum(Math.round(L * 100) / 100)), esc(t('est.avgdSub')));
+    div += kv(t('est.maxw'), esc(String(CP.maxDistinctPrimes(N).count)));
+    div += kv(t('est.maxW'), esc(String(CP.bitLen(N) - 1)), esc(t('est.maxWSub')));
+    div += kv(t('est.sqfree'), '≈ ' + esc(CP.fmtCount(6 / (Math.PI * Math.PI) * n)), esc(t('est.sqfreeSub')));
+    div += `<div class="msg note">${esc(t('est.cbrt', { v: CP.fmtCount(Math.cbrt(n)) }))}</div>`;
+    // primes
+    let pr = '';
+    const pi = CP.primePi(N);
+    if (pi !== null) pr += kvVal(t('est.pi'), pi, t('exact'), { big: true });
+    else pr += kv(t('est.pi'), '≈ ' + esc(CP.fmtCount(CP.li(n))), esc(t('est.piApprox')), { big: true });
+    const bd = CP.primePiBounds(n);
+    if (bd.valid) pr += kv(t('est.piBounds'), esc(CP.fmtCount(Math.ceil(bd.lo)) + ' … ' + CP.fmtCount(Math.floor(bd.hi))));
+    pr += kv(t('est.nln'), esc(CP.fmtCount(n / L))) + kv(t('est.li'), esc(CP.fmtCount(CP.li(n))));
+    pr += kv(t('est.density'), esc(CP.sciNum(1 / L, 3)), esc(t('est.densitySub', { g: Math.round(L) })));
+    if (N <= 10n ** 30n) {
+      pr += kvVal(t('est.prev'), CP.prevPrime(N + 1n)) + kvVal(t('est.next'), CP.nextPrime(N));
+    }
+    if (N <= BigInt(CP.NTHPRIME_LIMIT)) pr += kvVal(t('est.nth'), CP.nthPrime(N), t('exact'));
+    else {
+      const nb = CP.nthPrimeBounds(n);
+      pr += kv(t('est.nth'), '≈ ' + esc(CP.fmtCount(nb.approx)), esc(t('est.nthApprox', { lo: CP.fmtCount(nb.lo), hi: CP.fmtCount(nb.hi) })));
+    }
+    o.innerHTML = `<div><p class="out-title">${esc(t('est.div'))}</p>${out(div)}</div><div><p class="out-title">${esc(t('est.prime'))}</p>${out(pr)}</div>`;
+  } catch (e) { o.innerHTML = errBox(e); }
 }
 function runPi() {
   const o = $('#ppOut');
@@ -783,7 +838,8 @@ function runPi() {
     const n = Math.floor(numField($('#ppN').value));
     if (!(n >= 1)) throw { key: 'err.needPositive', params: { fn: 'n' } };
     let rows = '';
-    if (n <= CP.PRIMEPI_LIMIT) rows += kv(t('nt.piExact'), esc(String(CP.primePiExact(n))), '', { big: true, copy: String(CP.primePiExact(n)) });
+    const pe = CP.primePi(CP.toBigInt(evalField($('#ppN').value), 'n'));
+    if (pe !== null) rows += kvVal(t('nt.piExact'), pe, '', { big: true });
     else rows += kv(t('nt.piExact'), '—', esc(t('nt.piBig')));
     rows += kv(t('nt.nln'), esc(CP.fmtCount(n / Math.log(n)))) + kv(t('nt.li'), esc(CP.fmtCount(CP.li(n))));
     o.innerHTML = out(rows);
@@ -802,6 +858,7 @@ function runSumd() {
     o.innerHTML = out(rows);
   } catch (e) { o.innerHTML = errBox(e); }
 }
+wire(['estN'], runEst, 250);
 wire(['ntN'], runNt, 250);
 wire(['mdN'], runMaxdiv, 250);
 wire(['ppN'], runPi, 300);

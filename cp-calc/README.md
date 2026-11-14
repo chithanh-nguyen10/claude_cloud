@@ -27,7 +27,10 @@ Tuỳ chọn: `--port 9000` để đổi cổng, `--no-browser` để không t�
 - **Độ phức tạp**: ước lượng thời gian theo Time limit và tốc độ máy chấm (thanh "Máy chấm"), kết luận 🟢 An toàn / 🟡 Sát TL / 🔴 TLE. Có 16 mẫu dựng sẵn, tính ngược n tối đa, bảng so sánh.
 - **Tổng & vòng lặp**: harmonic sum, Σ⌊n/i⌋ chính xác (n ≤ 1e14), Σ n/p, tổng tự định nghĩa, đếm vòng lặp lồng nhau (tự suy ra công thức đa thức).
 - **Truy hồi & tích phân**: định lý thợ (có trường hợp log mở rộng), Akra–Bazzi, tính trực tiếp T(N), tích phân số.
-- **Số học**: phân tích thừa số (Pollard-rho, đến 1e30), d / σ / φ, số ước lớn nhất ≤ N (đến 1e24), π(n) chính xác đến 1e11, Σd(i), Σσ(i).
+- **Số học**:
+  - **Ước lượng nhanh** cho một N: số ước lớn nhất, số ước trung bình, max ω và Ω, số squarefree; π(N) (chính xác đến 1e11 và tại mọi 10^k ≤ 1e18, ngoài ra ≈ li(N) kèm chặn Dusart); số nguyên tố liền trước / kế tiếp N; số nguyên tố thứ N.
+  - Phân tích thừa số (Pollard-rho, đến 1e30), d / σ / φ, số ước lớn nhất ≤ N (đến 1e24, bảng 1e1…1e18 kèm π), Σd(i), Σσ(i).
+  - Hàm mới: `nextprime prevprime nthprime maxomega`.
 - **Tổ hợp**: giá trị chính xác, và bảng kiểm tra vét cạn có chạy kịp không.
 
 ## Phần 2: An toàn

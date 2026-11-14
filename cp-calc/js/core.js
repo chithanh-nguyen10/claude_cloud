@@ -386,6 +386,58 @@ function li(x) {
   return g + Math.log(L) + Math.sqrt(x) * sum;
 }
 
+/* π(10^k), known exact values (OEIS A006880) */
+const PI_POW10 = [0n, 4n, 25n, 168n, 1229n, 9592n, 78498n, 664579n, 5761455n, 50847534n, 455052511n, 4118054813n,
+  37607912018n, 346065536839n, 3204941750802n, 29844570422669n, 279238341033925n, 2623557157654233n, 24739954287740860n];
+/* exact π(n) when possible: Lucy up to 1e11, table for powers of ten up to 1e18; otherwise null */
+function primePi(n) {
+  n = toBigInt(n, 'primepi');
+  if (n < 2n) return 0n;
+  if (n <= BigInt(PRIMEPI_LIMIT)) return BigInt(primePiExact(Number(n)));
+  const s = n.toString();
+  if (/^10*$/.test(s) && s.length - 1 < PI_POW10.length) return PI_POW10[s.length - 1];
+  return null;
+}
+/* Dusart (2010): for x >= 599, x/ln x·(1 + 1/ln x) <= π(x) <= x/ln x·(1 + 1.2762/ln x) */
+function primePiBounds(x) {
+  const L = Math.log(x);
+  return { lo: x / L * (1 + 1 / L), hi: x / L * (1 + 1.2762 / L), valid: x >= 599 };
+}
+function nextPrime(n) {
+  n = toBigInt(n, 'nextprime');
+  let v = n < 2n ? 2n : n + 1n;
+  while (!isPrime(v)) v++;
+  return v;
+}
+function prevPrime(n) {
+  n = toBigInt(n, 'prevprime');
+  let v = n - 1n;
+  while (v >= 2n && !isPrime(v)) v--;
+  if (v < 2n) throw new CalcError('err.noPrime', { n: String(n) });
+  return v;
+}
+/* n-th prime, exact for n <= 1e6 (sieve); p_1 = 2 */
+const NTHPRIME_LIMIT = 1000000;
+function nthPrime(k) {
+  k = Number(toBigInt(k, 'nthprime'));
+  if (k < 1) throw new CalcError('err.needPositive', { fn: 'nthprime' });
+  if (k > NTHPRIME_LIMIT) throw new CalcError('err.tooBig', { fn: 'nthprime', max: '1e6' });
+  const lim = k < 6 ? 15 : Math.ceil(k * (Math.log(k) + Math.log(Math.log(k)))) + 10;
+  const s = new Uint8Array(lim + 1);
+  let cnt = 0;
+  for (let i = 2; i <= lim; i++) {
+    if (s[i]) continue;
+    if (++cnt === k) return BigInt(i);
+    for (let j = i * i; j <= lim; j += i) s[j] = 1;
+  }
+  throw new CalcError('err.generic', { msg: 'sieve bound' });
+}
+/* Rosser–Schoenfeld / Dusart: n(ln n + ln ln n − 1) < p_n < n(ln n + ln ln n) for n >= 6 */
+function nthPrimeBounds(n) {
+  const L = Math.log(n), LL = Math.log(L);
+  return { lo: n * (L + LL - 1), hi: n * (L + LL), approx: n * (L + LL - 1 + (LL - 2) / L) };
+}
+
 /* Σ_{i=1..n} floor(n/i) exact (n <= 1e14), and number of distinct values of floor(n/i) */
 const SUMFLOOR_LIMIT = 1e14;
 function sumFloor(n) {
@@ -620,10 +672,15 @@ const FUNCS = {
   alpha: (a) => { needArgs('alpha', a, 1); return ackermannInverse(unwrap(a[0])); },
   isprime: (a) => { needArgs('isprime', a, 1); return isPrime(unwrap(a[0])) ? 1n : 0n; },
   primepi: (a) => {
-    needArgs('primepi', a, 1); const n = Math.floor(argNum(a, 0));
-    if (n > PRIMEPI_LIMIT) throw new CalcError('err.tooBig', { fn: 'primepi', max: '1e11' });
-    return BigInt(primePiExact(n));
+    needArgs('primepi', a, 1);
+    const r = primePi(unwrap(a[0]));
+    if (r === null) throw new CalcError('err.tooBig', { fn: 'primepi', max: '1e11 (10^k ≤ 1e18)' });
+    return r;
   },
+  nextprime: (a) => { needArgs('nextprime', a, 1); return nextPrime(unwrap(a[0])); },
+  prevprime: (a) => { needArgs('prevprime', a, 1); return prevPrime(unwrap(a[0])); },
+  nthprime: (a) => { needArgs('nthprime', a, 1); return nthPrime(unwrap(a[0])); },
+  maxomega: (a) => { needArgs('maxomega', a, 1); return BigInt(maxDistinctPrimes(unwrap(a[0])).count); },
   maxdiv: (a) => { needArgs('maxdiv', a, 1); return maxDivisors(unwrap(a[0])).count; },
   H: (a) => { needArgs('H', a, 1); return harmonic(argNum(a, 0)); },
   sumfloor: (a) => { needArgs('sumfloor', a, 1); return sumFloor(unwrap(a[0])); },
@@ -797,7 +854,7 @@ global.CP = {
   CalcError, isBig, toNum, unwrap, toBigInt, bitLen, log2Any,
   tokenize, parse, parseLine, parseVars, evaluate, compileFloat, A,
   isPrime, factorize, numDivisors, sumDivisors, phi, maxDivisors, maxDistinctPrimes,
-  primePiExact, PRIMEPI_LIMIT, li, sumFloor, SUMFLOOR_LIMIT, distinctFloor, isqrt, sumSigma, SUMSIGMA_LIMIT,
+  primePiExact, PRIMEPI_LIMIT, primePi, primePiBounds, PI_POW10, nextPrime, prevPrime, nthPrime, nthPrimeBounds, NTHPRIME_LIMIT, li, sumFloor, SUMFLOOR_LIMIT, distinctFloor, isqrt, sumSigma, SUMSIGMA_LIMIT,
   harmonic, ackermannInverse, sumInvPrimes, factorial, binom, perm, catalan, partitions, bell, stirling1, stirling2, fib, lgammaApprox,
   sciFromBig, sciNum, plainNum, formatValue, fmtCount, fmtTime, fmtBytes, FUNCS,
 };

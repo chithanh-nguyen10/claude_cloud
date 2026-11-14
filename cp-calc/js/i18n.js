@@ -43,7 +43,7 @@ add({
     'err.tooBig': '{fn}: giá trị quá lớn (tối đa {max})', 'err.arity': '{fn} cần {n} tham số',
     'err.unknownVar': 'Chưa định nghĩa biến "{name}"', 'err.unknownFn': 'Không có hàm "{name}"',
     'err.varFormat': 'Viết biến dạng "tên = giá trị": "{part}"', 'err.notFinite': 'Kết quả không hữu hạn',
-    'err.generic': 'Lỗi: {msg}', 'err.notArray': '"{name}" không phải mảng (hoặc truy cập quá số chiều)', 'err.index': 'Chỉ số {i} nằm ngoài mảng {name}',
+    'err.generic': 'Lỗi: {msg}', 'err.noPrime': 'Không có số nguyên tố nhỏ hơn {n}', 'err.notArray': '"{name}" không phải mảng (hoặc truy cập quá số chiều)', 'err.index': 'Chỉ số {i} nằm ngoài mảng {name}',
   },
   en: {
     'tab.calc': 'Calculator', 'tab.safety': 'Safety', 'tab.stress': 'Stress test & Benchmark', 'tab.graph': 'Graph Editor',
@@ -58,7 +58,7 @@ add({
     'err.tooBig': '{fn}: value too large (max {max})', 'err.arity': '{fn} takes {n} argument(s)',
     'err.unknownVar': 'Variable "{name}" is not defined', 'err.unknownFn': 'Unknown function "{name}"',
     'err.varFormat': 'Write variables as "name = value": "{part}"', 'err.notFinite': 'Result is not finite',
-    'err.generic': 'Error: {msg}', 'err.notArray': '"{name}" is not an array (or has fewer dimensions)', 'err.index': 'Index {i} is outside array {name}',
+    'err.generic': 'Error: {msg}', 'err.noPrime': 'There is no prime below {n}', 'err.notArray': '"{name}" is not an array (or has fewer dimensions)', 'err.index': 'Index {i} is outside array {name}',
   },
 });
 

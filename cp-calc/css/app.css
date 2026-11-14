@@ -332,3 +332,6 @@ details.guide[open] > summary::before { content: "▾"; }
 .gd-code { position: relative; }
 .gd-code .btn { position: absolute; right: 6px; top: 6px; }
 .gd-code pre.log { max-height: 320px; padding-right: 60px; }
+
+.est-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 12px; align-items: start; }
+.est-grid .out-title { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin: 0 0 6px; }
