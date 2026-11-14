@@ -14,6 +14,7 @@
     <div class="brand"><span class="brand-mark">O(n)</span>CP Calc</div>
     <nav class="tabs" role="tablist">
       <button class="tab" role="tab" data-tab="calc" aria-selected="true" data-i18n="tab.calc"></button>
+      <button class="tab" role="tab" data-tab="num" aria-selected="false" data-i18n="tab.num"></button>
       <button class="tab" role="tab" data-tab="safety" aria-selected="false" data-i18n="tab.safety"></button>
       <button class="tab" role="tab" data-tab="stress" aria-selected="false" data-i18n="tab.stress"></button>
       <button class="tab" role="tab" data-tab="graph" aria-selected="false" data-i18n="tab.graph"></button>
@@ -59,6 +60,9 @@
               <button class="btn sm" id="nbClear" data-i18n="nb.clear"></button>
               <button class="btn sm" id="nbExample" data-i18n="nb.example"></button>
               <span class="hint" data-i18n="nb.keys"></span>
+              <div class="grow"></div>
+              <span class="lbl" data-i18n="nb.angle"></span>
+              <div class="seg seg-sm" id="nbAngle"><button data-a="rad" aria-selected="true">Rad</button><button data-a="deg" aria-selected="false" data-i18n="nb.deg"></button></div>
             </div>
           </div>
         </div>
@@ -286,6 +290,98 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================== NUMERICAL -->
+<section id="tab-num" data-tabpanel="num" hidden>
+  <div class="layout">
+    <nav class="subnav" data-subnav="num">
+      <button data-sec="nb" aria-current="true" data-i18n="nm.nav.nb"></button>
+      <button data-sec="gauss" data-i18n="nm.nav.gauss"></button>
+      <button data-sec="lag" data-i18n="nm.nav.lag"></button>
+      <button data-sec="rec" data-i18n="nm.nav.rec"></button>
+      <button data-sec="gen" data-i18n="nm.nav.gen"></button>
+    </nav>
+    <div class="content">
+      <div class="judge">
+        <span class="ttl" data-i18n="nm.mode"></span>
+        <div class="seg seg-sm" id="nmMode">
+          <button data-m="exact" aria-selected="true" data-i18n="nm.exact"></button>
+          <button data-m="real" aria-selected="false" data-i18n="nm.real"></button>
+          <button data-m="mod" aria-selected="false" data-i18n="nm.mod"></button>
+        </div>
+        <span class="row" id="nmModWrap" hidden><label>M <input class="input mono" id="nmM" value="998244353" style="width:140px"></label><span id="nmPrime"></span></span>
+      </div>
+
+      <div data-sec-panel="nb" class="content">
+        <div class="sec-head"><h2 data-i18n="nm.nb.title"></h2><p data-i18n="nm.nb.desc"></p></div>
+        <div class="card"><div class="card-body">
+          <div class="nb" id="nmNb"></div>
+          <div class="row">
+            <button class="btn sm" id="nmNbAdd" data-i18n="nb.add"></button>
+            <button class="btn sm" id="nmNbClear" data-i18n="nb.clear"></button>
+            <button class="btn sm" id="nmNbEx" data-i18n="nb.example"></button>
+            <span class="hint" data-i18n="nb.keys"></span>
+          </div>
+        </div></div>
+        <div class="card"><header><h3 data-i18n="nm.ref"></h3></header><div class="card-body"><div class="fnref" id="nmRef"></div></div></div>
+      </div>
+
+      <div data-sec-panel="gauss" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="nm.g.title"></h2><p data-i18n="nm.g.desc"></p></div>
+        <div class="cards">
+          <div class="card"><div class="card-body">
+            <div class="seg" id="nmGMode"><button data-g="eq" aria-selected="true" data-i18n="nm.g.eq"></button><button data-g="mat" aria-selected="false" data-i18n="nm.g.mat"></button></div>
+            <textarea class="input" id="nmGIn" rows="7" spellcheck="false">x + y + z = 6
+2x - y + z = 3
+x + 2y - z = 2</textarea>
+            <p class="hint" id="nmGHint" data-i18n="nm.g.eqHint"></p>
+          </div></div>
+          <div class="card"><div class="card-body"><div id="nmGOut"></div></div></div>
+        </div>
+      </div>
+
+      <div data-sec-panel="lag" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="nm.l.title"></h2><p data-i18n="nm.l.desc"></p></div>
+        <div class="cards">
+          <div class="card"><div class="card-body">
+            <div class="seg" id="nmLMode"><button data-l="y" aria-selected="true" data-i18n="nm.l.y"></button><button data-l="xy" aria-selected="false" data-i18n="nm.l.xy"></button></div>
+            <textarea class="input" id="nmLIn" rows="5" spellcheck="false">0 1 5 14 30</textarea>
+            <div class="field"><label for="nmLX" data-i18n="nm.l.X"></label><input class="input mono" id="nmLX" value="100"></div>
+          </div></div>
+          <div class="card"><div class="card-body"><div id="nmLOut"></div></div></div>
+        </div>
+      </div>
+
+      <div data-sec-panel="rec" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="nm.r.title"></h2><p data-i18n="nm.r.desc"></p></div>
+        <div class="cards">
+          <div class="card"><div class="card-body">
+            <div class="field"><label for="nmRIn" data-i18n="nm.r.seq"></label><textarea class="input" id="nmRIn" rows="4" spellcheck="false">1 1 3 5 11 21 43 85 171 341</textarea></div>
+            <div class="field"><label for="nmRN" data-i18n="nm.r.N"></label><input class="input mono" id="nmRN" value="100"></div>
+          </div></div>
+          <div class="card"><div class="card-body"><div id="nmROut"></div></div></div>
+        </div>
+      </div>
+
+      <div data-sec-panel="gen" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="nm.s.title"></h2><p data-i18n="nm.s.desc"></p></div>
+        <div class="card"><div class="card-body">
+          <div class="fields">
+            <div class="field span2"><label for="nmSPreset" data-i18n="nm.s.preset"></label><select class="input" id="nmSPreset"></select></div>
+            <div class="field full"><label for="nmSDef" data-i18n="nm.s.def"></label><input class="input mono" id="nmSDef" spellcheck="false"></div>
+            <div class="field span2"><label for="nmSInit" data-i18n="nm.s.init"></label><input class="input mono" id="nmSInit"></div>
+            <div class="field"><label for="nmSFrom" data-i18n="nm.s.from"></label><input class="input mono" id="nmSFrom" value="0"></div>
+            <div class="field"><label for="nmSTo" data-i18n="nm.s.to"></label><input class="input mono" id="nmSTo" value="40"></div>
+            <div class="field span2"><label for="nmSPiles" data-i18n="nm.s.piles"></label><input class="input mono" id="nmSPiles" placeholder="3 5 7"></div>
+          </div>
+          <p class="hint" data-i18n="nm.s.hint"></p>
+          <div class="row"><button class="btn sm" id="nmSCopy" data-i18n="nm.s.copy"></button></div>
+          <div id="nmSOut"></div>
+        </div></div>
       </div>
     </div>
   </div>
@@ -557,6 +653,9 @@
 <script src="js/ui.js"></script>
 <script src="js/calc.js"></script>
 <script src="js/safety.js"></script>
+<script src="js/num-core.js"></script>
+<script src="js/num-algos.js"></script>
+<script src="js/numerical.js"></script>
 <script src="js/stress.js"></script>
 <script src="js/graph-algos.js"></script>
 <script src="js/graph.js"></script>

@@ -129,6 +129,26 @@ Code vét cạn (C++ hoặc Python) in ra f(0) … f(K). Công cụ kiểm tra f
 - **NOI 2019 Feast:** chọn đúng k đoạn rời nhau, f lõm.
 - **Đoạn con độ dài đúng k:** f không lõm.
 
+## Phần 6: Numerical
+
+Chọn chế độ số ở thanh trên cùng:
+- **Chính xác:** phân số, không sai số.
+- **Số thực.**
+- **Modulo M:** mặc định 998244353. Các phép cần chia (Gauss, chia đa thức, Lagrange, Berlekamp–Massey) bắt buộc M nguyên tố.
+
+Các mục:
+- **Ma trận & đa thức** (sổ tay đặt biến được):
+  - Ma trận: `A = [1 2; 3 4]`, `A + B`, `A * B`, `A^n` (n đến 1e18), `I(n)`, `zeros`, `transpose`, `det`, `inv`.
+  - Đa thức đặt tên ẩn tuỳ ý: `P(x) = 3x^2 - 2x + 1`, `Q(t) = …`. Có `+ − *`, `P / Q` (chia hết ra thương, không hết ra thương và dư), `P % Q`, `divmod`, `quo`, `rem`, `gcd`, `deriv`, `integ(P)`, `integ(P, a, b)`, `P(5)`, `P(Q)`, `P(A)`.
+  - `roots(P)` cho nghiệm thực và phức kèm bội. Ở chế độ Chính xác, nghiệm hữu tỉ được ghi đúng dạng phân số.
+  - Chữ cái chưa định nghĩa được hiểu là ẩn của đa thức, vd `(x+1)^5`.
+- **Hệ phương trình tuyến tính:** khử Gauss. Nhập dạng phương trình `2x + 3y - z = 5` hoặc ma trận mở rộng. Kết quả là nghiệm duy nhất, vô nghiệm, hoặc nghiệm tổng quát theo các ẩn tự do (chế độ modulo cho cả số nghiệm). Modulo 2 dùng cho hệ XOR.
+- **Nội suy Lagrange:** nhập các điểm (hoặc chỉ các giá trị y). Ra đa thức và P(X) với X đến 1e18.
+- **Truy hồi tuyến tính:** Berlekamp–Massey tìm hệ thức ngắn nhất từ các số đầu, rồi tính a(N) với N đến 1e18 (Kitamasa).
+- **Bảng sinh / Grundy:** định nghĩa `a(n) = …` với `xor and or mex min max popcount` và các vòng `mexfor(i, lo, hi, biểu thức)`, `xorfor`, `sumfor`. Ra bảng giá trị để tự tìm quy luật. Có mẫu trò bốc, chia đống, và tính XOR Grundy cho nhiều đống.
+
+Tab Calculator cũng có thêm các hàm lượng giác `sin cos tan cot asin acos atan atan2 sinh cosh tanh`, kèm nút chuyển **Rad / Độ** phía trên sổ tay.
+
 ## Cấu trúc thư mục
 
 ```
@@ -144,6 +164,9 @@ cp-calc/
   js/graph-algos.js   Phần 4 (thuật toán)
   js/graph.js         Phần 4 (canvas, công cụ)
   js/gen-spec.js      sinh test từ mô tả định dạng
+  js/num-core.js      Phần 6 (phân số, modulo, ma trận, đa thức)
+  js/num-algos.js     Phần 6 (nghiệm, Gauss, Lagrange, BM, bảng sinh)
+  js/numerical.js     Phần 6 (giao diện)
   js/dp-logic.js      Phần 5 (kiểm tra DnC, lồi/lõm)
   js/dp-check.js      Phần 5 (giao diện)
   js/app.js           khởi động

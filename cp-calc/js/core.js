@@ -647,6 +647,12 @@ function divisors(f) {
   return ds.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
 }
 
+/* angle unit for trig functions: 'rad' (default) or 'deg' */
+const ANGLE = { mode: 'rad' };
+const toRad = (x) => (ANGLE.mode === 'deg' ? x * Math.PI / 180 : x);
+const fromRad = (x) => (ANGLE.mode === 'deg' ? x * 180 / Math.PI : x);
+/* sin(180°) etc. should print 0, not 1.2e-16 */
+const clean = (x) => (Math.abs(x) < 1e-12 ? 0 : x);
 const CONSTS = { pi: Math.PI, PI: Math.PI, e: Math.E, E: Math.E, inf: Infinity, INF: Infinity };
 
 function argNum(args, i) { return toNum(unwrap(args[i])); }
@@ -668,6 +674,24 @@ const FUNCS = {
   isqrt: (a) => { needArgs('isqrt', a, 1); return isqrt(unwrap(a[0])); },
   cbrt: (a) => { needArgs('cbrt', a, 1); return Math.cbrt(argNum(a, 0)); },
   exp: (a) => { needArgs('exp', a, 1); return Math.exp(argNum(a, 0)); },
+  sin: (a) => { needArgs('sin', a, 1); return clean(Math.sin(toRad(argNum(a, 0)))); },
+  cos: (a) => { needArgs('cos', a, 1); return clean(Math.cos(toRad(argNum(a, 0)))); },
+  tan: (a) => {
+    needArgs('tan', a, 1);
+    const x = toRad(argNum(a, 0));
+    if (Math.abs(Math.cos(x)) < 1e-15) throw new CalcError('err.tanUndef', {});
+    return clean(Math.tan(x));
+  },
+  cot: (a) => { needArgs('cot', a, 1); const x = toRad(argNum(a, 0)); if (Math.abs(Math.sin(x)) < 1e-15) throw new CalcError('err.tanUndef', {}); return clean(Math.cos(x) / Math.sin(x)); },
+  asin: (a) => { needArgs('asin', a, 1); const v = argNum(a, 0); if (v < -1 || v > 1) throw new CalcError('err.domain', { fn: 'asin', d: '[-1, 1]' }); return fromRad(Math.asin(v)); },
+  acos: (a) => { needArgs('acos', a, 1); const v = argNum(a, 0); if (v < -1 || v > 1) throw new CalcError('err.domain', { fn: 'acos', d: '[-1, 1]' }); return fromRad(Math.acos(v)); },
+  atan: (a) => { needArgs('atan', a, 1); return fromRad(Math.atan(argNum(a, 0))); },
+  atan2: (a) => { needArgs('atan2', a, 2); return fromRad(Math.atan2(argNum(a, 0), argNum(a, 1))); },
+  sinh: (a) => { needArgs('sinh', a, 1); return Math.sinh(argNum(a, 0)); },
+  cosh: (a) => { needArgs('cosh', a, 1); return Math.cosh(argNum(a, 0)); },
+  tanh: (a) => { needArgs('tanh', a, 1); return Math.tanh(argNum(a, 0)); },
+  deg: (a) => { needArgs('deg', a, 1); return argNum(a, 0) * 180 / Math.PI; },
+  rad: (a) => { needArgs('rad', a, 1); return argNum(a, 0) * Math.PI / 180; },
   pow: (a) => { needArgs('pow', a, 2); return A.pow(unwrap(a[0]), unwrap(a[1])); },
   floor: (a) => { needArgs('floor', a, 1); const v = unwrap(a[0]); return isBig(v) ? v : numToInt(Math.floor(v)); },
   ceil: (a) => { needArgs('ceil', a, 1); const v = unwrap(a[0]); return isBig(v) ? v : numToInt(Math.ceil(v)); },
@@ -744,6 +768,8 @@ function evaluate(ast, env, hook) {
       }
       case 'call': {
         // functions supplied by the caller (e.g. range functions on arrays) take priority
+        // lazy functions receive the raw argument trees (loops such as mexfor(i, lo, hi, expr))
+        if (env.__lazy && env.__lazy[n.name]) { r = env.__lazy[n.name](n.args, env); break; }
         if (env.__funcs && env.__funcs[n.name]) { r = env.__funcs[n.name](n.args.map(ev), n.args); break; }
         const f = FUNCS[n.name];
         if (!f) throw new CalcError('err.unknownFn', { name: n.name });
@@ -774,6 +800,9 @@ function compileFloat(ast, varNames) {
   const fns = {
     log: (x, b) => (b === undefined ? Math.log2(x) : Math.log2(x) / Math.log2(b)), log2: Math.log2, lg: Math.log2,
     ln: Math.log, log10: Math.log10, sqrt: Math.sqrt, cbrt: Math.cbrt, exp: Math.exp, pow: Math.pow,
+    sin: (x) => Math.sin(toRad(x)), cos: (x) => Math.cos(toRad(x)), tan: (x) => Math.tan(toRad(x)),
+    asin: (x) => fromRad(Math.asin(x)), acos: (x) => fromRad(Math.acos(x)), atan: (x) => fromRad(Math.atan(x)),
+    sinh: Math.sinh, cosh: Math.cosh, tanh: Math.tanh,
     floor: Math.floor, ceil: Math.ceil, round: Math.round, abs: Math.abs, min: Math.min, max: Math.max,
     isqrt: (x) => Math.floor(Math.sqrt(x)), H: harmonic, ackinv: (x) => Number(ackermannInverse(x)), alpha: (x) => Number(ackermannInverse(x)),
   };
@@ -879,6 +908,7 @@ function fmtBytes(b) {
 }
 
 global.CP = {
+  ANGLE,
   CalcError, isBig, toNum, unwrap, toBigInt, bitLen, log2Any,
   tokenize, parse, parseLine, parseVars, evaluate, compileFloat, A,
   isPrime, factorize, factorText, divisors, numDivisors, sumDivisors, phi, maxDivisors, maxDistinctPrimes,

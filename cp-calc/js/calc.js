@@ -9,6 +9,7 @@ I18N.add({
     'calc.nav.analysis': 'Truy hồi & tích phân', 'calc.nav.nt': 'Số học', 'calc.nav.comb': 'Tổ hợp',
     'nb.title': 'Máy tính', 'nb.desc': 'Mỗi dòng một phép tính. Đặt biến bằng "n = 2e5" rồi dùng ở các dòng dưới. Số nguyên được tính chính xác (không giới hạn chữ số). Bấm vào kết quả để chép.',
     'nb.add': '+ Thêm dòng', 'nb.clear': 'Xoá hết', 'nb.example': 'Nạp ví dụ', 'nb.keys': 'Enter: dòng mới · Backspace ở dòng trống: xoá dòng · ↑↓: di chuyển',
+    'nb.angle': 'Đơn vị góc', 'nb.deg': 'Độ',
     'nb.ref': 'Hàm và cú pháp', 'nb.ph': 'Nhập biểu thức, vd n*log(n)',
     'cx.title': 'Độ phức tạp', 'cx.desc': 'Nhập độ phức tạp dạng biểu thức (log là log cơ số 2). Kết luận dựa trên Time limit và tốc độ ở thanh Máy chấm.',
     'cx.est': 'Ước lượng thời gian', 'cx.tpl': 'Mẫu dựng sẵn', 'cx.tplNone': '— Tự nhập —', 'cx.expr': 'Độ phức tạp', 'cx.vars': 'Biến',
@@ -77,6 +78,7 @@ I18N.add({
     'calc.nav.analysis': 'Recurrences & integrals', 'calc.nav.nt': 'Number theory', 'calc.nav.comb': 'Combinatorics',
     'nb.title': 'Calculator', 'nb.desc': 'One calculation per line. Set variables with "n = 2e5" and use them below. Integers are exact (no digit limit). Click a result to copy it.',
     'nb.add': '+ Add line', 'nb.clear': 'Clear all', 'nb.example': 'Load example', 'nb.keys': 'Enter: new line · Backspace on empty line: delete · ↑↓: move',
+    'nb.angle': 'Angle unit', 'nb.deg': 'Deg',
     'nb.ref': 'Functions and syntax', 'nb.ph': 'Type an expression, e.g. n*log(n)',
     'cx.title': 'Complexity', 'cx.desc': 'Type the complexity as an expression (log is base 2). The verdict uses the time limit and speed from the Judge bar.',
     'cx.est': 'Running time estimate', 'cx.tpl': 'Preset', 'cx.tplNone': '— Custom —', 'cx.expr': 'Complexity', 'cx.vars': 'Variables',
@@ -164,6 +166,9 @@ const FNREF = [
   ['maxomega(N)', 'Số ước nguyên tố phân biệt nhiều nhất của x ≤ N', 'Max number of distinct prime factors for x ≤ N'],
   ['primepi(n)  maxdiv(N)', 'Số lượng số nguyên tố ≤ n, số ước lớn nhất của x ≤ N', 'Primes ≤ n, max divisor count for x ≤ N'],
   ['H(n)  sumfloor(n)  sumsigma(n)', 'Σ 1/i,  Σ ⌊n/i⌋,  Σ σ(i)', 'Σ 1/i,  Σ ⌊n/i⌋,  Σ σ(i)'],
+  ['sin cos tan cot', 'Lượng giác. Đơn vị góc (Rad / Độ) chọn ở nút phía trên sổ tay', 'Trigonometry. Pick the angle unit (Rad / Deg) above the notebook'],
+  ['asin acos atan atan2(y, x)', 'Lượng giác ngược, kết quả theo đơn vị góc đang chọn', 'Inverse trig, result in the selected angle unit'],
+  ['sinh cosh tanh  deg(x) rad(x)', 'Hàm hyperbolic; đổi rad → độ, độ → rad', 'Hyperbolic functions; convert rad → deg, deg → rad'],
   ['pi  e  inf', 'Hằng số π, e, vô cùng', 'Constants π, e, infinity'],
 ];
 
@@ -228,6 +233,14 @@ nb.addEventListener('keydown', (e) => {
 $('#nbAdd').onclick = () => { const r = nbRow(''); nb.appendChild(r); r.querySelector('input').focus(); nbCompute(); };
 $('#nbClear').onclick = () => { nbSet(['']); nb.querySelector('input').focus(); };
 $('#nbExample').onclick = () => nbSet(EXAMPLE);
+function setAngle(m) {
+  CP.ANGLE.mode = m;
+  $$('#nbAngle button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.a === m)));
+  try { localStorage.setItem('cpcalc.angle', m); } catch (e) { /* ignore */ }
+  nbCompute();
+}
+$('#nbAngle').addEventListener('click', (e) => { const b = e.target.closest('[data-a]'); if (b) setAngle(b.dataset.a); });
+try { const m = localStorage.getItem('cpcalc.angle'); if (m === 'deg') setAngle('deg'); } catch (e) { /* ignore */ }
 nbSet(EXAMPLE);
 I18N.onChange(nbCompute);
 
