@@ -52,7 +52,7 @@ h2, h3 { text-wrap: balance; }
   padding-block: 8px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
 .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 16px; letter-spacing: -.01em; white-space: nowrap; }
-.brand-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--accent); color: var(--accent-fg); display: grid; place-items: center; font-family: var(--mono); font-size: 13px; font-weight: 700; }
+.brand-mark { width: 32px; height: 32px; display: block; flex: none; }
 .tabs { display: flex; gap: 3px; background: var(--surface-2); padding: 3px; border-radius: 9px; overflow-x: auto; max-width: 100%; }
 .tab { border: 0; background: transparent; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; color: var(--muted); white-space: nowrap; }
 .tab[aria-selected="true"] { background: var(--surface); color: var(--fg); box-shadow: var(--shadow); }
