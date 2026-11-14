@@ -557,6 +557,18 @@ function fib(n) {
   return fd(n)[0];
 }
 
+/* Inverse Ackermann α(n) = min k with A(k, k) >= n, where A(0,0)=1, A(1,1)=3, A(2,2)=7, A(3,3)=61
+   and A(4,4) = 2^2^2^65536 − 3 (larger than anything that fits in this universe), so α(n) <= 4 in practice. */
+function ackermannInverse(n) {
+  if (isBig(n) ? false : !Number.isFinite(n)) return 4n;
+  const v = isBig(n) ? n : BigInt(Math.ceil(n));
+  if (v <= 1n) return 0n;
+  if (v <= 3n) return 1n;
+  if (v <= 7n) return 2n;
+  if (v <= 61n) return 3n;
+  return 4n;
+}
+
 /* ---------------- Evaluation ---------------- */
 // Approximate huge results are returned as {approxLog10}; arithmetic on them converts to Number.
 const unwrap = (v) => (v && typeof v === 'object' && 'approxLog10' in v ? Math.pow(10, v.approxLog10) : v);
@@ -603,6 +615,9 @@ const FUNCS = {
   d: (a) => { needArgs('d', a, 1); return numDivisors(unwrap(a[0])); },
   sigma: (a) => { needArgs('sigma', a, 1); return sumDivisors(unwrap(a[0])); },
   phi: (a) => { needArgs('phi', a, 1); return phi(unwrap(a[0])); },
+  totient: (a) => { needArgs('totient', a, 1); return phi(unwrap(a[0])); },
+  ackinv: (a) => { needArgs('ackinv', a, 1); return ackermannInverse(unwrap(a[0])); },
+  alpha: (a) => { needArgs('alpha', a, 1); return ackermannInverse(unwrap(a[0])); },
   isprime: (a) => { needArgs('isprime', a, 1); return isPrime(unwrap(a[0])) ? 1n : 0n; },
   primepi: (a) => {
     needArgs('primepi', a, 1); const n = Math.floor(argNum(a, 0));
@@ -676,7 +691,7 @@ function compileFloat(ast, varNames) {
     log: (x, b) => (b === undefined ? Math.log2(x) : Math.log2(x) / Math.log2(b)), log2: Math.log2, lg: Math.log2,
     ln: Math.log, log10: Math.log10, sqrt: Math.sqrt, cbrt: Math.cbrt, exp: Math.exp, pow: Math.pow,
     floor: Math.floor, ceil: Math.ceil, round: Math.round, abs: Math.abs, min: Math.min, max: Math.max,
-    isqrt: (x) => Math.floor(Math.sqrt(x)), H: harmonic,
+    isqrt: (x) => Math.floor(Math.sqrt(x)), H: harmonic, ackinv: (x) => Number(ackermannInverse(x)), alpha: (x) => Number(ackermannInverse(x)),
   };
   const gen = (n) => {
     switch (n.t) {
@@ -783,7 +798,7 @@ global.CP = {
   tokenize, parse, parseLine, parseVars, evaluate, compileFloat, A,
   isPrime, factorize, numDivisors, sumDivisors, phi, maxDivisors, maxDistinctPrimes,
   primePiExact, PRIMEPI_LIMIT, li, sumFloor, SUMFLOOR_LIMIT, distinctFloor, isqrt, sumSigma, SUMSIGMA_LIMIT,
-  harmonic, sumInvPrimes, factorial, binom, perm, catalan, partitions, bell, stirling1, stirling2, fib, lgammaApprox,
+  harmonic, ackermannInverse, sumInvPrimes, factorial, binom, perm, catalan, partitions, bell, stirling1, stirling2, fib, lgammaApprox,
   sciFromBig, sciNum, plainNum, formatValue, fmtCount, fmtTime, fmtBytes, FUNCS,
 };
 })(typeof window !== 'undefined' ? window : globalThis);

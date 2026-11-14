@@ -23,7 +23,7 @@ Tuỳ chọn: `--port 9000` để đổi cổng, `--no-browser` để không t�
 ## Phần 1: Calculator
 
 - **Máy tính**: mỗi dòng một phép tính, đặt biến `n = 2e5`, số nguyên lớn tính chính xác. `log` là log cơ số 2 (quy ước CP), `ln` là log tự nhiên.
-  Hàm có sẵn: `C P fact ! gcd lcm sqrt isqrt d sigma phi isprime primepi maxdiv H sumfloor sumsigma catalan fib partitions bell S1 S2…`
+  Hàm có sẵn: `C P fact ! gcd lcm sqrt isqrt d sigma phi totient isprime primepi maxdiv H sumfloor sumsigma catalan fib partitions bell S1 S2 ackinv alpha…` (`phi`/`totient` là phi Euler, `ackinv`/`alpha` là nghịch đảo Ackermann α(n) ≤ 4).
 - **Độ phức tạp**: ước lượng thời gian theo Time limit và tốc độ máy chấm (thanh "Máy chấm"), kết luận 🟢 An toàn / 🟡 Sát TL / 🔴 TLE. Có 16 mẫu dựng sẵn, tính ngược n tối đa, bảng so sánh.
 - **Tổng & vòng lặp**: harmonic sum, Σ⌊n/i⌋ chính xác (n ≤ 1e14), Σ n/p, tổng tự định nghĩa, đếm vòng lặp lồng nhau (tự suy ra công thức đa thức).
 - **Truy hồi & tích phân**: định lý thợ (có trường hợp log mở rộng), Akra–Bazzi, tính trực tiếp T(N), tích phân số.

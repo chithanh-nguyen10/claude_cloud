@@ -22,7 +22,7 @@ I18N.add({
     'tpl.bitmask': 'DP bitmask: 2ⁿ·n²', 'tpl.submask': 'Duyệt submask: 3ⁿ', 'tpl.fft': 'FFT/NTT: n·log n (hằng số lớn)',
     'tpl.sort': 'Sắp xếp: n·log n', 'tpl.sparse': 'Sparse table: n·log n + q', 'tpl.sieve': 'Sàng Eratosthenes: n·ln ln n',
     'tpl.bs': 'Chặt nhị phân đáp án: n·log(1e18)', 'tpl.mat': 'Nhân ma trận lũy thừa: k³·log n', 'tpl.sqrt': 'Chia căn: q·√n',
-    'tpl.lca': 'LCA binary lifting: (n + q)·log n',
+    'tpl.lca': 'LCA binary lifting: (n + q)·log n', 'tpl.dsu': 'DSU (gộp theo hạng + nén đường): (n + q)·α(n)',
     'sum.title': 'Tổng & vòng lặp', 'sum.desc': 'Các tổng hay gặp khi phân tích độ phức tạp, và bộ đếm số lần lặp của vòng lặp lồng nhau.',
     'sum.harm': 'Harmonic sum', 'sum.primes': 'Tổng trên số nguyên tố', 'sum.custom': 'Tổng tự định nghĩa', 'sum.loops': 'Đếm vòng lặp lồng nhau',
     'h.H': 'H(n) = Σ 1/i', 'h.sum': 'Σ n/i = n·H(n)', 'h.approx': 'n·ln n', 'h.floor': 'Σ ⌊n/i⌋ (= Σ d(i))', 'h.distinct': 'Số giá trị khác nhau của ⌊n/i⌋',
@@ -77,7 +77,7 @@ I18N.add({
     'tpl.bitmask': 'Bitmask DP: 2ⁿ·n²', 'tpl.submask': 'Submask enumeration: 3ⁿ', 'tpl.fft': 'FFT/NTT: n·log n (large constant)',
     'tpl.sort': 'Sorting: n·log n', 'tpl.sparse': 'Sparse table: n·log n + q', 'tpl.sieve': 'Sieve of Eratosthenes: n·ln ln n',
     'tpl.bs': 'Binary search on answer: n·log(1e18)', 'tpl.mat': 'Matrix power: k³·log n', 'tpl.sqrt': 'Sqrt decomposition: q·√n',
-    'tpl.lca': 'LCA binary lifting: (n + q)·log n',
+    'tpl.lca': 'LCA binary lifting: (n + q)·log n', 'tpl.dsu': 'DSU (union by rank + path compression): (n + q)·α(n)',
     'sum.title': 'Sums & loops', 'sum.desc': 'Sums that show up in complexity analysis, plus an iteration counter for nested loops.',
     'sum.harm': 'Harmonic sum', 'sum.primes': 'Sum over primes', 'sum.custom': 'Custom sum', 'sum.loops': 'Nested loop counter',
     'h.H': 'H(n) = Σ 1/i', 'h.sum': 'Σ n/i = n·H(n)', 'h.approx': 'n·ln n', 'h.floor': 'Σ ⌊n/i⌋ (= Σ d(i))', 'h.distinct': 'Distinct values of ⌊n/i⌋',
@@ -129,7 +129,9 @@ const FNREF = [
   ['C(n,k)  P(n,k)', 'Tổ hợp, chỉnh hợp', 'Binomial, permutations'],
   ['catalan fib partitions bell', 'Catalan, Fibonacci, phân hoạch p(n), Bell', 'Catalan, Fibonacci, partitions p(n), Bell'],
   ['S1(n,k)  S2(n,k)', 'Stirling loại 1 (không dấu), loại 2', 'Stirling numbers of the 1st (unsigned) and 2nd kind'],
-  ['d sigma phi isprime', 'Số ước, tổng ước, phi Euler, kiểm tra nguyên tố', 'Divisor count, divisor sum, Euler phi, primality'],
+  ['d sigma isprime', 'Số ước, tổng ước, kiểm tra nguyên tố', 'Divisor count, divisor sum, primality'],
+  ['phi(n)  totient(n)', 'Phi Euler: số số từ 1 đến n nguyên tố cùng nhau với n', 'Euler phi: how many of 1..n are coprime to n'],
+  ['ackinv(n)  alpha(n)', 'Nghịch đảo Ackermann α(n) (độ phức tạp DSU). α(n) ≤ 4 với mọi n thực tế', 'Inverse Ackermann α(n) (DSU complexity). α(n) ≤ 4 for every practical n'],
   ['primepi(n)  maxdiv(N)', 'Số lượng số nguyên tố ≤ n, số ước lớn nhất của x ≤ N', 'Primes ≤ n, max divisor count for x ≤ N'],
   ['H(n)  sumfloor(n)  sumsigma(n)', 'Σ 1/i,  Σ ⌊n/i⌋,  Σ σ(i)', 'Σ 1/i,  Σ ⌊n/i⌋,  Σ σ(i)'],
   ['pi  e  inf', 'Hằng số π, e, vô cùng', 'Constants π, e, infinity'],
@@ -206,7 +208,7 @@ renderFnRef(); I18N.onChange(renderFnRef);
 
 /* ================================================= Complexity */
 const TEMPLATES = [
-  ['tpl.seg', '(n + q) * log(n)', 3], ['tpl.bit', '(n + q) * log(n)', 1], ['tpl.mo', '(n + q) * sqrt(n)', 1],
+  ['tpl.dsu', '(n + q) * ackinv(n)', 2], ['tpl.seg', '(n + q) * log(n)', 3], ['tpl.bit', '(n + q) * log(n)', 1], ['tpl.mo', '(n + q) * sqrt(n)', 1],
   ['tpl.sqrt', 'q * sqrt(n)', 1], ['tpl.dij', '(n + m) * log(n)', 2], ['tpl.lca', '(n + q) * log(n)', 1],
   ['tpl.floyd', 'n^3', 1], ['tpl.bf', 'n * m', 1], ['tpl.bitmask', '2^n * n^2', 1], ['tpl.submask', '3^n', 1],
   ['tpl.fft', 'n * log(n)', 5], ['tpl.sort', 'n * log(n)', 1], ['tpl.sparse', 'n * log(n) + q', 1],
@@ -249,7 +251,7 @@ function runCx() {
 }
 
 const STD = [
-  ['1', '1'], ['log n', 'log(n)'], ['√n', 'sqrt(n)'], ['n', 'n'], ['n log n', 'n*log(n)'], ['n √n', 'n*sqrt(n)'],
+  ['1', '1'], ['log n', 'log(n)'], ['√n', 'sqrt(n)'], ['n', 'n'], ['n α(n)', 'n*ackinv(n)'], ['n log n', 'n*log(n)'], ['n √n', 'n*sqrt(n)'],
   ['n log² n', 'n*log(n)^2'], ['n²', 'n^2'], ['n² log n', 'n^2*log(n)'], ['n³', 'n^3'], ['2ⁿ', '2^n'], ['2ⁿ·n', '2^n*n'], ['2ⁿ·n²', '2^n*n^2'], ['3ⁿ', '3^n'], ['n!', 'n!'],
 ];
 const STD_AST = STD.map(([, e]) => CP.parse(e));
