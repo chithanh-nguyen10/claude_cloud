@@ -1306,5 +1306,9 @@ tabs.push(newTab(null, SAMPLE));
 renderToolbar(); renderLook();
 activate(tabs[0]);
 I18N.onChange(() => { renderToolbar(); renderLook(); renderTabs(); renderSide(); });
+// redraw the canvas with the new colors when the theme changes
+const redrawTheme = () => { cssCache = null; draw(); };
+document.addEventListener('themechange', () => setTimeout(redrawTheme, 0));
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', redrawTheme);
 document.addEventListener('tabshow', (e) => { if (e.detail === 'graph') setTimeout(() => { resize(); wake(); }, 30); });
 })();

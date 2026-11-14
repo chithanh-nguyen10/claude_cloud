@@ -1,6 +1,6 @@
 # CP Calc
 
-Công cụ cho competitive programming, song ngữ Việt / Anh (nút VI | EN ở góc phải).
+Công cụ cho competitive programming, song ngữ Việt / Anh (nút VI | EN ở góc phải). Có giao diện sáng và giao diện tối theo bảng màu GitHub Dark của VS Code (nút ☀ / ☾ / màn hình ở góc phải; chọn "màn hình" là theo hệ thống).
 
 | Phần | Cần gì để chạy |
 |---|---|

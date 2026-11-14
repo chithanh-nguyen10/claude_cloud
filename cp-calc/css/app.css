@@ -19,20 +19,21 @@
   --r: 9px;
   color-scheme: light;
 }
+/* Theme tối: bảng màu GitHub Dark Default (giống VS Code). Theme sáng ở trên giữ nguyên. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121219; --surface: #1b1b25; --surface-2: #252532; --line: #343445;
-    --fg: #e8e8f2; --muted: #9c9cb4; --accent: #9d88ff; --accent-fg: #14101f; --accent-soft: #2c2650;
-    --ok: #4fd283; --ok-soft: #173826; --warn: #f2b14a; --warn-soft: #3a2c12; --bad: #ff6f6f; --bad-soft: #401c1f;
-    --code-bg: #16161f; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 3px 10px rgba(0,0,0,.2);
+    --bg: #0d1117; --surface: #161b22; --surface-2: #21262d; --line: #30363d;
+    --fg: #e6edf3; --muted: #8b949e; --accent: #2f81f7; --accent-fg: #ffffff; --accent-soft: #15233a;
+    --ok: #3fb950; --ok-soft: #12261b; --warn: #d29922; --warn-soft: #2b2111; --bad: #f85149; --bad-soft: #351b1d;
+    --code-bg: #0d1117; --shadow: 0 0 0 1px rgba(1, 4, 9, .3), 0 6px 16px rgba(1, 4, 9, .45);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #121219; --surface: #1b1b25; --surface-2: #252532; --line: #343445;
-  --fg: #e8e8f2; --muted: #9c9cb4; --accent: #9d88ff; --accent-fg: #14101f; --accent-soft: #2c2650;
-  --ok: #4fd283; --ok-soft: #173826; --warn: #f2b14a; --warn-soft: #3a2c12; --bad: #ff6f6f; --bad-soft: #401c1f;
-  --code-bg: #16161f; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 3px 10px rgba(0,0,0,.2);
+  --bg: #0d1117; --surface: #161b22; --surface-2: #21262d; --line: #30363d;
+  --fg: #e6edf3; --muted: #8b949e; --accent: #2f81f7; --accent-fg: #ffffff; --accent-soft: #15233a;
+  --ok: #3fb950; --ok-soft: #12261b; --warn: #d29922; --warn-soft: #2b2111; --bad: #f85149; --bad-soft: #351b1d;
+  --code-bg: #0d1117; --shadow: 0 0 0 1px rgba(1, 4, 9, .3), 0 6px 16px rgba(1, 4, 9, .45);
   color-scheme: dark;
 }
 
@@ -346,5 +347,11 @@ table.mat td { padding: 2px 10px; text-align: right; font-family: var(--mono); f
 .gen-tbl td.v { font-weight: 600; }
 .gen-tbl td.c0 { color: var(--muted); } .gen-tbl td.c1 { color: #2563eb; } .gen-tbl td.c2 { color: #16a34a; } .gen-tbl td.c3 { color: #c2410c; }
 .gen-tbl td.c4 { color: #9333ea; } .gen-tbl td.c5 { color: #db2777; } .gen-tbl td.c6 { color: #0891b2; } .gen-tbl td.c7 { color: #ca8a04; }
-:root[data-theme="dark"] .gen-tbl td.c1 { color: #7aa7ff; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .gen-tbl td.c1 { color: #7aa7ff; } }
+:root[data-theme="dark"] .gen-tbl td.c1 { color: #79c0ff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .gen-tbl td.c1 { color: #79c0ff; } }
+
+/* theme switch */
+.theme { display: flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; }
+.theme button { border: 0; background: transparent; padding: 4px 9px; cursor: pointer; color: var(--muted); font-size: 13px; line-height: 1; display: grid; place-items: center; }
+.theme button svg { width: 15px; height: 15px; }
+.theme button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); }

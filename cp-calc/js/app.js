@@ -25,6 +25,17 @@ function wireSubnav(nav) {
 }
 $$('[data-subnav]').forEach(wireSubnav);
 
+/* Theme: light / dark (GitHub Dark) / follow the system */
+function applyTheme(th) {
+  if (th === 'light' || th === 'dark') document.documentElement.dataset.theme = th;
+  else delete document.documentElement.dataset.theme;
+  $$('#themeSwitch [data-th]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.th === (th || 'system'))));
+  try { if (th === 'light' || th === 'dark') localStorage.setItem('cpcalc.theme', th); else localStorage.removeItem('cpcalc.theme'); } catch (e) { /* ignore */ }
+  document.dispatchEvent(new CustomEvent('themechange'));
+}
+$('#themeSwitch').addEventListener('click', (e) => { const b = e.target.closest('[data-th]'); if (b) applyTheme(b.dataset.th); });
+applyTheme(document.documentElement.dataset.theme || 'system');
+
 /* Language */
 function syncLangButtons() { $$('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === I18N.lang))); }
 $$('.lang button').forEach((b) => b.addEventListener('click', () => { I18N.setLang(b.dataset.lang); syncLangButtons(); }));

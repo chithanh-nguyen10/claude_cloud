@@ -31,6 +31,7 @@ function onChange(f) { listeners.push(f); }
 
 add({
   vi: {
+    'th.light': 'Giao diện sáng', 'th.dark': 'Giao diện tối (GitHub Dark)', 'th.system': 'Theo hệ thống',
     'tab.calc': 'Calculator', 'tab.safety': 'An toàn', 'tab.stress': 'Stress test & Benchmark', 'tab.graph': 'Graph Editor',
     'judge.title': 'Máy chấm', 'judge.tl': 'Time limit', 'judge.speed': 'Tốc độ (phép/giây)',
     'judge.hint': 'Dùng để kết luận 🟢🟡🔴 cho mọi ước lượng. 1e8 là an toàn, máy chấm hiện đại thường 2e8 đến 5e8 phép đơn giản/giây.',
@@ -46,6 +47,7 @@ add({
     'err.generic': 'Lỗi: {msg}', 'err.tanUndef': 'Không xác định (cos hoặc sin bằng 0)', 'err.domain': '{fn} chỉ nhận giá trị trong {d}', 'err.noPrime': 'Không có số nguyên tố nhỏ hơn {n}', 'err.notNumber': 'Kết quả "{what}" là phân tích, không dùng để tính tiếp được', 'err.notArray': '"{name}" không phải mảng (hoặc truy cập quá số chiều)', 'err.index': 'Chỉ số {i} nằm ngoài mảng {name}',
   },
   en: {
+    'th.light': 'Light theme', 'th.dark': 'Dark theme (GitHub Dark)', 'th.system': 'Follow the system',
     'tab.calc': 'Calculator', 'tab.safety': 'Safety', 'tab.stress': 'Stress test & Benchmark', 'tab.graph': 'Graph Editor',
     'judge.title': 'Judge', 'judge.tl': 'Time limit', 'judge.speed': 'Speed (ops/sec)',
     'judge.hint': 'Used for every 🟢🟡🔴 verdict. 1e8 is safe; modern judges run about 2e8 to 5e8 simple ops/sec.',
