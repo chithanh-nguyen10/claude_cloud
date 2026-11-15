@@ -16,7 +16,6 @@
     <div class="brand"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">  <defs><linearGradient id="cpg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#4c2fc8"/></linearGradient></defs>  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#cpg)"/>  <path d="M32 18 L20 33 M32 18 L44 33 M20 33 L14 47 M20 33 L26 47 M44 33 L38 47 M44 33 L50 47" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linecap="round"/>  <rect x="25" y="12" width="14" height="10" rx="3" fill="#ffd166"/>  <rect x="14" y="29" width="12" height="8" rx="2.5" fill="#fff"/><rect x="38" y="29" width="12" height="8" rx="2.5" fill="#fff"/>  <circle cx="14" cy="48" r="3.4" fill="#fff"/><circle cx="26" cy="48" r="3.4" fill="#fff"/><circle cx="38" cy="48" r="3.4" fill="#fff"/><circle cx="50" cy="48" r="3.4" fill="#fff"/></svg>CP Calc</div>
     <nav class="tabs" role="tablist">
       <button class="tab" role="tab" data-tab="calc" aria-selected="true" data-i18n="tab.calc"></button>
-      <button class="tab" role="tab" data-tab="num" aria-selected="false" data-i18n="tab.num"></button>
       <button class="tab" role="tab" data-tab="safety" aria-selected="false" data-i18n="tab.safety"></button>
       <button class="tab" role="tab" data-tab="stress" aria-selected="false" data-i18n="tab.stress"></button>
       <button class="tab" role="tab" data-tab="graph" aria-selected="false" data-i18n="tab.graph"></button>
@@ -46,10 +45,16 @@
       <button data-sec="analysis" data-i18n="calc.nav.analysis"></button>
       <button data-sec="nt" data-i18n="calc.nav.nt"></button>
       <button data-sec="comb" data-i18n="calc.nav.comb"></button>
+      <div class="subnav-group" data-i18n="tab.num"></div>
+      <button data-group="num" data-sec="nb" data-i18n="nm.nav.nb"></button>
+      <button data-group="num" data-sec="gauss" data-i18n="nm.nav.gauss"></button>
+      <button data-group="num" data-sec="lag" data-i18n="nm.nav.lag"></button>
+      <button data-group="num" data-sec="rec" data-i18n="nm.nav.rec"></button>
+      <button data-group="num" data-sec="gen" data-i18n="nm.nav.gen"></button>
     </nav>
 
     <div class="content">
-      <div class="judge">
+      <div class="judge" data-for-group="base">
         <span class="ttl" data-i18n="judge.title"></span>
         <label><span data-i18n="judge.tl"></span> <input class="input mono" id="jTL" value="1"> s</label>
         <label><span data-i18n="judge.speed"></span> <input class="input mono" id="jSpeed" value="2e8"></label>
@@ -298,22 +303,9 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- =========================================================== NUMERICAL -->
-<section id="tab-num" data-tabpanel="num" hidden>
-  <div class="layout">
-    <nav class="subnav" data-subnav="num">
-      <button data-sec="nb" aria-current="true" data-i18n="nm.nav.nb"></button>
-      <button data-sec="gauss" data-i18n="nm.nav.gauss"></button>
-      <button data-sec="lag" data-i18n="nm.nav.lag"></button>
-      <button data-sec="rec" data-i18n="nm.nav.rec"></button>
-      <button data-sec="gen" data-i18n="nm.nav.gen"></button>
-    </nav>
-    <div class="content">
-      <div class="judge">
+      <!-- ================= Numerical (inside Calculator) ================= -->
+      <div class="judge" data-for-group="num">
         <span class="ttl" data-i18n="nm.mode"></span>
         <div class="seg seg-sm" id="nmMode">
           <button data-m="exact" aria-selected="true" data-i18n="nm.exact"></button>
@@ -323,7 +315,7 @@
         <span class="row" id="nmModWrap" hidden><label>M <input class="input mono" id="nmM" value="998244353" style="width:140px"></label><span id="nmPrime"></span></span>
       </div>
 
-      <div data-sec-panel="nb" class="content">
+      <div data-sec-panel="nb" class="content" hidden>
         <div class="sec-head"><h2 data-i18n="nm.nb.title"></h2><p data-i18n="nm.nb.desc"></p></div>
         <div class="card"><div class="card-body">
           <div class="nb" id="nmNb"></div>

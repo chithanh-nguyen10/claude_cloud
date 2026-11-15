@@ -131,7 +131,7 @@ Code vét cạn (C++ hoặc Python) in ra f(0) … f(K). Công cụ kiểm tra f
 
 ## Phần 6: Numerical
 
-Chọn chế độ số ở thanh trên cùng:
+Nằm trong tab Calculator, nhóm **Numerical** ở thanh mục bên trái. Chọn chế độ số ở thanh trên cùng:
 - **Chính xác:** phân số, không sai số.
 - **Số thực.**
 - **Modulo M:** mặc định 998244353. Các phép cần chia (Gauss, chia đa thức, Lagrange, Berlekamp–Massey) bắt buộc M nguyên tố.
