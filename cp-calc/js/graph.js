@@ -629,19 +629,22 @@ function render(c, tb, C, interactive) {
     g.edges.forEach((e) => {
       if (e.w === null || e.w === undefined || e.w === '') return;
       const G = geo.get(e.id); if (!G) return;
+      const tw = c.measureText(e.w).width + 8, th = look.font * 1.05 + 4;
+      // push the whole box off the edge: gap + half the box size measured along the edge normal
+      const ext = (ax, ay) => Math.abs(ax) * tw / 2 + Math.abs(ay) * th / 2;
+      const gap = look.labelOff * 0.5 + look.edgeWidth / 2 + 2;
       let p, nx = 0, ny = -1;
-      if (G.type === 'loop') p = { x: G.cx, y: G.cy - G.r - look.labelOff * 0.6 };
+      if (G.type === 'loop') p = { x: G.cx, y: G.cy - G.r - gap - th / 2 };
       else {
         const m = G.type === 'line' ? { x: (G.P.x + G.Q.x) / 2, y: (G.P.y + G.Q.y) / 2 } : qPoint(G, 0.5);
         const dx = G.Q.x - G.P.x, dy = G.Q.y - G.P.y, L = Math.hypot(dx, dy) || 1;
         nx = -dy / L; ny = dx / L;
         if (G.type === 'curve') { const s = (G.C.x - m.x) * nx + (G.C.y - m.y) * ny; if (s < 0) { nx = -nx; ny = -ny; } }
         else if (ny > 0) { nx = -nx; ny = -ny; }
-        p = { x: m.x + nx * look.labelOff, y: m.y + ny * look.labelOff };
+        const d = gap + ext(nx, ny);
+        p = { x: m.x + nx * d, y: m.y + ny * d };
       }
       c.globalAlpha = V.dim && !V.keepE.has(e.id) ? 0.3 : 1;
-      const tw = c.measureText(e.w).width + 8, th = look.font * 1.05 + 4;
-      c.fillStyle = C.bg; c.fillRect(p.x - tw / 2, p.y - th / 2, tw, th);
       c.fillStyle = (V.edge.get(e.id) || {}).color === 'accent' ? C.accent : C.wt;
       c.fillText(e.w, p.x, p.y + 0.5);
       c.globalAlpha = 1;
