@@ -7,7 +7,7 @@ I18N.add({
   vi: {
     'calc.nav.notebook': 'Máy tính', 'calc.nav.complexity': 'Độ phức tạp', 'calc.nav.sums': 'Tổng & vòng lặp',
     'calc.nav.analysis': 'Truy hồi & tích phân', 'calc.nav.nt': 'Số học', 'calc.nav.comb': 'Tổ hợp',
-    'nb.title': 'Máy tính', 'nb.desc': 'Mỗi dòng một phép tính. Đặt biến bằng "n = 2e5" rồi dùng ở các dòng dưới. Số nguyên được tính chính xác (không giới hạn chữ số). Bấm vào kết quả để chép.',
+    'nb.title': 'Máy tính', 'nb.desc': 'Mỗi dòng một phép tính. Đặt biến bằng "n = 2e5" rồi dùng ở các dòng dưới; nhiều biến một dòng: "n = 2e5, q = 1e5" hoặc "n = m = 1000" (dấu . là thập phân, dấu , để ngăn cách). Số nguyên được tính chính xác (không giới hạn chữ số). Bấm vào kết quả để chép.',
     'nb.add': '+ Thêm dòng', 'nb.clear': 'Xoá hết', 'nb.example': 'Nạp ví dụ', 'nb.keys': 'Enter: dòng mới · Backspace ở dòng trống: xoá dòng · ↑↓: di chuyển',
     'nb.angle': 'Đơn vị góc', 'nb.deg': 'Độ',
     'nb.ref': 'Hàm và cú pháp', 'nb.ph': 'Nhập biểu thức, vd n*log(n)',
@@ -76,7 +76,7 @@ I18N.add({
   en: {
     'calc.nav.notebook': 'Calculator', 'calc.nav.complexity': 'Complexity', 'calc.nav.sums': 'Sums & loops',
     'calc.nav.analysis': 'Recurrences & integrals', 'calc.nav.nt': 'Number theory', 'calc.nav.comb': 'Combinatorics',
-    'nb.title': 'Calculator', 'nb.desc': 'One calculation per line. Set variables with "n = 2e5" and use them below. Integers are exact (no digit limit). Click a result to copy it.',
+    'nb.title': 'Calculator', 'nb.desc': 'One calculation per line. Set variables with "n = 2e5" and use them below; several on one line: "n = 2e5, q = 1e5" or "n = m = 1000" ("." is the decimal point, "," separates). Integers are exact (no digit limit). Click a result to copy it.',
     'nb.add': '+ Add line', 'nb.clear': 'Clear all', 'nb.example': 'Load example', 'nb.keys': 'Enter: new line · Backspace on empty line: delete · ↑↓: move',
     'nb.angle': 'Angle unit', 'nb.deg': 'Deg',
     'nb.ref': 'Functions and syntax', 'nb.ph': 'Type an expression, e.g. n*log(n)',
@@ -174,7 +174,7 @@ const FNREF = [
 
 /* ================================================= Notebook */
 const EXAMPLE = [
-  'n = 2e5', 'q = 1e5', '(n + q) * log(n)', 'n * sqrt(n)', 'C(40, 20)', 'd(735134400)', '2^62 + 2^62', 'MOD = 1e9 + 7', '(MOD - 1)^2', '25!',
+  'n = 2e5, q = 1e5', '(n + q) * log(n)', 'n * sqrt(n)', 'C(40, 20)', 'd(735134400)', '2^62 + 2^62', 'MOD = 1e9 + 7', '(MOD - 1)^2', '25!',
 ];
 const nb = $('#nb');
 function nbRow(text) {
@@ -197,15 +197,24 @@ function nbCompute() {
     o.className = 'nb-out'; delete o.dataset.copy;
     if (!text || text.startsWith('#')) { o.innerHTML = ''; return; }
     try {
-      const { assign, ast } = CP.parseLine(text);
-      const v = CP.evaluate(ast, env);
-      const isDisplay = v && typeof v === 'object' && 'display' in v;
-      if (!isDisplay && (CP.isBig(CP.unwrap(v)) || typeof CP.unwrap(v) === 'number')) {
-        if (assign) env[assign] = CP.unwrap(v) === v ? v : CP.unwrap(v);
+      // one line may hold several statements: "N = 2e5, Q = 2e5" or "N = M = 1000"
+      const outs = CP.parseStatements(text).map(({ names, ast }) => {
+        const v = CP.evaluate(ast, env);
+        const isDisplay = v && typeof v === 'object' && 'display' in v;
+        if (!isDisplay && (CP.isBig(CP.unwrap(v)) || typeof CP.unwrap(v) === 'number')) {
+          names.forEach((nm) => { env[nm] = CP.unwrap(v); });
+        }
+        return { names, f: CP.formatValue(v) };
+      });
+      const one = (x) => x.names.map((nm) => `<span class="eq">${esc(nm)} = </span>`).join('') + esc(x.f.main);
+      if (outs.length === 1) {
+        const f = outs[0].f;
+        o.innerHTML = one(outs[0]) + (f.sub ? `<small>${esc(f.sub)}</small>` : '');
+        o.dataset.copy = f.copy;
+      } else {
+        o.innerHTML = outs.map(one).join('<span class="eq">, </span>');
+        o.dataset.copy = outs.map((x) => x.f.copy).join(', ');
       }
-      const f = CP.formatValue(v);
-      o.innerHTML = (assign ? `<span class="eq">${esc(assign)} = </span>` : '') + esc(f.main) + (f.sub ? `<small>${esc(f.sub)}</small>` : '');
-      o.dataset.copy = f.copy;
     } catch (e) {
       o.className = 'nb-out err';
       o.textContent = UI.errMsg(e);

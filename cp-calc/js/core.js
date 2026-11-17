@@ -120,24 +120,51 @@ function parse(src) {
   return ast;
 }
 
-/* Parse a notebook line: "name = expr" or "expr" */
-function parseLine(line) {
-  const m = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=(?!=)\s*(.*)$/);
-  if (m) {
-    if (!m[2].trim()) throw new CalcError('err.unexpectedEnd', {});
-    return { assign: m[1], ast: parse(m[2]) };
+/* Split a line on commas that are not inside (), [] or {}: "N = 2e5, Q = max(1, 2)" -> two parts.
+   "." is the decimal point, "," only separates. */
+function splitTop(line) {
+  const parts = []; let depth = 0, cur = '';
+  for (const ch of line) {
+    if ('([{'.includes(ch)) depth++;
+    else if (')]}'.includes(ch)) depth = Math.max(0, depth - 1);
+    if (ch === ',' && depth === 0) { parts.push(cur); cur = ''; } else cur += ch;
   }
-  return { assign: null, ast: parse(line) };
+  parts.push(cur);
+  return parts;
 }
 
-/* Parse "n = 2e5, m = 3e5; q=1e5" into an env object */
+/* Parse one statement: "expr", "name = expr" or a chain "N = M = expr" */
+function parseLine(line) {
+  const names = [];
+  let rest = line, m;
+  while ((m = rest.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=(?!=)([\s\S]*)$/))) { names.push(m[1]); rest = m[2]; }
+  if (names.length) {
+    if (!rest.trim()) throw new CalcError('err.unexpectedEnd', {});
+    return { assign: names[0], names, ast: parse(rest) };
+  }
+  return { assign: null, names, ast: parse(line) };
+}
+
+/* Parse a whole notebook line into statements: "N = 2e5, Q = 2e5" or "N = M = 1000" */
+function parseStatements(line) {
+  const parts = splitTop(line);
+  if (parts.some((p) => !p.trim())) {
+    if (parts.length > 1) throw new CalcError('err.unexpectedEnd', {});
+  }
+  return parts.map(parseLine);
+}
+
+/* Parse "n = 2e5, m = 3e5; q=1e5" (also "n = m = 1000") into an env object */
 function parseVars(text, baseEnv) {
   const env = Object.assign({}, baseEnv || {});
-  for (const part of (text || '').split(/[,;\n]+/)) {
-    if (!part.trim()) continue;
-    const { assign, ast } = parseLine(part);
-    if (!assign) throw new CalcError('err.varFormat', { part: part.trim() });
-    env[assign] = evaluate(ast, env);
+  for (const chunk of (text || '').split(/[;\n]+/)) {
+    for (const part of splitTop(chunk)) {
+      if (!part.trim()) continue;
+      const { names, ast } = parseLine(part);
+      if (!names.length) throw new CalcError('err.varFormat', { part: part.trim() });
+      const v = evaluate(ast, env);
+      names.forEach((nm) => { env[nm] = v; });
+    }
   }
   return env;
 }
@@ -910,7 +937,7 @@ function fmtBytes(b) {
 global.CP = {
   ANGLE,
   CalcError, isBig, toNum, unwrap, toBigInt, bitLen, log2Any,
-  tokenize, parse, parseLine, parseVars, evaluate, compileFloat, A,
+  tokenize, parse, parseLine, parseStatements, splitTop, parseVars, evaluate, compileFloat, A,
   isPrime, factorize, factorText, divisors, numDivisors, sumDivisors, phi, maxDivisors, maxDistinctPrimes,
   primePiExact, PRIMEPI_LIMIT, primePi, primePiBounds, PI_POW10, nextPrime, prevPrime, nthPrime, nthPrimeBounds, NTHPRIME_LIMIT, li, sumFloor, SUMFLOOR_LIMIT, distinctFloor, isqrt, sumSigma, SUMSIGMA_LIMIT,
   harmonic, ackermannInverse, sumInvPrimes, factorial, binom, perm, catalan, partitions, bell, stirling1, stirling2, fib, lgammaApprox,
