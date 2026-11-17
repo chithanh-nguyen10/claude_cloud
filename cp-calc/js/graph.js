@@ -557,6 +557,8 @@ function css() {
     const g = (k) => s.getPropertyValue(k).trim();
     cssCache = { bg: g('--surface'), fg: g('--fg'), muted: g('--muted'), line: g('--line'), accent: g('--accent'), soft: g('--accent-soft'), bg2: g('--surface-2') };
     const dark = luminance(cssCache.bg) < 0.4;
+    cssCache.wt = dark ? '#c9d1d9' : '#3d3d4f';    // edge weights
+    cssCache.accentFg = g('--accent-fg') || '#fff';
     cssCache.lbFg = dark ? '#ffa657' : '#d9730d';   // node label text (orange, readable on both themes)
     cssCache.lbRing = dark ? '#8b949e' : '#b4b4c0'; // dotted ring around it
     cssTime = now;
@@ -622,7 +624,7 @@ function render(c, tb, C, interactive) {
   });
   // edge weights
   if (tb.modes.weighted) {
-    c.font = `${Math.round(look.font * 0.9)}px ${getComputedStyle(document.body).fontFamily}`;
+    c.font = `600 ${Math.round(look.font * 1.05)}px ${getComputedStyle(document.body).fontFamily}`;
     c.textAlign = 'center'; c.textBaseline = 'middle';
     g.edges.forEach((e) => {
       if (e.w === null || e.w === undefined || e.w === '') return;
@@ -638,16 +640,16 @@ function render(c, tb, C, interactive) {
         p = { x: m.x + nx * look.labelOff, y: m.y + ny * look.labelOff };
       }
       c.globalAlpha = V.dim && !V.keepE.has(e.id) ? 0.3 : 1;
-      const tw = c.measureText(e.w).width + 6, th = look.font * 0.9 + 2;
+      const tw = c.measureText(e.w).width + 8, th = look.font * 1.05 + 4;
       c.fillStyle = C.bg; c.fillRect(p.x - tw / 2, p.y - th / 2, tw, th);
-      c.fillStyle = (V.edge.get(e.id) || {}).color === 'accent' ? C.accent : C.muted;
+      c.fillStyle = (V.edge.get(e.id) || {}).color === 'accent' ? C.accent : C.wt;
       c.fillText(e.w, p.x, p.y + 0.5);
       c.globalAlpha = 1;
     });
   }
   // node label directions: put each label where the node has the most free space (away from its edges)
-  const lbDir = new Map();
-  if (tb.labelMap.size) {
+  const lbDir = new Map(), bdDir = new Map();
+  if (tb.labelMap.size || V.badge.size) {
     const ang = new Map();
     g.edges.forEach((e) => {
       if (e.u === e.v) { (ang.get(e.u) || ang.set(e.u, []).get(e.u)).push(-Math.PI / 2); return; }
@@ -655,16 +657,21 @@ function render(c, tb, C, interactive) {
       (ang.get(e.u) || ang.set(e.u, []).get(e.u)).push(Math.atan2(b.y - a.y, b.x - a.x));
       (ang.get(e.v) || ang.set(e.v, []).get(e.v)).push(Math.atan2(a.y - b.y, a.x - b.x));
     });
-    tb.labelMap.forEach((_, n) => {
-      const list = ang.get(n) || [];
-      let best = -Math.PI / 4, bestGap = -1;
+    const freest = (list, start) => {
+      let best = start, bestGap = -1;
       for (let i = 0; i < 16; i++) {
-        const cand = -Math.PI / 4 + i * Math.PI / 8; // start at top-right
+        const cand = start + i * Math.PI / 8;
         let gap = Math.PI;
         list.forEach((a) => { let d = Math.abs(cand - a) % (2 * Math.PI); if (d > Math.PI) d = 2 * Math.PI - d; gap = Math.min(gap, d); });
         if (gap > bestGap + 1e-6) { bestGap = gap; best = cand; }
       }
-      lbDir.set(n, best);
+      return best;
+    };
+    tb.labelMap.forEach((_, n) => lbDir.set(n, freest(ang.get(n) || [], -Math.PI / 4))); // prefer top-right
+    V.badge.forEach((_, n) => {
+      const list = (ang.get(n) || []).slice();
+      if (lbDir.has(n)) list.push(lbDir.get(n), lbDir.get(n)); // keep away from the label
+      bdDir.set(n, freest(list, Math.PI / 2)); // prefer below
     });
   }
   // nodes
@@ -700,24 +707,30 @@ function render(c, tb, C, interactive) {
     if (lb !== undefined) {
       // label in a dotted bubble next to the node, on its freest side
       c.font = `700 ${Math.round(look.font * 1.05)}px ${fontFam}`;
-      const lh = look.font * 1.05 + 14, lw = Math.max(lh, c.measureText(lb).width + 16);
+      // regular octagon (almost round, with corners) big enough for the text
+      const lr = Math.max((look.font * 1.05 + 14) / 2, c.measureText(lb).width / 2 + 9) / Math.cos(Math.PI / 8);
       const a = lbDir.has(n) ? lbDir.get(n) : -Math.PI / 4;
-      const ux = Math.cos(a), uy = Math.sin(a);
-      const reach = R + 6 + Math.abs(ux) * lw / 2 + Math.abs(uy) * lh / 2; // distance so the bubble clears the node
-      const lx = p.x + ux * reach, ly = p.y + uy * reach;
-      roundRect(c, lx - lw / 2, ly - lh / 2, lw, lh, lh / 2);
+      const reach = R + 6 + lr;
+      const lx = p.x + Math.cos(a) * reach, ly = p.y + Math.sin(a) * reach;
+      c.beginPath();
+      for (let i = 0; i < 8; i++) { const q = Math.PI / 8 + i * Math.PI / 4; c[i ? 'lineTo' : 'moveTo'](lx + Math.cos(q) * lr, ly + Math.sin(q) * lr); }
+      c.closePath();
       c.fillStyle = C.bg; c.fill();
       c.lineWidth = 1.6; c.strokeStyle = C.lbRing; c.setLineDash([2.5, 3]); c.stroke(); c.setLineDash([]);
       c.fillStyle = C.lbFg; c.fillText(lb, lx, ly + 0.5);
     }
-    // badge (topo order, distance)
+    // badge (topo order, distance): solid accent pill, so it never looks like a user label
     const bd = V.badge.get(n);
     if (bd !== undefined) {
-      c.font = `700 ${Math.round(look.font * 0.78)}px ${fontFam}`;
-      const bw = Math.max(c.measureText(bd).width + 8, look.font * 1.1), bh = look.font * 1.05;
-      const bx = p.x - bw / 2, by = p.y + R + 4;
-      c.fillStyle = C.accent; roundRect(c, bx, by, bw, bh, bh / 2); c.fill();
-      c.fillStyle = '#fff'; c.fillText(bd, p.x, by + bh / 2 + 0.5);
+      c.font = `700 ${Math.round(look.font * 1)}px ${fontFam}`;
+      const bh = look.font + 10, bw = Math.max(bh, c.measureText(bd).width + 14);
+      const a = bdDir.has(n) ? bdDir.get(n) : Math.PI / 2, ux = Math.cos(a), uy = Math.sin(a);
+      const reach = R + 5 + Math.abs(ux) * bw / 2 + Math.abs(uy) * bh / 2;
+      const bx = p.x + ux * reach, by = p.y + uy * reach;
+      roundRect(c, bx - bw / 2, by - bh / 2, bw, bh, 5);
+      c.fillStyle = C.accent; c.fill();
+      c.lineWidth = 2; c.strokeStyle = C.bg; c.stroke();
+      c.fillStyle = C.accentFg || '#fff'; c.fillText(bd, bx, by + 0.5);
     }
     c.globalAlpha = 1;
   });
