@@ -556,6 +556,11 @@ function css() {
     const s = getComputedStyle(document.documentElement);
     const g = (k) => s.getPropertyValue(k).trim();
     cssCache = { bg: g('--surface'), fg: g('--fg'), muted: g('--muted'), line: g('--line'), accent: g('--accent'), soft: g('--accent-soft'), bg2: g('--surface-2') };
+    const dark = luminance(cssCache.bg) < 0.4;
+    cssCache.wt = dark ? '#ffa657' : '#c2570c';   // edge weight text (orange, readable on both themes)
+    cssCache.wtRing = dark ? '#6e7681' : '#a8a8b8';
+    cssCache.lbBg = dark ? '#1f3a5f' : '#e8e2ff';  // node label pill
+    cssCache.lbFg = dark ? '#a5d6ff' : '#4c2fc8';
     cssTime = now;
   }
   return cssCache;
@@ -619,7 +624,7 @@ function render(c, tb, C, interactive) {
   });
   // edge weights
   if (tb.modes.weighted) {
-    c.font = `${Math.round(look.font * 0.9)}px ${getComputedStyle(document.body).fontFamily}`;
+    c.font = `700 ${Math.round(look.font * 0.95)}px ${getComputedStyle(document.body).fontFamily}`;
     c.textAlign = 'center'; c.textBaseline = 'middle';
     g.edges.forEach((e) => {
       if (e.w === null || e.w === undefined || e.w === '') return;
@@ -635,10 +640,18 @@ function render(c, tb, C, interactive) {
         p = { x: m.x + nx * look.labelOff, y: m.y + ny * look.labelOff };
       }
       c.globalAlpha = V.dim && !V.keepE.has(e.id) ? 0.3 : 1;
-      const tw = c.measureText(e.w).width + 6, th = look.font * 0.9 + 2;
-      c.fillStyle = C.bg; c.fillRect(p.x - tw / 2, p.y - th / 2, tw, th);
-      c.fillStyle = (V.edge.get(e.id) || {}).color === 'accent' ? C.accent : C.muted;
-      c.fillText(e.w, p.x, p.y + 0.5);
+      // weight in a dashed bubble pushed off the edge (like a tag hanging next to it)
+      const hl = (V.edge.get(e.id) || {}).color === 'accent';
+      const fs = look.font * 0.95, tw = c.measureText(String(e.w)).width;
+      const h = fs + 10, w = Math.max(h, tw + 12);
+      const q = G.type === 'loop' ? { x: p.x, y: p.y - h / 2 + 2 } : { x: p.x + nx * (h / 2 - 2), y: p.y + ny * (h / 2 - 2) };
+      c.beginPath(); roundRect(c, q.x - w / 2, q.y - h / 2, w, h, h / 2);
+      c.fillStyle = C.bg; c.fill();
+      c.lineWidth = hl ? 2 : 1.4; c.strokeStyle = hl ? C.accent : C.wtRing;
+      if (!hl) c.setLineDash([3, 3]);
+      c.stroke(); c.setLineDash([]);
+      c.fillStyle = hl ? C.accent : C.wt;
+      c.fillText(e.w, q.x, q.y + 0.5);
       c.globalAlpha = 1;
     });
   }
@@ -673,10 +686,13 @@ function render(c, tb, C, interactive) {
     // label from labels array
     const lb = tb.labelMap.get(n);
     if (lb !== undefined) {
-      c.font = `600 ${Math.round(look.font * 0.8)}px ${fontFam}`;
-      c.fillStyle = C.accent; c.textAlign = 'left';
-      c.fillText(lb, p.x + R * 0.85, p.y - R * 0.95);
-      c.textAlign = 'center';
+      // node label: a filled pill at the top-right of the node
+      c.font = `700 ${Math.round(look.font * 0.82)}px ${fontFam}`;
+      const lh = look.font * 0.82 + 8, lw = Math.max(lh, c.measureText(lb).width + 10);
+      const lx = p.x + R * 0.6, ly = p.y - R * 0.75 - lh;
+      c.beginPath(); roundRect(c, lx, ly, lw, lh, lh / 2);
+      c.fillStyle = C.lbBg; c.fill(); c.lineWidth = 1.2; c.strokeStyle = C.lbFg; c.stroke();
+      c.fillStyle = C.lbFg; c.fillText(lb, lx + lw / 2, ly + lh / 2 + 0.5);
     }
     // badge (topo order, distance)
     const bd = V.badge.get(n);
