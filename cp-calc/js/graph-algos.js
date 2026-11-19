@@ -137,6 +137,64 @@ function bridgesAndCuts(g) {
   return { bridges, cuts };
 }
 
+/* ---------------- 2-edge-connected components: remove bridges, what stays connected is one 2ECC ---------------- */
+function twoEdgeCC(g) {
+  const { bridges } = bridgesAndCuts(g);
+  const id = index(g), d = dsu(g.nodes.length);
+  g.edges.forEach((e) => { if (!bridges.has(e.id)) d.unite(id.get(e.u), id.get(e.v)); });
+  const r = groupBy(g, (i) => d.find(i));
+  return Object.assign(r, { bridges });
+}
+
+/* ---------------- Biconnected components (blocks), Tarjan with an edge stack, iterative ----------------
+   Every edge (except self loops) is in exactly one block; cut vertices are in several.
+   An isolated vertex (or one with only self loops) is a block of its own. */
+function biconnected(g) {
+  const { adj, n } = adjacency(g, false);
+  const tin = new Array(n).fill(-1), low = new Array(n).fill(0);
+  const blocks = [], cuts = new Set(), est = [];
+  let timer = 0;
+  const popBlock = (stopEdge) => {
+    const ns = new Set(), es = [];
+    while (est.length) {
+      const k = est.pop();
+      es.push(g.edges[k].id); ns.add(g.edges[k].u); ns.add(g.edges[k].v);
+      if (k === stopEdge) break;
+    }
+    blocks.push({ nodes: [...ns].sort(natCmp), edges: es });
+  };
+  for (let r = 0; r < n; r++) {
+    if (tin[r] !== -1) continue;
+    tin[r] = low[r] = timer++;
+    if (!adj[r].some((x) => x.to !== r)) { blocks.push({ nodes: [g.nodes[r]], edges: [] }); continue; }
+    const stack = [{ v: r, pe: -1, it: 0, kids: 0 }];
+    while (stack.length) {
+      const f = stack[stack.length - 1];
+      if (f.it < adj[f.v].length) {
+        const { to, e } = adj[f.v][f.it++];
+        if (e === f.pe || to === f.v) continue;
+        if (tin[to] === -1) {
+          est.push(e);
+          tin[to] = low[to] = timer++;
+          f.kids++;
+          stack.push({ v: to, pe: e, it: 0, kids: 0 });
+        } else if (tin[to] < tin[f.v]) { est.push(e); low[f.v] = Math.min(low[f.v], tin[to]); }
+      } else {
+        stack.pop();
+        if (stack.length) {
+          const p = stack[stack.length - 1];
+          low[p.v] = Math.min(low[p.v], low[f.v]);
+          if (low[f.v] >= tin[p.v]) {
+            popBlock(f.pe);
+            if (stack.length > 1) cuts.add(g.nodes[p.v]);
+          }
+        } else if (f.kids > 1) cuts.add(g.nodes[f.v]);
+      }
+    }
+  }
+  return { blocks, cuts, count: blocks.length };
+}
+
 /* ---------------- DSU, MST ---------------- */
 function dsu(n) {
   const p = Array.from({ length: n }, (_, i) => i), r = new Array(n).fill(0);
@@ -385,5 +443,5 @@ function allPairs(g) {
   return { D, neg, path, order: g.nodes };
 }
 
-global.GraphAlgos = { natCmp, allPairs, weightsNumeric, bipartite, matching, bridgesAndCuts, mst, components, scc, topo, findCycle, shortestPaths, pathTo, negativeCycle, NUM_RE };
+global.GraphAlgos = { natCmp, allPairs, weightsNumeric, bipartite, matching, bridgesAndCuts, twoEdgeCC, biconnected, mst, components, scc, topo, findCycle, shortestPaths, pathTo, negativeCycle, NUM_RE };
 })(typeof window !== 'undefined' ? window : globalThis);

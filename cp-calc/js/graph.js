@@ -30,12 +30,12 @@ I18N.add({
     'lk.radius': 'Bán kính đỉnh', 'lk.font': 'Cỡ chữ', 'lk.nodeBorder': 'Viền đỉnh', 'lk.edgeWidth': 'Độ dày cạnh', 'lk.edgeLen': 'Độ dài cạnh',
     'lk.labelOff': 'Khoảng cách nhãn trọng số', 'lk.pen': 'Cỡ bút', 'lk.penAlpha': 'Độ đậm bút (%)', 'lk.eraser': 'Cỡ tẩy', 'lk.repel': 'Lực đẩy giữa các đỉnh', 'lk.tension': 'Độ căng cạnh',
     'lk.reset': 'Khôi phục mặc định',
-    'al.matching': 'Cặp ghép hai phía', 'al.bridges': 'Khớp & cầu', 'al.mst': 'Cây khung nhỏ nhất (MST)', 'al.comp': 'Thành phần liên thông', 'al.scc': 'Thành phần liên thông mạnh (SCC)',
+    'al.matching': 'Cặp ghép hai phía', 'al.bridges': 'Khớp & cầu', 'al.ecc2': 'Thành phần song liên thông cạnh (2ECC)', 'al.bcc': 'Thành phần song liên thông đỉnh (BCC)', 'al.mst': 'Cây khung nhỏ nhất (MST)', 'al.comp': 'Thành phần liên thông', 'al.scc': 'Thành phần liên thông mạnh (SCC)',
     'al.topo': 'Sắp xếp topo', 'al.sp': 'Đường đi ngắn nhất', 'al.apsp': 'Khoảng cách mọi cặp', 'al.neg': 'Chu trình âm',
     'why.bip': 'Cần đồ thị hai phía', 'why.undirected': 'Cần đồ thị vô hướng', 'why.directed': 'Cần đồ thị có hướng', 'why.weights': 'Cần bật "Có trọng số" và mọi trọng số là số', 'why.empty': 'Đồ thị chưa có cạnh', 'why.spWeights': 'Có trọng số không phải số (cạnh không ghi trọng số được tính là 1)',
     'r.allUnit': 'Đồ thị không trọng số: mỗi cạnh tính là 1.', 'r.someUnit': '{k} cạnh không ghi trọng số được tính là 1.',
     'r.matchSize': 'Kích thước cặp ghép', 'r.bridges': 'Cầu', 'r.cuts': 'Khớp', 'r.none': 'không có', 'r.mstTotal': 'Tổng trọng số', 'r.trees': 'Số cây', 'r.edges': 'Số cạnh',
-    'r.comps': 'Số thành phần', 'r.sccs': 'Số SCC', 'r.order': 'Thứ tự', 'r.another': 'Thứ tự khác', 'r.lex': 'Lex nhỏ nhất', 'r.cycle': 'Có chu trình nên không sắp topo được:',
+    'r.comps': 'Số thành phần', 'r.sccs': 'Số SCC', 'r.ecc2': 'Số 2ECC', 'r.bcc': 'Số BCC (khối)', 'r.eccHint': 'Bỏ hết cầu (nét đứt đỏ), phần còn liên thông là một 2ECC.', 'r.bccHint': 'Mỗi cạnh thuộc đúng một khối; đỉnh khớp (lục giác) thuộc nhiều khối.', 'r.order': 'Thứ tự', 'r.another': 'Thứ tự khác', 'r.lex': 'Lex nhỏ nhất', 'r.cycle': 'Có chu trình nên không sắp topo được:',
     'r.mode': 'Nguồn', 'r.single': 'Một nguồn', 'r.multi': 'Nhiều nguồn', 'r.pick': 'Bấm đỉnh để chọn', 'r.pickSrc': 'nguồn', 'r.pickDst': 'đích',
     'r.sources': 'Nguồn', 'r.target': 'Đích', 'r.dist': 'Độ dài', 'r.path': 'Đường đi', 'r.noPath': 'Không tới được', 'r.algoUsed': 'Thuật toán',
     'r.negInf': 'Có đỉnh khoảng cách −∞ (tới được từ chu trình âm)', 'r.noSource': 'Chưa chọn nguồn. Bấm một đỉnh trên canvas.', 'r.clear': 'Bỏ chọn',
@@ -70,12 +70,12 @@ I18N.add({
     'lk.radius': 'Node radius', 'lk.font': 'Font size', 'lk.nodeBorder': 'Node border', 'lk.edgeWidth': 'Edge width', 'lk.edgeLen': 'Edge length',
     'lk.labelOff': 'Weight label distance', 'lk.pen': 'Pen size', 'lk.penAlpha': 'Pen opacity (%)', 'lk.eraser': 'Eraser size', 'lk.repel': 'Node repulsion', 'lk.tension': 'Edge tension',
     'lk.reset': 'Reset to defaults',
-    'al.matching': 'Bipartite matching', 'al.bridges': 'Articulation points & bridges', 'al.mst': 'Minimum spanning tree (MST)', 'al.comp': 'Connected components', 'al.scc': 'Strongly connected components (SCC)',
+    'al.matching': 'Bipartite matching', 'al.bridges': 'Articulation points & bridges', 'al.ecc2': '2-edge-connected components (2ECC)', 'al.bcc': 'Biconnected components (BCC)', 'al.mst': 'Minimum spanning tree (MST)', 'al.comp': 'Connected components', 'al.scc': 'Strongly connected components (SCC)',
     'al.topo': 'Topological sort', 'al.sp': 'Shortest paths', 'al.apsp': 'All-pairs distances', 'al.neg': 'Negative cycle',
     'why.bip': 'Needs a bipartite graph', 'why.undirected': 'Needs an undirected graph', 'why.directed': 'Needs a directed graph', 'why.weights': 'Needs "Weighted" on and every weight numeric', 'why.empty': 'The graph has no edges', 'why.spWeights': 'Some weights are not numbers (edges without a weight count as 1)',
     'r.allUnit': 'Unweighted graph: every edge counts as 1.', 'r.someUnit': '{k} edges without a weight count as 1.',
     'r.matchSize': 'Matching size', 'r.bridges': 'Bridges', 'r.cuts': 'Articulation points', 'r.none': 'none', 'r.mstTotal': 'Total weight', 'r.trees': 'Trees', 'r.edges': 'Edges',
-    'r.comps': 'Components', 'r.sccs': 'SCCs', 'r.order': 'Order', 'r.another': 'Another order', 'r.lex': 'Lexicographically smallest', 'r.cycle': 'There is a cycle, so no topological order exists:',
+    'r.comps': 'Components', 'r.sccs': 'SCCs', 'r.ecc2': '2ECCs', 'r.bcc': 'BCCs (blocks)', 'r.eccHint': 'Remove every bridge (dashed red); whatever stays connected is one 2ECC.', 'r.bccHint': 'Each edge is in exactly one block; cut vertices (hexagons) are in several.', 'r.order': 'Order', 'r.another': 'Another order', 'r.lex': 'Lexicographically smallest', 'r.cycle': 'There is a cycle, so no topological order exists:',
     'r.mode': 'Sources', 'r.single': 'Single source', 'r.multi': 'Multiple sources', 'r.pick': 'Clicking a node picks the', 'r.pickSrc': 'source', 'r.pickDst': 'target',
     'r.sources': 'Sources', 'r.target': 'Target', 'r.dist': 'Length', 'r.path': 'Path', 'r.noPath': 'Unreachable', 'r.algoUsed': 'Algorithm',
     'r.negInf': 'Some nodes have distance −∞ (reachable from a negative cycle)', 'r.noSource': 'No source yet. Click a node on the canvas.', 'r.clear': 'Clear',
@@ -108,7 +108,7 @@ const TOOLS = [
   ['pen', 'N', '<path d="M4 20l4-1 11-11-3-3L5 16zM14 6l3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>'],
   ['eraser', 'E', '<path d="M4 16l9-9 6 6-7 7H8zM9 20h11" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>'],
 ];
-const ALGOS = ['comp', 'scc', 'bridges', 'mst', 'matching', 'topo', 'sp', 'apsp', 'neg'];
+const ALGOS = ['comp', 'scc', 'bridges', 'ecc2', 'bcc', 'mst', 'matching', 'topo', 'sp', 'apsp', 'neg'];
 const APSP_MAX = 400;
 
 /* ============================================================ state */
@@ -237,7 +237,7 @@ function algoAvailable(tb, id) {
   const numeric = m.weighted && g.edges.length > 0 && GA.weightsNumeric(g);
   switch (id) {
     case 'matching': return !g.edges.length ? { ok: false, why: 'why.empty' } : tb.bip.ok ? { ok: true } : { ok: false, why: 'why.bip' };
-    case 'bridges': return m.directed ? { ok: false, why: 'why.undirected' } : { ok: true };
+    case 'bridges': case 'ecc2': case 'bcc': return m.directed ? { ok: false, why: 'why.undirected' } : { ok: true };
     case 'mst': case 'neg': return numeric ? { ok: true } : { ok: false, why: 'why.weights' };
     case 'sp': return spGraph(tb) ? { ok: true } : { ok: false, why: 'why.spWeights' };
     case 'apsp': return g.nodes.length > APSP_MAX ? { ok: false, why: 'why.apspBig' } : spGraph(tb) ? { ok: true } : { ok: false, why: 'why.spWeights' };
@@ -258,7 +258,7 @@ function spGraph(tb) {
 function seededRng(seed) { let s = seed >>> 0 || 1; return () => { s ^= s << 13; s ^= s >>> 17; s ^= s << 5; return ((s >>> 0) % 1e9) / 1e9; }; }
 
 function computeAlgo(tb) {
-  const V = { nodeFill: new Map(), nodeRing: new Map(), hex: new Set(), badge: new Map(), edge: new Map(), dim: false, keepN: new Set(), keepE: new Set(), res: null };
+  const V = { hulls: [], nodeFill: new Map(), nodeRing: new Map(), hex: new Set(), badge: new Map(), edge: new Map(), dim: false, keepN: new Set(), keepE: new Set(), res: null };
   tb.view = V;
   const g = tb.graph;
   if (!tb.algo) return;
@@ -276,6 +276,31 @@ function computeAlgo(tb) {
         r.bridges.forEach((id) => { V.edge.set(id, { color: '#e5484d', w: 3.4, double: true, glow: true }); V.keepE.add(id); });
         r.cuts.forEach((n) => { V.hex.add(n); V.nodeFill.set(n, '#f76b15'); V.nodeRing.set(n, '#c2410c'); V.keepN.add(n); });
         g.edges.forEach((e) => { if (r.bridges.has(e.id)) { V.keepN.add(e.u); V.keepN.add(e.v); } });
+        V.res = r; break;
+      }
+      case 'ecc2': {
+        const r = GA.twoEdgeCC(g);
+        const col = (k) => COMP_COLORS[k % COMP_COLORS.length];
+        const groups = new Map();
+        g.nodes.forEach((n) => { const k = r.comp.get(n); (groups.get(k) || groups.set(k, []).get(k)).push(n); V.nodeFill.set(n, col(k)); });
+        groups.forEach((ns, k) => V.hulls.push({ nodes: ns, color: col(k) }));
+        g.edges.forEach((e) => {
+          if (r.bridges.has(e.id)) V.edge.set(e.id, { color: '#e5484d', w: 1.6, dash: true });
+          else V.edge.set(e.id, { color: col(r.comp.get(e.u)), w: 2.4 });
+        });
+        r.groups = [...groups.entries()].map(([k, ns]) => ({ color: col(k), nodes: ns.sort(GA.natCmp) }));
+        V.res = r; break;
+      }
+      case 'bcc': {
+        const r = GA.biconnected(g);
+        const col = (k) => COMP_COLORS[k % COMP_COLORS.length];
+        r.blocks.forEach((b, k) => {
+          V.hulls.push({ nodes: b.nodes, color: col(k), edges: b.edges });
+          b.edges.forEach((id) => V.edge.set(id, { color: col(k), w: 2.4 }));
+          b.nodes.forEach((n) => { if (!r.cuts.has(n)) V.nodeFill.set(n, col(k)); });
+        });
+        r.cuts.forEach((n) => { V.hex.add(n); V.nodeFill.set(n, '#f76b15'); V.nodeRing.set(n, '#c2410c'); });
+        r.groups = r.blocks.map((b, k) => ({ color: col(k), nodes: b.nodes }));
         V.res = r; break;
       }
       case 'mst': {
@@ -584,6 +609,19 @@ function render(c, tb, C, interactive) {
   const R = look.radius, V = tb.view, g = tb.graph;
   const geo = edgeGeometry(tb);
   const flashOn = interactive && flash && performance.now() < flash.until && Math.floor((flash.until - performance.now()) / 180) % 2 === 0;
+  // component regions (2ECC / BCC): a rounded convex hull around each group of nodes
+  if (V.hulls && V.hulls.length) {
+    V.hulls.forEach((h, k) => {
+      const pts = h.nodes.map((n) => tb.pos.get(n)).filter(Boolean);
+      if (!pts.length) return;
+      // in BCC, blocks share cut vertices: give each block a slightly different padding so outlines stay apart
+      const pad = R + 9 + (tb.algo === 'bcc' ? (k % 3) * 4 : 0);
+      hullPath(c, convexHull(pts), pad);
+      c.globalAlpha = 0.16; c.fillStyle = h.color; c.fill();
+      c.globalAlpha = 0.85; c.lineWidth = 2; c.strokeStyle = h.color; c.setLineDash([7, 5]); c.stroke(); c.setLineDash([]);
+      c.globalAlpha = 1;
+    });
+  }
   // edges
   g.edges.forEach((e) => {
     const G = geo.get(e.id); if (!G) return;
@@ -617,7 +655,7 @@ function render(c, tb, C, interactive) {
       c.shadowBlur = 0;
       c.globalAlpha = 1; c.strokeStyle = C.bg; c.lineWidth = width * 0.35; strokePath();
       c.strokeStyle = col; c.lineWidth = width;
-    } else strokePath();
+    } else if (st.dash) { c.setLineDash([8, 6]); strokePath(); c.setLineDash([]); } else strokePath();
     c.shadowBlur = 0;
     if (tb.modes.directed) drawArrow(c, G, R, width, col);
     c.globalAlpha = 1;
@@ -754,6 +792,33 @@ function render(c, tb, C, interactive) {
   if (interactive && tool === 'eraser' && hover) {
     c.strokeStyle = C.muted; c.lineWidth = 1 / view.k; c.beginPath(); c.arc(hover.x, hover.y, look.eraser, 0, Math.PI * 2); c.stroke();
   }
+}
+/* Convex hull (monotone chain), returned with positive signed area in canvas coordinates */
+function convexHull(pts) {
+  const P = [...new Map(pts.map((p) => [p.x + ',' + p.y, { x: p.x, y: p.y }])).values()].sort((a, b) => a.x - b.x || a.y - b.y);
+  if (P.length < 3) return P;
+  const cr = (o, a, b) => (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
+  const lo = [], up = [];
+  for (const p of P) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], p) <= 0) lo.pop(); lo.push(p); }
+  for (let i = P.length - 1; i >= 0; i--) { const p = P[i]; while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], P[i]) <= 0) up.pop(); up.push(p); }
+  const h = lo.slice(0, -1).concat(up.slice(0, -1));
+  let area = 0;
+  for (let i = 0; i < h.length; i++) { const a = h[i], b = h[(i + 1) % h.length]; area += a.x * b.y - b.x * a.y; }
+  return area < 0 ? h.reverse() : h;
+}
+/* Outline of the hull grown by r: straight sides joined by arcs (1 point: circle, 2 points: capsule) */
+function hullPath(c, h, r) {
+  c.beginPath();
+  if (h.length === 1) { c.arc(h[0].x, h[0].y, r, 0, Math.PI * 2); return; }
+  const m = h.length;
+  const nrm = (a, b) => { const dx = b.x - a.x, dy = b.y - a.y, L = Math.hypot(dx, dy) || 1; return Math.atan2(-dx / L, dy / L); };
+  for (let i = 0; i < m; i++) {
+    const prev = h[(i - 1 + m) % m], cur = h[i], next = h[(i + 1) % m];
+    let a0 = nrm(prev, cur), a1 = nrm(cur, next);
+    if (a1 < a0) a1 += Math.PI * 2;
+    c.arc(cur.x, cur.y, r, a0, a1, false);
+  }
+  c.closePath();
 }
 function roundRect(c, x, y, w, h, r) { c.beginPath(); c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath(); }
 function drawArrow(c, G, R, width, col) {
@@ -1154,6 +1219,13 @@ function renderAlgoOut() {
     case 'mst':
       h = resRow(t('r.mstTotal'), esc(fmtNum(r.total))) + resRow(t('r.edges'), r.edges.size) + resRow(t('r.trees'), r.trees);
       break;
+    case 'ecc2': case 'bcc': {
+      h = resRow(tb.algo === 'ecc2' ? t('r.ecc2') : t('r.bcc'), r.groups.length) +
+        `<div class="ge-items">${r.groups.map((x) => `<span class="ge-item" style="border-color:${x.color};border-width:2px">{${esc(x.nodes.join(', '))}}</span>`).join('')}</div>` +
+        (tb.algo === 'bcc' ? resRow(t('r.cuts'), r.cuts.size) + items([...r.cuts].sort(GA.natCmp).map((n) => ({ id: n, label: n })), 'node') : '') +
+        `<div class="hint">${esc(t(tb.algo === 'ecc2' ? 'r.eccHint' : 'r.bccHint'))}</div>`;
+      break;
+    }
     case 'comp': case 'scc': {
       const groups = new Map();
       tb.graph.nodes.forEach((n) => { const c = r.comp.get(n); (groups.get(c) || groups.set(c, []).get(c)).push(n); });
