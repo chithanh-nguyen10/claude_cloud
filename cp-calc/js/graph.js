@@ -11,7 +11,7 @@ I18N.add({
     'ge.n': 'Số đỉnh n (tuỳ chọn)', 'ge.base': 'Đánh số từ', 'ge.nHint': 'Thêm sẵn các đỉnh 1..n (hoặc 0..n−1), kể cả đỉnh không có cạnh nào.',
     'ge.nCap': 'Chỉ vẽ tối đa {max} đỉnh', 'ge.inRange': 'Đỉnh {v} nằm trong dải số đỉnh nên vẫn còn. Đã xoá các cạnh của nó. Muốn bỏ hẳn thì giảm "Số đỉnh" (đỉnh cuối là {last}).',
     'ge.labels': 'Label đỉnh (tuỳ chọn)', 'ge.labelsPh': 'vd: 5 3 _ 8 1', 'ge.labelsHint': 'Gán lần lượt cho các đỉnh theo thứ tự tên tăng dần. Dùng _ để bỏ qua một đỉnh.',
-    'ge.stat': '{n} đỉnh · {m} cạnh', 'ge.export': 'Xuất', 'ge.copy': 'Chép danh sách cạnh', 'ge.copyHdr': 'Chép kèm "n m"', 'ge.png': 'Tải ảnh PNG',
+    'ge.stat': '{n} đỉnh · {m} cạnh', 'ge.export': 'Xuất', 'ge.copy': 'Chép danh sách cạnh', 'ge.copyHdr': 'Chép kèm "n m"', 'ge.png': 'Tải ảnh PNG', 'ge.copyImg': 'Chép ảnh', 'copiedImg': 'Đã chép ảnh đồ thị vào clipboard', 'copyImgFail': 'Trình duyệt không cho chép ảnh, hãy dùng Tải ảnh PNG',
     'ge.fit': 'Căn giữa', 'ge.modes': 'Chế độ', 'ge.algos': 'Thuật toán', 'ge.appearance': 'Giao diện',
     'ge.newTab': 'Đồ thị {k}', 'ge.addTab': '+ Tab mới', 'ge.dupTab': 'Nhân bản tab', 'ge.renameHint': 'Bấm đúp để đổi tên',
     'tool.move': 'Di chuyển / chọn', 'tool.add': 'Thêm đỉnh, cạnh', 'tool.del': 'Xoá', 'tool.paint': 'Tô màu', 'tool.bold': 'In đậm', 'tool.pin': 'Ghim đỉnh',
@@ -21,9 +21,9 @@ I18N.add({
     'hint.addPending': 'Đã chọn đỉnh {v}. Bấm đỉnh thứ hai (hoặc chính nó để tạo self loop). Esc để huỷ.',
     'hint.del': 'Bấm vào đỉnh hoặc cạnh để xoá.', 'hint.paint': 'Chọn màu ở bảng màu rồi bấm vào đỉnh hoặc cạnh. Ô gạch chéo là bỏ màu.',
     'hint.bold': 'Bấm vào đỉnh hoặc cạnh để bật / tắt in đậm.', 'hint.pin': 'Bấm vào đỉnh để ghim / bỏ ghim. Đỉnh đã ghim đứng yên, các đỉnh khác vẫn trôi.',
-    'hint.pen': 'Kéo để vẽ. Màu lấy từ bảng màu.', 'hint.eraser': 'Kéo qua nét bút để xoá.',
+    'hint.pen': 'Kéo để vẽ. Màu lấy từ bảng màu.', 'hint.eraser': 'Kéo qua nét bút để tẩy đúng phần bị chà (Ctrl+Z để hoàn tác).',
     'hint.spSource': 'Đường đi ngắn nhất: bấm đỉnh để chọn nguồn.', 'hint.spSources': 'Đường đi ngắn nhất: bấm đỉnh để thêm / bỏ nguồn.', 'hint.spTarget': 'Đường đi ngắn nhất: bấm đỉnh để chọn đích.',
-    'act.clearColors': 'Xoá màu & in đậm', 'act.clearPen': 'Xoá nét bút', 'act.relayout': 'Xếp lại', 'act.unpin': 'Bỏ ghim tất cả',
+    'act.clearColors': 'Xoá màu & in đậm', 'act.clearPen': 'Xoá nét bút', 'act.undo': 'Hoàn tác nét vẽ (Ctrl+Z)', 'act.redo': 'Làm lại (Ctrl+Y)', 'act.relayout': 'Xếp lại', 'act.unpin': 'Bỏ ghim tất cả',
     'm.directed': 'Có hướng', 'm.weighted': 'Có trọng số', 'm.weighted.d': 'Tắt thì ẩn trọng số', 'm.multi': 'Multiedge', 'm.multi.d': 'Tắt thì gộp các cạnh trùng',
     'm.lock': 'Khoá (Lock)', 'm.lock.d': 'Tắt lực đẩy, mọi đỉnh đứng yên', 'm.physics': 'Edge physics', 'm.physics.d': 'Đỉnh đẩy cả cạnh để không đè lên nhau',
     'm.bip': 'Hai phía (Bipartite)', 'm.bip.d': 'Tô màu và xếp hai phía thành hai cột', 'm.bip.no': 'Đồ thị không phải hai phía',
@@ -51,7 +51,7 @@ I18N.add({
     'ge.n': 'Node count n (optional)', 'ge.base': 'Numbered from', 'ge.nHint': 'Adds nodes 1..n (or 0..n−1), including nodes with no edges.',
     'ge.nCap': 'At most {max} nodes are drawn', 'ge.inRange': 'Node {v} is inside the node count range, so it stays; its edges were removed. Lower "Node count" to drop it (the last node is {last}).',
     'ge.labels': 'Node labels (optional)', 'ge.labelsPh': 'e.g. 5 3 _ 8 1', 'ge.labelsHint': 'Assigned to nodes in increasing name order. Use _ to skip a node.',
-    'ge.stat': '{n} nodes · {m} edges', 'ge.export': 'Export', 'ge.copy': 'Copy edge list', 'ge.copyHdr': 'Copy with "n m"', 'ge.png': 'Download PNG',
+    'ge.stat': '{n} nodes · {m} edges', 'ge.export': 'Export', 'ge.copy': 'Copy edge list', 'ge.copyHdr': 'Copy with "n m"', 'ge.png': 'Download PNG', 'ge.copyImg': 'Copy image', 'copiedImg': 'Graph image copied to the clipboard', 'copyImgFail': 'The browser does not allow copying images; use Download PNG',
     'ge.fit': 'Fit', 'ge.modes': 'Modes', 'ge.algos': 'Algorithms', 'ge.appearance': 'Appearance',
     'ge.newTab': 'Graph {k}', 'ge.addTab': '+ New tab', 'ge.dupTab': 'Duplicate tab', 'ge.renameHint': 'Double-click to rename',
     'tool.move': 'Move / select', 'tool.add': 'Add nodes, edges', 'tool.del': 'Delete', 'tool.paint': 'Paint', 'tool.bold': 'Bold', 'tool.pin': 'Pin node',
@@ -61,9 +61,9 @@ I18N.add({
     'hint.addPending': 'Node {v} selected. Click the second node (or the same one for a self loop). Esc to cancel.',
     'hint.del': 'Click a node or an edge to delete it.', 'hint.paint': 'Pick a color, then click a node or edge. The crossed swatch removes color.',
     'hint.bold': 'Click a node or edge to toggle bold.', 'hint.pin': 'Click a node to pin / unpin it. Pinned nodes stay still, the others keep floating.',
-    'hint.pen': 'Drag to draw. The color comes from the palette.', 'hint.eraser': 'Drag over pen strokes to erase them.',
+    'hint.pen': 'Drag to draw. The color comes from the palette.', 'hint.eraser': 'Drag over pen strokes to erase just the part you rub (Ctrl+Z to undo).',
     'hint.spSource': 'Shortest path: click a node to choose the source.', 'hint.spSources': 'Shortest path: click nodes to add / remove sources.', 'hint.spTarget': 'Shortest path: click a node to choose the target.',
-    'act.clearColors': 'Clear colors & bold', 'act.clearPen': 'Clear pen strokes', 'act.relayout': 'Re-layout', 'act.unpin': 'Unpin all',
+    'act.clearColors': 'Clear colors & bold', 'act.clearPen': 'Clear pen strokes', 'act.undo': 'Undo drawing (Ctrl+Z)', 'act.redo': 'Redo (Ctrl+Y)', 'act.relayout': 'Re-layout', 'act.unpin': 'Unpin all',
     'm.directed': 'Directed', 'm.weighted': 'Weighted', 'm.weighted.d': 'Off hides the weights', 'm.multi': 'Multiedge', 'm.multi.d': 'Off merges duplicate edges',
     'm.lock': 'Lock', 'm.lock.d': 'Stops the forces, every node stays put', 'm.physics': 'Edge physics', 'm.physics.d': 'Nodes push edges away so they do not overlap',
     'm.bip': 'Bipartite', 'm.bip.d': 'Colors the two sides and lays them out in two columns', 'm.bip.no': 'The graph is not bipartite',
@@ -855,10 +855,11 @@ canvas.addEventListener('pointerdown', (e) => {
   hideEdit();
   const { sx, sy } = evtPos(e), w = toWorld(sx, sy), tb = active;
   canvas.setPointerCapture(e.pointerId);
-  Object.assign(drag, { active: true, sx, sy, moved: false, node: null, pan: false, edgeFrom: null, cur: null, stroke: null, vx0: view.x, vy0: view.y });
+  Object.assign(drag, { active: true, sx, sy, moved: false, node: null, pan: false, edgeFrom: null, cur: null, stroke: null, vx0: view.x, vy0: view.y, lastErase: null, erased: false });
   const n = hitNode(tb, w);
   if (tool === 'pen') {
-    const s = { pts: [w.x, w.y], color, width: look.pen, alpha: look.penAlpha / 100 };
+    const s = { pts: [w.x, w.y, w.x + 0.01, w.y], color, width: look.pen, alpha: look.penAlpha / 100 }; // a click leaves a dot
+    penSnapshot(tb);
     tb.strokes.push(s); drag.stroke = s; wake(); return;
   }
   if (tool === 'eraser') { eraseAt(w); return; }
@@ -874,7 +875,7 @@ canvas.addEventListener('pointermove', (e) => {
   if (!drag.active) { if (tool === 'eraser') draw(); return; }
   if (Math.hypot(sx - drag.sx, sy - drag.sy) > 3) drag.moved = true;
   const tb = active;
-  if (drag.stroke) { drag.stroke.pts.push(w.x, w.y); draw(); return; }
+  if (drag.stroke) { const P = drag.stroke.pts; if (P.length === 4 && P[2] - P[0] < 0.02 && P[3] === P[1]) P.length = 2; P.push(w.x, w.y); draw(); return; }
   if (tool === 'eraser') { eraseAt(w); return; }
   if (drag.edgeFrom) { drag.cur = w; draw(); return; }
   if (drag.node) { drag.node.x = w.x + drag.off.x; drag.node.y = w.y + drag.off.y; drag.node.vx = drag.node.vy = 0; tb.sleeping = 0; wake(); draw(); return; }
@@ -886,7 +887,7 @@ canvas.addEventListener('pointerup', (e) => {
   drag.active = false;
   const n = hitNode(tb, w);
   if (drag.stroke) { drag.stroke = null; return; }
-  if (tool === 'eraser') return;
+  if (tool === 'eraser') { drag.lastErase = null; return; }
   if (drag.edgeFrom) {
     const from = drag.edgeFrom; drag.edgeFrom = null;
     if (drag.moved && n) addEdge(tb, from, n);
@@ -955,11 +956,76 @@ function addEdge(tb, a, b) {
     openEdgeEditor(tb, e.id);
   }
 }
+/* ---- pen history (undo / redo for drawing) ---- */
+const HIST_MAX = 100;
+const cloneStrokes = (list) => list.map((x) => Object.assign({}, x, { pts: x.pts.slice() }));
+function penHist(tb) { return tb.penHist || (tb.penHist = { undo: [], redo: [] }); }
+function penSnapshot(tb) {
+  const h = penHist(tb);
+  h.undo.push(cloneStrokes(tb.strokes)); if (h.undo.length > HIST_MAX) h.undo.shift();
+  h.redo = [];
+  renderUndoBtns();
+}
+function penUndo(tb, redo) {
+  const h = penHist(tb), from = redo ? h.redo : h.undo, to = redo ? h.undo : h.redo;
+  if (!from.length) return;
+  to.push(cloneStrokes(tb.strokes));
+  tb.strokes = from.pop();
+  renderUndoBtns(); draw();
+}
+function renderUndoBtns() {
+  const h = active ? penHist(active) : { undo: [], redo: [] };
+  const u = $('#geToolbar [data-act="undo"]'), r = $('#geToolbar [data-act="redo"]');
+  if (u) u.disabled = !h.undo.length;
+  if (r) r.disabled = !h.redo.length;
+}
+
+/* Real eraser: cut away only the part of each stroke inside the eraser circle (strokes split in two). */
+function eraseStroke(s, w, r) {
+  const P = s.pts, hit = r + s.width / 2;
+  // quick reject: nothing of this stroke near the eraser
+  let near = false;
+  for (let i = 0; i + 1 < P.length && !near; i += 2) {
+    const ax = P[i], ay = P[i + 1], bx = i + 3 < P.length ? P[i + 2] : ax, by = i + 3 < P.length ? P[i + 3] : ay;
+    const dx = bx - ax, dy = by - ay, L2 = dx * dx + dy * dy;
+    const t0 = L2 ? Math.max(0, Math.min(1, ((w.x - ax) * dx + (w.y - ay) * dy) / L2)) : 0;
+    if (Math.hypot(ax + dx * t0 - w.x, ay + dy * t0 - w.y) <= hit) near = true;
+  }
+  if (!near) return [s];
+  // resample densely so the cut follows the circle, then keep the runs outside it
+  const step = Math.max(0.75, Math.min(r, s.width) / 3);
+  const pts = [];
+  for (let i = 0; i < P.length; i += 2) {
+    if (i === 0) { pts.push([P[0], P[1]]); continue; }
+    const ax = P[i - 2], ay = P[i - 1], bx = P[i], by = P[i + 1];
+    const k = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / step));
+    for (let j = 1; j <= k; j++) pts.push([ax + (bx - ax) * j / k, ay + (by - ay) * j / k]);
+  }
+  const pieces = []; let cur = [];
+  pts.forEach(([x, y]) => {
+    if (Math.hypot(x - w.x, y - w.y) <= hit) { if (cur.length) pieces.push(cur); cur = []; }
+    else cur.push(x, y);
+  });
+  if (cur.length) pieces.push(cur);
+  return pieces.filter((p) => p.length >= 4).map((p) => Object.assign({}, s, { pts: p }));
+}
 function eraseAt(w) {
   const tb = active, r = look.eraser;
-  const before = tb.strokes.length;
-  tb.strokes = tb.strokes.filter((s) => { for (let i = 0; i < s.pts.length; i += 2) if (Math.hypot(s.pts[i] - w.x, s.pts[i + 1] - w.y) <= r) return false; return true; });
-  if (tb.strokes.length !== before || hover) draw();
+  // sweep from the previous eraser position so fast moves leave no gaps
+  const from = drag.lastErase || w, d = Math.hypot(w.x - from.x, w.y - from.y), k = Math.max(1, Math.ceil(d / (r / 2)));
+  let changed = false;
+  for (let j = 1; j <= k; j++) {
+    const q = { x: from.x + (w.x - from.x) * j / k, y: from.y + (w.y - from.y) * j / k };
+    const next = [];
+    let hit = false;
+    tb.strokes.forEach((s) => { const out = eraseStroke(s, q, r); if (out.length !== 1 || out[0] !== s) hit = true; next.push(...out); });
+    if (hit) {
+      if (!drag.erased) { drag.erased = true; penSnapshot(tb); } // one undo step per eraser drag
+      tb.strokes = next; changed = true;
+    }
+  }
+  drag.lastErase = w;
+  if (changed || hover) draw();
 }
 canvas.addEventListener('wheel', (e) => {
   e.preventDefault();
@@ -1033,7 +1099,13 @@ function openEdgeEditor(tb, id) {
 document.addEventListener('keydown', (e) => {
   if ($('#tab-graph').hidden) return;
   const tag = (document.activeElement && document.activeElement.tagName) || '';
-  if (/INPUT|TEXTAREA|SELECT/.test(tag) || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (/INPUT|TEXTAREA|SELECT/.test(tag)) return;
+  if ((e.ctrlKey || e.metaKey) && !e.altKey && active) {
+    const k = e.key.toLowerCase();
+    if (k === 'z' && !e.shiftKey) { penUndo(active, false); e.preventDefault(); return; }
+    if (k === 'y' || (k === 'z' && e.shiftKey)) { penUndo(active, true); e.preventDefault(); return; }
+  }
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
   if (e.key === 'Escape') { pending = null; updateHint(); draw(); return; }
   const tl = TOOLS.find((x) => x[1].toLowerCase() === e.key.toLowerCase());
   if (tl) { setTool(tl[0]); e.preventDefault(); return; }
@@ -1116,7 +1188,7 @@ function cloneTab(src) {
 }
 function activate(tb) {
   if (active) active.viewState = { x: view.x, y: view.y, k: view.k };
-  active = tb; pending = null;
+  active = tb; pending = null; renderUndoBtns();
   if (tb.viewState) Object.assign(view, tb.viewState);
   $('#geText').value = tb.text; $('#geLabels').value = tb.labels; $('#geN').value = tb.nCount; $('#geBase').value = tb.base;
   renderTabs(); renderSide(); wake();
@@ -1129,9 +1201,12 @@ function renderToolbar() {
     <div class="ge-pal">${PALETTE.map((c) => `<button class="ge-sw" data-color="${c}" style="background:${c}" aria-pressed="${color === c}" title="${c}"></button>`).join('')}<button class="ge-sw none" data-color="" aria-pressed="${color === null}" title="×"></button></div>
     <div class="ge-sep"></div>
     <button class="btn sm" data-act="clearColors">${esc(t('act.clearColors'))}</button>
+    <button class="btn sm icon" data-act="undo" title="${esc(t('act.undo'))}" aria-label="${esc(t('act.undo'))}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg></button>
+    <button class="btn sm icon" data-act="redo" title="${esc(t('act.redo'))}" aria-label="${esc(t('act.redo'))}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14l5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/></svg></button>
     <button class="btn sm" data-act="clearPen">${esc(t('act.clearPen'))}</button>
     <button class="btn sm" data-act="unpin">${esc(t('act.unpin'))}</button>
     <button class="btn sm" data-act="relayout">${esc(t('act.relayout'))}</button>`;
+  renderUndoBtns();
 }
 $('#geToolbar').addEventListener('click', (e) => {
   const tl = e.target.closest('[data-tool]'); if (tl) { setTool(tl.dataset.tool); return; }
@@ -1140,7 +1215,8 @@ $('#geToolbar').addEventListener('click', (e) => {
   const a = e.target.closest('[data-act]'); if (!a || !active) return;
   const tb = active;
   if (a.dataset.act === 'clearColors') { tb.nodeColor.clear(); tb.edgeColor.clear(); tb.nodeBold.clear(); tb.edgeBold.clear(); }
-  if (a.dataset.act === 'clearPen') tb.strokes = [];
+  if (a.dataset.act === 'undo' || a.dataset.act === 'redo') { penUndo(tb, a.dataset.act === 'redo'); return; }
+  if (a.dataset.act === 'clearPen' && tb.strokes.length) { penSnapshot(tb); tb.strokes = []; }
   if (a.dataset.act === 'unpin') tb.pos.forEach((p) => { p.pinned = false; });
   if (a.dataset.act === 'relayout') { const c = worldCenter(); tb.pos.forEach((p) => { if (!p.pinned) { p.x = c.x + (Math.random() - 0.5) * W * 0.6 / view.k; p.y = c.y + (Math.random() - 0.5) * H * 0.6 / view.k; p.vx = p.vy = 0; } }); }
   wake(); draw();
@@ -1367,8 +1443,7 @@ function copyEdges(withHeader) {
 }
 $('#geCopy').onclick = () => copyEdges(false);
 $('#geCopyHdr').onclick = () => copyEdges(true);
-$('#gePng').onclick = () => {
-  const tb = active; if (!tb) return;
+function graphImage(tb) {
   let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
   const grow = (x, y) => { x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y); };
   tb.pos.forEach((p) => grow(p.x, p.y));
@@ -1383,13 +1458,26 @@ $('#gePng').onclick = () => {
   c.fillStyle = C.bg; c.fillRect(0, 0, off.width, off.height);
   c.scale(scale, scale); c.translate(pad - x0, pad - y0);
   render(c, tb, C, false);
-  off.toBlob((blob) => {
+  return off;
+}
+$('#gePng').onclick = () => {
+  const tb = active; if (!tb) return;
+  graphImage(tb).toBlob((blob) => {
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = (tb.name.replace(/[\\/:*?"<>|\s]+/g, '_') || 'graph') + '.png';
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 5000);
   });
+};
+
+$('#geCopyImg').onclick = () => {
+  const tb = active; if (!tb) return;
+  const fail = () => UI.toast(t('copyImgFail'));
+  if (!navigator.clipboard || !window.ClipboardItem) { fail(); return; }
+  // pass a promise so Safari keeps the user gesture
+  const blob = new Promise((res) => graphImage(tb).toBlob(res, 'image/png'));
+  navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(() => UI.toast(t('copiedImg')), fail);
 };
 
 /* ============================================================ public API (Stress test → graph) */
