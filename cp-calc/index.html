@@ -45,6 +45,7 @@
       <button data-sec="analysis" data-i18n="calc.nav.analysis"></button>
       <button data-sec="nt" data-i18n="calc.nav.nt"></button>
       <button data-sec="comb" data-i18n="calc.nav.comb"></button>
+      <button data-sec="base" data-i18n="calc.nav.base"></button>
       <div class="subnav-group" data-i18n="tab.num"></div>
       <button data-group="num" data-sec="nb" data-i18n="nm.nav.nb"></button>
       <button data-group="num" data-sec="gauss" data-i18n="nm.nav.gauss"></button>
@@ -302,6 +303,20 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- ---------------- Base converter ---------------- -->
+      <div data-sec-panel="base" class="content" hidden>
+        <div class="sec-head"><h2 data-i18n="bs.title"></h2><p data-i18n="bs.desc"></p></div>
+        <div class="card"><div class="card-body">
+          <div class="fields">
+            <div class="field"><label for="bsW" data-i18n="bs.width"></label>
+              <select class="input" id="bsW"><option value="0" data-i18n="bs.widthNone"></option><option value="8">8</option><option value="16">16</option><option value="32">32</option><option value="64">64</option><option value="128">128</option></select></div>
+            <div class="field"><label for="bsK" data-i18n="bs.custom"></label><input class="input mono" id="bsK" value="3"></div>
+          </div>
+          <div class="bs-rows" id="bsRows"></div>
+          <div id="bsInfo"></div>
+        </div></div>
       </div>
 
       <!-- ================= Numerical (inside Calculator) ================= -->
@@ -652,6 +667,7 @@ x + 2y - z = 2</textarea>
 <script src="js/core.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/calc.js"></script>
+<script src="js/base.js"></script>
 <script src="js/safety.js"></script>
 <script src="js/num-core.js"></script>
 <script src="js/num-algos.js"></script>
