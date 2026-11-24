@@ -622,6 +622,14 @@ x + 2y - z = 2</textarea>
             <select class="input" id="geBase"><option value="1">1..n</option><option value="0">0..n−1</option></select></div>
         </div>
         <p class="hint" data-i18n="ge.nHint"></p>
+        <div class="field" id="geShift"><label data-i18n="ge.shift"></label>
+          <div class="ge-shift">
+            <button class="btn sm" data-shift="-1" data-i18n="ge.shiftTo0"></button>
+            <button class="btn sm" data-shift="1" data-i18n="ge.shiftTo1"></button>
+          </div>
+          <div class="ge-shift"><input class="input mono" id="geShiftK" placeholder="k" inputmode="numeric" style="width:80px"><button class="btn sm" data-shift="k" data-i18n="ge.shiftApply"></button></div>
+          <p class="hint" id="geShiftNote"></p>
+        </div>
         <div class="field"><label for="geLabels" data-i18n="ge.labels"></label><input class="input mono" id="geLabels" data-i18n-ph="ge.labelsPh"></div>
         <p class="hint" data-i18n="ge.labelsHint"></p>
         <div class="ge-status" id="geStatus"></div>

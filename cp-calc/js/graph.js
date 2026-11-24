@@ -8,6 +8,7 @@ const APSP_MAX_TXT = '400';
 I18N.add({
   vi: {
     'ge.data': 'Dữ liệu', 'ge.dataHint': 'Mỗi dòng <code>u v</code> hoặc <code>u v w</code> (w là trọng số). Một từ trên dòng là đỉnh lẻ. Tên đỉnh là chữ hay số đều được.',
+    'ge.shift': 'Cộng thêm vào số đỉnh', 'ge.shiftK': 'k', 'ge.shiftApply': 'Cộng k', 'ge.shiftTo0': '−1 (1-index → 0-index)', 'ge.shiftTo1': '+1 (0-index → 1-index)', 'ge.shiftOff': 'Chỉ dùng được khi mọi tên đỉnh đều là số nguyên', 'ge.shiftDone': 'Đã cộng {k} vào mọi số đỉnh', 'ge.shiftBad': 'k phải là số nguyên',
     'ge.n': 'Số đỉnh n (tuỳ chọn)', 'ge.base': 'Đánh số từ', 'ge.nHint': 'Thêm sẵn các đỉnh 1..n (hoặc 0..n−1), kể cả đỉnh không có cạnh nào.',
     'ge.nCap': 'Chỉ vẽ tối đa {max} đỉnh', 'ge.inRange': 'Đỉnh {v} nằm trong dải số đỉnh nên vẫn còn. Đã xoá các cạnh của nó. Muốn bỏ hẳn thì giảm "Số đỉnh" (đỉnh cuối là {last}).',
     'ge.labels': 'Label đỉnh (tuỳ chọn)', 'ge.labelsPh': 'vd: 5 3 _ 8 1', 'ge.labelsHint': 'Gán lần lượt cho các đỉnh theo thứ tự tên tăng dần. Dùng _ để bỏ qua một đỉnh.',
@@ -48,6 +49,7 @@ I18N.add({
   },
   en: {
     'ge.data': 'Data', 'ge.dataHint': 'One edge per line: <code>u v</code> or <code>u v w</code> (w is the weight). A single word is an isolated node. Node names can be words or numbers.',
+    'ge.shift': 'Add an offset to node numbers', 'ge.shiftK': 'k', 'ge.shiftApply': 'Add k', 'ge.shiftTo0': '−1 (1-indexed → 0-indexed)', 'ge.shiftTo1': '+1 (0-indexed → 1-indexed)', 'ge.shiftOff': 'Only when every node name is an integer', 'ge.shiftDone': 'Added {k} to every node number', 'ge.shiftBad': 'k must be an integer',
     'ge.n': 'Node count n (optional)', 'ge.base': 'Numbered from', 'ge.nHint': 'Adds nodes 1..n (or 0..n−1), including nodes with no edges.',
     'ge.nCap': 'At most {max} nodes are drawn', 'ge.inRange': 'Node {v} is inside the node count range, so it stays; its edges were removed. Lower "Node count" to drop it (the last node is {last}).',
     'ge.labels': 'Node labels (optional)', 'ge.labelsPh': 'e.g. 5 3 _ 8 1', 'ge.labelsHint': 'Assigned to nodes in increasing name order. Use _ to skip a node.',
@@ -1417,7 +1419,7 @@ function renderStatus() {
   if (r && r.capped) h += `<span class="err">${esc(t('ge.nCap', { max: N_MAX }))}</span>`;
   $('#geStatus').innerHTML = h;
 }
-function renderSide() { renderModes(); renderAlgos(); renderStatus(); updateHint(); }
+function renderSide() { renderModes(); renderAlgos(); renderStatus(); updateHint(); if ($('#geShift')) renderShift(); }
 
 /* data inputs */
 const onText = UI.debounce(() => { const tb = active; tb.text = $('#geText').value; rebuild(tb); renderSide(); wake(); }, 200);
@@ -1425,6 +1427,66 @@ $('#geText').addEventListener('input', onText);
 $('#geLabels').addEventListener('input', UI.debounce(() => { active.labels = $('#geLabels').value; rebuild(active); draw(); }, 150));
 $('#geN').addEventListener('input', UI.debounce(() => { active.nCount = $('#geN').value; rebuild(active); renderSide(); wake(); }, 200));
 $('#geBase').addEventListener('change', () => { active.base = $('#geBase').value; rebuild(active); renderSide(); wake(); });
+
+/* ============================================================ node offset: add k to every (integer) node name */
+const INT_RE = /^[+-]?\d+$/;
+function allIntNodes(tb) { return tb.parsed.nodes.length > 0 && tb.parsed.nodes.every((n) => INT_RE.test(n)); }
+function shiftNodes(tb, k) {
+  if (!allIntNodes(tb) || !k) return false;
+  const sh = (n) => (INT_RE.test(n) ? String(BigInt(n) + BigInt(k)) : n);
+  // 1) the data text: shift the first two tokens of each edge line, or the single token of a node line
+  const isolated = new Set();
+  const r = nodeRange(tb);
+  let lines = tb.text.split(/\r?\n/).map((l) => {
+    const s0 = l.trim();
+    if (!s0 || s0.startsWith('#') || s0.startsWith('//')) return l;
+    const tk = s0.split(/\s+/);
+    tk[0] = sh(tk[0]); if (tk.length > 1) tk[1] = sh(tk[1]);
+    return tk.join(' ');
+  });
+  // 2) the node-count range (1..n / 0..n-1) moves too; if it leaves 0/1, write its nodes out explicitly
+  if (r) {
+    const nb = r.base + k;
+    if (nb === 0 || nb === 1) tb.base = String(nb);
+    else {
+      const inText = new Set();
+      lines.forEach((l) => { const s0 = l.trim(); if (s0 && !s0.startsWith('#') && !s0.startsWith('//')) s0.split(/\s+/).slice(0, 2).forEach((x) => inText.add(x)); });
+      for (let i = r.base; i < r.base + r.n; i++) { const v = String(i + k); if (!inText.has(v)) isolated.add(v); }
+      tb.nCount = '';
+    }
+  }
+  if (isolated.size) lines = lines.concat([...isolated]);
+  tb.text = lines.join('\n');
+  // 3) everything keyed by node name or edge id keeps its node
+  const mapKeys = (m) => new Map([...m].map(([key, v]) => [sh(key), v]));
+  const edgeId = (id) => { const p = id.split('\u0001'); return p.length === 3 ? [sh(p[0]), sh(p[1]), p[2]].join('\u0001') : id; };
+  tb.pos = mapKeys(tb.pos);
+  tb.nodeColor = mapKeys(tb.nodeColor);
+  tb.nodeBold = new Set([...tb.nodeBold].map(sh));
+  tb.edgeColor = new Map([...tb.edgeColor].map(([id, v]) => [edgeId(id), v]));
+  tb.edgeBold = new Set([...tb.edgeBold].map(edgeId));
+  tb.sp.sources = tb.sp.sources.map(sh);
+  if (tb.sp.target) tb.sp.target = sh(tb.sp.target);
+  if (tb.ap.sel) tb.ap.sel = { a: sh(tb.ap.sel.a), b: sh(tb.ap.sel.b) };
+  pending = null;
+  return true;
+}
+function renderShift() {
+  const ok = active && allIntNodes(active);
+  $$('#geShift button').forEach((b) => { b.disabled = !ok; });
+  $('#geShiftK').disabled = !ok;
+  $('#geShiftNote').textContent = ok ? '' : t('ge.shiftOff');
+}
+$('#geShift').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-shift]'); if (!b || !active) return;
+  let k = b.dataset.shift === 'k' ? $('#geShiftK').value.trim() : b.dataset.shift;
+  if (!INT_RE.test(k)) { UI.toast(t('ge.shiftBad'), 'err'); return; }
+  k = Number(k);
+  if (!shiftNodes(active, k)) return;
+  $('#geText').value = active.text; $('#geN').value = active.nCount; $('#geBase').value = active.base;
+  rebuild(active); renderSide(); wake();
+  UI.toast(t('ge.shiftDone', { k: k > 0 ? '+' + k : k }));
+});
 
 /* ============================================================ export */
 function edgeListText(tb, withHeader) {
