@@ -19,6 +19,13 @@ function tokenize(src) {
   while (i < s.length) {
     const c = s[i];
     if (/\s/.test(c)) { i++; continue; }
+    const radix = s.slice(i).match(/^0([bBxX])([0-9a-fA-F']+)/);
+    if (radix) {
+      const digits = radix[2].replace(/'/g, ''), b = radix[1].toLowerCase() === 'b';
+      if (b ? /[^01]/.test(digits) : false) throw new CalcError('err.badNumber', { at: i + 1 });
+      toks.push({ t: 'num', v: BigInt((b ? '0b' : '0x') + digits), pos: i });
+      i += radix[0].length; continue;
+    }
     if (/[0-9.]/.test(c)) {
       const m = s.slice(i).match(/^(?:\d[\d']*(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?/);
       if (!m) throw new CalcError('err.badNumber', { at: i + 1 });
@@ -27,11 +34,18 @@ function tokenize(src) {
     }
     if (/[A-Za-z_]/.test(c)) {
       const m = s.slice(i).match(/^[A-Za-z_][A-Za-z0-9_]*/);
+      // "a xor b" / "a xor (b + c)" is an operator (it follows a value); "xor(a, b, c)" at the start of an operand is a function
+      if (m[0] === 'xor') {
+        const prev = toks[toks.length - 1];
+        const afterValue = prev && (prev.t === 'num' || prev.t === 'id' || (prev.t === 'op' && (prev.v === ')' || prev.v === ']' || prev.v === '!')));
+        if (afterValue || !/^\s*\(/.test(s.slice(i + 3))) { toks.push({ t: 'op', v: 'xor', pos: i }); i += 3; continue; }
+      }
       toks.push({ t: 'id', v: m[0], pos: i }); i += m[0].length; continue;
     }
     const two = s.slice(i, i + 2);
     if (two === '**' || two === '//') { toks.push({ t: 'op', v: two === '**' ? '^' : '//', pos: i }); i += 2; continue; }
-    if ('+-*/%^(),!=[]'.includes(c)) { toks.push({ t: 'op', v: c, pos: i }); i++; continue; }
+    if (two === '<<' || two === '>>') { toks.push({ t: 'op', v: two, pos: i }); i += 2; continue; }
+    if ('+-*/%^(),!=[]&|~'.includes(c)) { toks.push({ t: 'op', v: c, pos: i }); i++; continue; }
     if (c === '×' || c === '·') { toks.push({ t: 'op', v: '*', pos: i }); i++; continue; }
     throw new CalcError('err.badChar', { ch: c, at: i + 1 });
   }
@@ -60,7 +74,7 @@ function parse(src) {
     const t = next();
     if (t.t !== 'op' || t.v !== v) throw new CalcError('err.expected', { what: v, at: t.pos + 1 });
   };
-  const BP = { '+': 10, '-': 10, '*': 20, '/': 20, '//': 20, '%': 20, '^': 40 };
+  const BP = { '|': 4, 'xor': 5, '&': 6, '<<': 8, '>>': 8, '+': 10, '-': 10, '*': 20, '/': 20, '//': 20, '%': 20, '^': 40 };
 
   function nud(t) {
     if (t.t === 'num') return { t: 'num', v: t.v };
@@ -89,6 +103,7 @@ function parse(src) {
     if (t.t === 'op' && t.v === '(') { const e = expr(0); expectOp(')'); return e; }
     if (t.t === 'op' && t.v === '-') return { t: 'neg', a: expr(30) };
     if (t.t === 'op' && t.v === '+') return expr(30);
+    if (t.t === 'op' && t.v === '~') return { t: 'bin', op: 'xor', a: expr(30), b: { t: 'num', v: -1n } };
     if (t.t === 'end') throw new CalcError('err.unexpectedEnd', {});
     throw new CalcError('err.unexpected', { tok: t.v, at: t.pos + 1 });
   }
@@ -683,11 +698,46 @@ const clean = (x) => (Math.abs(x) < 1e-12 ? 0 : x);
 const CONSTS = { pi: Math.PI, PI: Math.PI, e: Math.E, E: Math.E, inf: Infinity, INF: Infinity };
 
 function argNum(args, i) { return toNum(unwrap(args[i])); }
+/* ---------------- Bitwise (exact, on BigInt; negatives use two's complement like C++) ---------------- */
+const SHIFT_MAX = 1000000;
+const bi = (v, op) => toBigInt(unwrap(v), op);
+const BIT = {
+  '&': (a, b) => bi(a, '&') & bi(b, '&'),
+  '|': (a, b) => bi(a, '|') | bi(b, '|'),
+  'xor': (a, b) => bi(a, 'xor') ^ bi(b, 'xor'),
+  '<<': (a, b) => { const k = bi(b, '<<'); if (k > SHIFT_MAX || k < -SHIFT_MAX) throw new CalcError('err.tooBig', {}); return bi(a, '<<') << k; },
+  '>>': (a, b) => { const k = bi(b, '>>'); if (k > SHIFT_MAX || k < -SHIFT_MAX) throw new CalcError('err.tooBig', {}); return bi(a, '>>') >> k; },
+};
+const nonNeg = (v, fn) => { const x = bi(v, fn); if (x < 0n) throw new CalcError('err.needNonNeg', { fn }); return x; };
+function popcountBig(x) { let c = 0; for (const ch of x.toString(2)) if (ch === '1') c++; return c; }
+function bitGroups(str, k) { const out = []; for (let i = str.length; i > 0; i -= k) out.unshift(str.slice(Math.max(0, i - k), i)); return out.join(' '); }
+
 function needArgs(name, args, min, max = min) {
   if (args.length < min || args.length > max) throw new CalcError('err.arity', { fn: name, n: min === max ? min : `${min}-${max}` });
 }
 
 const FUNCS = {
+  xor: (a) => { if (a.length < 2) needArgs('xor', a, 2); return a.map((v) => bi(v, 'xor')).reduce((x, y) => x ^ y); },
+  popcount: (a) => { needArgs('popcount', a, 1); return BigInt(popcountBig(nonNeg(a[0], 'popcount'))); },
+  ctz: (a) => { needArgs('ctz', a, 1); const x = nonNeg(a[0], 'ctz'); if (x === 0n) throw new CalcError('err.needPositive', { fn: 'ctz' }); const s2 = x.toString(2); return BigInt(s2.length - 1 - s2.lastIndexOf('1')); },
+  clz: (a) => { needArgs('clz', a, 1, 2); const x = nonNeg(a[0], 'clz'), w = a.length > 1 ? Number(bi(a[1], 'clz')) : 64; const L = x === 0n ? 0 : x.toString(2).length; if (L > w) throw new CalcError('err.tooBig', {}); return BigInt(w - L); },
+  bitlen: (a) => { needArgs('bitlen', a, 1); const x = nonNeg(a[0], 'bitlen'); return BigInt(x === 0n ? 0 : x.toString(2).length); },
+  lowbit: (a) => { needArgs('lowbit', a, 1); const x = bi(a[0], 'lowbit'); return x & -x; },
+  bit: (a) => { needArgs('bit', a, 2); const k = nonNeg(a[1], 'bit'); if (k > BigInt(SHIFT_MAX)) throw new CalcError('err.tooBig', {}); return (bi(a[0], 'bit') >> k) & 1n; },
+  bin: (a) => {
+    needArgs('bin', a, 1, 2);
+    const x = bi(a[0], 'bin');
+    let s2;
+    if (a.length > 1) { // fixed width, two's complement for negatives: bin(-1, 8) = 11111111
+      const w = Number(nonNeg(a[1], 'bin')); if (w < 1 || w > 4096) throw new CalcError('err.tooBig', {});
+      s2 = (x & ((1n << BigInt(w)) - 1n)).toString(2).padStart(w, '0');
+    } else {
+      if (x < 0n) throw new CalcError('err.needNonNeg', { fn: 'bin' });
+      s2 = x.toString(2);
+    }
+    return { display: bitGroups(s2, 4) + '₂', copy: s2 };
+  },
+  hex: (a) => { needArgs('hex', a, 1); const x = nonNeg(a[0], 'hex'); const h = x.toString(16).toUpperCase(); return { display: '0x' + bitGroups(h, 4), copy: '0x' + h }; },
   log: (a) => { needArgs('log', a, 1, 2); return a.length === 2 ? log2Any(unwrap(a[0])) / Math.log2(argNum(a, 1)) : log2Any(unwrap(a[0])); },
   log2: (a) => { needArgs('log2', a, 1); return log2Any(unwrap(a[0])); },
   lg: (a) => { needArgs('lg', a, 1); return log2Any(unwrap(a[0])); },
@@ -812,6 +862,7 @@ function evaluate(ast, env, hook) {
           case '//': r = A.idiv(a, b); break;
           case '%': r = A.mod(a, b); break;
           case '^': r = A.pow(a, b); break;
+          case '&': case '|': case 'xor': case '<<': case '>>': r = BIT[n.op](a, b); break;
         }
         break;
       }
@@ -852,6 +903,7 @@ function compileFloat(ast, varNames) {
           case '^': return 'Math.pow(' + a + ',' + b + ')';
           case '//': return 'Math.floor(' + a + '/' + b + ')';
           case '%': return '((' + a + ')-(' + b + ')*Math.floor((' + a + ')/(' + b + ')))';
+          case '&': case '|': case 'xor': case '<<': case '>>': return null; // exact BigInt path
           default: return '(' + a + n.op + b + ')';
         }
       }

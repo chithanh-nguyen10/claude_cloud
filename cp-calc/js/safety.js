@@ -82,7 +82,7 @@ function compactBig(v) {
   if (m) return (v < 0n ? '-' : '') + m[1] + 'e' + m[2].length;
   return v.toString();
 }
-const PREC = { '+': 10, '-': 10, '*': 20, '/': 20, '//': 20, '%': 20, '^': 40 };
+const PREC = { '|': 4, 'xor': 5, '&': 6, '<<': 8, '>>': 8, '+': 10, '-': 10, '*': 20, '/': 20, '//': 20, '%': 20, '^': 40 };
 function astStr(n) {
   switch (n.t) {
     case 'num': return { s: isBig(n.v) ? compactBig(n.v) : String(n.v), p: 100 };
@@ -136,6 +136,11 @@ function evalCpp(ast, env) {
             else if (Number(y) * Math.log2(Number(x < 0n ? -x : x)) > 4096) { r = (x < 0n && (y & 1n) ? -HUGE : HUGE); huge = true; }
             else r = x ** y;
             break;
+          case '&': r = x & y; break;
+          case '|': r = x | y; break;
+          case 'xor': r = x ^ y; break;
+          case '<<': if (y > 4100n) { r = x === 0n ? 0n : (x < 0n ? -HUGE : HUGE); huge = x !== 0n; } else r = y < 0n ? x >> -y : x << y; break;
+          case '>>': r = y < 0n ? x << (-y > 4100n ? 4100n : -y) : x >> y; break;
         }
         break;
       }

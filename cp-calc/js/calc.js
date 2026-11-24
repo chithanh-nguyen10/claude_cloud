@@ -147,6 +147,11 @@ I18N.add({
 const FNREF = [
   ['+ − * / % ^', 'Cộng, trừ, nhân, chia, chia lấy dư, lũy thừa. Viết 2n, 3(n+1) cũng được', 'Arithmetic. Implicit multiplication like 2n, 3(n+1) works'],
   ['a // b', 'Chia lấy phần nguyên (làm tròn xuống)', 'Floor division'],
+  ['a & b   a | b   a xor b   ~a', 'Phép bit AND, OR, XOR, NOT (số âm theo bù 2 như C++). ^ vẫn là lũy thừa nên XOR phải viết xor', 'Bitwise AND, OR, XOR, NOT (two\'s complement for negatives, as in C++). ^ is still power, so write xor'],
+  ['a << k   a >> k', 'Dịch bit. Thứ tự ưu tiên như C++: + − > << >> > & > xor > |', 'Bit shifts. Precedence as in C++: + − > << >> > & > xor > |'],
+  ['0b1011  0xFF', 'Viết số dạng nhị phân, thập lục phân', 'Binary and hexadecimal literals'],
+  ['popcount ctz clz(x, w) bitlen lowbit bit(x, k)', 'Số bit 1, số 0 cuối, số 0 đầu (mặc định 64 bit), số bit, bit thấp nhất, bit thứ k', 'Set bits, trailing zeros, leading zeros (64-bit by default), bit length, lowest set bit, k-th bit'],
+  ['bin(x)  bin(x, w)  hex(x)', 'Hiện dạng nhị phân (w bit, bù 2) và thập lục phân', 'Show in binary (w bits, two\'s complement) and hex'],
   ['2e5 · 1e9+7 · 10^18 · 1\'000\'000', 'Cách viết số kiểu CP, đều là số nguyên chính xác', 'CP-style numbers, all exact integers'],
   ['n!  fact(n)', 'Giai thừa (chính xác đến 20000!, sau đó xấp xỉ)', 'Factorial (exact up to 20000!, then approximate)'],
   ['log(x)  log2(x)  lg(x)', 'Log cơ số 2 (quy ước CP)', 'Base-2 logarithm (CP convention)'],

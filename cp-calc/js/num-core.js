@@ -332,6 +332,7 @@ function evaluate(ast, env, F, builtins) {
           case '/': return O.div(a, b);
           case '%': return O.mod(a, b);
           case '//': throw NE('num.useDivmod', {});
+          default: throw NE('num.noBit', {});
         }
       }
     }
